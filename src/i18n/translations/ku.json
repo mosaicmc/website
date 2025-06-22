@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Mal",
+    "about": "Derbarê Me",
+    "services": "Karûbar",
+    "stories": "Çîrok",
+    "resources": "Çavkanî",
+    "locations": "Cih",
+    "contact": "Têkilî",
+    "getInvolved": "Beşdar Bibe",
+    "donate": "Bexş Bike"
+  },
+  "services": {
+    "settlement": "Piştgiriya Bicîbûnê",
+    "agedCare": "Karûbarên Pîran",
+    "familySupport": "Piştgiriya Malbatê",
+    "communityEngagement": "Beşdariya Civakê"
+  },
+  "hero": {
+    "badge": "Ji 40+ salan ve karûbar ji civakên NSW re dikin",
+    "title": "Piştgiriya Civakên Cûrbecûr li Tevahiya NSW",
+    "titleHighlight": "Cûrbecûr",
+    "description": "Xurtkirina civakên pirçandî bi piştgiriya bicîbûnê, lêçûna pîran, karûbarên malbatê û bernameyên beşdariya civakê yên li gorî hewcedariyên we hatine amade kirin.",
+    "exploreServices": "Karûbarên Me Bibînin",
+    "watchStories": "Çîrokan Bibînin",
+    "stats": {
+      "years": "Salên Karûbarê",
+      "families": "Malbat Hatine Piştgirîkirin",
+      "languages": "Ziman"
+    }
+  },
+  "serviceCards": {
+    "sectionBadge": "Karûbarên Me",
+    "sectionTitle": "Karûbarên Piştgiriya Berfireh",
+    "sectionDescription": "Karûbarên li gorî çand guncav ku ji bo pêşkeftina hewcedariyên taybetî yên civakên pirçandî li NSW hatine çêkirin",
+    "settlement": {
+      "title": "Piştgiriya Bicîbûnê",
+      "description": "Piştgiriya berfireh ji bo kesên nû hatî tevî alîkariya xaniyê, rêberiya kar û nasandina civakê.",
+      "features": [
+        "Alîkariya xaniyê",
+        "Piştgiriya kar",
+        "Nasandina civakê",
+        "Karûbarên ziman"
+      ]
+    },
+    "agedCare": {
+      "title": "Karûbarên Pîran",
+      "description": "Karûbarên lêçûna pîran yên li gorî çand guncav ku rêzê li tradîsyonan digirin û bi zimanên nas rahetî peyda dikin.",
+      "features": [
+        "Pakêtên lêçûna malê",
+        "Çalakiyên çandî",
+        "Karmendên pirziman",
+        "Piştgiriya malbatê"
+      ]
+    },
+    "familySupport": {
+      "title": "Piştgiriya Malbatê",
+      "description": "Bernameyên ku ji bo piştgiriya malbatan di nava dijwariyên de û avakirina girêdanên civakê yên xurttir hatine çêkirin.",
+      "features": [
+        "Bernameyên dêûbavî",
+        "Karûbarên ciwanan",
+        "Piştgiriya qeyranê",
+        "Karûbarên şêwirmendiyê"
+      ]
+    },
+    "communityEngagement": {
+      "title": "Beşdariya Civakê",
+      "description": "Çêkirina derfetan ji bo beşdariya civakê, pîrozbahiya çandî û girêdana civakî.",
+      "features": [
+        "Bûyerên çandî",
+        "Bernameyên dilxwazî",
+        "Komên civakê",
+        "Piştgiriya parastin"
+      ]
+    },
+    "learnMore": "Zêdetir Bizanin",
+    "viewAll": "Hemû Karûbaran Bibînin"
+  },
+  "common": {
+    "welcome": "Bi xêr hatin",
+    "loading": "Tê barkirin...",
+    "error": "Çewtî",
+    "retry": "Dîsa biceribîne",
+    "close": "Bigire",
+    "open": "Veke",
+    "menu": "Menû",
+    "language": "Ziman",
+    "changeLanguage": "Ziman Biguherîne"
+  },
+  "footer": {
+    "description": "Piştgiriya civakên pirçandî li tevahiya NSW bi karûbar û bernameyên li gorî çand guncav.",
+    "quickLinks": "Girêdanên Bilez",
+    "contactInfo": "Agahdariya Têkiliyê",
+    "followUs": "Me Bişopînin",
+    "copyright": "© 2024 Mosaic Girêdanên Pirçandî. Hemû maf parastî ne."
+  }
+}
