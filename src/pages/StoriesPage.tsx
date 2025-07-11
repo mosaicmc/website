@@ -236,7 +236,7 @@ const StoriesPage = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-6 py-4 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg bg-white/80 dark:bg-slate-700/80 text-gray-900 dark:text-white backdrop-blur-sm"
               />
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
+              <button className="bg-gradient-to-r from-ocean to-sky hover:from-ocean/90 hover:to-sky/90 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Subscribe
               </button>
             </div>

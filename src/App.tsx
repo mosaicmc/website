@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import Header from './components/Header';
+import MosaicNavigation from './components/MosaicNavigation';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="min-h-screen bg-white transition-colors duration-300 dark:bg-dark-bg">
-          <Header />
+          <MosaicNavigation />
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />

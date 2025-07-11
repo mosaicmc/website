@@ -221,9 +221,14 @@ const ServiceCards = () => {
                     
                     <Link
                       to={service.link}
-                      className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 dark:from-blue-400 dark:to-blue-500"
+                      className={`inline-flex items-center px-6 py-3 rounded-full text-white font-medium min-w-40 text-[15px] transition-all duration-300 hover:shadow-lg ${
+                        service.color === 'sky' ? 'bg-sky hover:bg-sky/90 hover:shadow-sky/25' :
+                        service.color === 'earth' ? 'bg-earth hover:bg-earth/90 hover:shadow-earth/25' :
+                        service.color === 'leaf' ? 'bg-leaf hover:bg-leaf/90 hover:shadow-leaf/25' :
+                        'bg-sun hover:bg-sun/90 hover:shadow-sun/25'
+                      }`}
                     >
-                      Learn more
+                      Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -252,7 +257,7 @@ const ServiceCards = () => {
         <div className="mt-16 text-center">
           <Link
             to="/services"
-            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-base font-semibold text-white shadow-xl hover:from-blue-700 hover:to-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition-all duration-300 hover:shadow-blue-500/25 backdrop-blur-sm dark:from-blue-500 dark:to-blue-600"
+            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-ocean to-sky px-8 py-4 text-base font-semibold text-white shadow-xl hover:from-ocean/90 hover:to-sky/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean transition-all duration-300 hover:shadow-ocean/25 backdrop-blur-sm dark:from-sky dark:to-ocean"
           >
             View All Services
             <ArrowRight className="ml-2 h-5 w-5" />

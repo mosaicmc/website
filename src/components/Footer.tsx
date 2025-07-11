@@ -160,7 +160,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-6 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-dark-bg"
+                  className="absolute right-1 top-1 bottom-1 px-6 bg-ocean hover:bg-ocean/90 text-white text-sm font-semibold rounded-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 dark:focus:ring-offset-dark-bg"
                 >
                   Subscribe
                 </button>

@@ -5,10 +5,15 @@ import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from './ui/theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../contexts/ThemeContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme } = useTheme();
   const { t } = useTranslation();
@@ -59,7 +64,6 @@ const Header = () => {
   // Enhanced scroll to top function for links
   const handleLinkClick = () => {
     setIsMenuOpen(false);
-    setIsServicesOpen(false);
     // Small delay to ensure navigation happens first
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -75,7 +79,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 lg:h-24">
           
-          {/* Logo Section - MUCH LARGER */}
+          {/* Logo Section */}
           <Link 
             to="/" 
             className="flex-shrink-0 group relative"
@@ -97,50 +101,39 @@ const Header = () => {
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 {item.hasDropdown ? (
-                  <>
-                    <Link
-                      to={item.href}
-                      className={`relative px-5 py-3 transition-all duration-300 font-semibold text-lg flex items-center rounded-xl hover:backdrop-blur-md hover:scale-105 ${
-                        isActivePath(item.href, item.hasDropdown)
-                          ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
-                          : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
-                      }`}
-                      onMouseEnter={() => setIsServicesOpen(true)}
-                      onMouseLeave={() => setIsServicesOpen(false)}
-                      onClick={handleLinkClick}
-                    >
-                      <span className="flex items-center">
-                        {item.name}
-                        <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-ocean dark:group-hover:text-sky" />
-                      </span>
-                    </Link>
-                    
-                    {/* Services Dropdown */}
-                    <div 
-                      className={`absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 rounded-xl shadow-2xl border border-white/30 dark:border-slate-700/50 z-[110] transition-all duration-500 ease-out ${
-                        isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-                      }`}
-                      onMouseEnter={() => setIsServicesOpen(true)}
-                      onMouseLeave={() => setIsServicesOpen(false)}
-                    >
-                      <div className="py-2">
-                        {item.dropdownItems?.map((dropdownItem) => (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        className={`relative px-5 py-3 transition-all duration-300 font-semibold text-lg flex items-center rounded-xl hover:backdrop-blur-md hover:scale-105 ${
+                          isActivePath(item.href, item.hasDropdown)
+                            ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
+                            : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
+                        }`}
+                      >
+                        <span className="flex items-center">
+                          {item.name}
+                          <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-ocean dark:group-hover:text-sky" />
+                        </span>
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-64 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
+                      {item.dropdownItems?.map((dropdownItem) => (
+                        <DropdownMenuItem key={dropdownItem.name} asChild>
                           <Link
-                            key={dropdownItem.name}
                             to={dropdownItem.href}
                             className={`block px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 ${
                               location.pathname === dropdownItem.href
                                 ? 'text-ocean dark:text-sky bg-sand/80 dark:bg-slate-800/80 shadow-md border border-ocean/20 dark:border-sky/20'
-                                : 'text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-slate-800/60 hover:shadow-sm hover:scale-102'
+                                : 'text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-slate-800/60 hover:shadow-sm'
                             }`}
                             onClick={handleLinkClick}
                           >
                             {dropdownItem.name}
                           </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 ) : (
                   <Link
                     to={item.href}
@@ -149,7 +142,7 @@ const Header = () => {
                         ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
                         : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
                     }`}
-                    onClick={() => handleLinkClick(item.href)}
+                    onClick={handleLinkClick}
                   >
                     {item.name}
                   </Link>
@@ -158,7 +151,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Side Actions - Updated with new ThemeToggle */}
+          {/* Right Side Actions */}
           <div className="hidden md:flex items-center space-x-3">
             <LanguageSwitcher />
             <ThemeToggle />
@@ -189,12 +182,12 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - FIXED LAYOUT */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-t border-white/30 dark:border-slate-700/50 shadow-2xl z-[110]">
             <div className="px-4 py-6 space-y-3">
               
-              {/* Navigation Items FIRST */}
+              {/* Navigation Items */}
               {navigation.map((item) => (
                 <div key={item.name}>
                   {item.hasDropdown ? (
@@ -260,7 +253,7 @@ const Header = () => {
                   className="block bg-gradient-to-r from-sun to-sun/90 text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:from-sun/90 hover:to-sun transition-all duration-300"
                   onClick={handleLinkClick}
                 >
-                  {t('nav.donate')}
+                  Donate
                 </Link>
               </div>
             </div>
