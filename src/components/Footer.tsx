@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import GoogleTranslateWidget from '@/components/GoogleTranslateWidget';
+import FooterLanguageBar from '@/components/FooterLanguageBar';
 import { useTheme } from '../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
@@ -127,10 +127,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <div className="mt-8">
-              {/* Machine Translate (Google) only in Footer */}
-              <GoogleTranslateWidget />
-            </div>
+            {/* Language tools moved to a global footer strip */}
           </div>
 
           {/* About Mosaic */}
@@ -197,6 +194,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Flags Language Bar */}
+      <FooterLanguageBar />
 
       {/* Bottom Section */}
       <div className="border-t border-border bg-muted transition-colors duration-300">
