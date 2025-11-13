@@ -19,6 +19,7 @@ const languages: Lang[] = [
   { code: 'tl', label: 'TL', flag: '🇵🇭', direction: 'ltr' },
   { code: 'hi', label: 'HI', flag: '🇮🇳', direction: 'ltr' },
   { code: 'it', label: 'IT', flag: '🇮🇹', direction: 'ltr' },
+  { code: 'ru', label: 'RU', flag: '🇷🇺', direction: 'ltr' },
   { code: 'ku', label: 'KU', flag: '🏳️', direction: 'ltr' },
   { code: 'fa', label: 'FA', flag: '🇮🇷', direction: 'rtl' },
   { code: 'pt', label: 'PT', flag: '🇵🇹', direction: 'ltr' },
@@ -71,22 +72,25 @@ export const FooterLanguageBar: React.FC<{ className?: string }> = ({ className 
   return (
     <div
       className={cn(
-        'w-full bg-ocean text-white dark:bg-sky',
-        'border-t border-ocean/40 dark:border-sky/40',
+        'w-full bg-muted text-foreground dark:text-white',
+        'border-t border-border',
         className
       )}
       aria-label="Language selection"
     >
-      <div className="mx-auto max-w-7xl px-2 sm:px-4">
-        <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto py-2 sm:py-3">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4">
+        {/* Responsive: center on mobile, evenly spaced on larger screens; wraps to multiple lines */}
+        <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-3 gap-y-2 py-3">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => changeLanguage(lang.code, lang.direction)}
               className={cn(
-                'flex flex-col items-center justify-center shrink-0',
-                'px-2 py-1 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30',
-                i18n.language === lang.code && 'bg-white/15'
+                'flex flex-col items-center justify-center',
+                'px-2 py-1 rounded-md transition-colors',
+                'hover:bg-foreground/10 dark:hover:bg-white/10',
+                'focus:outline-none focus:ring-2 focus:ring-foreground/30 dark:focus:ring-white/30',
+                i18n.language === lang.code && 'bg-foreground/10 dark:bg-white/10'
               )}
               aria-label={`Change language to ${lang.label}`}
               dir={lang.direction}
