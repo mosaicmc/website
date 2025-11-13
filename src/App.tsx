@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Breadcrumbs from './components/ui/Breadcrumbs';
 import QuickLinks from './components/ui/QuickLinks';
 import ScrollToTop from './components/ui/ScrollToTop';
+import GoogleTranslateInit from './components/GoogleTranslateInit';
 
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -46,6 +47,8 @@ function App() {
           >
             Skip to content
           </a>
+          {/* Hidden Google Translate initializer (keeps machine translation working) */}
+          <GoogleTranslateInit />
           <ScrollToTop />
           <MosaicNavigation />
           <main id="main">

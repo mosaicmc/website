@@ -73,7 +73,6 @@ export const FooterLanguageBar: React.FC<{ className?: string }> = ({ className 
     <div
       className={cn(
         'w-full bg-muted text-foreground dark:text-white',
-        'border-t border-border',
         className
       )}
       aria-label="Language selection"
