@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartPulse, UsersRound, Home, ClipboardList, HandHeart, GraduationCap, UserRound, Handshake } from 'lucide-react';
+import { HeartPulse, UsersRound, Home, ClipboardList, HandHeart, UserRound, Handshake } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
