@@ -195,7 +195,7 @@ const CommunityEngagementPage = () => {
               <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                 <div className="aspect-video">
                   <img
-                    src="/images/community-engagement/eligibility.png"
+                    src="/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp"
                     alt="Community engagement participation"
                     className="w-full h-full object-cover"
                     loading="lazy"

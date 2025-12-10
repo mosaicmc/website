@@ -226,9 +226,9 @@ const FamilySupportPage = () => {
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                   <div className="aspect-video">
                     <picture>
-                      <source srcSet="/images/family-support/eligibility.webp" type="image/webp" />
+                      <source srcSet="/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp" type="image/webp" />
                       <img
-                        src="/images/FamilyServices_Page_1080px/FamilyServices_Page_1080px.webp"
+                        src="/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp"
                         alt="Family support eligibility"
                         className="w-full h-full object-cover"
                         loading="lazy"
