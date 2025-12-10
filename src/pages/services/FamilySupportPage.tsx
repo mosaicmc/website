@@ -225,13 +225,16 @@ const FamilySupportPage = () => {
                 </div>
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                   <div className="aspect-video">
-                    <img
-                      src="/images/family-support/eligibility.png"
-                      alt="Family support eligibility"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <picture>
+                      <source srcSet="/images/family-support/eligibility.webp" type="image/webp" />
+                      <img
+                        src="/images/FamilyServices_Page_1080px/FamilyServices_Page_1080px.webp"
+                        alt="Family support eligibility"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>
