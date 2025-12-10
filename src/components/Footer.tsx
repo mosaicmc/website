@@ -203,8 +203,8 @@ const Footer = () => {
       <FooterLanguageBar />
 
       <div className="border-t border-border bg-background/90 transition-colors">
-        <div className="mx-auto max-w-7xl px-6 py-6 lg:px-8 flex items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">{t('footer.copyright')}</p>
+        <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:px-8 flex items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">{t('footer.copyright')} · {new Date().getFullYear()}</p>
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.followUs')}</span>
             <a href="https://au.linkedin.com/company/mosaic-multicultural-connections" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn" className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
