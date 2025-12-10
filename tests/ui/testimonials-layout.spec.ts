@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
-async function assertLayout(page: any) {
+async function assertLayout(page: Page) {
   await page.goto('http://localhost:5173/');
   const badge = page.getByText('Testimonials', { exact: true });
   await expect(badge).toBeVisible({ timeout: 20000 });

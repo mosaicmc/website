@@ -93,9 +93,9 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
   const showImage = Boolean(image && !imageError);
 
   return (
-    <div className="group w-80 flex-shrink-0 mx-4 pt-1 pr-1">
+    <div className="group w-72 flex-shrink-0 mx-4 pt-1 pr-1">
       {/* Glass morphism card with enhanced effects - Added padding to prevent clipping */}
-      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-3 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
         
         {/* Gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -103,17 +103,17 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
         {/* Content with enhanced readability */}
         <div className="relative z-10 h-full flex flex-col">
           {/* Quote */}
-          <blockquote className="text-gray-700 dark:text-white/90 leading-normal mb-4 text-base flex-1">
+          <blockquote className="text-gray-700 dark:text-white/90 leading-normal mb-3 text-base flex-1">
             "{testimonial}"
           </blockquote>
           
           {/* Author info */}
-          <div className="flex items-center space-x-4 mt-auto">
+          <div className="flex items-center space-x-3 mt-auto">
             {showImage ? (
               <img
                 src={image}
                 alt={name || role || 'Community Member'}
-                className="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
+                className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
                 loading="lazy"
                 onError={() => setImageError(true)}
               />
@@ -152,7 +152,7 @@ export function Testimonial04({
 }: TestimonialSectionProps) {
   return (
     <section className={cn(
-      "relative py-14 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300",
+      "relative py-12 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300",
       className
     )}>
       {/* Enhanced glass morphism background with multiple layers */}
@@ -163,7 +163,7 @@ export function Testimonial04({
       
       <div className="relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-8 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-6 px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-1.5 text-sm shadow-lg mb-4">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-gray-700 dark:text-white/90 font-medium">{badgeLabel}</span>
@@ -172,13 +172,13 @@ export function Testimonial04({
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2">
             {title}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
             {subtitle}
           </p>
         </div>
 
         {/* Horizontal Scrolling Testimonials Container */}
-        <div className="relative mb-10">
+        <div className="relative mb-8">
           {/* Left fade overlay */}
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
           
@@ -186,7 +186,7 @@ export function Testimonial04({
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
 
           {/* First row - scrolling left */}
-          <div className="mb-6 overflow-hidden py-1">
+          <div className="mb-5 overflow-hidden py-1">
             <div className="flex animate-scroll-left hover:pause-animation">
               {/* Duplicate the testimonials for seamless loop */}
               {[...testimonials, ...testimonials].map((testimonial, index) => (
@@ -207,8 +207,8 @@ export function Testimonial04({
         </div>
 
         {/* Enhanced bottom section with glass effect */}
-        <div className="text-center px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center space-x-4 px-6 py-3 backdrop-blur-md bg-white/60 dark:bg-white/10 rounded-full border border-white/40 dark:border-white/20 shadow-xl">
+          <div className="text-center px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex items-center space-x-4 px-5 py-2.5 backdrop-blur-md bg-white/60 dark:bg-white/10 rounded-full border border-white/40 dark:border-white/20 shadow-xl">
             <div className="w-2 h-2 bg-sky rounded-full animate-pulse"></div>
             <span className="text-base font-medium text-gray-700 dark:text-white">{bottomText}</span>
             <div className="w-2 h-2 bg-ocean rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
