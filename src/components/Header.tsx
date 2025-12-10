@@ -155,16 +155,48 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-3">
             <LanguageSwitcher />
             <ThemeToggle />
+            {/* Get Involved Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 rounded-xl px-4 py-2.5 font-semibold text-sm transition-all">
+                {t('nav.getInvolved')}
+                <span className="text-xs">▾</span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <a
+                    href="https://tally.so/r/w4veNk"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Refer
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    href="https://employmenthero.com/mosaic-mc"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Career
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    href="https://tally.so/r/3qoXjg"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Volunteer
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/donate" onClick={handleLinkClick}>Donate</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {/* Donate CTA remains */}
             <Link
-              to="/get-involved"
-              className="relative px-4 py-2.5 bg-gradient-to-r from-leaf to-leaf/90 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:from-leaf/90 hover:to-leaf hover:shadow-xl hover:shadow-leaf/30 hover:scale-105 active:scale-95 backdrop-blur-sm border border-leaf/20 overflow-hidden group"
-              onClick={handleLinkClick}
-            >
-              <span className="relative z-10">{t('nav.getInvolved')}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </Link>
-            <Link
-              to="/get-involved"
+              to="/donate"
               className="relative px-4 py-2.5 bg-gradient-to-r from-sun to-earth text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:from-sun/90 hover:to-earth/90 hover:shadow-xl hover:shadow-sun/30 hover:scale-105 active:scale-95 backdrop-blur-sm border border-sun/20 overflow-hidden group"
               onClick={handleLinkClick}
             >
@@ -248,15 +280,42 @@ const Header = () => {
                 <div className="px-4 py-2">
                   <LanguageSwitcher />
                 </div>
+                {/* Mobile Get Involved quick actions */}
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://tally.so/r/w4veNk"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                  >
+                    Refer
+                  </a>
+                  <a
+                    href="https://employmenthero.com/mosaic-mc"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                  >
+                    Career
+                  </a>
+                  <a
+                    href="https://tally.so/r/3qoXjg"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                  >
+                    Volunteer
+                  </a>
+                  <Link
+                    to="/donate"
+                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    onClick={handleLinkClick}
+                  >
+                    Donate
+                  </Link>
+                </div>
                 <Link
-                  to="/get-involved"
-                  className="block bg-gradient-to-r from-leaf to-leaf/90 text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:from-leaf/90 hover:to-leaf transition-all duration-300"
-                  onClick={handleLinkClick}
-                >
-                  {t('nav.getInvolved')}
-                </Link>
-                <Link
-                  to="/get-involved"
+                  to="/donate"
                   className="block bg-gradient-to-r from-sun to-sun/90 text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:from-sun/90 hover:to-sun transition-all duration-300"
                   onClick={handleLinkClick}
                 >
