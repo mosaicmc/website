@@ -198,8 +198,8 @@ export default function MosaicNavigation() {
       if (p > 1) p = 1;
       const blur = 2 + 14 * p;
       const alpha = 0.15 + 0.35 * p;
-      const bgLight = `rgba(255,255,255,${alpha})`;
-      const bgDark = `rgba(2,6,23,${alpha})`;
+      const bgLight = `rgba(248,250,252,${alpha})`; // slate-50 to match Hero base
+      const bgDark = `rgba(15,23,42,${alpha})`; // slate-900 to match Hero base
       el.style.opacity = "1";
       el.style.backgroundColor = theme === "dark" ? bgDark : bgLight;
       if (supportsBackdrop) {
@@ -208,10 +208,12 @@ export default function MosaicNavigation() {
       }
       const shadowAlpha = 0.05 + 0.15 * p;
       el.style.boxShadow = `0 8px 24px rgba(0,0,0,${shadowAlpha})`;
-      const borderAlpha = 0.08 + 0.12 * p;
-      el.style.border = theme === "dark"
+      const borderAlpha = 0.06 + 0.10 * p;
+      // apply only bottom border to avoid side inconsistencies
+      el.style.border = "none";
+      el.style.borderBottom = theme === "dark"
         ? `1px solid rgba(148,163,184,${borderAlpha})`
-        : `1px solid rgba(255,255,255,${borderAlpha})`;
+        : `1px solid rgba(203,213,225,${borderAlpha})`; // slate-300
     };
     let ticking = false;
     const onScroll = () => {
@@ -402,11 +404,8 @@ export default function MosaicNavigation() {
         </div>
       )}
 
-      <nav className="sticky top-0 z-50">
-        <div
-          ref={glassRef}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
+      <nav ref={glassRef} className="sticky top-0 z-50 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
             <Logo />
