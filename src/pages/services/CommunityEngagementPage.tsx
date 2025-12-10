@@ -168,6 +168,8 @@ const CommunityEngagementPage = () => {
         </div>
       </section>
 
+      
+
       <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

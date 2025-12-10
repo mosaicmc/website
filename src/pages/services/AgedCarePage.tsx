@@ -166,6 +166,8 @@ const AgedCarePage = () => {
         </div>
       </section>
 
+      
+
       {/* Eligibility section placed directly after hero */}
       <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>

@@ -65,9 +65,33 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
       ? "bg-leaf hover:bg-leaf/90"
       : "bg-sky hover:bg-sky/90";
   };
+  const imageForCategory = (category: string) => {
+    if (category === "Settlement Support") {
+      return {
+        src: "/images/All_Services_webp/AllServices_SettlementServices_720px.webp",
+        alt: "Settlement Services overview",
+      };
+    }
+    if (category === "Home Care Services") {
+      return {
+        src: "/images/All_Services_webp/AllServices_HomeCare_720px.webp",
+        alt: "Home Care services overview",
+      };
+    }
+    if (category === "Family Support") {
+      return {
+        src: "/images/All_Services_webp/AllServices_FamilyServices_720px.webp",
+        alt: "Family Services overview",
+      };
+    }
+    return {
+      src: "/images/All_Services_webp/AllServices_CommunityEngagement_720px.webp",
+      alt: "Community Engagement overview",
+    };
+  };
   return (
-    <Section overlay containerClassName="max-w-screen-lg w-full py-10 px-6">
-      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto text-foreground">
+    <Section overlay containerClassName="max-w-screen-lg w-full py-10 px-6 mx-auto">
+      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center mx-auto text-foreground">
           {title}
       </h2>
       <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
@@ -76,16 +100,23 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
             key={feature.category}
             className="flex flex-col md:flex-row items-center gap-x-20 gap-y-6 md:odd:flex-row-reverse"
           >
-              <div className="w-full aspect-[6/4] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-xl border border-gray-200 dark:border-gray-700 basis-1/2 flex items-center justify-center">
-                <div className="text-6xl opacity-20 dark:opacity-30">
-                  {feature.category === "Settlement Support" && "🏠"}
-                  {feature.category === "Home Care Services" && "❤️"}
-                  {feature.category === "Family Support" && "👨‍👩‍👧‍👦"}
-                  {feature.category === "Community Engagement" && "🤝"}
-                </div>
+              <div className="w-full aspect-[6/4] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-xl border border-gray-200 dark:border-gray-700 basis-1/2 overflow-hidden">
+                {(() => {
+                  const img = imageForCategory(feature.category);
+                  return (
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(max-width: 768px) 100vw, 720px"
+                    />
+                  );
+                })()}
               </div>
-              <div className="basis-1/2 shrink-0">
-                <span className={`uppercase font-semibold text-sm ${textColorClass(feature.category)}`}>
+              <div className="basis-1/2 shrink-0 text-center">
+                <span className={`uppercase font-semibold text-sm ${textColorClass(feature.category)} inline-block`}>
                   {feature.category}
                 </span>
                 <h4 className="my-3 text-3xl font-semibold tracking-tight text-foreground">
@@ -97,7 +128,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                 <Button
                   variant="cta"
                   asChild
-                  className={`mt-6 rounded-full min-w-40 text-[15px] ${buttonColorClass(feature.category)} text-white`}
+                  className={`mt-6 rounded-full min-w-40 text-[15px] ${buttonColorClass(feature.category)} text-white mx-auto`}
                 >
                   <Link to={feature.tutorialLink}>
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />

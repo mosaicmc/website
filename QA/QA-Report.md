@@ -98,5 +98,7 @@ Snapshots saved under `tests/ui/home-about.spec.ts-snapshots/`:
 - Visual Confirmation:
   - Preview at `http://localhost:4176/` used to confirm removal across core routes.
 - Notes:
-  - Center alignment functionality remains unchanged.
+  - Center alignment functionality updated on All Services page: headings, descriptions, and CTAs centered for consistent presentation across breakpoints.
+  - Files changed: `src/components/features-06/features-06.tsx:93,118` — applied `text-center`, `mx-auto` to center content; removed desktop-only left alignment.
+  - Tests: `tests/ui/service-images.spec.ts` confirms images render within placeholders and load across breakpoints; manual visual verification performed at `/services`.
   - SEO JSON-LD breadcrumbs are retained in `src/components/SEO.tsx` to preserve search semantics; UI breadcrumbs removed only.
