@@ -259,7 +259,7 @@ const SettlementSupportPage = () => {
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                   <div className="aspect-video">
                     <img
-                      src="/images/settlement/eligibility.png"
+                      src="/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp"
                       alt="Settlement support eligibility"
                       className="w-full h-full object-cover"
                       loading="lazy"
