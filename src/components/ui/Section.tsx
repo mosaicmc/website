@@ -31,6 +31,7 @@ export function Section({
       className={cn(
         "relative overflow-hidden bg-background transition-colors duration-300",
         paddingMap[padding],
+        center && "section-center",
         className
       )}
     >
@@ -43,15 +44,7 @@ export function Section({
           )}
         />
       )}
-      <div
-        className={cn(
-          "container",
-          center && "mx-auto flex flex-col items-center",
-          containerClassName
-        )}
-      >
-        {children}
-      </div>
+      <div className={cn("container", containerClassName)}>{children}</div>
     </section>
   );
 }

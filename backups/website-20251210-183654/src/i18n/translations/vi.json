@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "services": "Dịch vụ",
+    "stories": "Câu chuyện",
+    "resources": "Tài nguyên",
+    "locations": "Địa điểm",
+    "contact": "Liên hệ",
+    "getInvolved": "Tham gia",
+    "donate": "Quyên góp"
+  },
+  "services": {
+    "settlement": "Hỗ trợ định cư",
+    "agedCare": "Dịch vụ chăm sóc người cao tuổi",
+    "familySupport": "Hỗ trợ gia đình",
+    "communityEngagement": "Tham gia cộng đồng"
+  },
+  "hero": {
+    "badge": "Phục vụ các cộng đồng NSW hơn 40 năm",
+    "title": "Hỗ trợ các cộng đồng đa dạng trên khắp NSW",
+    "titleHighlight": "đa dạng",
+    "description": "Trao quyền cho các cộng đồng đa văn hóa thông qua hỗ trợ định cư, chăm sóc người cao tuổi, dịch vụ gia đình và các chương trình tham gia cộng đồng được điều chỉnh theo nhu cầu của bạn.",
+    "exploreServices": "Khám phá dịch vụ của chúng tôi",
+    "watchStories": "Xem câu chuyện",
+    "stats": {
+      "years": "Năm phục vụ",
+      "families": "Gia đình được hỗ trợ",
+      "languages": "Ngôn ngữ"
+    }
+  },
+  "serviceCards": {
+    "sectionBadge": "Dịch vụ của chúng tôi",
+    "sectionTitle": "Dịch vụ hỗ trợ toàn diện",
+    "sectionDescription": "Các dịch vụ phù hợp văn hóa được thiết kế để đáp ứng nhu cầu độc đáo của các cộng đồng đa văn hóa tại NSW",
+    "settlement": {
+      "title": "Hỗ trợ định cư",
+      "description": "Hỗ trợ toàn diện cho người mới đến bao gồm hỗ trợ nhà ở, hướng dẫn việc làm và định hướng cộng đồng.",
+      "features": [
+        "Hỗ trợ nhà ở",
+        "Hỗ trợ việc làm",
+        "Định hướng cộng đồng",
+        "Dịch vụ ngôn ngữ"
+      ]
+    },
+    "agedCare": {
+      "title": "Dịch vụ chăm sóc người cao tuổi",
+      "description": "Dịch vụ chăm sóc người cao tuổi phù hợp văn hóa tôn trọng truyền thống và mang lại sự thoải mái bằng những ngôn ngữ quen thuộc.",
+      "features": [
+        "Gói chăm sóc tại nhà",
+        "Hoạt động văn hóa",
+        "Nhân viên đa ngôn ngữ",
+        "Hỗ trợ gia đình"
+      ]
+    },
+    "familySupport": {
+      "title": "Hỗ trợ gia đình",
+      "description": "Các chương trình được thiết kế để hỗ trợ các gia đình vượt qua thử thách và xây dựng mối liên kết cộng đồng mạnh mẽ hơn.",
+      "features": [
+        "Chương trình nuôi dạy con",
+        "Dịch vụ thanh thiếu niên",
+        "Hỗ trợ khủng hoảng",
+        "Dịch vụ tư vấn"
+      ]
+    },
+    "communityEngagement": {
+      "title": "Tham gia cộng đồng",
+      "description": "Tạo cơ hội cho sự tham gia của cộng đồng, lễ kỷ niệm văn hóa và kết nối xã hội.",
+      "features": [
+        "Sự kiện văn hóa",
+        "Chương trình tình nguyện",
+        "Nhóm cộng đồng",
+        "Hỗ trợ vận động"
+      ]
+    },
+    "learnMore": "Tìm hiểu thêm",
+    "viewAll": "Xem tất cả dịch vụ"
+  },
+  "common": {
+    "welcome": "Chào mừng",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "retry": "Thử lại",
+    "close": "Đóng",
+    "open": "Mở",
+    "menu": "Menu",
+    "language": "Ngôn ngữ",
+    "changeLanguage": "Thay đổi ngôn ngữ"
+  },
+  "footer": {
+    "description": "Hỗ trợ các cộng đồng đa văn hóa trên khắp NSW với các dịch vụ và chương trình phù hợp văn hóa.",
+    "quickLinks": "Liên kết nhanh",
+    "contactInfo": "Thông tin liên hệ",
+    "followUs": "Theo dõi chúng tôi",
+    "copyright": "© 2024 Mosaic Multicultural Connections. Tất cả quyền được bảo lưu."
+  }
+}

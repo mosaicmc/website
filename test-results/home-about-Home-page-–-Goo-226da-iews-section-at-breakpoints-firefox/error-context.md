@@ -1,15 +1,1372 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e2]:
+- generic [active] [ref=e1]:
   - generic [ref=e3]:
-    - heading "Unable to connect" [level=1] [ref=e5]
-    - paragraph [ref=e6]: Firefox can’t establish a connection to the server at localhost:4175.
-    - paragraph
-    - list [ref=e8]:
-      - listitem [ref=e9]: The site could be temporarily unavailable or too busy. Try again in a few moments.
-      - listitem [ref=e10]: If you are unable to load any pages, check your computer’s network connection.
-      - listitem [ref=e11]: If your computer or network is protected by a firewall or proxy, make sure that Nightly is permitted to access the web.
-      - listitem [ref=e12]: If you are trying to load a local network page, please check that Nightly has been granted Local Network permissions in the macOS Privacy & Security settings.
-  - button "Try Again" [active] [ref=e14]
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=e6]:
+      - combobox [ref=e8]
+      - text: Powered by
+      - link [ref=e10] [cursor=pointer]:
+        - /url: https://translate.google.com
+        - text: Translate
+    - navigation [ref=e11]:
+      - generic [ref=e13]:
+        - link "Mosaic Multicultural Connections" [ref=e14] [cursor=pointer]:
+          - /url: /
+          - img "Mosaic Multicultural Connections" [ref=e15]
+        - navigation "Main" [ref=e17]:
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - link "Home" [ref=e21] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e22]:
+              - button "Services" [ref=e23] [cursor=pointer]:
+                - text: Services
+                - img [ref=e24]
+            - listitem [ref=e26]:
+              - link "About" [ref=e27] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e28]:
+              - button "Get Involved" [ref=e29] [cursor=pointer]:
+                - text: Get Involved
+                - img [ref=e30]
+            - listitem [ref=e32]:
+              - button "Resources" [ref=e33] [cursor=pointer]:
+                - text: Resources
+                - img [ref=e34]
+        - generic [ref=e36]:
+          - button "Open search" [ref=e37] [cursor=pointer]:
+            - img [ref=e38]
+          - button [ref=e41] [cursor=pointer]:
+            - generic [ref=e42]:
+              - img [ref=e44]
+              - img [ref=e47]
+          - button "common.changeLanguage" [ref=e58] [cursor=pointer]:
+            - img [ref=e59]
+            - generic [ref=e63]: English
+            - img [ref=e64]
+          - link "Donate" [ref=e67] [cursor=pointer]:
+            - /url: /donate
+    - main [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e82] [cursor=pointer]: Serving NSW communities for 40+ years
+              - heading "Supporting M u l t i c u l t u r a l Communities Across NSW" [level=1] [ref=e83]:
+                - generic [ref=e84]: Supporting
+                - generic [ref=e86]:
+                  - generic [ref=e87]: M
+                  - generic [ref=e88]: u
+                  - generic [ref=e89]: l
+                  - generic [ref=e90]: t
+                  - generic [ref=e91]: i
+                  - generic [ref=e92]: c
+                  - generic [ref=e93]: u
+                  - generic [ref=e94]: l
+                  - generic [ref=e95]: t
+                  - generic [ref=e96]: u
+                  - generic [ref=e97]: r
+                  - generic [ref=e98]: a
+                  - generic [ref=e99]: l
+                - text: Communities Across NSW
+              - paragraph [ref=e101]: Empowering multicultural communities through settlement support, home care, family services, and community engagement programs tailored to your needs.
+            - generic [ref=e102]:
+              - link "Explore Our Services" [ref=e103] [cursor=pointer]:
+                - /url: /services
+                - text: Explore Our Services
+                - img [ref=e104]
+              - link "Watch Stories" [ref=e107] [cursor=pointer]:
+                - /url: /stories
+                - img [ref=e108]
+                - text: Watch Stories
+            - generic [ref=e110]:
+              - generic [ref=e111] [cursor=pointer]:
+                - generic [ref=e112]: 40+
+                - generic [ref=e113]: Years of Service
+              - generic [ref=e114] [cursor=pointer]:
+                - generic [ref=e115]: 2,500+
+                - generic [ref=e116]: Families Supported
+              - generic [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: 42+
+                - generic [ref=e119]: Languages Spoken
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - img "Diverse group of young people celebrating together in a library setting" [ref=e122]
+              - link "View office locations across NSW" [ref=e123] [cursor=pointer]:
+                - /url: /locations
+                - generic [ref=e124]:
+                  - generic [ref=e126]: "4"
+                  - generic [ref=e127]:
+                    - generic [ref=e128]: Office Locations
+                    - generic [ref=e129]: Across NSW
+            - generic [ref=e131] [cursor=pointer]:
+              - generic [ref=e133]: 95%
+              - generic [ref=e134]:
+                - generic [ref=e135]: Satisfaction Rate
+                - generic [ref=e136]: Client feedback
+        - generic [ref=e145]:
+          - generic [ref=e148]:
+            - generic [ref=e151]:
+              - generic [ref=e152]: Since 1981
+              - heading "Your Trusted Partner" [level=2] [ref=e153]:
+                - text: Your Trusted
+                - text: Partner
+              - paragraph [ref=e155]: Building belonging, one family at a time
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - paragraph [ref=e158]:
+                  - text: Since
+                  - strong [ref=e159]: "1981"
+                  - text: ", Mosaic Multicultural Connections has been supporting people from migrant and refugee backgrounds throughout every stage of their Australian journey."
+                - paragraph [ref=e160]: We understand that building a life in Australia brings both opportunities and challenges - whether you have just arrived or have been here for years, are raising a family, or are caring for elderly loved ones who deserve to live their best possible lives.
+                - paragraph [ref=e162]: "Our approach is simple: we meet you where you are, respect your cultural background, and provide professional support that empowers you to achieve your goals."
+                - paragraph [ref=e163]: We are here as your trusted partner in creating the connected, confident life you want.
+              - generic [ref=e164]:
+                - generic [ref=e167]: Professional Services
+                - generic [ref=e170]: Culturally Responsive
+                - generic [ref=e173]: Community Focused
+          - generic [ref=e174]:
+            - generic [ref=e177]: Our Services
+            - heading "Comprehensive Support Services" [level=2] [ref=e178]
+            - paragraph [ref=e179]: Culturally appropriate services designed to meet the unique needs of multicultural communities across NSW delivered by our qualified staff
+          - generic [ref=e180]:
+            - generic [ref=e184]:
+              - img [ref=e188]
+              - generic [ref=e191]:
+                - heading "Settlement Support" [level=3] [ref=e192]
+                - paragraph [ref=e193]: New to Australia? We can guide you to find housing, apply for jobs, and build your new life with confidence.
+                - list [ref=e194]:
+                  - listitem [ref=e195]:
+                    - img [ref=e196]
+                    - text: Housing assistance and navigation
+                  - listitem [ref=e199]:
+                    - img [ref=e200]
+                    - text: Employment support and mentoring
+                  - listitem [ref=e203]:
+                    - img [ref=e204]
+                    - text: Citizenship preparation and guidance
+                  - listitem [ref=e207]:
+                    - img [ref=e208]
+                    - text: Pacific visa pathway support
+                - link "Learn More" [ref=e211] [cursor=pointer]:
+                  - /url: /services/settlement-support
+                  - text: Learn More
+                  - img
+            - generic [ref=e217]:
+              - img [ref=e221]
+              - generic [ref=e223]:
+                - heading "Home Care Services" [level=3] [ref=e224]
+                - paragraph [ref=e225]: Need home care that respects your culture? We provide culturally informed in-home support and community connections
+                - list [ref=e226]:
+                  - listitem [ref=e227]:
+                    - img [ref=e228]
+                    - text: Personal care at home
+                  - listitem [ref=e231]:
+                    - img [ref=e232]
+                    - text: Companionship and social support
+                  - listitem [ref=e235]:
+                    - img [ref=e236]
+                    - text: Cultural activities and outings
+                  - listitem [ref=e239]:
+                    - img [ref=e240]
+                    - text: Help navigating home care
+                - link "Learn More" [ref=e243] [cursor=pointer]:
+                  - /url: /services/aged-care
+                  - text: Learn More
+                  - img
+            - generic [ref=e249]:
+              - img [ref=e253]
+              - generic [ref=e258]:
+                - heading "Family Support" [level=3] [ref=e259]
+                - paragraph [ref=e260]: Looking for parenting help? We offer family counselling and community playgroups to help you, and your children thrive.
+                - list [ref=e261]:
+                  - listitem [ref=e262]:
+                    - img [ref=e263]
+                    - text: One-on-one family counselling
+                  - listitem [ref=e266]:
+                    - img [ref=e267]
+                    - text: Parenting skills workshops
+                  - listitem [ref=e270]:
+                    - img [ref=e271]
+                    - text: Multicultural playgroups (0-6 years)
+                  - listitem [ref=e274]:
+                    - img [ref=e275]
+                    - text: Crisis support and planning
+                - link "Learn More" [ref=e278] [cursor=pointer]:
+                  - /url: /services/family-support
+                  - text: Learn More
+                  - img
+            - generic [ref=e284]:
+              - img [ref=e288]
+              - generic [ref=e294]:
+                - heading "Community Engagement" [level=3] [ref=e295]
+                - paragraph [ref=e296]: Struggling to cope with your new life in Australia? We help your children excel academically and connect your family with community support.
+                - list [ref=e297]:
+                  - listitem [ref=e298]:
+                    - img [ref=e299]
+                    - text: Free academic tutoring programmes
+                  - listitem [ref=e302]:
+                    - img [ref=e303]
+                    - text: Skill training with recognised certificates
+                  - listitem [ref=e306]:
+                    - img [ref=e307]
+                    - text: Critical safety information workshops
+                  - listitem [ref=e310]:
+                    - img [ref=e311]
+                    - text: Community connection Groups
+                - link "Learn More" [ref=e314] [cursor=pointer]:
+                  - /url: /services/community-engagement
+                  - text: Learn More
+                  - img
+          - link "View All Services" [ref=e318] [cursor=pointer]:
+            - /url: /services
+            - text: View All Services
+            - img
+        - generic [ref=e323]:
+          - generic [ref=e324]:
+            - generic [ref=e327]: See our Data
+            - heading "Our Impact by the Numbers" [level=2] [ref=e328]
+            - paragraph [ref=e329]: Four decades of measurable impact supporting multicultural communities across New South Wales
+          - generic [ref=e330]:
+            - generic [ref=e334]:
+              - generic [ref=e336]: 0+
+              - generic [ref=e338]: Years of Service
+              - generic [ref=e339]: Serving communities since 1981
+            - generic [ref=e345]:
+              - generic [ref=e347]: "0"
+              - generic [ref=e349]: Office Locations
+              - generic [ref=e350]: Across NSW regions
+            - generic [ref=e356]:
+              - generic [ref=e358]: 0+
+              - generic [ref=e360]: Families Supported
+              - generic [ref=e361]: Lives transformed annually
+            - generic [ref=e367]:
+              - generic [ref=e369]: 0+
+              - generic [ref=e371]: Languages Spoken
+              - generic [ref=e372]: Cultural diversity embraced
+          - generic [ref=e378]: Trusted by communities across NSW
+        - generic [ref=e384]:
+          - generic [ref=e385]:
+            - generic [ref=e388]: Testimonials
+            - heading "Mosaic Testimonials" [level=2] [ref=e389]
+            - paragraph [ref=e390]: Client & Volunteer Stories
+          - generic [ref=e391]:
+            - generic [ref=e393]:
+              - generic [ref=e397]:
+                - blockquote [ref=e398]: "\"He is an excellent shopper — a true gentleman who always goes above and beyond. I would welcome him into my home any time.\""
+                - generic [ref=e399]:
+                  - generic "Veronica Wright" [ref=e400]:
+                    - generic [ref=e401]: Home Care Client
+                    - img [ref=e402]
+                  - generic [ref=e405]:
+                    - generic [ref=e406]: Veronica Wright
+                    - generic [ref=e407]: Home Care Client
+              - generic [ref=e413]:
+                - blockquote [ref=e414]: "\"He helps with my groceries and even plays guitar for Peter, which brought back wonderful memories from his band days. We were joking that we should adopt him!\""
+                - generic [ref=e415]:
+                  - generic "Peter Rochfort" [ref=e416]:
+                    - generic [ref=e417]: Home Care Client
+                    - img [ref=e418]
+                  - generic [ref=e421]:
+                    - generic [ref=e422]: Peter Rochfort
+                    - generic [ref=e423]: Home Care Client
+              - generic [ref=e429]:
+                - blockquote [ref=e430]: "\"My scheduler is always cheerful, pleasant, and incredibly helpful every single time. Any change to Harold’s visits is always communicated clearly by phone or text.\""
+                - generic [ref=e431]:
+                  - generic "Mrs Jarvis (for Harold Jarvis)" [ref=e432]:
+                    - generic [ref=e433]: Home Care Family Member
+                    - img [ref=e434]
+                  - generic [ref=e438]:
+                    - generic [ref=e439]: Mrs Jarvis (for Harold Jarvis)
+                    - generic [ref=e440]: Home Care Family Member
+              - generic [ref=e446]:
+                - blockquote [ref=e447]: "\"After I had a fall, my care support worker did everything she could to help — she was truly lovely. I was very grateful for her support.\""
+                - generic [ref=e448]:
+                  - generic "Rosa Mignanelli" [ref=e449]:
+                    - generic [ref=e450]: Home Care Client
+                    - img [ref=e451]
+                  - generic [ref=e454]:
+                    - generic [ref=e455]: Rosa Mignanelli
+                    - generic [ref=e456]: Home Care Client
+              - generic [ref=e462]:
+                - blockquote [ref=e463]: "\"I’m very satisfied with my care support worker today and would love to have him back again.\""
+                - generic [ref=e464]:
+                  - generic "Eugen Kozic" [ref=e465]:
+                    - generic [ref=e466]: Home Care Client
+                    - img [ref=e467]
+                  - generic [ref=e470]:
+                    - generic [ref=e471]: Eugen Kozic
+                    - generic [ref=e472]: Home Care Client
+              - generic [ref=e478]:
+                - blockquote [ref=e479]: "\"I’m settling in well and feeling much better. I’m grateful for all the support provided — thank you for helping me through this transition.\""
+                - generic [ref=e480]:
+                  - generic "Marian Robinson" [ref=e481]:
+                    - generic [ref=e482]: Home Care Client
+                    - img [ref=e483]
+                  - generic [ref=e486]:
+                    - generic [ref=e487]: Marian Robinson
+                    - generic [ref=e488]: Home Care Client
+              - generic [ref=e494]:
+                - blockquote [ref=e495]: "\"I’m very happy with my care support worker and would love to have her support whenever possible. She’s been wonderful.\""
+                - generic [ref=e496]:
+                  - generic "Jennifer Ruth Ransom" [ref=e497]:
+                    - generic [ref=e498]: Home Care Client
+                    - img [ref=e499]
+                  - generic [ref=e502]:
+                    - generic [ref=e503]: Jennifer Ruth Ransom
+                    - generic [ref=e504]: Home Care Client
+              - generic [ref=e510]:
+                - blockquote [ref=e511]: "\"Thank you so much for all the support. I’m very happy with the non-slip socks I received.\""
+                - generic [ref=e512]:
+                  - generic "Pamela June Mahoney" [ref=e513]:
+                    - generic [ref=e514]: Home Care Client
+                    - img [ref=e515]
+                  - generic [ref=e518]:
+                    - generic [ref=e519]: Pamela June Mahoney
+                    - generic [ref=e520]: Home Care Client
+              - generic [ref=e526]:
+                - blockquote [ref=e527]: "\"My care worker was wonderful and I’m very happy with Mosaic’s support. I’m grateful for everything you’ve provided.\""
+                - generic [ref=e528]:
+                  - generic "Sabina Morgan" [ref=e529]:
+                    - generic [ref=e530]: Home Care Client
+                    - img [ref=e531]
+                  - generic [ref=e534]:
+                    - generic [ref=e535]: Sabina Morgan
+                    - generic [ref=e536]: Home Care Client
+              - generic [ref=e542]:
+                - blockquote [ref=e543]: "\"Ron has developed a wonderful rapport with his carer — they even enjoy playing soccer together in the park on sunny days. Since the carers have come into his life, his mind has been much more stimulated and his conversations more lively.\""
+                - generic [ref=e544]:
+                  - generic "Ronald Madge" [ref=e545]:
+                    - generic [ref=e546]: Home Care Client
+                    - img [ref=e547]
+                  - generic [ref=e550]:
+                    - generic [ref=e551]: Ronald Madge
+                    - generic [ref=e552]: Home Care Client
+              - generic [ref=e558]:
+                - blockquote [ref=e559]: "\"Your centre supported us through a domestic violence situation and helped us organise everything we needed to survive. Elena has supported my family for over a year — she’s a blessing. Thank you for having such a wonderful specialist.\""
+                - generic [ref=e560]:
+                  - generic "Nadezhda Aubin" [ref=e561]:
+                    - generic [ref=e562]: Settlement, Families & Communities Client
+                    - img [ref=e563]
+                  - generic [ref=e566]:
+                    - generic [ref=e567]: Nadezhda Aubin
+                    - generic [ref=e568]: Settlement, Families & Communities Client
+              - generic [ref=e574]:
+                - blockquote [ref=e575]: "\"I wanted to pass on how pleased I am with my care worker. She did a wonderful job and I’m grateful for her support.\""
+                - generic [ref=e576]:
+                  - generic "Roger Turner" [ref=e577]:
+                    - generic [ref=e578]: Home Care Client
+                    - img [ref=e579]
+                  - generic [ref=e582]:
+                    - generic [ref=e583]: Roger Turner
+                    - generic [ref=e584]: Home Care Client
+              - generic [ref=e590]:
+                - blockquote [ref=e591]: "\"Your receptionist is always so pleasant and helpful on the phone. She makes every interaction easy.\""
+                - generic [ref=e592]:
+                  - generic "Jocelyn Dowding" [ref=e593]:
+                    - generic [ref=e594]: Admin Services Client
+                    - img [ref=e595]
+                  - generic [ref=e602]:
+                    - generic [ref=e603]: Jocelyn Dowding
+                    - generic [ref=e604]: Admin Services Client
+              - generic [ref=e610]:
+                - blockquote [ref=e611]: "\"the caseworker’s empathy, patience, and dedication have made such a difference in my life. She listens without judgment, always advocates on my behalf, and has helped me feel respected and supported.\""
+                - generic [ref=e612]:
+                  - generic "Nathan Truong" [ref=e613]:
+                    - generic [ref=e614]: Settlement, Families & Communities Client
+                    - img [ref=e615]
+                  - generic [ref=e618]:
+                    - generic [ref=e619]: Nathan Truong
+                    - generic [ref=e620]: Settlement, Families & Communities Client
+              - generic [ref=e626]:
+                - blockquote [ref=e627]: "\"Mosaic has been incredible in supporting my settlement journey, especially through my case worker. She helped us with housing, improving my resume, finding employment, and guided me both practically and emotionally.\""
+                - generic [ref=e628]:
+                  - generic "Tara Tamanna" [ref=e629]:
+                    - generic [ref=e630]: Settlement, Families & Communities Client
+                    - img [ref=e631]
+                  - generic [ref=e634]:
+                    - generic [ref=e635]: Tara Tamanna
+                    - generic [ref=e636]: Settlement, Families & Communities Client
+              - generic [ref=e642]:
+                - blockquote [ref=e643]: "\"the caseworker has been amazing to work with — intelligent, professional, and always understanding what’s needed. We felt so comfortable and supported throughout.\""
+                - generic [ref=e644]:
+                  - generic "Ali" [ref=e645]:
+                    - generic [ref=e646]: Settlement, Families & Communities Client
+                    - img [ref=e647]
+                  - generic [ref=e650]:
+                    - generic [ref=e651]: Ali
+                    - generic [ref=e652]: Settlement, Families & Communities Client
+              - generic [ref=e658]:
+                - blockquote [ref=e659]: "\"I’m very happy with the caseworker’s help. She is respectful, caring, and adds great value to Mosaic.\""
+                - generic [ref=e660]:
+                  - generic "Terez Al Talli" [ref=e661]:
+                    - generic [ref=e662]: Settlement, Families & Communities Client
+                    - img [ref=e663]
+                  - generic [ref=e666]:
+                    - generic [ref=e667]: Terez Al Talli
+                    - generic [ref=e668]: Settlement, Families & Communities Client
+              - generic [ref=e674]:
+                - blockquote [ref=e675]: "\"Volunteering has given me a sense of purpose since 1983 — it’s incredibly rewarding to help people in their own language and connect deeply with others. Over the years, these connections have become like an extended family to me, widening my world through culture, friendship, and shared experiences.\""
+                - generic [ref=e676]:
+                  - generic "Joop de Wit" [ref=e677]:
+                    - generic [ref=e678]: ACVVS Volunteer
+                    - img [ref=e679]
+                  - generic [ref=e684]:
+                    - generic [ref=e685]: Joop de Wit
+                    - generic [ref=e686]: ACVVS Volunteer
+              - generic [ref=e692]:
+                - blockquote [ref=e693]: "\"I love helping migrant refugees build a new life in Australia — it’s meaningful and fulfilling. As the child of migrants myself, I want newcomers to feel welcome and supported. Mosaic’s staff and volunteers have been wonderful to work with.\""
+                - generic [ref=e694]:
+                  - generic "Dennis Archibald" [ref=e695]:
+                    - generic [ref=e696]: Volunteer Citizenship Test Tutor
+                    - img [ref=e697]
+                  - generic [ref=e702]:
+                    - generic [ref=e703]: Dennis Archibald
+                    - generic [ref=e704]: Volunteer Citizenship Test Tutor
+              - generic [ref=e710]:
+                - blockquote [ref=e711]: "\"Meeting the students and learning about their journeys has been inspiring — their resilience and can-do attitude amaze me. Watching them grow socially and academically is incredibly rewarding. As the child of immigrants, it’s meaningful to help them embrace life in Australia.\""
+                - generic [ref=e712]:
+                  - generic "Shani Herat Gunaratne" [ref=e713]:
+                    - generic [ref=e714]: Volunteer Homework Centre Tutor
+                    - img [ref=e715]
+                  - generic [ref=e720]:
+                    - generic [ref=e721]: Shani Herat Gunaratne
+                    - generic [ref=e722]: Volunteer Homework Centre Tutor
+              - generic [ref=e728]:
+                - blockquote [ref=e729]: "\"The Mosaic team is warm, supportive, and a joy to work with. I’ve met many grateful clients, and I hope my small contribution helps them build a new life here. Having struggled myself to establish a career decades ago, I feel compelled to support those with an even tougher path.\""
+                - generic [ref=e730]:
+                  - generic "Peter Cook" [ref=e731]:
+                    - generic [ref=e732]: Volunteer Employment & Housing Mentor
+                    - img [ref=e733]
+                  - generic [ref=e738]:
+                    - generic [ref=e739]: Peter Cook
+                    - generic [ref=e740]: Volunteer Employment & Housing Mentor
+              - generic [ref=e746]:
+                - blockquote [ref=e747]: "\"I enjoy helping people through what can be a stressful and complex process, and I’ve met so many wonderful people. I believe everyone has a responsibility to help where they can, and volunteering with Mosaic has been a truly meaningful experience.\""
+                - generic [ref=e748]:
+                  - generic "Lizzie Evered" [ref=e749]:
+                    - generic [ref=e750]: Citizenship Application Support Volunteer
+                    - img [ref=e751]
+                  - generic [ref=e756]:
+                    - generic [ref=e757]: Lizzie Evered
+                    - generic [ref=e758]: Citizenship Application Support Volunteer
+              - generic [ref=e764]:
+                - blockquote [ref=e765]: "\"I really enjoy the conversations I share during my visits — whether reminiscing about familiar places or chatting about current events, sport, or everyday life. Seeing how much people enjoy and engage in these moments reminds me how meaningful this volunteer work is.\""
+                - generic [ref=e766]:
+                  - generic "Bill Livingstone" [ref=e767]:
+                    - generic [ref=e768]: ACVVS Volunteer
+                    - img [ref=e769]
+                  - generic [ref=e774]:
+                    - generic [ref=e775]: Bill Livingstone
+                    - generic [ref=e776]: ACVVS Volunteer
+              - generic [ref=e782]:
+                - blockquote [ref=e783]: "\"Volunteering at the Homework Centre allows me to use my teaching skills and support students as they gain confidence in language and maths. I’ve enjoyed working with the coordinator and volunteers, each bringing unique life experiences, and helping new arrivals while learning from their cultures has been fulfilling and fun.\""
+                - generic [ref=e784]:
+                  - generic "Gaylia Bigg" [ref=e785]:
+                    - generic [ref=e786]: EALD Homework Centre Volunteer
+                    - img [ref=e787]
+                  - generic [ref=e792]:
+                    - generic [ref=e793]: Gaylia Bigg
+                    - generic [ref=e794]: EALD Homework Centre Volunteer
+              - generic [ref=e800]:
+                - blockquote [ref=e801]: "\"He is an excellent shopper — a true gentleman who always goes above and beyond. I would welcome him into my home any time.\""
+                - generic [ref=e802]:
+                  - generic "Veronica Wright" [ref=e803]:
+                    - generic [ref=e804]: Home Care Client
+                    - img [ref=e805]
+                  - generic [ref=e808]:
+                    - generic [ref=e809]: Veronica Wright
+                    - generic [ref=e810]: Home Care Client
+              - generic [ref=e816]:
+                - blockquote [ref=e817]: "\"He helps with my groceries and even plays guitar for Peter, which brought back wonderful memories from his band days. We were joking that we should adopt him!\""
+                - generic [ref=e818]:
+                  - generic "Peter Rochfort" [ref=e819]:
+                    - generic [ref=e820]: Home Care Client
+                    - img [ref=e821]
+                  - generic [ref=e824]:
+                    - generic [ref=e825]: Peter Rochfort
+                    - generic [ref=e826]: Home Care Client
+              - generic [ref=e832]:
+                - blockquote [ref=e833]: "\"My scheduler is always cheerful, pleasant, and incredibly helpful every single time. Any change to Harold’s visits is always communicated clearly by phone or text.\""
+                - generic [ref=e834]:
+                  - generic "Mrs Jarvis (for Harold Jarvis)" [ref=e835]:
+                    - generic [ref=e836]: Home Care Family Member
+                    - img [ref=e837]
+                  - generic [ref=e841]:
+                    - generic [ref=e842]: Mrs Jarvis (for Harold Jarvis)
+                    - generic [ref=e843]: Home Care Family Member
+              - generic [ref=e849]:
+                - blockquote [ref=e850]: "\"After I had a fall, my care support worker did everything she could to help — she was truly lovely. I was very grateful for her support.\""
+                - generic [ref=e851]:
+                  - generic "Rosa Mignanelli" [ref=e852]:
+                    - generic [ref=e853]: Home Care Client
+                    - img [ref=e854]
+                  - generic [ref=e857]:
+                    - generic [ref=e858]: Rosa Mignanelli
+                    - generic [ref=e859]: Home Care Client
+              - generic [ref=e865]:
+                - blockquote [ref=e866]: "\"I’m very satisfied with my care support worker today and would love to have him back again.\""
+                - generic [ref=e867]:
+                  - generic "Eugen Kozic" [ref=e868]:
+                    - generic [ref=e869]: Home Care Client
+                    - img [ref=e870]
+                  - generic [ref=e873]:
+                    - generic [ref=e874]: Eugen Kozic
+                    - generic [ref=e875]: Home Care Client
+              - generic [ref=e881]:
+                - blockquote [ref=e882]: "\"I’m settling in well and feeling much better. I’m grateful for all the support provided — thank you for helping me through this transition.\""
+                - generic [ref=e883]:
+                  - generic "Marian Robinson" [ref=e884]:
+                    - generic [ref=e885]: Home Care Client
+                    - img [ref=e886]
+                  - generic [ref=e889]:
+                    - generic [ref=e890]: Marian Robinson
+                    - generic [ref=e891]: Home Care Client
+              - generic [ref=e897]:
+                - blockquote [ref=e898]: "\"I’m very happy with my care support worker and would love to have her support whenever possible. She’s been wonderful.\""
+                - generic [ref=e899]:
+                  - generic "Jennifer Ruth Ransom" [ref=e900]:
+                    - generic [ref=e901]: Home Care Client
+                    - img [ref=e902]
+                  - generic [ref=e905]:
+                    - generic [ref=e906]: Jennifer Ruth Ransom
+                    - generic [ref=e907]: Home Care Client
+              - generic [ref=e913]:
+                - blockquote [ref=e914]: "\"Thank you so much for all the support. I’m very happy with the non-slip socks I received.\""
+                - generic [ref=e915]:
+                  - generic "Pamela June Mahoney" [ref=e916]:
+                    - generic [ref=e917]: Home Care Client
+                    - img [ref=e918]
+                  - generic [ref=e921]:
+                    - generic [ref=e922]: Pamela June Mahoney
+                    - generic [ref=e923]: Home Care Client
+              - generic [ref=e929]:
+                - blockquote [ref=e930]: "\"My care worker was wonderful and I’m very happy with Mosaic’s support. I’m grateful for everything you’ve provided.\""
+                - generic [ref=e931]:
+                  - generic "Sabina Morgan" [ref=e932]:
+                    - generic [ref=e933]: Home Care Client
+                    - img [ref=e934]
+                  - generic [ref=e937]:
+                    - generic [ref=e938]: Sabina Morgan
+                    - generic [ref=e939]: Home Care Client
+              - generic [ref=e945]:
+                - blockquote [ref=e946]: "\"Ron has developed a wonderful rapport with his carer — they even enjoy playing soccer together in the park on sunny days. Since the carers have come into his life, his mind has been much more stimulated and his conversations more lively.\""
+                - generic [ref=e947]:
+                  - generic "Ronald Madge" [ref=e948]:
+                    - generic [ref=e949]: Home Care Client
+                    - img [ref=e950]
+                  - generic [ref=e953]:
+                    - generic [ref=e954]: Ronald Madge
+                    - generic [ref=e955]: Home Care Client
+              - generic [ref=e961]:
+                - blockquote [ref=e962]: "\"Your centre supported us through a domestic violence situation and helped us organise everything we needed to survive. Elena has supported my family for over a year — she’s a blessing. Thank you for having such a wonderful specialist.\""
+                - generic [ref=e963]:
+                  - generic "Nadezhda Aubin" [ref=e964]:
+                    - generic [ref=e965]: Settlement, Families & Communities Client
+                    - img [ref=e966]
+                  - generic [ref=e969]:
+                    - generic [ref=e970]: Nadezhda Aubin
+                    - generic [ref=e971]: Settlement, Families & Communities Client
+              - generic [ref=e977]:
+                - blockquote [ref=e978]: "\"I wanted to pass on how pleased I am with my care worker. She did a wonderful job and I’m grateful for her support.\""
+                - generic [ref=e979]:
+                  - generic "Roger Turner" [ref=e980]:
+                    - generic [ref=e981]: Home Care Client
+                    - img [ref=e982]
+                  - generic [ref=e985]:
+                    - generic [ref=e986]: Roger Turner
+                    - generic [ref=e987]: Home Care Client
+              - generic [ref=e993]:
+                - blockquote [ref=e994]: "\"Your receptionist is always so pleasant and helpful on the phone. She makes every interaction easy.\""
+                - generic [ref=e995]:
+                  - generic "Jocelyn Dowding" [ref=e996]:
+                    - generic [ref=e997]: Admin Services Client
+                    - img [ref=e998]
+                  - generic [ref=e1005]:
+                    - generic [ref=e1006]: Jocelyn Dowding
+                    - generic [ref=e1007]: Admin Services Client
+              - generic [ref=e1013]:
+                - blockquote [ref=e1014]: "\"the caseworker’s empathy, patience, and dedication have made such a difference in my life. She listens without judgment, always advocates on my behalf, and has helped me feel respected and supported.\""
+                - generic [ref=e1015]:
+                  - generic "Nathan Truong" [ref=e1016]:
+                    - generic [ref=e1017]: Settlement, Families & Communities Client
+                    - img [ref=e1018]
+                  - generic [ref=e1021]:
+                    - generic [ref=e1022]: Nathan Truong
+                    - generic [ref=e1023]: Settlement, Families & Communities Client
+              - generic [ref=e1029]:
+                - blockquote [ref=e1030]: "\"Mosaic has been incredible in supporting my settlement journey, especially through my case worker. She helped us with housing, improving my resume, finding employment, and guided me both practically and emotionally.\""
+                - generic [ref=e1031]:
+                  - generic "Tara Tamanna" [ref=e1032]:
+                    - generic [ref=e1033]: Settlement, Families & Communities Client
+                    - img [ref=e1034]
+                  - generic [ref=e1037]:
+                    - generic [ref=e1038]: Tara Tamanna
+                    - generic [ref=e1039]: Settlement, Families & Communities Client
+              - generic [ref=e1045]:
+                - blockquote [ref=e1046]: "\"the caseworker has been amazing to work with — intelligent, professional, and always understanding what’s needed. We felt so comfortable and supported throughout.\""
+                - generic [ref=e1047]:
+                  - generic "Ali" [ref=e1048]:
+                    - generic [ref=e1049]: Settlement, Families & Communities Client
+                    - img [ref=e1050]
+                  - generic [ref=e1053]:
+                    - generic [ref=e1054]: Ali
+                    - generic [ref=e1055]: Settlement, Families & Communities Client
+              - generic [ref=e1061]:
+                - blockquote [ref=e1062]: "\"I’m very happy with the caseworker’s help. She is respectful, caring, and adds great value to Mosaic.\""
+                - generic [ref=e1063]:
+                  - generic "Terez Al Talli" [ref=e1064]:
+                    - generic [ref=e1065]: Settlement, Families & Communities Client
+                    - img [ref=e1066]
+                  - generic [ref=e1069]:
+                    - generic [ref=e1070]: Terez Al Talli
+                    - generic [ref=e1071]: Settlement, Families & Communities Client
+              - generic [ref=e1077]:
+                - blockquote [ref=e1078]: "\"Volunteering has given me a sense of purpose since 1983 — it’s incredibly rewarding to help people in their own language and connect deeply with others. Over the years, these connections have become like an extended family to me, widening my world through culture, friendship, and shared experiences.\""
+                - generic [ref=e1079]:
+                  - generic "Joop de Wit" [ref=e1080]:
+                    - generic [ref=e1081]: ACVVS Volunteer
+                    - img [ref=e1082]
+                  - generic [ref=e1087]:
+                    - generic [ref=e1088]: Joop de Wit
+                    - generic [ref=e1089]: ACVVS Volunteer
+              - generic [ref=e1095]:
+                - blockquote [ref=e1096]: "\"I love helping migrant refugees build a new life in Australia — it’s meaningful and fulfilling. As the child of migrants myself, I want newcomers to feel welcome and supported. Mosaic’s staff and volunteers have been wonderful to work with.\""
+                - generic [ref=e1097]:
+                  - generic "Dennis Archibald" [ref=e1098]:
+                    - generic [ref=e1099]: Volunteer Citizenship Test Tutor
+                    - img [ref=e1100]
+                  - generic [ref=e1105]:
+                    - generic [ref=e1106]: Dennis Archibald
+                    - generic [ref=e1107]: Volunteer Citizenship Test Tutor
+              - generic [ref=e1113]:
+                - blockquote [ref=e1114]: "\"Meeting the students and learning about their journeys has been inspiring — their resilience and can-do attitude amaze me. Watching them grow socially and academically is incredibly rewarding. As the child of immigrants, it’s meaningful to help them embrace life in Australia.\""
+                - generic [ref=e1115]:
+                  - generic "Shani Herat Gunaratne" [ref=e1116]:
+                    - generic [ref=e1117]: Volunteer Homework Centre Tutor
+                    - img [ref=e1118]
+                  - generic [ref=e1123]:
+                    - generic [ref=e1124]: Shani Herat Gunaratne
+                    - generic [ref=e1125]: Volunteer Homework Centre Tutor
+              - generic [ref=e1131]:
+                - blockquote [ref=e1132]: "\"The Mosaic team is warm, supportive, and a joy to work with. I’ve met many grateful clients, and I hope my small contribution helps them build a new life here. Having struggled myself to establish a career decades ago, I feel compelled to support those with an even tougher path.\""
+                - generic [ref=e1133]:
+                  - generic "Peter Cook" [ref=e1134]:
+                    - generic [ref=e1135]: Volunteer Employment & Housing Mentor
+                    - img [ref=e1136]
+                  - generic [ref=e1141]:
+                    - generic [ref=e1142]: Peter Cook
+                    - generic [ref=e1143]: Volunteer Employment & Housing Mentor
+              - generic [ref=e1149]:
+                - blockquote [ref=e1150]: "\"I enjoy helping people through what can be a stressful and complex process, and I’ve met so many wonderful people. I believe everyone has a responsibility to help where they can, and volunteering with Mosaic has been a truly meaningful experience.\""
+                - generic [ref=e1151]:
+                  - generic "Lizzie Evered" [ref=e1152]:
+                    - generic [ref=e1153]: Citizenship Application Support Volunteer
+                    - img [ref=e1154]
+                  - generic [ref=e1159]:
+                    - generic [ref=e1160]: Lizzie Evered
+                    - generic [ref=e1161]: Citizenship Application Support Volunteer
+              - generic [ref=e1167]:
+                - blockquote [ref=e1168]: "\"I really enjoy the conversations I share during my visits — whether reminiscing about familiar places or chatting about current events, sport, or everyday life. Seeing how much people enjoy and engage in these moments reminds me how meaningful this volunteer work is.\""
+                - generic [ref=e1169]:
+                  - generic "Bill Livingstone" [ref=e1170]:
+                    - generic [ref=e1171]: ACVVS Volunteer
+                    - img [ref=e1172]
+                  - generic [ref=e1177]:
+                    - generic [ref=e1178]: Bill Livingstone
+                    - generic [ref=e1179]: ACVVS Volunteer
+              - generic [ref=e1185]:
+                - blockquote [ref=e1186]: "\"Volunteering at the Homework Centre allows me to use my teaching skills and support students as they gain confidence in language and maths. I’ve enjoyed working with the coordinator and volunteers, each bringing unique life experiences, and helping new arrivals while learning from their cultures has been fulfilling and fun.\""
+                - generic [ref=e1187]:
+                  - generic "Gaylia Bigg" [ref=e1188]:
+                    - generic [ref=e1189]: EALD Homework Centre Volunteer
+                    - img [ref=e1190]
+                  - generic [ref=e1195]:
+                    - generic [ref=e1196]: Gaylia Bigg
+                    - generic [ref=e1197]: EALD Homework Centre Volunteer
+            - generic [ref=e1201]:
+              - generic [ref=e1205]:
+                - blockquote [ref=e1206]: "\"Volunteering at the Homework Centre allows me to use my teaching skills and support students as they gain confidence in language and maths. I’ve enjoyed working with the coordinator and volunteers, each bringing unique life experiences, and helping new arrivals while learning from their cultures has been fulfilling and fun.\""
+                - generic [ref=e1207]:
+                  - generic "Gaylia Bigg" [ref=e1208]:
+                    - generic [ref=e1209]: EALD Homework Centre Volunteer
+                    - img [ref=e1210]
+                  - generic [ref=e1215]:
+                    - generic [ref=e1216]: Gaylia Bigg
+                    - generic [ref=e1217]: EALD Homework Centre Volunteer
+              - generic [ref=e1223]:
+                - blockquote [ref=e1224]: "\"I really enjoy the conversations I share during my visits — whether reminiscing about familiar places or chatting about current events, sport, or everyday life. Seeing how much people enjoy and engage in these moments reminds me how meaningful this volunteer work is.\""
+                - generic [ref=e1225]:
+                  - generic "Bill Livingstone" [ref=e1226]:
+                    - generic [ref=e1227]: ACVVS Volunteer
+                    - img [ref=e1228]
+                  - generic [ref=e1233]:
+                    - generic [ref=e1234]: Bill Livingstone
+                    - generic [ref=e1235]: ACVVS Volunteer
+              - generic [ref=e1241]:
+                - blockquote [ref=e1242]: "\"I enjoy helping people through what can be a stressful and complex process, and I’ve met so many wonderful people. I believe everyone has a responsibility to help where they can, and volunteering with Mosaic has been a truly meaningful experience.\""
+                - generic [ref=e1243]:
+                  - generic "Lizzie Evered" [ref=e1244]:
+                    - generic [ref=e1245]: Citizenship Application Support Volunteer
+                    - img [ref=e1246]
+                  - generic [ref=e1251]:
+                    - generic [ref=e1252]: Lizzie Evered
+                    - generic [ref=e1253]: Citizenship Application Support Volunteer
+              - generic [ref=e1259]:
+                - blockquote [ref=e1260]: "\"The Mosaic team is warm, supportive, and a joy to work with. I’ve met many grateful clients, and I hope my small contribution helps them build a new life here. Having struggled myself to establish a career decades ago, I feel compelled to support those with an even tougher path.\""
+                - generic [ref=e1261]:
+                  - generic "Peter Cook" [ref=e1262]:
+                    - generic [ref=e1263]: Volunteer Employment & Housing Mentor
+                    - img [ref=e1264]
+                  - generic [ref=e1269]:
+                    - generic [ref=e1270]: Peter Cook
+                    - generic [ref=e1271]: Volunteer Employment & Housing Mentor
+              - generic [ref=e1277]:
+                - blockquote [ref=e1278]: "\"Meeting the students and learning about their journeys has been inspiring — their resilience and can-do attitude amaze me. Watching them grow socially and academically is incredibly rewarding. As the child of immigrants, it’s meaningful to help them embrace life in Australia.\""
+                - generic [ref=e1279]:
+                  - generic "Shani Herat Gunaratne" [ref=e1280]:
+                    - generic [ref=e1281]: Volunteer Homework Centre Tutor
+                    - img [ref=e1282]
+                  - generic [ref=e1287]:
+                    - generic [ref=e1288]: Shani Herat Gunaratne
+                    - generic [ref=e1289]: Volunteer Homework Centre Tutor
+              - generic [ref=e1295]:
+                - blockquote [ref=e1296]: "\"I love helping migrant refugees build a new life in Australia — it’s meaningful and fulfilling. As the child of migrants myself, I want newcomers to feel welcome and supported. Mosaic’s staff and volunteers have been wonderful to work with.\""
+                - generic [ref=e1297]:
+                  - generic "Dennis Archibald" [ref=e1298]:
+                    - generic [ref=e1299]: Volunteer Citizenship Test Tutor
+                    - img [ref=e1300]
+                  - generic [ref=e1305]:
+                    - generic [ref=e1306]: Dennis Archibald
+                    - generic [ref=e1307]: Volunteer Citizenship Test Tutor
+              - generic [ref=e1313]:
+                - blockquote [ref=e1314]: "\"Volunteering has given me a sense of purpose since 1983 — it’s incredibly rewarding to help people in their own language and connect deeply with others. Over the years, these connections have become like an extended family to me, widening my world through culture, friendship, and shared experiences.\""
+                - generic [ref=e1315]:
+                  - generic "Joop de Wit" [ref=e1316]:
+                    - generic [ref=e1317]: ACVVS Volunteer
+                    - img [ref=e1318]
+                  - generic [ref=e1323]:
+                    - generic [ref=e1324]: Joop de Wit
+                    - generic [ref=e1325]: ACVVS Volunteer
+              - generic [ref=e1331]:
+                - blockquote [ref=e1332]: "\"I’m very happy with the caseworker’s help. She is respectful, caring, and adds great value to Mosaic.\""
+                - generic [ref=e1333]:
+                  - generic "Terez Al Talli" [ref=e1334]:
+                    - generic [ref=e1335]: Settlement, Families & Communities Client
+                    - img [ref=e1336]
+                  - generic [ref=e1339]:
+                    - generic [ref=e1340]: Terez Al Talli
+                    - generic [ref=e1341]: Settlement, Families & Communities Client
+              - generic [ref=e1347]:
+                - blockquote [ref=e1348]: "\"the caseworker has been amazing to work with — intelligent, professional, and always understanding what’s needed. We felt so comfortable and supported throughout.\""
+                - generic [ref=e1349]:
+                  - generic "Ali" [ref=e1350]:
+                    - generic [ref=e1351]: Settlement, Families & Communities Client
+                    - img [ref=e1352]
+                  - generic [ref=e1355]:
+                    - generic [ref=e1356]: Ali
+                    - generic [ref=e1357]: Settlement, Families & Communities Client
+              - generic [ref=e1363]:
+                - blockquote [ref=e1364]: "\"Mosaic has been incredible in supporting my settlement journey, especially through my case worker. She helped us with housing, improving my resume, finding employment, and guided me both practically and emotionally.\""
+                - generic [ref=e1365]:
+                  - generic "Tara Tamanna" [ref=e1366]:
+                    - generic [ref=e1367]: Settlement, Families & Communities Client
+                    - img [ref=e1368]
+                  - generic [ref=e1371]:
+                    - generic [ref=e1372]: Tara Tamanna
+                    - generic [ref=e1373]: Settlement, Families & Communities Client
+              - generic [ref=e1379]:
+                - blockquote [ref=e1380]: "\"the caseworker’s empathy, patience, and dedication have made such a difference in my life. She listens without judgment, always advocates on my behalf, and has helped me feel respected and supported.\""
+                - generic [ref=e1381]:
+                  - generic "Nathan Truong" [ref=e1382]:
+                    - generic [ref=e1383]: Settlement, Families & Communities Client
+                    - img [ref=e1384]
+                  - generic [ref=e1387]:
+                    - generic [ref=e1388]: Nathan Truong
+                    - generic [ref=e1389]: Settlement, Families & Communities Client
+              - generic [ref=e1395]:
+                - blockquote [ref=e1396]: "\"Your receptionist is always so pleasant and helpful on the phone. She makes every interaction easy.\""
+                - generic [ref=e1397]:
+                  - generic "Jocelyn Dowding" [ref=e1398]:
+                    - generic [ref=e1399]: Admin Services Client
+                    - img [ref=e1400]
+                  - generic [ref=e1407]:
+                    - generic [ref=e1408]: Jocelyn Dowding
+                    - generic [ref=e1409]: Admin Services Client
+              - generic [ref=e1415]:
+                - blockquote [ref=e1416]: "\"I wanted to pass on how pleased I am with my care worker. She did a wonderful job and I’m grateful for her support.\""
+                - generic [ref=e1417]:
+                  - generic "Roger Turner" [ref=e1418]:
+                    - generic [ref=e1419]: Home Care Client
+                    - img [ref=e1420]
+                  - generic [ref=e1423]:
+                    - generic [ref=e1424]: Roger Turner
+                    - generic [ref=e1425]: Home Care Client
+              - generic [ref=e1431]:
+                - blockquote [ref=e1432]: "\"Your centre supported us through a domestic violence situation and helped us organise everything we needed to survive. Elena has supported my family for over a year — she’s a blessing. Thank you for having such a wonderful specialist.\""
+                - generic [ref=e1433]:
+                  - generic "Nadezhda Aubin" [ref=e1434]:
+                    - generic [ref=e1435]: Settlement, Families & Communities Client
+                    - img [ref=e1436]
+                  - generic [ref=e1439]:
+                    - generic [ref=e1440]: Nadezhda Aubin
+                    - generic [ref=e1441]: Settlement, Families & Communities Client
+              - generic [ref=e1447]:
+                - blockquote [ref=e1448]: "\"Ron has developed a wonderful rapport with his carer — they even enjoy playing soccer together in the park on sunny days. Since the carers have come into his life, his mind has been much more stimulated and his conversations more lively.\""
+                - generic [ref=e1449]:
+                  - generic "Ronald Madge" [ref=e1450]:
+                    - generic [ref=e1451]: Home Care Client
+                    - img [ref=e1452]
+                  - generic [ref=e1455]:
+                    - generic [ref=e1456]: Ronald Madge
+                    - generic [ref=e1457]: Home Care Client
+              - generic [ref=e1463]:
+                - blockquote [ref=e1464]: "\"My care worker was wonderful and I’m very happy with Mosaic’s support. I’m grateful for everything you’ve provided.\""
+                - generic [ref=e1465]:
+                  - generic "Sabina Morgan" [ref=e1466]:
+                    - generic [ref=e1467]: Home Care Client
+                    - img [ref=e1468]
+                  - generic [ref=e1471]:
+                    - generic [ref=e1472]: Sabina Morgan
+                    - generic [ref=e1473]: Home Care Client
+              - generic [ref=e1479]:
+                - blockquote [ref=e1480]: "\"Thank you so much for all the support. I’m very happy with the non-slip socks I received.\""
+                - generic [ref=e1481]:
+                  - generic "Pamela June Mahoney" [ref=e1482]:
+                    - generic [ref=e1483]: Home Care Client
+                    - img [ref=e1484]
+                  - generic [ref=e1487]:
+                    - generic [ref=e1488]: Pamela June Mahoney
+                    - generic [ref=e1489]: Home Care Client
+              - generic [ref=e1495]:
+                - blockquote [ref=e1496]: "\"I’m very happy with my care support worker and would love to have her support whenever possible. She’s been wonderful.\""
+                - generic [ref=e1497]:
+                  - generic "Jennifer Ruth Ransom" [ref=e1498]:
+                    - generic [ref=e1499]: Home Care Client
+                    - img [ref=e1500]
+                  - generic [ref=e1503]:
+                    - generic [ref=e1504]: Jennifer Ruth Ransom
+                    - generic [ref=e1505]: Home Care Client
+              - generic [ref=e1511]:
+                - blockquote [ref=e1512]: "\"I’m settling in well and feeling much better. I’m grateful for all the support provided — thank you for helping me through this transition.\""
+                - generic [ref=e1513]:
+                  - generic "Marian Robinson" [ref=e1514]:
+                    - generic [ref=e1515]: Home Care Client
+                    - img [ref=e1516]
+                  - generic [ref=e1519]:
+                    - generic [ref=e1520]: Marian Robinson
+                    - generic [ref=e1521]: Home Care Client
+              - generic [ref=e1527]:
+                - blockquote [ref=e1528]: "\"I’m very satisfied with my care support worker today and would love to have him back again.\""
+                - generic [ref=e1529]:
+                  - generic "Eugen Kozic" [ref=e1530]:
+                    - generic [ref=e1531]: Home Care Client
+                    - img [ref=e1532]
+                  - generic [ref=e1535]:
+                    - generic [ref=e1536]: Eugen Kozic
+                    - generic [ref=e1537]: Home Care Client
+              - generic [ref=e1543]:
+                - blockquote [ref=e1544]: "\"After I had a fall, my care support worker did everything she could to help — she was truly lovely. I was very grateful for her support.\""
+                - generic [ref=e1545]:
+                  - generic "Rosa Mignanelli" [ref=e1546]:
+                    - generic [ref=e1547]: Home Care Client
+                    - img [ref=e1548]
+                  - generic [ref=e1551]:
+                    - generic [ref=e1552]: Rosa Mignanelli
+                    - generic [ref=e1553]: Home Care Client
+              - generic [ref=e1559]:
+                - blockquote [ref=e1560]: "\"My scheduler is always cheerful, pleasant, and incredibly helpful every single time. Any change to Harold’s visits is always communicated clearly by phone or text.\""
+                - generic [ref=e1561]:
+                  - generic "Mrs Jarvis (for Harold Jarvis)" [ref=e1562]:
+                    - generic [ref=e1563]: Home Care Family Member
+                    - img [ref=e1564]
+                  - generic [ref=e1568]:
+                    - generic [ref=e1569]: Mrs Jarvis (for Harold Jarvis)
+                    - generic [ref=e1570]: Home Care Family Member
+              - generic [ref=e1576]:
+                - blockquote [ref=e1577]: "\"He helps with my groceries and even plays guitar for Peter, which brought back wonderful memories from his band days. We were joking that we should adopt him!\""
+                - generic [ref=e1578]:
+                  - generic "Peter Rochfort" [ref=e1579]:
+                    - generic [ref=e1580]: Home Care Client
+                    - img [ref=e1581]
+                  - generic [ref=e1584]:
+                    - generic [ref=e1585]: Peter Rochfort
+                    - generic [ref=e1586]: Home Care Client
+              - generic [ref=e1592]:
+                - blockquote [ref=e1593]: "\"He is an excellent shopper — a true gentleman who always goes above and beyond. I would welcome him into my home any time.\""
+                - generic [ref=e1594]:
+                  - generic "Veronica Wright" [ref=e1595]:
+                    - generic [ref=e1596]: Home Care Client
+                    - img [ref=e1597]
+                  - generic [ref=e1600]:
+                    - generic [ref=e1601]: Veronica Wright
+                    - generic [ref=e1602]: Home Care Client
+              - generic [ref=e1608]:
+                - blockquote [ref=e1609]: "\"Volunteering at the Homework Centre allows me to use my teaching skills and support students as they gain confidence in language and maths. I’ve enjoyed working with the coordinator and volunteers, each bringing unique life experiences, and helping new arrivals while learning from their cultures has been fulfilling and fun.\""
+                - generic [ref=e1610]:
+                  - generic "Gaylia Bigg" [ref=e1611]:
+                    - generic [ref=e1612]: EALD Homework Centre Volunteer
+                    - img [ref=e1613]
+                  - generic [ref=e1618]:
+                    - generic [ref=e1619]: Gaylia Bigg
+                    - generic [ref=e1620]: EALD Homework Centre Volunteer
+              - generic [ref=e1626]:
+                - blockquote [ref=e1627]: "\"I really enjoy the conversations I share during my visits — whether reminiscing about familiar places or chatting about current events, sport, or everyday life. Seeing how much people enjoy and engage in these moments reminds me how meaningful this volunteer work is.\""
+                - generic [ref=e1628]:
+                  - generic "Bill Livingstone" [ref=e1629]:
+                    - generic [ref=e1630]: ACVVS Volunteer
+                    - img [ref=e1631]
+                  - generic [ref=e1636]:
+                    - generic [ref=e1637]: Bill Livingstone
+                    - generic [ref=e1638]: ACVVS Volunteer
+              - generic [ref=e1644]:
+                - blockquote [ref=e1645]: "\"I enjoy helping people through what can be a stressful and complex process, and I’ve met so many wonderful people. I believe everyone has a responsibility to help where they can, and volunteering with Mosaic has been a truly meaningful experience.\""
+                - generic [ref=e1646]:
+                  - generic "Lizzie Evered" [ref=e1647]:
+                    - generic [ref=e1648]: Citizenship Application Support Volunteer
+                    - img [ref=e1649]
+                  - generic [ref=e1654]:
+                    - generic [ref=e1655]: Lizzie Evered
+                    - generic [ref=e1656]: Citizenship Application Support Volunteer
+              - generic [ref=e1662]:
+                - blockquote [ref=e1663]: "\"The Mosaic team is warm, supportive, and a joy to work with. I’ve met many grateful clients, and I hope my small contribution helps them build a new life here. Having struggled myself to establish a career decades ago, I feel compelled to support those with an even tougher path.\""
+                - generic [ref=e1664]:
+                  - generic "Peter Cook" [ref=e1665]:
+                    - generic [ref=e1666]: Volunteer Employment & Housing Mentor
+                    - img [ref=e1667]
+                  - generic [ref=e1672]:
+                    - generic [ref=e1673]: Peter Cook
+                    - generic [ref=e1674]: Volunteer Employment & Housing Mentor
+              - generic [ref=e1680]:
+                - blockquote [ref=e1681]: "\"Meeting the students and learning about their journeys has been inspiring — their resilience and can-do attitude amaze me. Watching them grow socially and academically is incredibly rewarding. As the child of immigrants, it’s meaningful to help them embrace life in Australia.\""
+                - generic [ref=e1682]:
+                  - generic "Shani Herat Gunaratne" [ref=e1683]:
+                    - generic [ref=e1684]: Volunteer Homework Centre Tutor
+                    - img [ref=e1685]
+                  - generic [ref=e1690]:
+                    - generic [ref=e1691]: Shani Herat Gunaratne
+                    - generic [ref=e1692]: Volunteer Homework Centre Tutor
+              - generic [ref=e1698]:
+                - blockquote [ref=e1699]: "\"I love helping migrant refugees build a new life in Australia — it’s meaningful and fulfilling. As the child of migrants myself, I want newcomers to feel welcome and supported. Mosaic’s staff and volunteers have been wonderful to work with.\""
+                - generic [ref=e1700]:
+                  - generic "Dennis Archibald" [ref=e1701]:
+                    - generic [ref=e1702]: Volunteer Citizenship Test Tutor
+                    - img [ref=e1703]
+                  - generic [ref=e1708]:
+                    - generic [ref=e1709]: Dennis Archibald
+                    - generic [ref=e1710]: Volunteer Citizenship Test Tutor
+              - generic [ref=e1716]:
+                - blockquote [ref=e1717]: "\"Volunteering has given me a sense of purpose since 1983 — it’s incredibly rewarding to help people in their own language and connect deeply with others. Over the years, these connections have become like an extended family to me, widening my world through culture, friendship, and shared experiences.\""
+                - generic [ref=e1718]:
+                  - generic "Joop de Wit" [ref=e1719]:
+                    - generic [ref=e1720]: ACVVS Volunteer
+                    - img [ref=e1721]
+                  - generic [ref=e1726]:
+                    - generic [ref=e1727]: Joop de Wit
+                    - generic [ref=e1728]: ACVVS Volunteer
+              - generic [ref=e1734]:
+                - blockquote [ref=e1735]: "\"I’m very happy with the caseworker’s help. She is respectful, caring, and adds great value to Mosaic.\""
+                - generic [ref=e1736]:
+                  - generic "Terez Al Talli" [ref=e1737]:
+                    - generic [ref=e1738]: Settlement, Families & Communities Client
+                    - img [ref=e1739]
+                  - generic [ref=e1742]:
+                    - generic [ref=e1743]: Terez Al Talli
+                    - generic [ref=e1744]: Settlement, Families & Communities Client
+              - generic [ref=e1750]:
+                - blockquote [ref=e1751]: "\"the caseworker has been amazing to work with — intelligent, professional, and always understanding what’s needed. We felt so comfortable and supported throughout.\""
+                - generic [ref=e1752]:
+                  - generic "Ali" [ref=e1753]:
+                    - generic [ref=e1754]: Settlement, Families & Communities Client
+                    - img [ref=e1755]
+                  - generic [ref=e1758]:
+                    - generic [ref=e1759]: Ali
+                    - generic [ref=e1760]: Settlement, Families & Communities Client
+              - generic [ref=e1766]:
+                - blockquote [ref=e1767]: "\"Mosaic has been incredible in supporting my settlement journey, especially through my case worker. She helped us with housing, improving my resume, finding employment, and guided me both practically and emotionally.\""
+                - generic [ref=e1768]:
+                  - generic "Tara Tamanna" [ref=e1769]:
+                    - generic [ref=e1770]: Settlement, Families & Communities Client
+                    - img [ref=e1771]
+                  - generic [ref=e1774]:
+                    - generic [ref=e1775]: Tara Tamanna
+                    - generic [ref=e1776]: Settlement, Families & Communities Client
+              - generic [ref=e1782]:
+                - blockquote [ref=e1783]: "\"the caseworker’s empathy, patience, and dedication have made such a difference in my life. She listens without judgment, always advocates on my behalf, and has helped me feel respected and supported.\""
+                - generic [ref=e1784]:
+                  - generic "Nathan Truong" [ref=e1785]:
+                    - generic [ref=e1786]: Settlement, Families & Communities Client
+                    - img [ref=e1787]
+                  - generic [ref=e1790]:
+                    - generic [ref=e1791]: Nathan Truong
+                    - generic [ref=e1792]: Settlement, Families & Communities Client
+              - generic [ref=e1798]:
+                - blockquote [ref=e1799]: "\"Your receptionist is always so pleasant and helpful on the phone. She makes every interaction easy.\""
+                - generic [ref=e1800]:
+                  - generic "Jocelyn Dowding" [ref=e1801]:
+                    - generic [ref=e1802]: Admin Services Client
+                    - img [ref=e1803]
+                  - generic [ref=e1810]:
+                    - generic [ref=e1811]: Jocelyn Dowding
+                    - generic [ref=e1812]: Admin Services Client
+              - generic [ref=e1818]:
+                - blockquote [ref=e1819]: "\"I wanted to pass on how pleased I am with my care worker. She did a wonderful job and I’m grateful for her support.\""
+                - generic [ref=e1820]:
+                  - generic "Roger Turner" [ref=e1821]:
+                    - generic [ref=e1822]: Home Care Client
+                    - img [ref=e1823]
+                  - generic [ref=e1826]:
+                    - generic [ref=e1827]: Roger Turner
+                    - generic [ref=e1828]: Home Care Client
+              - generic [ref=e1834]:
+                - blockquote [ref=e1835]: "\"Your centre supported us through a domestic violence situation and helped us organise everything we needed to survive. Elena has supported my family for over a year — she’s a blessing. Thank you for having such a wonderful specialist.\""
+                - generic [ref=e1836]:
+                  - generic "Nadezhda Aubin" [ref=e1837]:
+                    - generic [ref=e1838]: Settlement, Families & Communities Client
+                    - img [ref=e1839]
+                  - generic [ref=e1842]:
+                    - generic [ref=e1843]: Nadezhda Aubin
+                    - generic [ref=e1844]: Settlement, Families & Communities Client
+              - generic [ref=e1850]:
+                - blockquote [ref=e1851]: "\"Ron has developed a wonderful rapport with his carer — they even enjoy playing soccer together in the park on sunny days. Since the carers have come into his life, his mind has been much more stimulated and his conversations more lively.\""
+                - generic [ref=e1852]:
+                  - generic "Ronald Madge" [ref=e1853]:
+                    - generic [ref=e1854]: Home Care Client
+                    - img [ref=e1855]
+                  - generic [ref=e1858]:
+                    - generic [ref=e1859]: Ronald Madge
+                    - generic [ref=e1860]: Home Care Client
+              - generic [ref=e1866]:
+                - blockquote [ref=e1867]: "\"My care worker was wonderful and I’m very happy with Mosaic’s support. I’m grateful for everything you’ve provided.\""
+                - generic [ref=e1868]:
+                  - generic "Sabina Morgan" [ref=e1869]:
+                    - generic [ref=e1870]: Home Care Client
+                    - img [ref=e1871]
+                  - generic [ref=e1874]:
+                    - generic [ref=e1875]: Sabina Morgan
+                    - generic [ref=e1876]: Home Care Client
+              - generic [ref=e1882]:
+                - blockquote [ref=e1883]: "\"Thank you so much for all the support. I’m very happy with the non-slip socks I received.\""
+                - generic [ref=e1884]:
+                  - generic "Pamela June Mahoney" [ref=e1885]:
+                    - generic [ref=e1886]: Home Care Client
+                    - img [ref=e1887]
+                  - generic [ref=e1890]:
+                    - generic [ref=e1891]: Pamela June Mahoney
+                    - generic [ref=e1892]: Home Care Client
+              - generic [ref=e1898]:
+                - blockquote [ref=e1899]: "\"I’m very happy with my care support worker and would love to have her support whenever possible. She’s been wonderful.\""
+                - generic [ref=e1900]:
+                  - generic "Jennifer Ruth Ransom" [ref=e1901]:
+                    - generic [ref=e1902]: Home Care Client
+                    - img [ref=e1903]
+                  - generic [ref=e1906]:
+                    - generic [ref=e1907]: Jennifer Ruth Ransom
+                    - generic [ref=e1908]: Home Care Client
+              - generic [ref=e1914]:
+                - blockquote [ref=e1915]: "\"I’m settling in well and feeling much better. I’m grateful for all the support provided — thank you for helping me through this transition.\""
+                - generic [ref=e1916]:
+                  - generic "Marian Robinson" [ref=e1917]:
+                    - generic [ref=e1918]: Home Care Client
+                    - img [ref=e1919]
+                  - generic [ref=e1922]:
+                    - generic [ref=e1923]: Marian Robinson
+                    - generic [ref=e1924]: Home Care Client
+              - generic [ref=e1930]:
+                - blockquote [ref=e1931]: "\"I’m very satisfied with my care support worker today and would love to have him back again.\""
+                - generic [ref=e1932]:
+                  - generic "Eugen Kozic" [ref=e1933]:
+                    - generic [ref=e1934]: Home Care Client
+                    - img [ref=e1935]
+                  - generic [ref=e1938]:
+                    - generic [ref=e1939]: Eugen Kozic
+                    - generic [ref=e1940]: Home Care Client
+              - generic [ref=e1946]:
+                - blockquote [ref=e1947]: "\"After I had a fall, my care support worker did everything she could to help — she was truly lovely. I was very grateful for her support.\""
+                - generic [ref=e1948]:
+                  - generic "Rosa Mignanelli" [ref=e1949]:
+                    - generic [ref=e1950]: Home Care Client
+                    - img [ref=e1951]
+                  - generic [ref=e1954]:
+                    - generic [ref=e1955]: Rosa Mignanelli
+                    - generic [ref=e1956]: Home Care Client
+              - generic [ref=e1962]:
+                - blockquote [ref=e1963]: "\"My scheduler is always cheerful, pleasant, and incredibly helpful every single time. Any change to Harold’s visits is always communicated clearly by phone or text.\""
+                - generic [ref=e1964]:
+                  - generic "Mrs Jarvis (for Harold Jarvis)" [ref=e1965]:
+                    - generic [ref=e1966]: Home Care Family Member
+                    - img [ref=e1967]
+                  - generic [ref=e1971]:
+                    - generic [ref=e1972]: Mrs Jarvis (for Harold Jarvis)
+                    - generic [ref=e1973]: Home Care Family Member
+              - generic [ref=e1979]:
+                - blockquote [ref=e1980]: "\"He helps with my groceries and even plays guitar for Peter, which brought back wonderful memories from his band days. We were joking that we should adopt him!\""
+                - generic [ref=e1981]:
+                  - generic "Peter Rochfort" [ref=e1982]:
+                    - generic [ref=e1983]: Home Care Client
+                    - img [ref=e1984]
+                  - generic [ref=e1987]:
+                    - generic [ref=e1988]: Peter Rochfort
+                    - generic [ref=e1989]: Home Care Client
+              - generic [ref=e1995]:
+                - blockquote [ref=e1996]: "\"He is an excellent shopper — a true gentleman who always goes above and beyond. I would welcome him into my home any time.\""
+                - generic [ref=e1997]:
+                  - generic "Veronica Wright" [ref=e1998]:
+                    - generic [ref=e1999]: Home Care Client
+                    - img [ref=e2000]
+                  - generic [ref=e2003]:
+                    - generic [ref=e2004]: Veronica Wright
+                    - generic [ref=e2005]: Home Care Client
+          - generic [ref=e2011]: 95% client satisfaction rate
+        - region "Google Reviews" [ref=e2013]:
+          - generic [ref=e2017]:
+            - generic [ref=e2018]:
+              - generic [ref=e2021]: Google Reviews
+              - heading "What People Are Saying" [level=2] [ref=e2022]
+              - paragraph [ref=e2023]: Verified quotes from our public Google Reviews. Read more on Google for full context.
+            - generic [ref=e2025]:
+              - generic [ref=e2026]:
+                - generic [ref=e2027]:
+                  - generic [ref=e2028]:
+                    - generic "Avatar for Mohammad halim Azimi" [ref=e2029]:
+                      - generic [ref=e2030]: MA
+                    - generic [ref=e2031]:
+                      - generic [ref=e2032]: Mohammad halim Azimi
+                      - generic [ref=e2033]: 2025-10-17
+                  - img "5 out of 5 stars" [ref=e2034]:
+                    - img [ref=e2035]
+                    - img [ref=e2037]
+                    - img [ref=e2039]
+                    - img [ref=e2041]
+                    - img [ref=e2043]
+                - blockquote [ref=e2046]: “Mosaic Multicultural Connections is an amazing organisation! They always provide excellent support and care for our community. I’m truly grateful for their kindness, professionalism, and dedication. … More”
+                - generic [ref=e2047]:
+                  - generic [ref=e2048]: "Source: Google Reviews"
+                  - link "View review on Google" [ref=e2049] [cursor=pointer]:
+                    - /url: https://g.page/r/CS2sb5dkY56KEAE/review
+                    - text: View on Google
+                    - img [ref=e2050]
+              - generic [ref=e2054]:
+                - generic [ref=e2055]:
+                  - generic [ref=e2056]:
+                    - generic "Avatar for Ameena Qassim" [ref=e2057]:
+                      - generic [ref=e2058]: AQ
+                    - generic [ref=e2059]:
+                      - generic [ref=e2060]: Ameena Qassim
+                      - generic [ref=e2061]: 2025-11-07
+                  - img "5 out of 5 stars" [ref=e2062]:
+                    - img [ref=e2063]
+                    - img [ref=e2065]
+                    - img [ref=e2067]
+                    - img [ref=e2069]
+                    - img [ref=e2071]
+                - blockquote [ref=e2074]: “Mosaic is really good. Thy till us every thing we need, and if there are any cores my casa manger send it to me That is in top of the Arabic women speaking group that have all the information we need and always send us updates.”
+                - generic [ref=e2075]:
+                  - generic [ref=e2076]: "Source: Google Reviews"
+                  - link "View review on Google" [ref=e2077] [cursor=pointer]:
+                    - /url: https://g.page/r/CS2sb5dkY56KEAE/review
+                    - text: View on Google
+                    - img [ref=e2078]
+              - generic [ref=e2082]:
+                - generic [ref=e2083]:
+                  - generic [ref=e2084]:
+                    - generic "Avatar for سميان علي" [ref=e2085]:
+                      - generic [ref=e2086]: سع
+                    - generic [ref=e2087]:
+                      - generic [ref=e2088]: سميان علي
+                      - generic [ref=e2089]: 2025-10-24
+                  - img "5 out of 5 stars" [ref=e2090]:
+                    - img [ref=e2091]
+                    - img [ref=e2093]
+                    - img [ref=e2095]
+                    - img [ref=e2097]
+                    - img [ref=e2099]
+                - blockquote [ref=e2102]: “Proud to support Mosaic Multicultural Connections for their continuous efforts in empowering multicultural communities and promoting understanding and collaboration. Your work makes a real difference and truly deserves appreciation.”
+                - generic [ref=e2103]:
+                  - generic [ref=e2104]: "Source: Google Reviews"
+                  - link "View review on Google" [ref=e2105] [cursor=pointer]:
+                    - /url: https://g.page/r/CS2sb5dkY56KEAE/review
+                    - text: View on Google
+                    - img [ref=e2106]
+            - link "Read all reviews on Google" [ref=e2111] [cursor=pointer]:
+              - /url: https://g.page/r/CS2sb5dkY56KEAE/review
+              - text: Read all reviews on Google
+              - img [ref=e2112]
+        - generic [ref=e2122]:
+          - generic [ref=e2125]: TAKE ACTION TODAY
+          - heading "Ready to Take Your Next Step?" [level=2] [ref=e2126]
+          - paragraph [ref=e2127]: Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
+          - generic [ref=e2128]:
+            - link "Explore Our Services" [ref=e2129] [cursor=pointer]:
+              - /url: /services
+              - generic [ref=e2130]: Explore Our Services
+              - img [ref=e2131]
+            - link "Get Support Now" [ref=e2135] [cursor=pointer]:
+              - /url: /contact
+              - img [ref=e2136]
+              - generic [ref=e2138]: Get Support Now
+          - paragraph [ref=e2141]:
+            - text: "*Service Areas: Our services may vary by location. Please"
+            - link "Contact us" [ref=e2142] [cursor=pointer]:
+              - /url: /contact
+            - text: to confirm availability.
+    - contentinfo [ref=e2143]:
+      - generic [ref=e2144]:
+        - navigation "Quick Links" [ref=e2148]:
+          - generic [ref=e2149]:
+            - generic [ref=e2150]:
+              - link "Mosaic Multicultural Connections" [ref=e2151] [cursor=pointer]:
+                - /url: /
+                - img "Mosaic Multicultural Connections" [ref=e2152]
+              - generic [ref=e2153]:
+                - generic [ref=e2154]: 40+ Years of Impact
+                - generic [ref=e2155]: Multicultural Services NSW
+            - generic [ref=e2156]:
+              - paragraph [ref=e2157]: Overview
+              - list [ref=e2158]:
+                - listitem [ref=e2159]:
+                  - link "Home" [ref=e2160] [cursor=pointer]:
+                    - /url: /
+                - listitem [ref=e2161]:
+                  - link "About" [ref=e2162] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e2163]:
+                  - link "Stories" [ref=e2164] [cursor=pointer]:
+                    - /url: /stories
+            - generic [ref=e2165]:
+              - paragraph [ref=e2166]: Services
+              - list [ref=e2167]:
+                - listitem [ref=e2168]:
+                  - link "Settlement Support" [ref=e2169] [cursor=pointer]:
+                    - /url: /services/settlement-support
+                - listitem [ref=e2170]:
+                  - link "Home Care Services" [ref=e2171] [cursor=pointer]:
+                    - /url: /services/aged-care
+                - listitem [ref=e2172]:
+                  - link "Family Support" [ref=e2173] [cursor=pointer]:
+                    - /url: /services/family-support
+                - listitem [ref=e2174]:
+                  - link "Community Engagement" [ref=e2175] [cursor=pointer]:
+                    - /url: /services/community-engagement
+            - generic [ref=e2176]:
+              - paragraph [ref=e2177]: Resources
+              - list [ref=e2178]:
+                - listitem [ref=e2179]:
+                  - link "Emergency & Translation Services" [ref=e2180] [cursor=pointer]:
+                    - /url: /resources/emergency-translation
+                - listitem [ref=e2181]:
+                  - link "Annual Reports" [ref=e2182] [cursor=pointer]:
+                    - /url: /resources/annual-reports
+                - listitem [ref=e2183]:
+                  - link "Knowledge Base" [ref=e2184] [cursor=pointer]:
+                    - /url: /company/knowledge-base
+            - generic [ref=e2185]:
+              - paragraph [ref=e2186]: Get Involved
+              - list [ref=e2187]:
+                - listitem [ref=e2188]:
+                  - link "Volunteer" [ref=e2189] [cursor=pointer]:
+                    - /url: https://tally.so/r/3qoXjg
+                - listitem [ref=e2190]:
+                  - link "Career" [ref=e2191] [cursor=pointer]:
+                    - /url: https://employmenthero.com/mosaic-mc
+                - listitem [ref=e2192]:
+                  - link "Donate" [ref=e2193] [cursor=pointer]:
+                    - /url: /donate
+        - generic [ref=e2195]:
+          - generic [ref=e2196]:
+            - paragraph [ref=e2197]: Acknowledgement of Country
+            - paragraph [ref=e2198]: Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.
+            - paragraph [ref=e2199]: We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
+          - generic [ref=e2200]:
+            - paragraph [ref=e2201]: About Mosaic
+            - paragraph [ref=e2202]: Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.
+            - generic [ref=e2203]:
+              - link "Contact" [ref=e2204] [cursor=pointer]:
+                - /url: /contact
+                - img [ref=e2205]
+                - text: Contact
+              - link "Refer a client" [ref=e2207] [cursor=pointer]:
+                - /url: https://tally.so/r/w4veNk
+                - img [ref=e2208]
+                - text: Refer
+              - link "Leave a Google Review" [ref=e2213] [cursor=pointer]:
+                - /url: https://g.page/r/CS2sb5dkY56KEBM/review
+                - img [ref=e2214]
+                - text: Leave a Google Review
+              - link "Share Your Feedback" [ref=e2216] [cursor=pointer]:
+                - /url: https://forms.mosaicmc.org.au/Feedback
+                - img [ref=e2217]
+                - text: Share Your Feedback
+      - generic "Language selection" [ref=e2220]:
+        - generic [ref=e2222]:
+          - button "Change language to AR" [ref=e2223] [cursor=pointer]:
+            - generic [ref=e2224]: 🇸🇦
+            - generic [ref=e2225]: AR
+          - button "Change language to ZH" [ref=e2226] [cursor=pointer]:
+            - generic [ref=e2227]: 🇨🇳
+            - generic [ref=e2228]: ZH
+          - button "Change language to ZH" [ref=e2229] [cursor=pointer]:
+            - generic [ref=e2230]: 🇹🇼
+            - generic [ref=e2231]: ZH
+          - button "Change language to EN" [ref=e2232] [cursor=pointer]:
+            - generic [ref=e2233]: 🇦🇺
+            - generic [ref=e2234]: EN
+          - button "Change language to TL" [ref=e2235] [cursor=pointer]:
+            - generic [ref=e2236]: 🇵🇭
+            - generic [ref=e2237]: TL
+          - button "Change language to HI" [ref=e2238] [cursor=pointer]:
+            - generic [ref=e2239]: 🇮🇳
+            - generic [ref=e2240]: HI
+          - button "Change language to IT" [ref=e2241] [cursor=pointer]:
+            - generic [ref=e2242]: 🇮🇹
+            - generic [ref=e2243]: IT
+          - button "Change language to RU" [ref=e2244] [cursor=pointer]:
+            - generic [ref=e2245]: 🇷🇺
+            - generic [ref=e2246]: RU
+          - button "Change language to KU" [ref=e2247] [cursor=pointer]:
+            - generic [ref=e2248]: 🏳️
+            - generic [ref=e2249]: KU
+          - button "Change language to FA" [ref=e2250] [cursor=pointer]:
+            - generic [ref=e2251]: 🇮🇷
+            - generic [ref=e2252]: FA
+          - button "Change language to PT" [ref=e2253] [cursor=pointer]:
+            - generic [ref=e2254]: 🇵🇹
+            - generic [ref=e2255]: PT
+          - button "Change language to SM" [ref=e2256] [cursor=pointer]:
+            - generic [ref=e2257]: 🇼🇸
+            - generic [ref=e2258]: SM
+          - button "Change language to ES" [ref=e2259] [cursor=pointer]:
+            - generic [ref=e2260]: 🇪🇸
+            - generic [ref=e2261]: ES
+          - button "Change language to SW" [ref=e2262] [cursor=pointer]:
+            - generic [ref=e2263]: 🇰🇪
+            - generic [ref=e2264]: SW
+          - button "Change language to TH" [ref=e2265] [cursor=pointer]:
+            - generic [ref=e2266]: 🇹🇭
+            - generic [ref=e2267]: TH
+          - button "Change language to UK" [ref=e2268] [cursor=pointer]:
+            - generic [ref=e2269]: 🇺🇦
+            - generic [ref=e2270]: UK
+          - button "Change language to VI" [ref=e2271] [cursor=pointer]:
+            - generic [ref=e2272]: 🇻🇳
+            - generic [ref=e2273]: VI
+      - generic [ref=e2275]:
+        - paragraph [ref=e2276]: © 2024 Mosaic Multicultural Connections. All rights reserved. · 2025
+        - generic [ref=e2277]:
+          - generic [ref=e2278]: Follow Us
+          - link "Visit LinkedIn" [ref=e2279] [cursor=pointer]:
+            - /url: https://au.linkedin.com/company/mosaic-multicultural-connections
+            - img [ref=e2280]
+          - link "Visit Instagram" [ref=e2282] [cursor=pointer]:
+            - /url: https://www.instagram.com/mosaicmc/
+            - img [ref=e2283]
+          - link "Visit Facebook" [ref=e2285] [cursor=pointer]:
+            - /url: https://www.facebook.com/mosaicmulticulturalconnections/
+            - img [ref=e2286]
+    - button "Go to top" [ref=e2288] [cursor=pointer]:
+      - img [ref=e2290]
+  - img [ref=e2295]
 ```

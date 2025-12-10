@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --page-bg: hsl(var(--background));
+    --page-bg-start: var(--page-bg);
+    --page-bg-end: var(--page-bg);
+
+    /* Brand color variables for CSS-driven gradients */
+    --brand-sky: #60c7cc;
+    --brand-ocean: #28367f;
+    --brand-sand: #f3ede7;
+    --brand-sun: #fcb73d;
+    --brand-earth: #f37a60;
+    --brand-leaf: #b4d785;
+    --brand-care: #F16B83;
+
+    /* FlipWords gradient tokens (editable) */
+    --flipwords-from: var(--brand-sky);
+    --flipwords-via: var(--brand-ocean);
+    --flipwords-to: var(--brand-earth);
+
+    /* Alternatives for experimentation */
+    --flipwords-alt1-from: var(--brand-ocean);
+    --flipwords-alt1-via: var(--brand-sky);
+    --flipwords-alt1-to: var(--brand-sun);
+
+    --flipwords-alt2-from: var(--brand-leaf);
+    --flipwords-alt2-via: var(--brand-sky);
+    --flipwords-alt2-to: var(--brand-ocean);
+
+    --flipwords-alt3-from: var(--brand-care);
+    --flipwords-alt3-via: var(--brand-sun);
+    --flipwords-alt3-to: var(--brand-ocean);
+  }
+
+  .dark {
+    --background: 230 54% 25%;
+    --foreground: 0 0% 100%;
+    --card: 230 52% 33%;
+    --card-foreground: 0 0% 100%;
+    --popover: 230 52% 33%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 232 47% 37%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 233 47% 43%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 232 47% 37%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --page-bg: hsl(var(--background));
+    --page-bg-start: var(--page-bg);
+    --page-bg-end: var(--page-bg);
+    --text-primary: hsl(var(--foreground));
+    /* Foreground tokens for hero and header linkage (dark) */
+    --hero-foreground: hsl(var(--primary-foreground));
+    /* Navigation theme variables (dark) */
+    --nav-header-bg: var(--brand-ocean);
+    --nav-header-foreground: hsl(var(--primary-foreground));
+    --surface-1: 230 52% 33%;
+    --surface-2: 232 47% 37%;
+    --surface-3: 233 47% 43%;
+  }
+}
+
+@layer base {
+  html { color-scheme: light dark; }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Google Translate widget layout fixes */
+/* Hide intrusive top banner and reset body offset */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+
+/* Normalize gadget inside our container */
+#google_translate_element { display: block; }
+#google_translate_element .goog-te-gadget { display: block !important; }
+#google_translate_element .goog-te-gadget .goog-te-combo {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid hsl(var(--input)) !important;
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+.dark #google_translate_element .goog-te-gadget .goog-te-combo {
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--input)) !important;
+}
+
+/* Reduce extra spacing and ensure alignment */
+#google_translate_element .goog-te-gadget > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin: 0 !important;
+}
+
+/* Prevent oversized default font */
+.goog-te-gadget .goog-te-combo { font-size: 0.875rem !important; }
+
+@layer components {
+  .bg-nav-header { background-color: var(--nav-header-bg); }
+  .text-nav-header { color: var(--nav-header-foreground); }
+  .theme-nav-ocean { --nav-header-bg: var(--brand-ocean); }
+  .theme-nav-indigo { --nav-header-bg: hsl(var(--ring)); }
+  .theme-nav-midnight { --nav-header-bg: hsl(var(--background)); }
+  .bg-page { background-color: var(--page-bg); }
+  .bg-page-gradient { background-image: linear-gradient(to bottom, var(--page-bg-start), var(--page-bg-end)); }
+  .hero-theme-sky { --page-bg-start: var(--brand-sky); --page-bg-end: var(--brand-ocean); }
+  .hero-theme-sun { --page-bg-start: var(--brand-sun); --page-bg-end: var(--brand-earth); }
+  .hero-theme-leaf { --page-bg-start: var(--brand-leaf); --page-bg-end: var(--brand-ocean); }
+  .hero-theme-care { --page-bg-start: var(--brand-care); --page-bg-end: var(--brand-ocean); }
+}
+@layer components {
+  .text-primary-var { color: var(--text-primary, currentColor); }
+  .text-inherit { color: inherit; }
+  /* FlipWords CSS-driven gradient using tokens (no hard-coded colors) */
+  .flipwords-gradient {
+    background-image: linear-gradient(
+      to right,
+      var(--flipwords-from),
+      var(--flipwords-via),
+      var(--flipwords-to)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 300ms ease;
+    will-change: transform;
+  }
+  .text-brand-gradient {
+    background-image: linear-gradient(
+      to right,
+      var(--flipwords-from),
+      var(--flipwords-via),
+      var(--flipwords-to)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 300ms ease;
+    will-change: transform;
+  }
+  .flipwords-alt-1 {
+    --flipwords-from: var(--flipwords-alt1-from);
+    --flipwords-via: var(--flipwords-alt1-via);
+    --flipwords-to: var(--flipwords-alt1-to);
+  }
+  .flipwords-alt-2 {
+    --flipwords-from: var(--flipwords-alt2-from);
+    --flipwords-via: var(--flipwords-alt2-via);
+    --flipwords-to: var(--flipwords-alt2-to);
+  }
+  .flipwords-alt-3 {
+    --flipwords-from: var(--flipwords-alt3-from);
+    --flipwords-via: var(--flipwords-alt3-via);
+    --flipwords-to: var(--flipwords-alt3-to);
+  }
+}

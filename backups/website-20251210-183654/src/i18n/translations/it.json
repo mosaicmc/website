@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi Siamo",
+    "services": "Servizi",
+    "stories": "Storie",
+    "resources": "Risorse",
+    "locations": "Sedi",
+    "contact": "Contatti",
+    "getInvolved": "Partecipa",
+    "donate": "Dona"
+  },
+  "services": {
+    "settlement": "Supporto all'Insediamento",
+    "agedCare": "Servizi per Anziani",
+    "familySupport": "Supporto Familiare",
+    "communityEngagement": "Coinvolgimento Comunitario"
+  },
+  "hero": {
+    "badge": "Al servizio delle comunità del NSW da oltre 40 anni",
+    "title": "Supportando Comunità Diverse in tutto il NSW",
+    "titleHighlight": "Diverse",
+    "description": "Potenziando le comunità multiculturali attraverso supporto all'insediamento, assistenza agli anziani, servizi familiari e programmi di coinvolgimento comunitario personalizzati per le vostre esigenze.",
+    "exploreServices": "Esplora i Nostri Servizi",
+    "watchStories": "Guarda le Storie",
+    "stats": {
+      "years": "Anni di Servizio",
+      "families": "Famiglie Supportate",
+      "languages": "Lingue Parlate"
+    }
+  },
+  "serviceCards": {
+    "sectionBadge": "I Nostri Servizi",
+    "sectionTitle": "Servizi di Supporto Completi",
+    "sectionDescription": "Servizi culturalmente appropriati progettati per soddisfare le esigenze uniche delle comunità multiculturali nel NSW",
+    "settlement": {
+      "title": "Supporto all'Insediamento",
+      "description": "Supporto completo per i nuovi arrivati inclusi assistenza abitativa, orientamento lavorativo e orientamento comunitario.",
+      "features": [
+        "Assistenza abitativa",
+        "Supporto lavorativo",
+        "Orientamento comunitario",
+        "Servizi linguistici"
+      ]
+    },
+    "agedCare": {
+      "title": "Servizi per Anziani",
+      "description": "Servizi di assistenza agli anziani culturalmente appropriati che rispettano le tradizioni e forniscono comfort in lingue familiari.",
+      "features": [
+        "Pacchetti di assistenza domiciliare",
+        "Attività culturali",
+        "Personale multilingue",
+        "Supporto familiare"
+      ]
+    },
+    "familySupport": {
+      "title": "Supporto Familiare",
+      "description": "Programmi progettati per supportare le famiglie attraverso le sfide e costruire connessioni comunitarie più forti.",
+      "features": [
+        "Programmi genitoriali",
+        "Servizi giovanili",
+        "Supporto in crisi",
+        "Servizi di consulenza"
+      ]
+    },
+    "communityEngagement": {
+      "title": "Coinvolgimento Comunitario",
+      "description": "Creando opportunità per la partecipazione comunitaria, celebrazione culturale e connessione sociale.",
+      "features": [
+        "Eventi culturali",
+        "Programmi di volontariato",
+        "Gruppi comunitari",
+        "Supporto di advocacy"
+      ]
+    },
+    "learnMore": "Scopri di più",
+    "viewAll": "Visualizza Tutti i Servizi"
+  },
+  "common": {
+    "welcome": "Benvenuto",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "retry": "Riprova",
+    "close": "Chiudi",
+    "open": "Apri",
+    "menu": "Menu",
+    "language": "Lingua",
+    "changeLanguage": "Cambia Lingua"
+  },
+  "footer": {
+    "description": "Supportando le comunità multiculturali in tutto il NSW con servizi e programmi culturalmente appropriati.",
+    "quickLinks": "Link Rapidi",
+    "contactInfo": "Informazioni di Contatto",
+    "followUs": "Seguici",
+    "copyright": "© 2024 Mosaic Multicultural Connections. Tutti i diritti riservati."
+  }
+}

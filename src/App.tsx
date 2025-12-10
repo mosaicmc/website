@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ThemeProvider } from './contexts/ThemeContext';
 import MosaicNavigation from './components/MosaicNavigation';
 import Footer from './components/Footer';
-import Breadcrumbs from './components/ui/Breadcrumbs';
 import ScrollToTop from './components/ui/ScrollToTop';
 import { ScrollToTopButton } from './components/ui/floating-elements';
 import GoogleTranslateInit from './components/GoogleTranslateInit';
@@ -39,6 +38,7 @@ const NewcastleVolunteerPage = lazy(() => import('./pages/volunteer/NewcastleVol
 const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCoastVolunteerPage'));
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
+const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
 
 function App() {
   return (
@@ -56,7 +56,6 @@ function App() {
           <ScrollToTop />
           <MosaicNavigation />
           <main id="main">
-            <Breadcrumbs />
             <Suspense fallback={<div className="flex justify-center items-center min-h-[50vh]">Loading...</div>}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -82,6 +81,8 @@ function App() {
                 <Route path="/volunteer/central-coast" element={<CentralCoastVolunteerPage />} />
                 <Route path="/volunteer/armidale" element={<ArmidaleVolunteerPage />} />
                 <Route path="/volunteer/tamworth" element={<TamworthVolunteerPage />} />
+                {/* Test routes (isolated) */}
+                <Route path="/tests/color-contrast" element={<ColorContrastTestPage />} />
                 {/* Policies */}
                 <Route path="/policies/code-of-conduct" element={<CodeOfConductPolicyPage />} />
                 <Route path="/policies/diversity-inclusion" element={<DiversityInclusionPolicyPage />} />
