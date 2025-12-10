@@ -7,6 +7,7 @@ import ScrollToTop from './components/ui/ScrollToTop';
 import { ScrollToTopButton } from './components/ui/floating-elements';
 import GoogleTranslateInit from './components/GoogleTranslateInit';
 import DefaultSEO from './components/SEO';
+import { initMonitoring } from '@/lib/logger';
 
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -41,6 +42,7 @@ const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolun
 const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
 
 function App() {
+  initMonitoring();
   return (
     <ThemeProvider>
       <Router>

@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .env
 .env.*
+
+# Backups and large archives
+backups/
+*.tar.gz
