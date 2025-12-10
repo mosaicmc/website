@@ -125,33 +125,7 @@ const AgedCarePage = () => {
         <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
       </Helmet>
       <FAQSchema faqs={faqData} name="Home Care FAQs" />
-      {/* Announcement: New Aged Care Act commencement (single line) */}
-      <section className="bg-gradient-to-r from-care to-care/90 text-white py-4 animate-fade-in-down">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 whitespace-nowrap overflow-x-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 flex-shrink-0"><path d="M3 10a6 6 0 016-6h7a1 1 0 011 1v2.382a2 2 0 010 3.236V13a1 1 0 01-1 1H9a6 6 0 01-6-6z"/><path d="M13 16h2a3 3 0 013 3v2H8v-2a3 3 0 013-3h2z"/></svg>
-            <span className="font-semibold">The new Aged Care Act is now in effect</span>
-            <span className="text-white/90 text-sm">• Effective 1 November 2025</span>
-            <a
-              href="https://www.health.gov.au/our-work/aged-care-act/about"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg font-medium text-sm transition-all duration-200 flex-shrink-0"
-            >
-              About the Act
-            </a>
-            <a
-              href="https://www.health.gov.au/news/new-aged-care-act-to-start-from-1-november"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center border border-white/60 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg font-medium text-sm transition-all duration-200 flex-shrink-0"
-            >
-              Official announcement
-            </a>
-            <span className="text-white/90 text-sm">• Rights-based framework · Stronger safeguards</span>
-          </div>
-        </div>
-      </section>
+      
       {/* Hero Section with enhanced animations */}
       <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Animated background elements */}

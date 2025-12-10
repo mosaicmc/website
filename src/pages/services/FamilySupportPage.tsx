@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Users, Phone, AlertTriangle, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Team05 from '../../components/ui/team-05';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
@@ -153,23 +153,8 @@ const FamilySupportPage = () => {
         <meta name="description" content="Free multicultural family support including TEI casework and PAW playgroups, with interpreters and culturally safe programs." />
       </Helmet>
       <FAQSchema faqs={faqData} name="Family Support FAQs" />
-      {/* Crisis Banner with subtle animation */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4 animate-fade-in-down">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
-            <div className="flex items-center space-x-2 mb-2 sm:mb-0">
-              <AlertTriangle className="h-5 w-5 animate-pulse" />
-              <span className="font-semibold">Need Family Support Now?</span>
-            </div>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <a href="tel:000" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Emergency: Call 000</a>
-              <a href="tel:0249608400" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Family Support: (02) 4960 8400</a>
-              <a href="tel:1800737732" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Family Violence: 1800 RESPECT</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+      
       {/* Hero Section with enhanced animations */}
       <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <AnimatedBackground variant="vibrant" />

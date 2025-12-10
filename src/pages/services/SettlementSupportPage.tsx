@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Home, Phone, AlertTriangle, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Globe, FileText } from 'lucide-react';
+import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Globe, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Team05 from '../../components/ui/team-05';
 import RelatedServices from '../../components/RelatedServices';
@@ -174,23 +174,8 @@ const SettlementSupportPage = () => {
         />
       </Helmet>
       <FAQSchema faqs={faqData} name="Settlement Support FAQs" />
-      {/* Crisis Banner with subtle animation */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 animate-fade-in-down">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
-            <div className="flex items-center space-x-2 mb-2 sm:mb-0">
-              <AlertTriangle className="h-5 w-5 animate-pulse" />
-              <span className="font-semibold">Need Settlement Support Now?</span>
-            </div>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <a href="tel:000" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Emergency: Call 000</a>
-              <a href="tel:1800813205" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Settlement Support: 1800 813 205</a>
-              <a href="tel:131450" className="hover:underline font-medium transition-all duration-300 hover:scale-105">Interpreter: 131 450</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+      
       {/* Hero Section with enhanced animations */}
       <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Animated background elements */}

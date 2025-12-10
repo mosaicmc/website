@@ -18,5 +18,9 @@ test.describe('Removal of info bar and breadcrumbs', () => {
     await page.goto('/services/family-support');
     await expect(page.getByText('Need Family Support Now?')).toHaveCount(0);
   });
-});
 
+  test('Info bar is removed from Aged Care', async ({ page }) => {
+    await page.goto('/services/aged-care');
+    await expect(page.getByText('The new Aged Care Act is now in effect')).toHaveCount(0);
+  });
+});
