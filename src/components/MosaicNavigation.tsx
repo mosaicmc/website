@@ -178,6 +178,55 @@ export default function MosaicNavigation() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [topQueries, setTopQueries] = useState<{ query: string; count: number }[]>([]);
   const [isOwner, setIsOwner] = useState(false);
+  const { theme } = useTheme();
+  const glassRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    const el = glassRef.current;
+    if (!el) return;
+    el.style.transition = "all 300ms ease";
+    (el.style as unknown as CSSStyleDeclaration & { webkitTransition?: string }).webkitTransition = "all 300ms ease";
+    el.style.willChange = "opacity, backdrop-filter, transform, box-shadow, border-color";
+    el.style.transform = "translateZ(0)";
+    const supportsBackdrop =
+      (window.CSS && CSS.supports("backdrop-filter: blur(1px)")) ||
+      (window.CSS && CSS.supports("-webkit-backdrop-filter: blur(1px)"));
+    const update = () => {
+      const y = window.scrollY || 0;
+      let p = y / 300;
+      if (p < 0) p = 0;
+      if (p > 1) p = 1;
+      const blur = 2 + 14 * p;
+      const alpha = 0.15 + 0.35 * p;
+      const bgLight = `rgba(255,255,255,${alpha})`;
+      const bgDark = `rgba(2,6,23,${alpha})`;
+      el.style.opacity = "1";
+      el.style.backgroundColor = theme === "dark" ? bgDark : bgLight;
+      if (supportsBackdrop) {
+        el.style.backdropFilter = `blur(${blur}px)`;
+        (el.style as unknown as CSSStyleDeclaration & { WebkitBackdropFilter?: string }).WebkitBackdropFilter = `blur(${blur}px)`;
+      }
+      const shadowAlpha = 0.05 + 0.15 * p;
+      el.style.boxShadow = `0 8px 24px rgba(0,0,0,${shadowAlpha})`;
+      const borderAlpha = 0.08 + 0.12 * p;
+      el.style.border = theme === "dark"
+        ? `1px solid rgba(148,163,184,${borderAlpha})`
+        : `1px solid rgba(255,255,255,${borderAlpha})`;
+    };
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          update();
+        });
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [theme]);
 
   // Check if current path matches navigation item
   const isActivePath = (href: string, hasDropdown?: boolean) => {
@@ -353,8 +402,11 @@ export default function MosaicNavigation() {
         </div>
       )}
 
-      <nav className="border-b bg-white dark:bg-slate-800 sticky top-0 z-50 shadow-lg border-gray-200 dark:border-slate-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="sticky top-0 z-50">
+        <div
+          ref={glassRef}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
             <Logo />
@@ -472,7 +524,7 @@ export default function MosaicNavigation() {
                     </NavigationMenuItem>
                   ))}
 
-                  {/* Get Involved Dropdown */}
+                  {/* Get Involved Dropdown (rolled back to simpler layout) */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className={cn(
@@ -485,52 +537,38 @@ export default function MosaicNavigation() {
                       onFocus={() => { prefetchRoute('/donate'); }}
                     >{t('nav.getInvolved')}</NavigationMenuTrigger>
                     <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-border">
-                        <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Participate</h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3">
-                            {getInvolvedLinks.map((gi) => (
-                              gi.href ? (
-                                <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
-                                  {gi.description}
-                                </ListItem>
-                              ) : (
-                                <li key={gi.title}>
-                                  <a
-                                    href={gi.external}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className={cn(
-                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
-                                      "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
-                                      "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-                                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                                    )}
-                                  >
-                                    <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-                                      <gi.icon className="h-5 w-5" />
-                                      {gi.title}
-                                    </div>
-                                    <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                      {gi.description}
-                                    </p>
-                                  </a>
-                                </li>
-                              )
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Explore</h6>
-                          <ul className="mt-2.5 grid gap-3">
-                            <ListItem title="Contact" to="/contact" icon={Phone}>
-                              Reach us for guidance and support
-                            </ListItem>
-                            <ListItem title="Locations" to="/locations" icon={Home}>
-                              Find service locations across New South Wales
-                            </ListItem>
-                          </ul>
-                        </div>
+                      <div className="p-4 w-[420px]">
+                        <ul className="grid gap-3">
+                          {getInvolvedLinks.map((gi) => (
+                            gi.href ? (
+                              <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
+                                {gi.description}
+                              </ListItem>
+                            ) : (
+                              <li key={gi.title}>
+                                <a
+                                  href={gi.external}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={cn(
+                                    "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
+                                    "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
+                                    "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
+                                    "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                                  )}
+                                >
+                                  <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
+                                    <gi.icon className="h-5 w-5" />
+                                    {gi.title}
+                                  </div>
+                                  <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                    {gi.description}
+                                  </p>
+                                </a>
+                              </li>
+                            )
+                          ))}
+                        </ul>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
