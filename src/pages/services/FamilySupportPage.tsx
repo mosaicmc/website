@@ -51,14 +51,16 @@ const FamilySupportPage = () => {
       role: "PAW- Playgroup Facilitator",
       qualifications: "Bachelor's Primary/Early Education + Community Services + Disability Services + Parenting Programs Accreditation",
       phone: "0434 426 981",
-      email: "h.mieres@mosaicmc.org.au"
+      email: "h.mieres@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Helen_128px.webp"
     },
     {
       name: "Natalia Meliendrez",
       role: "Multicultural Community Development Lead – Central Coast",
       qualifications: "Community services leadership and multicultural community development",
       phone: "0431 491 748",
-      email: "n.meliendrez@mosaicmc.org.au"
+      email: "n.meliendrez@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
     },
     
   ];
