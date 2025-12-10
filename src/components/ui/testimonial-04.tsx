@@ -76,14 +76,14 @@ const RoleAvatar = ({ role, name }: { role?: string; name?: string }) => {
   return (
     <div
       className={cn(
-        'w-12 h-12 rounded-full flex items-center justify-center border-2 text-white shadow-lg shadow-black/10 dark:shadow-black/40',
+        'w-10 h-10 rounded-full flex items-center justify-center border-2 text-white shadow-lg shadow-black/10 dark:shadow-black/40',
         bg,
         ring
       )}
       aria-label={name || role || 'Community Member'}
     >
       <span className="sr-only">{role || 'Community Member'}</span>
-      <Icon className="w-6 h-6" aria-hidden="true" />
+      <Icon className="w-5 h-5" aria-hidden="true" />
     </div>
   );
 };
@@ -93,9 +93,9 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
   const showImage = Boolean(image && !imageError);
 
   return (
-    <div className="group w-80 flex-shrink-0 mx-4 pt-1 pr-1">
+    <div className="group w-80 md:w-96 flex-shrink-0 mx-4 pt-1 pr-1">
       {/* Glass morphism card with enhanced effects - Added padding to prevent clipping */}
-      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-4 md:p-5 lg:p-4 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
         
         {/* Gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -103,7 +103,7 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
         {/* Content with enhanced readability */}
         <div className="relative z-10 h-full flex flex-col">
           {/* Quote */}
-          <blockquote className="text-gray-700 dark:text-white/90 leading-relaxed mb-6 text-base flex-1">
+          <blockquote className="text-gray-700 dark:text-white/90 leading-snug lg:leading-tight mb-4 lg:mb-3 text-sm flex-1">
             "{testimonial}"
           </blockquote>
           
@@ -113,7 +113,7 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
               <img
                 src={image}
                 alt={name || role || 'Community Member'}
-                className="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
+                className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
                 loading="lazy"
                 onError={() => setImageError(true)}
               />

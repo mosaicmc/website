@@ -104,7 +104,7 @@ const Header = () => {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
-                        className={`relative px-5 py-3 transition-all duration-300 font-semibold text-lg flex items-center rounded-xl hover:backdrop-blur-md hover:scale-105 ${
+                        className={`relative flex items-center h-9 px-4 rounded-md text-sm font-medium transition-all duration-300 hover:backdrop-blur-md hover:scale-105 ${
                           isActivePath(item.href, item.hasDropdown)
                             ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
                             : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
@@ -137,7 +137,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`relative px-5 py-3 transition-all duration-300 font-semibold text-lg rounded-xl hover:scale-105 ${
+                    className={`relative inline-flex items-center h-9 px-4 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
                       isActivePath(item.href)
                         ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
                         : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
@@ -157,7 +157,7 @@ const Header = () => {
             <ThemeToggle />
             {/* Get Involved Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-1 rounded-xl px-4 py-2.5 font-semibold text-sm transition-all">
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 h-9 px-4 rounded-md text-sm font-medium transition-all">
                 {t('nav.getInvolved')}
                 <span className="text-xs">▾</span>
               </DropdownMenuTrigger>
@@ -197,7 +197,7 @@ const Header = () => {
             {/* Donate CTA remains */}
             <Link
               to="/donate"
-              className="relative px-4 py-2.5 bg-gradient-to-r from-sun to-earth text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:from-sun/90 hover:to-earth/90 hover:shadow-xl hover:shadow-sun/30 hover:scale-105 active:scale-95 backdrop-blur-sm border border-sun/20 overflow-hidden group"
+              className="relative inline-flex items-center h-9 px-4 bg-gradient-to-r from-sun to-earth text-white rounded-md font-semibold text-sm transition-all duration-300 hover:from-sun/90 hover:to-earth/90 hover:shadow-xl hover:shadow-sun/30 hover:scale-105 active:scale-95 backdrop-blur-sm border border-sun/20 overflow-hidden group"
               onClick={handleLinkClick}
             >
               <span className="relative z-10">Donate</span>

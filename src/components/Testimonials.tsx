@@ -12,49 +12,49 @@ type LocalTestimonial = {
 
 const Testimonials = () => {
   // Configurable UI copy defaults
-  const defaultTitle = "What Our Community Says";
-  const defaultSubtitle = "Real stories from families and individuals whose lives have been transformed through our services";
+  const defaultTitle = "Mosaic Testimonials – Client & Volunteer Stories";
+  const defaultSubtitle = "Warm, real experiences from clients and volunteers across our community";
   const defaultBottomText = "95% client satisfaction rate";
   const defaultBadgeLabel = "Testimonials";
 
   const defaultTestimonials: LocalTestimonial[] = [
     {
-      testimonial: "Mosaic helped my family settle into our new life in Australia. The staff understood our cultural needs and provided support in Tagalog. We couldn't have done it without them.",
+      testimonial: "Mosaic helped us settle with culturally aware support in Tagalog. We felt understood and welcomed.",
       name: "Maria Santos",
       role: "Settlement Support Client",
       origin: "Originally from Philippines",
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "The family support programs helped us navigate the challenges of raising children in a new country while maintaining our cultural identity. The counselors were incredibly understanding.",
+      testimonial: "Family support made parenting in a new country easier while honouring our culture. Counselors were thoughtful and kind.",
       name: "Ahmed Hassan",
       role: "Family Support Client",
       origin: "Originally from Sudan",
       image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "My elderly mother receives wonderful home care that respects our Chinese traditions. The staff speak Mandarin and understand the importance of family in our culture.",
+      testimonial: "Mum’s home care respects our traditions. Mandarin-speaking staff make support feel natural and dignified.",
       name: "Li Wei Chen",
       role: "Home Care Family Member",
       origin: "Originally from China",
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "The community engagement programs helped me connect with other families and feel truly part of the Australian community.",
+      testimonial: "Community programs helped us connect and feel at home in Australia.",
       name: "Jennifer Kim",
       role: "Community Member",
       origin: "Originally from Korea",
       image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "Volunteering with Mosaic has been incredibly rewarding. I've helped families navigate their first months in Australia, and seeing their confidence grow is amazing.",
+      testimonial: "Volunteering is rewarding—supporting families through their first months and watching confidence grow.",
       name: "Sarah Wilson",
       role: "Volunteer",
       origin: "Local community member",
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "The home care services provided by Mosaic allowed my father to maintain his dignity while receiving the care he needed in his final years.",
+      testimonial: "Dad received dignified care at home in his final years.",
       name: "David Chen",
       role: "Family Member",
       origin: "Originally from Taiwan",

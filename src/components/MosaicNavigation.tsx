@@ -155,9 +155,9 @@ ListItem.displayName = "ListItem";
 const Logo = () => {
   const { theme } = useTheme();
   return (
-    <Link to="/" className="flex-shrink-0 group relative flex items-center">
+    <Link to="/" className="flex-shrink-0 group relative flex items-center h-16 md:h-20">
       <img
-        className="transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg h-16 sm:h-18 lg:h-20 w-auto max-w-none"
+        className="block transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg h-full w-auto max-w-none"
         src={theme === 'dark' ? '/3.png' : '/4.png'}
         alt="Mosaic Multicultural Connections"
       />
@@ -453,12 +453,12 @@ export default function MosaicNavigation() {
 
       <nav ref={glassRef} className="sticky top-0 z-50 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 lg:h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Logo />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center gap-4">
               <NavigationMenu>
                 <NavigationMenuList>
                   {/* Home */}
@@ -702,7 +702,7 @@ export default function MosaicNavigation() {
                     return next;
                   });
                 }}
-                className="p-2 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                className="inline-flex items-center justify-center h-9 md:h-10 px-3 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -835,7 +835,7 @@ export default function MosaicNavigation() {
                   variant="cta"
                   size="default" 
                   asChild
-                  className="bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                  className="bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                 >
                   <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
                 </Button>
