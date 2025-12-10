@@ -85,4 +85,18 @@ Snapshots saved under `tests/ui/home-about.spec.ts-snapshots/`:
 - Observations:
   - Center-aligned content preserved functionally; alignment unaffected by color rollback.
   - Global dark-body gradient removed per previous stable baseline; section/hero backgrounds remain intact.
-  - No accessibility regressions observed; AA contrast preserved on text and CTAs.
+- No accessibility regressions observed; AA contrast preserved on text and CTAs.
+
+## UI Cleanup – 2025-12-10
+- Removed site-wide breadcrumbs UI and crisis/info bars per requirement.
+- Changes:
+  - Breadcrumbs: Removed `<Breadcrumbs />` from `src/App.tsx:60` to eliminate DOM nav.
+  - Info bars: Deleted banner sections from `src/pages/services/SettlementSupportPage.tsx:178–192` and `src/pages/services/FamilySupportPage.tsx:157–171`.
+  - Cleaned unused imports (`AlertTriangle`) in both pages.
+- Tests:
+  - Added `tests/ui/remove-elements.spec.ts` to assert absence of `nav[aria-label="Breadcrumb"]` and banner texts on target pages.
+- Visual Confirmation:
+  - Preview at `http://localhost:4176/` used to confirm removal across core routes.
+- Notes:
+  - Center alignment functionality remains unchanged.
+  - SEO JSON-LD breadcrumbs are retained in `src/components/SEO.tsx` to preserve search semantics; UI breadcrumbs removed only.
