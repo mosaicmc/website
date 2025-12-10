@@ -7,25 +7,34 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check if we're in browser environment
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme') as Theme;
-      if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-        // Apply immediately to prevent flash
+      const preferred = localStorage.getItem('preferredTheme') as Theme | null;
+      const legacy = localStorage.getItem('theme') as Theme | null;
+
+      const initial = (preferred || legacy) as Theme | null;
+      if (initial && (initial === 'light' || initial === 'dark')) {
         const root = document.documentElement;
-        if (savedTheme === 'dark') {
+        const body = document.body;
+        if (initial === 'dark') {
           root.classList.add('dark');
+          body.classList.remove('theme-light');
         } else {
           root.classList.remove('dark');
+          body.classList.add('theme-light');
         }
-        return savedTheme;
+        // Migrate legacy key to preferredTheme for consistency
+        try { localStorage.setItem('preferredTheme', initial); } catch { /* noop */ }
+        return initial;
       }
-      
-      // Default to dark mode and apply immediately
-      document.documentElement.classList.add('dark');
+
+      // Default to light theme and apply immediately (override system/browser prefs)
+      const root = document.documentElement;
+      const body = document.body;
+      root.classList.remove('dark');
+      body.classList.add('theme-light');
+      try { localStorage.setItem('preferredTheme', 'light'); } catch { /* noop */ }
     }
-    
-    return 'dark';
+    return 'light';
   });
 
   const [mounted, setMounted] = useState(false);
@@ -36,28 +45,22 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (!mounted) return;
-    
-    // Apply theme to document
     const root = document.documentElement;
-    
+    const body = document.body;
     if (theme === 'dark') {
       root.classList.add('dark');
+      body.classList.remove('theme-light');
     } else {
       root.classList.remove('dark');
+      body.classList.add('theme-light');
     }
-    
-    // Save to localStorage
     if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', theme);
+      try { localStorage.setItem('preferredTheme', theme); } catch { /* noop */ }
     }
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => {
-      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
-      console.log('Theme toggled from', prevTheme, 'to', newTheme);
-      return newTheme;
-    });
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
