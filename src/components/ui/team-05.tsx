@@ -11,6 +11,7 @@ interface TeamMember {
   image?: string;
   focalY?: number;
   scale?: number;
+  titleImage?: string;
 }
 
 interface Team05Props {
@@ -19,6 +20,8 @@ interface Team05Props {
   teamMembers: TeamMember[];
   accentColor?: string;
   showDecoration?: boolean;
+  showContactIcons?: boolean;
+  showImageOverlay?: boolean;
   avatarSize?: number;
   bottomSection?: {
     title: string;
@@ -32,6 +35,8 @@ const Team05: React.FC<Team05Props> = ({
   teamMembers, 
   accentColor = "sky",
   showDecoration = true,
+  showContactIcons = true,
+  showImageOverlay = true,
   avatarSize = 160,
   bottomSection 
 }) => {
@@ -213,8 +218,9 @@ const Team05: React.FC<Team05Props> = ({
                           </div>
                         )}
                         
-                        {/* Uniform background overlay to neutralize differing photo backgrounds */}
-                        <div className="absolute inset-0 bg-white/65 dark:bg-slate-900/40 mix-blend-multiply"></div>
+                        {showImageOverlay && (
+                          <div className="absolute inset-0 bg-white/65 dark:bg-slate-900/40 mix-blend-multiply"></div>
+                        )}
                         {/* Overlay Gradient for Professional Look */}
                         {showDecoration && (
                           <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -222,8 +228,7 @@ const Team05: React.FC<Team05Props> = ({
                       </div>
                     </div>
                     
-                    {/* Enhanced Contact Icons with Better Positioning */}
-                    {(member.email || member.phone) && (
+                    {(showContactIcons && (member.email || member.phone)) && (
                       <div className="absolute -bottom-3 -right-3 flex space-x-2">
                         {member.email && (
                           <a
@@ -248,7 +253,12 @@ const Team05: React.FC<Team05Props> = ({
                   </div>
                   
                   <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{member.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">
+                      {member.titleImage && (
+                        <img src={member.titleImage} alt="" className="inline-block w-6 h-6 rounded-full mr-2 align-middle" />
+                      )}
+                      {member.name}
+                    </h3>
                     <p className={`text-base font-semibold ${
                       accentColor === 'sky' ? 'text-sky' :
                       accentColor === 'earth' ? 'text-earth' :

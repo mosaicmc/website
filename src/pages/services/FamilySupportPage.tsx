@@ -60,7 +60,8 @@ const FamilySupportPage = () => {
       qualifications: "Community services leadership and multicultural community development",
       phone: "0431 491 748",
       email: "n.meliendrez@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
+      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp",
+      titleImage: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
     },
     
   ];
@@ -479,7 +480,10 @@ const FamilySupportPage = () => {
         description="Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families."
         teamMembers={teamMembers}
         accentColor="sun"
+        showDecoration={false}
         avatarSize={128}
+        showContactIcons={false}
+        showImageOverlay={false}
         bottomSection={{
           title: "Integrated Support Approach",
           description: "Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
