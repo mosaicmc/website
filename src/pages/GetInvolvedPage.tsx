@@ -240,7 +240,7 @@ const GetInvolvedPage = () => {
 
       {/* Opportunities Grid */}
       <Section overlay>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 text-center">
           {opportunities.map((opportunity, index) => (
             <GlassCard
               key={index}
@@ -248,25 +248,25 @@ const GetInvolvedPage = () => {
               className="rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <div className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
                   <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
                     <div className={opportunity.color === 'sky' ? 'text-sky' : opportunity.color === 'earth' ? 'text-earth' : opportunity.color === 'leaf' ? 'text-leaf' : 'text-sun'}>
                       {opportunity.icon}
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-foreground">{opportunity.title}</h2>
+                    <h2 className="text-2xl font-bold text-foreground text-center">{opportunity.title}</h2>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 text-center">
                 <p className="text-muted-foreground leading-relaxed mb-6">{opportunity.description}</p>
 
                 <h3 className="text-lg font-bold text-foreground mb-4">Benefits & Impact</h3>
                 <ul className="space-y-2 mb-6">
                   {opportunity.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
+                    <li key={idx} className="flex items-center justify-center space-x-3">
                       <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${opportunity.color === 'sky' ? 'bg-sky' : opportunity.color === 'earth' ? 'bg-earth' : opportunity.color === 'leaf' ? 'bg-leaf' : 'bg-sun'}`}></div>
                       <span className="text-muted-foreground">{benefit}</span>
                     </li>
@@ -311,14 +311,14 @@ const GetInvolvedPage = () => {
 
       {/* Volunteer Spotlight */}
       <Section padding="md" overlay>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center text-center">
           <div>
-            <h2 className="text-4xl font-bold text-foreground mb-6 inline-flex items-center">
+            <h2 className="text-4xl font-bold text-foreground mb-6 inline-flex items-center justify-center">
               <Users className="h-8 w-8 text-sky mr-3" />
               {t('getInvolved.volunteerSpotlight')}
             </h2>
-            <GlassCard className="rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center space-x-4 mb-4">
+            <GlassCard className="rounded-2xl p-6 shadow-lg text-center">
+              <div className="flex items-center justify-center space-x-4 mb-4">
                   {spotlightImage ? (
                     <img
                       src={spotlightImage}

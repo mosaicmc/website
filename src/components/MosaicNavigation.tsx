@@ -536,13 +536,7 @@ export default function MosaicNavigation() {
                             >
                               Contact us for immediate assistance and guidance
                             </ListItem>
-                            <ListItem
-                              title="Locations"
-                              to="/locations"
-                              icon={Home}
-                            >
-                              Find service locations across New South Wales
-                            </ListItem>
+                            {/* Removed duplicate Locations link from Services quick links */}
                           </ul>
                         </div>
                       </div>
