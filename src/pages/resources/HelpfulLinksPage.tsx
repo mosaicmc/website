@@ -60,9 +60,9 @@ export default function HelpfulLinksPage() {
         />
       </Helmet>
 
-      <section className="relative mx-auto max-w-6xl px-6 py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative mx-auto max-w-6xl px-6 section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/40 to-indigo-100/20 dark:from-blue-900/15 dark:via-purple-900/10 dark:to-indigo-900/15 pointer-events-none"></div>
-        <div className="text-center mb-10">
+        <div className="text-center subsection-break">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Helpful Links</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
             Trusted resources to support you during emergencies, with language assistance and official information.
@@ -102,7 +102,7 @@ export default function HelpfulLinksPage() {
           })}
         </div>
 
-        <div className="mt-10">
+        <div className="section-break">
           <BackLink to="/resources">Back to Resources</BackLink>
         </div>
       </section>

@@ -4,7 +4,7 @@ import { ArrowRight, Phone } from 'lucide-react';
 
 const SimpleCTA = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-background transition-colors duration-300 bg-gradient-to-br from-sky via-ocean to-earth dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section className="relative section-spacing overflow-hidden bg-background transition-colors duration-300 bg-gradient-to-br from-sky via-ocean to-earth dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="absolute inset-0 bg-gradient-to-br from-sky/85 via-ocean/90 to-earth/85 dark:from-slate-900/75 dark:via-slate-800/75 dark:to-slate-900/75"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky/20 rounded-full blur-3xl animate-pulse-slow"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-earth/25 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
@@ -28,7 +28,7 @@ const SimpleCTA = () => {
             Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center section-break">
             <Link
               to="/services"
               className="group relative inline-flex items-center justify-center rounded-2xl bg-ocean text-white px-10 py-5 text-xl font-bold shadow-2xl hover:bg-ocean/90 hover:shadow-ocean/30 transition-all duration-300 hover:scale-105 active:scale-98 border-2 border-ocean/20 overflow-hidden focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"

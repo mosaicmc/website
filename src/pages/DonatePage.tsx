@@ -13,7 +13,7 @@ const DonatePage = () => {
         />
       </Helmet>
       {/* Hero */}
-      <section className="relative py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold mb-3 text-gray-900 dark:text-white">Donate to Mosaic</h1>
@@ -24,7 +24,7 @@ const DonatePage = () => {
         </div>
       </section>
 
-      <section className="py-8">
+      <section className="section-spacing">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">

@@ -90,11 +90,11 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
     };
   };
   return (
-    <Section overlay containerClassName="max-w-screen-lg w-full py-10 px-6 mx-auto">
+    <Section overlay containerClassName="max-w-screen-lg w-full section-spacing px-6 mx-auto">
       <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center mx-auto text-foreground">
           {title}
       </h2>
-      <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
+      <div className="mt-6 md:mt-8 lg:mt-10 w-full mx-auto stack-vertical">
         {features.map((feature) => (
           <div
             key={feature.category}

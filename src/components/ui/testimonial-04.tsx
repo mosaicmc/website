@@ -152,7 +152,7 @@ export function Testimonial04({
 }: TestimonialSectionProps) {
   return (
     <section className={cn(
-      "relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300",
+      "relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300",
       className
     )}>
       {/* Enhanced glass morphism background with multiple layers */}
@@ -163,7 +163,7 @@ export function Testimonial04({
       
       <div className="relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
+        <div className="text-center subsection-break px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-gray-700 dark:text-white/90 font-medium">{badgeLabel}</span>
@@ -178,7 +178,7 @@ export function Testimonial04({
         </div>
 
         {/* Horizontal Scrolling Testimonials Container */}
-        <div className="relative mb-16">
+        <div className="relative subsection-break">
           {/* Left fade overlay */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
           

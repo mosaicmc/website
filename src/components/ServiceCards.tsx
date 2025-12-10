@@ -61,7 +61,7 @@ const ServiceCards = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
+    <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
       {/* Enhanced glass morphism background with multiple layers - adaptive for light/dark */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -70,7 +70,7 @@ const ServiceCards = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Trusted Partner Section - Page Flow Optimized */}
-        <div className="relative mb-24 py-16">
+        <div className="relative section-break section-spacing">
           {/* Subtle background gradient - different from glass morphism */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent dark:via-slate-800/30"></div>
           
@@ -102,7 +102,7 @@ const ServiceCards = () => {
             </div>
             
             {/* Right Column - Flowing Content (3/5 width) */}
-            <div className="lg:col-span-3 space-y-8">
+            <div className="lg:col-span-3 stack-vertical">
               <div className="prose prose-lg prose-gray dark:prose-invert max-w-none">
                 <p className="text-xl leading-relaxed text-gray-700 dark:text-white/80 font-light">
                   Since <strong className="font-semibold text-ocean dark:text-sky/90">1981</strong>, Mosaic Multicultural Connections has been supporting people from migrant and refugee backgrounds throughout every stage of their Australian journey.
@@ -147,7 +147,7 @@ const ServiceCards = () => {
         </div>
 
         {/* Section Header with glass effect */}
-        <div className="text-center mb-16">
+        <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-gray-700 dark:text-white/90 font-medium">Our Services</span>

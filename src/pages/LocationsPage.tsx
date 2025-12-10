@@ -94,7 +94,7 @@ const LocationsPage = () => {
         <meta name="description" content="Find Mosaic offices across NSW with addresses, hours, services, and contact details for your nearest location." />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Glass morphism background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl dark:bg-blue-500/20"></div>
@@ -116,10 +116,10 @@ const LocationsPage = () => {
       </section>
 
       {/* Locations Grid */}
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="stack-vertical">
             {locations.map((location, index) => (
               <div key={index} className="backdrop-blur-md bg-white/70 dark:bg-slate-800/70 rounded-2xl shadow-xl overflow-hidden border border-white/20 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300">
                 <div className="grid lg:grid-cols-2 gap-0">

@@ -4,7 +4,7 @@ import { ArrowRight, Phone } from 'lucide-react';
 
 const CallToAction = () => {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-ocean via-sky to-ocean dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
+    <section className="relative section-spacing bg-gradient-to-br from-ocean via-sky to-ocean dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
       {/* Enhanced glass morphism background with multiple layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-ocean/80 via-sky/70 to-ocean/80 dark:from-slate-900/90 dark:via-slate-800/80 dark:to-slate-900/90"></div>
       
@@ -30,12 +30,12 @@ const CallToAction = () => {
           </h2>
           
           {/* Content */}
-          <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 subsection-break leading-relaxed max-w-3xl mx-auto">
             Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center subsection-break">
             <Link
               to="/services"
               className="group inline-flex items-center justify-center rounded-xl bg-white text-ocean px-8 py-4 text-lg font-semibold shadow-xl hover:bg-sand hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"

@@ -12,9 +12,9 @@ type SectionProps = {
 };
 
 const paddingMap = {
-  sm: "py-12",
-  md: "py-20 md:py-24",
-  lg: "py-24 md:py-32",
+  sm: "py-6 md:py-8",
+  md: "section-spacing",
+  lg: "section-spacing",
 } as const;
 
 export function Section({

@@ -39,6 +39,9 @@
     --brand-leaf: #b4d785;
     --brand-care: #F16B83;
 
+    /* Semantic brand heading color */
+    --brand-heading: var(--brand-ocean);
+
     /* FlipWords gradient tokens (editable) */
     --flipwords-from: var(--brand-sky);
     --flipwords-via: var(--brand-ocean);
@@ -83,6 +86,9 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Dark mode brand heading color */
+    --brand-heading: var(--brand-sky);
   }
 }
 
@@ -100,6 +106,22 @@
   h5 { @apply text-base font-semibold mb-1 text-foreground; }
   h6 { @apply text-sm font-semibold mb-1 text-muted-foreground; }
   p { @apply text-base leading-relaxed mb-4; }
+}
+
+@layer utilities {
+  .text-brand-heading {
+    color: var(--brand-heading);
+  }
+}
+
+@layer utilities {
+  .section-spacing { @apply py-6 md:py-8 lg:py-10; }
+  .section-break { @apply my-6 md:my-8 lg:my-10; }
+  .subsection-break { @apply my-4 md:my-6 lg:my-8; }
+  .stack-vertical { @apply space-y-4 md:space-y-6 lg:space-y-8; }
+}
+
+@layer base {
   a { @apply text-ocean underline-offset-2 transition-colors; }
   a:hover { @apply underline; }
   a:focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }

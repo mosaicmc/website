@@ -56,7 +56,7 @@ export const Timeline = ({
       <div className="absolute inset-0 bg-gradient-to-br from-sand/30 via-transparent to-ocean/20 dark:from-slate-900/50 dark:to-ocean/30"></div>
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky/20 dark:bg-sky/10 rounded-full blur-3xl animate-pulse-slow"></div>
       
-      <div className="max-w-7xl mx-auto py-16 px-4 md:px-8 lg:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto section-spacing px-4 md:px-8 lg:px-10 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
@@ -88,13 +88,13 @@ export const Timeline = ({
                     <div className="h-12 absolute left-3 md:left-3 w-12 rounded-full bg-gradient-to-br from-ocean to-sky dark:from-sky dark:to-ocean flex items-center justify-center shadow-lg border-2 border-white dark:border-slate-700">
                       <div className="h-5 w-5 rounded-full bg-white dark:bg-slate-800 border border-sky/30 dark:border-sky/50" />
                     </div>
-                    <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-ocean dark:text-sky">
+                    <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-brand-heading">
                       {item.title}
                     </h3>
                   </div>
 
                   <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                    <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-ocean dark:text-sky">
+                    <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-brand-heading">
                       {item.title}
                     </h3>
                     <motion.div
@@ -166,7 +166,7 @@ export const Timeline = ({
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-6 h-6 rounded-full bg-gradient-to-br from-ocean to-sky dark:from-sky dark:to-ocean border-2 border-white dark:border-slate-700" />
-                    <h3 className="text-base md:text-lg font-bold text-ocean dark:text-sky">{item.title}</h3>
+                    <h3 className="text-base md:text-lg font-bold text-brand-heading">{item.title}</h3>
                   </div>
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}

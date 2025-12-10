@@ -19,6 +19,7 @@ interface Team05Props {
   teamMembers: TeamMember[];
   accentColor?: string;
   showDecoration?: boolean;
+  avatarSize?: number;
   bottomSection?: {
     title: string;
     description: string;
@@ -31,6 +32,7 @@ const Team05: React.FC<Team05Props> = ({
   teamMembers, 
   accentColor = "sky",
   showDecoration = true,
+  avatarSize = 160,
   bottomSection 
 }) => {
   const getIconColor = (color: string) => {
@@ -128,12 +130,12 @@ const Team05: React.FC<Team05Props> = ({
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+    <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
       {/* Glass morphism background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center subsection-break">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
           <p className="text-xl text-gray-600 dark:text-white/80 max-w-4xl mx-auto">
             {description}
@@ -163,7 +165,7 @@ const Team05: React.FC<Team05Props> = ({
                     )}
                     
                     {/* Main Profile Container with Enhanced Effects */}
-                    <div className="relative w-40 h-40 group-hover:scale-110 transition-transform duration-500">
+                    <div className="relative group-hover:scale-110 transition-transform duration-500" style={{ width: avatarSize, height: avatarSize }}>
                       {/* Background Glow Effect */}
                       {showDecoration && (
                         <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${getUniformGradient(accentColor)} blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>

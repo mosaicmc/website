@@ -17,25 +17,29 @@ const AgedCarePage = () => {
       name: "Stacey Anderson",
       role: "Care Coordinator (CHSP)",
       qualifications: "Endorsed Enrolled Nurse; Diploma Community Services (in progress). Varied nursing experience including Emergency, Theatres, outpatients; Treatment Nurse in medical centres; Red Cross Lifeblood; Continuous Improvement Coach; Manager of dementia‑specific day centre.",
-      languages: ["English", "Spanish (learning)"]
+      languages: ["English", "Spanish (learning)"],
+      image: "/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp"
     },
     {
       name: "Corinne Rietdijk",
       role: "Care Coordinator (SaH)",
       qualifications: "Certificate III in Aged Care. 20+ years in aged, dementia, palliative, community, residential disability and mental health care.",
-      languages: ["English"]
+      languages: ["English"],
+      image: "/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp"
     },
     {
       name: "Dianne Rainbow",
       role: "Care Coordinator (CHSP)",
       qualifications: "Care Coordinator – CHSP.",
-      languages: ["English"]
+      languages: ["English"],
+      image: "/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp"
     },
     {
       name: "Sally Wiltshire",
       role: "ACVVS Coordinator",
       qualifications: "ACVVS program coordination, volunteer visitor matching, multicultural community outreach.",
-      languages: ["English"]
+      languages: ["English"],
+      image: "/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp"
     }
   ];
 
@@ -127,7 +131,7 @@ const AgedCarePage = () => {
       <FAQSchema faqs={faqData} name="Home Care FAQs" />
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         {/* Accent tint overlay to align with care */}
@@ -169,7 +173,7 @@ const AgedCarePage = () => {
       
 
       {/* Eligibility section placed directly after hero */}
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-left">
@@ -209,14 +213,14 @@ const AgedCarePage = () => {
         </div>
       </section>
 
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">How home care works</p>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Understanding rights, eligibility and getting started</h2>
           </div>
-          <div className="space-y-16">
+          <div className="stack-vertical">
             <div>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
@@ -425,6 +429,7 @@ const AgedCarePage = () => {
         description="Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
         teamMembers={teamMembers}
         accentColor="care"
+        avatarSize={128}
         bottomSection={{
           title: "Culturally Sensitive Care Approach",
           description: "Our team understands that quality home care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values."

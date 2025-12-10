@@ -72,7 +72,7 @@ const ResourcesPage = () => {
         <meta name="description" content="Access guides, policies, FAQs, and emergency contacts. Multilingual resources and professionally reviewed information to support multicultural communities." />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative py-32 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <AnimatedBackground />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -170,7 +170,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Featured Resources: Quick access to priority categories */}
-      <section className="py-16 bg-background">
+      <section className="section-spacing bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-foreground">Featured Resources</h2>
@@ -327,11 +327,11 @@ const ResourcesPage = () => {
       </section>
 
       {/* Resource Quality Stats - Premium Glass Morphism Design */}
-      <section className="relative py-24 bg-background overflow-hidden transition-colors duration-300">
+      <section className="relative section-spacing bg-background overflow-hidden transition-colors duration-300">
         <AnimatedBackground variant="subtle" className="opacity-70" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center subsection-break">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
               <span className="text-foreground/80 font-medium">Quality Assurance</span>
@@ -437,7 +437,7 @@ const ResourcesPage = () => {
 
 
       {/* Contact for More Resources */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
+      <section className="section-spacing bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="backdrop-blur-md bg-white/10 rounded-2xl p-12 border border-white/20">
             <h2 className="text-4xl font-bold mb-6">Need Additional Resources?</h2>

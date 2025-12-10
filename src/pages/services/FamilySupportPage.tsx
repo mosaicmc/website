@@ -156,7 +156,7 @@ const FamilySupportPage = () => {
       
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <AnimatedBackground variant="vibrant" />
         <div className="absolute inset-0 bg-sun/10 dark:bg-sun/15 mix-blend-multiply pointer-events-none"></div>
         
@@ -191,10 +191,10 @@ const FamilySupportPage = () => {
 
       
 
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="stack-vertical">
             <div className="animate-fade-in-left">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Who Can Access Our Services?</h2>
               <div className="grid md:grid-cols-2 gap-8">

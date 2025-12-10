@@ -63,7 +63,7 @@ const GoogleReviews = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
+      className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
       aria-label="Google Reviews"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
@@ -71,7 +71,7 @@ const GoogleReviews = () => {
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse" />
             <span className="text-gray-700 dark:text-white/90 font-medium">Google Reviews</span>
@@ -147,7 +147,7 @@ const GoogleReviews = () => {
 
         
 
-        <div className="text-center mt-10">
+        <div className="text-center section-break">
           <a
             href={placeUrl || GOOGLE_REVIEWS_URL}
             target="_blank"

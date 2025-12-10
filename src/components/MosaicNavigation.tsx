@@ -482,7 +482,7 @@ export default function MosaicNavigation() {
 
                   {/* Services Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={cn(
+                  <NavigationMenuTrigger className={cn(
                       isActivePath('/services', true)
                         ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                         : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
@@ -858,11 +858,11 @@ export default function MosaicNavigation() {
                     <Link 
                       to="/" 
                       className={cn("text-lg font-medium transition-colors",
-                        isActivePath('/')
+                    isActivePath('/')
                           ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                           : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      )}
+                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    )}
                       {...prefetchOnHover('/')}
                       onClick={() => setIsOpen(false)}
                     >
@@ -872,11 +872,11 @@ export default function MosaicNavigation() {
                     <Link 
                       to="/services" 
                       className={cn("text-lg font-medium transition-colors",
-                        isActivePath('/services', true)
+                    isActivePath('/services', true)
                           ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                           : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      )}
+                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    )}
                       {...prefetchOnHover('/services')}
                       onClick={() => setIsOpen(false)}
                     >

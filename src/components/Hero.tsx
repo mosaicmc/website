@@ -13,7 +13,7 @@ const Hero = () => {
   const rotatingWords = ['Multicultural', 'Migrant', 'Refugee', 'Vibrant', 'Connected', 'Thriving', 'United', 'Diverse', 'Resilient', 'Empowered'];
   
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-32 pb-24 lg:pt-40 lg:pb-32 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 section-spacing transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Using the reusable AnimatedBackground component */}
       <AnimatedBackground variant="default" />
       

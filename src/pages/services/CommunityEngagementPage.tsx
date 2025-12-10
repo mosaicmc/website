@@ -130,7 +130,7 @@ const CommunityEngagementPage = () => {
       </Helmet>
       <FAQSchema faqs={faqData} name="Community Engagement FAQs" />
       {/* Hero Section with enhanced animations */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         {/* Accent tint overlay to differentiate page */}
@@ -170,7 +170,7 @@ const CommunityEngagementPage = () => {
 
       
 
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-left">
@@ -206,9 +206,9 @@ const CommunityEngagementPage = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
+      <section className="section-spacing bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center subsection-break">
             <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">How community engagement works</p>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first hello to active participation</h2>
             <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">

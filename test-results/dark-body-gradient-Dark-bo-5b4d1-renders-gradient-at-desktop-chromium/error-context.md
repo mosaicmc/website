@@ -1,0 +1,531 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "Mosaic Multicultural Connections" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Mosaic Multicultural Connections" [ref=e10]
+      - navigation "Main" [ref=e12]:
+        - list [ref=e14]:
+          - listitem [ref=e15]:
+            - link "Home" [ref=e16] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e17]:
+            - button "Services" [ref=e18] [cursor=pointer]:
+              - text: Services
+              - img [ref=e19]
+          - listitem [ref=e21]:
+            - link "About" [ref=e22] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e23]:
+            - button "Get Involved" [ref=e24] [cursor=pointer]:
+              - text: Get Involved
+              - img [ref=e25]
+          - listitem [ref=e27]:
+            - button "Resources" [ref=e28] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e29]
+      - generic [ref=e31]:
+        - button "Open search" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+        - button [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]:
+            - img [ref=e39]
+            - img [ref=e42]
+        - button "common.changeLanguage" [ref=e49] [cursor=pointer]:
+          - img [ref=e50]
+          - generic [ref=e53]: English
+          - img [ref=e54]
+        - link "Donate" [ref=e57] [cursor=pointer]:
+          - /url: /donate
+  - main [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e65]:
+        - generic [ref=e68]: Our Story
+        - heading "About Mosaic Multicultural Connections" [level=1] [ref=e69]
+        - paragraph [ref=e70]:
+          - text: For
+          - generic [ref=e71]: 40+ years
+          - text: ", we've been dedicated to supporting diverse communities across NSW, helping families build new lives while celebrating their cultural heritage."
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: 40+
+            - generic [ref=e75]: Years of Service
+          - generic [ref=e76]:
+            - generic [ref=e77]: 25+
+            - generic [ref=e78]: Communities Served
+          - generic [ref=e79]:
+            - generic [ref=e80]: 15,000+
+            - generic [ref=e81]: Families Supported
+      - generic [ref=e88]:
+        - generic [ref=e92]: Mission • Vision • Values
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - heading "Mission" [level=3] [ref=e100]
+            - paragraph [ref=e101]: To support and inspire culturally diverse people and communities to overcome barriers and thrive.
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - img [ref=e105]
+              - heading "Vision" [level=3] [ref=e108]
+            - paragraph [ref=e109]: A connected community where diversity defines and nourishes us.
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - img [ref=e113]
+              - heading "Values" [level=3] [ref=e118]
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - img [ref=e121]
+                - text: TRUST
+              - generic [ref=e124]:
+                - img
+                - text: TRANSPARENCY
+              - generic [ref=e127]:
+                - img [ref=e128]
+                - text: RESPECT
+              - generic [ref=e133]:
+                - img
+                - text: COLLABORATION
+              - generic [ref=e138]:
+                - img [ref=e139]
+                - text: CREATION
+      - region "Board of Directors" [ref=e141]:
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - heading "The Mosaic Story" [level=2] [ref=e149]
+            - paragraph [ref=e150]: Milestones across 40+ years of service in NSW
+          - generic [ref=e151]:
+            - generic [ref=e152]: Select Year
+            - button "All" [ref=e154] [cursor=pointer]:
+              - text: All
+              - img [ref=e155]
+        - tablist "Select Decade" [ref=e158]:
+          - button "All" [pressed] [ref=e159] [cursor=pointer]
+          - button "1970s" [ref=e160] [cursor=pointer]
+          - button "1980s" [ref=e161] [cursor=pointer]
+          - button "1990s" [ref=e162] [cursor=pointer]
+          - button "2000s" [ref=e163] [cursor=pointer]
+          - button "2010s" [ref=e164] [cursor=pointer]
+          - button "2020s" [ref=e165] [cursor=pointer]
+        - region "Timeline decade slider" [ref=e166]:
+          - generic [ref=e167]:
+            - button "Open details for 1978" [ref=e169] [cursor=pointer]:
+              - img "Galbally Report established a foundation for Australia’s multicultural policy" [ref=e170]
+              - generic [ref=e171]:
+                - heading "1978" [level=3] [ref=e172]
+                - paragraph [ref=e173]: Galbally Report (1978) laid groundwork for Australia’s multicultural policy, recommending government support for migrant integration and equal opportunity.
+            - button "Open details for May 1981" [ref=e175] [cursor=pointer]:
+              - img "Foundation year in Newcastle and the Hunter Region with two staff" [ref=e176]
+              - generic [ref=e177]:
+                - heading "May 1981" [level=3] [ref=e178]
+                - paragraph [ref=e179]: The Migrant Resource Centre for Newcastle and the Hunter Region opened with two staff.
+            - button "Open details for 1984" [ref=e181] [cursor=pointer]:
+              - img "Relocation to 8 Chaucer Street Hamilton to improve accessibility" [ref=e182]
+              - generic [ref=e183]:
+                - heading "1984" [level=3] [ref=e184]
+                - paragraph [ref=e185]: Moved to 8 Chaucer St, Hamilton, placing services at the heart of multicultural Newcastle.
+            - button "Open details for 1985" [ref=e187] [cursor=pointer]:
+              - img "Incorporation and outreach to Singleton and Muswellbrook work camps" [ref=e188]
+              - generic [ref=e189]:
+                - heading "1985" [level=3] [ref=e190]
+                - paragraph [ref=e191]: Formally incorporated and outreach expanded to Singleton and Muswellbrook with new funding.
+            - button "Open details for December 1989" [ref=e193] [cursor=pointer]:
+              - img "Newcastle Earthquake response and community rebuilding efforts" [ref=e194]
+              - generic [ref=e195]:
+                - heading "December 1989" [level=3] [ref=e196]
+                - paragraph [ref=e197]: Led disaster recovery support after the Newcastle Earthquake and co auspiced 1991 Carnivale.
+            - button "Open details for 1991" [ref=e199] [cursor=pointer]:
+              - img "Ten year anniversary milestones and service expansion across NSW" [ref=e200]
+              - generic [ref=e201]:
+                - heading "1991" [level=3] [ref=e202]
+                - paragraph [ref=e203]: Tenth anniversary with staff growth and new services including the Community Visitors Scheme and Immigration Assistance.
+            - button "Open details for 1999" [ref=e205] [cursor=pointer]:
+              - img "Humanitarian response supporting Kosovar refugees in Australia" [ref=e206]
+              - generic [ref=e207]:
+                - heading "1999" [level=3] [ref=e208]
+                - paragraph [ref=e209]: Frontline role supporting nearly 900 Kosovar refugees with interagency collaboration.
+            - button "Open details for February 2004" [ref=e211] [cursor=pointer]:
+              - img "Armidale office opening strengthens outreach across New England and North West NSW" [ref=e212]
+              - generic [ref=e213]:
+                - heading "February 2004" [level=3] [ref=e214]
+                - paragraph [ref=e215]: Opened Armidale office to strengthen outreach across New England and the North West Plains.
+            - button "Open details for 2005" [ref=e217] [cursor=pointer]:
+              - img "Central Coast office opening and services for African refugee communities" [ref=e218]
+              - generic [ref=e219]:
+                - heading "2005" [level=3] [ref=e220]
+                - paragraph [ref=e221]: Opened Central Coast base and expanded services for arrivals from Sudan, Liberia, Congo and Burundi.
+            - button "Open details for 2006" [ref=e223] [cursor=pointer]:
+              - img "Twenty five year milestone with outreach to Dubbo, Orange, Bathurst and more" [ref=e224]
+              - generic [ref=e225]:
+                - heading "2006" [level=3] [ref=e226]
+                - paragraph [ref=e227]: Twenty five years of service with broader outreach and services across regional NSW.
+            - button "Open details for 2007" [ref=e229] [cursor=pointer]:
+              - img "Northern Settlement Services Ltd charitable status and tax concessions" [ref=e230]
+              - generic [ref=e231]:
+                - heading "2007" [level=3] [ref=e232]
+                - paragraph [ref=e233]: Became Northern Settlement Services Ltd, securing charitable status and donor tax concessions.
+            - button "Open details for 2010" [ref=e235] [cursor=pointer]:
+              - img "Leadership transition and continued program diversification" [ref=e236]
+              - generic [ref=e237]:
+                - heading "2010" [level=3] [ref=e238]
+                - paragraph [ref=e239]: Leadership transition as Violetta Walsh retired and Lulu Tantos was appointed CEO.
+            - button "Open details for 2011" [ref=e241] [cursor=pointer]:
+              - img "Thirty year anniversary and growth across Hamilton, Central Coast, Tamworth and Armidale" [ref=e242]
+              - generic [ref=e243]:
+                - heading "2011" [level=3] [ref=e244]
+                - paragraph [ref=e245]: Thirtieth anniversary with forty five staff and two hundred volunteers across multiple offices.
+            - button "Open details for 2019" [ref=e247] [cursor=pointer]:
+              - img "New CEO appointment ushering innovation and strategy" [ref=e248]
+              - generic [ref=e249]:
+                - heading "2019" [level=3] [ref=e250]
+                - paragraph [ref=e251]: Sharon Daishe appointed CEO, marking a new chapter of innovation and strategic vision.
+            - button "Open details for 2021" [ref=e253] [cursor=pointer]:
+              - img "Forty years of service across Northern and North West NSW" [ref=e254]
+              - generic [ref=e255]:
+                - heading "2021" [level=3] [ref=e256]
+                - paragraph [ref=e257]: Forty years celebrated with sixty five staff and one hundred seventy five volunteers.
+            - button "Open details for 2022" [ref=e259] [cursor=pointer]:
+              - img "Name adoption reflects connected, diverse communities in NSW" [ref=e260]
+              - generic [ref=e261]:
+                - heading "2022" [level=3] [ref=e262]
+                - paragraph [ref=e263]: Adopted the name Mosaic Multicultural Connections.
+            - button "Open details for November 2024" [ref=e265] [cursor=pointer]:
+              - img "Head office relocation to Charlestown improves accessibility for communities" [ref=e266]
+              - generic [ref=e267]:
+                - heading "November 2024" [level=3] [ref=e268]
+                - paragraph [ref=e269]: Head office relocated to 3 Hopetoun St, Charlestown.
+          - generic [ref=e271]:
+            - button "Previous decade" [disabled] [ref=e272]:
+              - img [ref=e273]
+            - button "Next decade 1980s" [ref=e275] [cursor=pointer]:
+              - img [ref=e276]
+      - region "Our Board" [ref=e278]:
+        - generic [ref=e280]:
+          - generic [ref=e281]:
+            - generic [ref=e284]: Board of Directors
+            - heading "Our Board" [level=2] [ref=e285]
+            - paragraph [ref=e286]: Governance, strategy and community leadership grounded in lived experience and professionalism.
+          - generic [ref=e290]:
+            - generic [ref=e292]:
+              - img "Sandra Feltham" [ref=e295]
+              - generic [ref=e296]:
+                - heading "Sandra Feltham" [level=3] [ref=e297]
+                - generic [ref=e298]: Chair
+                - paragraph [ref=e299]: Masters Public Health (Distinction), Grad Dip Urban & Regional Planning, BSc (Hons) Human Geography • Cert IV TAE • RN, RM
+                - button "Read bio for Sandra Feltham" [ref=e300] [cursor=pointer]: Read Bio
+            - generic [ref=e302]:
+              - img "Dr Shirley Schulz-Robinson" [ref=e305]
+              - generic [ref=e306]:
+                - heading "Dr Shirley Schulz-Robinson" [level=3] [ref=e307]
+                - generic [ref=e308]: Vice Chair
+                - generic "Languages for Dr Shirley Schulz-Robinson" [ref=e309]:
+                  - generic [ref=e310]: English
+                - paragraph [ref=e311]: PhD Health Administration, BA (Hons) Sociology • Assoc Dip Nursing Education • Dip Life Coaching • Cert IV Small Business Management • Cert IV TAE • RN
+                - button "Read bio for Dr Shirley Schulz-Robinson" [ref=e312] [cursor=pointer]: Read Bio
+            - generic [ref=e314]:
+              - img "Zachary Ekandi" [ref=e317]
+              - generic [ref=e318]:
+                - heading "Zachary Ekandi" [level=3] [ref=e319]
+                - generic [ref=e320]: Director
+                - generic "Languages for Zachary Ekandi" [ref=e321]:
+                  - generic [ref=e322]: English
+                  - generic [ref=e323]: Swahili
+                - paragraph [ref=e324]: MInfoTech, BInfoSci, AdvDipMgmt, Cert IV TAE, NAATI Interpreter, QTEAC Counsellor, GradDip Migration Law (ongoing)
+                - button "Read bio for Zachary Ekandi" [ref=e325] [cursor=pointer]: Read Bio
+            - generic [ref=e327]:
+              - img "Kasey Preston" [ref=e330]
+              - generic [ref=e331]:
+                - heading "Kasey Preston" [level=3] [ref=e332]
+                - generic [ref=e333]: Director
+                - generic "Languages for Kasey Preston" [ref=e334]:
+                  - generic [ref=e335]: English
+                - paragraph [ref=e336]: Bachelor of Business (Event Management), Diploma of Business, Cert IV Human Resources
+                - button "Read bio for Kasey Preston" [ref=e337] [cursor=pointer]: Read Bio
+            - generic [ref=e339]:
+              - img "Naomi McLean" [ref=e342]
+              - generic [ref=e343]:
+                - heading "Naomi McLean" [level=3] [ref=e344]
+                - generic [ref=e345]: Executive Committee Member
+                - generic "Languages for Naomi McLean" [ref=e346]:
+                  - generic [ref=e347]: English
+                - paragraph [ref=e348]: BA (Asian Studies), Grad Cert Global Health, MA (Strategy and Policy)
+                - button "Read bio for Naomi McLean" [ref=e349] [cursor=pointer]: Read Bio
+            - generic [ref=e351]:
+              - img "Peter Gittins" [ref=e354]
+              - generic [ref=e355]:
+                - heading "Peter Gittins" [level=3] [ref=e356]
+                - generic [ref=e357]: Executive Committee Member
+                - generic "Languages for Peter Gittins" [ref=e358]:
+                  - generic [ref=e359]: English
+                - paragraph [ref=e360]: BA, Dip Education, Cert ESL, Cert Business
+                - button "Read bio for Peter Gittins" [ref=e361] [cursor=pointer]: Read Bio
+            - generic [ref=e363]:
+              - img "Catherine Candiloro" [ref=e366]
+              - generic [ref=e367]:
+                - heading "Catherine Candiloro" [level=3] [ref=e368]
+                - generic [ref=e369]: Director
+                - generic "Languages for Catherine Candiloro" [ref=e370]:
+                  - generic [ref=e371]: English
+                  - generic [ref=e372]: Spanish
+                  - generic [ref=e373]: Italian
+                - paragraph [ref=e374]: Master of International & Community Development, Grad Cert NFP Management, Specialist Cert Implementation Science
+                - button "Read bio for Catherine Candiloro" [ref=e375] [cursor=pointer]: Read Bio
+            - generic [ref=e377]:
+              - img "Lauren Croiset" [ref=e380]
+              - generic [ref=e381]:
+                - heading "Lauren Croiset" [level=3] [ref=e382]
+                - generic [ref=e383]: Director
+                - generic "Languages for Lauren Croiset" [ref=e384]:
+                  - generic [ref=e385]: English
+                  - generic [ref=e386]: French
+                - paragraph [ref=e387]: Diploma of Counselling (currently studying)
+                - button "Read bio for Lauren Croiset" [ref=e388] [cursor=pointer]: Read Bio
+      - generic [ref=e392]:
+        - generic [ref=e393]:
+          - generic [ref=e396]: Management
+          - heading "Our Management Team" [level=2] [ref=e397]
+          - paragraph [ref=e398]: Structured to reflect reporting lines while keeping a clean, premium presentation.
+        - generic [ref=e402]:
+          - generic [ref=e404]:
+            - img "Sharon Daishe" [ref=e407]
+            - generic [ref=e408]:
+              - heading "Sharon Daishe" [level=3] [ref=e409]
+              - generic [ref=e410]: Chief Executive Officer
+              - generic "Languages for Sharon Daishe" [ref=e411]:
+                - generic [ref=e412]: English
+              - button "Read bio for Sharon Daishe" [ref=e413] [cursor=pointer]: Read Bio
+          - generic [ref=e415]:
+            - img "Belinda Latimore" [ref=e418]
+            - generic [ref=e419]:
+              - heading "Belinda Latimore" [level=3] [ref=e420]
+              - generic [ref=e421]: General Manager, Programs
+              - generic "Languages for Belinda Latimore" [ref=e422]:
+                - generic [ref=e423]: English
+                - generic [ref=e424]: Australian
+              - button "Read bio for Belinda Latimore" [ref=e425] [cursor=pointer]: Read Bio
+          - generic [ref=e427]:
+            - img "Richard Hanson" [ref=e430]
+            - generic [ref=e431]:
+              - heading "Richard Hanson" [level=3] [ref=e432]
+              - generic [ref=e433]: Manager, Finance & Corporate
+              - generic "Languages for Richard Hanson" [ref=e434]:
+                - generic [ref=e435]: English
+                - generic [ref=e436]: Yorkshire
+              - button "Read bio for Richard Hanson" [ref=e437] [cursor=pointer]: Read Bio
+          - generic [ref=e439]:
+            - generic [ref=e442]: MHCS
+            - generic [ref=e443]:
+              - heading "Manager, Home Care Services" [level=3] [ref=e444]
+              - generic [ref=e445]: Manager, Home Care Services
+              - button "Read bio for Manager, Home Care Services" [ref=e446] [cursor=pointer]: Read Bio
+          - generic [ref=e448]:
+            - img "Jawaid Pardehi" [ref=e451]
+            - generic [ref=e452]:
+              - heading "Jawaid Pardehi" [level=3] [ref=e453]
+              - generic [ref=e454]: Manager, Settlement, Families & Communities
+              - generic "Languages for Jawaid Pardehi" [ref=e455]:
+                - generic [ref=e456]: English
+                - generic [ref=e457]: Urdu
+                - generic [ref=e458]: Hindi
+              - button "Read bio for Jawaid Pardehi" [ref=e459] [cursor=pointer]: Read Bio
+      - generic [ref=e461]:
+        - generic [ref=e462]:
+          - generic [ref=e465]: Related Services
+          - heading "You May Also Be Interested In" [level=2] [ref=e466]
+          - paragraph [ref=e467]: Learn more through impact stories, reports and ways to support our mission.
+        - generic [ref=e468]:
+          - link "Annual Reports – Learn more" [ref=e469] [cursor=pointer]:
+            - /url: /resources/annual-reports
+            - generic [ref=e470]:
+              - generic [ref=e472]:
+                - img [ref=e474]
+                - generic [ref=e477]:
+                  - heading "Annual Reports" [level=3] [ref=e478]
+                  - paragraph [ref=e479]: Governance and accountability.
+              - generic [ref=e481]:
+                - text: Learn more
+                - img [ref=e482]
+          - link "Resources – Learn more" [ref=e484] [cursor=pointer]:
+            - /url: /resources
+            - generic [ref=e485]:
+              - generic [ref=e487]:
+                - img [ref=e489]
+                - generic [ref=e492]:
+                  - heading "Resources" [level=3] [ref=e493]
+                  - paragraph [ref=e494]: Guides and official links.
+              - generic [ref=e496]:
+                - text: Learn more
+                - img [ref=e497]
+          - link "Home – Learn more" [ref=e499] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e500]:
+              - generic [ref=e502]:
+                - img [ref=e504]
+                - generic [ref=e507]:
+                  - heading "Home" [level=3] [ref=e508]
+                  - paragraph [ref=e509]: Start here.
+              - generic [ref=e511]:
+                - text: Learn more
+                - img [ref=e512]
+  - contentinfo [ref=e514]:
+    - generic [ref=e515]:
+      - navigation "Quick Links" [ref=e519]:
+        - generic [ref=e520]:
+          - generic [ref=e521]:
+            - link "Mosaic Multicultural Connections" [ref=e522] [cursor=pointer]:
+              - /url: /
+              - img "Mosaic Multicultural Connections" [ref=e523]
+            - generic [ref=e524]:
+              - generic [ref=e525]: 40+ Years of Impact
+              - generic [ref=e526]: Multicultural Services NSW
+          - generic [ref=e527]:
+            - paragraph [ref=e528]: Overview
+            - list [ref=e529]:
+              - listitem [ref=e530]:
+                - link "Home" [ref=e531] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e532]:
+                - link "About" [ref=e533] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e534]:
+                - link "Stories" [ref=e535] [cursor=pointer]:
+                  - /url: /stories
+          - generic [ref=e536]:
+            - paragraph [ref=e537]: Services
+            - list [ref=e538]:
+              - listitem [ref=e539]:
+                - link "Settlement Support" [ref=e540] [cursor=pointer]:
+                  - /url: /services/settlement-support
+              - listitem [ref=e541]:
+                - link "Home Care Services" [ref=e542] [cursor=pointer]:
+                  - /url: /services/aged-care
+              - listitem [ref=e543]:
+                - link "Family Support" [ref=e544] [cursor=pointer]:
+                  - /url: /services/family-support
+              - listitem [ref=e545]:
+                - link "Community Engagement" [ref=e546] [cursor=pointer]:
+                  - /url: /services/community-engagement
+          - generic [ref=e547]:
+            - paragraph [ref=e548]: Resources
+            - list [ref=e549]:
+              - listitem [ref=e550]:
+                - link "Emergency & Translation Services" [ref=e551] [cursor=pointer]:
+                  - /url: /resources/emergency-translation
+              - listitem [ref=e552]:
+                - link "Annual Reports" [ref=e553] [cursor=pointer]:
+                  - /url: /resources/annual-reports
+              - listitem [ref=e554]:
+                - link "Knowledge Base" [ref=e555] [cursor=pointer]:
+                  - /url: /company/knowledge-base
+          - generic [ref=e556]:
+            - paragraph [ref=e557]: Get Involved
+            - list [ref=e558]:
+              - listitem [ref=e559]:
+                - link "Volunteer" [ref=e560] [cursor=pointer]:
+                  - /url: https://tally.so/r/3qoXjg
+              - listitem [ref=e561]:
+                - link "Career" [ref=e562] [cursor=pointer]:
+                  - /url: https://employmenthero.com/mosaic-mc
+              - listitem [ref=e563]:
+                - link "Donate" [ref=e564] [cursor=pointer]:
+                  - /url: /donate
+      - generic [ref=e566]:
+        - generic [ref=e567]:
+          - paragraph [ref=e568]: Acknowledgement of Country
+          - paragraph [ref=e569]: Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.
+          - paragraph [ref=e570]: We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
+        - generic [ref=e571]:
+          - paragraph [ref=e572]: About Mosaic
+          - paragraph [ref=e573]: Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.
+          - generic [ref=e574]:
+            - link "Contact" [ref=e575] [cursor=pointer]:
+              - /url: /contact
+              - img [ref=e576]
+              - text: Contact
+            - link "Refer a client" [ref=e578] [cursor=pointer]:
+              - /url: https://tally.so/r/w4veNk
+              - img [ref=e579]
+              - text: Refer
+            - link "Leave a Google Review" [ref=e582] [cursor=pointer]:
+              - /url: https://g.page/r/CS2sb5dkY56KEBM/review
+              - img [ref=e583]
+              - text: Leave a Google Review
+            - link "Share Your Feedback" [ref=e585] [cursor=pointer]:
+              - /url: https://forms.mosaicmc.org.au/Feedback
+              - img [ref=e586]
+              - text: Share Your Feedback
+    - generic "Language selection" [ref=e589]:
+      - generic [ref=e591]:
+        - button "Change language to AR" [ref=e592] [cursor=pointer]:
+          - generic [ref=e593]: 🇸🇦
+          - generic [ref=e594]: AR
+        - button "Change language to ZH" [ref=e595] [cursor=pointer]:
+          - generic [ref=e596]: 🇨🇳
+          - generic [ref=e597]: ZH
+        - button "Change language to ZH" [ref=e598] [cursor=pointer]:
+          - generic [ref=e599]: 🇹🇼
+          - generic [ref=e600]: ZH
+        - button "Change language to EN" [ref=e601] [cursor=pointer]:
+          - generic [ref=e602]: 🇦🇺
+          - generic [ref=e603]: EN
+        - button "Change language to TL" [ref=e604] [cursor=pointer]:
+          - generic [ref=e605]: 🇵🇭
+          - generic [ref=e606]: TL
+        - button "Change language to HI" [ref=e607] [cursor=pointer]:
+          - generic [ref=e608]: 🇮🇳
+          - generic [ref=e609]: HI
+        - button "Change language to IT" [ref=e610] [cursor=pointer]:
+          - generic [ref=e611]: 🇮🇹
+          - generic [ref=e612]: IT
+        - button "Change language to RU" [ref=e613] [cursor=pointer]:
+          - generic [ref=e614]: 🇷🇺
+          - generic [ref=e615]: RU
+        - button "Change language to KU" [ref=e616] [cursor=pointer]:
+          - generic [ref=e617]: 🏳️
+          - generic [ref=e618]: KU
+        - button "Change language to FA" [ref=e619] [cursor=pointer]:
+          - generic [ref=e620]: 🇮🇷
+          - generic [ref=e621]: FA
+        - button "Change language to PT" [ref=e622] [cursor=pointer]:
+          - generic [ref=e623]: 🇵🇹
+          - generic [ref=e624]: PT
+        - button "Change language to SM" [ref=e625] [cursor=pointer]:
+          - generic [ref=e626]: 🇼🇸
+          - generic [ref=e627]: SM
+        - button "Change language to ES" [ref=e628] [cursor=pointer]:
+          - generic [ref=e629]: 🇪🇸
+          - generic [ref=e630]: ES
+        - button "Change language to SW" [ref=e631] [cursor=pointer]:
+          - generic [ref=e632]: 🇰🇪
+          - generic [ref=e633]: SW
+        - button "Change language to TH" [ref=e634] [cursor=pointer]:
+          - generic [ref=e635]: 🇹🇭
+          - generic [ref=e636]: TH
+        - button "Change language to UK" [ref=e637] [cursor=pointer]:
+          - generic [ref=e638]: 🇺🇦
+          - generic [ref=e639]: UK
+        - button "Change language to VI" [ref=e640] [cursor=pointer]:
+          - generic [ref=e641]: 🇻🇳
+          - generic [ref=e642]: VI
+    - generic [ref=e644]:
+      - paragraph [ref=e645]: © 2024 Mosaic Multicultural Connections. All rights reserved. · 2025
+      - generic [ref=e646]:
+        - generic [ref=e647]: Follow Us
+        - link "Visit LinkedIn" [ref=e648] [cursor=pointer]:
+          - /url: https://au.linkedin.com/company/mosaic-multicultural-connections
+          - img [ref=e649]
+        - link "Visit Instagram" [ref=e651] [cursor=pointer]:
+          - /url: https://www.instagram.com/mosaicmc/
+          - img [ref=e652]
+        - link "Visit Facebook" [ref=e654] [cursor=pointer]:
+          - /url: https://www.facebook.com/mosaicmulticulturalconnections/
+          - img [ref=e655]
+  - button "Go to top":
+    - generic:
+      - img
+```

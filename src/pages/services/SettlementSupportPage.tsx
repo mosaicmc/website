@@ -5,6 +5,15 @@ import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Gl
 import { Link } from 'react-router-dom';
 import Team05 from '../../components/ui/team-05';
 import RelatedServices from '../../components/RelatedServices';
+import MirjaImg from './SETS Team 128px/SETSTeam_Mirja_128px.webp';
+import MadanImg from './SETS Team 128px/SETSTeam_Madan_128px.webp';
+import BasimImg from './SETS Team 128px/SETSTeam_Basim_128px.webp';
+import PatriciaImg from './SETS Team 128px/SETSTeam_Patricia_128px.webp';
+import MichaelImg from './SETS Team 128px/SETSTeam_Michael_128px.webp';
+import BronwynImg from './SETS Team 128px/SETSTeam_Bronwyn_128px.webp';
+import RoseImg from './SETS Team 128px/SETSTeam_Rose_128px.webp';
+import SamiImg from './SETS Team 128px/SETSTeam_Sami_128px.webp';
+import MaramImg from './SETS Team 128px/SETSTeam_Maram_128px.webp';
 
 const SettlementSupportPage = () => {
   // Two separate states for each accordion column
@@ -17,63 +26,63 @@ const SettlementSupportPage = () => {
       role: "Settlement Team Leader",
       qualifications: "Leadership in settlement services, community partnerships specialist",
       languages: ["English"],
-      image: "/images/Mirja.png"
+      image: MirjaImg
     },
     {
       name: "Madan Narayanamurthy",
       role: "Regional Coordinator (Armidale)",
       qualifications: "Regional programme coordination, multicultural engagement specialist",
       languages: ["English"],
-      image: "/images/Madan Narayanamurthy.png"
+      image: MadanImg
     },
     {
       name: "Maram Mohamed",
       role: "Settlement Caseworker",
       qualifications: "Settlement case management, community liaison experience",
       languages: ["English"],
-      image: "/images/Maram2.png"
+      image: MaramImg
     },
     {
       name: "Rose Oku",
       role: "Settlement Worker",
       qualifications: "Community services background, family support facilitation",
       languages: ["English"],
-      image: "/images/Rose.png"
+      image: RoseImg
     },
     {
       name: "Bronwyn Lin",
       role: "Settlement Case Worker",
       qualifications: "Social services qualifications, multicultural youth support",
       languages: ["English"],
-      image: "/images/Bron.png"
+      image: BronwynImg
     },
     {
       name: "Mohammad Sami Zakhil",
       role: "Settlement Caseworker / Youth Connector",
       qualifications: "Youth mentoring, bicultural advocacy",
       languages: ["English"],
-      image: "/images/Sami.png"
+      image: SamiImg
     },
     {
       name: "Michael de Laroche Souvestre",
       role: "Settlement Worker (Tamworth)",
       qualifications: "Regional settlement support, community orientation specialist",
       languages: ["English"],
-      image: "/images/Mike2.png"
+      image: MichaelImg
     },
     {
       name: "Basim Khudeda",
       role: "Settlement Worker (Armidale)",
       qualifications: "Community engagement, multilingual client support",
       languages: ["English"],
-      image: "/images/Basim Khudeda.png"
+      image: BasimImg
     },
     {
       name: "Patricia Camilleri",
       role: "Settlement Worker (Central Coast)",
       qualifications: "Regional case management, family settlement support",
       languages: ["English"],
-      image: "/images/Patricia 01.png"
+      image: PatriciaImg
     }
   ];
 
@@ -177,7 +186,7 @@ const SettlementSupportPage = () => {
       
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
@@ -222,10 +231,10 @@ const SettlementSupportPage = () => {
 
       
 
-      <section className="relative py-20 bg-background transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="stack-vertical">
             <div className="animate-fade-in-left">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Who Can Access Our Services?</h2>
               <div className="grid md:grid-cols-2 gap-8">
@@ -491,6 +500,7 @@ const SettlementSupportPage = () => {
         description="Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialized skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
         teamMembers={teamMembers}
         accentColor="sky"
+        avatarSize={128}
         bottomSection={{
           title: "Comprehensive Settlement Approach",
           description: "Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community integration, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
@@ -547,7 +557,7 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
         
