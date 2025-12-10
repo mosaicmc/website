@@ -66,8 +66,8 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
       : "bg-sky hover:bg-sky/90";
   };
   return (
-    <Section overlay containerClassName="max-w-screen-lg w-full py-10 px-6">
-      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto text-foreground">
+    <Section overlay center containerClassName="max-w-screen-lg w-full py-10 px-6">
+      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center mx-auto text-foreground">
           {title}
       </h2>
       <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
@@ -84,7 +84,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                   {feature.category === "Community Engagement" && "🤝"}
                 </div>
               </div>
-              <div className="basis-1/2 shrink-0">
+              <div className="basis-1/2 shrink-0 text-center">
                 <span className={`uppercase font-semibold text-sm ${textColorClass(feature.category)}`}>
                   {feature.category}
                 </span>

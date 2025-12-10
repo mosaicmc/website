@@ -63,20 +63,20 @@ const GoogleReviews = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
+      className="relative py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
       aria-label="Google Reviews"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse" />
             <span className="text-gray-700 dark:text-white/90 font-medium">Google Reviews</span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Are Saying</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">What People Are Saying</h2>
           <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
             Verified quotes from our public Google Reviews. Read more on Google for full context.
           </p>
@@ -90,7 +90,7 @@ const GoogleReviews = () => {
 
         <div className="relative" aria-live="polite">
           {loading && (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {Array.from({ length: 3 }).map((_, i) => (
                 <Card key={`skeleton-${i}`} className="animate-pulse">
                   <CardHeader>
@@ -110,12 +110,12 @@ const GoogleReviews = () => {
           )}
 
           {!loading && (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {reviews.map((item) => (
                 <Card key={item.id} className="group relative hover:scale-[1.02] focus-within:ring-2 focus-within:ring-primary" tabIndex={0}>
                   <CardHeader className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Avatar src={item.authorAvatarUrl} name={item.authorName} size={40} />
+                      <Avatar src={item.authorAvatarUrl} name={item.authorName} size={36} />
                       <div>
                         <div className="text-sm font-semibold text-gray-800 dark:text-white/90">{item.authorName || 'Anonymous'}</div>
                         <div className="text-xs text-gray-500 dark:text-white/60">{item.dateText}</div>
@@ -124,7 +124,7 @@ const GoogleReviews = () => {
                     <StarRating value={item.rating} ariaLabel={`${item.rating} out of 5 stars`} />
                   </CardHeader>
                   <CardContent>
-                    <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
+                    <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-normal text-base">“{item.text}”</blockquote>
                   </CardContent>
                   <CardFooter>
                     <span className="text-xs text-gray-500 dark:text-white/60">Source: Google Reviews</span>
@@ -147,7 +147,7 @@ const GoogleReviews = () => {
 
         
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <a
             href={placeUrl || GOOGLE_REVIEWS_URL}
             target="_blank"

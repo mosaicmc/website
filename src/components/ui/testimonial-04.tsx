@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeartPulse, UsersRound, Home, ClipboardList, HandHeart, UserRound, Handshake } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -91,11 +92,13 @@ const RoleAvatar = ({ role, name }: { role?: string; name?: string }) => {
 const TestimonialCard = ({ testimonial, name, role, origin, image }: TestimonialProps) => {
   const [imageError, setImageError] = React.useState(false);
   const showImage = Boolean(image && !imageError);
+  const prefersReducedMotionCard = useReducedMotion();
+  const layoutTransitionCard = prefersReducedMotionCard ? { duration: 0 } : { type: 'spring', stiffness: 240, damping: 28 };
 
   return (
-    <div className="group w-72 flex-shrink-0 mx-4 pt-1 pr-1">
+    <motion.div layout transition={layoutTransitionCard} className="group w-64 sm:w-72 md:w-80 lg:w-96 flex-shrink-0 mx-4 pt-0.5 pr-1">
       {/* Glass morphism card with enhanced effects - Added padding to prevent clipping */}
-      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-3 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+      <div className="relative h-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-2.5 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
         
         {/* Gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -103,17 +106,17 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
         {/* Content with enhanced readability */}
         <div className="relative z-10 h-full flex flex-col">
           {/* Quote */}
-          <blockquote className="text-gray-700 dark:text-white/90 leading-normal mb-3 text-base flex-1">
+          <blockquote className="text-gray-700 dark:text-white/90 leading-normal mb-2.5 text-base flex-1">
             "{testimonial}"
           </blockquote>
           
           {/* Author info */}
-          <div className="flex items-center space-x-3 mt-auto">
+          <div className="flex items-center space-x-2.5 mt-auto">
             {showImage ? (
               <img
                 src={image}
                 alt={name || role || 'Community Member'}
-                className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
+                className="w-9 h-9 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
                 loading="lazy"
                 onError={() => setImageError(true)}
               />
@@ -138,7 +141,7 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
         {/* Corner glow effect - Adjusted position to prevent clipping */}
         <div className="absolute top-1 right-1 w-3 h-3 rounded-full bg-blue-500 dark:bg-blue-400 opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -150,6 +153,8 @@ export function Testimonial04({
   badgeLabel = "Testimonials",
   className 
 }: TestimonialSectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const layoutTransition = prefersReducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 240, damping: 28 };
   return (
     <section className={cn(
       "relative py-12 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300",
@@ -186,24 +191,24 @@ export function Testimonial04({
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
 
           {/* First row - scrolling left */}
-          <div className="mb-5 overflow-hidden py-1">
+          <motion.div data-testid="row-left" layout transition={layoutTransition} className="mb-5 overflow-hidden py-1">
             <div className="flex animate-scroll-left hover:pause-animation">
               {/* Duplicate the testimonials for seamless loop */}
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <TestimonialCard key={`first-${index}`} {...testimonial} />
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Second row - scrolling right */}
-          <div className="overflow-hidden py-1">
+          <motion.div data-testid="row-right" layout transition={layoutTransition} className="overflow-hidden py-1">
             <div className="flex animate-scroll-right hover:pause-animation">
               {/* Reverse and duplicate for opposite direction */}
               {[...testimonials.slice().reverse(), ...testimonials.slice().reverse()].map((testimonial, index) => (
                 <TestimonialCard key={`second-${index}`} {...testimonial} />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Enhanced bottom section with glass effect */}

@@ -46,5 +46,64 @@ test.describe('Testimonials layout compression and accessibility', () => {
   test('desktop viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await assertLayout(page);
+
+    // Verify card dimensions scale wider and shorter at desktop
+    const badge = page.getByText('Testimonials', { exact: true });
+    const section = badge.locator('xpath=ancestor::section[1]');
+    const card = section.locator('.group').first();
+    const rectDesktop = await card.evaluate((el: HTMLElement) => {
+      const r = el.getBoundingClientRect();
+      return { width: r.width, height: r.height };
+    });
+    expect(rectDesktop.width).toBeGreaterThanOrEqual(360); // w-96 ~ 384px
+    expect(rectDesktop.height).toBeLessThanOrEqual(220);
+
+    const quote = section.locator('blockquote').first();
+    const fontSize = await quote.evaluate((el: HTMLElement) => parseFloat(getComputedStyle(el).fontSize));
+    expect(fontSize).toBeGreaterThanOrEqual(16); // readability
+  });
+
+  test('responsive width vs height scaling', async ({ page }) => {
+    // Compare mobile vs desktop card dimensions for proportional change
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('http://localhost:5173/');
+    const badge = page.getByText('Testimonials', { exact: true });
+    const section = badge.locator('xpath=ancestor::section[1]');
+    const card = section.locator('.group').first();
+    const rectMobile = await card.evaluate((el: HTMLElement) => {
+      const r = el.getBoundingClientRect();
+      return { width: r.width, height: r.height };
+    });
+
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('http://localhost:5173/');
+    const rectDesktop = await card.evaluate((el: HTMLElement) => {
+      const r = el.getBoundingClientRect();
+      return { width: r.width, height: r.height };
+    });
+
+    expect(rectDesktop.width).toBeGreaterThanOrEqual(rectMobile.width * 1.3);
+    expect(rectDesktop.height).toBeLessThanOrEqual(rectMobile.height * 0.95);
+  });
+
+  test('motion layout animation during resize', async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 800 });
+    await page.goto('http://localhost:5173/');
+    const badge = page.getByText('Testimonials', { exact: true });
+    const section = badge.locator('xpath=ancestor::section[1]');
+    const rowLeft = section.locator('[data-testid="row-left"]');
+
+    const transformBefore = await rowLeft.evaluate((el: HTMLElement) => getComputedStyle(el).transform);
+    expect(transformBefore === 'none' || transformBefore === 'matrix(1, 0, 0, 1, 0, 0)').toBeTruthy();
+
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.waitForTimeout(30);
+
+    const transformDuring = await rowLeft.evaluate((el: HTMLElement) => getComputedStyle(el).transform);
+    expect(transformDuring === 'none').toBeFalsy();
+
+    await page.waitForTimeout(600);
+    const transformAfter = await rowLeft.evaluate((el: HTMLElement) => getComputedStyle(el).transform);
+    expect(transformAfter === 'none' || transformAfter === 'matrix(1, 0, 0, 1, 0, 0)').toBeTruthy();
   });
 });

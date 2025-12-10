@@ -22,7 +22,7 @@ export default function RelatedServices({ current }: RelatedServicesProps) {
   );
 
   return (
-    <Section overlay>
+    <Section overlay center>
       <div className="text-center mb-12">
         <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
           <span className="mr-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>

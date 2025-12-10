@@ -8,6 +8,7 @@ type SectionProps = {
   padding?: "sm" | "md" | "lg";
   overlay?: boolean;
   overlayClassName?: string;
+  center?: boolean;
 };
 
 const paddingMap = {
@@ -23,6 +24,7 @@ export function Section({
   padding = "md",
   overlay = false,
   overlayClassName,
+  center = false,
 }: SectionProps) {
   return (
     <section
@@ -41,7 +43,15 @@ export function Section({
           )}
         />
       )}
-      <div className={cn("container", containerClassName)}>{children}</div>
+      <div
+        className={cn(
+          "container",
+          center && "mx-auto flex flex-col items-center",
+          containerClassName
+        )}
+      >
+        {children}
+      </div>
     </section>
   );
 }
