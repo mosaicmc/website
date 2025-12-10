@@ -9,7 +9,7 @@ const DonatePage = () => {
         <title>Donate | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Support Mosaic Multicultural Connections. Your donation empowers multicultural communities across NSW through settlement support, aged care, family services, and community engagement."
+          content="Support Mosaic Multicultural Connections. Your donation empowers multicultural communities across NSW through settlement support, home care, family services, and community engagement."
         />
       </Helmet>
       {/* Hero */}

@@ -21,13 +21,13 @@ const ServiceCards = () => {
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Aged Care Services",
-      description: "Need elderly care that respects your culture? We provide culturally informed in-home support and community connections",
+      title: "Home Care Services",
+      description: "Need home care that respects your culture? We provide culturally informed in-home support and community connections",
       features: [
         "Personal care at home",
         "Companionship and social support",
         "Cultural activities and outings",
-        "Help navigating aged care"
+        "Help navigating home care"
       ],
       link: "/services/aged-care",
       color: "care"

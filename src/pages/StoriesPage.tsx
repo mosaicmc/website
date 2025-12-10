@@ -17,12 +17,12 @@ const StoriesPage = () => {
       readTime: "5 min read"
     },
     {
-      title: "Preserving Culture Through Aged Care",
-      excerpt: "Maria's story shows how culturally appropriate aged care helps seniors maintain their identity while receiving the support they need in their golden years.",
+      title: "Preserving Culture Through Home Care",
+      excerpt: "Maria's story shows how culturally appropriate home care helps seniors maintain their identity while receiving the support they need in their golden years.",
       author: "Jennifer Kim",
       date: "December 10, 2024",
       location: "Central Coast",
-      category: "Aged Care",
+      category: "Home Care",
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600",
       readTime: "4 min read"
     },
@@ -68,7 +68,7 @@ const StoriesPage = () => {
     }
   ];
 
-  const categories = ["All Stories", "Settlement Success", "Aged Care", "Youth Programs", "Family Support", "Volunteer Stories", "Community Events"];
+  const categories = ["All Stories", "Settlement Success", "Home Care", "Youth Programs", "Family Support", "Volunteer Stories", "Community Events"];
   const [selectedCategory, setSelectedCategory] = React.useState("All Stories");
 
   const filteredStories = selectedCategory === "All Stories" 

@@ -35,9 +35,9 @@ const Phase2Demo = () => {
                 emoji: "🏠"
               },
               {
-                category: "Aged Care Services",
+                category: "Home Care Services",
                 title: "Culturally Appropriate Care",
-                details: "Honouring traditions while providing professional aged care services in familiar languages.",
+                details: "Honouring traditions while providing professional home care services in familiar languages.",
                 emoji: "❤️"
               }
             ].map((service, index) => (

@@ -33,9 +33,9 @@ const Testimonials = () => {
       image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "My elderly mother receives wonderful care that respects our Chinese traditions. The staff speak Mandarin and understand the importance of family in our culture.",
+      testimonial: "My elderly mother receives wonderful home care that respects our Chinese traditions. The staff speak Mandarin and understand the importance of family in our culture.",
       name: "Li Wei Chen",
-      role: "Aged Care Family Member",
+      role: "Home Care Family Member",
       origin: "Originally from China",
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
@@ -54,7 +54,7 @@ const Testimonials = () => {
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
     },
     {
-      testimonial: "The aged care services provided by Mosaic allowed my father to maintain his dignity while receiving the care he needed in his final years.",
+      testimonial: "The home care services provided by Mosaic allowed my father to maintain his dignity while receiving the care he needed in his final years.",
       name: "David Chen",
       role: "Family Member",
       origin: "Originally from Taiwan",

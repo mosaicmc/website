@@ -36,9 +36,9 @@ const services: {
     icon: Home,
   },
   {
-    title: "Aged Care",
+    title: "Home Care",
     href: "/services/aged-care",
-    description: "Culturally appropriate aged care services for multicultural communities.",
+    description: "Culturally appropriate home care services for multicultural communities.",
     icon: Heart,
   },
   {
@@ -696,7 +696,7 @@ export default function MosaicNavigation() {
                   setIsSearchOpen((v) => {
                     const next = !v;
                     if (next && !searchQuery.trim()) {
-                      const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Aged care support','Employment services','Settlement help (visa, migration)','Programs for children and young people'];
+                      const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Home care support','Employment services','Settlement help (visa, migration)','Programs for children and young people'];
                       setSuggestions(popular);
                     }
                     return next;
@@ -719,7 +719,7 @@ export default function MosaicNavigation() {
                         const v = e.target.value;
                         setSearchQuery(v);
                         if (!v.trim()) {
-                          const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Aged care support','Employment services','Settlement help','Youth & family programs'];
+                          const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Home care support','Employment services','Settlement help','Youth & family programs'];
                           setSuggestions(popular);
                           return;
                         }
@@ -781,7 +781,7 @@ export default function MosaicNavigation() {
                           <li className="px-2 py-1.5 text-sm text-muted-foreground">
                             We couldn’t find results in this language.
                             <div className="mt-2 flex flex-wrap gap-1">
-                              {['Aged care','Employment support','Settlement help'].map((s) => (
+                              {['Home care','Employment support','Settlement help'].map((s) => (
                                 <button key={s} onClick={() => { setSearchQuery(s); setSuggestions([]); }} className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50">
                                   {s}
                                 </button>

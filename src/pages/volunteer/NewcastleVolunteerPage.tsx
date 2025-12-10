@@ -43,7 +43,7 @@ export default function NewcastleVolunteerPage() {
 
   const agedCareRoles = [
     {
-      title: 'Aged Care Facility Visitor',
+      title: 'Home Care Facility Visitor',
       blurb:
         "Bring companionship and joy to an older person living in residential care. You'll visit a designated resident at least twice monthly, building a genuine friendship through conversation, shared activities, and consistent presence that brightens their days and enriches both your lives. If you have genuine empathy for older people, demonstrated reliability, excellent listening skills, and the commitment to maintain appropriate boundaries while building a friendship that matters, this role offers profound rewards beyond volunteering.",
     },
@@ -73,7 +73,7 @@ export default function NewcastleVolunteerPage() {
     {
       title: 'Photography and Videography Support',
       blurb:
-        "Capture the full humanity of our communities through culturally sensitive, empowering visual storytelling. You'll document events, workshops, aged care activities, and settlement programs in ways that reflect warmth, resilience, joy, and dignity. If you're a photographer or videographer who believes in the power of images to shift narratives, who approaches your craft with respect and cultural humility, and who wants to use your skills for genuine social impact, we'd love to work with you.",
+        "Capture the full humanity of our communities through culturally sensitive, empowering visual storytelling. You'll document events, workshops, home care activities, and settlement programs in ways that reflect warmth, resilience, joy, and dignity. If you're a photographer or videographer who believes in the power of images to shift narratives, who approaches your craft with respect and cultural humility, and who wants to use your skills for genuine social impact, we'd love to work with you.",
     },
   ];
 
@@ -112,7 +112,7 @@ export default function NewcastleVolunteerPage() {
                   Settlement Support
                 </Tabs.Trigger>
                 <Tabs.Trigger value="aged-care" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                  Aged Care
+                  Home Care
                 </Tabs.Trigger>
                 <Tabs.Trigger value="marketing" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                   Marketing
@@ -214,7 +214,7 @@ export default function NewcastleVolunteerPage() {
                       <div className="w-10 h-10 rounded-full bg-sky text-white flex items-center justify-center">
                         <Heart className="h-6 w-6" />
                       </div>
-                      <h2 className="text-lg font-semibold text-foreground">Aged Care Volunteer Visitor Scheme</h2>
+                      <h2 className="text-lg font-semibold text-foreground">Home Care Volunteer Visitor Scheme</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {agedCareRoles.map((r) => (

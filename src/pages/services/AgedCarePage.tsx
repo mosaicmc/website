@@ -53,7 +53,7 @@ const AgedCarePage = () => {
     {
       question: "Am I eligible for your services?",
       answer:
-        "Generally, people aged 65+ (or 50+ for Aboriginal and Torres Strait Islander people) living at home are eligible for aged care supports. Carers may access Flexible Respite. If you’re unsure, contact us and we’ll help you understand options and pathways.",
+        "Generally, people aged 65+ (or 50+ for Aboriginal and Torres Strait Islander people) living at home are eligible for home care supports. Carers may access Flexible Respite. If you’re unsure, contact us and we’ll help you understand options and pathways.",
     },
     {
       question: "How do I get started?",
@@ -121,10 +121,10 @@ const AgedCarePage = () => {
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Mosaic Multicultural - Aged Care Services</title>
-        <meta name="description" content="Culturally appropriate aged care with multilingual staff, home care packages, and family support across NSW." />
+        <title>Mosaic Multicultural - Home Care Services</title>
+        <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
       </Helmet>
-      <FAQSchema faqs={faqData} name="Aged Care FAQs" />
+      <FAQSchema faqs={faqData} name="Home Care FAQs" />
       {/* Announcement: New Aged Care Act commencement (single line) */}
       <section className="bg-gradient-to-r from-care to-care/90 text-white py-4 animate-fade-in-down">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,18 +166,18 @@ const AgedCarePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <Heart className="mr-2 h-4 w-4 text-care" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">Aged Care Services</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">Home Care Services</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Culturally Appropriate Aged Care</h1>
+            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Culturally Appropriate Home Care</h1>
             <p className="text-xl text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Honouring traditions and providing comfort in familiar languages while delivering professional aged care services.
+              Honouring traditions and providing comfort in familiar languages while delivering professional home care services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Link
                 to="#programs"
                 className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2"
               >
-                Explore Our Aged Care Programs
+                Explore Our Home Care Programs
               </Link>
               <a
                 href="tel:1800813205"
@@ -202,7 +202,7 @@ const AgedCarePage = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Seniors from multicultural backgrounds requiring aged care support</span>
+                  <span className="text-gray-700 dark:text-gray-100">Seniors from multicultural backgrounds requiring home care support</span>
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
@@ -221,7 +221,7 @@ const AgedCarePage = () => {
                 <div className="aspect-video">
                   <img
                     src="/images/aged-care/eligibility.png"
-                    alt="Multicultural aged care support"
+                    alt="Multicultural home care support"
                     className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
@@ -237,7 +237,7 @@ const AgedCarePage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">How aged care works</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">How home care works</p>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Understanding rights, eligibility and getting started</h2>
           </div>
           <div className="space-y-16">
@@ -328,7 +328,7 @@ const AgedCarePage = () => {
                 <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Aged Care Programs</h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Home Care Programs</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {[
@@ -445,13 +445,13 @@ const AgedCarePage = () => {
 
       {/* Team Section */}
       <Team05
-        title="Meet Your Aged Care Team"
-        description="Our aged care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
+        title="Meet Your Home Care Team"
+        description="Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
         teamMembers={teamMembers}
         accentColor="care"
         bottomSection={{
           title: "Culturally Sensitive Care Approach",
-          description: "Our team understands that quality aged care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values."
+          description: "Our team understands that quality home care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values."
         }}
       />
 
@@ -464,7 +464,7 @@ const AgedCarePage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
               <span className="text-gray-700 dark:text-white/90 font-medium">Frequently Asked Questions</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Questions About Our Aged Care Programs</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Questions About Our Home Care Programs</h2>
             <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
               Clear answers about Support at Home, CHSP services, eligibility, and getting started.
             </p>
@@ -511,7 +511,7 @@ const AgedCarePage = () => {
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">Discuss Your Care Needs</h2>
             <p className="text-xl text-gray-700 dark:text-gray-100 mb-8 max-w-3xl mx-auto">
-              Our experienced aged care team understands the importance of cultural sensitivity in care delivery.
+              Our experienced home care team understands the importance of cultural sensitivity in care delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

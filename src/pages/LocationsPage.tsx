@@ -14,11 +14,11 @@ const LocationsPage = () => {
         weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
         weekend: "Closed weekends"
       },
-      services: ["All Services", "Aged Care", "Settlement Support", "Family Support", "Administration"],
+      services: ["All Services", "Home Care", "Settlement Support", "Family Support", "Administration"],
       staff: [
         { name: "Sarah Chen", role: "CEO", languages: ["English", "Mandarin"] },
         { name: "Ahmed Hassan", role: "Settlement Director", languages: ["English", "Arabic", "French"] },
-        { name: "Maria Santos", role: "Aged Care Director", languages: ["English", "Tagalog", "Spanish"] }
+        { name: "Maria Santos", role: "Home Care Director", languages: ["English", "Tagalog", "Spanish"] }
       ],
       transport: [
         "Charlestown Square bus interchange",

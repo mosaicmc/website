@@ -12,7 +12,7 @@ const ServicesPage = () => {
         <title>Services | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content={AU('Simple, culturally appropriate support to help people build a new life in Australia — including settlement services, family support, aged care and community services across NSW.')}
+          content={AU('Simple, culturally appropriate support to help people build a new life in Australia — including settlement services, family support, home care and community services across NSW.')}
         />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
@@ -39,8 +39,8 @@ const ServicesPage = () => {
             {
               '@type': 'ListItem', position: 3,
               item: { '@type': 'Service',
-                name: 'Aged care programs',
-                description: 'Culturally responsive, in‑home and community based aged care that honours cultural traditions.',
+                name: 'Home care programs',
+                description: 'Culturally responsive, in‑home and community based home care that honours cultural traditions.',
                 areaServed: 'NSW',
                 url: 'https://mosaicmc.org.au/services/aged-care'
               }
@@ -75,7 +75,7 @@ const ServicesPage = () => {
               {AU('Support to help you build a new life in Australia')}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-up">
-              {AU('Simple, culturally appropriate services across NSW — settlement, family support, aged care and community services.')}
+              {AU('Simple, culturally appropriate services across NSW — settlement, family support, home care and community services.')}
             </p>
           </div>
         </div>

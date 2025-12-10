@@ -18,7 +18,7 @@ const AboutPage = () => {
     { year: "1991", label: "1991", description: "Tenth anniversary with staff growth and new services including the Community Visitors Scheme and Immigration Assistance.", image: "https://picsum.photos/seed/mosaic-1991/616/616", alt: "Ten year anniversary milestones and service expansion across NSW", details: "Served clients from over 100 nationalities and expanded to the North West of NSW and the Central Coast. Initiated services for aged migrants and immigration advice that benefited clients for many years." },
     { year: "1999", label: "1999", description: "Frontline role supporting nearly 900 Kosovar refugees with interagency collaboration.", image: "https://picsum.photos/seed/mosaic-1999/616/616", alt: "Humanitarian response supporting Kosovar refugees in Australia", details: "Worked with government and interagency groups to provide settlement assistance, referrals, and liaison during the national humanitarian response for refugees from the former Yugoslavia.", gallery: ["https://picsum.photos/seed/mosaic-1999-2/616/616"] },
     { year: "2004", label: "February 2004", description: "Opened Armidale office to strengthen outreach across New England and the North West Plains.", image: "https://picsum.photos/seed/mosaic-2004/616/616", alt: "Armidale office opening strengthens outreach across New England and North West NSW", details: "Strengthened outreach across New England and the North West Plains including Tamworth, Inverell, Wellington, and Gunnedah. Facilitated translation of documents, work experience, and employer advocacy for skilled migrants.", links: [{ label: "Armidale NSW", href: "https://www.armidale.nsw.gov.au/" }] },
-    { year: "2005", label: "2005", description: "Opened Central Coast base and expanded services for arrivals from Sudan, Liberia, Congo and Burundi.", image: "https://picsum.photos/seed/mosaic-2005/616/616", alt: "Central Coast office opening and services for African refugee communities", details: "Established a Central Coast office for welfare and aged care. Collaborated with MRCs for settlement services for traumatised African refugee communities in the region.", links: [{ label: "Central Coast NSW", href: "https://www.centralcoast.nsw.gov.au/" }] },
+    { year: "2005", label: "2005", description: "Opened Central Coast base and expanded services for arrivals from Sudan, Liberia, Congo and Burundi.", image: "https://picsum.photos/seed/mosaic-2005/616/616", alt: "Central Coast office opening and services for African refugee communities", details: "Established a Central Coast office for welfare and home care. Collaborated with MRCs for settlement services for traumatised African refugee communities in the region.", links: [{ label: "Central Coast NSW", href: "https://www.centralcoast.nsw.gov.au/" }] },
     { year: "2006", label: "2006", description: "Twenty five years of service with broader outreach and services across regional NSW.", image: "https://picsum.photos/seed/mosaic-2006/616/616", alt: "Twenty five year milestone with outreach to Dubbo, Orange, Bathurst and more", details: "Marked twenty five years with twenty four staff and over one hundred volunteers. Opened Tamworth and extended outreach to Dubbo, Orange, Bathurst, Lightning Ridge and Coffs Harbour. Broadened services including Family Support, employment placement, rural campaigns and Community Aged Care Packages." },
     { year: "2007", label: "2007", description: "Became Northern Settlement Services Ltd, securing charitable status and donor tax concessions.", image: "https://picsum.photos/seed/mosaic-2007/616/616", alt: "Northern Settlement Services Ltd charitable status and tax concessions", details: "Secured charitable status with the ATO, enabling tax concessions, gift deductibility for donors and salary sacrifice benefits for staff." },
     { year: "2010", label: "2010", description: "Leadership transition as Violetta Walsh retired and Lulu Tantos was appointed CEO.", image: "https://picsum.photos/seed/mosaic-2010/616/616", alt: "Leadership transition and continued program diversification", details: "Leadership continued to steer diversification and program growth across the organisation.", gallery: ["https://picsum.photos/seed/mosaic-2010-2/616/616"] },
@@ -64,7 +64,7 @@ const AboutPage = () => {
     { name: "Naomi McLean", title: "Executive Committee Member", role: "Board Member since 2023", credentials: "BA (Asian Studies), Grad Cert Global Health, MA (Strategy and Policy)", languages: ["English"], bio: "Hello! I’m Naomi McLean. I’ve worked across education, health and international development. My career began in defence and evolved through roles in the public service and the tertiary sector, where I led governance reform and strategic initiatives. My motivation is equity and access for all. My vision is empowerment, connection and meaningful impact through education, advocacy and community engagement." },
     { name: "Peter Gittins", title: "Executive Committee Member", role: "Board Member since 2024", credentials: "BA, Dip Education, Cert ESL, Cert Business", languages: ["English"], bio: "Hi, I’m Peter Gittins. I am a retired international educator and an independent Councillor on Newcastle City Council. I’ve taught in PNG and Nepal and led international schools in Germany, Sri Lanka and Vietnam. I bring expertise in governance, financial management and strategic planning. My motivation is a lifelong commitment to education, inclusion and community development. My vision is to help Mosaic connect across cultures through thoughtful governance, strategic leadership and meaningful engagement." },
     { name: "Catherine Candiloro", title: "Director", role: "Board Member since 2025", credentials: "Master of International & Community Development, Grad Cert NFP Management, Specialist Cert Implementation Science", languages: ["English", "Spanish", "Italian"], bio: "Hello! I’m Catherine Candiloro. I bring lived experience as the child of a refugee and a career spanning government and NGOs. I’ve led refugee and child‑focused support programs and now work in regulation, with expertise in compliance, safeguarding and change management. Motivated by a desire to give back to my community, my vision is integrity, inclusion and strategic growth, where community voices are amplified." },
-    { name: "Lauren Croiset", title: "Director", role: "Board Member since 2025", credentials: "Diploma of Counselling (currently studying)", languages: ["English", "French"], bio: "Hi, I’m Lauren Croiset. I’m a strategic leader in aged care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging." },
+    { name: "Lauren Croiset", title: "Director", role: "Board Member since 2025", credentials: "Diploma of Counselling (currently studying)", languages: ["English", "French"], bio: "Hi, I’m Lauren Croiset. I’m a strategic leader in home care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging." },
   ] as const;
   const [activeBoardMember, setActiveBoardMember] = React.useState<typeof boardMembers[number] | null>(null);
   type ManagementMember = {
@@ -99,7 +99,7 @@ const AboutPage = () => {
     },
     {
       name: "",
-      title: "Manager, Aged Care Services",
+      title: "Manager, Home Care Services",
       level: 3 as const,
       languages: [],
       bio: "Bio will be added from Management_bios."
@@ -221,7 +221,7 @@ const AboutPage = () => {
     <div className="animate-fade-in">
       <Helmet>
         <title>About Mosaic Multicultural Connections</title>
-        <meta name="description" content="Mosaic Multicultural Connections supports multicultural communities across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW. Discover our mission, values and 40+ year story of settlement support, aged care and family services." />
+        <meta name="description" content="Mosaic Multicultural Connections supports multicultural communities across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW. Discover our mission, values and 40+ year story of settlement support, home care and family services." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
@@ -254,7 +254,7 @@ const AboutPage = () => {
               "name": "What is Mosaic Multicultural Connections?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mosaic Multicultural Connections is a community organisation supporting culturally and linguistically diverse people across NSW through settlement support, aged care, family services and community advocacy."
+                "text": "Mosaic Multicultural Connections is a community organisation supporting culturally and linguistically diverse people across NSW through settlement support, home care, family services and community advocacy."
               }
             },
             {
@@ -270,7 +270,7 @@ const AboutPage = () => {
               "name": "How does Mosaic support newcomers?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We provide information and referral, settlement and employment support, language services, aged care programs and community connections to help people thrive."
+                "text": "We provide information and referral, settlement and employment support, language services, home care programs and community connections to help people thrive."
               }
             }
           ]

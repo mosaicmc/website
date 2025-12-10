@@ -14,7 +14,7 @@ const HomePage = () => {
         <title>Mosaic Multicultural Connections | Support for NSW Communities</title>
         <meta
           name="description"
-          content="Empowering multicultural communities across New South Wales through settlement support, aged care, family services, and community engagement."
+          content="Empowering multicultural communities across New South Wales through settlement support, home care, family services, and community engagement."
         />
       </Helmet>
       <Hero />

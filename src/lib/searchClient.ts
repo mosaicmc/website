@@ -59,7 +59,8 @@ function levenshtein(a: string, b: string): number {
 function expandSynonyms(q: string): string[] {
   const base = q.toLowerCase();
   const syn: Record<string, string[]> = {
-    'aged care': ['senior support', 'older people care', 'elder care'],
+    'aged care': ['senior support', 'older people care', 'elder care', 'home care'],
+    'home care': ['aged care', 'elder care', 'senior support'],
     employment: ['jobs', 'work support', 'job help', 'work'],
     settlement: ['migration', 'visa help', 'settlement support'],
     volunteers: ['volunteering', 'help out', 'get involved'],
@@ -273,7 +274,7 @@ export class LocalSearchClient {
     const hasYouth = /\b(youth|child|children|kids|young|family)\b/.test(base);
     const hasForms = /\b(form|forms|document|documents|brochure|brochures|paperwork|apply|application)\b/.test(base);
     const phrase = (intent: string, fallback: string) => translationsLookup[intent]?.[lang] || fallback;
-    if (hasAged) out.push(phrase('aged_care', 'Looking for aged care support?'));
+    if (hasAged) out.push(phrase('aged_care', 'Looking for home care support?'));
     if (hasJob) out.push(phrase('employment', 'Need help finding a job?'));
     if (hasVisa) out.push(phrase('settlement', 'Support with settling in Australia'));
     if (hasYouth) out.push(phrase('youth_programs', 'Programs for children and young people'));
@@ -295,7 +296,7 @@ export class LocalSearchClient {
 
   popularPrompts(): string[] {
     return [
-      'Aged care support',
+      'Home care support',
       'Employment services',
       'Settlement help',
       'Youth & family programs'

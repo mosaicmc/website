@@ -61,7 +61,7 @@ const ResourcesPage = () => {
   const brochures = [
     { title: 'Settlement Support', href: '/brochures/settlement-support.pdf', color: 'sky' },
     { title: 'Mosaic Overview', href: '/brochures/generic-mosaic.pdf', color: 'sun' },
-    { title: 'Aged Care', href: '/brochures/aged-care.pdf', color: 'earth' },
+    { title: 'Home Care', href: '/brochures/aged-care.pdf', color: 'earth' },
     { title: 'Community Engagement', href: '/brochures/community-engagement.pdf', color: 'leaf' },
   ];
 

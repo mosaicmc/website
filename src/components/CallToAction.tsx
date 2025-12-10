@@ -31,7 +31,7 @@ const CallToAction = () => {
           
           {/* Content */}
           <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Whether you're seeking settlement support, family assistance, aged care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
+            Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
           </p>
           
           {/* CTA Buttons */}

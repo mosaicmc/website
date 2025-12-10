@@ -11,4 +11,4 @@
 - Mobile responsiveness: grids collapse cleanly; spacing maintains readability; images scale
 - Content density: one concise description paragraph per card; exactly 4 concise bullets
 - Consistency: shared labels (“What We Provide”, “Impact stories”, “Who Can Get Involved?”), standard terminology
-
+ - Terminology: use “Home Care” (not “Aged Care”) across UI, metadata, alt text

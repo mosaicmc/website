@@ -23,9 +23,9 @@ const defaultFeatures: ServiceFeature[] = [
     tutorialLink: "/services/settlement-support",
   },
   {
-    category: "Aged Care Services",
+    category: "Home Care Services",
     title: "Culturally Appropriate Care",
-    details: "Honouring traditions while providing professional aged care services in familiar languages. Home care packages, personal care, and cultural activities.",
+    details: "Honouring traditions while providing professional home care services in familiar languages. Home care packages, personal care, and cultural activities.",
     tutorialLink: "/services/aged-care",
   },
   {
@@ -46,7 +46,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   const textColorClass = (category: string) => {
     return category === "Settlement Support"
       ? "text-sky"
-      : category === "Aged Care Services"
+      : category === "Home Care Services"
       ? "text-care"
       : category === "Family Support"
       ? "text-sun"
@@ -57,7 +57,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   const buttonColorClass = (category: string) => {
     return category === "Settlement Support"
       ? "bg-sky hover:bg-sky/90"
-      : category === "Aged Care Services"
+      : category === "Home Care Services"
       ? "bg-care hover:bg-care/90"
       : category === "Family Support"
       ? "bg-sun hover:bg-sun/90"
@@ -79,7 +79,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
               <div className="w-full aspect-[6/4] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-xl border border-gray-200 dark:border-gray-700 basis-1/2 flex items-center justify-center">
                 <div className="text-6xl opacity-20 dark:opacity-30">
                   {feature.category === "Settlement Support" && "🏠"}
-                  {feature.category === "Aged Care Services" && "❤️"}
+                  {feature.category === "Home Care Services" && "❤️"}
                   {feature.category === "Family Support" && "👨‍👩‍👧‍👦"}
                   {feature.category === "Community Engagement" && "🤝"}
                 </div>

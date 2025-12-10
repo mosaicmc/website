@@ -32,7 +32,7 @@ const INDEX: Meta[] = [
   { key: 'about', path: '/about', tags: ['organisation', 'mission', 'team', 'governance'] },
   { key: 'services', path: '/services', tags: ['services', 'overview', 'programs'] },
   { key: 'settlement-support', path: '/services/settlement-support', tags: ['settlement', 'housing', 'employment', 'government', 'community', 'language'] },
-  { key: 'aged-care', path: '/services/aged-care', tags: ['aged care', 'support at home', 'chsp', 'respite', 'volunteer', 'family'] },
+  { key: 'aged-care', path: '/services/aged-care', tags: ['home care', 'support at home', 'chsp', 'respite', 'volunteer', 'family', 'aged care'] },
   { key: 'family-support', path: '/services/family-support', tags: ['family', 'parenting', 'counselling', 'children', 'playgroups', 'safety'] },
   { key: 'community-engagement', path: '/services/community-engagement', tags: ['community', 'events', 'volunteering', 'partnerships', 'youth'] },
   { key: 'locations', path: '/locations', tags: ['locations', 'offices', 'visit', 'contact'] },
@@ -65,7 +65,7 @@ const ICONS: Record<RelatedItem['icon'], RelatedItem['icon']> = {
 
 const META_TO_ITEM: Record<PageKey, Omit<RelatedItem, 'key'>> = {
   'settlement-support': { title: 'Settlement Support', description: 'Housing, jobs and orientation help.', link: '/services/settlement-support', color: 'sky', icon: ICONS.home },
-  'aged-care': { title: 'Aged Care Services', description: 'In‑home care and social support.', link: '/services/aged-care', color: 'care', icon: ICONS.heart },
+  'aged-care': { title: 'Home Care Services', description: 'In‑home care and social support.', link: '/services/aged-care', color: 'care', icon: ICONS.heart },
   'family-support': { title: 'Family Support', description: 'Counselling and parenting programs.', link: '/services/family-support', color: 'sun', icon: ICONS.users },
   'community-engagement': { title: 'Community Engagement', description: 'Events, volunteering and partnerships.', link: '/services/community-engagement', color: 'leaf', icon: ICONS.handshake },
   services: { title: 'Services', description: 'Explore our full programs.', link: '/services', color: 'sky', icon: ICONS.home },
@@ -190,7 +190,7 @@ export function getRelatedPages(currentPath: string): RelatedItem[] {
 export function copyFor(currentKey: PageKey | null): string {
   const map: Partial<Record<PageKey, string>> = {
     'settlement-support': 'New in Australia? Explore complementary services that support housing, work and community connection.',
-    'aged-care': 'Discover programs that enhance independence and wellbeing alongside aged care supports.',
+    'aged-care': 'Discover programs that enhance independence and wellbeing alongside home care supports.',
     'family-support': 'Strengthen family life with related services that support parenting, safety and community.',
     'community-engagement': 'Build connections through services that complement events, volunteering and partnerships.',
     services: 'Explore complementary services that pair well with your current needs.',

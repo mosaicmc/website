@@ -10,20 +10,20 @@ type QA = { question: string; answer: string };
 export default function FAQPage() {
   const [query, setQuery] = useState('');
   const faqs: QA[] = useMemo(() => ([
-    { question: 'Am I eligible for services in NSW?', answer: 'If you live in NSW and need support with settlement, family wellbeing, aged care or community connection, we can help. Eligibility varies by program — contact us to check your pathway.' },
+    { question: 'Am I eligible for services in NSW?', answer: 'If you live in NSW and need support with settlement, family wellbeing, home care or community connection, we can help. Eligibility varies by program — contact us to check your pathway.' },
     { question: 'How do I start getting support?', answer: 'Call 1800 813 205 or visit a local office in Newcastle, Tamworth, Armidale or the Central Coast. We discuss your goals, agree a plan, and connect you to housing, work, language and community supports.' },
     { question: 'Do you provide interpreters?', answer: 'Yes. Ask for an interpreter in your language. In emergencies, call 000. For interpreters, call TIS National on 131 450.' },
     { question: 'What settlement support do you offer?', answer: 'Housing and tenancy guidance, employment preparation and connections, government service navigation (Centrelink, Medicare, tax, licences), and community orientation including language programs.' },
     { question: 'Which family program is right for us?', answer: 'TEI family support helps with casework and parenting. PAW playgroups (0–6) offer community connection and cultural celebration. Many families use both at different times — we help you choose.' },
-    { question: 'Are programs free?', answer: 'Settlement, family and community programs are free to access. Interpreters are provided at no cost. Aged care supports are funded via My Aged Care pathways (SaH/CHSP) and may include client co‑payments based on government assessment. We help you understand any fees and support options.' },
-    { question: 'What aged care supports are available?', answer: 'Culturally responsive in‑home and community care across NSW: Support at Home and CHSP. We match workers to language/culture where possible, and organise nursing or allied health when needed.' },
+    { question: 'Are programs free?', answer: 'Settlement, family and community programs are free to access. Interpreters are provided at no cost. Home care supports are funded via My Aged Care pathways (SaH/CHSP) and may include client co‑payments based on government assessment. We help you understand any fees and support options.' },
+    { question: 'What home care supports are available?', answer: 'Culturally responsive in‑home and community care across NSW: Support at Home and CHSP. We match workers to language/culture where possible, and organise nursing or allied health when needed.' },
     { question: 'Where are services available?', answer: 'Across NSW with hubs in Newcastle, Tamworth, Armidale and the Central Coast — plus outreach, home visits, and phone/video options where appropriate.' },
     { question: 'How do I refer a client?', answer: 'Use the Contact page or call 1800 813 205. Provide consent, language needs, and brief context. We acknowledge referrals, contact the client promptly, and share progress updates with permission.' },
     { question: 'Do you provide warm handovers and interpreters?', answer: 'Yes. We welcome joint appointments and provide interpreter support. Our approach ensures smooth transitions and coordinated care that respects privacy and consent.' },
     { question: 'How can I donate and is it tax‑deductible?', answer: 'Donate online via the Donate page or partner on programs. Eligible donations may be tax‑deductible; receipts provided. Funds support practical services across NSW.' },
-    { question: 'How are donations used?', answer: 'Funding supports settlement casework, family support, culturally appropriate aged care and community engagement activities. We report impact transparently.' },
+    { question: 'How are donations used?', answer: 'Funding supports settlement casework, family support, culturally appropriate home care and community engagement activities. We report impact transparently.' },
     { question: 'How do you track outcomes and report?', answer: 'We measure service utilisation, casework outcomes and community impact, and report in line with NSW compliance, privacy and ethics. Annual reports and governance resources are publicly available.' },
-    { question: 'What is Mosaic Multicultural Connections?', answer: 'Mosaic Multicultural Connections is a community organisation supporting multicultural communities across NSW with settlement support, family services, culturally responsive aged care and community engagement.' },
+    { question: 'What is Mosaic Multicultural Connections?', answer: 'Mosaic Multicultural Connections is a community organisation supporting multicultural communities across NSW with settlement support, family services, culturally responsive home care and community engagement.' },
     { question: 'How long has Mosaic served communities?', answer: 'We have supported multicultural communities in NSW for over 40 years, partnering with communities to improve access, inclusion and wellbeing.' },
     { question: 'Where can I find policies and annual reports?', answer: 'Visit the Resources section for Annual Reports and the Knowledge Base for organisational policies and governance resources.' },
     { question: 'Where are your offices located?', answer: 'We operate across NSW with hubs in Newcastle, Tamworth, Armidale and the Central Coast, with outreach, home visits and phone/video support where appropriate.' },
@@ -51,7 +51,7 @@ export default function FAQPage() {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>FAQs | Mosaic Multicultural Connections</title>
-        <meta name="description" content="Frequently asked questions about eligibility, getting support, interpreters, aged care, family programs, referrals, donations and reporting in NSW." />
+        <meta name="description" content="Frequently asked questions about eligibility, getting support, interpreters, home care, family programs, referrals, donations and reporting in NSW." />
       </Helmet>
       <FAQSchema faqs={allFaqs} name="Mosaic Multicultural Connections FAQs" />
 

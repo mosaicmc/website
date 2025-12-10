@@ -14,14 +14,14 @@ export default function CentralCoastVolunteerPage() {
 
   const agedCareRoles = [
     {
-      title: 'Aged Care Facility Visitor',
+      title: 'Home Care Facility Visitor',
       blurb:
         "Bring companionship and joy to an older person living in residential care. You'll visit a designated resident at least twice monthly, building a genuine friendship through conversation, shared activities, and consistent presence that brightens their days and enriches both your lives. If you have genuine empathy for older people, demonstrated reliability, excellent listening skills, and the commitment to maintain appropriate boundaries while building a friendship that matters, this role offers profound rewards beyond volunteering.",
     },
     {
       title: 'Home Visitor',
       blurb:
-        "Provide companionship and social connection for older people living independently in their own homes. You'll visit an aged care recipient at least twice monthly, helping combat isolation while respecting their independence and dignity in their own environment. If you combine reliability with respectful sensitivity, can work independently while knowing when to seek guidance, and you understand that aging at home is about preserving independence and identity, this role allows you to make an enormous difference in someone's daily life.",
+        "Provide companionship and social connection for older people living independently in their own homes. You'll visit a home care recipient at least twice monthly, helping combat isolation while respecting their independence and dignity in their own environment. If you combine reliability with respectful sensitivity, can work independently while knowing when to seek guidance, and you understand that aging at home is about preserving independence and identity, this role allows you to make an enormous difference in someone's daily life.",
     },
   ];
 
@@ -58,7 +58,7 @@ export default function CentralCoastVolunteerPage() {
             <Tabs.Root defaultValue="aged-care">
               <Tabs.List className="inline-flex items-center rounded-full border border-border bg-card/70 dark:bg-card/30 backdrop-blur-md p-1">
                 <Tabs.Trigger value="aged-care" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                  Aged Care
+                  Home Care
                 </Tabs.Trigger>
               </Tabs.List>
 
@@ -69,7 +69,7 @@ export default function CentralCoastVolunteerPage() {
                       <div className="w-10 h-10 rounded-full bg-sky text-white flex items-center justify-center">
                         <Heart className="h-6 w-6" />
                       </div>
-                      <h2 className="text-lg font-semibold text-foreground">Aged Care Volunteer Visitor Scheme</h2>
+                      <h2 className="text-lg font-semibold text-foreground">Home Care Volunteer Visitor Scheme</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {agedCareRoles.map((r) => (

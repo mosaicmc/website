@@ -12,7 +12,7 @@
   },
   "services": {
     "settlement": "Settlement Support",
-    "agedCare": "Aged Care Services",
+    "agedCare": "Home Care Services",
     "familySupport": "Family Support",
     "communityEngagement": "Community Engagement"
   },
@@ -20,7 +20,7 @@
     "badge": "Serving NSW communities for {{years}} years",
     "title": "Supporting Diverse Communities Across NSW",
     "titleHighlight": "Diverse",
-    "description": "Empowering multicultural communities through settlement support, aged care, family services, and community engagement programs tailored to your needs.",
+    "description": "Empowering multicultural communities through settlement support, home care, family services, and community engagement programs tailored to your needs.",
     "exploreServices": "Explore Our Services",
     "watchStories": "Watch Stories",
     "stats": {
@@ -44,8 +44,8 @@
       ]
     },
     "agedCare": {
-      "title": "Aged Care Services",
-      "description": "Culturally appropriate aged care services that respect traditions and provide comfort in familiar languages.",
+      "title": "Home Care Services",
+      "description": "Culturally appropriate home care services that respect traditions and provide comfort in familiar languages.",
       "features": [
         "Home care packages",
         "Cultural activities",
@@ -88,7 +88,7 @@
     "changeLanguage": "Change Language"
   },
   "footer": {
-    "description": "Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, aged care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.",
+    "description": "Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Information",
     "followUs": "Follow Us",
@@ -161,7 +161,7 @@
         "serviceOptions": {
           "select": "Select a service",
           "settlement": "Settlement Support",
-          "agedCare": "Aged Care Services",
+          "agedCare": "Home Care Services",
           "familySupport": "Family Support",
           "communityEngagement": "Community Engagement",
           "volunteer": "Volunteer Opportunities",

@@ -30,8 +30,8 @@ const Phase1Demo = () => {
               },
               {
                 icon: <Heart className="h-8 w-8" />,
-                title: "Aged Care Services", 
-                description: "Culturally appropriate aged care services that respect traditions and provide comfort in familiar languages.",
+                title: "Home Care Services", 
+                description: "Culturally appropriate home care services that respect traditions and provide comfort in familiar languages.",
                 color: "earth"
               }
             ].map((service, index) => (
