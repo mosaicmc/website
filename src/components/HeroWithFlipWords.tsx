@@ -37,7 +37,7 @@ const HeroWithFlipWords = () => {
                 <FlipWords 
                   words={rotatingWords}
                   duration={3000}
-                  className="bg-gradient-to-r from-sky via-ocean to-earth bg-clip-text text-transparent inline-block px-1 sm:px-2"
+                  className="inline-block px-1 sm:px-2"
                 />{" "}
                 <span className="block sm:inline mt-1 sm:mt-0">Communities Across NSW</span>
               </h1>

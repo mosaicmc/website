@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+// Removed unused DropdownMenu imports after integrating Get Involved under Services/Resources patterns
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,6 +16,8 @@ import { cn } from "@/lib/utils";
 import { prefetchOnHover, prefetchRoute } from "@/lib/prefetch";
 import { Menu, Phone, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search } from "lucide-react";
 import { logSearchQuery, getMonthlyTop } from '@/lib/searchAnalytics';
+import { auSpelling } from '@/lib/auSpelling';
+import { LocalSearchClient, buildFacets as buildFacetsFromClient, initSearchConfigs } from '@/lib/searchClient';
 import { ThemeToggle } from './ui/theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../hooks/useTheme';
@@ -175,11 +172,14 @@ export default function MosaicNavigation() {
   const location = useLocation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showOverlay, setShowOverlay] = useState(false);
   const [topQueries, setTopQueries] = useState<{ query: string; count: number }[]>([]);
   const [isOwner, setIsOwner] = useState(false);
   const { theme } = useTheme();
   const glassRef = React.useRef<HTMLDivElement | null>(null);
+  const clientRef = React.useRef<LocalSearchClient | null>(null);
 
   React.useEffect(() => {
     const el = glassRef.current;
@@ -243,7 +243,10 @@ export default function MosaicNavigation() {
   };
 
   React.useEffect(() => {
-    loadSearchIndex();
+    loadSearchIndex().then(async () => {
+      await initSearchConfigs();
+      clientRef.current = new LocalSearchClient(runtimeIndex, i18n.language);
+    });
     const onKey = (e: KeyboardEvent) => {
       const isMetaK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k';
       if (isMetaK) {
@@ -272,7 +275,11 @@ export default function MosaicNavigation() {
     const initialOwner = localStorage.getItem('mosaic-owner') === '1' || (import.meta as unknown as { env?: { DEV?: boolean } }).env?.DEV;
     setIsOwner(!!initialOwner);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [i18n.language]);
+
+  React.useEffect(() => {
+    if (clientRef.current) clientRef.current.setLanguage(i18n.language);
+  }, [i18n.language]);
 
   function expandSynonyms(q: string): string[] {
     const base = q.toLowerCase();
@@ -354,10 +361,12 @@ export default function MosaicNavigation() {
         }
       }
     }
+    const aus = auSpelling(base);
+    acc.add(aus);
     return Array.from(acc);
   }
 
-  function rankResults(q: string, items: SearchItem[]): SearchItem[] {
+  function rankResults(q: string, items: SearchItem[], facets: string[] = []): SearchItem[] {
     const qs = expandSynonyms(q);
     const lang = (i18n.language || 'en').toLowerCase();
     const scored = items.map((it) => {
@@ -371,12 +380,50 @@ export default function MosaicNavigation() {
         if (hay.includes(term)) score += 3;
       }
       if (it.lang && it.lang.toLowerCase() === lang) score += 4;
+      if (facets.length) {
+        const tagset = new Set((it.tags || []).map((t) => t.toLowerCase()));
+        for (const f of facets) if (tagset.has(f.toLowerCase())) score += 4;
+      }
       return { it, score };
     });
     return scored
       .filter((s) => s.score > 0)
       .sort((a, b) => b.score - a.score)
       .map((s) => s.it);
+  }
+
+  
+
+  function levenshtein(a: string, b: string): number {
+    const m = a.length, n = b.length;
+    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost);
+      }
+    }
+    return dp[m][n];
+  }
+
+  function buildSuggestions(q: string, items: SearchItem[]): string[] {
+    const base = q.trim().toLowerCase();
+    if (!base) return [];
+    const aus = auSpelling(base).toLowerCase();
+    const pool = new Set<string>();
+    const texts: string[] = [];
+    for (const it of items) {
+      texts.push(it.title.toLowerCase());
+      for (const t of it.tags || []) texts.push(t.toLowerCase());
+    }
+    const uniq = Array.from(new Set(texts));
+    const scored = uniq.map((t) => ({ t, d: Math.min(levenshtein(base, t), levenshtein(aus, t)) }));
+    const close = scored.filter((x) => x.d <= 3).sort((a, b) => a.d - b.d).slice(0, 5).map((x) => x.t);
+    close.forEach((c) => pool.add(c));
+    pool.add(aus);
+    return Array.from(pool).slice(0, 5);
   }
 
   return (
@@ -523,7 +570,7 @@ export default function MosaicNavigation() {
                     </NavigationMenuItem>
                   ))}
 
-                  {/* Get Involved Dropdown (rolled back to simpler layout) */}
+                  {/* Get Involved Dropdown (standardized grid layout) */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className={cn(
@@ -532,42 +579,62 @@ export default function MosaicNavigation() {
                           : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                         "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                       )}
-                      onMouseEnter={() => { prefetchRoute('/donate'); }}
-                      onFocus={() => { prefetchRoute('/donate'); }}
+                      onMouseEnter={() => {
+                        prefetchRoute('/get-involved');
+                        prefetchRoute('/donate');
+                      }}
+                      onFocus={() => {
+                        prefetchRoute('/get-involved');
+                        prefetchRoute('/donate');
+                      }}
                     >{t('nav.getInvolved')}</NavigationMenuTrigger>
                     <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="p-4 w-[420px]">
-                        <ul className="grid gap-3">
-                          {getInvolvedLinks.map((gi) => (
-                            gi.href ? (
-                              <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
-                                {gi.description}
-                              </ListItem>
-                            ) : (
-                              <li key={gi.title}>
-                                <a
-                                  href={gi.external}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  className={cn(
-                                    "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
-                                    "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
-                                    "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-                                    "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                                  )}
-                                >
-                                  <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-                                    <gi.icon className="h-5 w-5" />
-                                    {gi.title}
-                                  </div>
-                                  <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                    {gi.description}
-                                  </p>
-                                </a>
-                              </li>
-                            )
-                          ))}
-                        </ul>
+                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
+                        <div className="col-span-2">
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Participate</h6>
+                          <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                            {getInvolvedLinks.map((gi) => (
+                              gi.href ? (
+                                <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
+                                  {gi.description}
+                                </ListItem>
+                              ) : (
+                                <li key={gi.title}>
+                                  <a
+                                    href={gi.external}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={cn(
+                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
+                                      "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
+                                      "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
+                                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                                    )}
+                                  >
+                                    <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
+                                      <gi.icon className="h-5 w-5" />
+                                      {gi.title}
+                                    </div>
+                                    <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                      {gi.description}
+                                    </p>
+                                  </a>
+                                </li>
+                              )
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="pl-4">
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
+                          <ul className="mt-2.5 grid gap-3">
+                            <ListItem title="Contact" to="/contact" icon={Phone}>
+                              Reach us for guidance and support
+                            </ListItem>
+                            <ListItem title="Locations" to="/locations" icon={Home}>
+                              Find service locations across New South Wales
+                            </ListItem>
+                          </ul>
+                        </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -625,7 +692,16 @@ export default function MosaicNavigation() {
               <button
                 type="button"
                 aria-label="Open search"
-                onClick={() => setIsSearchOpen((v) => !v)}
+                onClick={() => {
+                  setIsSearchOpen((v) => {
+                    const next = !v;
+                    if (next && !searchQuery.trim()) {
+                      const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Aged care support','Employment services','Settlement help (visa, migration)','Programs for children and young people'];
+                      setSuggestions(popular);
+                    }
+                    return next;
+                  });
+                }}
                 className="p-2 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Search className="w-5 h-5" />
@@ -639,7 +715,17 @@ export default function MosaicNavigation() {
                       autoFocus
                       type="text"
                       value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onChange={(e) => {
+                        const v = e.target.value;
+                        setSearchQuery(v);
+                        if (!v.trim()) {
+                          const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Aged care support','Employment services','Settlement help','Youth & family programs'];
+                          setSuggestions(popular);
+                          return;
+                        }
+                        const sugg = clientRef.current ? clientRef.current.suggestions(v) : buildSuggestions(v, runtimeIndex);
+                        setSuggestions(sugg);
+                      }}
                       placeholder="Search the site (Cmd+K)"
                       className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                     />
@@ -652,10 +738,34 @@ export default function MosaicNavigation() {
                       <X className="w-4 h-4" />
                     </button>
                   </div>
+                  {suggestions.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {suggestions.map((s) => (
+                        <button key={s} onClick={() => { setSearchQuery(s); setSuggestions([]); }} className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {searchQuery.trim() && suggestions.length === 0 && (
+                    <div className="mt-2 text-xs text-muted-foreground">
+                      We couldn’t find suggestions in this language. Try English or browse our services.
+                    </div>
+                  )}
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {buildFacetsFromClient(runtimeIndex).map((f) => {
+                      const active = selectedFacets.includes(f);
+                      return (
+                        <button key={f} onClick={() => {
+                          setSelectedFacets((prev) => prev.includes(f) ? prev.filter((x) => x !== f) : [...prev, f]);
+                        }} className={cn("text-xs rounded-md px-2 py-1 border", active ? "bg-ocean text-white border-ocean" : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50")}> {f} </button>
+                      );
+                    })}
+                  </div>
                   <div className="mt-3 max-h-64 overflow-auto">
                     {searchQuery.trim() ? (
                       <ul className="space-y-1">
-                        {rankResults(searchQuery, runtimeIndex).slice(0, 12).map((item) => (
+                        {(clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).slice(0, 12).map((item) => (
                           <li key={item.path}>
                             <Link
                               to={item.path}
@@ -667,8 +777,22 @@ export default function MosaicNavigation() {
                             </Link>
                           </li>
                         ))}
-                        {rankResults(searchQuery, runtimeIndex).length === 0 && (
-                          <li className="px-2 py-1.5 text-sm text-muted-foreground">No results</li>
+                        {(clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).length === 0 && (
+                          <li className="px-2 py-1.5 text-sm text-muted-foreground">
+                            We couldn’t find results in this language.
+                            <div className="mt-2 flex flex-wrap gap-1">
+                              {['Aged care','Employment support','Settlement help'].map((s) => (
+                                <button key={s} onClick={() => { setSearchQuery(s); setSuggestions([]); }} className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                                  {s}
+                                </button>
+                              ))}
+                            </div>
+                            <div className="mt-2">
+                              <Link to="/contact" className="underline text-foreground" {...prefetchOnHover('/contact')} onClick={() => { setIsSearchOpen(false); setShowOverlay(false); }}>
+                                Not sure what you need? Contact us — we’re here to help.
+                              </Link>
+                            </div>
+                          </li>
                         )}
                       </ul>
                     ) : (
@@ -702,49 +826,10 @@ export default function MosaicNavigation() {
             <ThemeToggle />
 
               {/* Language Switcher */}
-              <LanguageSwitcher />
+              <LanguageSwitcher menuId="language-menu-desktop" />
               
               {/* Action Buttons Group */}
               <div className="flex items-center space-x-2">
-                {/* Get Involved Dropdown */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="inline-flex items-center gap-1 rounded-md px-4 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                    {t('nav.getInvolved')}
-                    <span className="text-xs">▾</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    <DropdownMenuItem asChild>
-                      <a
-                        href="https://tally.so/r/w4veNk"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Refer
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <a
-                        href="https://employmenthero.com/mosaic-mc"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Career
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <a
-                        href="https://tally.so/r/3qoXjg"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Volunteer
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
                 {/* Prominent Donate Button */}
                 <Button 
                   variant="cta"
@@ -760,7 +845,7 @@ export default function MosaicNavigation() {
             {/* Mobile Menu + Quick Actions */}
             <div className="md:hidden flex items-center gap-2">
               {/* Compact Language Switcher visible in header on mobile */}
-              <LanguageSwitcher showText={false} />
+              <LanguageSwitcher showText={false} menuId="language-menu-mobile-icon" />
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="sm" className="p-2">
@@ -912,22 +997,11 @@ export default function MosaicNavigation() {
                     
                     <div className="pt-4 border-t border-gray-200/30 dark:border-slate-700/30 space-y-3">
                       {/* Full Language Switcher inside mobile menu */}
-                      <LanguageSwitcher />
+                      <LanguageSwitcher menuId="language-menu-mobile-sheet" />
                       <Button variant="outline" size="sm" asChild className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
                         <a href="tel:1800813205">📞 Call 1800 813 205</a>
                       </Button>
-                      <Button
-                        size="default"
-                        asChild
-                        className="w-full bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-ocean font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      >
-                        <Link to="/get-involved" onClick={() => setIsOpen(false)}>
-                          {/* Prefetch Get Involved route on hover/focus */}
-                          <span {...prefetchOnHover('/get-involved')}> 
-                          🤝 {t('nav.getInvolved')}
-                          </span>
-                        </Link>
-                      </Button>
+                      
                       {/* Prominent Mobile Donate Button */}
                       <Button 
                         size="default" 

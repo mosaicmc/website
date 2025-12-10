@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 
 type RouteInfo = { path: string; componentVar: string };
 // type kept for future use if switching back to parsing imports

@@ -85,7 +85,7 @@ const ServiceCards = () => {
                   
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                     Your{" "}
-                    <span className="bg-gradient-to-r from-sky via-ocean to-earth bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky dark:via-ocean dark:to-earth">
+                    <span className="text-brand-gradient">
                       Trusted
                     </span>
                     <br />
@@ -120,7 +120,7 @@ const ServiceCards = () => {
                 
                 <p className="text-xl leading-relaxed text-gray-800 dark:text-white font-medium">
                   We are here as your{" "}
-                  <span className="bg-gradient-to-r from-ocean to-sky bg-clip-text text-transparent font-semibold dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:to-sky">
+                  <span className="text-brand-gradient font-semibold">
                     trusted partner
                   </span>{" "}
                   in creating the connected, confident life you want.
