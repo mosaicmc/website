@@ -39,6 +39,7 @@ const NewcastleVolunteerPage = lazy(() => import('./pages/volunteer/NewcastleVol
 const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCoastVolunteerPage'));
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
+const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
 
 function App() {
   return (
@@ -82,6 +83,8 @@ function App() {
                 <Route path="/volunteer/central-coast" element={<CentralCoastVolunteerPage />} />
                 <Route path="/volunteer/armidale" element={<ArmidaleVolunteerPage />} />
                 <Route path="/volunteer/tamworth" element={<TamworthVolunteerPage />} />
+                {/* Test routes (isolated) */}
+                <Route path="/tests/color-contrast" element={<ColorContrastTestPage />} />
                 {/* Policies */}
                 <Route path="/policies/code-of-conduct" element={<CodeOfConductPolicyPage />} />
                 <Route path="/policies/diversity-inclusion" element={<DiversityInclusionPolicyPage />} />

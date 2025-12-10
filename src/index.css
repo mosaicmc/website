@@ -93,6 +93,16 @@
   body {
     @apply bg-background text-foreground;
   }
+  html.dark body {
+    --dark-bg-solid: #11182e;
+    --dark-bg-start: #121212;
+    --dark-bg-end: #11182e;
+    background-color: var(--dark-bg-solid);
+    background-image: linear-gradient(to bottom, var(--dark-bg-start), var(--dark-bg-end));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 /* Google Translate widget layout fixes */
@@ -171,5 +181,14 @@ body { top: 0 !important; }
     --flipwords-from: var(--flipwords-alt3-from);
     --flipwords-via: var(--flipwords-alt3-via);
     --flipwords-to: var(--flipwords-alt3-to);
+  }
+  .section-center {
+    text-align: center;
+  }
+  .section-center > .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
   }
 }

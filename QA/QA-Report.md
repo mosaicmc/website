@@ -52,3 +52,18 @@ Snapshots saved under `tests/ui/home-about.spec.ts-snapshots/`:
 - If you require CI integration, we can add GitHub Actions to run Playwright suite and publish snapshots.
 - If mock design assets are available, we can add automated pixel-diff against provided images.
 
+## Theme Rollback Verification
+- Scope: Reverted recent theme-related changes to prior stable configuration.
+- Files restored: `src/index.css` theme tokens aligned to backup `backups/website-20251210-163646/src/index.css`.
+- Pages verified:
+  - `src/pages/ServicesPage.tsx` hero uses gradient backgrounds (light/dark) as before.
+  - `src/pages/services/FamilySupportPage.tsx` hero restored; `AnimatedBackground` present and used.
+  - `src/pages/services/CommunityEngagementPage.tsx` hero gradient confirmed.
+  - `src/pages/services/AgedCarePage.tsx` hero gradient with care tint confirmed.
+  - `src/pages/AboutPage.tsx` brand gradient confirmed.
+  - `src/pages/resources/HelpfulLinksPage.tsx` hero gradient confirmed.
+- Commands executed:
+  - `npm run lint` — Passed with warnings only; no errors.
+  - `npm run build` — Successful, production bundle emitted to `dist/`.
+- Theme switching: `src/contexts/ThemeContext.tsx` applies `dark` class; toggle works via `src/components/ThemeToggle.tsx`.
+- Result: Both light and dark themes render with original visual hierarchy and accessibility.

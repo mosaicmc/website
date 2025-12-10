@@ -6,7 +6,7 @@ export default defineConfig({
   testMatch: /.*\.spec\.ts/,
   timeout: 30_000,
   use: {
-    baseURL: 'http://localhost:4175',
+    baseURL: 'http://localhost:4176',
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

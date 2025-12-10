@@ -1,0 +1,470 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4]:
+      - /url: "#main"
+    - generic [ref=e6]:
+      - combobox [ref=e8]
+      - text: Powered by
+      - link [ref=e10]:
+        - /url: https://translate.google.com
+        - text: Translate
+    - navigation [ref=e11]:
+      - generic [ref=e13]:
+        - link "Mosaic Multicultural Connections" [ref=e14]:
+          - /url: /
+          - img "Mosaic Multicultural Connections" [ref=e15]
+        - generic [ref=e16]:
+          - button "common.changeLanguage" [ref=e18] [cursor=pointer]:
+            - img [ref=e19]
+          - button "Toggle menu" [ref=e22] [cursor=pointer]:
+            - img
+            - generic [ref=e23]: Toggle menu
+    - main [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e28]:
+          - img [ref=e29]
+          - generic [ref=e32]: The new Aged Care Act is now in effect
+          - generic [ref=e33]: • Effective 1 November 2025
+          - link "About the Act" [ref=e34]:
+            - /url: https://www.health.gov.au/our-work/aged-care-act/about
+          - link "Official announcement" [ref=e35]:
+            - /url: https://www.health.gov.au/news/new-aged-care-act-to-start-from-1-november
+          - generic [ref=e36]: • Rights-based framework · Stronger safeguards
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - img [ref=e44]
+            - generic [ref=e46]: Home Care Services
+          - heading "Culturally Appropriate Home Care" [level=1] [ref=e47]
+          - paragraph [ref=e48]: Honouring traditions and providing comfort in familiar languages while delivering professional home care services.
+          - generic [ref=e49]:
+            - link "Explore Our Home Care Programs" [ref=e50]:
+              - /url: /services/aged-care#programs
+            - link "Call Mosaic on 1800 813 205" [ref=e51]:
+              - /url: tel:1800813205
+              - img [ref=e52]
+              - text: Talk to Us Today - 1800 813 205
+        - generic [ref=e56]:
+          - heading "Who Can Access Our Services?" [level=2] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - img [ref=e61]
+                - generic [ref=e64]: Seniors from multicultural backgrounds requiring home care support
+              - generic [ref=e65]:
+                - img [ref=e66]
+                - generic [ref=e69]: People with approved home care packages
+              - generic [ref=e70]:
+                - img [ref=e71]
+                - generic [ref=e74]: Families seeking culturally appropriate care options
+              - generic [ref=e75]:
+                - img [ref=e76]
+                - generic [ref=e79]: Individuals requiring respite care services
+            - img "Multicultural home care support" [ref=e82]
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: How home care works
+            - heading "Understanding rights, eligibility and getting started" [level=2] [ref=e87]
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]:
+                  - img [ref=e94]
+                  - heading "Your Rights" [level=3] [ref=e97]
+                - paragraph [ref=e98]: "A new Statement of Rights outlines what you deserve: respect, quality care, and choice, regardless of language or background."
+              - generic [ref=e99]:
+                - generic [ref=e100]:
+                  - img [ref=e102]
+                  - heading "Your Choice" [level=3] [ref=e105]
+                - paragraph [ref=e106]: "You can formally register people who support your choices: family, friends, advocates, so your values guide your care."
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - img [ref=e110]
+                  - heading "Your Voice" [level=3] [ref=e114]
+                - paragraph [ref=e115]: Complaints have clearer pathways to resolution. Providers are more accountable for respectful, safe, and quality care.
+            - generic [ref=e116]:
+              - generic [ref=e117]:
+                - heading "How to Prepare" [level=3] [ref=e118]
+                - list [ref=e119]:
+                  - listitem [ref=e120]:
+                    - img [ref=e121]
+                    - generic [ref=e124]: Understand your rights under the new Statement of Rights
+                  - listitem [ref=e125]:
+                    - img [ref=e126]
+                    - generic [ref=e129]: Think about who will support your decisions
+                  - listitem [ref=e130]:
+                    - img [ref=e131]
+                    - generic [ref=e134]: Review your current care plan and preferences
+                  - listitem [ref=e135]:
+                    - img [ref=e136]
+                    - generic [ref=e139]: Know how to raise concerns if something isn’t right
+              - generic [ref=e140]:
+                - heading "We’re Here to Help" [level=3] [ref=e141]
+                - paragraph [ref=e142]: Our multilingual team can explain the changes in your language and help you prepare for the transition.
+                - generic [ref=e143]:
+                  - link "Call 1800 813 205" [ref=e144]:
+                    - /url: tel:1800813205
+                    - img [ref=e145]
+                    - text: Call 1800 813 205
+                  - link "Contact Us Online" [ref=e147]:
+                    - /url: /contact
+                    - text: Contact Us Online
+                    - img [ref=e148]
+        - generic [ref=e154]:
+          - generic [ref=e158]: Our Programs
+          - heading "Comprehensive Home Care Programs" [level=2] [ref=e159]
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - generic [ref=e162]:
+                - img [ref=e164]
+                - heading "Support at Home (SaH)" [level=3] [ref=e167]
+              - paragraph [ref=e168]: Tailored in‑home care to help you stay independent — from everyday support to nursing and allied health.
+              - list [ref=e169]:
+                - listitem [ref=e170]:
+                  - generic [ref=e172]: Domestic assistance and personal care
+                - listitem [ref=e173]:
+                  - generic [ref=e175]: Meal preparation and shopping
+                - listitem [ref=e176]:
+                  - generic [ref=e178]: Transport to appointments
+                - listitem [ref=e179]:
+                  - generic [ref=e181]: Care coordination in your language
+            - generic [ref=e182]:
+              - generic [ref=e183]:
+                - img [ref=e185]
+                - heading "CHSP Individual Social Support" [level=3] [ref=e190]
+              - paragraph [ref=e191]: Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.
+              - list [ref=e192]:
+                - listitem [ref=e193]:
+                  - generic [ref=e195]: Friendly home visits and welfare checks
+                - listitem [ref=e196]:
+                  - generic [ref=e198]: Assisted outings and social connection
+                - listitem [ref=e199]:
+                  - generic [ref=e201]: Help with technology and communication
+                - listitem [ref=e202]:
+                  - generic [ref=e204]: Links to community groups
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - img [ref=e208]
+                - heading "CHSP Flexible Respite" [level=3] [ref=e211]
+              - paragraph [ref=e212]: Short‑term in‑home support so carers can rest, attend appointments, or take a break.
+              - list [ref=e213]:
+                - listitem [ref=e214]:
+                  - generic [ref=e216]: In‑home day or overnight respite
+                - listitem [ref=e217]:
+                  - generic [ref=e219]: Planned respite with culturally aware staff
+                - listitem [ref=e220]:
+                  - generic [ref=e222]: Support for carers during emergencies
+                - listitem [ref=e223]:
+                  - generic [ref=e225]: Coordination with your care plan
+            - generic [ref=e226]:
+              - generic [ref=e227]:
+                - img [ref=e229]
+                - heading "ACVVS (Volunteer Visitors)" [level=3] [ref=e234]
+              - paragraph [ref=e235]: Regular volunteer visits to reduce social isolation — matched by language or culture where possible.
+              - list [ref=e236]:
+                - listitem [ref=e237]:
+                  - generic [ref=e239]: Matched volunteers who share culture or language
+                - listitem [ref=e240]:
+                  - generic [ref=e242]: Companionship and conversation
+                - listitem [ref=e243]:
+                  - generic [ref=e245]: Community outings where possible
+                - listitem [ref=e246]:
+                  - generic [ref=e248]: Ongoing coordinator support
+        - generic [ref=e251]:
+          - generic [ref=e252]:
+            - paragraph [ref=e253]: Impact stories
+            - heading "Dignity, independence and cultural comfort" [level=2] [ref=e254]
+            - paragraph [ref=e255]: Short videos show clients staying independent at home with support in familiar languages and respectful care.
+            - list [ref=e256]:
+              - listitem [ref=e257]:
+                - generic [ref=e258]: •
+                - generic [ref=e259]: Stories matched to language or culture.
+              - listitem [ref=e260]:
+                - generic [ref=e261]: •
+                - generic [ref=e262]: Captions and interpreter voiceovers.
+              - listitem [ref=e263]:
+                - generic [ref=e264]: •
+                - generic [ref=e265]: Invite families to contact Mosaic.
+          - generic [ref=e268]:
+            - paragraph [ref=e269]: Impact video placeholder
+            - paragraph [ref=e270]: Embed a video via CMS.
+            - button "Watch story" [ref=e271] [cursor=pointer]:
+              - img [ref=e272]
+              - text: Watch story
+        - generic [ref=e276]:
+          - generic [ref=e277]:
+            - heading "Meet Your Home Care Team" [level=2] [ref=e278]
+            - paragraph [ref=e279]: Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey.
+          - generic [ref=e280]:
+            - generic [ref=e283]:
+              - img [ref=e297]
+              - generic [ref=e306]:
+                - heading "Stacey Anderson" [level=3] [ref=e307]
+                - paragraph [ref=e308]: Care Coordinator (CHSP)
+              - paragraph [ref=e310]: Endorsed Enrolled Nurse; Diploma Community Services (in progress). Varied nursing experience including Emergency, Theatres, outpatients; Treatment Nurse in medical centres; Red Cross Lifeblood; Continuous Improvement Coach; Manager of dementia‑specific day centre.
+              - generic [ref=e311]:
+                - paragraph [ref=e312]: "Languages:"
+                - generic [ref=e313]:
+                  - generic [ref=e314]: English
+                  - generic [ref=e315]: Spanish (learning)
+            - generic [ref=e320]:
+              - img [ref=e334]
+              - generic [ref=e343]:
+                - heading "Corinne Rietdijk" [level=3] [ref=e344]
+                - paragraph [ref=e345]: Care Coordinator (SaH)
+              - paragraph [ref=e347]: Certificate III in Aged Care. 20+ years in aged, dementia, palliative, community, residential disability and mental health care.
+              - generic [ref=e348]:
+                - paragraph [ref=e349]: "Languages:"
+                - generic [ref=e351]: English
+            - generic [ref=e356]:
+              - img [ref=e370]
+              - generic [ref=e379]:
+                - heading "Dianne Rainbow" [level=3] [ref=e380]
+                - paragraph [ref=e381]: Care Coordinator (CHSP)
+              - paragraph [ref=e383]: Care Coordinator – CHSP.
+              - generic [ref=e384]:
+                - paragraph [ref=e385]: "Languages:"
+                - generic [ref=e387]: English
+            - generic [ref=e392]:
+              - img [ref=e406]
+              - generic [ref=e415]:
+                - heading "Sally Wiltshire" [level=3] [ref=e416]
+                - paragraph [ref=e417]: ACVVS Coordinator
+              - paragraph [ref=e419]: ACVVS program coordination, volunteer visitor matching, multicultural community outreach.
+              - generic [ref=e420]:
+                - paragraph [ref=e421]: "Languages:"
+                - generic [ref=e423]: English
+          - generic [ref=e427]:
+            - heading "Culturally Sensitive Care Approach" [level=3] [ref=e428]
+            - paragraph [ref=e429]: Our team understands that quality home care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values.
+        - generic [ref=e432]:
+          - generic [ref=e433]:
+            - generic [ref=e436]: Frequently Asked Questions
+            - heading "Questions About Our Home Care Programs" [level=2] [ref=e437]
+            - paragraph [ref=e438]: Clear answers about Support at Home, CHSP services, eligibility, and getting started.
+          - generic [ref=e439]:
+            - generic [ref=e440]:
+              - button "What is Support at Home (SaH)? +" [ref=e442] [cursor=pointer]:
+                - generic [ref=e445]: What is Support at Home (SaH)?
+                - generic [ref=e446]: +
+              - button "What is CHSP and who is it for? +" [ref=e448] [cursor=pointer]:
+                - generic [ref=e451]: What is CHSP and who is it for?
+                - generic [ref=e452]: +
+              - button "Am I eligible for your services? +" [ref=e454] [cursor=pointer]:
+                - generic [ref=e457]: Am I eligible for your services?
+                - generic [ref=e458]: +
+            - generic [ref=e459]:
+              - button "How do I get started? +" [ref=e461] [cursor=pointer]:
+                - generic [ref=e464]: How do I get started?
+                - generic [ref=e465]: +
+              - button "Do you match workers to language and culture? +" [ref=e467] [cursor=pointer]:
+                - generic [ref=e470]: Do you match workers to language and culture?
+                - generic [ref=e471]: +
+              - button "What if I need nursing or clinical care? +" [ref=e473] [cursor=pointer]:
+                - generic [ref=e476]: What if I need nursing or clinical care?
+                - generic [ref=e477]: +
+        - generic [ref=e482]:
+          - heading "Discuss Your Care Needs" [level=2] [ref=e483]
+          - paragraph [ref=e484]: Our experienced home care team understands the importance of cultural sensitivity in care delivery.
+          - generic [ref=e485]:
+            - link "Call 1800 813 205" [ref=e486]:
+              - /url: tel:1800813205
+              - img [ref=e487]
+              - text: Call 1800 813 205
+            - link "Contact Us Online" [ref=e489]:
+              - /url: /contact
+              - text: Contact Us Online
+              - img [ref=e490]
+        - generic [ref=e493]:
+          - generic [ref=e494]:
+            - generic [ref=e497]: Related Services
+            - heading "You May Also Be Interested In" [level=2] [ref=e498]
+            - paragraph [ref=e499]: Discover programs that enhance independence and wellbeing alongside home care supports.
+          - generic [ref=e500]:
+            - link "Family Support Counselling and parenting programs. Learn more" [ref=e501]:
+              - /url: /services/family-support
+              - generic [ref=e503]:
+                - img [ref=e505]
+                - generic [ref=e510]:
+                  - heading "Family Support" [level=3] [ref=e511]
+                  - paragraph [ref=e512]: Counselling and parenting programs.
+              - generic [ref=e513]:
+                - text: Learn more
+                - img [ref=e514]
+            - link "Get Involved Donate, volunteer and partner. Learn more" [ref=e516]:
+              - /url: /get-involved
+              - generic [ref=e518]:
+                - img [ref=e520]
+                - generic [ref=e525]:
+                  - heading "Get Involved" [level=3] [ref=e526]
+                  - paragraph [ref=e527]: Donate, volunteer and partner.
+              - generic [ref=e528]:
+                - text: Learn more
+                - img [ref=e529]
+            - link "Resources Guides and official links. Learn more" [ref=e531]:
+              - /url: /resources
+              - generic [ref=e535]:
+                - heading "Resources" [level=3] [ref=e536]
+                - paragraph [ref=e537]: Guides and official links.
+              - generic [ref=e538]:
+                - text: Learn more
+                - img [ref=e539]
+    - contentinfo [ref=e541]:
+      - generic [ref=e542]:
+        - navigation "Quick Links" [ref=e546]:
+          - generic [ref=e547]:
+            - generic [ref=e548]:
+              - link "Mosaic Multicultural Connections" [ref=e549]:
+                - /url: /
+                - img "Mosaic Multicultural Connections" [ref=e550]
+              - generic [ref=e551]:
+                - generic [ref=e552]: 40+ Years of Impact
+                - generic [ref=e553]: Multicultural Services NSW
+            - generic [ref=e554]:
+              - paragraph [ref=e555]: Overview
+              - list [ref=e556]:
+                - listitem [ref=e557]:
+                  - link "Home" [ref=e558]:
+                    - /url: /
+                - listitem [ref=e559]:
+                  - link "About" [ref=e560]:
+                    - /url: /about
+                - listitem [ref=e561]:
+                  - link "Stories" [ref=e562]:
+                    - /url: /stories
+            - generic [ref=e563]:
+              - paragraph [ref=e564]: Services
+              - list [ref=e565]:
+                - listitem [ref=e566]:
+                  - link "Settlement Support" [ref=e567]:
+                    - /url: /services/settlement-support
+                - listitem [ref=e568]:
+                  - link "Home Care Services" [ref=e569]:
+                    - /url: /services/aged-care
+                - listitem [ref=e570]:
+                  - link "Family Support" [ref=e571]:
+                    - /url: /services/family-support
+                - listitem [ref=e572]:
+                  - link "Community Engagement" [ref=e573]:
+                    - /url: /services/community-engagement
+            - generic [ref=e574]:
+              - paragraph [ref=e575]: Resources
+              - list [ref=e576]:
+                - listitem [ref=e577]:
+                  - link "Emergency & Translation Services" [ref=e578]:
+                    - /url: /resources/emergency-translation
+                - listitem [ref=e579]:
+                  - link "Annual Reports" [ref=e580]:
+                    - /url: /resources/annual-reports
+                - listitem [ref=e581]:
+                  - link "Knowledge Base" [ref=e582]:
+                    - /url: /company/knowledge-base
+            - generic [ref=e583]:
+              - paragraph [ref=e584]: Get Involved
+              - list [ref=e585]:
+                - listitem [ref=e586]:
+                  - link "Volunteer" [ref=e587]:
+                    - /url: https://tally.so/r/3qoXjg
+                - listitem [ref=e588]:
+                  - link "Career" [ref=e589]:
+                    - /url: https://employmenthero.com/mosaic-mc
+                - listitem [ref=e590]:
+                  - link "Donate" [ref=e591]:
+                    - /url: /donate
+        - generic [ref=e593]:
+          - generic [ref=e594]:
+            - paragraph [ref=e595]: Acknowledgement of Country
+            - paragraph [ref=e596]: Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.
+            - paragraph [ref=e597]: We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
+          - generic [ref=e598]:
+            - paragraph [ref=e599]: About Mosaic
+            - paragraph [ref=e600]: Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.
+            - generic [ref=e601]:
+              - link "Contact" [ref=e602]:
+                - /url: /contact
+                - img [ref=e603]
+                - text: Contact
+              - link "Refer a client" [ref=e605]:
+                - /url: https://tally.so/r/w4veNk
+                - img [ref=e606]
+                - text: Refer
+              - link "Leave a Google Review" [ref=e609]:
+                - /url: https://g.page/r/CS2sb5dkY56KEBM/review
+                - img [ref=e610]
+                - text: Leave a Google Review
+              - link "Share Your Feedback" [ref=e612]:
+                - /url: https://forms.mosaicmc.org.au/Feedback
+                - img [ref=e613]
+                - text: Share Your Feedback
+      - generic "Language selection" [ref=e616]:
+        - generic [ref=e618]:
+          - button "Change language to AR" [ref=e619] [cursor=pointer]:
+            - generic [ref=e620]: 🇸🇦
+            - generic [ref=e621]: AR
+          - button "Change language to ZH" [ref=e622] [cursor=pointer]:
+            - generic [ref=e623]: 🇨🇳
+            - generic [ref=e624]: ZH
+          - button "Change language to ZH" [ref=e625] [cursor=pointer]:
+            - generic [ref=e626]: 🇹🇼
+            - generic [ref=e627]: ZH
+          - button "Change language to EN" [ref=e628] [cursor=pointer]:
+            - generic [ref=e629]: 🇦🇺
+            - generic [ref=e630]: EN
+          - button "Change language to TL" [ref=e631] [cursor=pointer]:
+            - generic [ref=e632]: 🇵🇭
+            - generic [ref=e633]: TL
+          - button "Change language to HI" [ref=e634] [cursor=pointer]:
+            - generic [ref=e635]: 🇮🇳
+            - generic [ref=e636]: HI
+          - button "Change language to IT" [ref=e637] [cursor=pointer]:
+            - generic [ref=e638]: 🇮🇹
+            - generic [ref=e639]: IT
+          - button "Change language to RU" [ref=e640] [cursor=pointer]:
+            - generic [ref=e641]: 🇷🇺
+            - generic [ref=e642]: RU
+          - button "Change language to KU" [ref=e643] [cursor=pointer]:
+            - generic [ref=e644]: 🏳️
+            - generic [ref=e645]: KU
+          - button "Change language to FA" [ref=e646] [cursor=pointer]:
+            - generic [ref=e647]: 🇮🇷
+            - generic [ref=e648]: FA
+          - button "Change language to PT" [ref=e649] [cursor=pointer]:
+            - generic [ref=e650]: 🇵🇹
+            - generic [ref=e651]: PT
+          - button "Change language to SM" [ref=e652] [cursor=pointer]:
+            - generic [ref=e653]: 🇼🇸
+            - generic [ref=e654]: SM
+          - button "Change language to ES" [ref=e655] [cursor=pointer]:
+            - generic [ref=e656]: 🇪🇸
+            - generic [ref=e657]: ES
+          - button "Change language to SW" [ref=e658] [cursor=pointer]:
+            - generic [ref=e659]: 🇰🇪
+            - generic [ref=e660]: SW
+          - button "Change language to TH" [ref=e661] [cursor=pointer]:
+            - generic [ref=e662]: 🇹🇭
+            - generic [ref=e663]: TH
+          - button "Change language to UK" [ref=e664] [cursor=pointer]:
+            - generic [ref=e665]: 🇺🇦
+            - generic [ref=e666]: UK
+          - button "Change language to VI" [ref=e667] [cursor=pointer]:
+            - generic [ref=e668]: 🇻🇳
+            - generic [ref=e669]: VI
+      - generic [ref=e671]:
+        - paragraph [ref=e672]: © 2024 Mosaic Multicultural Connections. All rights reserved. · 2025
+        - generic [ref=e673]:
+          - generic [ref=e674]: Follow Us
+          - link "Visit LinkedIn" [ref=e675]:
+            - /url: https://au.linkedin.com/company/mosaic-multicultural-connections
+            - img [ref=e676]
+          - link "Visit Instagram" [ref=e678]:
+            - /url: https://www.instagram.com/mosaicmc/
+            - img [ref=e679]
+          - link "Visit Facebook" [ref=e681]:
+            - /url: https://www.facebook.com/mosaicmulticulturalconnections/
+            - img [ref=e682]
+    - button "Go to top" [ref=e684] [cursor=pointer]:
+      - img [ref=e686]
+  - img [ref=e690]
+```

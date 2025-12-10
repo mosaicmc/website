@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "stories": "Stories",
+    "resources": "Resources",
+    "locations": "Locations",
+    "contact": "Contact",
+    "getInvolved": "Get Involved",
+    "donate": "Donate"
+  },
+  "services": {
+    "settlement": "Settlement Support",
+    "agedCare": "Home Care Services",
+    "familySupport": "Family Support",
+    "communityEngagement": "Community Engagement"
+  },
+  "hero": {
+    "badge": "Serving NSW communities for {{years}} years",
+    "title": "Supporting Diverse Communities Across NSW",
+    "titleHighlight": "Diverse",
+    "description": "Empowering multicultural communities through settlement support, home care, family services, and community engagement programs tailored to your needs.",
+    "exploreServices": "Explore Our Services",
+    "watchStories": "Watch Stories",
+    "stats": {
+      "years": "Years of Service",
+      "families": "Families Supported",
+      "languages": "Languages Spoken"
+    }
+  },
+  "serviceCards": {
+    "sectionBadge": "Our Services",
+    "sectionTitle": "Comprehensive Support Services",
+    "sectionDescription": "Culturally appropriate services designed to meet the unique needs of multicultural communities across NSW",
+    "settlement": {
+      "title": "Settlement Support",
+      "description": "Comprehensive support for new arrivals including housing assistance, employment guidance, and community orientation.",
+      "features": [
+        "Housing assistance",
+        "Employment support",
+        "Community orientation",
+        "Language services"
+      ]
+    },
+    "agedCare": {
+      "title": "Home Care Services",
+      "description": "Culturally appropriate home care services that respect traditions and provide comfort in familiar languages.",
+      "features": [
+        "Home care packages",
+        "Cultural activities",
+        "Multilingual staff",
+        "Family support"
+      ]
+    },
+    "familySupport": {
+      "title": "Family Support",
+      "description": "Programs designed to support families through challenges and build stronger community connections.",
+      "features": [
+        "Parenting programs",
+        "Youth services",
+        "Crisis support",
+        "Counselling services"
+      ]
+    },
+    "communityEngagement": {
+      "title": "Community Engagement",
+      "description": "Creating opportunities for community participation, cultural celebration, and social connection.",
+      "features": [
+        "Cultural events",
+        "Volunteer programs",
+        "Community groups",
+        "Advocacy support"
+      ]
+    },
+    "learnMore": "Learn more",
+    "viewAll": "View All Services"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "close": "Close",
+    "open": "Open",
+    "menu": "Menu",
+    "language": "Language",
+    "changeLanguage": "Change Language"
+  },
+  "footer": {
+    "description": "Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 Mosaic Multicultural Connections. All rights reserved.",
+    "sections": {
+      "overview": "Overview",
+      "services": "Services",
+      "getInvolved": "Get Involved",
+      "help": "Help",
+      "aboutMosaic": "About Mosaic"
+    },
+    "links": {
+      "allServices": "All Services",
+      "emergencyTranslation": "Emergency & Translation",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "knowledgeBase": "Knowledge Base",
+      "annualReports": "Annual Reports",
+      "policies": "Policies"
+    },
+    "newsletter": {
+      "title": "Stay up to date",
+      "description": "Get updates on our programs and community events",
+      "subscribe": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "translateLabel": "Translate This Page"
+  },
+  "getInvolved": {
+    "badge": "Join Our Mission",
+    "title": "Get Involved",
+    "description": "Join us in supporting multicultural communities across NSW. There are many ways to make a meaningful difference.",
+    "volunteerSpotlight": "Volunteer Spotlight",
+    "impactTitle": "Your Impact",
+    "actions": {
+      "apply": "Apply to Volunteer",
+      "donate": "Donate Now"
+    }
+  }
+  ,
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Contact Us",
+    "description": "Get in touch with our multilingual team. We're here to help you access the support and services you need.",
+    "form": {
+      "title": "Send Us a Message",
+      "fields": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "language": "Preferred Language",
+        "service": "Service Interest",
+        "location": "Preferred Office",
+        "message": "Message",
+        "placeholders": {
+          "message": "Please describe how we can help you..."
+        },
+        "languageOptions": {
+          "select": "Select a language",
+          "english": "English",
+          "arabic": "Arabic",
+          "mandarin": "Mandarin",
+          "spanish": "Spanish",
+          "vietnamese": "Vietnamese",
+          "tagalog": "Tagalog",
+          "hindi": "Hindi",
+          "korean": "Korean",
+          "other": "Other"
+        },
+        "serviceOptions": {
+          "select": "Select a service",
+          "settlement": "Settlement Support",
+          "agedCare": "Home Care Services",
+          "familySupport": "Family Support",
+          "communityEngagement": "Community Engagement",
+          "volunteer": "Volunteer Opportunities",
+          "general": "General Inquiry"
+        },
+        "locationOptions": {
+          "select": "Select an office",
+          "newcastle": "Newcastle",
+          "centralCoast": "Central Coast",
+          "lakeMacquarie": "Lake Macquarie",
+          "hunterRegion": "Hunter Region"
+        }
+      },
+      "submit": "Send Message",
+      "note": "* Required fields. We'll respond within 24 hours during business days."
+    },
+    "success": {
+      "title": "Message Sent Successfully!",
+      "message": "Thank you for contacting us. We'll get back to you within 24 hours during business days.",
+      "urgentNote": "For urgent matters during business hours, please call us directly at 1800 813 205."
+    }
+  },
+  "common": {
+    "translateThisPage": "Translate This Page"
+  }
+}

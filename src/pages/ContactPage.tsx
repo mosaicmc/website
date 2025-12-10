@@ -102,7 +102,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <Section overlay>
+      <Section overlay center>
         <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>

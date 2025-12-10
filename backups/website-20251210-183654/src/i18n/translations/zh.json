@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "stories": "故事",
+    "resources": "资源",
+    "locations": "地点",
+    "contact": "联系我们",
+    "getInvolved": "参与我们",
+    "donate": "捐赠"
+  },
+  "services": {
+    "settlement": "定居支持",
+    "agedCare": "老年护理服务",
+    "familySupport": "家庭支持",
+    "communityEngagement": "社区参与"
+  },
+  "hero": {
+    "badge": "为新南威尔士州社区服务40多年",
+    "title": "支持新南威尔士州各地的多元化社区",
+    "titleHighlight": "多元化",
+    "description": "通过定居支持、老年护理、家庭服务和为您量身定制的社区参与项目，赋权多元文化社区。",
+    "exploreServices": "探索我们的服务",
+    "watchStories": "观看故事",
+    "stats": {
+      "years": "年服务经验",
+      "families": "支持的家庭",
+      "languages": "种语言"
+    }
+  },
+  "serviceCards": {
+    "sectionBadge": "我们的服务",
+    "sectionTitle": "综合支持服务",
+    "sectionDescription": "为满足新南威尔士州多元文化社区独特需求而设计的文化适宜服务",
+    "settlement": {
+      "title": "定居支持",
+      "description": "为新移民提供全面支持，包括住房援助、就业指导和社区导向。",
+      "features": [
+        "住房援助",
+        "就业支持",
+        "社区导向",
+        "语言服务"
+      ]
+    },
+    "agedCare": {
+      "title": "老年护理服务",
+      "description": "尊重传统并以熟悉语言提供舒适的文化适宜老年护理服务。",
+      "features": [
+        "居家护理套餐",
+        "文化活动",
+        "多语言员工",
+        "家庭支持"
+      ]
+    },
+    "familySupport": {
+      "title": "家庭支持",
+      "description": "旨在支持家庭克服挑战并建立更强社区联系的项目。",
+      "features": [
+        "育儿项目",
+        "青年服务",
+        "危机支持",
+        "咨询服务"
+      ]
+    },
+    "communityEngagement": {
+      "title": "社区参与",
+      "description": "为社区参与、文化庆祝和社会联系创造机会。",
+      "features": [
+        "文化活动",
+        "志愿者项目",
+        "社区团体",
+        "倡导支持"
+      ]
+    },
+    "learnMore": "了解更多",
+    "viewAll": "查看所有服务"
+  },
+  "common": {
+    "welcome": "欢迎",
+    "loading": "加载中...",
+    "error": "错误",
+    "retry": "重试",
+    "close": "关闭",
+    "open": "打开",
+    "menu": "菜单",
+    "language": "语言",
+    "changeLanguage": "更改语言"
+  },
+  "footer": {
+    "description": "通过文化适宜的服务和项目支持新南威尔士州的多元文化社区。",
+    "quickLinks": "快速链接",
+    "contactInfo": "联系信息",
+    "followUs": "关注我们",
+    "copyright": "© 2024 马赛克多元文化连接。版权所有。"
+  }
+}
