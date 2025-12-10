@@ -67,3 +67,22 @@ Snapshots saved under `tests/ui/home-about.spec.ts-snapshots/`:
   - `npm run build` — Successful, production bundle emitted to `dist/`.
 - Theme switching: `src/contexts/ThemeContext.tsx` applies `dark` class; toggle works via `src/components/ThemeToggle.tsx`.
 - Result: Both light and dark themes render with original visual hierarchy and accessibility.
+
+## Color Rollback – 2025-12-10
+- Scope: System-wide rollback of color-related configurations to previous stable.
+- Files restored:
+  - `src/index.css` — removed `html.dark body` global gradient block; tokens match `backups/website-20251210-163646/src/index.css`.
+  - `src/pages/LocationsPage.tsx` — CTA section colors reverted to gradient and white/slate overlays; retained `section-center` alignment.
+- Caches cleared:
+  - Restarted local preview/dev servers to clear build/runtime caches.
+  - Playwright uses fresh browser contexts per run; no residual browser cache.
+  - CDN purge: advise production `Purge/Invalidate` on deploy (not applicable locally).
+- Verification commands:
+  - `npm run lint` — Passed (warnings only).
+  - `npm run preview` — Running at `http://localhost:4176/`.
+  - `npm run test:ui -- tests/ui/section-center.spec.ts` — Passed across Chromium/Firefox/WebKit.
+  - `npm run test:ui -- tests/ui/color-contrast.spec.ts` — Visual checks executed; contrasts match token baseline.
+- Observations:
+  - Center-aligned content preserved functionally; alignment unaffected by color rollback.
+  - Global dark-body gradient removed per previous stable baseline; section/hero backgrounds remain intact.
+  - No accessibility regressions observed; AA contrast preserved on text and CTAs.

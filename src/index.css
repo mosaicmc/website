@@ -93,16 +93,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  html.dark body {
-    --dark-bg-solid: #11182e;
-    --dark-bg-start: #121212;
-    --dark-bg-end: #11182e;
-    background-color: var(--dark-bg-solid);
-    background-image: linear-gradient(to bottom, var(--dark-bg-start), var(--dark-bg-end));
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 }
 
 /* Google Translate widget layout fixes */

@@ -218,23 +218,23 @@ const LocationsPage = () => {
       </section>
       <RelatedServices />
       {/* Contact CTA */}
-      <section className="section-center py-20 bg-background transition-colors duration-300">
+      <section className="section-center py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="rounded-2xl p-12 bg-card/70 border border-border shadow-xl">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Not Sure Which Office to Visit?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <div className="backdrop-blur-md bg-white/70 dark:bg-slate-800/70 rounded-2xl p-12 border border-white/20 dark:border-slate-700/50 shadow-xl">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Not Sure Which Office to Visit?</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
               Contact our head office and we'll help you find the right location and services for your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
-                className="bg-primary text-primary-foreground hover:opacity-95 px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
               >
                 Call 1800 813 205
               </a>
               <a
                 href="mailto:info@mosaicmc.org.au"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
               >
                 Email Us
               </a>
