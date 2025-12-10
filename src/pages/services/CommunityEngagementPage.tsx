@@ -17,14 +17,16 @@ const CommunityEngagementPage = () => {
       role: "Multicultural Case Worker",
       qualifications: "Multicultural casework and community support",
       languages: ["English"],
-      email: "c.magwerekwete@mosaicmc.org.au"
+      email: "c.magwerekwete@mosaicmc.org.au",
+      image: "/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp"
     },
     {
       name: "Natalia Meliendrez",
       role: "Multicultural Community Development Lead – Central Coast",
       qualifications: "Community services leadership and multicultural community development",
       phone: "0431 491 748",
-      email: "n.meliendrez@mosaicmc.org.au"
+      email: "n.meliendrez@mosaicmc.org.au",
+      image: "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp"
     },
     {
       name: "Michael Freund",

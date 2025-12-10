@@ -52,7 +52,7 @@ const FamilySupportPage = () => {
       qualifications: "Bachelor's Primary/Early Education + Community Services + Disability Services + Parenting Programs Accreditation",
       phone: "0434 426 981",
       email: "h.mieres@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Helen_128px.webp"
+      
     },
     {
       name: "Natalia Meliendrez",
