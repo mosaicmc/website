@@ -18,28 +18,32 @@ const FamilySupportPage = () => {
       role: "TEI Team Leader",
       qualifications: "Master's in Public Governance, counselling/psychotherapy training, case management specialist",
       phone: "(02) 4960 8401",
-      email: "g.lapina@mosaicmc.org.au"
+      email: "g.lapina@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Gener_128px.webp"
     },
     {
       name: "Miza Torlakovic",
       role: "TEI Family Worker",
       qualifications: "Social Welfare + multilingual",
       phone: "(02) 4960 8402",
-      email: "m.torlakovic@mosaicmc.org.au"
+      email: "m.torlakovic@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Miza_128px.webp"
     },
     {
       name: "Juanita Purcell Lolli",
       role: "TEI Family Worker", 
       qualifications: "Social Science + family intervention",
       phone: "(02) 4960 8403",
-      email: "j.lolli@mosaicmc.org.au"
+      email: "j.lolli@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Juanita_128px.webp"
     },
     {
       name: "Elena Ferguson",
       role: "TEI Family Worker",
       qualifications: "Social Science + disability support expertise",
       phone: "(02) 4960 8404",
-      email: "e.ferguson@mosaicmc.org.au"
+      email: "e.ferguson@mosaicmc.org.au",
+      image: "/images/Families Team 128px/FamTeam_Elena_128px.webp"
     },
     
     {
@@ -473,6 +477,7 @@ const FamilySupportPage = () => {
         description="Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families."
         teamMembers={teamMembers}
         accentColor="sun"
+        avatarSize={128}
         bottomSection={{
           title: "Integrated Support Approach",
           description: "Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
