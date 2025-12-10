@@ -5,9 +5,7 @@ import ServiceCards from '../components/ServiceCards';
 import Statistics from '../components/Statistics';
 import Testimonials from '../components/Testimonials';
 import SimpleCTA from '../components/SimpleCTA';
-import PartnersFunders from '../components/PartnersFunders';
 import GoogleReviews from '../components/GoogleReviews';
-import RelatedServices from '@/components/RelatedServices';
 
 const HomePage = () => {
   return (
@@ -23,10 +21,8 @@ const HomePage = () => {
       <ServiceCards />
       <Statistics />
       <Testimonials />
-      <PartnersFunders />
       <GoogleReviews />
       <SimpleCTA />
-      <RelatedServices />
     </div>
   );
 };

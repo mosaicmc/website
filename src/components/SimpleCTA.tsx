@@ -4,8 +4,8 @@ import { ArrowRight, Phone } from 'lucide-react';
 
 const SimpleCTA = () => {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-sky via-ocean to-earth overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-sky/85 via-ocean/90 to-earth/85"></div>
+    <section className="relative py-24 overflow-hidden bg-background transition-colors duration-300 bg-gradient-to-br from-sky via-ocean to-earth dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky/85 via-ocean/90 to-earth/85 dark:from-slate-900/75 dark:via-slate-800/75 dark:to-slate-900/75"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky/20 rounded-full blur-3xl animate-pulse-slow"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-earth/25 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-ocean/15 rounded-full blur-3xl animate-float"></div>
