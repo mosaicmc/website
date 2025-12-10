@@ -458,11 +458,11 @@ export default function MosaicNavigation() {
             <Logo />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4 h-full md:mt-[21px]">
               <NavigationMenu>
                 <NavigationMenuList>
                   {/* Home */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem className="flex items-center">
                     <NavigationMenuLink asChild>
                       <Link
                         to="/"
@@ -481,7 +481,7 @@ export default function MosaicNavigation() {
                   </NavigationMenuItem>
 
                   {/* Services Dropdown */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem className="flex items-center">
                   <NavigationMenuTrigger className={cn(
                       isActivePath('/services', true)
                         ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
@@ -551,7 +551,7 @@ export default function MosaicNavigation() {
 
                   {/* Other Navigation Items (About, Stories) */}
                   {mainNavigation.slice(1, 2).map((item) => (
-                    <NavigationMenuItem key={item.title}>
+                    <NavigationMenuItem key={item.title} className="flex items-center">
                       <NavigationMenuLink asChild>
                         <Link
                           to={item.href}
@@ -571,7 +571,7 @@ export default function MosaicNavigation() {
                   ))}
 
                   {/* Get Involved Dropdown (standardized grid layout) */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem className="flex items-center">
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/get-involved', true)
@@ -640,7 +640,7 @@ export default function MosaicNavigation() {
                   </NavigationMenuItem>
 
                   {/* Resources Dropdown */}
-                  <NavigationMenuItem>
+                  <NavigationMenuItem className="flex items-center">
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/resources', true)
@@ -823,7 +823,9 @@ export default function MosaicNavigation() {
               )}
               
             {/* Theme Toggle */}
-            <ThemeToggle />
+            <div className="inline-flex items-center h-9 md:h-10">
+              <ThemeToggle />
+            </div>
 
               {/* Language Switcher */}
               <LanguageSwitcher menuId="language-menu-desktop" />

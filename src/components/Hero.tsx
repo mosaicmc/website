@@ -78,11 +78,18 @@ const Hero = () => {
           {/* Right Content - Image with subtle animations */}
           <div className="relative animate-fade-in-right">
             <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl backdrop-blur-md bg-gradient-to-br from-white/20 to-blue-100/30 shadow-2xl dark:from-slate-800/30 dark:to-blue-900/20 hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
-              <img
-                src="/pexels-yankrukov-8199708.jpg"
-                alt="Diverse group of young people celebrating together in a library setting"
-                className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000 group-hover:brightness-110"
-              />
+              <picture>
+                <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg" type="image/jpeg" />
+                <source srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp" type="image/webp" />
+                <img
+                  src="/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg"
+                  alt="Diverse group of young people celebrating together in a library setting"
+                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000 group-hover:brightness-110"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               
               {/* Floating card: Office Locations (brand-aligned, accessible) */}
               <Link
