@@ -627,8 +627,8 @@ export default function MosaicNavigation() {
                         <div className="pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
                           <ul className="mt-2.5 grid gap-3">
-                            <ListItem title="Contact" to="/contact" icon={Phone}>
-                              Reach us for guidance and support
+                            <ListItem title="Opportunities" to="/get-involved" icon={Phone}>
+                              Join our Mission
                             </ListItem>
                             <ListItem title="Locations" to="/locations" icon={Home}>
                               Find service locations across New South Wales
