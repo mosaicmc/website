@@ -5,8 +5,9 @@ import AnimatedBackground from '../components/ui/AnimatedBackground';
 import RelatedServices from '@/components/RelatedServices';
 // import { Timeline } from '../components/ui/timeline';
 import { Card, CardContent } from '../components/ui/card';
-import { Avatar } from '../components/ui/avatar';
 import { ShieldCheck, Eye, Handshake, Users, Lightbulb, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { BoardSection } from '@/components/BoardSection';
+import { ManagementSection } from '@/components/ManagementSection';
 
 const AboutPage = () => {
   const storyData = [
@@ -56,17 +57,60 @@ const AboutPage = () => {
   const navHistoryRef = React.useRef<string[]>([]);
   const [activeStory, setActiveStory] = React.useState<typeof storyData[number] | null>(null);
   const [activeImageIndex, setActiveImageIndex] = React.useState<number>(0);
-  const boardMembers = [
-    { name: "Sandra Feltham", title: "Chair", role: "Board Member since 2020", credentials: "Masters Public Health (Distinction), Grad Dip Urban & Regional Planning, BSc (Hons) Human Geography • Cert IV TAE • RN, RM", bio: "Hello! I’m Sandra Feltham. I have over 40 years’ experience in health and local government, specialising in inclusive, community‑focused strategic planning. I’ve advised government, service providers and community groups, and served on advisory and executive boards. My motivation is a belief in the strength and value of cultural diversity in Australia. My vision is for inclusive, resilient communities where every individual feels seen, heard and empowered." },
+  type BoardMember = {
+    name: string;
+    title?: string;
+    role?: string;
+    credentials?: string;
+    languages?: string[];
+    bio: string;
+    social?: Array<{ platform: 'linkedin' | 'twitter' | 'website'; href: string }>;
+  };
+  const boardMembers: BoardMember[] = [
+    { name: "Sandra Feltham", title: "Chair", role: "Board Member since 2020", credentials: "Masters Public Health (Distinction), Grad Dip Urban & Regional Planning, BSc (Hons) Human Geography • Cert IV TAE • RN, RM", bio: "Hello! I’m Sandra Feltham. I have over 40 years’ experience in health and local government, specialising in inclusive, community‑focused strategic planning. I’ve advised government, service providers and community groups, and served on advisory and executive boards. My motivation is a belief in the strength and value of cultural diversity in Australia. My vision is for inclusive, resilient communities where every individual feels seen, heard and empowered.", social: [{ platform: 'linkedin', href: '#' }] },
     { name: "Dr Shirley Schulz-Robinson", title: "Vice Chair", role: "Board Member since 2021", credentials: "PhD Health Administration, BA (Hons) Sociology • Assoc Dip Nursing Education • Dip Life Coaching • Cert IV Small Business Management • Cert IV TAE • RN", languages: ["English"], bio: "Hi, I’m Shirley Schulz‑Robinson. I bring lived experience as a migrant, carer and mature‑aged student, with a career spanning health, education and multicultural mental health. I’ve contributed to policy, research and advocacy, and served on boards and committees focused on ethics and quality. My motivation is equity, inclusion and the transformative power of community. My vision is compassionate, culturally intelligent and meaningful engagement where every voice is valued and every person can thrive." },
-    { name: "Zachary Ekandi", title: "Director", role: "Board Member since 2022", credentials: "MInfoTech, BInfoSci, AdvDipMgmt, Cert IV TAE, NAATI Interpreter, QTEAC Counsellor, GradDip Migration Law (ongoing)", languages: ["English", "Swahili"], bio: "Hello! I’m Zachary Ekandi. I’m a Senior Educational Officer at TAFE NSW with extensive experience in multicultural education, community engagement and strategic partnerships. I’ve led initiatives supporting migrant and refugee learners, advised government and academic bodies, and championed inclusive education across NSW. My motivation is empowering culturally diverse communities and ensuring services are responsive, inclusive and impactful." },
+    { name: "Zachary Ekandi", title: "Director", role: "Board Member since 2022", credentials: "MInfoTech, BInfoSci, AdvDipMgmt, Cert IV TAE, NAATI Interpreter, QTEAC Counsellor, GradDip Migration Law (ongoing)", languages: ["English", "Swahili"], bio: "Hello! I’m Zachary Ekandi. I’m a Senior Educational Officer at TAFE NSW with extensive experience in multicultural education, community engagement and strategic partnerships. I’ve led initiatives supporting migrant and refugee learners, advised government and academic bodies, and championed inclusive education across NSW. My motivation is empowering culturally diverse communities and ensuring services are responsive, inclusive and impactful.", social: [{ platform: 'linkedin', href: '#' }] },
     { name: "Kasey Preston", title: "Director", role: "Board Member since 2023", credentials: "Bachelor of Business (Event Management), Diploma of Business, Cert IV Human Resources", languages: ["English"], bio: "Hi, I’m Kasey Preston. I work across vocational education and event management, and I help support international and CALD students at TAFE NSW. Raised in a culturally diverse family, I value storytelling and connection through multicultural engagement. My motivation is creating inclusive spaces where people from all backgrounds feel empowered and supported. My vision is to build bridges across cultures through education, celebration and community connection." },
     { name: "Naomi McLean", title: "Executive Committee Member", role: "Board Member since 2023", credentials: "BA (Asian Studies), Grad Cert Global Health, MA (Strategy and Policy)", languages: ["English"], bio: "Hello! I’m Naomi McLean. I’ve worked across education, health and international development. My career began in defence and evolved through roles in the public service and the tertiary sector, where I led governance reform and strategic initiatives. My motivation is equity and access for all. My vision is empowerment, connection and meaningful impact through education, advocacy and community engagement." },
     { name: "Peter Gittins", title: "Executive Committee Member", role: "Board Member since 2024", credentials: "BA, Dip Education, Cert ESL, Cert Business", languages: ["English"], bio: "Hi, I’m Peter Gittins. I am a retired international educator and an independent Councillor on Newcastle City Council. I’ve taught in PNG and Nepal and led international schools in Germany, Sri Lanka and Vietnam. I bring expertise in governance, financial management and strategic planning. My motivation is a lifelong commitment to education, inclusion and community development. My vision is to help Mosaic connect across cultures through thoughtful governance, strategic leadership and meaningful engagement." },
     { name: "Catherine Candiloro", title: "Director", role: "Board Member since 2025", credentials: "Master of International & Community Development, Grad Cert NFP Management, Specialist Cert Implementation Science", languages: ["English", "Spanish", "Italian"], bio: "Hello! I’m Catherine Candiloro. I bring lived experience as the child of a refugee and a career spanning government and NGOs. I’ve led refugee and child‑focused support programs and now work in regulation, with expertise in compliance, safeguarding and change management. Motivated by a desire to give back to my community, my vision is integrity, inclusion and strategic growth, where community voices are amplified." },
-    { name: "Lauren Croiset", title: "Director", role: "Board Member since 2025", credentials: "Diploma of Counselling (currently studying)", languages: ["English", "French"], bio: "Hi, I’m Lauren Croiset. I’m a strategic leader in home care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging." },
+    { name: "Lauren Croiset", title: "Director", role: "Board Member since 2025", credentials: "Diploma of Counselling (currently studying)", languages: ["English", "French"], bio: "Hi, I’m Lauren Croiset. I’m a strategic leader in home care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging.", social: [{ platform: 'linkedin', href: '#' }, { platform: 'website', href: '#' }] },
   ] as const;
-  const [activeBoardMember, setActiveBoardMember] = React.useState<typeof boardMembers[number] | null>(null);
+  const boardImgMap: Record<string, { webp: string; jpg: string }> = {
+    "Sandra Feltham": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg",
+    },
+    "Dr Shirley Schulz-Robinson": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg",
+    },
+    "Zachary Ekandi": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg",
+    },
+    "Kasey Preston": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg",
+    },
+    "Naomi McLean": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg",
+    },
+    "Peter Gittins": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg",
+    },
+    "Catherine Candiloro": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg",
+    },
+    "Lauren Croiset": {
+      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp",
+      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg",
+    },
+  };
+  
   type ManagementMember = {
     name: string;
     title: string;
@@ -112,7 +156,31 @@ const AboutPage = () => {
       bio: "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness — including women’s programs, parenting workshops and cultural awareness training — to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
     },
   ];
+  const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
+    "Sharon Daishe": {
+      webp: "/images/Management 128px/Management_Sharon_128px.webp",
+      jpg: "/images/Management 128px/Management_Sharon_128px.jpg",
+    },
+    "Belinda Latimore": {
+      webp: "/images/Management 128px/Management_Belinda_128px.webp",
+      jpg: "/images/Management 128px/Management_Belinda_128px.jpg",
+    },
+    "Richard Hanson": {
+      webp: "/images/Management 128px/Management_Richard_128px.webp",
+      jpg: "/images/Management 128px/Management_Richard_128px.jpg",
+    },
+    "Jawaid Pardehi": {
+      webp: "/images/Management 128px/Management_Jawaid_128.webp",
+      jpg: "/images/Management 128px/Management_Jawaid_128.jpg",
+    },
+  };
   const [activeManager, setActiveManager] = React.useState<ManagementMember | null>(null);
+  const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() => typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
+  React.useEffect(() => {
+    const onResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   const currentIndex = activeStory ? filteredHistory.findIndex((s) => s.year === activeStory.year) : -1;
   const canPrevStory = currentIndex > 0;
   const canNextStory = currentIndex >= 0 && currentIndex < filteredHistory.length - 1;
@@ -381,7 +449,7 @@ const AboutPage = () => {
 
       {/* Leadership */}
 
-      <section className="relative py-20 bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-label="Board of Directors">
         <div className="absolute inset-0 bg-gradient-to-br from-sand/30 via-transparent to-sky/20 dark:from-slate-900/40 dark:to-ocean/20 pointer-events-none"></div>
         <AnimatedBackground variant="subtle" className="opacity-70" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
@@ -605,7 +673,7 @@ const AboutPage = () => {
       </section>
 
       {/* Board */}
-      <section className="relative py-20 bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-labelledby="board-title">
         <div className="absolute inset-0 bg-gradient-to-br from-sand/20 via-sky/10 to-ocean/5 dark:from-ocean/20 dark:via-sky/5 dark:to-ocean/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -613,65 +681,47 @@ const AboutPage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
               <span className="text-gray-700 dark:text-white/90 font-medium">Board of Directors</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Board</h2>
+            <h2 id="board-title" className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">Our</span>{" "}
+              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
+                Board
+              </span>
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Governance, strategy and community leadership grounded in lived experience and professionalism.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {boardMembers.map((m, index) => (
-              <Card key={index} className="group relative p-8 text-center hover:scale-[1.02]">
-                <CardContent className="relative z-10">
-                  <div className="mx-auto mb-6">
-                    <Avatar alt={m.name} name={m.name} size={96} className="border-4 border-white dark:border-slate-700 shadow-lg" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{m.name}</h3>
-                  <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-sky dark:border-sky/20 px-3 py-1 text-xs font-semibold mb-3">
-                    {m.title ?? m.role}
-                  </span>
-                  <p className="text-muted-foreground text-sm">{m.credentials}</p>
-                  <div className="mt-6">
-                    <button
-                      aria-label={`Open bio for ${m.name}`}
-                      onClick={() => setActiveBoardMember(m)}
-                      className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky"
-                    >
-                      Read Bio
-                    </button>
-                  </div>
-                </CardContent>
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-sand/30 dark:from-white/5 via-transparent to-transparent"></div>
-              </Card>
-            ))}
+          <div>
+            {(() => {
+              const summarize = (text?: string, maxSentences = 2): string | undefined => {
+                if (!text) return undefined;
+                const trimmed = text.trim();
+                const sentences = trimmed.split(/(?<=[.!?])\s+/);
+                const pick = sentences.slice(0, Math.min(maxSentences, sentences.length)).join(' ');
+                return pick;
+              };
+              const boardSummaries: Record<string, string> = {
+                "Sandra Feltham": "40+ years’ experience in health and local government, specialising in inclusive strategic planning, governance and community-focused advisory work.",
+                "Dr Shirley Schulz-Robinson": "Lived experience as migrant, carer and mature-aged student; career across health, education and multicultural mental health with focus on equity and inclusion.",
+                "Zachary Ekandi": "Senior Educational Officer at TAFE NSW with deep experience in multicultural education, engagement and partnerships supporting migrant and refugee learners.",
+                "Kasey Preston": "Works across vocational education and event management, supporting international and CALD students and promoting storytelling and multicultural connection.",
+                "Naomi McLean": "Experience across education, health and international development, leading governance reform and strategic initiatives centred on equity and meaningful impact.",
+                "Peter Gittins": "Retired international educator and Newcastle City Councillor with expertise in leadership, governance, financial management and multicultural engagement.",
+                "Catherine Candiloro": "Career in government and NGOs leading refugee and child-focused programs; now specialising in regulation, compliance, safeguarding and community advocacy.",
+                "Lauren Croiset": "Strategic leader in home care with expertise in compliance, policy and operations; leads growth and community initiatives and volunteers in multicultural organisations.",
+              };
+              const members = boardMembers.map((m) => ({
+                name: m.name,
+                role: m.title ? m.title : m.role,
+                bio: m.bio,
+                avatar: boardImgMap[m.name]?.jpg,
+                social: m.social,
+                languages: m.languages,
+                credentialsSummary: summarize(m.credentials, 2),
+                summary: boardSummaries[m.name],
+              }));
+              return <BoardSection members={members} />;
+            })()}
           </div>
         </div>
-        {activeBoardMember && (
-          <div
-            className="fixed inset-0 z-[60] flex items-center justify-center"
-            aria-labelledby="board-dialog-title"
-            role="dialog"
-            aria-modal="true"
-            onKeyDown={(e) => { if (e.key === 'Escape') setActiveBoardMember(null); }}
-          >
-            <button aria-label="Close dialog" className="absolute inset-0 bg-black/50" onClick={() => setActiveBoardMember(null)} />
-            <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
-              <button
-                aria-label="Close dialog"
-                onClick={() => setActiveBoardMember(null)}
-                className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
-              >
-                <X className="h-4 w-4" />
-              </button>
-              <div className="p-6 pb-16">
-                <h3 id="board-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeBoardMember.name}</h3>
-                <p className="text-muted-foreground mb-1">{activeBoardMember.role}</p>
-                <p className="text-sm text-muted-foreground mb-4">{activeBoardMember.credentials}</p>
-                {Array.isArray(activeBoardMember.languages) && activeBoardMember.languages.length > 0 && (
-                  <p className="text-sm text-muted-foreground mb-4">Languages: {activeBoardMember.languages.join(', ')}</p>
-                )}
-                <p className="text-sm md:text-base text-foreground leading-relaxed">{activeBoardMember.bio}</p>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* Management */}
@@ -687,7 +737,7 @@ const AboutPage = () => {
               <span className="text-gray-700 dark:text-white/90 font-medium">Management</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Our{" "}
+              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">Our</span>{" "}
               <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
                 Management Team
               </span>
@@ -696,35 +746,22 @@ const AboutPage = () => {
               Structured to reflect reporting lines while keeping a clean, premium presentation.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {managementMembers.map((m, idx) => (
-                <Card key={`mgmt-${idx}`} className="group relative p-8 text-center hover:scale-[1.02]">
-                  <CardContent className="relative z-10">
-                    <div className="mx-auto mb-6">
-                      <Avatar alt={m.name || m.title} name={m.name || m.title} size={96} className="border-4 border-white dark:border-slate-700 shadow-lg" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">{m.name || m.title}</h3>
-                    {m.name && (
-                      <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-sky dark:border-sky/20 px-3 py-1 text-xs font-semibold mb-1">
-                        {m.title}
-                      </span>
-                    )}
-                    <div className="mt-6">
-                      <button
-                        aria-label={`Open bio for ${m.name || m.title}`}
-                        onClick={() => setActiveManager(m)}
-                        className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky"
-                      >
-                        Read Bio
-                      </button>
-                    </div>
-                  </CardContent>
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-sand/30 dark:from-white/5 via-transparent to-transparent"></div>
-                </Card>
-            ))}
+          <div>
+            {(() => {
+              const members = managementMembers
+                .filter((m) => m.name || m.title)
+                .map((m) => ({
+                  name: m.name || m.title,
+                  role: m.title,
+                  bio: m.bio,
+                  languages: m.languages,
+                  avatar: m.name ? (managementImgMap[m.name]?.webp ?? managementImgMap[m.name]?.jpg) : undefined,
+                }));
+              return <ManagementSection members={members} />;
+            })()}
           </div>
 
-          {activeManager && (
+          {!isMobileOrTablet && activeManager && (
             <div
               className="fixed inset-0 z-[60] flex items-center justify-center"
               aria-labelledby="manager-dialog-title"
@@ -754,6 +791,7 @@ const AboutPage = () => {
           )}
         </div>
       </section>
+
       <RelatedServices />
     </div>
   );
