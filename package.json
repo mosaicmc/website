@@ -13,6 +13,7 @@
     "scrape:reviews:xpath": "ts-node --transpile-only scripts/scrape-google-reviews-xpath.ts",
     "scrape:reviews:custom": "ts-node --transpile-only scripts/scrape-google-reviews-custom.ts",
     "verify:reviews": "ts-node --transpile-only scripts/verify-google-reviews.ts",
+    "audit:aus": "node scripts/audit-aus-spelling.js",
     "ingest:testimonials:md": "ts-node --transpile-only scripts/ingest-testimonials-from-md.ts",
     "test": "vitest",
     "test:ui": "playwright test"

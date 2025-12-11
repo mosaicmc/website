@@ -18,7 +18,7 @@ Set these environment variables:
 
 - `GOOGLE_REVIEWS_URL`: Public URL to your Google Maps place reviews page (e.g., `https://maps.app.goo.gl/...`).
 - `GOOGLE_MAPS_API_KEY`: Server-side key for Google Places API.
-- `GOOGLE_PLACE_ID`: Google Places `place_id` for the organization.
+- `GOOGLE_PLACE_ID`: Google Places `place_id` for the organisation.
 
 ## Commands
 - Scrape and select: `npm run scrape:reviews`
@@ -63,4 +63,3 @@ Score = rating weight + recency weight + content length weight.
 ## Notes
 - Google DOM is subject to change; scraper uses heuristic selectors and is resilient but may need updates.
 - Places API returns up to a limited number of reviews; not all visible reviews may be available in API responses. The verification flags such cases but does not substitute content.
-
