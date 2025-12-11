@@ -5,13 +5,15 @@ import { Helmet } from 'react-helmet-async';
 import { Heart, Users, Briefcase, Handshake, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import RelatedServices from '@/components/RelatedServices';
 
 const GetInvolvedPage = () => {
   const opportunities = [
     {
-      icon: <Heart className="h-12 w-12" />,
+      icon: <Heart className="h-8 w-8" />,
       title: "Make a Donation",
       description: AU("Your financial support helps us provide essential services to multicultural communities across NSW."),
       benefits: [
@@ -26,7 +28,7 @@ const GetInvolvedPage = () => {
       color: "earth"
     },
     {
-      icon: <Users className="h-12 w-12" />,
+      icon: <Users className="h-8 w-8" />,
       title: "Volunteer With Us",
       description: AU("Join our team of dedicated volunteers and make a direct difference in people's lives."),
       benefits: [
@@ -41,7 +43,7 @@ const GetInvolvedPage = () => {
       color: "sky"
     },
     {
-      icon: <Briefcase className="h-12 w-12" />,
+      icon: <Briefcase className="h-8 w-8" />,
       title: "Join Our Team",
       description: AU("Build a rewarding career helping multicultural communities while developing your professional skills."),
       benefits: [
@@ -51,12 +53,12 @@ const GetInvolvedPage = () => {
         "Work-life balance focus"
       ],
       action: "View Careers",
-      link: "https://employmenthero.com/mosaic-mc",
-      external: true,
+      link: "/company/careers",
+      external: false,
       color: "leaf"
     },
     {
-      icon: <Handshake className="h-12 w-12" />,
+      icon: <Handshake className="h-8 w-8" />,
       title: "Partner With Us",
       description: AU("Collaborate with us to create innovative solutions and expand our reach in the community."),
       benefits: [
@@ -217,113 +219,109 @@ const GetInvolvedPage = () => {
         <title>Mosaic Multicultural - Get Involved</title>
         <meta name="description" content="Donate, volunteer, join our team, or partner with Mosaic Multicultural to support multicultural communities across NSW." />
       </Helmet>
-      {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
-        {/* Glass morphism background elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl dark:bg-blue-500/20"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
-              <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-              <span className="text-muted-foreground font-medium">{t('getInvolved.badge')}</span>
-            </div>
-            <h1 className="text-5xl font-bold mb-6 text-foreground">{t('getInvolved.title')}</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {t('getInvolved.description')}
-            </p>
-          </div>
+      <Section padding="sm" center>
+        <div className="max-w-3xl mx-auto text-center">
+          <Badge variant="outline" className="inline-flex items-center rounded-full bg-sand text-foreground px-4 py-1.5 text-sm shadow mb-4">
+            <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
+            <span className="text-muted-foreground font-medium">{t('getInvolved.badge')}</span>
+          </Badge>
+          <h1 className="text-3xl md:text-4xl font-bold mb-5 text-foreground">{t('getInvolved.title')}</h1>
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {t('getInvolved.description')}
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Opportunities Grid */}
-      <Section overlay>
-        <div className="grid md:grid-cols-2 gap-8 text-center">
+      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-3xl">
+        <div className="grid md:grid-cols-2 gap-4 lg:gap-6 text-center">
           {opportunities.map((opportunity, index) => (
-            <GlassCard
+            <Card
               key={index}
-              padding="none"
               className="rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
-              <div className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
-                <div className="flex items-center justify-center space-x-4">
-                  <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
+              <CardHeader className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
+                <div className="flex items-center justify-center space-x-3">
+                  <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
                     <div className={opportunity.color === 'sky' ? 'text-sky' : opportunity.color === 'earth' ? 'text-earth' : opportunity.color === 'leaf' ? 'text-leaf' : 'text-sun'}>
-                      {opportunity.icon}
+                      {React.cloneElement(opportunity.icon as React.ReactElement, { className: 'h-6 w-6' })}
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-foreground text-center">{opportunity.title}</h2>
+                    <h2 className="text-lg font-bold text-foreground text-center">{opportunity.title}</h2>
                   </div>
                 </div>
-              </div>
+              </CardHeader>
 
-              <div className="p-6 text-center">
-                <p className="text-muted-foreground leading-relaxed mb-6">{opportunity.description}</p>
-
-                <h3 className="text-lg font-bold text-foreground mb-4">Benefits & Impact</h3>
-                <ul className="space-y-2 mb-6">
+              <CardContent className="text-center p-3">
+                <p className="text-muted-foreground leading-relaxed mb-5">{opportunity.description}</p>
+                <h3 className="text-base font-bold text-foreground mb-3">Benefits & Impact</h3>
+                <ul className="space-y-2 mb-5">
                   {opportunity.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-center justify-center space-x-3">
-                      <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${opportunity.color === 'sky' ? 'bg-sky' : opportunity.color === 'earth' ? 'bg-earth' : opportunity.color === 'leaf' ? 'bg-leaf' : 'bg-sun'}`}></div>
+                    <li key={idx} className="flex items-center justify-center space-x-2.5">
+                      <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${opportunity.color === 'sky' ? 'bg-sky' : opportunity.color === 'earth' ? 'bg-earth' : opportunity.color === 'leaf' ? 'bg-leaf' : 'bg-sun'}`}></div>
                       <span className="text-muted-foreground">{benefit}</span>
                     </li>
                   ))}
                 </ul>
+              </CardContent>
 
+              <CardFooter className="px-3 pb-3 justify-center">
                 {opportunity.external ? (
-                  <a
-                    href={opportunity.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-3 rounded-lg font-semibold flex items-center justify-center transition-colors group"
-                  >
-                    {opportunity.action}
-                    <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                    <a
+                      href={opportunity.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      {opportunity.action}
+                      <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
                 ) : (
-                  <Link
-                    to={opportunity.link}
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-3 rounded-lg font-semibold flex items-center justify-center transition-colors group"
-                    onClick={(e) => {
-                      if (opportunity.link.startsWith('#')) {
-                        e.preventDefault();
-                        const id = opportunity.link.slice(1);
-                        const el = document.getElementById(id);
-                        if (el) {
-                          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                          history.replaceState(null, '', `#${id}`);
+                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                    <Link
+                      to={opportunity.link}
+                      className="group"
+                      onClick={(e) => {
+                        if (opportunity.link.startsWith('#')) {
+                          e.preventDefault();
+                          const id = opportunity.link.slice(1);
+                          const el = document.getElementById(id);
+                          if (el) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            history.replaceState(null, '', `#${id}`);
+                          }
                         }
-                      }
-                    }}
-                  >
-                    {opportunity.action}
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                      }}
+                    >
+                      {opportunity.action}
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
                 )}
-              </div>
-            </GlassCard>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </Section>
 
       {/* Volunteer Spotlight */}
-      <Section padding="md" overlay>
-        <div className="grid lg:grid-cols-2 gap-16 items-center text-center">
+      <Section padding="sm" overlay className="py-4 md:py-6 lg:py-7 section-break" center>
+        <div className="grid lg:grid-cols-2 gap-10 items-center text-center">
           <div>
-            <h2 className="text-4xl font-bold text-foreground mb-6 inline-flex items-center justify-center">
+            <h2 className="text-3xl font-bold text-foreground mb-6 inline-flex items-center justify-center">
               <Users className="h-8 w-8 text-sky mr-3" />
               {t('getInvolved.volunteerSpotlight')}
             </h2>
-            <GlassCard className="rounded-2xl p-6 shadow-lg text-center">
+            <Card className="rounded-2xl p-4 shadow-lg text-center">
               <div className="flex items-center justify-center space-x-4 mb-4">
                   {spotlightImage ? (
                     <img
                       src={spotlightImage}
                       alt={`${spotlight.name} Instagram tile`}
-                      className="w-16 h-16 rounded-full object-cover border-2 border-white dark:border-slate-700"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-700"
                       onError={(e) => {
                         const el = e.currentTarget as HTMLImageElement;
                         el.style.display = 'none';
@@ -331,12 +329,12 @@ const GetInvolvedPage = () => {
                     />
                   ) : null}
                   {!spotlightImage && (
-                    <div className="w-16 h-16 bg-gradient-to-br from-sky to-sky/80 rounded-full flex items-center justify-center text-white shadow-md">
+                    <div className="w-12 h-12 bg-gradient-to-br from-sky to-sky/80 rounded-full flex items-center justify-center text-white shadow-md">
                       <Users className="h-8 w-8" />
                     </div>
                   )}
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">{spotlight.name}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{spotlight.name}</h3>
                     <p className="text-muted-foreground">{spotlight.role}</p>
                     {spotlight.years && <p className="text-sm text-sky">{spotlight.years}</p>}
                   </div>
@@ -350,12 +348,12 @@ const GetInvolvedPage = () => {
                     <ExternalLink className="ml-1 h-4 w-4" />
                   </a>
                 </div>
-            </GlassCard>
+            </Card>
           </div>
 
           <div className="space-y-8" id="volunteer-opportunities">
             <h3 className="text-2xl font-bold text-foreground">Volunteer Opportunities</h3>
-            <GlassCard padding="md" className="rounded-lg shadow-sm">
+            <Card className="rounded-lg shadow-sm">
               <ul className="divide-y divide-border">
                 {[
                   { name: 'Newcastle', href: '/volunteer/newcastle' },
@@ -363,7 +361,7 @@ const GetInvolvedPage = () => {
                   { name: 'Armidale', href: '/volunteer/armidale' },
                   { name: 'Tamworth', href: '/volunteer/tamworth' },
                 ].map((place) => (
-                  <li key={place.href} className="flex items-center justify-between py-3">
+                  <li key={place.href} className="flex items-center justify-between py-2">
                     <Link
                       to={place.href}
                       className="text-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded px-1"
@@ -374,22 +372,23 @@ const GetInvolvedPage = () => {
                   </li>
                 ))}
               </ul>
-            </GlassCard>
-            <a
-              href="#volunteer-opportunities"
-              className="inline-flex items-center bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById('volunteer-opportunities');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  history.replaceState(null, '', '#volunteer-opportunities');
-                }
-              }}
-            >
-              {t('getInvolved.actions.apply')}
-              <ExternalLink className="ml-2 h-5 w-5" />
-            </a>
+            </Card>
+            <Button asChild className="inline-flex items-center bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white px-5 py-2.5 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+              <a
+                href="#volunteer-opportunities"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('volunteer-opportunities');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#volunteer-opportunities');
+                  }
+                }}
+              >
+                {t('getInvolved.actions.apply')}
+                <ExternalLink className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </Section>
