@@ -1,0 +1,98 @@
+export type OfficeLocation = {
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+  hours: { weekdays: string; weekend: string };
+  services: string[];
+  staff: { name: string; role: string; languages: string[] }[];
+  transport: string[];
+  image: string;
+};
+
+export const LOCATIONS: OfficeLocation[] = [
+  {
+    name: "Charlestown (Head Office)",
+    address: "Level 3, 3 Hopetoun St, Charlestown NSW 2290",
+    phone: "1800 813 205",
+    email: "info@mosaicmc.org.au",
+    hours: {
+      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekend: "Closed weekends",
+    },
+    services: [
+      "All Services",
+      "Home Care",
+      "Settlement Support",
+      "Family Support",
+      "Administration",
+    ],
+    staff: [
+      { name: "Sarah Chen", role: "CEO", languages: ["English", "Mandarin"] },
+      { name: "Ahmed Hassan", role: "Settlement Director", languages: ["English", "Arabic", "French"] },
+      { name: "Maria Santos", role: "Home Care Director", languages: ["English", "Tagalog", "Spanish"] },
+    ],
+    transport: [
+      "Charlestown Square bus interchange",
+      "Local bus services",
+      "Paid parking available",
+    ],
+    image:
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    name: "Central Coast",
+    address:
+      "Tuggerah Lakes Community Centre, 1 Bay Village Road, Bateau Bay NSW 2261",
+    phone: "1800 813 205",
+    email: "info@mosaicmc.org.au",
+    hours: {
+      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekend: "Closed weekends",
+    },
+    services: ["Settlement Support", "Family Services", "Community Programs", "Youth Services"],
+    staff: [
+      { name: "Lisa Wong", role: "Office Manager", languages: ["English", "Mandarin", "Cantonese"] },
+      { name: "Carlos Rodriguez", role: "Settlement Worker", languages: ["English", "Spanish", "Portuguese"] },
+    ],
+    transport: [
+      "Nearest bus routes and parking available",
+      "Wheelchair accessible",
+    ],
+    image:
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    name: "Tamworth",
+    address: "3/345 Peel Street, Tamworth NSW 2340",
+    phone: "1800 813 205",
+    email: "info@mosaicmc.org.au",
+    hours: {
+      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekend: "Closed weekends",
+    },
+    services: ["Settlement Support", "Community Programs"],
+    staff: [{ name: "David Thompson", role: "Regional Manager", languages: ["English"] }],
+    transport: ["Local bus services", "Street parking available"],
+    image:
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    name: "Armidale",
+    address: "86 Beardy Street, Armidale NSW 2350",
+    phone: "1800 813 205",
+    email: "info@mosaicmc.org.au",
+    hours: {
+      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekend: "Closed weekends",
+    },
+    services: ["Settlement Support", "Community Programs"],
+    staff: [
+      { name: "Fatima Al-Zahra", role: "Settlement Worker", languages: ["English", "Arabic", "Farsi"] },
+    ],
+    transport: ["Local bus services", "Street parking available"],
+    image:
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+];
+
