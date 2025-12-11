@@ -16,6 +16,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Australian English audit (non-blocking)
+        run: npm run audit:aus || true
       - run: npm run lint
       - run: npm run test -- --coverage
       - run: npm run build
@@ -35,4 +37,3 @@ jobs:
       - run: npm run preview &
       - run: npx wait-on http://127.0.0.1:4173
       - run: BASE_URL=http://127.0.0.1:4173 npm run test:ui
-

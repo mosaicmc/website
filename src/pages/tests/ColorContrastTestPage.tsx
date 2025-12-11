@@ -8,18 +8,18 @@ export default function ColorContrastTestPage() {
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Color Contrast Test</title>
+        <title>Colour Contrast Test</title>
         <meta name="description" content="Isolated block to test switching background from black to #11182e with readability checks." />
       </Helmet>
 
       <section className="mx-auto max-w-4xl px-6 py-12">
-        <h1 className="text-3xl font-bold mb-4">Color Contrast Test Block</h1>
+        <h1 className="text-3xl font-bold mb-4">Colour Contrast Test Block</h1>
         <p className="text-muted-foreground mb-6">This page isolates a single block and allows toggling its background between original black and the proposed #11182e for visual evaluation across breakpoints.</p>
 
         <div
           id="test-block"
           role="region"
-          aria-label="Color Contrast Test Block"
+          aria-label="Colour Contrast Test Block"
           className="rounded-2xl overflow-hidden border border-border shadow-lg"
           style={{ backgroundColor: bg }}
         >
@@ -42,7 +42,7 @@ export default function ColorContrastTestPage() {
 
             <h2 className="text-2xl font-bold" style={{ color: '#ffffff' }}>Sample Heading</h2>
             <p className="mt-3 max-w-prose" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              This text checks readability on a dark background. Links and buttons below use accessible contrast colors.
+              This text checks readability on a dark background. Links and buttons below use accessible contrast colours.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <a
