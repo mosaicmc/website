@@ -2,6 +2,11 @@
 
 This repository hosts the Mosaic Multicultural Connections corporate website built with React, Vite, TypeScript, and Tailwind CSS.
 
+## Environment Variables
+- Create a `.env.local` file in the project root.
+- Copy from `.env.example` and fill in real values for `EH_ORG_ID` and `EH_ATS_TOKEN`.
+- These variables are used only in backend/serverless code under `api/*` and are never bundled into the frontend.
+
 ## Tech Stack
 - React 18
 - Vite 5
@@ -49,7 +54,7 @@ src/
 ```
 
 ## Environment
-No secrets are required for local runs. If you add environment variables, place them in a `.env` file and ensure `.env` is ignored by git (already in `.gitignore`).
+No secrets are required for local runs. If you add environment variables, place them in a `.env.local` file and ensure `.env`, `.env.local` and `.env.*.local` are ignored by git (see `.gitignore`).
 
 ## Node Version
 The project was tested on Node 20+. To reduce dev environment drift, the repo includes an `.nvmrc` file. Use `nvm use` to switch.

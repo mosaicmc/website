@@ -89,7 +89,7 @@ const resourcesLinks: { title: string; href: string; description: string; icon: 
 
 const getInvolvedLinks: { title: string; href?: string; description: string; icon: LucideIcon; external?: string }[] = [
   { title: "Refer", description: "Refer a client via our secure online form.", icon: ShieldCheck, external: "https://tally.so/r/w4veNk" },
-  { title: "Career", description: "Explore open roles and work with our team.", icon: Search, external: "https://employmenthero.com/mosaic-mc" },
+  { title: "Careers", description: "Explore open roles and work with our team.", icon: Search, href: "/company/careers" },
   { title: "Volunteer", description: "Participate in community programs across NSW.", icon: Users, external: "https://tally.so/r/3qoXjg" },
   { title: "Donate", description: "Support our work with a contribution.", icon: Heart, href: "/donate" },
 ];
