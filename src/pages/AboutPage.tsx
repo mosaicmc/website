@@ -13,18 +13,18 @@ import { ManagementSection } from '@/components/ManagementSection';
 
 const AboutPage = () => {
   const storyData = [
-    { year: "1978", label: "1978", description: "Galbally Report laid groundwork for Australia’s multicultural policy.", image: undefined as unknown as string, alt: "Galbally Report (PDF)", details: "‘Review of Post‑Arrival Programs and Services to Migrants (1978)’ set a foundation for migrant integration and equal opportunity.", gallery: [], links: [
+    { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: undefined as unknown as string, alt: "Galbally Report (PDF)", details: "The Review of Post‑Arrival Programs and Services to Migrants (1978) set a foundation for migrant integration and equal opportunity. Its recommendations were fully adopted by the Federal Government, funding a range of programs and services and establishing migrant resource centres across Australia. These centres would provide post‑arrival services including settlement assistance, welfare, advocacy, individual support and referral. Their aim was to help migrants and refugees participate in Australian life while maintaining their culture and heritage.", gallery: [], links: [
       { label: "Galbally Report 01 (PDF)", href: "/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf" },
       { label: "Galbally Report 02 (PDF)", href: "/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf" }
     ] },
-    { year: "1981", label: "May 1981", description: "Migrant Resource Centre opened with two staff.", image: "/images/History_720px_webp/1981_Ian MacPhee.webp", alt: "Foundation year in Newcastle and the Hunter Region", details: "Opened in Newcastle under a council‑administered interim committee, serving local communities.", gallery: [] },
-    { year: "1984", label: "1984", description: "Moved to 8 Chaucer St, Hamilton.", image: "/images/History_720px_webp/1984_Chaucer Street.webp", alt: "Relocation to 8 Chaucer Street Hamilton", details: "Relocated for better access; base for over 40 years." },
-    { year: "1985", label: "1985", description: "Formally incorporated; outreach expanded.", image: "/images/History_720px_webp/1985.webp", alt: "Incorporation and outreach to Singleton and Muswellbrook", details: "Management moved to elected community members and outreach expanded." },
-    { year: "1989", label: "December 1989", description: "Disaster recovery after Newcastle Earthquake.", image: "/images/History_720px_webp/1989_Earthquake01.webp", alt: "Newcastle Earthquake response", details: "Helped families and businesses rebuild.", gallery: [
+    { year: "1981", label: "1981", description: "We open in Newcastle with two staff.", image: "/images/History_720px_webp/1981_Ian MacPhee.webp", alt: "Foundation year in Newcastle and the Hunter Region", details: "Mr Ian MacPhee officially opened the Newcastle Migrant Resource Centre on 20 May 1981. The Centre began operating in this region from upstairs premises at 414 Hunter Street above the State Bank building, with an interim Committee of Management and administered by the Newcastle City Council. There were just two staff: a Coordinator (the first being Veronica Hendry) and an Assistant Coordinator. The Centre operated from these premises for three years, serving as a fledgling community hub.", gallery: [] },
+    { year: "1984", label: "1984", description: "We move to 8 Chaucer Street, Hamilton, closer to our communities.", image: "/images/History_720px_webp/1984_Chaucer Street.webp", alt: "Relocation to 8 Chaucer Street Hamilton", details: "In 1984 Violetta Walsh became Coordinator and led the organisation for 30 years across roles of coordinator, director and CEO. The premises chosen were 8 Chaucer Street, Hamilton, which remained the operational base for more than forty years, as the Migrant Resource Centre, then Northern Settlement Services, and finally Mosaic Multicultural Connections until the relocation to Charlestown.", gallery: [] },
+    { year: "1985", label: "1985", description: "We are formally incorporated; outreach expands and women’s leadership grows.", image: "/images/History_720px_webp/1985.webp", alt: "Incorporation and outreach to Singleton and Muswellbrook", details: "The Centre was formally incorporated and management was taken up by elected members of ethnic communities, with the foundation Chair being Faith Trent from the University of Newcastle. Funding for an additional worker from the Department of Immigration enabled outreach to settlers further out in the region, including Singleton and Muswellbrook work camps. Our reputation as a migrant hub grew quickly, attracting support from state and federal departments. A significant program at the time was Management Skills in the Community, a state funded initiative that over three years offered mature age ethnic women training and employment in the community sector while building networks with mainstream organisations. We also helped establish the Saturday School of Community Languages to promote the maintenance of community languages among ethnic children." },
+    { year: "1989", label: "1989", description: "After the earthquake, we support Newcastle, helping families and businesses rebuild.", image: "/images/History_720px_webp/1989_Earthquake01.webp", alt: "Newcastle Earthquake response", details: "Late December 1989 saw the Newcastle Earthquake. The Centre played a vital role in disaster recovery, helping local businesses and residents rebuild and supporting displaced families and individuals to access assistance made available by government.", gallery: [
       "/images/History_720px_webp/1989_Earthquake02.webp",
       "/images/History_720px_webp/1989_Earthquake03.webp"
     ] },
-    { year: "1990", label: "1990 Carnivale", description: "Carnivale celebrations and community rebuilding.", image: "/images/History_720px_webp/1990_Carnivale01.webp", alt: "1990 Carnivale", details: "Carnivale with Hamilton Chamber and Ethnic Communities Council.", gallery: [
+    { year: "1990", label: "1990", description: "Carnivale brings Hamilton together in a celebration of resilience and community.", image: "/images/History_720px_webp/1990_Carnivale01.webp", alt: "1990 Carnivale", details: "Carnivale was launched as a street party with the Hamilton Chamber of Commerce and the Ethnic Communities Council, celebrating recovery and connection.", gallery: [
       "/images/History_720px_webp/1990_Carnivale03.webp",
       "/images/History_720px_webp/1990_Carnivale04.webp",
       "/images/History_720px_webp/1990_Carnivale05.webp",
@@ -32,28 +32,32 @@ const AboutPage = () => {
       "/images/History_720px_webp/1990_Carnivale07.webp",
       "/images/History_720px_webp/1990_Carnivale.webp"
     ] },
-    { year: "1991", label: "1991", description: "Tenth anniversary; new services.", image: "/images/History_720px_webp/1991_10Years_AGM.webp", alt: "Tenth anniversary", details: "Expanded services including Community Visitors Scheme.", gallery: [
+    { year: "1991", label: "1991", description: "Ten years on, we serve over 100 nationalities with a growing team.", image: "/images/History_720px_webp/1991_10Years_AGM.webp", alt: "Tenth anniversary", details: "We celebrated the tenth anniversary, growing from two staff to eleven and serving clients from more than 100 nationalities. We expanded our footprint across the North West of NSW and the Central Coast, launched the Community Visitors Scheme for aged migrants, and initiated an Immigration Assistance and Advice service.", gallery: [
       "/images/History_720px_webp/1991_10Years_AGM01.webp",
       "/images/History_720px_webp/1991_10Years_AGM02.webp"
     ] },
-    { year: "1999", label: "1999", description: "Supported nearly 900 Kosovar refugees.", image: "/images/History_720px_webp/1999_Kosovar01.webp", alt: "Kosovar refugee support", details: "Interagency collaboration for settlement assistance.", gallery: [
+    { year: "1999", label: "1999", description: "Frontline support for nearly 900 Kosovar refugees in humanitarian respite.", image: "/images/History_720px_webp/1999_Kosovar01.webp", alt: "Kosovar refugee support", details: "We took a frontline role in the national humanitarian response for Kosovar refugees in respite from the war in Bosnia. It was a proud period, working with government and interagency partners to support nearly 900 refugees with settlement assistance, referrals and community liaison. In that period we also gained funding to assist skilled migrants to have their qualifications recognised, facilitating translation of documents, negotiating work experience and advocating among local employers.", gallery: [
       "/images/History_720px_webp/1999_Kosovar02.webp",
       "/images/History_720px_webp/1999_Kosovar03.webp",
       "/images/History_720px_webp/1999_Kosovar04.webp",
       "/images/History_720px_webp/1999_Kosovar05.webp"
     ] },
-    { year: "2006", label: "2006", description: "Twenty five years of service.", image: "/images/History_720px_webp/2006_SilverJubilee.webp", alt: "Silver Jubilee", details: "Broader outreach across regional NSW." },
-    { year: "2007", label: "2007", description: "Became Northern Settlement Services Ltd.", image: "/images/History_720px_webp/2007_NSS.webp", alt: "Northern Settlement Services Ltd", details: "Secured charitable status and donor concessions." },
-    { year: "2010", label: "2010", description: "Leadership transition; Lulu Tantos appointed CEO.", image: "/images/History_720px_webp/2010_Lulu Tantos.webp", alt: "Leadership transition", details: "Steered program diversification.", gallery: [] },
-    { year: "2014", label: "2014", description: "AGM moments.", image: "/images/History_720px_webp/2014 NSS_AGM - 05.webp", alt: "AGM 2014", details: "Annual gathering and governance.", gallery: [] },
-    { year: "2019", label: "2019", description: "Sharon Daishe appointed CEO.", image: "/images/History_720px_webp/2019_ShaonDaishe.webp", alt: "CEO appointment", details: "New chapter of innovation and vision." },
-    { year: "2021", label: "2021", description: "Forty years celebrated.", image: "/images/History_720px_webp/2021_40th Celebration01.webp", alt: "40th Celebration", details: "Celebrations across NSW.", gallery: [
+    { year: "2001", label: "2001", description: "Twenty years celebrated; momentum builds for outreach and partnerships.", image: undefined as unknown as string, alt: "Historical entry 2001", details: "The Migrant Resource Centre celebrated 20 years of service to the community. We continued building momentum for regional outreach and partnerships, strengthening connections and supports across the Hunter and beyond." },
+    { year: "2004", label: "2004", description: "We open our Armidale office, strengthening outreach across New England and the Northwest.", image: undefined as unknown as string, alt: "Historical entry 2004", details: "The Armidale office opened to strengthen settlement outreach across the New England Region and Northwest Plains, including Tamworth, Inverell, Wellington and Gunnedah.", gallery: [] },
+    { year: "2005", label: "2005", description: "Welcoming African refugees, we expand settlement supports across the region.", image: undefined as unknown as string, alt: "Historical entry 2005", details: "The arrival of African refugees in our area prompted collaboration with colleague MRCs to tender for government funding, providing settlement services to people from Sudan, Liberia, Congo and Burundi. We also opened an office on the Central Coast to base our welfare and aged care staff in a rapidly growing area.", gallery: [] },
+    { year: "2006", label: "2006", description: "Twenty-five years mark broader services and new offices, including Tamworth.", image: "/images/History_720px_webp/2006_SilverJubilee.webp", alt: "Silver Jubilee", details: "We marked 25 years of service with 24 staff and over 100 volunteers. We opened the Tamworth office and extended outreach through travelling staff and program partnerships to Dubbo, Orange, Bathurst, Lightning Ridge and Coffs Harbour. Services broadened to include Family Support, migrant employment placement, rural information campaigns and Community Aged Care Packages.", gallery: [] },
+    { year: "2007", label: "2007", description: "We become Northern Settlement Services Ltd, securing charitable status.", image: "/images/History_720px_webp/2007_NSS.webp", alt: "Northern Settlement Services Ltd", details: "Secured charitable status with the ATO, unlocking tax concessions, gift tax deductibility for donors and salary sacrifice benefits for staff." },
+    { year: "2010", label: "2010", description: "Leadership transitions as Lulu Tantos is appointed CEO. Diversification continues.", image: "/images/History_720px_webp/2010_Lulu Tantos.webp", alt: "Leadership transition", details: "Violetta Walsh retired and Lulu Tantos was appointed CEO, continuing to steer the organisation and program diversification.", gallery: [] },
+    { year: "2011", label: "2011", description: "We celebrate 30 years; 45 staff and 200+ volunteers across offices.", image: undefined as unknown as string, alt: "30th Anniversary", details: "2011 marked the 30th Anniversary of the agency, now employing 45 staff and supporting over 200 volunteers with offices in Hamilton, the Central Coast, Tamworth, Armidale and, for a short period, Inverell.", gallery: [] },
+    { year: "2019", label: "2019", description: "Sharon Daishe is appointed CEO, ushering innovation and strategic vision.", image: "/images/History_720px_webp/2019_ShaonDaishe.webp", alt: "CEO appointment", details: "New chapter of innovation and vision." },
+    { year: "2021", label: "2021", description: "Forty years celebrated, with 65 staff and 175 volunteers across NSW.", image: "/images/History_720px_webp/2021_40th Celebration01.webp", alt: "40th Celebration", details: "Forty years of service were celebrated, with 65 staff, 175 volunteers and regional offices continuing valuable work in the North and Northwest of NSW.", gallery: [
       "/images/History_720px_webp/2021_40th Celebration04.webp",
       "/images/History_720px_webp/2021_40th Celebration05.webp",
       "/images/History_720px_webp/2021_40th Celebration06.webp",
       "/images/History_720px_webp/2021_40th Celebration07.webp"
     ] },
-    { year: "2024", label: "November 2024", description: "Head office relocated to Charlestown.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "Modern, accessible base for growth.", gallery: [
+    { year: "2022", label: "2022", description: "We adopt our new name, Mosaic Multicultural Connections, reflecting our evolving role.", image: undefined as unknown as string, alt: "Historical entry 2022", details: "A new name was adopted to reflect the organisation's evolving role and the vibrant diversity of the communities it serves.", gallery: [] },
+    { year: "2024", label: "2024", description: "Head office relocates to Charlestown, a modern, accessible base for growth.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "After more than forty years, we said goodbye to our beloved Chaucer Street office, a space filled with laughter, resilience and memories with our community. The farewell featured a ceremonial lock‑up by our first CEO, Violetta Walsh OAM, and long‑serving staff member, Irina Lupish. On 11 November we moved to our new home at 3 Hopetoun Street, Charlestown, and hosted an opening ceremony with clients, partners and collaborators. The day was marked by a moving Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and heartfelt words from community leaders reflecting on inclusion, collaboration and the resilience of multicultural communities.", gallery: [
       "/images/History_720px_webp/2024_Charlestown01.webp",
       "/images/History_720px_webp/2024_Charlestown02.webp",
       "/images/History_720px_webp/2024_Closing01.webp",
@@ -159,7 +163,7 @@ const AboutPage = () => {
       title: "Chief Executive Officer",
       level: 1 as const,
       languages: ["English"],
-      bio: "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose — helping people have power over their lives — the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren."
+      bio: "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose, helping people have power over their lives, the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren."
     },
     {
       name: "Belinda Latimore",
@@ -176,18 +180,18 @@ const AboutPage = () => {
       bio: "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner."
     },
     {
-      name: "",
-      title: "Manager, Home Care Services",
+      name: "Karthik Ramamurthy",
+      title: "Manager, Aged Care",
       level: 3 as const,
-      languages: [],
-      bio: "Bio will be added from Management_bios."
+      languages: ["English", "Hindi", "Tamil"],
+      bio: "Bio content to be provided later."
     },
     {
       name: "Jawaid Pardehi",
       title: "Manager, Settlement, Families & Communities",
       level: 3 as const,
       languages: ["English", "Urdu", "Hindi"],
-      bio: "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness — including women’s programs, parenting workshops and cultural awareness training — to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
+      bio: "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness, including women’s programs, parenting workshops and cultural awareness training, to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
     },
   ];
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
@@ -215,12 +219,15 @@ const AboutPage = () => {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
-  const currentIndex = activeStory ? filteredHistory.findIndex((s) => s.year === activeStory.year) : -1;
+  const modalBrowseList = React.useMemo(() => {
+    return [...storyData].sort((a, b) => Number(a.year) - Number(b.year));
+  }, [storyData]);
+  const currentIndex = activeStory ? modalBrowseList.findIndex((s) => s.year === activeStory.year) : -1;
   const canPrevStory = currentIndex > 0;
-  const canNextStory = currentIndex >= 0 && currentIndex < filteredHistory.length - 1;
+  const canNextStory = currentIndex >= 0 && currentIndex < modalBrowseList.length - 1;
   const goPrevStory = () => {
     if (!canPrevStory) return;
-    const next = filteredHistory[currentIndex - 1];
+    const next = modalBrowseList[currentIndex - 1];
     setActiveStory(next);
     setSelectedDecade(deriveDecade(next.year));
     setSelectedYear(next.year);
@@ -229,7 +236,7 @@ const AboutPage = () => {
   };
   const goNextStory = () => {
     if (!canNextStory) return;
-    const next = filteredHistory[currentIndex + 1];
+    const next = modalBrowseList[currentIndex + 1];
     setActiveStory(next);
     setSelectedDecade(deriveDecade(next.year));
     setSelectedYear(next.year);
@@ -257,6 +264,13 @@ const AboutPage = () => {
     if (!canNextImage) return;
     setLastImageDirection('right');
     setActiveImageIndex((i) => Math.min(activeImages.length - 1, i + 1));
+  };
+
+  const closeStoryModal = () => {
+    setActiveStory(null);
+    setSelectedYear("all");
+    setActiveImageIndex(0);
+    setLastImageDirection(null);
   };
 
   function YearSelect({ years, value, onChange }: { years: string[]; value: string; onChange: (v: string) => void }) {
@@ -519,23 +533,29 @@ const AboutPage = () => {
             className="flex md:grid gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pb-2"
             ref={sliderRef}
             id="mosaic-story-slider"
-            style={{ gridTemplateColumns: `repeat(${Math.min(4, Math.max(1, filteredHistory.length))}, minmax(260px, 1fr))` }}
+            style={{
+              gridTemplateColumns: `repeat(${Math.min(4, Math.max(1, filteredHistory.length))}, 260px)`,
+              gridTemplateRows: filteredHistory.length > 4 ? 'repeat(2, auto)' : undefined,
+              justifyContent: 'center',
+            }}
           >
             {filteredHistory.map((item, idx) => (
-              <div key={idx} className="story-card snap-start min-w-[260px] md:min-w-0">
+              <div key={idx} className="story-card snap-start min-w-[260px] md:min-w-0 h-full">
                 <button
                   aria-label={`Open details for ${item.label}`}
                   onClick={() => { setActiveStory(item); setSelectedDecade(deriveDecade(item.year)); setSelectedYear(item.year); setActiveImageIndex(0); setLastImageDirection(null); }}
-                  className="group relative w-full text-left rounded-2xl border border-border bg-background shadow-sm overflow-hidden hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
+                  className="group relative w-full h-full text-left rounded-2xl border border-border bg-background shadow-sm overflow-hidden hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition flex flex-col"
                 >
                   {item.image ? (
-                    <img
-                      src={item.image}
-                      alt={item.alt}
-                      className="w-full h-40 md:h-48 object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <div className="w-full flex items-center justify-center bg-background">
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        className="h-auto max-h-48 md:max-h-56 w-auto object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
                   ) : (
                     <div className="w-full h-40 md:h-48 flex items-center justify-center bg-muted">
                       <span className="text-sm font-medium text-muted-foreground">View PDFs</span>
@@ -599,7 +619,7 @@ const AboutPage = () => {
             role="dialog"
             aria-modal="true"
             onKeyDown={(e) => {
-              if (e.key === 'Escape') setActiveStory(null);
+              if (e.key === 'Escape') closeStoryModal();
               if (e.key === 'ArrowLeft') {
                 if (activeImages.length > 1) { goPrevImage(); } else { goPrevStory(); }
               }
@@ -611,19 +631,19 @@ const AboutPage = () => {
             <button
               aria-label="Close dialog"
               className="absolute inset-0 bg-black/50"
-              onClick={() => setActiveStory(null)}
+              onClick={closeStoryModal}
             />
             <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
               <button
                 aria-label="Close dialog"
-                onClick={() => setActiveStory(null)}
+                onClick={closeStoryModal}
                 className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
               >
                 <X className="h-4 w-4" />
               </button>
               <div className="relative">
                 {activeStory.image ? (
-                  <div className="w-full h-48 md:h-56 overflow-hidden rounded-t-2xl">
+                  <div className="w-full max-h-[60vh] rounded-t-2xl flex items-center justify-center overflow-hidden bg-background">
                     <AnimatePresence mode="wait" custom={lastImageDirection}>
                       <motion.img
                         key={`${activeStory.year}-${activeImageIndex}`}
@@ -633,7 +653,7 @@ const AboutPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: lastImageDirection === 'right' ? -40 : lastImageDirection === 'left' ? 40 : 0 }}
                         transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-                        className="w-full h-full object-cover"
+                        className="max-h-[60vh] w-auto object-contain"
                         onAnimationStart={() => setIsImageAnimating(true)}
                         onAnimationComplete={() => setIsImageAnimating(false)}
                       />
@@ -641,28 +661,30 @@ const AboutPage = () => {
                   </div>
                 ) : (
                   <div className="w-full h-48 md:h-56 rounded-t-2xl bg-muted flex items-center justify-center">
-                    <span className="text-sm font-medium text-muted-foreground">No image available — see Related PDFs below</span>
+                    <span className="text-sm font-medium text-muted-foreground">No image available. See related PDFs below</span>
                   </div>
                 )}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-background/80 border border-border shadow px-2 py-1">
-                  <button
-                    aria-label="Previous image"
-                    onClick={goPrevImage}
-                    disabled={!canPrevImage}
-                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canPrevImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                  </button>
-                  <span className="w-px h-5 bg-border/70" aria-hidden="true"></span>
-                  <button
-                    aria-label="Next image"
-                    onClick={goNextImage}
-                    disabled={!canNextImage}
-                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canNextImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
-                </div>
+                {activeImages.length > 1 && (
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-background/80 border border-border shadow px-2 py-1">
+                    <button
+                      aria-label="Previous image"
+                      onClick={goPrevImage}
+                      disabled={!canPrevImage}
+                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canPrevImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    <span className="w-px h-5 bg-border/70" aria-hidden="true"></span>
+                    <button
+                      aria-label="Next image"
+                      onClick={goNextImage}
+                      disabled={!canNextImage}
+                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canNextImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                )}
               </div>
               <div className="p-6 pb-16">
                 <h3 id="story-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeStory.label}</h3>
@@ -681,6 +703,33 @@ const AboutPage = () => {
                           <img src={src} alt="" className="h-full w-full object-cover" />
                         </button>
                       ))}
+                    </div>
+                  </div>
+                )}
+                {(canPrevStory || canNextStory) && (
+                  <div className="mt-6 flex items-center justify-center">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-background/80 border border-border shadow px-2 py-1">
+                      {canPrevStory && (
+                        <button
+                          aria-label="Previous year"
+                          onClick={goPrevStory}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-foreground hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                      )}
+                      {canPrevStory && canNextStory && (
+                        <span className="w-px h-5 bg-border/70" aria-hidden="true"></span>
+                      )}
+                      {canNextStory && (
+                        <button
+                          aria-label="Next year"
+                          onClick={goNextStory}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-foreground hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -703,20 +752,6 @@ const AboutPage = () => {
                   </div>
                 )}
                 
-                <div className="mt-4">
-                  <p className="text-sm font-medium text-foreground mb-2">More like this</p>
-                  <div className="flex flex-wrap gap-2">
-                    {filteredHistory.map((s, idx) => (
-                      <button
-                        key={`${s.year}-${idx}`}
-                        onClick={() => { setActiveStory(s); setSelectedDecade(deriveDecade(s.year)); setSelectedYear(s.year); setActiveImageIndex(0); setLastImageDirection(null); }}
-                        className={`inline-flex rounded-full border px-3 py-1.5 text-xs ${s.year === activeStory.year ? 'bg-muted text-foreground border-border' : 'bg-background text-muted-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-                      >
-                        {s.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </div>
