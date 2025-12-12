@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025-12-12
+
+### Removed
+- Breadcrumbs UI component and rendering across all routes (`src/App.tsx:60`)
+- Breadcrumb JSON-LD generation and injection (`src/components/SEO.tsx:56–76,100`)
+
+### Notes
+- Component file kept returning `null` to avoid accidental usage (`src/components/ui/Breadcrumbs.tsx:1`)
+- Breadcrumbs redesign will be implemented later; removed now to avoid UI clutter and stale SEO markup
+
 ## 2025-12-11
 
 ### Changed

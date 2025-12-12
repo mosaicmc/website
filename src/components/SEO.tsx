@@ -53,27 +53,7 @@ export default function DefaultSEO() {
     },
   };
 
-  const breadcrumbJsonLd = (() => {
-    const parts = location.pathname.split('/').filter(Boolean);
-    const items = parts.map((p, i) => {
-      const name = p
-        .split('-')
-        .map((s) => (s ? s[0].toUpperCase() + s.slice(1) : s))
-        .join(' ');
-      const item = `${SITE_URL}/${parts.slice(0, i + 1).join('/')}`;
-      return {
-        '@type': 'ListItem',
-        position: i + 1,
-        name,
-        item,
-      };
-    });
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: items,
-    };
-  })();
+  // Breadcrumb JSON-LD removed
 
   return (
     <Helmet>
@@ -97,7 +77,6 @@ export default function DefaultSEO() {
 
       <script type="application/ld+json">{JSON.stringify(orgJsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(websiteJsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
     </Helmet>
   );
 }
