@@ -7,6 +7,39 @@ This repository hosts the Mosaic Multicultural Connections corporate website bui
 - Copy from `.env.example` and fill in real values for `EH_ORG_ID` and `EH_ATS_TOKEN`.
 - These variables are used only in backend/serverless code under `api/*` and are never bundled into the frontend.
 
+### Production secrets and rotation
+- Never commit secrets to the repository. Use your deploy provider’s environment management.
+- Deployment is via Vercel (`vercel.json` present). Add secrets in Vercel:
+  - In Vercel Dashboard > Project Settings > Environment Variables:
+    - Add `STRIPE_SECRET_KEY` for Development, Preview, and Production as needed.
+    - Avoid `VITE_` prefixes for secrets; access in serverless code via `process.env.STRIPE_SECRET_KEY`.
+- For local production-like testing, use `.env.production.local` (gitignored). Example entries:
+  ```
+  STRIPE_SECRET_KEY=<set_via_local_env_not_committed>
+  EH_ORG_ID=<id>
+  EH_ATS_TOKEN=<token>
+  ```
+- Rotation playbook:
+  - Generate a new secret in the provider (e.g., Stripe).
+  - Update Vercel env for all scopes (Dev/Preview/Prod). Optionally use Vercel CLI:
+    - `npx vercel env add STRIPE_SECRET_KEY production`
+    - `npx vercel env add STRIPE_SECRET_KEY preview`
+    - `npx vercel env add STRIPE_SECRET_KEY development`
+  - Trigger redeploys so new env values propagate to all environments.
+  - In GitHub, store a copy as an Actions secret if needed for CI (`Settings > Secrets and variables > Actions`).
+  - Decommission old keys after verifying services run with the new key.
+
+### CI integration
+- CI runs on GitHub Actions (`.github/workflows/ci.yml`). It does not build with secrets by default.
+- If a CI job needs secrets (e.g., serverless contract tests), add them as GitHub Actions secrets and map to env:
+  ```
+  - name: Use secrets
+    env:
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+    run: echo "Secrets available to this step"
+  ```
+- For automated rotation, prefer manual approval via a dedicated workflow using protected branch rules and an approver step, then update Vercel env via CLI before redeploy.
+
 ## Tech Stack
 - React 18
 - Vite 5
