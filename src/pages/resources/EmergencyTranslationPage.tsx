@@ -4,6 +4,7 @@ import { Phone, AlertTriangle, Flame, CloudLightning, Satellite, Radio, Zap, Map
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { ExternalLink } from 'lucide-react';
 import BackLink from "../../components/ui/BackLink";
 
@@ -65,6 +66,14 @@ export default function EmergencyTranslationPage() {
     },
   ];
 
+  const accentFor = (title: string) => {
+    if (title.includes('Life threatening')) return 'bg-sun';
+    if (title.includes('bushfire') || title.includes('Floods') || title.includes('storms') || title.includes('tsunamis')) return 'bg-leaf';
+    if (title.includes('Power') || title.includes('Traffic')) return 'bg-earth';
+    if (title.includes('Hazards') || title.includes('Weather')) return 'bg-sky';
+    return 'bg-ocean';
+  };
+
   
 
   return (
@@ -77,111 +86,131 @@ export default function EmergencyTranslationPage() {
         />
       </Helmet>
 
-      <Section overlay padding="lg" center containerClassName="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section overlay padding="lg" center containerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-10 md:space-y-12">
           <div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-gradient">Emergency & Translation Services</h1>
             <p className="mt-3 text-muted-foreground max-w-2xl">This page provides essential emergency contacts and language support information.</p>
           </div>
 
-          <div>
-            <h2 className="text-lg md:text-xl font-semibold text-foreground mb-3">Quick actions</h2>
-            <div className="space-y-4">
-              <Card>
-                <CardContent className="pt-6">
-                  <Button asChild variant="destructive" className="h-11 w-full">
-                    <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
-                      <span className="text-left">
-                        <span className="block font-semibold">Call 000</span>
-                        <span className="block text-xs text-primary-foreground/80">Police • Fire • Ambulance</span>
-                      </span>
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="grid grid-cols-1 gap-3">
-                    <Button asChild variant="secondary" className="h-11 w-full">
-                      <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">
-                        <span className="text-left">
-                          <span className="block font-semibold">TIS 131 450</span>
-                          <span className="block text-xs text-secondary-foreground/80">Interpreter support</span>
+          <Tabs defaultValue="quick" className="space-y-6">
+            <TabsList className="mx-auto">
+              <TabsTrigger value="quick">Quick Actions</TabsTrigger>
+              <TabsTrigger value="contacts">Emergency Contacts</TabsTrigger>
+              <TabsTrigger value="language">Language Support</TabsTrigger>
+              <TabsTrigger value="links">Helpful Links</TabsTrigger>
+            </TabsList>
+            <TabsContent value="quick">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader className="p-6 border-b border-border">
+                      <div className="flex items-center gap-4">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-3">
+                          <AlertTriangle className="h-6 w-6" />
                         </span>
-                      </a>
-                    </Button>
-                    <Button asChild variant="outline" className="h-11 w-full">
-                      <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label="Open NSW Government emergency information">
-                        <span className="text-left">
-                          <span className="block font-semibold">NSW Emergency Info</span>
-                          <span className="block text-xs text-muted-foreground">Official guidance</span>
-                        </span>
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          
-
-          <div>
-            <h2 className="font-semibold mb-3 text-foreground tracking-tight">Emergency contacts</h2>
-            {[
-              { heading: "Life-threatening emergencies", keys: ["Life threatening emergencies"] },
-              { heading: "Weather & natural disasters", keys: ["Major bushfire incident updates", "Floods, storms and tsunamis", "Weather updates and flood warnings"] },
-              { heading: "Utilities & transport", keys: ["Power outages / fallen powerlines", "Live traffic and road closures"] },
-              { heading: "Local alerts & media", keys: ["Local emergency information", "Live radio updates"] },
-            ].map((group) => (
-              <Card key={group.heading} className="mb-6">
-                <CardHeader>
-                  <h3 className="text-sm md:text-base font-medium text-muted-foreground">{group.heading}</h3>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {emergencyItems.filter((i) => group.keys.includes(i.title)).map((item) => {
-                      const isSesGeneral = item.title.startsWith('NSW SES');
-                      const displayTitle = isSesGeneral ? 'NSW SES' : item.desc;
-                      const displaySubtitle = isSesGeneral ? item.desc : item.title;
-                      return (
-                        <div key={item.title} className="grid grid-cols-[1fr,auto] items-center gap-4 py-3">
-                          <div>
-                            <div className="font-medium text-foreground leading-snug">{displayTitle}</div>
-                            <div className="text-sm text-muted-foreground">{displaySubtitle}</div>
-                          </div>
-                          <div className="flex-shrink-0">
-                            {item.action ? (
-                              <Button asChild variant="outline" className="h-11">
-                                <a href={item.action.href} aria-label={`Call ${displayTitle} on ${item.action.label}`}>
-                                  {`Call ${item.action.label}`}
-                                </a>
-                              </Button>
-                            ) : item.link ? (
-                              <Button asChild variant="outline" className="h-11">
-                                <a href={item.link.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${displayTitle}`}>
-                                  {item.link.label}
-                                  <ExternalLink className="h-4 w-4" />
-                                </a>
-                              </Button>
-                            ) : null}
-                          </div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">Call 000</h3>
+                          <p className="text-sm text-muted-foreground">Police • Fire • Ambulance</p>
                         </div>
-                      );
-                    })}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="p-6 pt-0">
+                      <Button asChild variant="outline" className="h-11 w-full">
+                        <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
+                          Call now
+                        </a>
+                      </Button>
+                    </CardHeader>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </Card>
+                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader className="p-6 border-b border-border">
+                      <div className="flex items-center gap-4">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
+                          <Phone className="h-6 w-6" />
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">TIS 131 450</h3>
+                          <p className="text-sm text-muted-foreground">Interpreter support</p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="p-6 pt-0">
+                      <div className="grid grid-cols-1 gap-3">
+                        <Button asChild variant="outline" className="h-11 w-full">
+                          <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">Call TIS 131 450</a>
+                        </Button>
+                        <Button asChild variant="outline" className="h-11 w-full">
+                          <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label="Open NSW Government emergency information">
+                            NSW Emergency Info
+                            <ExternalLink className="h-4 w-4 ml-2" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardHeader>
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
 
-          <div className="mt-8">
-            <h2 className="font-semibold text-foreground tracking-tight">Language support and interpreters</h2>
-            <Card className="mx-auto max-w-3xl mt-3">
-              <CardHeader>
+            <TabsContent value="contacts">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                {emergencyItems.map((item) => {
+                  const Icon = item.icon;
+                  const isSesGeneral = item.title.startsWith('NSW SES');
+                  const displayTitle = isSesGeneral ? 'NSW SES' : item.desc;
+                  const displaySubtitle = isSesGeneral ? item.desc : item.title;
+                  return (
+                    <Card key={item.title} className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                      <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative z-10 h-full flex flex-col">
+                        <CardHeader className="p-6 border-b border-border">
+                          <div className="flex items-center gap-4">
+                            <span className={`inline-flex items-center justify-center rounded-lg ${accentFor(item.title)} text-white p-3`}>
+                              {Icon ? <Icon className="h-6 w-6" /> : null}
+                            </span>
+                            <div>
+                              <h3 className="text-lg font-semibold text-foreground">{displayTitle}</h3>
+                              <p className="text-sm text-muted-foreground">{displaySubtitle}</p>
+                            </div>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="p-6 flex-1" />
+                        <CardHeader className="p-6 pt-0">
+                          {item.action ? (
+                            <Button asChild variant="outline" className="h-11 w-full">
+                              <a href={item.action.href} aria-label={`Call ${displayTitle} on ${item.action.label}`}>
+                                {`Call ${item.action.label}`}
+                              </a>
+                            </Button>
+                          ) : item.link ? (
+                            <Button asChild variant="outline" className="h-11 w-full">
+                              <a href={item.link.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${displayTitle}`}>
+                                {item.link.label}
+                                <ExternalLink className="h-4 w-4 ml-2" />
+                              </a>
+                            </Button>
+                          ) : null}
+                        </CardHeader>
+                      </div>
+                    </Card>
+                  );
+                })}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="language">
+              <Card className="mt-3 h-full flex flex-col">
+              <CardHeader className="p-6">
                 <p className="text-sm text-muted-foreground leading-relaxed">If you need language support, call the Translating & Interpreting Service on <a className="mc-link" href="tel:131450">131 450</a>. Ask for an interpreter and the language you speak.</p>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-6">
                 <div className="space-y-8">
                   <div>
                     <Button asChild className="w-full md:w-auto h-11">
@@ -191,30 +220,30 @@ export default function EmergencyTranslationPage() {
                   <div className="space-y-5">
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="font-medium text-foreground">When you call emergency services</h3>
+                        <h3 className="text-lg font-semibold text-foreground">When you call emergency services</h3>
                         <p className="text-sm text-muted-foreground">Tell the operator you need an interpreter. They can connect TIS for you.</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="font-medium text-foreground">At hospitals and government services</h3>
+                        <h3 className="text-lg font-semibold text-foreground">At hospitals and government services</h3>
                         <p className="text-sm text-muted-foreground">Staff can arrange an interpreter so you can understand what is happening.</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="font-medium text-foreground">Before you call</h3>
+                        <h3 className="text-lg font-semibold text-foreground">Before you call</h3>
                         <p className="text-sm text-muted-foreground">Have your name, location, and phone number ready if you can.</p>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <div className="rounded-lg border border-border bg-muted/40 dark:bg-muted/20 p-5">
-                      <h3 className="font-medium text-foreground mb-2">What to say when you call</h3>
+                    <div className="rounded-lg border border-border bg-sand/40 dark:bg-sand/25 p-5">
+                      <h3 className="text-lg font-semibold text-foreground mb-2">What to say when you call</h3>
                       <p className="text-base text-foreground">“I need an interpreter for my language. Please connect me to TIS National.”</p>
                       <div className="mt-3 flex justify-center md:justify-end">
                         <Button
-                          variant="ghost"
+                          variant="secondary"
                           size="sm"
                           onClick={() => navigator.clipboard.writeText('I need an interpreter for my language. Please connect me to TIS National.')}
                           aria-label="Copy interpreter request script"
@@ -231,75 +260,104 @@ export default function EmergencyTranslationPage() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-8">
-            <h2 className="font-semibold text-foreground tracking-tight">Helpful links</h2>
-            <Card className="mt-3">
-              <CardHeader>
-                <h3 className="text-sm md:text-base font-medium text-muted-foreground">Useful resources</h3>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="grid grid-cols-[1fr] items-start gap-4">
-                    <div>
-                      <div className="font-medium text-foreground">NSW Government — Emergencies</div>
-                      <div className="text-sm text-muted-foreground">Official emergency information and guidance</div>
-                      <div className="mt-1">
+              </Card>
+            </TabsContent>
+            <TabsContent value="links">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader className="p-6 border-b border-border">
+                      <div className="flex items-center gap-4">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
+                          <Satellite className="h-6 w-6" />
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">NSW Government — Emergencies</h3>
+                          <p className="text-sm text-muted-foreground">Official emergency information and guidance</p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="p-6 pt-0">
+                      <Button asChild variant="outline" className="h-11 w-full">
                         <a
                           href="https://www.nsw.gov.au/emergencies"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mc-link inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           aria-label="Open NSW Government emergency information"
                         >
-                          nsw.gov.au/emergencies
-                          <ExternalLink className="h-4 w-4" />
+                          Open
+                          <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
-                      </div>
-                    </div>
+                      </Button>
+                    </CardHeader>
                   </div>
-                  <div className="grid grid-cols-[1fr] items-start gap-4">
-                    <div>
-                      <div className="font-medium text-foreground">Hazards Near Me NSW</div>
-                      <div className="text-sm text-muted-foreground">Local emergency alerts and updates</div>
-                      <div className="mt-1">
+                </Card>
+                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader className="p-6 border-b border-border">
+                      <div className="flex items-center gap-4">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
+                          <AlertTriangle className="h-6 w-6" />
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">Hazards Near Me NSW</h3>
+                          <p className="text-sm text-muted-foreground">Local emergency alerts and updates</p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="p-6 pt-0">
+                      <Button asChild variant="outline" className="h-11 w-full">
                         <a
                           href="https://www.nsw.gov.au/emergencies/near-me"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mc-link inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           aria-label="Open Hazards Near Me NSW"
                         >
-                          nsw.gov.au/emergencies/near-me
-                          <ExternalLink className="h-4 w-4" />
+                          Open
+                          <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
-                      </div>
-                    </div>
+                      </Button>
+                    </CardHeader>
                   </div>
-                  <div className="grid grid-cols-[1fr] items-start gap-4">
-                    <div>
-                      <div className="font-medium text-foreground">Live Traffic NSW</div>
-                      <div className="text-sm text-muted-foreground">Road closures and live traffic updates</div>
-                      <div className="mt-1">
+                </Card>
+                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader className="p-6 border-b border-border">
+                      <div className="flex items-center gap-4">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
+                          <MapPin className="h-6 w-6" />
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">Live Traffic NSW</h3>
+                          <p className="text-sm text-muted-foreground">Road closures and live traffic updates</p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="p-6 pt-0">
+                      <Button asChild variant="outline" className="h-11 w-full">
                         <a
                           href="https://www.livetraffic.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mc-link inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           aria-label="Open Live Traffic NSW"
                         >
-                          livetraffic.com
-                          <ExternalLink className="h-4 w-4" />
+                          Open
+                          <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
-                      </div>
-                    </div>
+                      </Button>
+                    </CardHeader>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+
 
           <div className="mt-10">
             <BackLink to="/resources">Back to Resources</BackLink>
