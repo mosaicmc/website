@@ -16,7 +16,8 @@
     "audit:aus": "node scripts/audit-aus-spelling.js",
     "ingest:testimonials:md": "ts-node --transpile-only scripts/ingest-testimonials-from-md.ts",
     "test": "vitest",
-    "test:ui": "playwright test"
+    "test:ui": "playwright test",
+    "test:puppeteer": "node tests/section-order.puppeteer.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

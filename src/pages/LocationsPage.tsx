@@ -108,10 +108,23 @@ const LocationsPage = () => {
                       <button className="flex-1 bg-ocean text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
                         Visit This Office
                       </button>
-                      <button className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
-                        <Navigation className="h-4 w-4 mr-2" />
-                        Get Directions
-                      </button>
+                      {location.directionsUrl ? (
+                        <a
+                          href={location.directionsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Get directions to ${location.name}`}
+                          className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                        >
+                          <Navigation className="h-4 w-4 mr-2" />
+                          Get Directions
+                        </a>
+                      ) : (
+                        <button className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                          <Navigation className="h-4 w-4 mr-2" />
+                          Get Directions
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -88,9 +88,9 @@ const resourcesLinks: { title: string; href: string; description: string; icon: 
 ];
 
 const getInvolvedLinks: { title: string; href?: string; description: string; icon: LucideIcon; external?: string }[] = [
-  { title: "Refer", description: "Refer a client via our secure online form.", icon: ShieldCheck, external: "https://tally.so/r/w4veNk" },
+  { title: "Refer", description: "Refer a client via our secure online form.", icon: ShieldCheck, external: "https://forms.mosaicmc.org.au/refer" },
   { title: "Careers", description: "Explore open roles and work with our team.", icon: Search, href: "/company/careers" },
-  { title: "Volunteer", description: "Participate in community programs across NSW.", icon: Users, external: "https://tally.so/r/3qoXjg" },
+  { title: "Volunteer", description: "Participate in community programs across NSW.", icon: Users, external: "https://forms.mosaicmc.org.au/Volunteer_Application" },
   { title: "Donate", description: "Support our work with a contribution.", icon: Heart, href: "/donate" },
 ];
 
@@ -131,7 +131,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
               // Improved hover/focus visibility in dark mode
               "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
               "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-              "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background",
+              "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background",
               className
             )}
             {...prefetchOnHover(to)}
@@ -170,6 +170,7 @@ export default function MosaicNavigation() {
   const [showCrisisBanner, setShowCrisisBanner] = useState(false);
   const { i18n, t } = useTranslation();
   const location = useLocation();
+  const isEmergencyMode = location.pathname.startsWith('/resources/emergency-');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
@@ -471,7 +472,7 @@ export default function MosaicNavigation() {
                           isActivePath('/')
                             ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                             : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                          "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                          "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                         )}
                         {...prefetchOnHover('/')}
                       >
@@ -481,12 +482,13 @@ export default function MosaicNavigation() {
                   </NavigationMenuItem>
 
                   {/* Services Dropdown */}
+                  {!isEmergencyMode && (
                   <NavigationMenuItem className="flex items-center">
-                  <NavigationMenuTrigger className={cn(
+                    <NavigationMenuTrigger className={cn(
                       isActivePath('/services', true)
                         ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                         : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     )}
                       onMouseEnter={() => {
                         prefetchRoute('/services');
@@ -542,6 +544,7 @@ export default function MosaicNavigation() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
+                  )}
 
                   {/* Other Navigation Items (About, Stories) */}
                   {mainNavigation.slice(1, 2).map((item) => (
@@ -554,7 +557,7 @@ export default function MosaicNavigation() {
                             isActivePath(item.href)
                               ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                               : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                            "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           )}
                           {...prefetchOnHover(item.href)}
                         >
@@ -565,13 +568,14 @@ export default function MosaicNavigation() {
                   ))}
 
                   {/* Get Involved Dropdown (standardized grid layout) */}
+                  {!isEmergencyMode && (
                   <NavigationMenuItem className="flex items-center">
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/get-involved', true)
                           ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                           : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                        "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                       )}
                       onMouseEnter={() => {
                         prefetchRoute('/get-involved');
@@ -602,7 +606,7 @@ export default function MosaicNavigation() {
                                       "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
                                       "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
                                       "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-                                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                     )}
                                   >
                                     <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
@@ -632,15 +636,17 @@ export default function MosaicNavigation() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
+                  )}
 
                   {/* Resources Dropdown */}
+                  {!isEmergencyMode && (
                   <NavigationMenuItem className="flex items-center">
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/resources', true)
                           ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                           : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                        "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                       )}
                       onMouseEnter={() => {
                         prefetchRoute('/resources');
@@ -677,6 +683,7 @@ export default function MosaicNavigation() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
+                  )}
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
@@ -696,7 +703,7 @@ export default function MosaicNavigation() {
                     return next;
                   });
                 }}
-                className="inline-flex items-center justify-center h-9 md:h-10 px-3 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                className="inline-flex items-center justify-center h-9 md:h-10 px-3 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -721,13 +728,13 @@ export default function MosaicNavigation() {
                         setSuggestions(sugg);
                       }}
                       placeholder="Search the site (Cmd+K)"
-                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     />
                     <button
                       type="button"
                       aria-label="Close search"
                       onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
-                      className="p-2 rounded-md text-muted-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                      className="p-2 rounded-md text-muted-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -763,7 +770,7 @@ export default function MosaicNavigation() {
                           <li key={item.path}>
                             <Link
                               to={item.path}
-                              className="block rounded-md px-2 py-1.5 text-sm text-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                              className="block rounded-md px-2 py-1.5 text-sm text-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           {...prefetchOnHover(item.path)}
                               onClick={() => { logSearchQuery(searchQuery, i18n.language); setIsSearchOpen(false); setSearchQuery(""); setShowOverlay(false); }}
                             >
@@ -817,25 +824,28 @@ export default function MosaicNavigation() {
               )}
               
             {/* Theme Toggle */}
-            <div className="inline-flex items-center h-9 md:h-10">
-              <ThemeToggle />
-            </div>
+            {!isEmergencyMode && (
+              <div className="inline-flex items-center h-9 md:h-10">
+                <ThemeToggle />
+              </div>
+            )}
 
               {/* Language Switcher */}
               <LanguageSwitcher menuId="language-menu-desktop" />
               
               {/* Action Buttons Group */}
-              <div className="flex items-center space-x-2">
-                {/* Prominent Donate Button */}
-                <Button 
-                  variant="cta"
-                  size="default" 
-                  asChild
-                  className="bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                >
-                  <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
-                </Button>
-              </div>
+              {!isEmergencyMode && (
+                <div className="flex items-center space-x-2">
+                  <Button 
+                    variant="cta"
+                    size="default" 
+                    asChild
+                    className="bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                  >
+                    <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
+                  </Button>
+                </div>
+              )}
             </div>
 
             {/* Mobile Menu + Quick Actions */}
@@ -853,11 +863,11 @@ export default function MosaicNavigation() {
                   <div className="flex flex-col space-y-4 mt-6">
                     <Link 
                       to="/" 
-                      className={cn("text-lg font-medium transition-colors",
+                      className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                     isActivePath('/')
                           ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                           : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     )}
                       {...prefetchOnHover('/')}
                       onClick={() => setIsOpen(false)}
@@ -865,149 +875,167 @@ export default function MosaicNavigation() {
                       {t('nav.home')}
                     </Link>
                     
-                    <Link 
-                      to="/services" 
-                      className={cn("text-lg font-medium transition-colors",
-                    isActivePath('/services', true)
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
-                          : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                      "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                    )}
-                      {...prefetchOnHover('/services')}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {t('nav.services')}
-                    </Link>
-                    <div className="pl-4 space-y-3">
-                      {services.map((service) => {
-                        const Icon = service.icon;
-                        return (
-                          <Link
-                            key={service.title}
-                            to={service.href}
-                            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                            {...prefetchOnHover(service.href)}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <Icon className="h-4 w-4" />
-                            {service.title}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                    
-                    {mainNavigation.slice(1, 3).map((item) => (
-                      <Link
-                        key={item.title}
-                        to={item.href}
-                        className={cn("text-lg font-medium transition-colors",
-                          isActivePath(item.href)
-                            ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
-                            : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                          "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    {!isEmergencyMode && (
+                      <>
+                        <Link 
+                          to="/services" 
+                          className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
+                        isActivePath('/services', true)
+                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
+                          "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                         )}
-                        {...prefetchOnHover(item.href)}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
-
-                    {/* Resources sub-links */}
-                    <Link 
-                      to="/resources" 
-                      className={cn("text-lg font-medium transition-colors",
-                        isActivePath('/resources')
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
-                          : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      )}
-                      {...prefetchOnHover('/resources')}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Resources
-                    </Link>
-                    <div className="pl-4 space-y-3">
-                      {resourcesLinks.map((res) => {
-                        const Icon = res.icon;
-                        return (
+                          {...prefetchOnHover('/services')}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {t('nav.services')}
+                        </Link>
+                        <div className="pl-4 space-y-3">
+                          {services.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                              <Link
+                                key={service.title}
+                                to={service.href}
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                {...prefetchOnHover(service.href)}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <Icon className="h-4 w-4" />
+                                {service.title}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
+                    
+                    {!isEmergencyMode && (
+                      <>
+                        {mainNavigation.slice(1, 3).map((item) => (
                           <Link
-                            key={res.title}
-                            to={res.href}
-                            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                            {...prefetchOnHover(res.href)}
+                            key={item.title}
+                            to={item.href}
+                            className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
+                              isActivePath(item.href)
+                                ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                                : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
+                              "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                            )}
+                            {...prefetchOnHover(item.href)}
                             onClick={() => setIsOpen(false)}
                           >
-                            <Icon className="h-4 w-4" />
-                            {res.title}
+                            {item.title}
                           </Link>
-                        );
-                      })}
-                    </div>
+                        ))}
+                      </>
+                    )}
 
-                    {/* Get Involved sub-links */}
-                    <Link 
-                      to="/get-involved" 
-                      className={cn("text-lg font-medium transition-colors",
-                        isActivePath('/get-involved', true)
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
-                          : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                        "focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      )}
-                      {...prefetchOnHover('/get-involved')}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {t('nav.getInvolved')}
-                    </Link>
-                    <div className="pl-4 space-y-3">
-                      {getInvolvedLinks.map((gi) => {
-                        const Icon = gi.icon;
-                        if (gi.href) {
-                          return (
-                            <Link
-                              key={gi.title}
-                              to={gi.href}
-                              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                              {...prefetchOnHover(gi.href)}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <Icon className="h-4 w-4" />
-                              {gi.title}
-                            </Link>
-                          );
-                        }
-                        return (
-                          <a
-                            key={gi.title}
-                            href={gi.external}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            <Icon className="h-4 w-4" />
-                            {gi.title}
-                          </a>
-                        );
-                      })}
-                    </div>
+                    {!isEmergencyMode && (
+                      <>
+                        {/* Resources sub-links */}
+                        <Link 
+                          to="/resources" 
+                          className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
+                            isActivePath('/resources')
+                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
+                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                          )}
+                          {...prefetchOnHover('/resources')}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          Resources
+                        </Link>
+                        <div className="pl-4 space-y-3">
+                          {resourcesLinks.map((res) => {
+                            const Icon = res.icon;
+                            return (
+                              <Link
+                                key={res.title}
+                                to={res.href}
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                {...prefetchOnHover(res.href)}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <Icon className="h-4 w-4" />
+                                {res.title}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
+
+                    {!isEmergencyMode && (
+                      <>
+                        {/* Get Involved sub-links */}
+                        <Link 
+                          to="/get-involved" 
+                          className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
+                            isActivePath('/get-involved', true)
+                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
+                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                          )}
+                          {...prefetchOnHover('/get-involved')}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {t('nav.getInvolved')}
+                        </Link>
+                        <div className="pl-4 space-y-3">
+                          {getInvolvedLinks.map((gi) => {
+                            const Icon = gi.icon;
+                            if (gi.href) {
+                              return (
+                                <Link
+                                  key={gi.title}
+                                  to={gi.href}
+                                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                  {...prefetchOnHover(gi.href)}
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  <Icon className="h-4 w-4" />
+                                  {gi.title}
+                                </Link>
+                              );
+                            }
+                            return (
+                              <a
+                                key={gi.title}
+                                href={gi.external}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                              >
+                                <Icon className="h-4 w-4" />
+                                {gi.title}
+                              </a>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
                     
                     <div className="pt-4 border-t border-gray-200/30 dark:border-slate-700/30 space-y-3">
                       {/* Full Language Switcher inside mobile menu */}
                       <LanguageSwitcher menuId="language-menu-mobile-sheet" />
-                      <Button variant="outline" size="sm" asChild className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
-                        <a href="tel:1800813205">📞 Call 1800 813 205</a>
-                      </Button>
-                      
-                      {/* Prominent Mobile Donate Button */}
-                      <Button 
-                        size="default" 
-                        asChild 
-                        className="w-full bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      >
-                        <Link to="/donate" {...prefetchOnHover('/donate')} onClick={() => setIsOpen(false)}>
-                          Donate to Support Our Community
-                        </Link>
-                      </Button>
+                      {!isEmergencyMode && (
+                        <>
+                          <Button variant="outline" size="sm" asChild className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                            <a href="tel:1800813205">📞 Call 1800 813 205</a>
+                          </Button>
+                          <Button 
+                            size="default" 
+                            asChild 
+                            className="w-full bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                          >
+                            <Link to="/donate" {...prefetchOnHover('/donate')} onClick={() => setIsOpen(false)}>
+                              Donate to Support Our Community
+                            </Link>
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </SheetContent>

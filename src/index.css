@@ -23,6 +23,8 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+    --link: 230 52% 33%;
+    --link-hover: 230 52% 28%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -81,6 +83,8 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --link: 183 52% 59%;
+    --link-hover: 183 52% 70%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -115,6 +119,24 @@
 }
 
 @layer utilities {
+  .mc-link {
+    color: hsl(var(--link));
+    text-decoration-line: none;
+    text-underline-offset: 2px;
+  }
+  .mc-link:hover {
+    color: hsl(var(--link-hover));
+    text-decoration-line: underline;
+    text-decoration-color: hsl(var(--link-hover));
+  }
+  .mc-link:focus-visible {
+    outline: none;
+    text-decoration-line: underline;
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
   .section-spacing { @apply py-6 md:py-8 lg:py-10; }
   .section-break { @apply my-6 md:my-8 lg:my-10; }
   .subsection-break { @apply my-4 md:my-6 lg:my-8; }
@@ -122,8 +144,10 @@
 }
 
 @layer base {
-  a { @apply text-ocean underline-offset-2 transition-colors; }
-  a:hover { @apply underline; }
+  a {
+    @apply text-ocean dark:text-sky transition-colors underline underline-offset-2;
+    @apply decoration-ocean/40 dark:decoration-sky/40 hover:decoration-ocean/80 dark:hover:decoration-sky/80;
+  }
   a:focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
   ul { @apply list-disc pl-5 mb-4; }
   ol { @apply list-decimal pl-5 mb-4; }

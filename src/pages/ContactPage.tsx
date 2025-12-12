@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import RelatedServices from '@/components/RelatedServices';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { LOCATIONS } from '@/data/locations';
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -43,36 +46,7 @@ const ContactPage = () => {
     });
   };
 
-  const offices = [
-    {
-      name: "Charlestown (Head Office)",
-      address: "Level 3, 3 Hopetoun St, Charlestown NSW 2290",
-      phone: "1800 813 205",
-      email: "info@mosaicmc.org.au",
-      hours: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)"
-    },
-    {
-      name: "Central Coast",
-      address: "Tuggerah Lakes Community Centre, 1 Bay Village Road, Bateau Bay NSW 2261",
-      phone: "1800 813 205",
-      email: "info@mosaicmc.org.au",
-      hours: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)"
-    },
-    {
-      name: "Tamworth",
-      address: "3/345 Peel Street, Tamworth NSW 2340",
-      phone: "1800 813 205",
-      email: "info@mosaicmc.org.au",
-      hours: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)"
-    },
-    {
-      name: "Armidale",
-      address: "86 Beardy Street, Armidale NSW 2350",
-      phone: "1800 813 205",
-      email: "info@mosaicmc.org.au",
-      hours: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)"
-    }
-  ];
+  const offices = LOCATIONS;
 
   return (
     <div className="animate-fade-in">
@@ -240,13 +214,10 @@ const ContactPage = () => {
                     ></textarea>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center transition-colors group"
-                  >
+                  <Button type="submit" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center transition-colors group">
                     <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />
                     {t('contact.form.submit')}
-                  </button>
+                  </Button>
 
                   <p className="text-sm text-muted-foreground">
                     {t('contact.form.note')}
@@ -357,44 +328,50 @@ const ContactPage = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {offices.map((office, index) => (
-              <div key={index} className="backdrop-blur-md bg-white/70 dark:bg-slate-800/70 rounded-lg p-6 shadow-lg border border-white/20 dark:border-slate-700/50">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{office.name}</h3>
-                
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
-                    <span className="text-gray-600 dark:text-gray-300">{office.address}</span>
+              <Card key={index} className="rounded-lg shadow-sm">
+                <CardHeader className="p-6">
+                  <h3 className="text-xl font-bold text-foreground">{office.name}</h3>
+                </CardHeader>
+                <CardContent className="px-6 pb-6">
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
+                      <span className="text-muted-foreground">{office.address}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Phone className="h-5 w-5 text-sky flex-shrink-0" />
+                      <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-muted-foreground hover:text-ocean transition-colors">
+                        {office.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Mail className="h-5 w-5 text-sky flex-shrink-0" />
+                      <a href={`mailto:${office.email}`} className="text-muted-foreground hover:text-ocean transition-colors">
+                        {office.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Clock className="h-5 w-5 text-sky flex-shrink-0" />
+                      <span className="text-muted-foreground">{office.hours.weekdays}</span>
+                    </div>
                   </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-sky flex-shrink-0" />
-                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors">
-                      {office.phone}
-                    </a>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5 text-sky flex-shrink-0" />
-                    <a href={`mailto:${office.email}`} className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors">
-                      {office.email}
-                    </a>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <Clock className="h-5 w-5 text-sky flex-shrink-0" />
-                    <span className="text-gray-600 dark:text-gray-300">{office.hours}</span>
-                  </div>
-                </div>
 
-                <div className="mt-6 flex space-x-3">
-                  <button className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-                    Visit Office
-                  </button>
-                  <button className="flex-1 border border-gray-300 dark:border-slate-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 px-4 py-2 rounded-lg font-medium transition-colors">
-                    Get Directions
-                  </button>
-                </div>
-              </div>
+                  <div className="mt-6 flex space-x-3">
+                    <Button className="flex-1 bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                      Visit Office
+                    </Button>
+                    {office.directionsUrl ? (
+                      <Button asChild variant="outline" className="flex-1">
+                        <a href={office.directionsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get directions to ${office.name}`}>
+                          Get Directions
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button variant="outline" className="flex-1">Get Directions</Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

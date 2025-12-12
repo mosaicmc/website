@@ -8,6 +8,7 @@ export type OfficeLocation = {
   staff: { name: string; role: string; languages: string[] }[];
   transport: string[];
   image: string;
+  directionsUrl?: string;
 };
 
 export const LOCATIONS: OfficeLocation[] = [
@@ -39,6 +40,7 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
   },
   {
     name: "Central Coast",
@@ -61,6 +63,7 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
   },
   {
     name: "Tamworth",
@@ -76,6 +79,7 @@ export const LOCATIONS: OfficeLocation[] = [
     transport: ["Local bus services", "Street parking available"],
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
   },
   {
     name: "Armidale",
@@ -93,6 +97,6 @@ export const LOCATIONS: OfficeLocation[] = [
     transport: ["Local bus services", "Street parking available"],
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    directionsUrl: "https://maps.app.goo.gl/pcY7U7BQao6CdcTi6",
   },
 ];
-

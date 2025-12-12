@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AU } from '@/lib/auSpelling';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { Heart, Users, Briefcase, Handshake, ArrowRight, ExternalLink } from 'lucide-react';
+import { Heart, Users, Briefcase, ArrowRight, ExternalLink, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
@@ -27,21 +27,21 @@ const GetInvolvedPage = () => {
       external: true,
       color: "earth"
     },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Volunteer With Us",
-      description: AU("Join our team of dedicated volunteers and make a direct difference in people's lives."),
-      benefits: [
-        "Flexible scheduling options",
-        "Comprehensive training provided",
-        "Cultural competency development",
-        "Meaningful community connections"
-      ],
-      action: "Apply to Volunteer",
-      link: "#volunteer-opportunities",
-      external: false,
-      color: "sky"
-    },
+      {
+        icon: <Users className="h-8 w-8" />,
+        title: "Volunteer With Us",
+        description: AU("Join our team of dedicated volunteers and make a direct difference in people's lives."),
+        benefits: [
+          "Flexible scheduling options",
+          "Comprehensive training provided",
+          "Cultural competency development",
+          "Meaningful community connections"
+        ],
+        action: "Apply to Volunteer",
+        link: "https://forms.mosaicmc.org.au/Volunteer_Application",
+        external: true,
+        color: "sky"
+      },
     {
       icon: <Briefcase className="h-8 w-8" />,
       title: "Join Our Team",
@@ -58,18 +58,18 @@ const GetInvolvedPage = () => {
       color: "leaf"
     },
     {
-      icon: <Handshake className="h-8 w-8" />,
-      title: "Partner With Us",
-      description: AU("Collaborate with us to create innovative solutions and expand our reach in the community."),
+      icon: <ClipboardList className="h-8 w-8" />,
+      title: "Make a referral",
+      description: AU("Make a referral for yourself, a loved one, or a client, and our team will connect you to the right services."),
       benefits: [
-        "Strategic partnership opportunities",
-        "Joint program development",
-        "Shared resources and expertise",
-        "Community impact amplification"
+        "Easy online referral for individuals, families, or clients",
+        "Respectful, person-centred follow-up",
+        "Services tailored to diverse cultural needs",
+        "Clear communication throughout the referral journey"
       ],
-      action: "Explore Partnerships",
-      link: "/contact",
-      external: false,
+      action: "Find Support",
+      link: "https://forms.mosaicmc.org.au/refer",
+      external: true,
       color: "sun"
     }
   ];
@@ -233,12 +233,12 @@ const GetInvolvedPage = () => {
       </Section>
 
       {/* Opportunities Grid */}
-      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-3xl">
-        <div className="grid md:grid-cols-2 gap-4 lg:gap-6 text-center">
+      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 text-center">
           {opportunities.map((opportunity, index) => (
             <Card
               key={index}
-              className="rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="w-full rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <CardHeader className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
                 <div className="flex items-center justify-center space-x-3">
@@ -247,7 +247,7 @@ const GetInvolvedPage = () => {
                       {React.cloneElement(opportunity.icon as React.ReactElement, { className: 'h-6 w-6' })}
                     </div>
                   </div>
-                  <div>
+                  <div className="flex items-center">
                     <h2 className="text-lg font-bold text-foreground text-center">{opportunity.title}</h2>
                   </div>
                 </div>
@@ -256,10 +256,10 @@ const GetInvolvedPage = () => {
               <CardContent className="text-center p-3">
                 <p className="text-muted-foreground leading-relaxed mb-5">{opportunity.description}</p>
                 <h3 className="text-base font-bold text-foreground mb-3">Benefits & Impact</h3>
-                <ul className="space-y-2 mb-5">
+                <ul className="space-y-2 mb-5 text-left">
                   {opportunity.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-center justify-center space-x-2.5">
-                      <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${opportunity.color === 'sky' ? 'bg-sky' : opportunity.color === 'earth' ? 'bg-earth' : opportunity.color === 'leaf' ? 'bg-leaf' : 'bg-sun'}`}></div>
+                    <li key={idx} className="flex items-center justify-start space-x-2.5">
+                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${opportunity.color === 'sky' ? 'bg-sky' : opportunity.color === 'earth' ? 'bg-earth' : opportunity.color === 'leaf' ? 'bg-leaf' : 'bg-sun'}`}></div>
                       <span className="text-muted-foreground">{benefit}</span>
                     </li>
                   ))}
@@ -321,7 +321,7 @@ const GetInvolvedPage = () => {
                     <img
                       src={spotlightImage}
                       alt={`${spotlight.name} Instagram tile`}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-700"
+                      className="w-32 h-32 rounded-full object-cover border-2 border-white dark:border-slate-700"
                       onError={(e) => {
                         const el = e.currentTarget as HTMLImageElement;
                         el.style.display = 'none';
@@ -329,14 +329,13 @@ const GetInvolvedPage = () => {
                     />
                   ) : null}
                   {!spotlightImage && (
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky to-sky/80 rounded-full flex items-center justify-center text-white shadow-md">
-                      <Users className="h-8 w-8" />
+                    <div className="w-32 h-32 bg-gradient-to-br from-sky to-sky/80 rounded-full flex items-center justify-center text-white shadow-md">
+                      <Users className="h-10 w-10" />
                     </div>
                   )}
                   <div>
                     <h3 className="text-lg font-bold text-foreground">{spotlight.name}</h3>
                     <p className="text-muted-foreground">{spotlight.role}</p>
-                    {spotlight.years && <p className="text-sm text-sky">{spotlight.years}</p>}
                   </div>
                 </div>
                 <blockquote className="text-muted-foreground leading-relaxed italic mt-2">
@@ -374,18 +373,8 @@ const GetInvolvedPage = () => {
               </ul>
             </Card>
             <Button asChild className="inline-flex items-center bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white px-5 py-2.5 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-              <a
-                href="#volunteer-opportunities"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const el = document.getElementById('volunteer-opportunities');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    history.replaceState(null, '', '#volunteer-opportunities');
-                  }
-                }}
-              >
-                {t('getInvolved.actions.apply')}
+              <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer">
+                Apply to Volunteer
                 <ExternalLink className="ml-2 h-5 w-5" />
               </a>
             </Button>
@@ -393,32 +382,7 @@ const GetInvolvedPage = () => {
         </div>
       </Section>
 
-      {/* Impact Stats */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">{t('getInvolved.impactTitle')}</h2>
-            <p className="text-xl text-blue-200 dark:text-blue-300 max-w-3xl mx-auto">
-              See how community support translates into real change for multicultural families.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { number: "150+", label: "Active Volunteers", description: "Dedicated community members" },
-              { number: "$2.5M", label: "Annual Donations", description: "Community financial support" },
-              { number: "45", label: "Corporate Partners", description: "Business collaborations" },
-              { number: "98%", label: "Volunteer Satisfaction", description: "Would recommend to others" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center backdrop-blur-md bg-white/10 rounded-xl p-6 border border-white/20">
-                <div className="text-4xl font-bold text-sky mb-2">{stat.number}</div>
-                <div className="text-xl font-semibold mb-2">{stat.label}</div>
-                <div className="text-blue-200 dark:text-blue-300 text-sm">{stat.description}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
       <RelatedServices />
     </div>
   );

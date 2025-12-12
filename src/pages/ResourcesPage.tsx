@@ -90,7 +90,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Cross-sell key services that complement resources */}
-      <RelatedServices />
+      {/* Moved via DOM order to follow CTA while preserving styling */}
 
       {/* Sticky Emergency Alert */}
       <div className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/10 bg-background/95 border-b border-border/60">
@@ -434,8 +434,6 @@ const ResourcesPage = () => {
         </div>
       </section>
 
-
-
       {/* Contact for More Resources */}
       <section className="section-spacing bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -462,6 +460,11 @@ const ResourcesPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Related Services appears right after CTA, above footer */}
+      <RelatedServices />
+
+      
     </div>
   );
 };
