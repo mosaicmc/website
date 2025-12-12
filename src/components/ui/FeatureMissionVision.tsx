@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { ShieldCheck, Eye } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Target, Stars } from "lucide-react";
 
 export function FeatureMissionVision({
   mission,
@@ -74,6 +73,9 @@ export function FeatureMissionVision({
       aria-labelledby="mission-vision-title"
       className="relative py-16 bg-background transition-colors duration-300"
     >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="w-full h-full bg-gradient-to-br from-sand/40 via-transparent to-ocean/10 dark:from-white/10 dark:to-sky/15"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
@@ -96,15 +98,12 @@ export function FeatureMissionVision({
               <CardContent className="p-0">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                  <ShieldCheck
+                  <Target
                     aria-hidden="true"
                     className="h-6 w-6 text-ocean dark:text-sky"
                   />
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">Mission</h3>
                   </div>
-                  <Button variant="ghost" size="sm" className="shrink-0">
-                    Learn more
-                  </Button>
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
                   {mission}
@@ -131,12 +130,9 @@ export function FeatureMissionVision({
               <CardContent className="p-0">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <Eye aria-hidden="true" className="h-6 w-6 text-ocean dark:text-sky" />
+                    <Stars aria-hidden="true" className="h-6 w-6 text-ocean dark:text-sky" />
                     <h3 className="text-lg md:text-xl font-semibold text-foreground">Vision</h3>
                   </div>
-                  <Button variant="ghost" size="sm" className="shrink-0">
-                    Learn more
-                  </Button>
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
                   {vision}

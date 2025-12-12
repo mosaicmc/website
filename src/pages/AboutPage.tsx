@@ -42,9 +42,18 @@ const AboutPage = () => {
       "/images/History_720px_webp/1999_Kosovar04.webp",
       "/images/History_720px_webp/1999_Kosovar05.webp"
     ] },
-    { year: "2001", label: "2001", description: "Twenty years celebrated; momentum builds for outreach and partnerships.", image: undefined as unknown as string, alt: "Historical entry 2001", details: "The Migrant Resource Centre celebrated 20 years of service to the community. We continued building momentum for regional outreach and partnerships, strengthening connections and supports across the Hunter and beyond." },
+    { year: "2001", label: "2001", description: "Twenty years celebrated; momentum builds for outreach and partnerships.", image: "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp", alt: "20-year anniversary celebration", details: "The Migrant Resource Centre celebrated 20 years of service to the community. We continued building momentum for regional outreach and partnerships, strengthening connections and supports across the Hunter and beyond.", gallery: [
+      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp",
+      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp",
+      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp",
+      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp",
+    ] },
     { year: "2004", label: "2004", description: "We open our Armidale office, strengthening outreach across New England and the Northwest.", image: undefined as unknown as string, alt: "Historical entry 2004", details: "The Armidale office opened to strengthen settlement outreach across the New England Region and Northwest Plains, including Tamworth, Inverell, Wellington and Gunnedah.", gallery: [] },
-    { year: "2005", label: "2005", description: "Welcoming African refugees, we expand settlement supports across the region.", image: undefined as unknown as string, alt: "Historical entry 2005", details: "The arrival of African refugees in our area prompted collaboration with colleague MRCs to tender for government funding, providing settlement services to people from Sudan, Liberia, Congo and Burundi. We also opened an office on the Central Coast to base our welfare and aged care staff in a rapidly growing area.", gallery: [] },
+    { year: "2005", label: "2005", description: "Welcoming African refugees, we expand settlement supports across the region.", image: "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp", alt: "Central Coast office opening", details: "The arrival of African refugees in our area prompted collaboration with colleague MRCs to tender for government funding, providing settlement services to people from Sudan, Liberia, Congo and Burundi. We also opened an office on the Central Coast to base our welfare and aged care staff in a rapidly growing area.", gallery: [
+      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp",
+      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp",
+      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp",
+    ] },
     { year: "2006", label: "2006", description: "Twenty-five years mark broader services and new offices, including Tamworth.", image: "/images/History_720px_webp/2006_SilverJubilee.webp", alt: "Silver Jubilee", details: "We marked 25 years of service with 24 staff and over 100 volunteers. We opened the Tamworth office and extended outreach through travelling staff and program partnerships to Dubbo, Orange, Bathurst, Lightning Ridge and Coffs Harbour. Services broadened to include Family Support, migrant employment placement, rural information campaigns and Community Aged Care Packages.", gallery: [] },
     { year: "2007", label: "2007", description: "We become Northern Settlement Services Ltd, securing charitable status.", image: "/images/History_720px_webp/2007_NSS.webp", alt: "Northern Settlement Services Ltd", details: "Secured charitable status with the ATO, unlocking tax concessions, gift tax deductibility for donors and salary sacrifice benefits for staff." },
     { year: "2010", label: "2010", description: "Leadership transitions as Lulu Tantos is appointed CEO. Diversification continues.", image: "/images/History_720px_webp/2010_Lulu Tantos.webp", alt: "Leadership transition", details: "Violetta Walsh retired and Lulu Tantos was appointed CEO, continuing to steer the organisation and program diversification.", gallery: [] },
@@ -56,7 +65,7 @@ const AboutPage = () => {
       "/images/History_720px_webp/2021_40th Celebration06.webp",
       "/images/History_720px_webp/2021_40th Celebration07.webp"
     ] },
-    { year: "2022", label: "2022", description: "We adopt our new name, Mosaic Multicultural Connections, reflecting our evolving role.", image: undefined as unknown as string, alt: "Historical entry 2022", details: "A new name was adopted to reflect the organisation's evolving role and the vibrant diversity of the communities it serves.", gallery: [] },
+    { year: "2022", label: "2022", description: "We adopt our new name, Mosaic Multicultural Connections, reflecting our evolving role.", image: "/images/History_720px_webp/2022_MosaicMC_Rebranding.webp", alt: "Mosaic Multicultural Connections rebranding", details: "A new name was adopted to reflect the organisation's evolving role and the vibrant diversity of the communities it serves.", gallery: [] },
     { year: "2024", label: "2024", description: "Head office relocates to Charlestown, a modern, accessible base for growth.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "After more than forty years, we said goodbye to our beloved Chaucer Street office, a space filled with laughter, resilience and memories with our community. The farewell featured a ceremonial lock‑up by our first CEO, Violetta Walsh OAM, and long‑serving staff member, Irina Lupish. On 11 November we moved to our new home at 3 Hopetoun Street, Charlestown, and hosted an opening ceremony with clients, partners and collaborators. The day was marked by a moving Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and heartfelt words from community leaders reflecting on inclusion, collaboration and the resilience of multicultural communities.", gallery: [
       "/images/History_720px_webp/2024_Charlestown01.webp",
       "/images/History_720px_webp/2024_Charlestown02.webp",
@@ -547,11 +556,11 @@ const AboutPage = () => {
                   className="group relative w-full h-full text-left rounded-2xl border border-border bg-background shadow-sm overflow-hidden hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition flex flex-col"
                 >
                   {item.image ? (
-                    <div className="w-full flex items-center justify-center bg-background">
+                    <div className="w-full h-40 md:h-48 flex items-center justify-center bg-background">
                       <img
                         src={item.image}
                         alt={item.alt}
-                        className="h-auto max-h-48 md:max-h-56 w-auto object-contain"
+                        className="h-full w-auto object-contain"
                         loading="lazy"
                         decoding="async"
                       />
@@ -653,7 +662,7 @@ const AboutPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: lastImageDirection === 'right' ? -40 : lastImageDirection === 'left' ? 40 : 0 }}
                         transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-                        className="max-h-[60vh] w-auto object-contain"
+                        className="max-h-[60vh] max-w-full w-auto object-contain"
                         onAnimationStart={() => setIsImageAnimating(true)}
                         onAnimationComplete={() => setIsImageAnimating(false)}
                       />
@@ -700,7 +709,7 @@ const AboutPage = () => {
                           onClick={() => { setLastImageDirection(idx > activeImageIndex ? 'right' : 'left'); setActiveImageIndex(idx); }}
                           className={`h-16 w-24 flex-shrink-0 rounded-md overflow-hidden border ${activeImageIndex === idx ? 'border-ocean' : 'border-border'} focus:outline-none focus:ring-2 focus:ring-ring`}
                         >
-                          <img src={src} alt="" className="h-full w-full object-cover" />
+                            <img src={src} alt="" className="h-full w-full object-contain bg-background" />
                         </button>
                       ))}
                     </div>

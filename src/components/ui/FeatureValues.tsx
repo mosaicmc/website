@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { ShieldCheck, Eye, Handshake, Users, Lightbulb } from "lucide-react";
+import { ShieldCheck, Eye, Users, Lightbulb, HeartHandshake } from "lucide-react";
 
 type ValueItem = {
   key: string;
@@ -14,16 +14,27 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
     [
       { key: "trust", title: "TRUST", Icon: ShieldCheck },
       { key: "transparency", title: "TRANSPARENCY", Icon: Eye },
-      { key: "respect", title: "RESPECT", Icon: Handshake },
+      { key: "respect", title: "RESPECT", Icon: HeartHandshake },
       { key: "collaboration", title: "COLLABORATION", Icon: Users },
       { key: "creation", title: "CREATION", Icon: Lightbulb },
     ];
+
+  const descriptions: Record<string, string> = {
+    trust: "We rely on and have faith in people and our organisation.",
+    transparency: "We share openly with each other, without judgement.",
+    respect: "We treat everyone equally and consider the opinions of others, no matter our differences.",
+    collaboration: "We work together to support each other in our endeavours.",
+    creation: "We grow through collective ideas and innovation.",
+  };
 
   return (
     <section
       aria-labelledby="values-title"
       className="relative py-16 bg-background transition-colors duration-300"
     >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="w-full h-full bg-gradient-to-br from-sand/40 via-transparent to-ocean/10 dark:from-white/10 dark:to-sky/15"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
@@ -56,7 +67,7 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">{title}</h3>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Core organisational principle guiding decisions and behaviours.
+                  {descriptions[key] ?? "Core organisational principle guiding decisions and behaviours."}
                 </p>
               </CardContent>
             </Card>

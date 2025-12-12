@@ -11,60 +11,70 @@ const FamilySupportPage = () => {
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
+  const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
     {
-      name: "Gener Lapina",
-      role: "TEI Team Leader",
-      qualifications: "Master's in Public Governance, counselling/psychotherapy training, case management specialist",
+      name: "Gener Francia Lapina",
+      role: "Team Leader - Family Support / Case Management Specialist",
+      location: "Newcastle",
+      qualifications: "Grad. Dip. Process Oriented Psychotherapy; M.A. in Public Governance; B.S. Human Ecology.",
+      experience: "Over more than 20 years in community work, including the last decade focused on families and individual counselling, Gener supports families with compassionate, practical casework.",
+      languages: ["English", "Tagalog", "Tetum (Timorese)"],
       phone: "(02) 4960 8401",
       email: "g.lapina@mosaicmc.org.au",
       image: "/images/Families Team 128px/FamTeam_Gener_128px.webp"
     },
     {
-      name: "Miza Torlakovic",
-      role: "TEI Family Worker",
-      qualifications: "Social Welfare + multilingual",
+      name: "Miza (Mirsada) Torlakovic",
+      role: "Multicultural Families Caseworker",
+      location: "Newcastle",
+      qualifications: "Bachelor of Social Sciences; Diploma of Welfare Studies",
+      experience: "With more than 35 years of client-focused expertise in Settlement Services and Multicultural Family Support, Miza has supported individuals and families from multicultural backgrounds to feel safe, connected and empowered.",
+      languages: ["Serbo-Croatian", "Bosnian", "Macedonian", "English"],
       phone: "(02) 4960 8402",
       email: "m.torlakovic@mosaicmc.org.au",
       image: "/images/Families Team 128px/FamTeam_Miza_128px.webp"
     },
     {
-      name: "Juanita Purcell Lolli",
-      role: "TEI Family Worker", 
-      qualifications: "Social Science + family intervention",
+      name: "Juanita Q. Purcell-Loli",
+      role: "Multicultural Families Caseworker", 
+      location: "Newcastle",
+      qualifications: "Master of Arts & Social Science",
+      experience: "Juanita brings 30+ years supporting migrant communities and multicultural and vulnerable families to feel safe, connected and empowered.",
+      languages: ["English", "Samoan"],
       phone: "(02) 4960 8403",
       email: "j.lolli@mosaicmc.org.au",
       image: "/images/Families Team 128px/FamTeam_Juanita_128px.webp"
     },
     {
       name: "Elena Ferguson",
-      role: "TEI Family Worker",
-      qualifications: "Social Science + disability support expertise",
+      role: "Multicultural Families Caseworker",
+      location: "Newcastle",
+      qualifications: "Honours Degree in Social Science (Australia); Teaching Degree (Russia)",
+      experience: "Drawing on experience across education and community services, Elena has a background in primary teaching, disability support and multicultural casework.",
+      languages: ["Russian", "English"],
       phone: "(02) 4960 8404",
       email: "e.ferguson@mosaicmc.org.au",
       image: "/images/Families Team 128px/FamTeam_Elena_128px.webp"
     },
     
     {
-      name: "Helen Mieres",
-      role: "PAW- Playgroup Facilitator",
-      qualifications: "Bachelor's Primary/Early Education + Community Services + Disability Services + Parenting Programs Accreditation",
-      phone: "0434 426 981",
-      email: "h.mieres@mosaicmc.org.au",
-      
-    },
-    {
       name: "Natalia Meliendrez",
-      role: "Multicultural Community Development Lead – Central Coast",
-      qualifications: "Community services leadership and multicultural community development",
+      role: "Multicultural Community Development Lead",
+      location: "Central Coast",
+      qualifications: "Community Service Diploma; Diploma of Leadership and Management.",
+      experience: "Natalia creates spaces where people from diverse cultural backgrounds feel respected, understood and empowered, leading groups and community programs that honour shared experiences and cultural identities.",
+      languages: ["Spanish", "English"],
       phone: "0431 491 748",
       email: "n.meliendrez@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp",
-      titleImage: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
+      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
     },
-    
   ];
+
+  const locations = ["All", ...Array.from(new Set(teamMembers.map(m => m.location).filter((l): l is string => !!l))).sort((a, b) => a.localeCompare(b as string, undefined, { sensitivity: 'base' }))];
+  const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
+  const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
     {
@@ -481,12 +491,35 @@ const FamilySupportPage = () => {
       <Team05
         title="Meet Your Complete Family Support Team"
         description="Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families."
-        teamMembers={teamMembers}
+        teamMembers={sortedMembers}
         accentColor="sun"
         showDecoration={false}
         avatarSize={128}
         showContactIcons={false}
         showImageOverlay={false}
+        headerChildren={
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+              {locations.map((loc) => {
+                const isActive = selectedLocation === loc;
+                return (
+                  <button
+                    key={loc}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${
+                      isActive ? 'bg-sun text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                    }`}
+                    title={`Show ${loc === "All" ? "all locations" : loc}`}
+                  >
+                    {loc}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        }
         bottomSection={{
           title: "Integrated Support Approach",
           description: "Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
