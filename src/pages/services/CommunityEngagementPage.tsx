@@ -10,26 +10,36 @@ const CommunityEngagementPage = () => {
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
+  const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
     {
       name: "Chiyedza Magwerekwete",
-      role: "Multicultural Case Worker",
-      qualifications: "Multicultural casework and community support",
-      languages: ["English"],
+      role: "Gamble Aware Caseworker",
+      location: "Newcastle",
+      qualifications: "Bachelor in Social Science",
+      experience: "Chiyedza has worked in community services and the Permanency Support Program, supporting families to achieve stable, long‑term outcomes.",
+      languages: ["English", "Shona"],
       email: "c.magwerekwete@mosaicmc.org.au",
       image: "/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp"
     },
     {
       name: "Natalia Meliendrez",
-      role: "Multicultural Community Development Lead – Central Coast",
-      qualifications: "Community services leadership and multicultural community development",
+      role: "Multicultural Community Development Lead",
+      location: "Central Coast",
+      qualifications: "Community Service Diploma; Diploma of Leadership and Management.",
+      experience: "Natalia creates spaces where people from diverse cultural backgrounds feel respected, understood and empowered, leading groups and community programs that honour shared experiences and cultural identities.",
+      languages: ["Spanish", "English"],
       phone: "0431 491 748",
       email: "n.meliendrez@mosaicmc.org.au",
       image: "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp"
     },
     // Removed retired staff entry
   ];
+
+  const locations = ["All", ...Array.from(new Set(teamMembers.map(m => m.location).filter((l): l is string => !!l))).sort((a, b) => a.localeCompare(b as string, undefined, { sensitivity: 'base' }))];
+  const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
+  const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
     {
@@ -409,8 +419,32 @@ const CommunityEngagementPage = () => {
       <Team05
         title="Meet Your Community Engagement Team"
         description="Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development."
-        teamMembers={teamMembers}
+        teamMembers={sortedMembers}
         accentColor="leaf"
+        showContactIcons={false}
+        headerChildren={
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+              {locations.map((loc) => {
+                const isActive = selectedLocation === loc;
+                return (
+                  <button
+                    key={loc}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background ${
+                      isActive ? 'bg-leaf text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                    }`}
+                    title={`Show ${loc === "All" ? "all locations" : loc}`}
+                  >
+                    {loc}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        }
         bottomSection={{
           title: "Collaborative Community Approach",
           description: "Our community engagement team works collaboratively with community leaders, cultural organisations, government agencies, and local businesses to create inclusive programs that celebrate diversity and build stronger communities. We believe that the best community engagement happens when everyone has a voice and an opportunity to contribute their unique perspectives and talents."
@@ -419,7 +453,8 @@ const CommunityEngagementPage = () => {
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-leaf/10 dark:bg-leaf/15 mix-blend-multiply pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -469,7 +504,8 @@ const CommunityEngagementPage = () => {
 
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-leaf/10 dark:bg-leaf/15 mix-blend-multiply pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -481,14 +517,14 @@ const CommunityEngagementPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
-                className="bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
+                className="bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call 1800 813 205
               </a>
               <Link
                 to="/contact"
-                className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
                 Contact Us Online
                 <ArrowRight className="h-5 w-5 ml-2" />

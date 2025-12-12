@@ -13,71 +13,111 @@ import BronwynImg from './SETS Team 128px/SETSTeam_Bronwyn_128px.webp';
 import RoseImg from './SETS Team 128px/SETSTeam_Rose_128px.webp';
 import SamiImg from './SETS Team 128px/SETSTeam_Sami_128px.webp';
 import MaramImg from './SETS Team 128px/SETSTeam_Maram_128px.webp';
+import MichaelImg from './SETS Team 128px/SETSTeam_Michael_128px.webp';
+import LeeImg from './SETS Team 128px/SETSTeam_Lee_128px.webp';
 
 const SettlementSupportPage = () => {
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
+  const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
     {
-      name: "Mirja Colding-Moran",
-      role: "Settlement Team Leader",
-      qualifications: "Leadership in settlement services, community partnerships specialist",
-      languages: ["English"],
-      image: MirjaImg
-    },
-    {
-      name: "Madan Narayanamurthy",
-      role: "Regional Coordinator (Armidale)",
-      qualifications: "Regional programme coordination, multicultural engagement specialist",
-      languages: ["English"],
-      image: MadanImg
+      name: "Basim Khudeda",
+      role: "Settlement Caseworker",
+      location: "Armidale",
+      qualifications: "Certificate III in Business Administration; currently studying Applied Physics and Mathematics.",
+      experience: "Basim has provided settlement support in Armidale since February 2024, drawing on business administration experience and ongoing studies in Applied Physics and Mathematics.",
+      languages: ["Ezidi", "Kurdish (Kurmanji)", "Arabic", "English"],
+      image: BasimImg
     },
     {
       name: "Maram Mohamed",
       role: "Settlement Caseworker",
-      qualifications: "Settlement case management, community liaison experience",
-      languages: ["English"],
+      location: "Newcastle",
+      qualifications: "Master of Social Change and Development; Bachelor of Mass Communication.",
+      experience: "Maram has led international student initiatives and delivered hospitality and events programs, helping students gain recognition and awards.",
+      languages: ["English", "Arabic"],
       image: MaramImg
     },
     {
-      name: "Rose Oku",
-      role: "Settlement Worker",
-      qualifications: "Community services background, family support facilitation",
-      languages: ["English"],
-      image: RoseImg
+      name: "Patricia Camilleri",
+      role: "Settlement Caseworker",
+      location: "Central Coast",
+      qualifications: "Diploma of Community Service; Diploma of Management.",
+      experience: "Patricia brings over 25 years across welfare, case management and program delivery, supporting families to access services and achieve positive outcomes.",
+      languages: ["English", "Spanish"],
+      image: PatriciaImg
     },
     {
-      name: "Bronwyn Lin",
-      role: "Settlement Case Worker",
-      qualifications: "Social services qualifications, multicultural youth support",
-      languages: ["English"],
+      name: "Mirja Colding-Moran",
+      role: "Team Leader, Settlement Services",
+      location: "Newcastle",
+      qualifications: "B.Educ/B.Soc.Sci (Hons); Grad Dip Migration Law & Practice; Dip International Relations.",
+      experience: "Mirja has worked in refugee settlement and migration law, guiding migrants and refugees through services and legal pathways.",
+      languages: ["English", "Swedish"],
+      image: MirjaImg
+    },
+    {
+      name: "Bronwyn",
+      role: "Settlement Caseworker",
+      location: "Newcastle",
+      qualifications: "BAppSci (Human Geog); Adv Clinical Training Gestalt Psychotherapy; Grad Dip Gestalt Therapy.",
+      experience: "Across 25 years of community development, case management, engagement and counselling, Bronwyn has helped individuals and communities connect, heal and thrive.",
+      languages: ["English", "Turkish (basic)", "Khmer (basic)", "German (basic)"],
       image: BronwynImg
     },
     {
-      name: "Mohammad Sami Zakhil",
-      role: "Settlement Caseworker / Youth Connector",
-      qualifications: "Youth mentoring, bicultural advocacy",
+      name: "Lee Arandale",
+      role: "Settlement Caseworker",
+      location: "Armidale",
+      qualifications: "Associate Diploma Arts (Peace Studies); Diploma Community Services (Case Management).",
+      experience: "Lee brings 20 years in case management, advocacy and community projects, strengthening access to services and community capacity.",
       languages: ["English"],
+      image: LeeImg
+    },
+    {
+      name: "Mohammad Sami Zakhil",
+      role: "Youth Connector/ Settlement Caseworker",
+      location: "Newcastle",
+      qualifications: "Diploma Management & Leadership; Diploma Community Works; Degree in Public Administration.",
+      experience: "Mohammad Sami brings over 10 years of experience working for Youth empowerment with a background in advocacy Youth empowerment, women's and children rights and community work.",
+      languages: ["Pashto", "Dari", "English", "Urdu", "Hindi", "Persian", "Zargari"],
       image: SamiImg
     },
-    // Removed retired staff entry
     {
-      name: "Basim Khudeda",
-      role: "Settlement Worker (Armidale)",
-      qualifications: "Community engagement, multilingual client support",
-      languages: ["English"],
-      image: BasimImg
+      name: "Rose Oku",
+      role: "Settlement Caseworker",
+      location: "Newcastle",
+      qualifications: "Master of Social Work (Qualifying); Bachelor of Social Science; Diploma Community Service; Diploma Youth Work.",
+      experience: "Rose has 23 years in youth and community development, supporting multicultural groups and playgroups to feel connected and thrive.",
+      languages: ["English", "Luo"],
+      image: RoseImg
     },
     {
-      name: "Patricia Camilleri",
-      role: "Settlement Worker (Central Coast)",
-      qualifications: "Regional case management, family settlement support",
+      name: "Michael de Laroche Souvestre",
+      role: "Settlement Caseworker",
+      location: "Tamworth",
+      qualifications: "Associate Degree in Policing Practice.",
+      experience: "Michael has more than 10 years in policing, community engagement and domestic violence support, helping individuals and families stay safe and access justice.",
       languages: ["English"],
-      image: PatriciaImg
+      image: MichaelImg
+    },
+    {
+      name: "Madan Narayanamurthy",
+      role: "Regional Coordinator, Settlement Services",
+      location: "Armidale",
+      qualifications: "",
+      experience: "Madan coordinates regional settlement services, supporting staff and service partnerships across Armidale.",
+      languages: ["English"],
+      image: MadanImg
     }
   ];
+
+  const locations = ["All", ...Array.from(new Set(teamMembers.map(m => m.location).filter((l): l is string => !!l))).sort((a, b) => a.localeCompare(b as string, undefined, { sensitivity: 'base' }))];
+  const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
+  const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
     {
@@ -487,13 +527,35 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
       <Team05
         title="Meet Your Settlement Support Team"
-        description="Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialized skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
-        teamMembers={teamMembers}
+        description="Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
+        teamMembers={sortedMembers}
         accentColor="sky"
         avatarSize={128}
+        headerChildren={
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+              {locations.map((loc) => {
+                const isActive = selectedLocation === loc;
+                return (
+                  <button
+                    key={loc}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${
+                      isActive ? 'bg-ocean text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                    }`}
+                    title={`Show ${loc === "All" ? "all locations" : loc}`}
+                  >
+                    {loc}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        }
         bottomSection={{
           title: "Comprehensive Settlement Approach",
           description: "Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community integration, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."

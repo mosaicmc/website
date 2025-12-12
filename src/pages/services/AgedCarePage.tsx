@@ -11,37 +11,50 @@ const AgedCarePage = () => {
   // FAQ state and data (matching other services pages)
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>('faq-1');
+  const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
     {
       name: "Stacey Anderson",
-      role: "Care Coordinator (CHSP)",
-      qualifications: "Endorsed Enrolled Nurse; Diploma Community Services (in progress). Varied nursing experience including Emergency, Theatres, outpatients; Treatment Nurse in medical centres; Red Cross Lifeblood; Continuous Improvement Coach; Manager of dementia‑specific day centre.",
+      role: "Care Coordinator, CHSP",
+      location: "Central Coast",
+      qualifications: "Endorsed Enrolled Nurse; Diploma Community Services (started).",
+      experience: "With experience in Emergency, Theatres, Outpatients, and the Australian Red Cross Blood Service, Stacey has held roles as a Treatment Nurse, Improvement Coach, and manager of a dementia-specific day centre.",
       languages: ["English", "Spanish (learning)"],
       image: "/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp"
     },
     {
       name: "Corinne Rietdijk",
-      role: "Care Coordinator (SaH)",
-      qualifications: "Certificate III in Aged Care. 20+ years in aged, dementia, palliative, community, residential disability and mental health care.",
+      role: "Care Coordinator, SaH",
+      location: "Newcastle",
+      qualifications: "Certificate III in Aged Care.",
+      experience: "Corinne has more than 20 years in aged, dementia, palliative, community, residential disability and mental health care, supporting older people to live safely and with dignity at home and in the community.",
       languages: ["English"],
       image: "/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp"
     },
     {
       name: "Dianne Rainbow",
-      role: "Care Coordinator (CHSP)",
-      qualifications: "Care Coordinator – CHSP.",
+      role: "Care Coordinator, SaH & CHSP",
+      location: "Central Coast",
+      qualifications: "Diploma in Aged Care (Case Management).",
+      experience: "Dianne has worked across residential care, community support, RAS assessment and case management for 30+ years.",
       languages: ["English"],
       image: "/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp"
     },
     {
       name: "Sally Wiltshire",
-      role: "ACVVS Coordinator",
-      qualifications: "ACVVS program coordination, volunteer visitor matching, multicultural community outreach.",
+      role: "Coordinator, ACVVS",
+      location: "Newcastle",
+      qualifications: "",
+      experience: "Sally coordinates volunteers across aged, palliative and community care, building meaningful connections through the ACVVS program over more than 12 years.",
       languages: ["English"],
       image: "/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp"
     }
   ];
+
+  const locations = ["All", ...Array.from(new Set(teamMembers.map(m => m.location).filter((l): l is string => !!l))).sort((a, b) => a.localeCompare(b as string, undefined, { sensitivity: 'base' }))];
+  const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
+  const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
     {
@@ -427,9 +440,32 @@ const AgedCarePage = () => {
       <Team05
         title="Meet Your Home Care Team"
         description="Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
-        teamMembers={teamMembers}
+        teamMembers={sortedMembers}
         accentColor="care"
         avatarSize={128}
+        headerChildren={
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+              {locations.map((loc) => {
+                const isActive = selectedLocation === loc;
+                return (
+                  <button
+                    key={loc}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background ${
+                      isActive ? 'bg-care text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                    }`}
+                    title={`Show ${loc === "All" ? "all locations" : loc}`}
+                  >
+                    {loc}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        }
         bottomSection={{
           title: "Culturally Sensitive Care Approach",
           description: "Our team understands that quality home care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values."
@@ -438,7 +474,8 @@ const AgedCarePage = () => {
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-care/10 dark:bg-care/15 mix-blend-multiply pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
@@ -485,7 +522,8 @@ const AgedCarePage = () => {
 
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-care/10 dark:bg-care/15 mix-blend-multiply pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -497,14 +535,14 @@ const AgedCarePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
-                className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25"
+                className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call 1800 813 205
               </a>
               <Link
                 to="/contact"
-                className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 Contact Us Online
                 <ArrowRight className="h-5 w-5 ml-2" />

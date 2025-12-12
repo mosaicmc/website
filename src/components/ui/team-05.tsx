@@ -6,6 +6,8 @@ interface TeamMember {
   role: string;
   qualifications: string;
   languages?: string[];
+  location?: string;
+  experience?: string;
   phone?: string;
   email?: string;
   image?: string;
@@ -27,6 +29,7 @@ interface Team05Props {
     title: string;
     description: string;
   };
+  headerChildren?: React.ReactNode;
 }
 
 const Team05: React.FC<Team05Props> = ({ 
@@ -38,7 +41,8 @@ const Team05: React.FC<Team05Props> = ({
   showContactIcons = true,
   showImageOverlay = true,
   avatarSize = 160,
-  bottomSection 
+  bottomSection,
+  headerChildren
 }) => {
   const getIconColor = (color: string) => {
     const colorMap = {
@@ -146,6 +150,8 @@ const Team05: React.FC<Team05Props> = ({
             {description}
           </p>
         </div>
+        
+        {headerChildren}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
@@ -276,6 +282,24 @@ const Team05: React.FC<Team05Props> = ({
                       {member.qualifications}
                     </p>
                   </div>
+                  
+                  {/* Location and Experience */}
+                  {(member.location || member.experience) && (
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {member.location && (
+                          <span className="text-xs bg-white/60 dark:bg-white/15 px-3 py-1 rounded-full text-gray-700 dark:text-white/80 border border-white/40 dark:border-white/20 backdrop-blur-sm">
+                            {member.location}
+                          </span>
+                        )}
+                        {member.experience && (
+                          <span className="text-xs bg-white/60 dark:bg-white/15 px-3 py-1 rounded-full text-gray-700 dark:text-white/80 border border-white/40 dark:border-white/20 backdrop-blur-sm">
+                            {member.experience}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
                   
                   {/* Languages */}
                   {member.languages && (
