@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, Heart, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, Instagram, Facebook } from 'lucide-react';
+import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, Instagram, Facebook } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
@@ -211,11 +211,20 @@ export default function NewcastleVolunteerPage() {
                 <Tabs.Content value="aged-care">
                   <GlassCard padding="md" className="rounded-2xl">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-sky text-white flex items-center justify-center">
-                        <Heart className="h-6 w-6" />
+                      <div className="w-10 h-10 rounded-full bg-care text-white flex items-center justify-center">
+                        <img
+                          src="/images/ACVVS logo-WHITE-shorten.jpeg"
+                          alt="ACVVS logo"
+                          className="block h-10 w-10 object-contain object-center"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       <h2 className="text-lg font-semibold text-foreground">Aged Care Volunteer Visitor Scheme</h2>
                     </div>
+                    <p className="mt-1 text-xs italic text-muted-foreground">
+                      Funded by the Australian Government
+                    </p>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {agedCareRoles.map((r) => (
                         <div key={r.title} className="group relative backdrop-blur-md bg-earth/10 dark:bg-earth/5 rounded-xl p-6 border border-earth/20 dark:border-earth/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-earth/15 dark:hover:bg-earth/10">
