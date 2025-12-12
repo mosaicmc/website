@@ -121,17 +121,15 @@
 @layer utilities {
   .mc-link {
     color: hsl(var(--link));
-    text-decoration-line: none;
-    text-underline-offset: 2px;
+    text-decoration: none;
   }
   .mc-link:hover {
     color: hsl(var(--link-hover));
-    text-decoration-line: underline;
-    text-decoration-color: hsl(var(--link-hover));
+    text-decoration: none;
   }
   .mc-link:focus-visible {
     outline: none;
-    text-decoration-line: underline;
+    text-decoration: none;
     @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
@@ -145,9 +143,11 @@
 
 @layer base {
   a {
-    @apply text-ocean dark:text-sky transition-colors underline underline-offset-2;
-    @apply decoration-ocean/40 dark:decoration-sky/40 hover:decoration-ocean/80 dark:hover:decoration-sky/80;
+    @apply text-ocean dark:text-sky transition-colors;
+    @apply text-base leading-relaxed;
+    text-decoration: none;
   }
+  a:hover { text-decoration: none; }
   a:focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
   ul { @apply list-disc pl-5 mb-4; }
   ol { @apply list-decimal pl-5 mb-4; }
