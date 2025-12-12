@@ -242,75 +242,72 @@ const ContactPage = () => {
               <h2 className="text-3xl font-bold text-foreground mb-8">Get in Touch</h2>
               
               <div className="space-y-8">
-                {/* Quick Contact */}
-                <div className="backdrop-blur-md bg-white/70 dark:bg-slate-800/70 rounded-lg p-6 border border-white/20 dark:border-slate-700/50 shadow-lg">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Contact</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <Phone className="h-5 w-5 text-sky" />
-                      <div>
-                        <div className="font-semibold text-gray-900 dark:text-white">Main Line</div>
-                        <a href="tel:1800813205" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors">
-                          1800 813 205
-                        </a>
+                <Card className="rounded-lg shadow-sm">
+                  <CardHeader className="p-5 md:p-6">
+                    <h3 className="text-xl font-bold text-foreground">Quick Contact</h3>
+                  </CardHeader>
+                  <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <Phone className="h-5 w-5 text-sky" />
+                        <div>
+                          <div className="font-semibold text-foreground">Main Line</div>
+                          <a href="tel:1800813205" className="text-muted-foreground hover:text-ocean transition-colors">
+                            1800 813 205
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-3">
-                      <Mail className="h-5 w-5 text-sky" />
-                      <div>
-                        <div className="font-semibold text-gray-900 dark:text-white">Email</div>
-                        <a href="mailto:info@mosaicmc.org.au" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors">
-                          info@mosaicmc.org.au
-                        </a>
+                      <div className="flex items-center space-x-3">
+                        <Mail className="h-5 w-5 text-sky" />
+                        <div>
+                          <div className="font-semibold text-foreground">Email</div>
+                          <a href="mailto:info@mosaicmc.org.au" className="text-muted-foreground hover:text-ocean transition-colors">
+                            info@mosaicmc.org.au
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-3">
-                      <Clock className="h-5 w-5 text-sky mt-1" />
-                      <div>
-                        <div className="font-semibold text-gray-900 dark:text-white">Business Hours</div>
-                        <div className="text-gray-600 dark:text-gray-300">
-                          Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)
+                      <div className="flex items-start space-x-3">
+                        <Clock className="h-5 w-5 text-sky mt-1" />
+                        <div>
+                          <div className="font-semibold text-foreground">Business Hours</div>
+                          <div className="text-muted-foreground">Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)</div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
 
-                {/* Emergency Services */}
-                <div className="backdrop-blur-md bg-sun/10 dark:bg-sun/5 border border-sun/20 dark:border-sun/10 rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Emergency Services</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources.
-                  </p>
-                  <div className="space-y-2">
-                    <a href="/resources" className="inline-flex items-center px-4 py-2 rounded-lg bg-sun text-white font-medium hover:bg-sun/90 transition-colors">
-                      View Emergency Services
-                    </a>
-                  </div>
-                </div>
+                <Card className="rounded-lg shadow-sm border-l-2 border-sun">
+                  <CardHeader className="p-5 md:p-6">
+                    <h3 className="text-xl font-bold text-foreground">Emergency Services</h3>
+                  </CardHeader>
+                  <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                    <p className="text-muted-foreground mb-4">We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources.</p>
+                    <Button asChild className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                      <a href="/resources">View Emergency Services</a>
+                    </Button>
+                  </CardContent>
+                </Card>
 
-                {/* Language Support */}
-                <div className="backdrop-blur-md bg-sky/10 dark:bg-sky/5 border border-sky/20 dark:border-sky/10 rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Language Support</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    We have multilingual staff available in:
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 text-sm text-gray-600 dark:text-gray-300">
-                    <div>• Arabic</div>
-                    <div>• Mandarin</div>
-                    <div>• Spanish</div>
-                    <div>• Vietnamese</div>
-                    <div>• Tagalog</div>
-                    <div>• Hindi</div>
-                    <div>• Korean</div>
-                    <div>• And more...</div>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">
-                    Interpreter services available for other languages via TIS: 131 450
-                  </p>
-                </div>
+                <Card className="rounded-lg shadow-sm border-l-2 border-sky">
+                  <CardHeader className="p-5 md:p-6">
+                    <h3 className="text-xl font-bold text-foreground">Language Support</h3>
+                  </CardHeader>
+                  <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                    <p className="text-muted-foreground mb-4">We have multilingual staff available in:</p>
+                    <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                      <div>• Arabic</div>
+                      <div>• Mandarin</div>
+                      <div>• Spanish</div>
+                      <div>• Vietnamese</div>
+                      <div>• Tagalog</div>
+                      <div>• Hindi</div>
+                      <div>• Korean</div>
+                      <div>• And more...</div>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-4">Interpreter services available for other languages via TIS: 131 450</p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>

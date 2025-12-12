@@ -6,7 +6,7 @@ const titleMap: Record<string, string> = {
   'about': 'About',
   'services': 'Services',
   'services/settlement-support': 'Settlement Support',
-  'services/aged-care': 'Home Care Services',
+  'services/aged-care': 'Aged Care Services',
   'services/family-support': 'Family Support',
   'services/community-engagement': 'Community Engagement',
   'locations': 'Locations',
