@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import { FileText, Phone, AlertTriangle, Book, ChevronRight, FileDown } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import RelatedServices from '../components/RelatedServices';
+import { Card, CardHeader, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const ResourcesPage = () => {
   // Removed Downloads and FAQs per request; keeping page focused on key links
@@ -112,59 +114,74 @@ const ResourcesPage = () => {
       <section className="py-6 bg-background border-y border-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
-            <a
-              href="tel:000"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              aria-label="Call 000 for Police, Fire, Ambulance"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-sun text-white p-2">
-                  <AlertTriangle className="h-5 w-5" />
+            <Card className="group">
+              <CardHeader className="p-4 border-b border-border">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-2">
+                    <AlertTriangle className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <div className="font-semibold">Call 000</div>
+                    <div className="text-xs text-muted-foreground">Police • Fire • Ambulance</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-semibold">Call 000</div>
-                  <div className="text-xs text-muted-foreground">Police • Fire • Ambulance</div>
+              </CardHeader>
+              <CardFooter className="p-4">
+                <Button asChild variant="outline" size="sm" className="rounded-lg">
+                  <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
+                    Call now
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card className="group">
+              <CardHeader className="p-4 border-b border-border">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-2">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <div className="font-semibold">TIS 131 450</div>
+                    <div className="text-xs text-muted-foreground">Translating & Interpreting Service</div>
+                  </div>
                 </div>
-              </div>
-              <ChevronRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="tel:131450"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              aria-label="Call TIS National 131 450 for interpreters"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-earth text-white p-2">
-                  <Phone className="h-5 w-5" />
+              </CardHeader>
+              <CardFooter className="p-4">
+                <Button asChild variant="outline" size="sm" className="rounded-lg">
+                  <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">
+                    Call now
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card className="group">
+              <CardHeader className="p-4 border-b border-border">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-2">
+                    <FileText className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <div className="font-semibold">NSW Emergency Info</div>
+                    <div className="text-xs text-muted-foreground">Official guidance and contacts</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-semibold">TIS 131 450</div>
-                  <div className="text-xs text-muted-foreground">Translating & Interpreting Service</div>
-                </div>
-              </div>
-              <ChevronRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="https://www.nsw.gov.au/emergency"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              aria-label="Open NSW Government emergency information"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-leaf text-white p-2">
-                  <FileText className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="font-semibold">NSW Emergency Info</div>
-                  <div className="text-xs text-muted-foreground">Official guidance and contacts</div>
-                </div>
-              </div>
-              <ChevronRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
+              </CardHeader>
+              <CardFooter className="p-4">
+                <Button asChild variant="outline" size="sm" className="rounded-lg">
+                  <a
+                    href="https://www.nsw.gov.au/emergency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open NSW Government emergency information"
+                  >
+                    Open
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
@@ -180,103 +197,131 @@ const ResourcesPage = () => {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Link
-              to="/resources/emergency-translation"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              {...prefetchOnHover('/resources/emergency-translation')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-sun text-white p-3">
-                  <AlertTriangle className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Emergency & Translation</h3>
-                  <p className="text-sm text-muted-foreground">Emergency contacts and interpreter support (NSW compliance)</p>
-                </div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
-                View <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </div>
+            <Link to="/resources/emergency-translation" {...prefetchOnHover('/resources/emergency-translation')}>
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-3">
+                      <AlertTriangle className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Emergency & Translation</h3>
+                      <p className="text-sm text-muted-foreground">Emergency contacts and interpreter support (NSW compliance)</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </Link>
-            <Link
-              to="/resources/helpful-links"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              {...prefetchOnHover('/resources/helpful-links')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-earth text-white p-3">
-                  <Book className="h-6 w-6" />
-                </div>
-                <div><h3 className="font-semibold">Helpful Links</h3><p className="text-sm text-muted-foreground">Trusted external resources</p></div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">View <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" /></div>
+            <Link to="/resources/helpful-links" {...prefetchOnHover('/resources/helpful-links')}>
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
+                      <Book className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Helpful Links</h3>
+                      <p className="text-sm text-muted-foreground">Trusted external resources</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </Link>
-            <Link
-              to="/company/knowledge-base"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              {...prefetchOnHover('/company/knowledge-base')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-earth text-white p-3">
-                  <Book className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Knowledge Base</h3>
-                  <p className="text-sm text-muted-foreground">All organisational policies and governance resources</p>
-                </div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
-                View <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </div>
+            <Link to="/company/knowledge-base" {...prefetchOnHover('/company/knowledge-base')}>
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
+                      <Book className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Knowledge Base</h3>
+                      <p className="text-sm text-muted-foreground">All organisational policies and governance resources</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </Link>
-            <Link
-              to="/resources/faqs"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              {...prefetchOnHover('/resources/faqs')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-leaf text-white p-3">
-                  <Book className="h-6 w-6" />
-                </div>
-                <div><h3 className="font-semibold">FAQs</h3><p className="text-sm text-muted-foreground">Answers to common questions</p></div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">View <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" /></div>
+            <Link to="/resources/faqs" {...prefetchOnHover('/resources/faqs')}>
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
+                      <Book className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">FAQs</h3>
+                      <p className="text-sm text-muted-foreground">Answers to common questions</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </Link>
-            <Link
-              to="/resources/annual-reports"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              {...prefetchOnHover('/resources/annual-reports')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-leaf text-white p-3">
-                  <FileText className="h-6 w-6" />
-                </div>
-                <div><h3 className="font-semibold">Annual Reports</h3><p className="text-sm text-muted-foreground">1990–2025 with interactive viewer</p></div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">View <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" /></div>
+            <Link to="/resources/annual-reports" {...prefetchOnHover('/resources/annual-reports')}>
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
+                      <FileText className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Annual Reports</h3>
+                      <p className="text-sm text-muted-foreground">1990–2025 with interactive viewer</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </Link>
-            <a
-              href="#brochures"
-              className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-lg bg-ocean text-white p-3">
-                  <FileDown className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Brochures</h3>
-                  <p className="text-sm text-muted-foreground">Download service PDFs</p>
-                </div>
-              </div>
-              <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
-                View <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </div>
+            <a href="#brochures" className="block">
+              <Card className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-4">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
+                      <FileDown className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Brochures</h3>
+                      <p className="text-sm text-muted-foreground">Download service PDFs</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
             </a>
           </div>
         </div>
@@ -293,34 +338,32 @@ const ResourcesPage = () => {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {brochures.map((b) => (
-              <div
-                key={b.title}
-                className="group relative backdrop-blur-xl bg-white/90 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="flex items-center gap-3">
-                  <div className={`rounded-lg ${getAccentColor(b.color)} text-white p-2`}>
-                    <FileDown className="h-5 w-5" />
+              <Card key={b.title} className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-3">
+                    <span className={`inline-flex items-center justify-center rounded-lg ${getAccentColor(b.color)} text-white p-2`}>
+                      <FileDown className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <div className="font-semibold text-foreground">{b.title}</div>
+                      <div className="text-xs text-muted-foreground">PDF brochure</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold">{b.title}</div>
-                    <div className="text-xs text-muted-foreground">PDF brochure</div>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-between">
-                  <a
-                    href={b.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                    aria-label={`Download ${b.title} brochure (PDF)`}
-                  >
-                    <FileDown className="h-4 w-4 mr-2" />
-                    Download
-                  </a>
-                  <ChevronRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </div>
-              </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button asChild variant="outline" size="sm" className="rounded-lg">
+                    <a
+                      href={b.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Download ${b.title} brochure (PDF)`}
+                    >
+                      <FileDown className="h-4 w-4 mr-2" />
+                      Download
+                    </a>
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
           </div>
         </div>
