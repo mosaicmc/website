@@ -32,257 +32,171 @@
       - generic [ref=e31]:
         - button "Open search" [ref=e32] [cursor=pointer]:
           - img [ref=e33]
-        - button [ref=e36] [cursor=pointer]:
-          - generic [ref=e37]:
-            - img [ref=e39]
-            - img [ref=e42]
-        - button "common.changeLanguage" [ref=e49] [cursor=pointer]:
-          - img [ref=e50]
-          - generic [ref=e53]: English
-          - img [ref=e54]
-        - link "Donate" [ref=e57] [cursor=pointer]:
+        - button [ref=e37] [cursor=pointer]:
+          - generic [ref=e38]:
+            - img [ref=e40]
+            - img [ref=e47]
+        - button "common.changeLanguage" [ref=e50] [cursor=pointer]:
+          - img [ref=e51]
+          - generic [ref=e54]: English
+          - img [ref=e55]
+        - link "Donate" [ref=e58] [cursor=pointer]:
           - /url: /donate
-  - main [ref=e58]:
-    - generic [ref=e59]:
-      - generic [ref=e65]:
-        - generic [ref=e68]: Our Services
-        - heading "Support to help you build a new life in Australia" [level=1] [ref=e69]
-        - paragraph [ref=e70]: Simple, culturally appropriate services across NSW — settlement, family support, home care and community services.
-      - generic [ref=e72]:
-        - heading "Our Comprehensive Services" [level=2] [ref=e73]
-        - generic [ref=e74]:
-          - generic [ref=e75]:
-            - img "Settlement Services overview" [ref=e77]
-            - generic [ref=e78]:
-              - generic [ref=e79]: Settlement Support
-              - heading "SETS Program for New Arrivals" [level=4] [ref=e80]
-              - paragraph [ref=e81]: Comprehensive support for new arrivals to help establish their lives in Australia with dignity and independence. Housing assistance, employment guidance, and community orientation.
-              - link "Learn More" [ref=e82] [cursor=pointer]:
-                - /url: /services/settlement-support
-                - text: Learn More
-                - img
-          - generic [ref=e83]:
-            - img "Home Care services overview" [ref=e85]
-            - generic [ref=e86]:
-              - generic [ref=e87]: Home Care Services
-              - heading "Culturally Appropriate Care" [level=4] [ref=e88]
-              - paragraph [ref=e89]: Honouring traditions while providing professional home care services in familiar languages. Home care packages, personal care, and cultural activities.
-              - link "Learn More" [ref=e90] [cursor=pointer]:
-                - /url: /services/aged-care
-                - text: Learn More
-                - img
-          - generic [ref=e91]:
-            - img "Family Services overview" [ref=e93]
-            - generic [ref=e94]:
-              - generic [ref=e95]: Family Support
-              - heading "Strengthening Families" [level=4] [ref=e96]
-              - paragraph [ref=e97]: Programs designed to strengthen families and build resilient community connections. Family counselling, parenting support, and crisis intervention services.
-              - link "Learn More" [ref=e98] [cursor=pointer]:
-                - /url: /services/family-support
-                - text: Learn More
-                - img
-          - generic [ref=e99]:
-            - img "Community Engagement overview" [ref=e101]
-            - generic [ref=e102]:
-              - generic [ref=e103]: Community Engagement
-              - heading "Building Connections" [level=4] [ref=e104]
-              - paragraph [ref=e105]: Creating opportunities for participation, cultural celebration, and meaningful social connection. Cultural festivals, leadership development, and volunteer programs.
-              - link "Learn More" [ref=e106] [cursor=pointer]:
-                - /url: /services/community-engagement
-                - text: Learn More
-                - img
-      - generic [ref=e108]:
-        - generic [ref=e109]:
-          - generic [ref=e112]: Related Services
-          - heading "You May Also Be Interested In" [level=2] [ref=e113]
-          - paragraph [ref=e114]: Explore complementary services that pair well with your current needs.
-        - generic [ref=e115]:
-          - link "Home – Learn more" [ref=e116] [cursor=pointer]:
-            - /url: /
-            - generic [ref=e117]:
-              - generic [ref=e119]:
-                - img [ref=e121]
-                - generic [ref=e124]:
-                  - heading "Home" [level=3] [ref=e125]
-                  - paragraph [ref=e126]: Start here.
-              - generic [ref=e128]:
-                - text: Learn more
-                - img [ref=e129]
-          - link "About Us – Learn more" [ref=e131] [cursor=pointer]:
-            - /url: /about
-            - generic [ref=e132]:
-              - generic [ref=e134]:
-                - img [ref=e136]
-                - generic [ref=e141]:
-                  - heading "About Us" [level=3] [ref=e142]
-                  - paragraph [ref=e143]: Mission and team.
-              - generic [ref=e145]:
-                - text: Learn more
-                - img [ref=e146]
-          - link "Settlement Support – Learn more" [ref=e148] [cursor=pointer]:
-            - /url: /services/settlement-support
-            - generic [ref=e149]:
-              - generic [ref=e151]:
-                - img [ref=e153]
-                - generic [ref=e156]:
-                  - heading "Settlement Support" [level=3] [ref=e157]
-                  - paragraph [ref=e158]: Housing, jobs and orientation help.
-              - generic [ref=e160]:
-                - text: Learn more
-                - img [ref=e161]
-  - contentinfo [ref=e163]:
-    - generic [ref=e164]:
-      - navigation "Quick Links" [ref=e168]:
-        - generic [ref=e169]:
-          - generic [ref=e170]:
-            - link "Mosaic Multicultural Connections" [ref=e171] [cursor=pointer]:
+  - main [ref=e59]:
+    - generic [ref=e60]: Loading...
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - navigation "Quick Links" [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - link "Mosaic Multicultural Connections" [ref=e69] [cursor=pointer]:
               - /url: /
-              - img "Mosaic Multicultural Connections" [ref=e172]
-            - generic [ref=e173]:
-              - generic [ref=e174]: 40+ Years of Impact
-              - generic [ref=e175]: Multicultural Services NSW
-          - generic [ref=e176]:
-            - paragraph [ref=e177]: Overview
-            - list [ref=e178]:
-              - listitem [ref=e179]:
-                - link "Home" [ref=e180] [cursor=pointer]:
+              - img "Mosaic Multicultural Connections" [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72]: 40+ Years of Impact
+              - generic [ref=e73]: Multicultural Services NSW
+          - generic [ref=e74]:
+            - paragraph [ref=e75]: Overview
+            - list [ref=e76]:
+              - listitem [ref=e77]:
+                - link "Home" [ref=e78] [cursor=pointer]:
                   - /url: /
-              - listitem [ref=e181]:
-                - link "About" [ref=e182] [cursor=pointer]:
+              - listitem [ref=e79]:
+                - link "About" [ref=e80] [cursor=pointer]:
                   - /url: /about
-              - listitem [ref=e183]:
-                - link "Stories" [ref=e184] [cursor=pointer]:
+              - listitem [ref=e81]:
+                - link "Stories" [ref=e82] [cursor=pointer]:
                   - /url: /stories
-          - generic [ref=e185]:
-            - paragraph [ref=e186]: Services
-            - list [ref=e187]:
-              - listitem [ref=e188]:
-                - link "Settlement Support" [ref=e189] [cursor=pointer]:
+          - generic [ref=e83]:
+            - paragraph [ref=e84]: Services
+            - list [ref=e85]:
+              - listitem [ref=e86]:
+                - link "Settlement Support" [ref=e87] [cursor=pointer]:
                   - /url: /services/settlement-support
-              - listitem [ref=e190]:
-                - link "Home Care Services" [ref=e191] [cursor=pointer]:
+              - listitem [ref=e88]:
+                - link "Aged Care" [ref=e89] [cursor=pointer]:
                   - /url: /services/aged-care
-              - listitem [ref=e192]:
-                - link "Family Support" [ref=e193] [cursor=pointer]:
+              - listitem [ref=e90]:
+                - link "Family Support" [ref=e91] [cursor=pointer]:
                   - /url: /services/family-support
-              - listitem [ref=e194]:
-                - link "Community Engagement" [ref=e195] [cursor=pointer]:
+              - listitem [ref=e92]:
+                - link "Community Engagement" [ref=e93] [cursor=pointer]:
                   - /url: /services/community-engagement
-          - generic [ref=e196]:
-            - paragraph [ref=e197]: Resources
-            - list [ref=e198]:
-              - listitem [ref=e199]:
-                - link "Emergency & Translation Services" [ref=e200] [cursor=pointer]:
+          - generic [ref=e94]:
+            - paragraph [ref=e95]: Resources
+            - list [ref=e96]:
+              - listitem [ref=e97]:
+                - link "Emergency & Translation Services" [ref=e98] [cursor=pointer]:
                   - /url: /resources/emergency-translation
-              - listitem [ref=e201]:
-                - link "Annual Reports" [ref=e202] [cursor=pointer]:
+              - listitem [ref=e99]:
+                - link "Annual Reports" [ref=e100] [cursor=pointer]:
                   - /url: /resources/annual-reports
-              - listitem [ref=e203]:
-                - link "Knowledge Base" [ref=e204] [cursor=pointer]:
+              - listitem [ref=e101]:
+                - link "Knowledge Base" [ref=e102] [cursor=pointer]:
                   - /url: /company/knowledge-base
-          - generic [ref=e205]:
-            - paragraph [ref=e206]: Get Involved
-            - list [ref=e207]:
-              - listitem [ref=e208]:
-                - link "Volunteer" [ref=e209] [cursor=pointer]:
+          - generic [ref=e103]:
+            - paragraph [ref=e104]: Get Involved
+            - list [ref=e105]:
+              - listitem [ref=e106]:
+                - link "Volunteer" [ref=e107] [cursor=pointer]:
                   - /url: https://tally.so/r/3qoXjg
-              - listitem [ref=e210]:
-                - link "Career" [ref=e211] [cursor=pointer]:
+              - listitem [ref=e108]:
+                - link "Career" [ref=e109] [cursor=pointer]:
                   - /url: https://employmenthero.com/mosaic-mc
-              - listitem [ref=e212]:
-                - link "Donate" [ref=e213] [cursor=pointer]:
+              - listitem [ref=e110]:
+                - link "Donate" [ref=e111] [cursor=pointer]:
                   - /url: /donate
-      - generic [ref=e215]:
-        - generic [ref=e216]:
-          - paragraph [ref=e217]: Acknowledgement of Country
-          - paragraph [ref=e218]: Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.
-          - paragraph [ref=e219]: We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
-        - generic [ref=e220]:
-          - paragraph [ref=e221]: About Mosaic
-          - paragraph [ref=e222]: Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.
-          - generic [ref=e223]:
-            - link "Contact" [ref=e224] [cursor=pointer]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: Acknowledgement of Country
+          - paragraph [ref=e116]: Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.
+          - paragraph [ref=e117]: We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
+        - generic [ref=e118]:
+          - paragraph [ref=e119]: About Mosaic
+          - paragraph [ref=e120]: Supporting multicultural communities across NSW with culturally appropriate services and programs. Mosaic Multicultural Connections provides settlement support, home care, family services, language and translation, and community engagement. Our multilingual team partners with communities to improve access, inclusion, and wellbeing.
+          - generic [ref=e121]:
+            - link "Contact" [ref=e122] [cursor=pointer]:
               - /url: /contact
-              - img [ref=e225]
+              - img [ref=e123]
               - text: Contact
-            - link "Refer a client" [ref=e227] [cursor=pointer]:
+            - link "Refer a client" [ref=e125] [cursor=pointer]:
               - /url: https://tally.so/r/w4veNk
-              - img [ref=e228]
+              - img [ref=e126]
               - text: Refer
-            - link "Leave a Google Review" [ref=e231] [cursor=pointer]:
+            - link "Leave a Google Review" [ref=e129] [cursor=pointer]:
               - /url: https://g.page/r/CS2sb5dkY56KEBM/review
-              - img [ref=e232]
+              - img [ref=e130]
               - text: Leave a Google Review
-            - link "Share Your Feedback" [ref=e234] [cursor=pointer]:
+            - link "Share Your Feedback" [ref=e132] [cursor=pointer]:
               - /url: https://forms.mosaicmc.org.au/Feedback
-              - img [ref=e235]
+              - img [ref=e133]
               - text: Share Your Feedback
-    - generic "Language selection" [ref=e238]:
-      - generic [ref=e240]:
-        - button "Change language to AR" [ref=e241] [cursor=pointer]:
-          - generic [ref=e242]: 🇸🇦
-          - generic [ref=e243]: AR
-        - button "Change language to ZH" [ref=e244] [cursor=pointer]:
-          - generic [ref=e245]: 🇨🇳
-          - generic [ref=e246]: ZH
-        - button "Change language to ZH" [ref=e247] [cursor=pointer]:
-          - generic [ref=e248]: 🇹🇼
-          - generic [ref=e249]: ZH
-        - button "Change language to EN" [ref=e250] [cursor=pointer]:
-          - generic [ref=e251]: 🇦🇺
-          - generic [ref=e252]: EN
-        - button "Change language to TL" [ref=e253] [cursor=pointer]:
-          - generic [ref=e254]: 🇵🇭
-          - generic [ref=e255]: TL
-        - button "Change language to HI" [ref=e256] [cursor=pointer]:
-          - generic [ref=e257]: 🇮🇳
-          - generic [ref=e258]: HI
-        - button "Change language to IT" [ref=e259] [cursor=pointer]:
-          - generic [ref=e260]: 🇮🇹
-          - generic [ref=e261]: IT
-        - button "Change language to RU" [ref=e262] [cursor=pointer]:
-          - generic [ref=e263]: 🇷🇺
-          - generic [ref=e264]: RU
-        - button "Change language to KU" [ref=e265] [cursor=pointer]:
-          - generic [ref=e266]: 🏳️
-          - generic [ref=e267]: KU
-        - button "Change language to FA" [ref=e268] [cursor=pointer]:
-          - generic [ref=e269]: 🇮🇷
-          - generic [ref=e270]: FA
-        - button "Change language to PT" [ref=e271] [cursor=pointer]:
-          - generic [ref=e272]: 🇵🇹
-          - generic [ref=e273]: PT
-        - button "Change language to SM" [ref=e274] [cursor=pointer]:
-          - generic [ref=e275]: 🇼🇸
-          - generic [ref=e276]: SM
-        - button "Change language to ES" [ref=e277] [cursor=pointer]:
-          - generic [ref=e278]: 🇪🇸
-          - generic [ref=e279]: ES
-        - button "Change language to SW" [ref=e280] [cursor=pointer]:
-          - generic [ref=e281]: 🇰🇪
-          - generic [ref=e282]: SW
-        - button "Change language to TH" [ref=e283] [cursor=pointer]:
-          - generic [ref=e284]: 🇹🇭
-          - generic [ref=e285]: TH
-        - button "Change language to UK" [ref=e286] [cursor=pointer]:
-          - generic [ref=e287]: 🇺🇦
-          - generic [ref=e288]: UK
-        - button "Change language to VI" [ref=e289] [cursor=pointer]:
-          - generic [ref=e290]: 🇻🇳
-          - generic [ref=e291]: VI
-    - generic [ref=e293]:
-      - paragraph [ref=e294]: © 2024 Mosaic Multicultural Connections. All rights reserved. · 2025
-      - generic [ref=e295]:
-        - generic [ref=e296]: Follow Us
-        - link "Visit LinkedIn" [ref=e297] [cursor=pointer]:
+    - generic "Language selection" [ref=e136]:
+      - generic [ref=e138]:
+        - button "Change language to AR" [ref=e139] [cursor=pointer]:
+          - generic [ref=e140]: 🇸🇦
+          - generic [ref=e141]: AR
+        - button "Change language to ZH" [ref=e142] [cursor=pointer]:
+          - generic [ref=e143]: 🇨🇳
+          - generic [ref=e144]: ZH
+        - button "Change language to ZH" [ref=e145] [cursor=pointer]:
+          - generic [ref=e146]: 🇹🇼
+          - generic [ref=e147]: ZH
+        - button "Change language to EN" [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]: 🇦🇺
+          - generic [ref=e150]: EN
+        - button "Change language to TL" [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]: 🇵🇭
+          - generic [ref=e153]: TL
+        - button "Change language to HI" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: 🇮🇳
+          - generic [ref=e156]: HI
+        - button "Change language to IT" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: 🇮🇹
+          - generic [ref=e159]: IT
+        - button "Change language to RU" [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]: 🇷🇺
+          - generic [ref=e162]: RU
+        - button "Change language to KU" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]: 🏳️
+          - generic [ref=e165]: KU
+        - button "Change language to FA" [ref=e166] [cursor=pointer]:
+          - generic [ref=e167]: 🇮🇷
+          - generic [ref=e168]: FA
+        - button "Change language to PT" [ref=e169] [cursor=pointer]:
+          - generic [ref=e170]: 🇵🇹
+          - generic [ref=e171]: PT
+        - button "Change language to SM" [ref=e172] [cursor=pointer]:
+          - generic [ref=e173]: 🇼🇸
+          - generic [ref=e174]: SM
+        - button "Change language to ES" [ref=e175] [cursor=pointer]:
+          - generic [ref=e176]: 🇪🇸
+          - generic [ref=e177]: ES
+        - button "Change language to SW" [ref=e178] [cursor=pointer]:
+          - generic [ref=e179]: 🇰🇪
+          - generic [ref=e180]: SW
+        - button "Change language to TH" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]: 🇹🇭
+          - generic [ref=e183]: TH
+        - button "Change language to UK" [ref=e184] [cursor=pointer]:
+          - generic [ref=e185]: 🇺🇦
+          - generic [ref=e186]: UK
+        - button "Change language to VI" [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]: 🇻🇳
+          - generic [ref=e189]: VI
+    - generic [ref=e191]:
+      - paragraph [ref=e192]: © 2024 Mosaic Multicultural Connections. All rights reserved. · 2025
+      - generic [ref=e193]:
+        - generic [ref=e194]: Follow Us
+        - link "Visit LinkedIn" [ref=e195] [cursor=pointer]:
           - /url: https://au.linkedin.com/company/mosaic-multicultural-connections
-          - img [ref=e298]
-        - link "Visit Instagram" [ref=e300] [cursor=pointer]:
+          - img [ref=e196]
+        - link "Visit Instagram" [ref=e198] [cursor=pointer]:
           - /url: https://www.instagram.com/mosaicmc/
-          - img [ref=e301]
-        - link "Visit Facebook" [ref=e303] [cursor=pointer]:
+          - img [ref=e199]
+        - link "Visit Facebook" [ref=e201] [cursor=pointer]:
           - /url: https://www.facebook.com/mosaicmulticulturalconnections/
-          - img [ref=e304]
+          - img [ref=e202]
   - button "Go to top":
     - generic:
       - img
