@@ -18,6 +18,8 @@ jobs:
       - run: npm ci
       - name: Australian English audit (non-blocking)
         run: npm run audit:aus || true
+      - name: Secret scanning
+        run: npm run scan:secrets
       - run: npm run lint
       - run: npm run test -- --coverage
       - run: npm run build

@@ -1,10 +1,19 @@
 type Req = { query?: Record<string, unknown> };
 type Res = { status: (code: number) => Res; json: (body: unknown) => void };
 
+import { getValidatedEnv } from "./_env";
+
 export default async function handler(req: Req, res: Res) {
   const fetchFn: (input: string, init?: RequestInit) => Promise<Response> = (globalThis as unknown as { fetch: (input: string, init?: RequestInit) => Promise<Response> }).fetch;
-  const orgId = process.env.EH_ORG_ID;
-  const token = process.env.EH_ATS_TOKEN;
+  let orgId: string, token: string;
+  try {
+    const env = getValidatedEnv();
+    orgId = env.EH_ORG_ID;
+    token = env.EH_ATS_TOKEN;
+  } catch {
+    res.status(500).json({ error: "Missing or invalid environment variables" });
+    return;
+  }
 
   if (!orgId || !token) {
     res.status(500).json({ error: "Missing environment variables", missing: { EH_ORG_ID: !orgId, EH_ATS_TOKEN: !token } });

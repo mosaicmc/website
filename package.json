@@ -1,7 +1,7 @@
 {
   "name": "mosaic-multicultural-connections",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "prebuild": "tsc scripts/generate-search-index.ts --outDir scripts/dist --module ESNext --target ES2020 --moduleResolution node --skipLibCheck --types node && node scripts/dist/generate-search-index.js",
@@ -17,7 +17,8 @@
     "ingest:testimonials:md": "ts-node --transpile-only scripts/ingest-testimonials-from-md.ts",
     "test": "vitest",
     "test:ui": "playwright test",
-    "test:puppeteer": "node tests/section-order.puppeteer.cjs"
+    "test:puppeteer": "node tests/section-order.puppeteer.cjs",
+    "scan:secrets": "node scripts/scan-secrets.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",
