@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, ChevronDown, ChevronUp, Heart, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Team05 from '../../components/ui/team-05';
+import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
 
 const CommunityEngagementPage = () => {
@@ -408,41 +408,55 @@ const CommunityEngagementPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <Team05
-        title="Meet Your Community Engagement Team"
-        description="Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development."
-        teamMembers={sortedMembers}
-        accentColor="leaf"
-        showContactIcons={false}
-        headerChildren={
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
-              {locations.map((loc) => {
-                const isActive = selectedLocation === loc;
-                return (
-                  <button
-                    key={loc}
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setSelectedLocation(loc)}
-                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background ${
-                      isActive ? 'bg-leaf text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
-                    }`}
-                    title={`Show ${loc === "All" ? "all locations" : loc}`}
-                  >
-                    {loc}
-                  </button>
-                );
-              })}
+      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground">Meet Your Community Engagement Team</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development.
+            </p>
+          </div>
+          <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+            {locations.map((loc) => {
+              const isActive = selectedLocation === loc;
+              return (
+                <button
+                  key={loc}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setSelectedLocation(loc)}
+                  className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background ${
+                    isActive ? 'bg-leaf text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                  }`}
+                  title={`Show ${loc === "All" ? "all locations" : loc}`}
+                >
+                  {loc}
+                </button>
+              );
+            })}
+          </div>
+          {(() => {
+            const members = sortedMembers.map((m) => ({
+              name: m.name,
+              role: m.role,
+              languages: m.languages,
+              avatar: m.image,
+              bio: m.experience ?? m.qualifications ?? '',
+              credentialsSummary: m.qualifications,
+              location: m.location,
+            }));
+            return <ManagementSection title="" members={members} accentColor="leaf" />;
+          })()}
+          <div className="text-center mt-16">
+            <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
+              <h3 className="text-xl font-bold text-foreground mb-4">Collaborative Community Approach</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Our community engagement team works collaboratively with community leaders, cultural organisations, government agencies, and local businesses to create inclusive programs that celebrate diversity and build stronger communities. We believe that the best community engagement happens when everyone has a voice and an opportunity to contribute their unique perspectives and talents.
+              </p>
             </div>
           </div>
-        }
-        bottomSection={{
-          title: "Collaborative Community Approach",
-          description: "Our community engagement team works collaboratively with community leaders, cultural organisations, government agencies, and local businesses to create inclusive programs that celebrate diversity and build stronger communities. We believe that the best community engagement happens when everyone has a voice and an opportunity to contribute their unique perspectives and talents."
-        }}
-      />
+        </div>
+      </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">

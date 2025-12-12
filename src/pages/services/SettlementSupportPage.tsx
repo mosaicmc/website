@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Globe, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Team05 from '../../components/ui/team-05';
+import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
 import MirjaImg from './SETS Team 128px/SETSTeam_Mirja_128px.webp';
 import MadanImg from './SETS Team 128px/SETSTeam_Madan_128px.webp';
@@ -520,40 +520,55 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      <Team05
-        title="Meet Your Settlement Support Team"
-        description="Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
-        teamMembers={sortedMembers}
-        accentColor="sky"
-        avatarSize={128}
-        headerChildren={
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
-              {locations.map((loc) => {
-                const isActive = selectedLocation === loc;
-                return (
-                  <button
-                    key={loc}
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setSelectedLocation(loc)}
-                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${
-                      isActive ? 'bg-ocean text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
-                    }`}
-                    title={`Show ${loc === "All" ? "all locations" : loc}`}
-                  >
-                    {loc}
-                  </button>
-                );
-              })}
+      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground">Meet Your Settlement Support Team</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support.
+            </p>
+          </div>
+          <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+            {locations.map((loc) => {
+              const isActive = selectedLocation === loc;
+              return (
+                <button
+                  key={loc}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setSelectedLocation(loc)}
+                  className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background ${
+                    isActive ? 'bg-sky text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                  }`}
+                  title={`Show ${loc === "All" ? "all locations" : loc}`}
+                >
+                  {loc}
+                </button>
+              );
+            })}
+          </div>
+          {(() => {
+            const members = sortedMembers.map((m) => ({
+              name: m.name,
+              role: m.role,
+              languages: m.languages,
+              avatar: m.image,
+              bio: m.experience ?? m.qualifications ?? '',
+              credentialsSummary: m.qualifications,
+              location: m.location,
+            }));
+            return <ManagementSection title="" members={members} accentColor="sky" />;
+          })()}
+          <div className="text-center mt-16">
+            <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
+              <h3 className="text-xl font-bold text-foreground mb-4">Comprehensive Settlement Approach</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community integration, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations.
+              </p>
             </div>
           </div>
-        }
-        bottomSection={{
-          title: "Comprehensive Settlement Approach",
-          description: "Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community integration, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
-        }}
-      />
+        </div>
+      </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">

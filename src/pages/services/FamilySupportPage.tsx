@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Team05 from '../../components/ui/team-05';
+import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
 import RelatedServices from '../../components/RelatedServices';
 
@@ -455,44 +455,55 @@ const FamilySupportPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <Team05
-        title="Meet Your Complete Family Support Team"
-        description="Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families."
-        teamMembers={sortedMembers}
-        accentColor="sun"
-        showDecoration={false}
-        avatarSize={128}
-        showContactIcons={false}
-        showImageOverlay={false}
-        headerChildren={
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
-              {locations.map((loc) => {
-                const isActive = selectedLocation === loc;
-                return (
-                  <button
-                    key={loc}
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setSelectedLocation(loc)}
-                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${
-                      isActive ? 'bg-sun text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
-                    }`}
-                    title={`Show ${loc === "All" ? "all locations" : loc}`}
-                  >
-                    {loc}
-                  </button>
-                );
-              })}
+      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground">Meet Your Complete Family Support Team</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families.
+            </p>
+          </div>
+          <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+            {locations.map((loc) => {
+              const isActive = selectedLocation === loc;
+              return (
+                <button
+                  key={loc}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setSelectedLocation(loc)}
+                  className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2 focus:ring-offset-background ${
+                    isActive ? 'bg-sun text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                  }`}
+                  title={`Show ${loc === "All" ? "all locations" : loc}`}
+                >
+                  {loc}
+                </button>
+              );
+            })}
+          </div>
+          {(() => {
+            const members = sortedMembers.map((m) => ({
+              name: m.name,
+              role: m.role,
+              languages: m.languages,
+              avatar: m.image,
+              bio: m.experience ?? m.qualifications ?? '',
+              credentialsSummary: m.qualifications,
+              location: m.location,
+            }));
+            return <ManagementSection title="" members={members} accentColor="sun" />;
+          })()}
+          <div className="text-center mt-16">
+            <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
+              <h3 className="text-xl font-bold text-foreground mb-4">Integrated Support Approach</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time.
+              </p>
             </div>
           </div>
-        }
-        bottomSection={{
-          title: "Integrated Support Approach",
-          description: "Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
-        }}
-      />
+        </div>
+      </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">

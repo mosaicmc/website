@@ -18,6 +18,7 @@ type ManagementMemberCard = {
   name: string;
   role?: string;
   languages?: string[];
+  location?: string;
   avatar?: string;
   bio: string;
   credentialsSummary?: string;
@@ -28,9 +29,11 @@ type ManagementMemberCard = {
 export function ManagementSection({
   title,
   members,
+  accentColor = "ocean",
 }: {
   title?: string;
   members: ManagementMemberCard[];
+  accentColor?: "ocean" | "sky" | "care" | "earth" | "leaf" | "sun";
 }) {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<ManagementMemberCard | null>(null);
@@ -56,11 +59,67 @@ export function ManagementSection({
           {members.map((m, idx) => (
             <Card
               key={m.id ?? `${m.name}-${idx}`}
-              className="p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition"
+              className={`group relative p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition ${
+                accentColor === "care"
+                  ? "hover:shadow-care/25"
+                  : accentColor === "sky"
+                  ? "hover:shadow-sky/25"
+                  : accentColor === "earth"
+                  ? "hover:shadow-earth/25"
+                  : accentColor === "leaf"
+                  ? "hover:shadow-leaf/25"
+                  : accentColor === "sun"
+                  ? "hover:shadow-sun/25"
+                  : "hover:shadow-ocean/25"
+              } hover:scale-[1.01]`}
             >
               <CardContent className="p-0">
-                <div className="mx-auto mb-6">
-                  <Avatar className="h-20 w-20 md:h-24 md:w-24 border-4 border-white dark:border-slate-700 shadow-lg">
+                <div className="relative mx-auto mb-6">
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 -top-2 w-16 h-1 rounded-b-full opacity-60 ${
+                      accentColor === "care"
+                        ? "bg-care"
+                        : accentColor === "sky"
+                        ? "bg-sky"
+                        : accentColor === "earth"
+                        ? "bg-earth"
+                        : accentColor === "leaf"
+                        ? "bg-leaf"
+                        : accentColor === "sun"
+                        ? "bg-sun"
+                        : "bg-ocean"
+                    }`}
+                  />
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 top-0 h-28 w-28 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition ${
+                      accentColor === "care"
+                        ? "bg-care/30"
+                        : accentColor === "sky"
+                        ? "bg-sky/30"
+                        : accentColor === "earth"
+                        ? "bg-earth/30"
+                        : accentColor === "leaf"
+                        ? "bg-leaf/30"
+                        : accentColor === "sun"
+                        ? "bg-sun/30"
+                        : "bg-ocean/30"
+                    }`}
+                  />
+                  <Avatar
+                    className={`h-[128px] w-[128px] md:h-[128px] md:w-[128px] border-4 border-white dark:border-slate-700 shadow-lg transition-transform group-hover:scale-105 ${
+                      accentColor === "care"
+                        ? "group-hover:shadow-care/40"
+                        : accentColor === "sky"
+                        ? "group-hover:shadow-sky/40"
+                        : accentColor === "earth"
+                        ? "group-hover:shadow-earth/40"
+                        : accentColor === "leaf"
+                        ? "group-hover:shadow-leaf/40"
+                        : accentColor === "sun"
+                        ? "group-hover:shadow-sun/40"
+                        : "group-hover:shadow-ocean/40"
+                    }`}
+                  >
                     {m.avatar && (
                       <AvatarImage src={m.avatar} alt={m.name} loading="lazy" decoding="async" />
                     )}
@@ -72,9 +131,28 @@ export function ManagementSection({
                 <div className="md:flex-1">
                   <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">{m.name}</h3>
                   {m.role && (
-                    <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-sky dark:border-sky/20 px-2.5 py-0.5 text-xs font-semibold mb-2">
+                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-2 ${
+                      accentColor === "care"
+                        ? "bg-care/10 text-care border-care/20"
+                        : accentColor === "sky"
+                        ? "bg-sky/10 text-sky border-sky/20"
+                        : accentColor === "earth"
+                        ? "bg-earth/10 text-earth border-earth/20"
+                        : accentColor === "leaf"
+                        ? "bg-leaf/10 text-leaf border-leaf/20"
+                        : accentColor === "sun"
+                        ? "bg-sun/10 text-sun border-sun/20"
+                        : "bg-ocean/10 text-ocean border-ocean/20"
+                    }`}>
                       {m.role}
                     </span>
+                  )}
+                  {m.location && (
+                    <div className="mb-2" aria-label={`Location for ${m.name}`}>
+                      <span className="inline-flex items-center rounded-full bg-muted text-muted-foreground border border-border px-2 py-0.5 text-[11px]">
+                        {m.location}
+                      </span>
+                    </div>
                   )}
                   {Array.isArray(m.languages) && m.languages.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-2" aria-label={`Languages for ${m.name}`}>
@@ -99,7 +177,19 @@ export function ManagementSection({
                         <Button
                           aria-label={`Read bio for ${m.name}`}
                           onClick={() => { setSelected(m); setOpen(true); }}
-                          className="mt-1"
+                          className={`mt-1 ${
+                            accentColor === "care"
+                              ? "hover:shadow-care/25"
+                              : accentColor === "sky"
+                              ? "hover:shadow-sky/25"
+                              : accentColor === "earth"
+                              ? "hover:shadow-earth/25"
+                              : accentColor === "leaf"
+                              ? "hover:shadow-leaf/25"
+                              : accentColor === "sun"
+                              ? "hover:shadow-sun/25"
+                              : "hover:shadow-ocean/25"
+                          }`}
                         >
                           Read Bio
                         </Button>
@@ -128,13 +218,40 @@ export function ManagementSection({
                     <Button
                       aria-label={`Read bio for ${m.name}`}
                       onClick={() => { setSelected(m); setOpen(true); }}
-                      className="mt-1"
+                      className={`mt-1 ${
+                        accentColor === "care"
+                          ? "hover:shadow-care/25"
+                          : accentColor === "sky"
+                          ? "hover:shadow-sky/25"
+                          : accentColor === "earth"
+                          ? "hover:shadow-earth/25"
+                          : accentColor === "leaf"
+                          ? "hover:shadow-leaf/25"
+                          : accentColor === "sun"
+                          ? "hover:shadow-sun/25"
+                          : "hover:shadow-ocean/25"
+                      }`}
                     >
                       Read Bio
                     </Button>
                   )}
                 </div>
               </CardContent>
+              <div
+                className={`absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition blur-sm ${
+                  accentColor === "care"
+                    ? "bg-care"
+                    : accentColor === "sky"
+                    ? "bg-sky"
+                    : accentColor === "earth"
+                    ? "bg-earth"
+                    : accentColor === "leaf"
+                    ? "bg-leaf"
+                    : accentColor === "sun"
+                    ? "bg-sun"
+                    : "bg-ocean"
+                }`}
+              />
             </Card>
           ))}
         </div>
