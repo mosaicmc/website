@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { Heart, Phone, ArrowRight, CheckCircle, Users, Home, Clock, ShieldCheck, Megaphone, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Team05 from '../../components/ui/team-05';
+import { ManagementSection } from '@/components/ManagementSection';
 import { GlassCard } from '@/components/ui/GlassCard';
 import RelatedServices from '../../components/RelatedServices';
 
@@ -244,7 +244,17 @@ const AgedCarePage = () => {
                 <GlassCard key={index} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30 group hover:scale-105 animate-fade-in-up" padding="lg" style={{ animationDelay: `${index * 100}ms` }}>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                      {program.icon}
+                      {program.title === "Aged Care Volunteer Visitors Scheme" ? (
+                        <img
+                          src="/images/ACVVS_logo.svg"
+                          alt="ACVVS logo"
+                          className="block h-7 w-7 object-contain object-center"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : (
+                        program.icon
+                      )}
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-care transition-colors">{program.title}</h3>
                   </div>
@@ -257,6 +267,11 @@ const AgedCarePage = () => {
                       </li>
                     ))}
                   </ul>
+                  {program.title === "Aged Care Volunteer Visitors Scheme" && (
+                    <p className="mt-3 text-xs italic text-muted-foreground">
+                      Funded by the Australian Government
+                    </p>
+                  )}
                 </GlassCard>
               ))}
             </div>
@@ -394,40 +409,47 @@ const AgedCarePage = () => {
       </section>
 
       {/* Team Section */}
-      <Team05
-        title="Meet Your Aged Care Team"
-        description="Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
-        teamMembers={sortedMembers}
-        accentColor="care"
-        avatarSize={128}
-        headerChildren={
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
-              {locations.map((loc) => {
-                const isActive = selectedLocation === loc;
-                return (
-                  <button
-                    key={loc}
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setSelectedLocation(loc)}
-                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background ${
-                      isActive ? 'bg-care text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
-                    }`}
-                    title={`Show ${loc === "All" ? "all locations" : loc}`}
-                  >
-                    {loc}
-                  </button>
-                );
-              })}
-            </div>
+      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground">Meet Your Aged Care Team</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey.
+            </p>
           </div>
-        }
-        bottomSection={{
-          title: "Culturally Sensitive Care Approach",
-          description: "Our team understands that quality home care goes beyond medical needs. We honour cultural traditions, dietary requirements, religious practices, and family dynamics while delivering professional care services. Our multilingual staff and cultural competency training ensure every client receives care that respects their heritage and values."
-        }}
-      />
+          <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+            {locations.map((loc) => {
+              const isActive = selectedLocation === loc;
+              return (
+                <button
+                  key={loc}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setSelectedLocation(loc)}
+                  className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background ${
+                    isActive ? 'bg-care text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                  }`}
+                  title={`Show ${loc === "All" ? "all locations" : loc}`}
+                >
+                  {loc}
+                </button>
+              );
+            })}
+          </div>
+          {(() => {
+            const members = sortedMembers.map((m) => ({
+              name: m.name,
+              role: m.role,
+              languages: m.languages,
+              avatar: m.image,
+              bio: m.experience ?? m.qualifications ?? '',
+              credentialsSummary: m.qualifications,
+              location: m.location,
+            }));
+            return <ManagementSection title="" members={members} accentColor="care" />;
+          })()}
+        </div>
+      </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">

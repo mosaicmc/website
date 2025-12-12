@@ -8,6 +8,7 @@ type GlassCardProps = {
   padding?: "none" | "sm" | "md" | "lg";
   hover?: boolean;
   bordered?: boolean;
+  style?: React.CSSProperties;
 };
 
 const paddingMap = {
@@ -24,10 +25,12 @@ export function GlassCard({
   padding = "md",
   hover = true,
   bordered = true,
+  style,
 }: GlassCardProps) {
   const Comp = as;
   return (
     <Comp
+      style={style}
       className={cn(
         // Glass morphism using theme tokens; subtle in dark
         "relative isolate bg-card/80 dark:bg-card/40 backdrop-blur-md",

@@ -216,6 +216,10 @@ const AboutPage = () => {
       webp: "/images/Management 128px/Management_Richard_128px.webp",
       jpg: "/images/Management 128px/Management_Richard_128px.jpg",
     },
+    "Karthik Ramamurthy": {
+      webp: "/images/Management 128px/Management_Karthik_128px.webp",
+      jpg: "/images/Management 128px/Management_Karthik_128px.jpg",
+    },
     "Jawaid Pardehi": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
       jpg: "/images/Management 128px/Management_Jawaid_128.jpg",

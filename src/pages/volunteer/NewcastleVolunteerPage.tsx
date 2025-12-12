@@ -213,9 +213,9 @@ export default function NewcastleVolunteerPage() {
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-care text-white flex items-center justify-center">
                         <img
-                          src="/images/ACVVS logo-WHITE-shorten.jpeg"
+                          src="/images/ACVVS_logo.svg"
                           alt="ACVVS logo"
-                          className="block h-10 w-10 object-contain object-center"
+                          className="block h-7 w-7 object-contain object-center"
                           loading="lazy"
                           decoding="async"
                         />
