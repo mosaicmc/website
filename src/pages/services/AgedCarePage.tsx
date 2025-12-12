@@ -138,7 +138,7 @@ const AgedCarePage = () => {
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Mosaic Multicultural - Home Care Services</title>
+        <title>Mosaic Multicultural - Aged Care Services</title>
         <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
       </Helmet>
       <FAQSchema faqs={faqData} name="Home Care FAQs" />
@@ -157,19 +157,13 @@ const AgedCarePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <Heart className="mr-2 h-4 w-4 text-care" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">Home Care Services</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">Aged Care Services</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Culturally Appropriate Home Care</h1>
+            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Culturally Appropriate Care</h1>
             <p className="text-xl text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Honouring traditions and providing comfort in familiar languages while delivering professional home care services.
+              Honouring traditions and providing comfort in familiar languages while delivering professional home care and volunteer visitor services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Link
-                to="#programs"
-                className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2"
-              >
-                Explore Our Home Care Programs
-              </Link>
               <a
                 href="tel:1800813205"
                 className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2"
@@ -185,7 +179,92 @@ const AgedCarePage = () => {
 
       
 
-      {/* Eligibility section placed directly after hero */}
+      {/* Programs Showcase with enhanced animations */}
+      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 animate-fade-in-up">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg animate-fade-in-down">
+                <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
+                <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
+              </div>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Aged Care Programs</h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Support at Home (SaH)",
+                  description: "Tailored in‑home care to help you stay independent, from everyday support to nursing and allied health.",
+                  icon: <Home className="h-6 w-6" />,
+                  features: [
+                    "Domestic assistance and personal care",
+                    "Meal preparation and shopping",
+                    "Transport to appointments",
+                    "Care coordination in your language"
+                  ]
+                },
+                {
+                  title: "CHSP Individual Social Support",
+                  description: "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
+                  icon: <Users className="h-6 w-6" />,
+                  features: [
+                    "Friendly home visits and welfare checks",
+                    "Assisted outings and social connection",
+                    "Help with technology and communication",
+                    "Links to community groups"
+                  ]
+                },
+                {
+                  title: "CHSP Flexible Respite",
+                  description: "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
+                  icon: <Clock className="h-6 w-6" />,
+                  features: [
+                    "In‑home day or overnight respite",
+                    "Planned respite with culturally aware staff",
+                    "Support for carers during emergencies",
+                    "Coordination with your care plan"
+                  ]
+                },
+                {
+                  title: "Aged Care Volunteer Visitors Scheme",
+                  description: "Regular volunteer visits to reduce social isolation, matched by language or culture where possible.",
+                  icon: <Users className="h-6 w-6" />,
+                  features: [
+                    "Matched volunteers who share culture or language",
+                    "Companionship and conversation",
+                    "Community outings where possible",
+                    "Ongoing coordinator support"
+                  ]
+                }
+              ].map((program, index) => (
+                <GlassCard key={index} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30 group hover:scale-105 animate-fade-in-up" padding="lg" style={{ animationDelay: `${index * 100}ms` }}>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                      {program.icon}
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-care transition-colors">{program.title}</h3>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-100 mb-4">{program.description}</p>
+                  <ul className="space-y-2">
+                    {program.features.map((f, i) => (
+                      <li key={i} className="flex items-start space-x-3">
+                        <span className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></span>
+                        <span className="text-gray-700 dark:text-gray-100 text-sm">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Eligibility section placed after programs */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -265,129 +344,7 @@ const AgedCarePage = () => {
                   </GlassCard>
                 ))}
               </div>
-              <div className="mt-12 grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How to Prepare</h3>
-                  <ul className="space-y-3">
-                    {[
-                      'Understand your rights under the new Statement of Rights',
-                      'Think about who will support your decisions',
-                      'Review your current care plan and preferences',
-                      'Know how to raise concerns if something isn’t right',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-care mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-100">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-xl p-6 backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">We’re Here to Help</h3>
-                  <p className="text-gray-700 dark:text-gray-100 mb-6">
-                    Our multilingual team can explain the changes in your language and help you prepare for the transition.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="tel:1800813205"
-                      className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25"
-                    >
-                      <Phone className="h-5 w-5 mr-2" /> Call 1800 813 205
-                    </a>
-                    <Link
-                      to="/contact"
-                      className="border-2 border-care text-care hover:bg-care hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
-                    >
-                      Contact Us Online <ArrowRight className="h-5 w-5 ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Service Overview with enhanced animations */}
-      <section id="programs" className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        {/* Glass morphism background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 animate-fade-in-up">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg animate-fade-in-down">
-                <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
-                <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
-              </div>
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Home Care Programs</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Support at Home (SaH)",
-                  description: "Tailored in‑home care to help you stay independent — from everyday support to nursing and allied health.",
-                  icon: <Home className="h-6 w-6" />,
-                  features: [
-                    "Domestic assistance and personal care",
-                    "Meal preparation and shopping",
-                    "Transport to appointments",
-                    "Care coordination in your language"
-                  ]
-                },
-                {
-                  title: "CHSP Individual Social Support",
-                  description: "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
-                  icon: <Users className="h-6 w-6" />,
-                  features: [
-                    "Friendly home visits and welfare checks",
-                    "Assisted outings and social connection",
-                    "Help with technology and communication",
-                    "Links to community groups"
-                  ]
-                },
-                {
-                  title: "CHSP Flexible Respite",
-                  description: "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
-                  icon: <Clock className="h-6 w-6" />,
-                  features: [
-                    "In‑home day or overnight respite",
-                    "Planned respite with culturally aware staff",
-                    "Support for carers during emergencies",
-                    "Coordination with your care plan"
-                  ]
-                },
-                {
-                  title: "ACVVS (Volunteer Visitors)",
-                  description: "Regular volunteer visits to reduce social isolation — matched by language or culture where possible.",
-                  icon: <Users className="h-6 w-6" />,
-                  features: [
-                    "Matched volunteers who share culture or language",
-                    "Companionship and conversation",
-                    "Community outings where possible",
-                    "Ongoing coordinator support"
-                  ]
-                }
-              ].map((program, index) => (
-                <GlassCard key={index} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30 group hover:scale-105 animate-fade-in-up" padding="lg" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                      {program.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-care transition-colors">{program.title}</h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-100 mb-4">{program.description}</p>
-                  <ul className="space-y-2">
-                    {program.features.map((f, i) => (
-                      <li key={i} className="flex items-start space-x-3">
-                        <span className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></span>
-                        <span className="text-gray-700 dark:text-gray-100 text-sm">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
-              ))}
+              
             </div>
           </div>
         </div>
@@ -438,7 +395,7 @@ const AgedCarePage = () => {
 
       {/* Team Section */}
       <Team05
-        title="Meet Your Home Care Team"
+        title="Meet Your Aged Care Team"
         description="Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
         teamMembers={sortedMembers}
         accentColor="care"

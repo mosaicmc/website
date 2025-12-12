@@ -156,12 +156,6 @@ const CommunityEngagementPage = () => {
               Community engagement is at the heart of everything we do at Mosaic. Our Community Engagement programs create meaningful opportunities for participation, cultural celebration, leadership development, and social connection across diverse communities. From organising vibrant multicultural festivals to developing community leaders and advocating for inclusive policies, we work to ensure every voice is heard and every culture is celebrated.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Link
-                to="#programs"
-                className="bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
-              >
-                Explore Community Programs
-              </Link>
               <a
                 href="tel:1800813205"
                 className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
@@ -174,95 +168,6 @@ const CommunityEngagementPage = () => {
         </div>
       </section>
 
-      
-
-      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="animate-fade-in-left">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Who Can Get Involved?</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3 group">
-                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.</span>
-                </div>
-                <div className="flex items-start space-x-3 group">
-                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.</span>
-                </div>
-                <div className="flex items-start space-x-3 group">
-                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only.</span>
-                </div>
-              </div>
-              <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
-                <div className="aspect-video">
-                  <img
-                    src="/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp"
-                    alt="Community engagement participation"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-spacing bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center subsection-break">
-            <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">How community engagement works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first hello to active participation</h2>
-            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-              Start with a conversation, find events that fit, and grow into leadership and advocacy with support at every step.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "1. Reach out",
-                description: "Call 1800 813 205 or visit a hub to discuss interests and goals.",
-                bullets: ["Interpreter support available", "Flexible paths for individuals and groups"],
-                icon: <Phone className="h-6 w-6 text-leaf" />
-              },
-              {
-                title: "2. Participate",
-                description: "Join festivals, workshops, playgroups, and volunteer roles that suit you.",
-                bullets: ["Clear schedules and supportive coordinators", "Skills-building while celebrating culture"],
-                icon: <Calendar className="h-6 w-6 text-leaf" />
-              },
-              {
-                title: "3. Lead & advocate",
-                description: "Access leadership training and represent your community in consultations.",
-                bullets: ["Mentoring and advisory group pathways", "Opportunities to influence programs and policy"],
-                icon: <Award className="h-6 w-6 text-leaf" />
-              }
-            ].map((step, idx) => (
-              <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-3 bg-leaf/10 rounded-2xl">{step.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
-                </div>
-                <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
-                <ul className="space-y-2">
-                  {step.bullets.map((bullet, bulletIdx) => (
-                    <li key={bulletIdx} className="flex items-start space-x-2 text-sm text-gray-600 dark:text-white/80">
-                      <span className="text-leaf mt-1">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Programs Showcase with enhanced animations */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
         
@@ -372,6 +277,94 @@ const CommunityEngagementPage = () => {
           </div>
         </div>
       </section>
+
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="animate-fade-in-left">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Who Can Get Involved?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.</span>
+                </div>
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.</span>
+                </div>
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only.</span>
+                </div>
+              </div>
+              <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
+                <div className="aspect-video">
+                  <img
+                    src="/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp"
+                    alt="Community engagement participation"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-spacing bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center subsection-break">
+            <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">How community engagement works</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first hello to active participation</h2>
+            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+              Start with a conversation, find events that fit, and grow into leadership and advocacy with support at every step.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "1. Reach out",
+                description: "Call 1800 813 205 or visit a hub to discuss interests and goals.",
+                bullets: ["Interpreter support available", "Flexible paths for individuals and groups"],
+                icon: <Phone className="h-6 w-6 text-leaf" />
+              },
+              {
+                title: "2. Participate",
+                description: "Join festivals, workshops, playgroups, and volunteer roles that suit you.",
+                bullets: ["Clear schedules and supportive coordinators", "Skills-building while celebrating culture"],
+                icon: <Calendar className="h-6 w-6 text-leaf" />
+              },
+              {
+                title: "3. Lead & advocate",
+                description: "Access leadership training and represent your community in consultations.",
+                bullets: ["Mentoring and advisory group pathways", "Opportunities to influence programs and policy"],
+                icon: <Award className="h-6 w-6 text-leaf" />
+              }
+            ].map((step, idx) => (
+              <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-3 bg-leaf/10 rounded-2xl">{step.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
+                </div>
+                <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
+                <ul className="space-y-2">
+                  {step.bullets.map((bullet, bulletIdx) => (
+                    <li key={bulletIdx} className="flex items-start space-x-2 text-sm text-gray-600 dark:text-white/80">
+                      <span className="text-leaf mt-1">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

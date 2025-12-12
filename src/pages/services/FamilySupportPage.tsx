@@ -188,12 +188,6 @@ const FamilySupportPage = () => {
               Raising children in a new country while honouring your culture is one of life's greatest challenges. At Mosaic, we offer two complementary family support programs designed for multicultural families at every stage. From intensive one-on-one support during difficult times to joyful community playgroups that celebrate your heritage, we're here to help your family not just survive, but truly thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Link
-                to="#programs"
-                className="bg-gradient-to-r from-sun to-sun/90 hover:from-sun/90 hover:to-sun text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sun/25 focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2"
-              >
-                Explore Our Family Programs
-              </Link>
               <a
                 href="tel:1800813205"
                 className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2"
@@ -206,7 +200,117 @@ const FamilySupportPage = () => {
         </div>
       </section>
 
-      
+      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
+              <span className="mr-2 h-2 w-2 rounded-full bg-sun animate-pulse"></span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Family Support Programs</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-left">
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
+                      <Shield className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">TEI Family Support Program</h3>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">
+                    Focused, professional help with parenting challenges, family relationships, and access to essential services. Qualified family workers provide 3 to 6 months of individual support plus evidence‑based parenting workshops like Circle of Security and Bringing Up Great Kids.
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
+                    What We Provide:
+                  </h4>
+                  <ul className="space-y-3">
+                    {[
+                      "Qualified casework tailored to your family's goals",
+                      "Evidence‑based parenting (Circle of Security, BUGK)",
+                      "Referrals to services and crisis support",
+                      "Flexible appointments at home, office or online"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
+              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+            </div>
+
+            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-right">
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
+                      <Heart className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">Playing Around the World (PAW)</h3>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">
+                    Weekly cultural playgroups where children explore different countries through arts, crafts, stories and play while parents build community connections. Supports heritage celebration and early learning development in a welcoming environment.
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
+                    What We Provide:
+                  </h4>
+                  <ul className="space-y-3">
+                    {[
+                      "Weekly cultural playgroups in Central Coast locations",
+                      "Play‑based early learning and school readiness",
+                      "Community garden activities and morning tea",
+                      "Drop‑in friendly; interpreter support available"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
+              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
@@ -307,143 +411,7 @@ const FamilySupportPage = () => {
         </div>
       </section>
 
-      {/* Services Showcase - Enhanced Features Design */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
-        {/* Enhanced glass morphism background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
-              <span className="mr-2 h-2 w-2 rounded-full bg-sun animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Family Support Programs</h2>
-          </div>
-
-          {/* Features Grid - Inspired by shadcn features-03 */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* TEI Family Support */}
-            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-left">
-              
-              {/* Gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Header with Icon */}
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
-                      <Shield className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">TEI Family Support Program</h3>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="mb-6">
-                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">
-                    Focused, professional help with parenting challenges, family relationships, and access to essential services. Qualified family workers provide 3 to 6 months of individual support plus evidence‑based parenting workshops like Circle of Security and Bringing Up Great Kids.
-                  </p>
-                </div>
-
-                {/* What We Provide */}
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
-                    What We Provide:
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Qualified casework tailored to your family's goals",
-                      "Evidence‑based parenting (Circle of Security, BUGK)",
-                      "Referrals to services and crisis support",
-                      "Flexible appointments at home, office or online"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                
-
-                {/* CTA intentionally omitted to match Settlement Support card hierarchy */}
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
-              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
-            </div>
-
-            {/* PAW Playgroup */}
-            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-right">
-              
-              {/* Gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Header with Icon */}
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
-                      <Heart className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">Playing Around the World (PAW)</h3>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="mb-6">
-                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">
-                    Weekly cultural playgroups where children explore different countries through arts, crafts, stories and play while parents build community connections. Supports heritage celebration and early learning development in a welcoming environment.
-                  </p>
-                </div>
-
-                {/* What We Provide */}
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
-                    What We Provide:
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Weekly cultural playgroups in Central Coast locations",
-                      "Play‑based early learning and school readiness",
-                      "Community garden activities and morning tea",
-                      "Drop‑in friendly; interpreter support available"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                
-
-                {/* CTA intentionally omitted to match Settlement Support card hierarchy */}
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
-              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

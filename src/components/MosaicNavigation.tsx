@@ -23,37 +23,12 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
 
-const services: {
+type ServiceNavItem = {
   title: string;
   href: string;
   description: string;
   icon: LucideIcon;
-}[] = [
-  {
-    title: "Settlement Support",
-    href: "/services/settlement-support",
-    description: "Help new migrants settle into Australian life with practical support and guidance.",
-    icon: Home,
-  },
-  {
-    title: "Home Care",
-    href: "/services/aged-care",
-    description: "Culturally appropriate home care services for multicultural communities.",
-    icon: Heart,
-  },
-  {
-    title: "Family Support",
-    href: "/services/family-support",
-    description: "Supporting families with children, parenting resources, and family wellbeing.",
-    icon: Users,
-  },
-  {
-    title: "Community Engagement",
-    href: "/services/community-engagement",
-    description: "Building stronger communities through events, programs, and connections.",
-    icon: Globe,
-  },
-];
+};
 
 const mainNavigation = [
   { title: "Home", href: "/" },
@@ -238,6 +213,33 @@ export default function MosaicNavigation() {
     }
     return location.pathname === href;
   };
+
+  const services: ServiceNavItem[] = [
+    {
+      title: t('services.settlement'),
+      href: "/services/settlement-support",
+      description: t('serviceCards.settlement.description'),
+      icon: Home,
+    },
+    {
+      title: t('services.agedCare'),
+      href: "/services/aged-care",
+      description: t('serviceCards.agedCare.description'),
+      icon: Heart,
+    },
+    {
+      title: t('services.familySupport'),
+      href: "/services/family-support",
+      description: t('serviceCards.familySupport.description'),
+      icon: Users,
+    },
+    {
+      title: t('services.communityEngagement'),
+      href: "/services/community-engagement",
+      description: t('serviceCards.communityEngagement.description'),
+      icon: Globe,
+    },
+  ];
 
   const handleCloseCrisisBanner = () => {
     setShowCrisisBanner(false);

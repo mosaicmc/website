@@ -12,7 +12,7 @@
   },
   "services": {
     "settlement": "Settlement Support",
-    "agedCare": "Home Care Services",
+    "agedCare": "Aged Care",
     "familySupport": "Family Support",
     "communityEngagement": "Community Engagement"
   },
@@ -44,8 +44,8 @@
       ]
     },
     "agedCare": {
-      "title": "Home Care Services",
-      "description": "Culturally appropriate home care services that respect traditions and provide comfort in familiar languages.",
+      "title": "Aged Care",
+      "description": "Culturally appropriate aged care services for multicultural communities.",
       "features": [
         "Home care packages",
         "Cultural activities",

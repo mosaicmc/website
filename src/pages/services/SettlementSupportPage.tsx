@@ -37,7 +37,7 @@ const SettlementSupportPage = () => {
       role: "Settlement Caseworker",
       location: "Newcastle",
       qualifications: "Master of Social Change and Development; Bachelor of Mass Communication.",
-      experience: "Maram has led international student initiatives and delivered hospitality and events programs, helping students gain recognition and awards.",
+      experience: "Experienced in leading international student initiatives and delivering hospitality and events programs, helping students gain recognition and awards.",
       languages: ["English", "Arabic"],
       image: MaramImg
     },
@@ -64,7 +64,7 @@ const SettlementSupportPage = () => {
       role: "Settlement Caseworker",
       location: "Newcastle",
       qualifications: "BAppSci (Human Geog); Adv Clinical Training Gestalt Psychotherapy; Grad Dip Gestalt Therapy.",
-      experience: "Across 25 years of community development, case management, engagement and counselling, Bronwyn has helped individuals and communities connect, heal and thrive.",
+      experience: "Over 25 years of experience in community development, case management, engagement and counselling, helping individuals and communities connect, heal and thrive.",
       languages: ["English", "Turkish (basic)", "Khmer (basic)", "German (basic)"],
       image: BronwynImg
     },
@@ -73,7 +73,7 @@ const SettlementSupportPage = () => {
       role: "Settlement Caseworker",
       location: "Armidale",
       qualifications: "Associate Diploma Arts (Peace Studies); Diploma Community Services (Case Management).",
-      experience: "Lee brings 20 years in case management, advocacy and community projects, strengthening access to services and community capacity.",
+      experience: "Over 20 years of experience in case management, advocacy and community projects, strengthening access to services and community capacity.",
       languages: ["English"],
       image: LeeImg
     },
@@ -100,7 +100,7 @@ const SettlementSupportPage = () => {
       role: "Settlement Caseworker",
       location: "Tamworth",
       qualifications: "Associate Degree in Policing Practice.",
-      experience: "Michael has more than 10 years in policing, community engagement and domestic violence support, helping individuals and families stay safe and access justice.",
+      experience: "Over 10 years of experience in policing, community engagement and domestic violence support, helping individuals and families stay safe and access justice.",
       languages: ["English"],
       image: MichaelImg
     },
@@ -108,9 +108,9 @@ const SettlementSupportPage = () => {
       name: "Madan Narayanamurthy",
       role: "Regional Coordinator, Settlement Services",
       location: "Armidale",
-      qualifications: "",
-      experience: "Madan coordinates regional settlement services, supporting staff and service partnerships across Armidale.",
-      languages: ["English"],
+      qualifications: "Cert IV in Community Services; Master's in IT.",
+      experience: "Over 10 years of experience in program and community development for non-profits, with a focus on managing digital fundraising and event promotions.",
+      languages: ["English", "Hindi", "Tamil", "Telugu"],
       image: MadanImg
     }
   ];
@@ -241,12 +241,6 @@ const SettlementSupportPage = () => {
               You’re not alone. Starting fresh in Australia can feel overwhelming when rentals, work and government systems are unfamiliar. For more than 40 years Mosaic Multicultural Connections has walked beside migrants and multicultural communities across the Central Coast, Newcastle, Maitland, Tamworth and Armidale so they can access services with confidence. We listen, map out a simple plan, and stay with you until you feel safe, connected and capable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '350ms' }}>
-              <Link
-                to="#programs"
-                className="bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky/25 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2"
-              >
-                Explore Settlement Programs
-              </Link>
               <a
                 href="tel:1800813205"
                 className="border-2 border-sky text-sky hover:bg-sky hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2"
@@ -262,104 +256,6 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      
-
-      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="stack-vertical">
-            <div className="animate-fade-in-left">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Who Can Access Our Services?</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">New migrants and multicultural communities within first 5 years</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Families needing help with housing, work, English or legal support</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Anyone seeking guidance to navigate Australian systems and services</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Professional interpreters available for all appointments</span>
-                  </div>
-                </div>
-                <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
-                  <div className="aspect-video">
-                    <img
-                      src="/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp"
-                      alt="Settlement support eligibility"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            
-          </div>
-        </div>
-      </section>
-
-      {/* How it works section */}
-      <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">How settlement support works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first call to feeling at home</h2>
-            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-              Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "1. Reach out",
-                description: "Call 1800 813 205, visit a Mosaic hub or ask a service provider to refer you.",
-                bullets: ["Free service with interpreters on request", "Available across Central Coast, Newcastle, Maitland, Tamworth & Armidale"],
-                icon: <Phone className="h-6 w-6 text-sky" />
-              },
-              {
-                title: "2. Plan together",
-                description: "We listen, map urgent needs, and create a settlement plan that fits your goals and family life.",
-                bullets: ["Housing, work, English, legal and safety actions prioritised", "Clear steps with dates, contacts and responsibilities"],
-                icon: <CheckCircle className="h-6 w-6 text-sky" />
-              },
-              {
-                title: "3. Walk the journey",
-                description: "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
-                bullets: ["Warm referrals to local partners and programmes", "Stay with us until you feel confident navigating Australia"],
-                icon: <Users className="h-6 w-6 text-sky" />
-              }
-            ].map((step, idx) => (
-              <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-3 bg-sky/10 rounded-2xl">{step.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
-                </div>
-                <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
-                <ul className="space-y-2">
-                  {step.bullets.map((bullet, bulletIdx) => (
-                    <li key={bulletIdx} className="flex items-start space-x-2 text-sm text-gray-600 dark:text-white/80">
-                      <span className="text-sky mt-1">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Showcase with enhanced animations */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
         
@@ -481,6 +377,103 @@ const SettlementSupportPage = () => {
           </div>
         </div>
       </section>
+
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="stack-vertical">
+            <div className="animate-fade-in-left">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Who Can Access Our Services?</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3 group">
+                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-gray-700 dark:text-gray-100">New migrants and multicultural communities within first 5 years</span>
+                  </div>
+                  <div className="flex items-start space-x-3 group">
+                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-gray-700 dark:text-gray-100">Families needing help with housing, work, English or legal support</span>
+                  </div>
+                  <div className="flex items-start space-x-3 group">
+                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-gray-700 dark:text-gray-100">Anyone seeking guidance to navigate Australian systems and services</span>
+                  </div>
+                  <div className="flex items-start space-x-3 group">
+                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-gray-700 dark:text-gray-100">Professional interpreters available for all appointments</span>
+                  </div>
+                </div>
+                <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
+                  <div className="aspect-video">
+                    <img
+                      src="/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp"
+                      alt="Settlement support eligibility"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </section>
+
+      {/* How it works section */}
+      <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">How settlement support works</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first call to feeling at home</h2>
+            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+              Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "1. Reach out",
+                description: "Call 1800 813 205, visit a Mosaic hub or ask a service provider to refer you.",
+                bullets: ["Free service with interpreters on request", "Available across Central Coast, Newcastle, Maitland, Tamworth & Armidale"],
+                icon: <Phone className="h-6 w-6 text-sky" />
+              },
+              {
+                title: "2. Plan together",
+                description: "We listen, map urgent needs, and create a settlement plan that fits your goals and family life.",
+                bullets: ["Housing, work, English, legal and safety actions prioritised", "Clear steps with dates, contacts and responsibilities"],
+                icon: <CheckCircle className="h-6 w-6 text-sky" />
+              },
+              {
+                title: "3. Walk the journey",
+                description: "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
+                bullets: ["Warm referrals to local partners and programmes", "Stay with us until you feel confident navigating Australia"],
+                icon: <Users className="h-6 w-6 text-sky" />
+              }
+            ].map((step, idx) => (
+              <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-3 bg-sky/10 rounded-2xl">{step.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
+                </div>
+                <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
+                <ul className="space-y-2">
+                  {step.bullets.map((bullet, bulletIdx) => (
+                    <li key={bulletIdx} className="flex items-start space-x-2 text-sm text-gray-600 dark:text-white/80">
+                      <span className="text-sky mt-1">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      
 
       
 
