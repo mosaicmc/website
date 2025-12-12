@@ -9,7 +9,6 @@ import MirjaImg from './SETS Team 128px/SETSTeam_Mirja_128px.webp';
 import MadanImg from './SETS Team 128px/SETSTeam_Madan_128px.webp';
 import BasimImg from './SETS Team 128px/SETSTeam_Basim_128px.webp';
 import PatriciaImg from './SETS Team 128px/SETSTeam_Patricia_128px.webp';
-import MichaelImg from './SETS Team 128px/SETSTeam_Michael_128px.webp';
 import BronwynImg from './SETS Team 128px/SETSTeam_Bronwyn_128px.webp';
 import RoseImg from './SETS Team 128px/SETSTeam_Rose_128px.webp';
 import SamiImg from './SETS Team 128px/SETSTeam_Sami_128px.webp';
@@ -63,13 +62,7 @@ const SettlementSupportPage = () => {
       languages: ["English"],
       image: SamiImg
     },
-    {
-      name: "Michael de Laroche Souvestre",
-      role: "Settlement Worker (Tamworth)",
-      qualifications: "Regional settlement support, community orientation specialist",
-      languages: ["English"],
-      image: MichaelImg
-    },
+    // Removed retired staff entry
     {
       name: "Basim Khudeda",
       role: "Settlement Worker (Armidale)",

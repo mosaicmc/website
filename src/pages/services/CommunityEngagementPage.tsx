@@ -28,13 +28,7 @@ const CommunityEngagementPage = () => {
       email: "n.meliendrez@mosaicmc.org.au",
       image: "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp"
     },
-    {
-      name: "Michael Freund",
-      role: "Coordinator Settlement Volunteers – Newcastle",
-      qualifications: "Volunteer coordination and community engagement",
-      languages: ["English"],
-      email: "m.freund@mosaicmc.org.au"
-    }
+    // Removed retired staff entry
   ];
 
   const faqData = [
