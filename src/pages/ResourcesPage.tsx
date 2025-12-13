@@ -63,7 +63,7 @@ const ResourcesPage = () => {
   const brochures = [
     { title: 'Settlement Support', href: '/brochures/settlement-support.pdf', color: 'sky' },
     { title: 'Mosaic Overview', href: '/brochures/generic-mosaic.pdf', color: 'sun' },
-    { title: 'Home Care', href: '/brochures/aged-care.pdf', color: 'earth' },
+    { title: 'Aged Care', href: '/brochures/aged-care.pdf', color: 'earth' },
     { title: 'Community Engagement', href: '/brochures/community-engagement.pdf', color: 'leaf' },
   ];
 
@@ -114,19 +114,19 @@ const ResourcesPage = () => {
       <section className="py-6 bg-background border-y border-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
-            <Card className="group">
+            <Card className="group h-full flex flex-col">
               <CardHeader className="p-4 border-b border-border">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-2">
                     <AlertTriangle className="h-5 w-5" />
                   </span>
                   <div>
-                    <div className="font-semibold">Call 000</div>
+                    <div className="text-lg font-semibold text-foreground">Call 000</div>
                     <div className="text-xs text-muted-foreground">Police • Fire • Ambulance</div>
                   </div>
                 </div>
               </CardHeader>
-              <CardFooter className="p-4">
+              <CardFooter className="p-4 mt-auto">
                 <Button asChild variant="outline" size="sm" className="rounded-lg">
                   <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
                     Call now
@@ -135,19 +135,19 @@ const ResourcesPage = () => {
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="group">
+            <Card className="group h-full flex flex-col">
               <CardHeader className="p-4 border-b border-border">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-2">
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
-                    <div className="font-semibold">TIS 131 450</div>
+                    <div className="text-lg font-semibold text-foreground">TIS 131 450</div>
                     <div className="text-xs text-muted-foreground">Translating & Interpreting Service</div>
                   </div>
                 </div>
               </CardHeader>
-              <CardFooter className="p-4">
+              <CardFooter className="p-4 mt-auto">
                 <Button asChild variant="outline" size="sm" className="rounded-lg">
                   <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">
                     Call now
@@ -156,19 +156,19 @@ const ResourcesPage = () => {
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="group">
+            <Card className="group h-full flex flex-col">
               <CardHeader className="p-4 border-b border-border">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-2">
                     <FileText className="h-5 w-5" />
                   </span>
                   <div>
-                    <div className="font-semibold">NSW Emergency Info</div>
+                    <div className="text-lg font-semibold text-foreground">NSW Emergency Info</div>
                     <div className="text-xs text-muted-foreground">Official guidance and contacts</div>
                   </div>
                 </div>
               </CardHeader>
-              <CardFooter className="p-4">
+              <CardFooter className="p-4 mt-auto">
                 <Button asChild variant="outline" size="sm" className="rounded-lg">
                   <a
                     href="https://www.nsw.gov.au/emergency"
@@ -198,19 +198,19 @@ const ResourcesPage = () => {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link to="/resources/emergency-translation" {...prefetchOnHover('/resources/emergency-translation')}>
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-3">
                       <AlertTriangle className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">Emergency & Translation</h3>
+                      <h3 className="text-lg font-semibold text-foreground">Emergency & Translation</h3>
                       <p className="text-sm text-muted-foreground">Emergency contacts and interpreter support (NSW compliance)</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -219,19 +219,19 @@ const ResourcesPage = () => {
               </Card>
             </Link>
             <Link to="/resources/helpful-links" {...prefetchOnHover('/resources/helpful-links')}>
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">Helpful Links</h3>
+                      <h3 className="text-lg font-semibold text-foreground">Helpful Links</h3>
                       <p className="text-sm text-muted-foreground">Trusted external resources</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -240,19 +240,19 @@ const ResourcesPage = () => {
               </Card>
             </Link>
             <Link to="/company/knowledge-base" {...prefetchOnHover('/company/knowledge-base')}>
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">Knowledge Base</h3>
+                      <h3 className="text-lg font-semibold text-foreground">Knowledge Base</h3>
                       <p className="text-sm text-muted-foreground">All organisational policies and governance resources</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -261,19 +261,19 @@ const ResourcesPage = () => {
               </Card>
             </Link>
             <Link to="/resources/faqs" {...prefetchOnHover('/resources/faqs')}>
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">FAQs</h3>
+                      <h3 className="text-lg font-semibold text-foreground">FAQs</h3>
                       <p className="text-sm text-muted-foreground">Answers to common questions</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -282,19 +282,19 @@ const ResourcesPage = () => {
               </Card>
             </Link>
             <Link to="/resources/annual-reports" {...prefetchOnHover('/resources/annual-reports')}>
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
                       <FileText className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">Annual Reports</h3>
+                      <h3 className="text-lg font-semibold text-foreground">Annual Reports</h3>
                       <p className="text-sm text-muted-foreground">1990–2025 with interactive viewer</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -303,19 +303,19 @@ const ResourcesPage = () => {
               </Card>
             </Link>
             <a href="#brochures" className="block">
-              <Card className="group">
+              <Card className="group h-full flex flex-col">
                 <CardHeader className="p-6 border-b border-border">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
                       <FileDown className="h-6 w-6" />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-foreground">Brochures</h3>
+                      <h3 className="text-lg font-semibold text-foreground">Brochures</h3>
                       <p className="text-sm text-muted-foreground">Download service PDFs</p>
                     </div>
                   </div>
                 </CardHeader>
-                <CardFooter className="p-6">
+                <CardFooter className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -345,7 +345,7 @@ const ResourcesPage = () => {
                       <FileDown className="h-5 w-5" />
                     </span>
                     <div>
-                      <div className="font-semibold text-foreground">{b.title}</div>
+                      <div className="text-lg font-semibold text-foreground">{b.title}</div>
                       <div className="text-xs text-muted-foreground">PDF brochure</div>
                     </div>
                   </div>
@@ -478,27 +478,25 @@ const ResourcesPage = () => {
       </section>
 
       {/* Contact for More Resources */}
-      <section className="section-spacing bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
+      <section className="section-spacing bg-background transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="backdrop-blur-md bg-white/10 rounded-2xl p-12 border border-white/20">
-            <h2 className="text-4xl font-bold mb-6">Need Additional Resources?</h2>
-            <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+          <div className="backdrop-blur-md bg-card rounded-2xl p-12 border border-border">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Need Additional Resources?</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Can't find what you're looking for? Our multilingual staff can help you access the information and support you need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:1800813205"
-                className="bg-gradient-to-r from-earth to-earth/90 hover:from-earth/90 hover:to-earth text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call 1800 813 205
-              </a>
-              <a
-                href="mailto:info@mosaicmc.org.au"
-                className="border-2 border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-white/10"
-              >
-                Email for Resources
-              </a>
+              <Button asChild size="lg" variant="default">
+                <a href="tel:1800813205" aria-label="Call Mosaic Multicultural Connections">
+                  <Phone className="h-5 w-5 mr-2" />
+                  Call 1800 813 205
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="mailto:info@mosaicmc.org.au" aria-label="Email Mosaic for resources">
+                  Email for Resources
+                </a>
+              </Button>
             </div>
           </div>
         </div>
