@@ -12,7 +12,7 @@ import { BoardSection } from '@/components/BoardSection';
 import { ManagementSection } from '@/components/ManagementSection';
 
 const AboutPage = () => {
-  const storyData = [
+  const storyData = React.useMemo(() => [
     { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: undefined as unknown as string, alt: "Galbally Report (PDF)", details: "The Review of Post‑Arrival Programs and Services to Migrants (1978) set a foundation for migrant integration and equal opportunity. Its recommendations were fully adopted by the Federal Government, funding a range of programs and services and establishing migrant resource centres across Australia. These centres would provide post‑arrival services including settlement assistance, welfare, advocacy, individual support and referral. Their aim was to help migrants and refugees participate in Australian life while maintaining their culture and heritage.", gallery: [], links: [
       { label: "Galbally Report 01 (PDF)", href: "/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf" },
       { label: "Galbally Report 02 (PDF)", href: "/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf" }
@@ -73,7 +73,7 @@ const AboutPage = () => {
       "/images/History_720px_webp/2024_Closing02.webp",
       "/images/History_720px_webp/2024_Closing03.webp"
     ] },
-  ];
+  ], []);
   const allYears = Array.from(new Set(storyData.map((d) => d.year)));
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
   const decades = Array.from(new Set(storyData.map((d) => deriveDecade(d.year))));

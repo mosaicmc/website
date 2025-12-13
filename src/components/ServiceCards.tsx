@@ -11,7 +11,7 @@ const ServiceCards = () => {
     {
       icon: <Home className="h-8 w-8" />,
       title: "Settlement Support",
-      description: "New to Australia? We can guide you to find housing, apply for jobs, and build your new life with confidence.",
+      description: t('serviceCards.settlement.description'),
       features: [
         "Housing assistance and navigation",
         "Employment support and mentoring",
@@ -24,7 +24,7 @@ const ServiceCards = () => {
     {
       icon: <Heart className="h-8 w-8" />,
       title: "Aged Care Services",
-      description: "Need care that honours your independence and respects your culture? We provide culturally informed in-home support and community connections",
+      description: t('serviceCards.agedCare.description'),
       features: [
         "Personal care at home",
         "Companionship and social support",
@@ -37,7 +37,7 @@ const ServiceCards = () => {
     {
       icon: <Users className="h-8 w-8" />,
       title: "Family Support",
-      description: "Looking for parenting help? We offer family counselling and community playgroups to help you, and your children thrive.",
+      description: t('serviceCards.familySupport.description'),
       features: [
         "One-on-one family counselling",
         "Parenting skills workshops",
@@ -50,7 +50,7 @@ const ServiceCards = () => {
     {
       icon: <Handshake className="h-8 w-8" />,
       title: "Community Engagement",
-      description: "Struggling to cope with your new life in Australia? We help your children excel academically and connect your family with community support.",
+      description: t('serviceCards.communityEngagement.description'),
       features: [
         "Free academic tutoring programmes",
         "Skill training with recognised certificates",

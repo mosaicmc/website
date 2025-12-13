@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
-import { Avatar } from './ui/avatar';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { StarRating } from './StarRating';
 
 type ScrapedReview = {
@@ -78,7 +78,7 @@ const GoogleReviews = () => {
           </div>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Are Saying</h2>
           <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-            Verified quotes from our public Google Reviews. Read more on Google for full context.
+            Verified feedback from people we support, shared publicly on Google.
           </p>
         </div>
 
@@ -115,7 +115,15 @@ const GoogleReviews = () => {
                 <Card key={item.id} className="group relative hover:scale-[1.02] focus-within:ring-2 focus-within:ring-primary" tabIndex={0}>
                   <CardHeader className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Avatar src={item.authorAvatarUrl} name={item.authorName} size={40} />
+                      <Avatar className="size-10">
+                        {item.authorAvatarUrl ? (
+                          <AvatarImage src={item.authorAvatarUrl} alt={item.authorName} loading="lazy" decoding="async" />
+                        ) : (
+                          <AvatarFallback className="text-foreground font-semibold">
+                            {(item.authorName || 'Anonymous').split(' ').map((n) => n[0]).join('')}
+                          </AvatarFallback>
+                        )}
+                      </Avatar>
                       <div>
                         <div className="text-sm font-semibold text-gray-800 dark:text-white/90">{item.authorName || 'Anonymous'}</div>
                         <div className="text-xs text-gray-500 dark:text-white/60">{item.dateText}</div>

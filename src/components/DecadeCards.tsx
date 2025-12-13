@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Report } from './DecadeCards.data';
 import { helper } from './DecadeCards.data';
-export { computeDecadeGroups } from './DecadeCards.data';
 
 export default function DecadeCards({
   reports,

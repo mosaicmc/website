@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import RelatedServices from '@/components/RelatedServices';
 import { FileText, ExternalLink } from "lucide-react";
-import DecadeCards, { computeDecadeGroups } from '@/components/DecadeCards';
+import DecadeCards from '@/components/DecadeCards';
+import { computeDecadeGroups } from '@/components/DecadeCards.data';
 import {
   Sheet,
   SheetContent,

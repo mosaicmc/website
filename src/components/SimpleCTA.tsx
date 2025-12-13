@@ -28,6 +28,28 @@ const SimpleCTA = () => {
             Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
           </p>
           
+          <div className="max-w-5xl mx-auto text-center mb-6">
+            <div className="text-sm md:text-xs uppercase tracking-wide text-white/85">What happens next</div>
+            <div className="mt-2 px-4">
+              <div className="flex flex-col items-center gap-3 md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-4">
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">1</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">We review your enquiry.</span>
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">2</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">We contact you in your preferred language.</span>
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">3</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">We guide you through the next steps.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
           <div className="flex flex-col sm:flex-row gap-6 justify-center section-break">
             <Link
               to="/services"
@@ -49,7 +71,7 @@ const SimpleCTA = () => {
           </div>
           
           <div className="backdrop-blur-md bg-sand/20 rounded-2xl p-8 border border-sand/30 shadow-xl max-w-3xl mx-auto">
-            <p className="text-sand/90 text-base leading-relaxed">
+            <p className="text-foreground/90 dark:text-white/90 text-base leading-relaxed">
               <span className="text-sand font-bold">*Service Areas:</span> Our services may vary by location. Please{" "}
               <Link 
                 to="/contact" 

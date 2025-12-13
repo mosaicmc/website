@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { serviceYearsBase, languagesSpokenBase } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 const STATS = [
   { 
@@ -36,6 +37,7 @@ const Statistics = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState(() => STATS.map(() => 0));
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   // Intersection Observer to trigger animation when section comes into view
   useEffect(() => {
@@ -140,7 +142,7 @@ const Statistics = () => {
             Our Impact by the Numbers
           </h2>
           <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-            Four decades of measurable impact supporting multicultural communities across New South Wales
+            {t('serviceCards.sectionDescription')}
           </p>
         </div>
 
@@ -199,7 +201,7 @@ const Statistics = () => {
                 <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 rounded-b-full ${getProgressColor(stat.color)} opacity-60`}></div>
                 
                 {/* Corner glow effect */}
-                <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${stat.color === 'ocean' ? 'bg-ocean' : stat.color === 'sky' ? 'bg-sky' : stat.color === 'earth' ? 'bg-earth' : stat.color === 'sun' ? 'bg-sun' : 'bg-leaf'} opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm`}></div>
+                <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${stat.color === 'sky' ? 'bg-sky' : stat.color === 'earth' ? 'bg-earth' : stat.color === 'sun' ? 'bg-sun' : 'bg-leaf'} opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm`}></div>
               </div>
             </div>
           ))}

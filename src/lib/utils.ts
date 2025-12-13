@@ -5,19 +5,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function serviceYearsLabel(startYear = 1990) {
+export function serviceYearsLabel(startYear = 1985) {
   const years = new Date().getFullYear() - startYear;
   return `${years}+`;
 }
 
-export function languagesSpokenLabel(count = 60) {
+export function languagesSpokenLabel(count = 42) {
   return `${count}+`;
 }
 
-export function serviceYearsBase(startYear = 1990) {
+export function serviceYearsBase(startYear = 1985) {
   return new Date().getFullYear() - startYear;
 }
 
-export function languagesSpokenBase(count = 60) {
+export function languagesSpokenBase(count = 42) {
   return count;
 }
