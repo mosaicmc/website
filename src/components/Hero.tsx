@@ -10,7 +10,7 @@ const Hero = () => {
   const { t } = useTranslation();
   
   // FlipWords animation
-  const rotatingWords = ['Multicultural', 'Migrant', 'Refugee', 'Vibrant', 'Connected', 'Thriving', 'United', 'Diverse', 'Resilient', 'Empowered'];
+  const rotatingWords = ['Multicultural', 'Migrant', 'Refugee', 'Vibrant', 'Connected', 'Thriving', 'United', 'Diverse', 'Resilient', 'Empowered', 'Ageing', 'Senior'];
   
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 section-spacing transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -37,7 +37,7 @@ const Hero = () => {
                 <span className="block sm:inline mt-1 sm:mt-0">Communities Across NSW</span>
               </h1>
               
-              <p className="max-w-[600px] text-gray-600 md:text-xl dark:text-gray-300 leading-relaxed animate-fade-in-up-delay-200">
+              <p className="max-w-[600px] text-gray-600 md:text-xl dark:text-gray-300 leading-relaxed whitespace-pre-line animate-fade-in-up-delay-200">
                 {t('hero.description')}
               </p>
             </div>
