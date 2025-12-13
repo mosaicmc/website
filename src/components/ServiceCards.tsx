@@ -131,7 +131,7 @@ const ServiceCards = () => {
               <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200/50 dark:border-white/10">
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
                   <div className="w-2 h-2 bg-sky rounded-full"></div>
-                  <span>Professional Services</span>
+                  <span>Interpreters Available</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
