@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Home, Heart, Users, Handshake, ArrowRight, CheckCircle } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
+import { useTranslation } from 'react-i18next';
 
 const ServiceCards = () => {
+  const { t } = useTranslation();
   const services = [
     {
       icon: <Home className="h-8 w-8" />,
@@ -157,7 +159,7 @@ const ServiceCards = () => {
             Comprehensive Support Services
           </h2>
           <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-            Culturally appropriate services designed to meet the unique needs of multicultural communities across NSW delivered by our qualified staff
+            {t('serviceCards.sectionDescription')}
           </p>
         </div>
 
