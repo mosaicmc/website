@@ -1,10 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Phone, Clock, Navigation, Mail } from 'lucide-react';
+import { MapPin, Navigation, Phone } from 'lucide-react';
 import RelatedServices from '@/components/RelatedServices';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import { LOCATIONS } from '@/data/locations';
 import { SITE_CONTACT_PHONE, SITE_CONTACT_EMAIL } from '@/config/site';
+import { Section } from '@/components/ui/Section';
+import ContactFormBlock from '@/components/form-patterns-4';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const LocationsPage = () => {
   const locations = LOCATIONS;
@@ -24,7 +28,7 @@ const LocationsPage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
               <span className="text-foreground/80 font-medium">Find Us</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-foreground">Our Locations</h1>
+            <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">Our Locations</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Four convenient offices across NSW, each staffed with multilingual professionals ready to support your needs.
             </p>
@@ -32,100 +36,106 @@ const LocationsPage = () => {
         </div>
       </section>
 
+      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-6xl">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div className="flex-1 min-w-0">
+            <ContactFormBlock />
+          </div>
+          <div className="flex-1 min-w-0 flex flex-col gap-6">
+            <Card className="rounded-lg shadow-sm border-l-2 border-sun">
+              <CardHeader className="p-5 md:p-6">
+                <h3 className="text-xl font-bold text-foreground">Emergency Services</h3>
+              </CardHeader>
+              <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources page.
+                </p>
+                <Button asChild className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                  <a href="/resources" aria-label="View Emergency Services">View Emergency Services</a>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="rounded-lg shadow-sm border-l-2 border-sun">
+              <CardHeader className="p-5 md:p-6">
+                <h3 className="text-xl font-bold text-foreground">Quick Connect</h3>
+              </CardHeader>
+              <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Working Days: Monday - Friday (except Public Holidays). Business Hours: 9:00am - 5:00pm
+                </p>
+                <a
+                  href="tel:1800813205"
+                  aria-label="Call 1800 813 205"
+                  className="bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-sky/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                >
+                  <Phone className="h-5 w-5" />
+                  Call 1800 813 205
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
       {/* Locations Grid */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="stack-vertical">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-8">
             {locations.map((location, index) => (
               <div key={index} className="backdrop-blur-md bg-card/70 rounded-2xl shadow-xl overflow-hidden border border-border/60 hover:shadow-2xl transition-all duration-300">
-                <div className="grid lg:grid-cols-2 gap-0">
-                  {/* Image */}
-                  <div className="relative">
-                    <img
-                      src={location.image}
-                      alt={`${location.name} exterior`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-64 lg:h-full object-cover"
-                    />
-                    <div className="absolute top-4 left-4 bg-ocean text-white px-4 py-2 rounded-full font-semibold shadow-lg">
-                      {location.name}
+                <div className="relative">
+                  <img
+                    src={location.image}
+                    alt={`${location.name} exterior`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute top-4 left-4 bg-ocean text-white px-4 py-2 rounded-full font-semibold shadow-lg">
+                    {location.name}
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-6">{location.name}</h2>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
+                      <span className="text-muted-foreground">{location.address}</span>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-8">
-                    <h2 className="text-3xl font-bold text-foreground mb-6">{location.name}</h2>
-                    
-                    {/* Contact Info */}
-                    <div className="space-y-4 mb-8">
-                      <div className="flex items-start space-x-3">
-                        <MapPin className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{location.address}</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-3">
-                        <Phone className="h-5 w-5 text-sky flex-shrink-0" />
-                        <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="text-muted-foreground hover:text-ocean transition-colors">
-                          {location.phone}
-                        </a>
-                      </div>
-
-                      <div className="flex items-center space-x-3">
-                        <Mail className="h-5 w-5 text-sky flex-shrink-0" />
-                        <a href={`mailto:${location.email}`} className="text-muted-foreground hover:text-ocean transition-colors">
-                          {location.email}
-                        </a>
-                      </div>
-                      
-                      <div className="flex items-start space-x-3">
-                        <Clock className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
-                        <div className="text-muted-foreground">
-                          <div>{location.hours.weekdays}</div>
-                          <div>{location.hours.weekend}</div>
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-foreground mb-4">Available Services</h3>
+                    <div className="grid grid-cols-2 gap-2">
+                      {location.services.map((service, idx) => (
+                        <div key={idx} className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-leaf rounded-full"></div>
+                          <span className="text-muted-foreground text-sm">{service}</span>
                         </div>
-                      </div>
+                      ))}
                     </div>
-
-                    {/* Services */}
-                    <div className="mb-8">
-                      <h3 className="text-xl font-bold text-foreground mb-4">Available Services</h3>
-                      <div className="grid grid-cols-2 gap-2">
-                        {location.services.map((service, idx) => (
-                          <div key={idx} className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-leaf rounded-full"></div>
-                            <span className="text-muted-foreground text-sm">{service}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    
-
-                    {/* Actions */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="flex-1 bg-ocean text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
-                        Visit This Office
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button className="flex-1 bg-ocean text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                      Visit This Office
+                    </button>
+                    {location.directionsUrl ? (
+                      <a
+                        href={location.directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Get directions to ${location.name}`}
+                        className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                      >
+                        <Navigation className="h-4 w-4 mr-2" />
+                        Get Directions
+                      </a>
+                    ) : (
+                      <button className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                        <Navigation className="h-4 w-4 mr-2" />
+                        Get Directions
                       </button>
-                      {location.directionsUrl ? (
-                        <a
-                          href={location.directionsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Get directions to ${location.name}`}
-                          className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
-                        >
-                          <Navigation className="h-4 w-4 mr-2" />
-                          Get Directions
-                        </a>
-                      ) : (
-                        <button className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
-                          <Navigation className="h-4 w-4 mr-2" />
-                          Get Directions
-                        </button>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
