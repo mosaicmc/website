@@ -16,8 +16,8 @@ const LocationsPage = () => {
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Mosaic Multicultural - Our Locations</title>
-        <meta name="description" content="Find Mosaic offices across NSW with addresses, hours, services, and contact details for your nearest location." />
+        <title>Contact Mosaic Multicultural Connections — Get in touch</title>
+        <meta name="description" content="Get in touch with Mosaic to find the right support, services, or local office. Whether for yourself, a family member, or a client, our team will guide you and respond within 48 business hours." />
       </Helmet>
       {/* Hero Section */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
@@ -26,12 +26,10 @@ const LocationsPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-              <span className="text-foreground/80 font-medium">Find Us</span>
+              <span className="text-foreground/80 font-medium">Contact</span>
             </div>
-            <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">Our Locations</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Four convenient offices across NSW, each staffed with multilingual professionals ready to support your needs.
-            </p>
+            <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">Get in touch with Mosaic</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">We’re here to help you find the right support, services, or local office. Whether you’re reaching out for yourself, a family member, or a client, our team will guide you to the right place.</p>
           </div>
         </div>
       </section>

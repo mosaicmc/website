@@ -32,20 +32,19 @@ export function GlassCard({
     <Comp
       style={style}
       className={cn(
-        // Glass morphism using theme tokens; subtle in dark
-        "relative isolate bg-card/80 dark:bg-card/40 backdrop-blur-md",
+        "relative isolate overflow-hidden group bg-card/80 dark:bg-card/40 backdrop-blur-md",
         bordered && "border border-border",
-        hover && "transition-colors",
-        // soft inner separator for layered look
+        hover && "transition-all duration-500 ease-out hover:shadow-md hover:scale-[1.02] hover:bg-card/90 dark:hover:bg-card/50",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background",
         "shadow-sm",
         paddingMap[padding],
         className
       )}
     >
-      {/* optional highlight overlay for depth */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white/10 via-transparent to-transparent dark:from-white/5"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
       />
       {children}
     </Comp>

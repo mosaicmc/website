@@ -35,6 +35,20 @@ const mainNavigation = [
   { title: "About", href: "/about" },
 ];
 
+const aboutLinks: { title: string; href: string; description: string; icon: LucideIcon }[] = [
+  {
+    title: "About Mosaic",
+    href: "/about",
+    description: "Learn about our mission, values, board and management.",
+    icon: Home,
+  },
+  {
+    title: "Media & Press",
+    href: "/company/news",
+    description: "External media coverage and articles featuring Mosaic.",
+    icon: Globe,
+  },
+];
 const resourcesLinks: { title: string; href: string; description: string; icon: LucideIcon }[] = [
   {
     title: "Emergency & Translation",
@@ -535,7 +549,7 @@ export default function MosaicNavigation() {
                             </ListItem>
                             <ListItem
                               title="Get Support"
-                              to="/contact"
+                              to="/contact-us"
                               icon={Phone}
                             >
                               Contact us for immediate assistance and guidance
@@ -549,25 +563,55 @@ export default function MosaicNavigation() {
                   )}
 
                   {/* Other Navigation Items (About, Stories) */}
-                  {mainNavigation.slice(1, 2).map((item) => (
-                    <NavigationMenuItem key={item.title} className="flex items-center">
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to={item.href}
+                  {(() => {
+                    const aboutActive = location.pathname.startsWith("/about") || location.pathname.startsWith("/company/news");
+                    return (
+                      <NavigationMenuItem className="flex items-center">
+                        <NavigationMenuTrigger
                           className={cn(
-                            navigationMenuTriggerStyle(),
-                            isActivePath(item.href)
+                            aboutActive
                               ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
                               : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                             "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           )}
-                          {...prefetchOnHover(item.href)}
+                          onMouseEnter={() => {
+                            prefetchRoute("/about");
+                            prefetchRoute("/company/news");
+                          }}
+                          onFocus={() => {
+                            prefetchRoute("/about");
+                            prefetchRoute("/company/news");
+                          }}
                         >
-                          {item.title}
-                        </Link>
-                      </NavigationMenuLink>
-                    </NavigationMenuItem>
-                  ))}
+                          About
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
+                          <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
+                            <div className="col-span-2">
+                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
+                                About Mosaic
+                              </h6>
+                              <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                                {aboutLinks.map((link) => (
+                                  <ListItem key={link.title} title={link.title} to={link.href} icon={link.icon}>
+                                    {link.description}
+                                  </ListItem>
+                                ))}
+                              </ul>
+                            </div>
+                            <div className="pl-4">
+                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
+                              <ul className="mt-2.5 grid gap-3">
+                                <ListItem title="Our Story" to="/about" icon={Home}>
+                                  Discover our mission, history and leadership
+                                </ListItem>
+                              </ul>
+                            </div>
+                          </div>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    );
+                  })()}
 
                   {/* Get Involved Dropdown (standardized grid layout) */}
                   {!isEmergencyMode && (
@@ -630,7 +674,7 @@ export default function MosaicNavigation() {
                             <ListItem title="Opportunities" to="/get-involved" icon={Phone}>
                               Join our Mission
                             </ListItem>
-                            <ListItem title="Locations" to="/locations" icon={Home}>
+                            <ListItem title="Contact Us" to="/contact-us" icon={Home}>
                               Find service locations across New South Wales
                             </ListItem>
                           </ul>
@@ -677,7 +721,7 @@ export default function MosaicNavigation() {
                             <ListItem title="All Resources" to="/resources" icon={Globe}>
                               Browse brochures, annual reports, helpful links, emergency & translation
                             </ListItem>
-                            <ListItem title="Contact" to="/contact" icon={Phone}>
+                            <ListItem title="Contact" to="/contact-us" icon={Phone}>
                               Reach us for guidance and support
                             </ListItem>
                           </ul>
@@ -791,7 +835,7 @@ export default function MosaicNavigation() {
                               ))}
                             </div>
                             <div className="mt-2">
-                              <Link to="/contact" className="underline text-foreground" {...prefetchOnHover('/contact')} onClick={() => { setIsSearchOpen(false); setShowOverlay(false); }}>
+                              <Link to="/contact-us" className="underline text-foreground" {...prefetchOnHover('/contact-us')} onClick={() => { setIsSearchOpen(false); setShowOverlay(false); }}>
                                 Not sure what you need? Contact us — we’re here to help.
                               </Link>
                             </div>

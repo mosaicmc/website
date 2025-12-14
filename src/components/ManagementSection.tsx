@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+ 
 import { X } from "lucide-react";
 import {
   Sheet,
@@ -131,7 +132,7 @@ export function ManagementSection({
                 <div className="md:flex-1">
                   <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">{m.name}</h3>
                   {m.role && (
-                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-2 ${
+                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-2 dark:text-foreground ${
                       accentColor === "care"
                         ? "bg-care/10 text-care border-care/20"
                         : accentColor === "sky"

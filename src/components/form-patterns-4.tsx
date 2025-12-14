@@ -81,9 +81,9 @@ const Example = () => {
       <Form {...form}>
         <form className="space-y-4 text-left" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold">Get in touch</h2>
+            <h2 className="text-2xl font-bold">Contact us</h2>
             <p className="text-sm text-muted-foreground">
-              We'll get back to you within 48 business hours
+              Use the form below to ask a question, request support, or connect with a local Mosaic office. Our team will respond within <span className="font-semibold">48 business hours</span>.
             </p>
           </div>
           <FormField
@@ -99,6 +99,7 @@ const Example = () => {
                     {...field}
                   />
                 </FormControl>
+                <FormDescription>Please enter your full name.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -117,6 +118,7 @@ const Example = () => {
                     {...field}
                   />
                 </FormControl>
+                <FormDescription>We’ll use this email to reply to your enquiry.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -128,7 +130,7 @@ const Example = () => {
                 name="service"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-left">Service Interest</FormLabel>
+                  <FormLabel className="text-left">Service interest</FormLabel>
                   <Select
                     defaultValue={field.value}
                     onValueChange={field.onChange}
@@ -147,6 +149,7 @@ const Example = () => {
                         <SelectItem value="general">General Inquiry</SelectItem>
                       </SelectContent>
                     </Select>
+                    <FormDescription>Select the service you’re enquiring about so we can direct your message to the right team.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -158,7 +161,7 @@ const Example = () => {
                 name="location"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-left">Preferred Office</FormLabel>
+                  <FormLabel className="text-left">Preferred office</FormLabel>
                   <Select
                     defaultValue={field.value}
                     onValueChange={field.onChange}
@@ -175,6 +178,7 @@ const Example = () => {
                         <SelectItem value="tamworth">Tamworth</SelectItem>
                       </SelectContent>
                     </Select>
+                    <FormDescription>Choose the office closest to you, or the location you’d like to connect with.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -195,9 +199,7 @@ const Example = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
-                  Please provide as much detail as possible.
-                </FormDescription>
+                <FormDescription>Tell us a little about your situation or enquiry. The more detail you provide, the better we can help.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -205,6 +207,9 @@ const Example = () => {
           <Button className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2" type="submit">
             Send Message
           </Button>
+          <p className="text-xs text-muted-foreground mt-2">
+            Your information is kept private and shared only with the Mosaic team supporting your request.
+          </p>
         </form>
       </Form>
     </div>

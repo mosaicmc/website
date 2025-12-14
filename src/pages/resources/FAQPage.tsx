@@ -4,6 +4,7 @@ import { Search as SearchIcon, ChevronDown, ThumbsUp, ThumbsDown } from 'lucide-
 import FAQSchema from '@/components/FAQSchema';
 import RelatedServices from '@/components/RelatedServices';
 import { logFaqFeedback, logFaqView } from '@/lib/searchAnalytics';
+import Section from '@/components/ui/Section';
 
 type QA = { question: string; answer: string };
 
@@ -55,10 +56,10 @@ export default function FAQPage() {
       </Helmet>
       <FAQSchema faqs={allFaqs} name="Mosaic Multicultural Connections FAQs" />
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Frequently Asked Questions</h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Frequently Asked Questions</h1>
+          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
             Find clear answers to common questions. Use the search to filter by topic.
           </p>
         </div>
@@ -131,7 +132,7 @@ export default function FAQPage() {
         <div className="mt-10 text-center">
           <a href="/resources" className="text-primary hover:underline">Back to Resources →</a>
         </div>
-      </section>
+      </Section>
 
       <RelatedServices />
     </div>

@@ -51,7 +51,7 @@ const Team6 = ({
                 <div className="text-left md:flex-1">
                   <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground mb-2">{member.name}</h3>
                   {member.role && (
-                    <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-sky dark:border-sky/20 px-3 py-1 text-xs font-semibold mb-2">
+                    <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-foreground dark:border-sky/20 px-3 py-1 text-xs font-semibold mb-2">
                       {member.role}
                     </span>
                   )}

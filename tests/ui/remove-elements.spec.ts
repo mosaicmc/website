@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Removal of info bar and breadcrumbs', () => {
   test('Breadcrumbs nav is not present on core pages', async ({ page }) => {
-    for (const path of ['/', '/about', '/services', '/contact']) {
+    for (const path of ['/', '/about', '/services', '/contact-us']) {
       await page.goto(path);
       const breadcrumbs = page.locator('nav[aria-label="Breadcrumb"]');
       await expect(breadcrumbs).toHaveCount(0);

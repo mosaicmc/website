@@ -5,6 +5,7 @@ import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Gl
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
+import { useTranslation } from 'react-i18next';
 import MirjaImg from './SETS Team 128px/SETSTeam_Mirja_128px.webp';
 import MadanImg from './SETS Team 128px/SETSTeam_Madan_128px.webp';
 import BasimImg from './SETS Team 128px/SETSTeam_Basim_128px.webp';
@@ -17,6 +18,7 @@ import MichaelImg from './SETS Team 128px/SETSTeam_Michael_128px.webp';
 import LeeImg from './SETS Team 128px/SETSTeam_Lee_128px.webp';
 
 const SettlementSupportPage = () => {
+  const { t } = useTranslation();
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
@@ -219,7 +221,7 @@ const SettlementSupportPage = () => {
       
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
@@ -233,12 +235,18 @@ const SettlementSupportPage = () => {
               <Home className="mr-2 h-4 w-4 text-sky" />
               <span className="text-gray-700 dark:text-white/90 font-medium">Settlement Support</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Starting Again in Australia? We Walk With You.</h1>
+            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('settlement.hero.headline')}</h1>
             <p
-              className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up"
+              className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-4 animate-fade-in-up break-words"
               style={{ animationDelay: '200ms' }}
             >
-              You’re not alone. Starting fresh in Australia can feel overwhelming when rentals, work and government systems are unfamiliar. For more than 40 years Mosaic Multicultural Connections has walked beside migrants and multicultural communities across the Central Coast, Newcastle, Maitland, Tamworth and Armidale so they can access services with confidence. We listen, map out a simple plan, and stay with you until you feel safe, connected and capable.
+              {t('settlement.hero.subheadline')}
+            </p>
+            <p
+              className="text-base sm:text-xl fluid-p text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up break-words"
+              style={{ animationDelay: '280ms' }}
+            >
+              {t('settlement.hero.bodyPrimary')} {t('settlement.hero.bodySecondary')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '350ms' }}>
               <a
@@ -246,7 +254,7 @@ const SettlementSupportPage = () => {
                 className="border-2 border-sky text-sky hover:bg-sky hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 1800 813 205
+                {t('settlement.hero.cta')}
               </a>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
@@ -265,9 +273,9 @@ const SettlementSupportPage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
               <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">What We Help You Tackle First</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week.
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">What We Help You Tackle First</h2>
+            <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
+              {t('settlement.programs.helper')}
             </p>
           </div>
 
@@ -313,7 +321,7 @@ const SettlementSupportPage = () => {
                 color: "sky"
               },
               {
-                title: "Community Orientation & Integration",
+                title: "Community Orientation & Connection",
                 description: "Learn your new city, schools, doctors and community hubs while staying proud of your culture and traditions, with guidance tailored to your family.",
                 features: [
                   "Local area orientation and community tours",
@@ -424,12 +432,12 @@ const SettlementSupportPage = () => {
 
       {/* How it works section */}
       <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">How settlement support works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first call to feeling at home</h2>
-            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-              Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete.
+            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first call to feeling at home</h2>
+            <p className="fluid-p text-gray-600 dark:text-white/70 max-w-3xl mx-auto break-words">
+              {t('settlement.how.helper')}
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -449,7 +457,7 @@ const SettlementSupportPage = () => {
               {
                 title: "3. Walk the journey",
                 description: "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
-                bullets: ["Warm referrals to local partners and programmes", "Stay with us until you feel confident navigating Australia"],
+                bullets: ["Warm referrals to local partners and programmes", "Stay connected with Mosaic until you feel confident navigating life in Australia."],
                 icon: <Users className="h-6 w-6 text-sky" />
               }
             ].map((step, idx) => (
@@ -479,13 +487,13 @@ const SettlementSupportPage = () => {
 
       {/* Impact video stories */}
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">Impact stories</p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Watch how support sparks confidence</h2>
-              <p className="text-gray-600 dark:text-white/80 mb-5">
-                Short videos from Mosaic clients showcase practical wins: finding a rental, enrolling children, or feeling safe enough to volunteer, supported by settlement workers.
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Watch how support sparks confidence</h2>
+              <p className="fluid-p text-gray-600 dark:text-white/80 mb-5 break-words">
+                {t('settlement.impact.helper')}
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
                 <li className="flex items-start space-x-2">
@@ -523,8 +531,8 @@ const SettlementSupportPage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-foreground">Meet Your Settlement Support Team</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Settlement Support Team</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
               Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support.
             </p>
           </div>
@@ -561,9 +569,9 @@ const SettlementSupportPage = () => {
           })()}
           <div className="text-center mt-16">
             <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
-              <h3 className="text-xl font-bold text-foreground mb-4">Comprehensive Settlement Approach</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community integration, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations.
+              <h3 className="text-xl font-bold text-foreground mb-4">{t('settlement.comprehensive.title')}</h3>
+              <p className="text-muted-foreground leading-relaxed break-words">
+                {t('settlement.comprehensive.paragraph')}
               </p>
             </div>
           </div>
@@ -620,7 +628,7 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
         
@@ -639,7 +647,7 @@ const SettlementSupportPage = () => {
                 Call 1800 813 205
               </a>
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="border-2 border-sky text-sky hover:bg-sky hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
               >
                 Contact Us Online

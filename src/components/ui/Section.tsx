@@ -8,6 +8,9 @@ type SectionProps = {
   padding?: "sm" | "md" | "lg";
   overlay?: boolean;
   overlayClassName?: string;
+  variant?: "default" | "alt" | "surface" | "transparent";
+  divider?: "none" | "top" | "bottom" | "both";
+  fade?: "none" | "top" | "bottom" | "both";
   center?: boolean;
 };
 
@@ -24,27 +27,55 @@ export function Section({
   padding = "md",
   overlay = false,
   overlayClassName,
+  variant = "default",
+  divider = "none",
+  fade = "none",
   center = false,
 }: SectionProps) {
+  const variantClass =
+    variant === "transparent"
+      ? "bg-transparent"
+      : variant === "surface"
+      ? "bg-section"
+      : variant === "alt"
+      ? "bg-section-alt"
+      : "bg-page";
+
+  const dividerClass =
+    divider === "top"
+      ? "border-t border-divider"
+      : divider === "bottom"
+      ? "border-b border-divider"
+      : divider === "both"
+      ? "border-y border-divider"
+      : "";
+
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-background transition-colors duration-300",
+        "relative overflow-hidden transition-colors duration-300",
+        variantClass,
+        dividerClass,
         paddingMap[padding],
         center && "section-center",
         className
       )}
     >
-      {overlay && (
+      {(overlay || fade === "top" || fade === "both") && (
         <div
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5",
+            fade === "top" || fade === "both"
+              ? "section-fade-top"
+              : "pointer-events-none",
             overlayClassName
           )}
         />
       )}
-      <div className={cn("container", containerClassName)}>{children}</div>
+      {fade === "bottom" || fade === "both" ? (
+        <div aria-hidden className="section-fade-bottom" />
+      ) : null}
+      <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", containerClassName)}>{children}</div>
     </section>
   );
 }

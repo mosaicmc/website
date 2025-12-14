@@ -106,7 +106,7 @@ export default function CodeOfConductPolicyPage() {
                 For inclusion concerns, see the <Link className="text-primary hover:underline" to="/policies/diversity-inclusion">Diversity & Inclusion Policy</Link>.
               </li>
               <li>
-                You can also contact us via the <Link className="text-primary hover:underline" to="/contact">Contact page</Link>.
+                You can also contact us via the <Link className="text-primary hover:underline" to="/contact-us">Contact page</Link>.
               </li>
             </ul>
             <div className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">

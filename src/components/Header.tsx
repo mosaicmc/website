@@ -28,11 +28,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes and scroll to top
+  // Close mobile menu on route changes; respect hash navigation
   useEffect(() => {
     setIsMenuOpen(false);
-    // Smooth scroll to top when route changes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [location]);
 
   const navigation = [

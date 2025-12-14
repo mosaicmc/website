@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import BackLink from "../../components/ui/BackLink";
 import { ShieldCheck, BadgeCheck, Scale, Layers, ClipboardList, ChevronRight } from "lucide-react";
 import ErrorBoundary from "../../components/ErrorBoundary";
+import Section from "@/components/ui/Section";
 
 type KBItem = {
   title: string;
@@ -54,21 +55,20 @@ export default function KnowledgeBasePage() {
       </Helmet>
 
       <ErrorBoundary>
-        <section className="section-spacing" aria-labelledby="kb-title">
-          <div className="doc-container">
-            <div className="text-center subsection-break">
-              <h1 id="kb-title" className="text-3xl md:text-4xl font-bold tracking-tight">Knowledge Base</h1>
-              <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-                Organisational policies and governance resources for staff, volunteers, partners and stakeholders.
-              </p>
-            </div>
+        <Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
+          <div className="text-center subsection-break">
+            <h1 id="kb-title" className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Knowledge Base</h1>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              Organisational policies and governance resources for staff, volunteers, partners and stakeholders.
+            </p>
+          </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {items.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.title}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {items.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.title}
                   to={item.href}
                   className="group rounded-xl border bg-card p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                 >
@@ -88,13 +88,12 @@ export default function KnowledgeBasePage() {
                 </Link>
               );
             })}
-            </div>
-
-            <div className="section-break">
-              <BackLink to="/about">Back to About</BackLink>
-            </div>
           </div>
-        </section>
+
+          <div className="section-break">
+            <BackLink to="/about">Back to About</BackLink>
+          </div>
+        </Section>
       </ErrorBoundary>
     </div>
   );

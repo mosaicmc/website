@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const CallToAction = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative section-spacing bg-gradient-to-br from-ocean via-sky to-ocean dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
       {/* Enhanced glass morphism background with multiple layers */}
@@ -18,20 +20,20 @@ const CallToAction = () => {
           {/* Badge */}
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/20 border border-white/30 px-6 py-2 text-sm shadow-lg mb-8">
             <span className="mr-2 h-2 w-2 rounded-full bg-white animate-pulse"></span>
-            <span className="text-white font-medium">Take Action Today</span>
+            <span className="text-white font-medium">{t('cta.badge')}</span>
           </div>
           
           {/* Headline */}
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Ready to Take Your{" "}
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            {t('cta.headlinePrefix')}{" "}
             <span className="bg-gradient-to-r from-sand via-white to-sand bg-clip-text text-transparent">
-              Next Step?
+              {t('cta.headlineEmphasis')}
             </span>
           </h2>
           
           {/* Content */}
-          <p className="text-xl text-white/90 subsection-break leading-relaxed max-w-3xl mx-auto">
-            Whether you're seeking settlement support, family assistance, home care services, or community connections, our qualified team is here to help. All consultations are free and available in your preferred language.
+          <p className="text-base sm:text-xl text-white/90 subsection-break leading-relaxed max-w-3xl mx-auto break-words">
+            {t('cta.helperText')}
           </p>
           
           {/* CTA Buttons */}
@@ -40,30 +42,30 @@ const CallToAction = () => {
               to="/services"
               className="group inline-flex items-center justify-center rounded-xl bg-white text-ocean px-8 py-4 text-lg font-semibold shadow-xl hover:bg-sand hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
             >
-              Explore Our Services
+              {t('cta.primaryButtonLabel')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             
             <Link
-              to="/contact"
-              className="group inline-flex items-center justify-center rounded-xl backdrop-blur-md bg-white/10 border border-white/30 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
+              to="/contact-us"
+              className="group inline-flex items-center justify-center rounded-xl backdrop-blur-md bg-white/10 border border-white/30 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg:white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
             >
               <Phone className="mr-2 h-5 w-5" />
-              Get Support Now
+              {t('cta.secondaryButtonLabel')}
             </Link>
           </div>
           
           {/* Service Areas Notice */}
           <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-white/20 shadow-lg max-w-2xl mx-auto">
-            <p className="text-white/80 text-sm leading-relaxed">
-              <span className="text-white font-medium">*Service Areas:</span> Our services may vary by location. Please{" "}
+            <p className="text-white/80 text-sm leading-relaxed break-words">
+              <span className="text-white font-medium">{t('cta.footnote.label')}</span> {t('cta.footnote.textPrefix')}{" "}
               <Link 
-                to="/contact" 
+                to="/contact-us" 
                 className="text-sand hover:text-white font-medium underline decoration-sand/50 hover:decoration-white transition-colors duration-300"
               >
-                Contact us
+                {t('cta.footnote.contactLink')}
               </Link>{" "}
-              to confirm availability.
+              {t('cta.footnote.textSuffix')}
             </p>
           </div>
         </div>

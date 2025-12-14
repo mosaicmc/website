@@ -5,8 +5,10 @@ import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, ChevronDown
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
+import { useTranslation } from 'react-i18next';
 
 const CommunityEngagementPage = () => {
+  const { t } = useTranslation();
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
@@ -136,7 +138,7 @@ const CommunityEngagementPage = () => {
       </Helmet>
       <FAQSchema faqs={faqData} name="Community Engagement FAQs" />
       {/* Hero Section with enhanced animations */}
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         {/* Accent tint overlay to differentiate page */}
@@ -151,9 +153,12 @@ const CommunityEngagementPage = () => {
               <Handshake className="mr-2 h-4 w-4 text-leaf" />
               <span className="text-gray-700 dark:text-white/90 font-medium">Community Engagement</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Building Stronger, More Inclusive Communities Together</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Community engagement is at the heart of everything we do at Mosaic. Our Community Engagement programs create meaningful opportunities for participation, cultural celebration, leadership development, and social connection across diverse communities. From organising vibrant multicultural festivals to developing community leaders and advocating for inclusive policies, we work to ensure every voice is heard and every culture is celebrated.
+            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('community.hero.headline')}</h1>
+            <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-3 animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
+              {t('community.hero.subheadline')}
+            </p>
+            <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up break-words" style={{ animationDelay: '300ms' }}>
+              {t('community.hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <a
@@ -161,7 +166,7 @@ const CommunityEngagementPage = () => {
                 className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Get Involved Today - 1800 813 205
+                {t('community.hero.cta')}
               </a>
             </div>
           </div>
@@ -177,8 +182,8 @@ const CommunityEngagementPage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
               <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Community Engagement Programs</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Community Engagement Programs</h2>
+            <p className="text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Our community engagement programs are designed to celebrate cultural diversity, develop community leadership, create meaningful connections, and advocate for inclusive policies that benefit all members of our multicultural communities.
             </p>
           </div>
@@ -315,11 +320,11 @@ const CommunityEngagementPage = () => {
       </section>
 
       <section className="section-spacing bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="text-center subsection-break">
             <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">How community engagement works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first hello to active participation</h2>
-            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first hello to active participation</h2>
+            <p className="fluid-p text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
               Start with a conversation, find events that fit, and grow into leadership and advocacy with support at every step.
             </p>
           </div>
@@ -367,12 +372,12 @@ const CommunityEngagementPage = () => {
       
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">Impact stories</p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Celebrating culture, building leaders, growing community</h2>
-              <p className="text-gray-600 dark:text-white/80 mb-5">
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Celebrating culture, building leaders, growing community</h2>
+              <p className="fluid-p text-gray-600 dark:text-white/80 mb-5">
                 Stories from participants and volunteers highlight how cultural celebrations, leadership pathways and advocacy create lasting community impact.
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
@@ -411,8 +416,8 @@ const CommunityEngagementPage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-foreground">Meet Your Community Engagement Team</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Community Engagement Team</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
               Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development.
             </p>
           </div>
@@ -517,9 +522,9 @@ const CommunityEngagementPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">Join Our Community</h2>
-            <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">
-              Be part of building stronger, more inclusive communities across NSW. Whether you want to volunteer, participate in cultural events, or develop your leadership skills, there's a place for you in our community engagement programs.
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300 break-words">Ready to Grow Your Community?</h2>
+            <p className="text-base sm:text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto break-words">
+              You’re welcome to start with a conversation. We can talk about events, groups, volunteering, or leadership opportunities and help you find ways to get involved that feel right for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -530,7 +535,7 @@ const CommunityEngagementPage = () => {
                 Call 1800 813 205
               </a>
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
                 Contact Us Online

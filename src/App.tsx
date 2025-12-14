@@ -16,7 +16,6 @@ const LocationsPage = lazy(() => import('./pages/LocationsPage'));
 const GetInvolvedPage = lazy(() => import('./pages/GetInvolvedPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const StoriesPage = lazy(() => import('./pages/StoriesPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
 const DonatePage = lazy(() => import('./pages/DonatePage'));
 // Resources subpages
 const AnnualReportsPage = lazy(() => import('./pages/resources/AnnualReportsPage'));
@@ -31,6 +30,7 @@ const QualityManagementPolicyPage = lazy(() => import('./pages/policies/QualityM
 const WorkHealthSafetyPolicyPage = lazy(() => import('./pages/policies/WorkHealthSafetyPolicyPage'));
 const KnowledgeBasePage = lazy(() => import('./pages/company/KnowledgeBasePage'));
 const CareersPage = lazy(() => import('./pages/company/CareersPage'));
+const NewsPage = lazy(() => import('./pages/company/NewsPage'));
 const SettlementSupportPage = lazy(() => import('./pages/services/SettlementSupportPage'));
 const AgedCarePage = lazy(() => import('./pages/services/AgedCarePage'));
 const FamilySupportPage = lazy(() => import('./pages/services/FamilySupportPage'));
@@ -44,7 +44,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen bg-background transition-colors duration-300">
+        <div className="min-h-screen bg-page transition-colors duration-300">
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 bg-white dark:bg-slate-800 text-blue-700 dark:text-white px-3 py-2 rounded shadow"
@@ -65,7 +65,7 @@ function App() {
                 <Route path="/services/aged-care" element={<AgedCarePage />} />
                 <Route path="/services/family-support" element={<FamilySupportPage />} />
                 <Route path="/services/community-engagement" element={<CommunityEngagementPage />} />
-                <Route path="/locations" element={<LocationsPage />} />
+                <Route path="/contact-us" element={<LocationsPage />} />
                 <Route path="/get-involved" element={<GetInvolvedPage />} />
                 <Route path="/resources" element={<ResourcesPage />} />
                 <Route path="/resources/emergency-services" element={<Navigate to="/resources/emergency-translation" replace />} />
@@ -75,7 +75,7 @@ function App() {
                 <Route path="/resources/helpful-links" element={<HelpfulLinksPage />} />
                 <Route path="/resources/faqs" element={<FAQPage />} />
                 <Route path="/stories" element={<StoriesPage />} />
-                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
                 <Route path="/donate" element={<DonatePage />} />
                 <Route path="/volunteer/newcastle" element={<NewcastleVolunteerPage />} />
                 <Route path="/volunteer/central-coast" element={<CentralCoastVolunteerPage />} />
@@ -89,6 +89,8 @@ function App() {
         <Route path="/policies/work-health-safety" element={<WorkHealthSafetyPolicyPage />} />
         <Route path="/company/knowledge-base" element={<KnowledgeBasePage />} />
         <Route path="/company/careers" element={<CareersPage />} />
+        <Route path="/company/news" element={<NewsPage />} />
+        <Route path="/locations" element={<Navigate to="/contact-us" replace />} />
               </Routes>
             </Suspense>
           </main>

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FileWarning, ShieldCheck, Scale, AlertTriangle } from "lucide-react";
+import Section from '@/components/ui/Section';
 
 export default function WhistleblowerPolicyPage() {
   const pdfHref = "https://mosaicmc.org.au/wp-content/uploads/2025/10/Mosaic-Whistleblower-Policy-.pdf";
@@ -14,9 +15,9 @@ export default function WhistleblowerPolicyPage() {
         />
       </Helmet>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <Section padding="lg" containerClassName="max-w-5xl">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Whistleblower Policy</h1>
+          <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Whistleblower Policy</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
             Guidance for reporting misconduct, ensuring confidentiality, and protections against retaliation.
           </p>
@@ -85,7 +86,7 @@ export default function WhistleblowerPolicyPage() {
           <Link to="/policies/code-of-conduct" className="text-primary hover:underline">View Code of Conduct</Link>
           <Link to="/policies/work-health-safety" className="text-primary hover:underline">View Work Health & Safety</Link>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

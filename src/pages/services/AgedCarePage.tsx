@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import { GlassCard } from '@/components/ui/GlassCard';
 import RelatedServices from '../../components/RelatedServices';
+import { useTranslation } from 'react-i18next';
 
 const AgedCarePage = () => {
+  const { t } = useTranslation();
   // FAQ state and data (matching other services pages)
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>('faq-1');
@@ -144,7 +146,7 @@ const AgedCarePage = () => {
       <FAQSchema faqs={faqData} name="Home Care FAQs" />
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
         {/* Accent tint overlay to align with care */}
@@ -159,9 +161,12 @@ const AgedCarePage = () => {
               <Heart className="mr-2 h-4 w-4 text-care" />
               <span className="text-gray-700 dark:text-white/90 font-medium">Aged Care Services</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Culturally Appropriate Care</h1>
-            <p className="text-xl text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Honouring traditions and providing comfort in familiar languages while delivering professional home care and volunteer visitor services.
+            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('agedCare.hero.headline')}</h1>
+            <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
+              {t('agedCare.hero.subheadline')}
+            </p>
+            <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-gray-300 leading-relaxed mb-6 animate-fade-in-up break-words" style={{ animationDelay: '300ms' }}>
+              {t('agedCare.hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <a
@@ -170,7 +175,7 @@ const AgedCarePage = () => {
                 aria-label="Call Mosaic on 1800 813 205"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Talk to Us Today - 1800 813 205
+                {t('agedCare.hero.cta')}
               </a>
             </div>
           </div>
@@ -192,7 +197,7 @@ const AgedCarePage = () => {
                 <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Aged Care Programs</h2>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Aged Care Programs</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {[
@@ -367,12 +372,12 @@ const AgedCarePage = () => {
 
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">Impact stories</p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Dignity, independence and cultural comfort</h2>
-              <p className="text-gray-700 dark:text-gray-100 mb-5">
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Dignity, independence and cultural comfort</h2>
+              <p className="fluid-p text-gray-700 dark:text-gray-100 mb-5">
                 Short videos show clients staying independent at home with support in familiar languages and respectful care.
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-gray-100 text-sm">
@@ -412,8 +417,8 @@ const AgedCarePage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-foreground">Meet Your Aged Care Team</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Aged Care Team</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
               Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey.
             </p>
           </div>
@@ -507,9 +512,9 @@ const AgedCarePage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">Discuss Your Care Needs</h2>
-            <p className="text-xl text-gray-700 dark:text-gray-100 mb-8 max-w-3xl mx-auto">
-              Our experienced home care team understands the importance of cultural sensitivity in care delivery.
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300 break-words">Ready to Discuss Your Care Needs?</h2>
+            <p className="text-base sm:text-xl text-gray-700 dark:text-gray-100 mb-8 max-w-3xl mx-auto break-words">
+              We can talk through your options, explain home care and volunteer visitor supports, and help you understand next steps. There’s no obligation, and support is available in your preferred language.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -520,7 +525,7 @@ const AgedCarePage = () => {
                 Call 1800 813 205
               </a>
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 Contact Us Online
