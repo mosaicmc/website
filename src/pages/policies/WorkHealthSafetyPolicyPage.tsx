@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ShieldCheck, FileWarning, AlertTriangle, ClipboardCheck, HardHat, LifeBuoy } from "lucide-react";
+import Section from '@/components/ui/Section';
 
 export default function WorkHealthSafetyPolicyPage() {
   const pdfHref = "https://mosaicmc.org.au/wp-content/uploads/2025/10/Mosaic-Work-Health-and-Safety-Policy.pdf";
@@ -14,9 +15,9 @@ export default function WorkHealthSafetyPolicyPage() {
         />
       </Helmet>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <Section padding="lg" containerClassName="max-w-5xl">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Work Health & Safety Policy</h1>
+          <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Work Health & Safety Policy</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
             Mosaic is committed to providing a safe, healthy and inclusive environment. This summary outlines key
             responsibilities, how to report hazards and incidents, and emergency procedures.
@@ -125,7 +126,7 @@ export default function WorkHealthSafetyPolicyPage() {
         <div className="mt-8 text-sm">
           <Link to="/policies/code-of-conduct" className="text-primary hover:underline">View Code of Conduct</Link>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

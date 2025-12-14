@@ -14,6 +14,7 @@ const routeImportMap: Record<string, Prefetcher> = {
   '/services/family-support': () => import('../pages/services/FamilySupportPage'),
   '/services/community-engagement': () => import('../pages/services/CommunityEngagementPage'),
   '/locations': () => import('../pages/LocationsPage'),
+  '/contact-us': () => import('../pages/LocationsPage'),
   '/get-involved': () => import('../pages/GetInvolvedPage'),
   '/resources': () => import('../pages/ResourcesPage'),
   // Legacy routes redirected to combined page
@@ -24,7 +25,7 @@ const routeImportMap: Record<string, Prefetcher> = {
   '/resources/helpful-links': () => import('../pages/resources/HelpfulLinksPage'),
   '/resources/faqs': () => import('../pages/resources/FAQPage'),
   '/stories': () => import('../pages/StoriesPage'),
-  '/contact': () => import('../pages/ContactPage'),
+  '/contact': () => import('../pages/LocationsPage'),
   '/donate': () => import('../pages/DonatePage'),
   // Policies
   '/policies/code-of-conduct': () => import('../pages/policies/CodeOfConductPolicyPage'),
@@ -33,6 +34,7 @@ const routeImportMap: Record<string, Prefetcher> = {
   '/policies/quality-management': () => import('../pages/policies/QualityManagementPolicyPage'),
   '/policies/work-health-safety': () => import('../pages/policies/WorkHealthSafetyPolicyPage'),
   '/company/knowledge-base': () => import('../pages/company/KnowledgeBasePage'),
+  '/company/news': () => import('../pages/company/NewsPage'),
 };
 
 export function prefetchRoute(path: string) {

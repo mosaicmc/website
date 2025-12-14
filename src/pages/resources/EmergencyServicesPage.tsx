@@ -3,6 +3,7 @@ import { AU } from '@/lib/auSpelling';
 import RelatedServices from '@/components/RelatedServices';
 import { Phone, AlertTriangle, Flame, CloudLightning, Satellite, Radio, Zap, MapPin, Languages } from "lucide-react";
 import { Link } from "react-router-dom";
+import Section from '@/components/ui/Section';
 
 export default function EmergencyServicesPage() {
   const items = [
@@ -72,11 +73,10 @@ export default function EmergencyServicesPage() {
         />
       </Helmet>
 
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+      <Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Emergency Services</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Emergency Services</h1>
+            <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
               Save these official contacts and sources for fast, reliable updates
               during emergencies.
             </p>
@@ -174,8 +174,7 @@ export default function EmergencyServicesPage() {
               Emergency & Translation →
             </Link>
           </div>
-        </div>
-      </section>
+      </Section>
       <RelatedServices />
     </div>
   );

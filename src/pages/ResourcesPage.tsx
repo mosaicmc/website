@@ -7,6 +7,8 @@ import AnimatedBackground from '../components/ui/AnimatedBackground';
 import RelatedServices from '../components/RelatedServices';
 import { Card, CardHeader, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Section from '@/components/ui/Section';
+import { GlassCard } from '@/components/ui/GlassCard';
 
 const ResourcesPage = () => {
   // Removed Downloads and FAQs per request; keeping page focused on key links
@@ -73,23 +75,19 @@ const ResourcesPage = () => {
         <title>Mosaic Multicultural - Resources & Support</title>
         <meta name="description" content="Access guides, policies, FAQs, and emergency contacts. Multilingual resources and professionally reviewed information to support multicultural communities." />
       </Helmet>
-      {/* Hero Section */}
-      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+      <Section overlay center padding="lg" overlayClassName="from-ocean/10 via-transparent to-sky/10">
         <AnimatedBackground />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
-              <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-              <span className="text-foreground/80 font-medium">Resources</span>
-            </div>
-            <h1 className="text-5xl font-bold mb-6 text-foreground">Resources & Support</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Access important information, emergency contacts, and downloadable resources in multiple languages.
-            </p>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
+            <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
+            <span className="text-foreground/80 font-medium">Resources</span>
           </div>
+          <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">Resources & Support</h1>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            Access important information, emergency contacts, and downloadable resources in multiple languages.
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Cross-sell key services that complement resources */}
       {/* Moved via DOM order to follow CTA while preserving styling */}
@@ -110,10 +108,8 @@ const ResourcesPage = () => {
         </div>
       </div>
 
-      {/* Emergency Quick Actions */}
-      <section className="py-6 bg-background border-y border-border/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-3">
+      <Section padding="sm" className="bg-background border-y border-border/60">
+        <div className="grid gap-4 sm:grid-cols-3">
             <Card className="group h-full flex flex-col">
               <CardHeader className="p-4 border-b border-border">
                 <div className="flex items-center gap-3">
@@ -182,25 +178,23 @@ const ResourcesPage = () => {
                 </Button>
               </CardFooter>
             </Card>
-          </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Featured Resources: Quick access to priority categories */}
-      <section className="section-spacing bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">Featured Resources</h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              Explore our most requested resources: Emergency Services, Translation Services,
-              Annual Reports, and Knowledge Base.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <Section>
+        <div className="text-center mb-10">
+          <h2 className="fluid-h2 font-bold text-foreground">Featured Resources</h2>
+          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
+            Explore our most requested resources: Emergency Services, Translation Services,
+            Annual Reports, and Knowledge Base.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link to="/resources/emergency-translation" {...prefetchOnHover('/resources/emergency-translation')}>
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-sun/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-3">
                       <AlertTriangle className="h-6 w-6" />
                     </span>
@@ -209,19 +203,20 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">Emergency contacts and interpreter support (NSW compliance)</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </Link>
             <Link to="/resources/helpful-links" {...prefetchOnHover('/resources/helpful-links')}>
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-earth/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
@@ -230,19 +225,20 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">Trusted external resources</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </Link>
             <Link to="/company/knowledge-base" {...prefetchOnHover('/company/knowledge-base')}>
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-earth/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
@@ -251,19 +247,20 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">All organisational policies and governance resources</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </Link>
             <Link to="/resources/faqs" {...prefetchOnHover('/resources/faqs')}>
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-leaf/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
                       <Book className="h-6 w-6" />
                     </span>
@@ -272,19 +269,20 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">Answers to common questions</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </Link>
             <Link to="/resources/annual-reports" {...prefetchOnHover('/resources/annual-reports')}>
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-leaf/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
                       <FileText className="h-6 w-6" />
                     </span>
@@ -293,19 +291,20 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">1990–2025 with interactive viewer</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </Link>
             <a href="#brochures" className="block">
-              <Card className="group h-full flex flex-col">
-                <CardHeader className="p-6 border-b border-border">
-                  <div className="flex items-center gap-4">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-ocean/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
                     <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
                       <FileDown className="h-6 w-6" />
                     </span>
@@ -314,25 +313,23 @@ const ResourcesPage = () => {
                       <p className="text-sm text-muted-foreground">Download service PDFs</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardFooter className="p-6 mt-auto">
+                </div>
+                <div className="p-6 mt-auto">
                   <Button variant="link" className="text-primary">
                     View
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </div>
+              </GlassCard>
             </a>
           </div>
-        </div>
-      </section>
+        </Section>
 
-      {/* Brochures: Downloadable PDFs for each service */}
-      <section id="brochures" className="py-16 bg-background border-t border-border/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section padding="lg" className="bg-background border-t border-border/60">
+        <div id="brochures">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">Brochures</h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground">Brochures</h2>
+            <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
               Download service brochures to share or read offline. Available for all core services.
             </p>
           </div>
@@ -367,20 +364,18 @@ const ResourcesPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Resource Quality Stats - Premium Glass Morphism Design */}
-      <section className="relative section-spacing bg-background overflow-hidden transition-colors duration-300">
+      <Section className="bg-background">
         <AnimatedBackground variant="subtle" className="opacity-70" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="relative z-10">
           <div className="text-center subsection-break">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
               <span className="text-foreground/80 font-medium">Quality Assurance</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">Resource Excellence</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground dark:text-white mb-4">Resource Excellence</h2>
+            <p className="fluid-p text-muted-foreground max-w-3xl mx-auto">
               Our commitment to providing reliable, accessible, and professionally maintained resources
             </p>
           </div>
@@ -432,17 +427,15 @@ const ResourcesPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Emergency Contacts */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section padding="lg" className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-sun rounded-full mb-6 shadow-lg">
               <AlertTriangle className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-4xl font-bold text-foreground dark:text-white mb-4">Emergency Contacts</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground dark:text-white mb-4">Emergency Contacts</h2>
+            <p className="fluid-p text-muted-foreground max-w-3xl mx-auto">
               Important phone numbers for crisis situations and immediate support.
             </p>
           </div>
@@ -474,15 +467,13 @@ const ResourcesPage = () => {
               <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
-      {/* Contact for More Resources */}
-      <section className="section-spacing bg-background transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Section center>
+        <div className="text-center">
           <div className="backdrop-blur-md bg-card rounded-2xl p-12 border border-border">
-            <h2 className="text-4xl font-bold mb-6 text-foreground">Need Additional Resources?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <h2 className="fluid-h2 font-bold mb-6 text-foreground">Need Additional Resources?</h2>
+            <p className="fluid-p text-muted-foreground mb-8 max-w-3xl mx-auto">
               Can't find what you're looking for? Our multilingual staff can help you access the information and support you need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -500,7 +491,7 @@ const ResourcesPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Related Services appears right after CTA, above footer */}
       <RelatedServices />

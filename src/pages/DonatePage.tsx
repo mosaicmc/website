@@ -13,10 +13,10 @@ const DonatePage = () => {
         />
       </Helmet>
       {/* Hero */}
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-3 text-gray-900 dark:text-white">Donate to Mosaic</h1>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="fluid-h1 text-4xl font-bold mb-3 text-gray-900 dark:text-white">Donate to Mosaic</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               Your contribution directly supports multicultural communities throughout New South Wales.
             </p>

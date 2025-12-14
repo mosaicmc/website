@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Section from '@/components/ui/Section';
 import RelatedServices from '@/components/RelatedServices';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
@@ -17,9 +18,9 @@ export default function HelpfulLinksPage() {
         />
       </Helmet>
 
-      <section className="doc-container section-spacing">
+      <Section padding="lg" overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
         <div className="subsection-break">
-          <h1>Helpful Links</h1>
+          <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight text-foreground">Helpful Links</h1>
           <p className="lead max-w-2xl">
             If you are facing an emergency or need trusted information quickly, the links below can help.
             These services are provided by NSW and Australian government agencies and trusted organisations.
@@ -163,7 +164,7 @@ export default function HelpfulLinksPage() {
             <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
               <div className="flex flex-wrap gap-3">
                 <Button asChild className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
-                  <Link to="/contact" aria-label="Contact Mosaic for guidance">
+                  <Link to="/contact-us" aria-label="Contact Mosaic for guidance">
                     Contact Mosaic
                   </Link>
                 </Button>
@@ -173,7 +174,7 @@ export default function HelpfulLinksPage() {
         </div>
 
         <div className="mt-8 text-xs text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</div>
-      </section>
+      </Section>
 
       <RelatedServices />
     </div>

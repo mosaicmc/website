@@ -87,8 +87,8 @@ export default function NewcastleVolunteerPage() {
         />
       </Helmet>
 
-      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Section overlay center padding="lg">
+        <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-muted-foreground font-medium">Newcastle Volunteering</span>
@@ -101,7 +101,7 @@ export default function NewcastleVolunteerPage() {
             <VolunteerLocationNav currentSlug="newcastle" />
           </div>
         </div>
-      </section>
+      </Section>
 
       <Section overlay>
         <div className="max-w-6xl mx-auto">

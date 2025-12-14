@@ -8,6 +8,11 @@ export default {
         // Map Tailwind tokens to CSS variables for dynamic theming
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        // Global background + divider tokens
+        page: 'hsl(var(--bg-page))',
+        section: 'hsl(var(--bg-section))',
+        'section-alt': 'hsl(var(--bg-section-alt))',
+        divider: 'hsl(var(--divider))',
         card: 'hsl(var(--card))',
         'card-foreground': 'hsl(var(--card-foreground))',
         popover: 'hsl(var(--popover))',

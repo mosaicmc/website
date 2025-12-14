@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { AU } from '@/lib/auSpelling';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { Heart, Users, Briefcase, ArrowRight, ExternalLink, ClipboardList } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Heart, Users, Briefcase, ArrowRight, ExternalLink, ClipboardList, CheckCircle } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,9 +37,9 @@ const GetInvolvedPage = () => {
           "Cultural competency development",
           "Meaningful community connections"
         ],
-        action: "Apply to Volunteer",
-        link: "https://forms.mosaicmc.org.au/Volunteer_Application",
-        external: true,
+        action: "Volunteer with Us",
+        link: "#volunteer-with-us-heading",
+        external: false,
         color: "sky"
       },
     {
@@ -85,6 +85,27 @@ const GetInvolvedPage = () => {
   };
 
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const getHeaderHeight = () => {
+    const header = document.querySelector('header');
+    const rectHeight = header ? header.getBoundingClientRect().height : 0;
+    if (rectHeight && rectHeight > 0) return rectHeight;
+    return window.matchMedia('(min-width: 1024px)').matches ? 96 : 80;
+  };
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        const headerHeight = getHeaderHeight();
+        const offset = headerHeight;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  }, [location.hash]);
 
   const spotlights: Array<{
     name: string;
@@ -92,6 +113,7 @@ const GetInvolvedPage = () => {
     quote: string;
     years?: string;
     source: string;
+    image?: string;
   }> = [
     {
       name: 'Peter Cook',
@@ -201,18 +223,7 @@ const GetInvolvedPage = () => {
       })
       .catch(() => {});
   }, [spotlight.source]);
-
-  useEffect(() => {
-    const scrollToHash = () => {
-      const hash = window.location.hash ? window.location.hash.slice(1) : '';
-      if (!hash) return;
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-    scrollToHash();
-    window.addEventListener('hashchange', scrollToHash);
-    return () => window.removeEventListener('hashchange', scrollToHash);
-  }, []);
+ 
   return (
     <div className="animate-fade-in">
       <Helmet>
@@ -225,16 +236,17 @@ const GetInvolvedPage = () => {
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-muted-foreground font-medium">{t('getInvolved.badge')}</span>
           </Badge>
-          <h1 className="text-3xl md:text-4xl font-bold mb-5 text-foreground">{t('getInvolved.title')}</h1>
+          <h1 className="fluid-h1 text-3xl md:text-4xl font-bold mb-5 text-foreground">{t('getInvolved.title')}</h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             {t('getInvolved.description')}
           </p>
         </div>
+        <div id="volunteer-with-us-bottom" className="scroll-mt-24" />
       </Section>
 
       {/* Opportunities Grid */}
-      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 text-center">
+      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-8 text-center">
           {opportunities.map((opportunity, index) => (
             <Card
               key={index}
@@ -290,7 +302,9 @@ const GetInvolvedPage = () => {
                           const id = opportunity.link.slice(1);
                           const el = document.getElementById(id);
                           if (el) {
-                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            const headerHeight = getHeaderHeight();
+                            const targetTop = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+                            window.scrollTo({ top: targetTop, behavior: 'smooth' });
                             history.replaceState(null, '', `#${id}`);
                           }
                         }
@@ -307,15 +321,52 @@ const GetInvolvedPage = () => {
         </div>
       </Section>
 
+      <Section center className="py-4 md:py-6 lg:py-7" containerClassName="max-w-4xl">
+        <div id="volunteer-with-us" className="text-center mb-6">
+          <h2 id="volunteer-with-us-heading" className="text-3xl leading-tight font-bold text-foreground scroll-mt-28">Volunteer With Us</h2>
+          {/* moved helper text into the card below for consistent layout */}
+        </div>
+        <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6">
+          <p className="text-base text-muted-foreground leading-relaxed mb-3">Why volunteer with us?</p>
+          <p className="text-base text-foreground leading-relaxed mb-3">
+            Volunteering with Mosaic is about helping people feel welcomed, supported, and connected through companionship at every stage of life.
+          </p>
+          <p className="text-base text-foreground leading-relaxed mb-3">
+            Our volunteers support families, young people, and older community members from many cultures through practical help, friendship, and encouragement. Many volunteers say they gain meaningful connections, new perspectives, and a strong sense of belonging in return.
+          </p>
+          <p className="mt-2 text-base font-bold text-ocean dark:text-sky leading-relaxed mb-4">
+            Is volunteering with Mosaic right for you?
+          </p>
+          <p className="text-base text-foreground leading-relaxed mb-2">
+            You may want to join our mission if you:
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3">
+              <CheckCircle className="h-5 w-5 text-sky flex-shrink-0" />
+              <span className="text-foreground">Enjoy supporting people from diverse cultural backgrounds</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="h-5 w-5 text-earth flex-shrink-0" />
+              <span className="text-foreground">Can offer time regularly, even a few hours</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="h-5 w-5 text-leaf flex-shrink-0" />
+              <span className="text-foreground">Value empathy, patience, and respect</span>
+            </li>
+          </ul>
+          <p className="text-sm text-muted-foreground mt-4">We provide training and ongoing support to help you feel confident in your role.</p>
+        </div>
+      </Section>
+
       {/* Volunteer Spotlight */}
-      <Section padding="sm" overlay className="py-4 md:py-6 lg:py-7 section-break" center>
-        <div className="grid lg:grid-cols-2 gap-10 items-center text-center">
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6 inline-flex items-center justify-center">
+      <Section padding="sm" overlay className="py-4 md:py-6 lg:py-7 section-break" center containerClassName="max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-10 items-stretch text-center">
+          <div className="flex flex-col h-full">
+            <h2 className="text-3xl leading-tight font-bold text-foreground mb-6 inline-flex items-center justify-center">
               <Users className="h-8 w-8 text-sky mr-3" />
               {t('getInvolved.volunteerSpotlight')}
             </h2>
-            <Card className="rounded-2xl p-4 shadow-lg text-center">
+            <Card className="rounded-2xl p-4 shadow-lg text-center flex-1">
               <div className="flex items-center justify-center space-x-4 mb-4">
                   {spotlightImage ? (
                     <img
@@ -350,9 +401,10 @@ const GetInvolvedPage = () => {
             </Card>
           </div>
 
-          <div className="space-y-8" id="volunteer-opportunities">
-            <h3 className="text-2xl font-bold text-foreground">Volunteer Opportunities</h3>
-            <Card className="rounded-lg shadow-sm">
+          <div className="space-y-8 scroll-mt-24 flex flex-col h-full" id="volunteer-opportunities">
+            <h2 className="text-3xl leading-tight font-bold text-foreground">Volunteer Opportunities</h2>
+            <p className="text-sm text-muted-foreground">Opportunities vary by location, choose your nearest area to learn more.</p>
+            <Card className="rounded-lg shadow-sm flex-1">
               <ul className="divide-y divide-border">
                 {[
                   { name: 'Newcastle', href: '/volunteer/newcastle' },

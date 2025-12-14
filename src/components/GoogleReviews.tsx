@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { StarRating } from './StarRating';
+import { useTranslation } from 'react-i18next';
 
 type ScrapedReview = {
   id: string;
@@ -18,6 +19,7 @@ type ScrapedReview = {
 const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/mYc8i3DawKk6PsPc9';
 
 const GoogleReviews = () => {
+  const { t } = useTranslation();
   const [reviews, setReviews] = React.useState<ScrapedReview[]>([]);
   const [placeUrl, setPlaceUrl] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(true);
@@ -77,9 +79,7 @@ const GoogleReviews = () => {
             <span className="text-gray-700 dark:text-white/90 font-medium">Google Reviews</span>
           </div>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Are Saying</h2>
-          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-            Verified feedback from people we support, shared publicly on Google.
-          </p>
+          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('reviews.subtitle')}</p>
         </div>
 
         {error && (

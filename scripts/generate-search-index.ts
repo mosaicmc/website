@@ -77,7 +77,7 @@ function addMultilingualTags(routePath: string, tags: Set<string>, translations:
     else if (routePath === '/services/community-engagement') add(services.communityEngagement);
     else if (routePath === '/get-involved') add(nav.getInvolved);
     else if (routePath === '/resources' || routePath.startsWith('/resources/')) add(nav.resources);
-    else if (routePath === '/contact') add(nav.contact);
+    else if (routePath === '/contact-us') add(nav.contact);
     else if (routePath === '/') add(nav.home);
     else if (routePath === '/services') add(nav.services);
     else if (routePath === '/stories') add(nav.stories);
@@ -96,7 +96,7 @@ function getTranslatedTitleForRoute(routePath: string, t: TranslationEntry): str
   if (routePath === '/services/community-engagement') return services.communityEngagement;
   if (routePath === '/get-involved') return nav.getInvolved;
   if (routePath === '/resources' || routePath.startsWith('/resources/')) return nav.resources;
-  if (routePath === '/contact') return nav.contact;
+  if (routePath === '/contact-us') return nav.contact;
   if (routePath === '/') return nav.home;
   if (routePath === '/services') return nav.services;
   if (routePath === '/stories') return nav.stories;

@@ -160,7 +160,7 @@ const Footer = () => {
                 {/* Row 1 */}
                 {!isEmergencyMode && (
                   <Link
-                    to="/contact"
+                    to="/contact-us"
                     className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white dark:text-ocean shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-[#233069] focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-sky dark:bg-sky dark:hover:bg-sky/90 dark:focus:ring-sky"
                   >
                     <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>

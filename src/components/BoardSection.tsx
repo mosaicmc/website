@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+ 
 import { X } from "lucide-react";
 import {
   Sheet,
@@ -72,7 +73,7 @@ export function BoardSection({
                 <div className="md:flex-1">
                     <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">{m.name}</h3>
                     {m.role && (
-                      <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-sky dark:border-sky/20 px-2.5 py-0.5 text-xs font-semibold mb-2">
+                      <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-foreground dark:border-sky/20 px-2.5 py-0.5 text-xs font-semibold mb-2">
                         {m.role}
                       </span>
                     )}

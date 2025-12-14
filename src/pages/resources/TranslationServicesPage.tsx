@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import RelatedServices from '@/components/RelatedServices';
 import { Globe, Phone, Info } from "lucide-react";
+import Section from '@/components/ui/Section';
 
 export default function TranslationServicesPage() {
   return (
@@ -13,11 +14,10 @@ export default function TranslationServicesPage() {
         />
       </Helmet>
 
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-4xl px-6 py-16">
+      <Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Translation Services</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Translation Services</h1>
+            <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
               If you need language support, these services can help you talk to
               government agencies, emergency services, and community organisations.
             </p>
@@ -30,7 +30,7 @@ export default function TranslationServicesPage() {
                   <Globe className="h-6 w-6" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold">TIS National (Translating & Interpreting Service)</h2>
+                  <h2 className="fluid-h2 font-semibold">TIS National (Translating & Interpreting Service)</h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     24/7 phone interpreting service accessible from anywhere in Australia.
                     Ask for an interpreter in your language.
@@ -58,7 +58,7 @@ export default function TranslationServicesPage() {
                   <Info className="h-6 w-6" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold">Using interpreters with services</h2>
+                  <h2 className="fluid-h2 font-semibold">Using interpreters with services</h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Many services can arrange an interpreter when you call. If you
                     need help speaking to police, a hospital, or a government agency,
@@ -73,8 +73,7 @@ export default function TranslationServicesPage() {
             In an emergency, call <a className="text-primary hover:underline" href="tel:000">000</a> first, then ask for
             an interpreter.
           </div>
-        </div>
-      </section>
+      </Section>
       <RelatedServices />
     </div>
   );

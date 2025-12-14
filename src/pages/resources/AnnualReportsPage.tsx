@@ -4,6 +4,7 @@ import RelatedServices from '@/components/RelatedServices';
 import { FileText, ExternalLink } from "lucide-react";
 import DecadeCards from '@/components/DecadeCards';
 import { computeDecadeGroups } from '@/components/DecadeCards.data';
+import Section from '@/components/ui/Section';
 import {
   Sheet,
   SheetContent,
@@ -104,11 +105,10 @@ export default function AnnualReportsPage() {
         />
       </Helmet>
 
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+      <Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Annual Reports</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight">Annual Reports</h1>
+            <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
               Click a year to open the report in a smooth side panel, or use the
               external link to download directly.
             </p>
@@ -225,8 +225,7 @@ export default function AnnualReportsPage() {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
-      </section>
+      </Section>
       <RelatedServices />
     </div>
   );

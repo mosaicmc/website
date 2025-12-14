@@ -10,6 +10,7 @@ import { FeatureValues } from '@/components/ui/FeatureValues';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BoardSection } from '@/components/BoardSection';
 import { ManagementSection } from '@/components/ManagementSection';
+import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   const storyData = React.useMemo(() => [
@@ -436,7 +437,7 @@ const AboutPage = () => {
         })}</script>
       </Helmet>
       {/* Hero Section */}
-      <section className="relative section-spacing bg-gradient-to-br from-sand via-sky/20 to-ocean/10 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-page border-t border-divider transition-colors duration-300 overflow-hidden">
         {/* Glass morphism background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-sand/40 via-transparent to-sky/20 dark:from-slate-900/50 dark:to-ocean/30"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-sky/30 rounded-full blur-3xl dark:bg-sky/20"></div>
@@ -449,16 +450,18 @@ const AboutPage = () => {
               <span className="text-gray-700 dark:text-white/90 font-medium">Our Story</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
-              About{" "}
-              <span className="bg-gradient-to-r from-ocean via-sky to-ocean bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-ocean">
-                Mosaic Multicultural Connections
-              </span>
+            <h1 className="fluid-h1 text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+              Where Belonging, Care, and Community Come Together
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              For <span className="font-bold text-ocean dark:text-sky">{serviceYearsBase()}+ years</span>, we've been dedicated to supporting diverse communities across NSW,
-              helping families build new lives while celebrating their cultural heritage.
+              For <span className="font-bold text-ocean dark:text-foreground">{serviceYearsBase()}+ years</span>, Mosaic Multicultural Connections has walked alongside migrants and multicultural communities, offering support, care, and connection from first arrival through later life. From settling into life in Australia, to caring for loved ones at home, strengthening families, and building community leadership, our work spans{" "}
+              <Link to="/services/settlement-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Settlement Support</Link>,{" "}
+              <Link to="/services/aged-care" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Aged Care</Link>,{" "}
+              <Link to="/services/family-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Family Support</Link>,{" "}
+              and{" "}
+              <Link to="/services/community-engagement" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Community Engagement</Link>{" "}
+              programs across NSW.
             </p>
             
             {/* Statistics */}
@@ -492,7 +495,7 @@ const AboutPage = () => {
 
       {/* Leadership */}
 
-      <section className="relative section-spacing bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-label="Board of Directors">
+      <section className="relative section-spacing border-t border-divider bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-label="Board of Directors">
         <div className="absolute inset-0 bg-gradient-to-br from-sand/30 via-transparent to-sky/20 dark:from-slate-900/40 dark:to-ocean/20 pointer-events-none"></div>
         <AnimatedBackground variant="subtle" className="opacity-70" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
@@ -560,11 +563,11 @@ const AboutPage = () => {
                   className="group relative w-full h-full text-left rounded-2xl border border-border bg-background shadow-sm overflow-hidden hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition flex flex-col"
                 >
                   {item.image ? (
-                    <div className="w-full h-40 md:h-48 flex items-center justify-center bg-background">
+                    <div className="w-full aspect-video flex items-start justify-center bg-background">
                       <img
                         src={item.image}
                         alt={item.alt}
-                        className="h-full w-auto object-contain"
+                        className="w-full h-full object-contain object-top"
                         loading="lazy"
                         decoding="async"
                       />
@@ -627,7 +630,7 @@ const AboutPage = () => {
         </div>
         {activeStory && (
           <div
-            className="fixed inset-0 z-[60] flex items-center justify-center"
+            className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto pt-6 md:pt-10"
             aria-labelledby="story-dialog-title"
             role="dialog"
             aria-modal="true"
@@ -646,17 +649,17 @@ const AboutPage = () => {
               className="absolute inset-0 bg-black/50"
               onClick={closeStoryModal}
             />
-            <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
+            <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl my-6 md:my-10">
               <button
                 aria-label="Close dialog"
                 onClick={closeStoryModal}
-                className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
+                className="absolute top-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
               >
                 <X className="h-4 w-4" />
               </button>
               <div className="relative">
                 {activeStory.image ? (
-                  <div className="w-full max-h-[60vh] rounded-t-2xl flex items-center justify-center overflow-hidden bg-background">
+                  <div className="w-full max-h-[60vh] rounded-t-2xl flex items-start justify-center overflow-hidden bg-background">
                     <AnimatePresence mode="wait" custom={lastImageDirection}>
                       <motion.img
                         key={`${activeStory.year}-${activeImageIndex}`}
@@ -666,7 +669,7 @@ const AboutPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: lastImageDirection === 'right' ? -40 : lastImageDirection === 'left' ? 40 : 0 }}
                         transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-                        className="max-h-[60vh] max-w-full w-auto object-contain"
+                        className="max-h-[60vh] max-w-full w-auto object-contain object-top"
                         onAnimationStart={() => setIsImageAnimating(true)}
                         onAnimationComplete={() => setIsImageAnimating(false)}
                       />
@@ -699,7 +702,7 @@ const AboutPage = () => {
                   </div>
                 )}
               </div>
-              <div className="p-6 pb-16">
+              <div className="p-6 pb-16 max-h-[calc(100vh-12rem)] overflow-y-auto">
                 <h3 id="story-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeStory.label}</h3>
                 <p className="text-muted-foreground mb-4">{activeStory.description}</p>
                 <p className="text-sm md:text-base text-foreground leading-relaxed">{activeStory.details}</p>
@@ -772,7 +775,7 @@ const AboutPage = () => {
       </section>
 
       {/* Board */}
-      <section className="relative section-spacing bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-labelledby="board-title">
+      <section className="relative section-spacing border-t border-divider bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-labelledby="board-title">
         <div className="absolute inset-0 bg-gradient-to-br from-sand/20 via-sky/10 to-ocean/5 dark:from-ocean/20 dark:via-sky/5 dark:to-ocean/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center subsection-break">
@@ -824,7 +827,7 @@ const AboutPage = () => {
       </section>
 
       {/* Management */}
-      <section className="relative section-spacing bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+      <section className="relative section-spacing border-t border-divider bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
         {/* Glass morphism background */}
         <div className="absolute inset-0 bg-gradient-to-br from-sand/20 via-sky/10 to-ocean/5 dark:from-ocean/20 dark:via-sky/5 dark:to-ocean/10"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-leaf/20 dark:bg-leaf/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -842,7 +845,7 @@ const AboutPage = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Structured to reflect reporting lines while keeping a clean, premium presentation.
+              Experienced leaders committed to guide Mosaic's work with integrity, collaboration and community impact.
             </p>
           </div>
           <div>

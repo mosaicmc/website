@@ -14,6 +14,7 @@
     "components": "@/components",
     "utils": "@/lib/utils"
   },
+  "iconLibrary": "lucide",
   "registries": {
     "@shadcnblocks": {
       "url": "https://shadcnblocks.com/r/{name}",

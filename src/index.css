@@ -4,6 +4,14 @@
 
 @layer base {
   :root {
+    /* Global background + divider tokens (light) */
+    --bg-page: var(--background);
+    --bg-section: var(--card);
+    --bg-section-alt: var(--background);
+    --divider: var(--border);
+    /* Fade tokens for gradient overlays */
+    --fade-from: rgba(255, 255, 255, 0.20);
+    --fade-to: rgba(255, 255, 255, 0.00);
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -64,6 +72,13 @@
   }
 
   .dark {
+    /* Global background + divider tokens (dark) */
+    --bg-page: var(--background);
+    --bg-section: var(--card);
+    --bg-section-alt: var(--background);
+    --divider: var(--border);
+    --fade-from: rgba(255, 255, 255, 0.05);
+    --fade-to: rgba(255, 255, 255, 0.00);
     --background: 0 0% 7%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -119,6 +134,18 @@
 }
 
 @layer utilities {
+  .fluid-h1 {
+    font-size: clamp(1.875rem, 2.5vw + 1rem, 3rem);
+  }
+  .fluid-h2 {
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
+  }
+  .fluid-p {
+    font-size: clamp(1rem, 1vw + 0.75rem, 1.25rem);
+  }
+}
+
+@layer utilities {
   .mc-link {
     color: hsl(var(--link));
     text-decoration: none;
@@ -139,6 +166,24 @@
   .section-break { @apply my-6 md:my-8 lg:my-10; }
   .subsection-break { @apply my-4 md:my-6 lg:my-8; }
   .stack-vertical { @apply space-y-4 md:space-y-6 lg:space-y-8; }
+}
+
+@layer utilities {
+  /* Section fade overlays using global tokens */
+  .section-fade-top {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 48px;
+    background-image: linear-gradient(to bottom, var(--fade-from), var(--fade-to));
+    pointer-events: none;
+  }
+  .section-fade-bottom {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 48px;
+    background-image: linear-gradient(to top, var(--fade-from), var(--fade-to));
+    pointer-events: none;
+  }
 }
 
 @layer base {
@@ -165,10 +210,12 @@
   h1 { @apply text-4xl; }
   h2 { @apply text-3xl; }
   h3 { @apply text-2xl; }
+  p { @apply text-lg; }
 }
 
 @screen lg {
   h1 { @apply text-5xl; }
+  p { @apply text-xl; }
 }
 
 @layer components {

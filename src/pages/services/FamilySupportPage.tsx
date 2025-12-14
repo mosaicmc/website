@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
 import RelatedServices from '../../components/RelatedServices';
+import { useTranslation } from 'react-i18next';
 
 const FamilySupportPage = () => {
+  const { t } = useTranslation();
   // Two separate states for each accordion column
   const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
@@ -173,7 +175,7 @@ const FamilySupportPage = () => {
       
       
       {/* Hero Section with enhanced animations */}
-      <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <AnimatedBackground variant="vibrant" />
         <div className="absolute inset-0 bg-sun/10 dark:bg-sun/15 mix-blend-multiply pointer-events-none"></div>
         
@@ -183,9 +185,12 @@ const FamilySupportPage = () => {
               <Users className="mr-2 h-4 w-4 text-sun" />
               <span className="text-gray-700 dark:text-white/90 font-medium">Family Support</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">Every Family Deserves Support That Understands Their Journey</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Raising children in a new country while honouring your culture is one of life's greatest challenges. At Mosaic, we offer two complementary family support programs designed for multicultural families at every stage. From intensive one-on-one support during difficult times to joyful community playgroups that celebrate your heritage, we're here to help your family not just survive, but truly thrive.
+            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('family.hero.headline')}</h1>
+            <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-3 animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
+              {t('family.hero.subheadline')}
+            </p>
+            <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-gray-300 leading-relaxed mb-8 animate-fade-in-up break-words" style={{ animationDelay: '300ms' }}>
+              {t('family.hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <a
@@ -193,7 +198,7 @@ const FamilySupportPage = () => {
                 className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 1800 813 205
+                {t('family.hero.cta')}
               </a>
             </div>
           </div>
@@ -211,7 +216,7 @@ const FamilySupportPage = () => {
               <span className="mr-2 h-2 w-2 rounded-full bg-sun animate-pulse"></span>
               <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Family Support Programs</h2>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Comprehensive Family Support Programs</h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -362,11 +367,11 @@ const FamilySupportPage = () => {
       
 
       <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-[0.3em] text-sun font-semibold mb-3">How family support works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Three steps from first call to confident parenting</h2>
-            <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Three steps from first call to confident parenting</h2>
+            <p className="fluid-p text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
               We listen, assess your goals, and match you to TEI casework or PAW playgroups. We check in until you feel supported and connected.
             </p>
           </div>
@@ -414,12 +419,12 @@ const FamilySupportPage = () => {
       
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-sun font-semibold mb-3">Impact stories</p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Families finding confidence and connection</h2>
-              <p className="text-gray-600 dark:text-white/80 mb-5">
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Families finding confidence and connection</h2>
+              <p className="fluid-p text-gray-600 dark:text-white/80 mb-5">
                 Short videos share how TEI and PAW helped parents navigate services, build skills, and celebrate culture with their children.
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
@@ -458,8 +463,8 @@ const FamilySupportPage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-foreground">Meet Your Complete Family Support Team</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Complete Family Support Team</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
               Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families.
             </p>
           </div>
@@ -569,7 +574,7 @@ const FamilySupportPage = () => {
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">Ready to Get Family Support?</h2>
             <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">
-              Our experienced family support team understands the unique challenges facing multicultural families. Contact us today to discuss which program is right for your family.
+              You don’t need to know which program to choose. We can talk about your needs, explore different options, and help you decide what feels right for your family. If you’d prefer to talk before filling out a form, you’re welcome to call us.
             </p>
             <div className="max-w-md mx-auto">
               <div className="text-center">
@@ -578,13 +583,13 @@ const FamilySupportPage = () => {
                   className="w-full bg-gradient-to-r from-sun to-sun/90 hover:from-sun/90 hover:to-sun text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
                 >
                   <Phone className="h-5 w-5 mr-2" />
-                  call 1800 813 205
+                  Call 1800 813 205
                 </a>
               </div>
             </div>
             <div className="mt-6">
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center hover:scale-105"
               >
                 Contact Us Online
