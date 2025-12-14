@@ -101,11 +101,10 @@ export default function EmergencyTranslationPage() {
               <TabsTrigger value="links">Helpful Links</TabsTrigger>
             </TabsList>
             <TabsContent value="quick">
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-10 text-center">
-                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-stretch justify-center justify-items-center text-center max-w-[860px] mx-auto">
+                <Card className="glass-surface group relative h-full w-full max-w-[380px] min-h-[240px] flex flex-col transition-all duration-500 group-hover:scale-[1.02]">
                   <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader className="p-6 lg:p-8 border-b border-border">
+                    <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
                         <span className="inline-flex items-center justify-center rounded-lg bg-sun text-white p-3">
                           <AlertTriangle className="h-6 w-6" />
@@ -116,8 +115,8 @@ export default function EmergencyTranslationPage() {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="p-6 lg:p-8 flex-1" />
-                    <CardHeader className="px-6 lg:px-8 pb-6 lg:pb-8 pt-0">
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="px-6 pb-6 pt-0">
                       <Button asChild variant="outline" className="h-11 w-full">
                         <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
                           Call now
@@ -126,10 +125,9 @@ export default function EmergencyTranslationPage() {
                     </CardHeader>
                   </div>
                 </Card>
-                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="glass-surface group relative h-full w-full max-w-[380px] min-h-[240px] flex flex-col transition-all duration-500 group-hover:scale-[1.02]">
                   <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader className="p-6 lg:p-8 border-b border-border">
+                    <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
                         <span className="inline-flex items-center justify-center rounded-lg bg-earth text-white p-3">
                           <Phone className="h-6 w-6" />
@@ -140,8 +138,8 @@ export default function EmergencyTranslationPage() {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="p-6 lg:p-8 flex-1" />
-                    <CardHeader className="px-6 lg:px-8 pb-6 lg:pb-8 pt-0">
+                    <CardContent className="p-6 flex-1" />
+                    <CardHeader className="px-6 pb-6 pt-0">
                       <div className="grid grid-cols-1 gap-3">
                         <Button asChild variant="outline" className="h-11 w-full">
                           <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">Call TIS 131 450</a>
@@ -160,17 +158,16 @@ export default function EmergencyTranslationPage() {
             </TabsContent>
 
             <TabsContent value="contacts">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-center justify-items-center">
                 {emergencyItems.map((item) => {
                   const Icon = item.icon;
                   const isSesGeneral = item.title.startsWith('NSW SES');
                   const displayTitle = isSesGeneral ? 'NSW SES' : item.desc;
                   const displaySubtitle = isSesGeneral ? item.desc : item.title;
                   return (
-                    <Card key={item.title} className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
-                      <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <Card key={item.title} className="group relative h-full w-full max-w-[420px] min-h-[260px] flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
                       <div className="relative z-10 h-full flex flex-col">
-                        <CardHeader className="p-6 border-b border-border">
+                        <CardHeader className="p-6">
                           <div className="flex items-center gap-4">
                             <span className={`inline-flex items-center justify-center rounded-lg ${accentFor(item.title)} text-white p-3`}>
                               {Icon ? <Icon className="h-6 w-6" /> : null}
@@ -206,7 +203,7 @@ export default function EmergencyTranslationPage() {
             </TabsContent>
 
             <TabsContent value="language">
-              <Card className="mt-3 h-full flex flex-col">
+                  <Card className="glass-surface mt-3 h-full flex flex-col">
               <CardHeader className="p-6">
                 <p className="text-sm text-muted-foreground leading-relaxed">If you need language support, call the Translating & Interpreting Service on <a className="mc-link" href="tel:131450">131 450</a>. Ask for an interpreter and the language you speak.</p>
               </CardHeader>
@@ -263,11 +260,10 @@ export default function EmergencyTranslationPage() {
               </Card>
             </TabsContent>
             <TabsContent value="links">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-center justify-items-center">
+                <Card className="glass-surface group relative h-full w-full max-w-[420px] min-h-[260px] flex flex-col transition-all duration-500 group-hover:scale-[1.02]">
                   <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader className="p-6 border-b border-border">
+                    <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
                         <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
                           <Satellite className="h-6 w-6" />
@@ -294,10 +290,10 @@ export default function EmergencyTranslationPage() {
                     </CardHeader>
                   </div>
                 </Card>
-                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                <Card className="glass-surface group relative h-full w-full max-w-[420px] min-h-[260px] flex flex-col transition-all duration-500 group-hover:scale-[1.02]">
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader className="p-6 border-b border-border">
+                    <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
                         <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
                           <AlertTriangle className="h-6 w-6" />
@@ -324,10 +320,10 @@ export default function EmergencyTranslationPage() {
                     </CardHeader>
                   </div>
                 </Card>
-                <Card className="group relative h-full flex flex-col transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15">
+                <Card className="glass-surface group relative h-full w-full max-w-[420px] min-h-[260px] flex flex-col transition-all duration-500 group-hover:scale-[1.02]">
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader className="p-6 border-b border-border">
+                    <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
                         <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
                           <MapPin className="h-6 w-6" />

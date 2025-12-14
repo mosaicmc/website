@@ -52,7 +52,7 @@ export default function ArmidaleVolunteerPage() {
 
       <Section overlay center padding="lg">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow mb-6">
+          <div className="inline-flex items-center rounded-full glass-surface px-6 py-2 text-sm shadow mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
             <span className="text-muted-foreground font-medium">Armidale Volunteering</span>
           </div>
@@ -87,7 +87,7 @@ export default function ArmidaleVolunteerPage() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {settlementRoles.map((r) => (
-                        <div key={r.title} className="group relative backdrop-blur-md bg-ocean/10 dark:bg-ocean/5 rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-ocean/15 dark:hover:bg-ocean/10">
+                        <div key={r.title} className="group relative glass-surface rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md">
                           <div className="flex items-start justify-between">
                             <div className="font-semibold text-foreground">{r.title}</div>
                             <Dialog.Root>
@@ -97,7 +97,7 @@ export default function ArmidaleVolunteerPage() {
                               <Dialog.Portal>
                                 <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
                                 <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
-                                  <div className="relative w-full max-w-lg rounded-3xl border border-border dark:border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl transition-all duration-300">
+                                  <div className="glass-surface relative w-full max-w-lg rounded-3xl border border-border p-6 shadow-2xl transition-all duration-300">
                                     <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
                                     <Dialog.Title className="text-xl font-semibold text-foreground">{r.title}</Dialog.Title>
                                     <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{r.blurb}</Dialog.Description>
@@ -120,7 +120,7 @@ export default function ArmidaleVolunteerPage() {
                                         Apply
                                       </a>
                                     </div>
-                                    <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+                                    <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
                                       <X className="h-4 w-4 text-muted-foreground" />
                                     </Dialog.Close>
                                   </div>

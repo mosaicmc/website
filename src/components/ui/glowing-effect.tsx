@@ -144,17 +144,17 @@ const GlowingEffect = memo(
                   var(--black),
                   var(--black) calc(25% / var(--repeating-conic-gradient-times))
                 )`
-                  : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
-                radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
-                radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%), 
-                radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
+                  : `radial-gradient(circle, var(--glow-pink) 10%, transparent 20%),
+                radial-gradient(circle at 40% 40%, var(--glow-gold) 5%, transparent 15%),
+                radial-gradient(circle at 60% 60%, var(--glow-leaf) 10%, transparent 20%), 
+                radial-gradient(circle at 40% 60%, var(--glow-sky) 10%, transparent 20%),
                 repeating-conic-gradient(
                   from 236.84deg at 50% 50%,
-                  #dd7bbb 0%,
-                  #d79f1e calc(25% / var(--repeating-conic-gradient-times)),
-                  #5a922c calc(50% / var(--repeating-conic-gradient-times)), 
-                  #4c7894 calc(75% / var(--repeating-conic-gradient-times)),
-                  #dd7bbb calc(100% / var(--repeating-conic-gradient-times))
+                  var(--glow-pink) 0%,
+                  var(--glow-gold) calc(25% / var(--repeating-conic-gradient-times)),
+                  var(--glow-leaf) calc(50% / var(--repeating-conic-gradient-times)), 
+                  var(--glow-sky) calc(75% / var(--repeating-conic-gradient-times)),
+                  var(--glow-pink) calc(100% / var(--repeating-conic-gradient-times))
                 )`,
             } as React.CSSProperties
           }
@@ -176,7 +176,7 @@ const GlowingEffect = memo(
               "after:opacity-[var(--active)] after:transition-opacity after:duration-300",
               "after:[mask-clip:padding-box,border-box]",
               "after:[mask-composite:intersect]",
-              "after:[mask-image:linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]"
+              "after:[mask-image:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,var(--glow-mask),transparent_calc(var(--spread)*2deg))]"
             )}
           />
         </div>

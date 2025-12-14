@@ -291,7 +291,8 @@ export class LocalSearchClient {
     for (const c of close) if (out.length < 5) out.push(c);
     const _cfgTouch = !!translationsLookup && !!iconsMapping;
     if (_cfgTouch) { /* no-op: ensures configs are referenced without affecting behavior */ }
-    return Array.from(new Set(out)).slice(0, 5);
+    const arr = Array.from(new Set(out)).slice(0, 5);
+    return ['All', ...arr.filter((x) => x.toLowerCase() !== 'all')].slice(0, 5);
   }
 
   popularPrompts(): string[] {

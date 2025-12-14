@@ -27,7 +27,7 @@ const HeroWithFlipWords = () => {
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/20 border border-white/30 px-4 py-2 text-sm shadow-lg dark:bg-slate-800/30 dark:border-slate-700/50 animate-fade-in-up hover:bg-white/30 dark:hover:bg-slate-800/40 transition-all duration-300 group cursor-pointer">
+              <div className="inline-flex items-center rounded-full glass-surface px-4 py-2 text-sm shadow-lg animate-fade-in-up transition-all duration-300 group cursor-pointer">
                 <span className="mr-2 h-2 w-2 rounded-full bg-green-500 animate-pulse group-hover:animate-heartbeat"></span>
                 <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">{t('hero.badge', { years: serviceYearsLabel() })}</span>
               </div>
@@ -62,7 +62,7 @@ const HeroWithFlipWords = () => {
               
               <Link
                 to="/get-involved"
-                className="group inline-flex h-12 items-center justify-center rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-slate-800/80 px-8 py-3 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-400 dark:hover:border-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                className="group inline-flex h-12 items-center justify-center rounded-lg border-2 border-border glass-surface px-8 py-3 text-foreground font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-300 hover:scale-105"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 {t('hero.secondaryCTA')}
@@ -86,7 +86,7 @@ const HeroWithFlipWords = () => {
           
           {/* Right Content - Image with subtle animations */}
           <div className="relative animate-fade-in-right">
-            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl backdrop-blur-md bg-gradient-to-br from-white/20 to-blue-100/30 shadow-2xl dark:from-slate-800/30 dark:to-blue-900/20 hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
+            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl glass-surface shadow-2xl hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
               <img
                 src="/pexels-yankrukov-8199708.jpg"
                 alt="Diverse group of young people celebrating together in a library setting"

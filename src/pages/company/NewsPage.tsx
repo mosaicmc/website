@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Megaphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { prefetchOnHover } from '@/lib/prefetch';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 type NewsItem = {
   title: string;
@@ -195,6 +196,11 @@ export default function NewsPage() {
   const [linkYears, setLinkYears] = useState<Record<string, string>>({});
   const [thumbs, setThumbs] = useState<Record<string, string>>({});
   const [linkDates, setLinkDates] = useState<Record<string, string>>({});
+  const [selectedTag, setSelectedTag] = useState<string>('All');
+  const allTags = Array.from(new Set([
+    ...Object.values(contentTagFor),
+    ...externalLinks.map((u) => deriveContentTag(u, titles[u])).filter((x): x is string => !!x),
+  ])).sort();
   useEffect(() => {
     const controller = new AbortController();
     const run = async () => {
@@ -312,16 +318,36 @@ export default function NewsPage() {
         if (validDemo.length === 0) return null;
         return (
           <Section variant="surface" divider="none" padding="sm">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
+              <span className="text-sm text-muted-foreground">Filter by tag</span>
+              <button
+                aria-pressed={selectedTag === 'All'}
+                onClick={() => setSelectedTag('All')}
+                className={`px-3 py-1 rounded-full border transition ${selectedTag === 'All' ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
+              >
+                All
+              </button>
+              {allTags.map((tag) => (
+                <button
+                  key={tag}
+                  aria-pressed={selectedTag === tag}
+                  onClick={() => setSelectedTag(tag)}
+                  className={`px-3 py-1 rounded-full border transition ${selectedTag === tag ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {validDemo.map((item, idx) => (
                 <div
                   key={`${item.title}-${idx}`}
-                  className="relative group overflow-hidden dark:border-white/20 dark:bg-white/10 backdrop-blur-xl duration-500 ease-out hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition h-[420px] md:h-[440px] flex"
+                  className="relative group overflow-hidden dark:border-white/20 dark:bg-white/10 backdrop-blur-xl duration-500 ease-out hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition min-h-[380px] md:min-h-[420px] flex"
                 >
                   <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <Card className="rounded-xl border-0 shadow-none flex-1 flex flex-col">
-                    <CardHeader className="p-5 md:p-6 border-b border-border">
-                      <div className="flex items-center gap-2">
+                    <CardHeader className="p-4 md:p-5">
+                      <div className="flex items-center gap-3">
                         <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-2">
                           {item.type === 'Press Release' ? <Megaphone className="h-5 w-5" /> : <Calendar className="h-5 w-5" />}
                         </span>
@@ -330,12 +356,12 @@ export default function NewsPage() {
                           <div className="text-sm text-muted-foreground">{new Date(item.date).toLocaleDateString()}</div>
                         </div>
                       </div>
-                      <h2 className="mt-3 text-lg md:text-xl font-semibold text-foreground">{item.title}</h2>
+                      <h2 className="mt-2 text-lg md:text-xl font-semibold text-foreground">{item.title}</h2>
                     </CardHeader>
-                    <CardContent className="p-5 md:p-6">
+                    <CardContent className="p-4 md:p-5">
                       <p className="text-sm md:text-base text-muted-foreground">{item.summary}</p>
                     </CardContent>
-                    <CardFooter className="p-5 md:p-6 mt-auto">
+                    <CardFooter className="p-4 md:p-5 mt-auto">
                       <Button asChild variant="link" className="text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                         <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={ariaLabelFor(item.href!, item.title)}>
                           Read More
@@ -356,25 +382,39 @@ export default function NewsPage() {
           <h2 className="text-2xl font-bold text-foreground">Media Coverage</h2>
           <p className="text-muted-foreground">Explore news articles and media coverage featuring Mosaic Multicultural Connections.</p>
         </div>
+        <Tabs value={selectedTag} onValueChange={(v) => setSelectedTag(v)} className="mb-4">
+          <TabsList className="mx-0 flex-wrap">
+            <TabsTrigger value="All">All</TabsTrigger>
+            {['Youth','Community','Company Update','Family','Settlement','Advocacy'].map((t) => (
+              <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
         {(() => {
           const sorted = [...externalLinks].sort((a, b) => {
             const ta = thumbDateTs(a, linkYears[a], linkDates[a]);
             const tb = thumbDateTs(b, linkYears[b], linkDates[b]);
             return tb - ta;
           });
+          const byTag = selectedTag === 'All'
+            ? sorted
+            : sorted.filter((u) => {
+                const tag = contentTagFor[u] || deriveContentTag(u, titles[u]);
+                return tag === selectedTag;
+              });
           return (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {sorted.map((url) => (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-items-start">
+              {byTag.map((url) => (
                 <button
                   key={url}
                   aria-label={ariaLabelFor(url, titles[url])}
                   onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
-                  className="group relative w-full h-[420px] md:h-[440px] text-left rounded-2xl border border-border bg-card shadow-sm overflow-hidden hover:shadow-md hover:ring-1 hover:ring-ocean/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition duration-300 flex flex-col"
+                  className="group relative w-full min-h-[380px] md:min-h-[420px] text-left rounded-2xl border border-border bg-card shadow-sm overflow-hidden hover:shadow-md hover:ring-1 hover:ring-ocean/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition duration-300 flex flex-col"
                 >
                   <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <Card className="rounded-2xl border-0 shadow-none overflow-hidden flex-1 flex flex-col">
                     {(customThumbFor[url] || thumbs[url]) && (
-                      <div className="h-36 md:h-40 bg-muted">
+                      <div className="h-44 md:h-48 bg-muted">
                         <img
                           src={encodeURI(customThumbFor[url] || thumbs[url])}
                           alt={(titles[url] || hostOf(url))}
@@ -384,7 +424,7 @@ export default function NewsPage() {
                         />
                       </div>
                     )}
-                    <CardHeader className="p-5 md:p-6 border-b border-border">
+                    <CardHeader className="p-4 md:p-5">
                       <div className="flex items-center gap-3">
                         <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2">
                           <img
@@ -410,7 +450,7 @@ export default function NewsPage() {
                           </span>
                         </div>
                       )}
-                      <h4 className="mt-3 text-base md:text-lg font-semibold text-foreground break-words">
+                      <h4 className="mt-2 text-base md:text-lg font-semibold text-foreground break-words">
                         {titleFor(url, titles[url])}
                       </h4>
                     </CardHeader>

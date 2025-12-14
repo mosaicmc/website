@@ -60,34 +60,28 @@ const AgedCarePage = () => {
 
   const faqData = [
     {
-      question: "What is Support at Home (SaH)?",
-      answer:
-        "Support at Home helps you stay independent at home with a tailored care plan built around your life. Services range from everyday support (like showering, meals, and transport) to nursing and allied health. We match you with workers who speak your language and understand your culture.",
+      question: t('agedCare.faq.sahQuestion'),
+      answer: t('agedCare.faq.sahAnswer'),
     },
     {
-      question: "What is CHSP and who is it for?",
-      answer:
-        "The Commonwealth Home Support Programme (CHSP) is entry‑level aged care for people who need a little help to remain independent at home. It’s ideal if you’re beginning to think about support, or waiting for a Support at Home allocation. Mosaic delivers Individual Social Support and Flexible Respite under CHSP.",
+      question: t('agedCare.faq.chspQuestion'),
+      answer: t('agedCare.faq.chspAnswer'),
     },
     {
-      question: "Am I eligible for your services?",
-      answer:
-        "Generally, people aged 65+ (or 50+ for Aboriginal and Torres Strait Islander people) living at home are eligible for home care supports. Carers may access Flexible Respite. If you’re unsure, contact us and we’ll help you understand options and pathways.",
+      question: t('agedCare.faq.eligibilityQuestion'),
+      answer: t('agedCare.faq.eligibilityAnswer'),
     },
     {
-      question: "How do I get started?",
-      answer:
-        "Call 1800 813 205 or contact us online. We can support you to navigate My Aged Care, arrange assessments, and develop a culturally appropriate support plan that fits your goals and preferences.",
+      question: t('agedCare.faq.startQuestion'),
+      answer: t('agedCare.faq.startAnswer'),
     },
     {
-      question: "Do you match workers to language and culture?",
-      answer:
-        "Yes. Wherever possible we match you with care workers who share your language or cultural background. We also provide interpreters and culturally responsive services to ensure you feel respected and understood.",
+      question: t('agedCare.faq.matchingQuestion'),
+      answer: t('agedCare.faq.matchingAnswer'),
     },
     {
-      question: "What if I need nursing or clinical care?",
-      answer:
-        "Under Support at Home we coordinate nursing and allied health services aligned to your care plan. We work with you, your family, and health providers to ensure safe, dignified support that meets your clinical needs.",
+      question: t('agedCare.faq.clinicalQuestion'),
+      answer: t('agedCare.faq.clinicalAnswer'),
     },
   ];
 
@@ -159,7 +153,7 @@ const AgedCarePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <Heart className="mr-2 h-4 w-4 text-care" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">Aged Care Services</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('services.agedCare')}</span>
             </div>
             <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('agedCare.hero.headline')}</h1>
             <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
@@ -194,62 +188,42 @@ const AgedCarePage = () => {
             <div className="text-center mb-6">
               <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg animate-fade-in-down">
                 <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
-                <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
+                <span className="text-gray-700 dark:text-white/90 font-medium">{t('agedCare.sections.programs.badge')}</span>
               </div>
             </div>
-            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">Comprehensive Aged Care Programs</h2>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">{t('agedCare.sections.programs.title')}</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Support at Home (SaH)",
-                  description: "Tailored in‑home care to help you stay independent, from everyday support to nursing and allied health.",
+                  title: t('agedCare.programs.sah.title'),
+                  description: t('agedCare.programs.sah.description'),
                   icon: <Home className="h-6 w-6" />,
-                  features: [
-                    "Domestic assistance and personal care",
-                    "Meal preparation and shopping",
-                    "Transport to appointments",
-                    "Care coordination in your language"
-                  ]
+                  features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
                 },
                 {
-                  title: "CHSP Individual Social Support",
-                  description: "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
+                  title: t('agedCare.programs.chspIndividual.title'),
+                  description: t('agedCare.programs.chspIndividual.description'),
                   icon: <Users className="h-6 w-6" />,
-                  features: [
-                    "Friendly home visits and welfare checks",
-                    "Assisted outings and social connection",
-                    "Help with technology and communication",
-                    "Links to community groups"
-                  ]
+                  features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
                 },
                 {
-                  title: "CHSP Flexible Respite",
-                  description: "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
+                  title: t('agedCare.programs.chspRespite.title'),
+                  description: t('agedCare.programs.chspRespite.description'),
                   icon: <Clock className="h-6 w-6" />,
-                  features: [
-                    "In‑home day or overnight respite",
-                    "Planned respite with culturally aware staff",
-                    "Support for carers during emergencies",
-                    "Coordination with your care plan"
-                  ]
+                  features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
                 },
                 {
-                  title: "Aged Care Volunteer Visitors Scheme",
-                  description: "Regular volunteer visits to reduce social isolation, matched by language or culture where possible.",
+                  title: t('agedCare.programs.acvvs.title'),
+                  description: t('agedCare.programs.acvvs.description'),
                   icon: <Users className="h-6 w-6" />,
-                  features: [
-                    "Matched volunteers who share culture or language",
-                    "Companionship and conversation",
-                    "Community outings where possible",
-                    "Ongoing coordinator support"
-                  ]
+                  features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
                 }
               ].map((program, index) => (
                 <GlassCard key={index} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30 group hover:scale-105 animate-fade-in-up" padding="lg" style={{ animationDelay: `${index * 100}ms` }}>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                      {program.title === "Aged Care Volunteer Visitors Scheme" ? (
+                      {program.title === t('agedCare.programs.acvvs.title') ? (
                         <img
                           src="/images/ACVVS_logo.svg"
                           alt="ACVVS logo"
@@ -272,9 +246,9 @@ const AgedCarePage = () => {
                       </li>
                     ))}
                   </ul>
-                  {program.title === "Aged Care Volunteer Visitors Scheme" && (
+                  {program.title === t('agedCare.programs.acvvs.title') && (
                     <p className="mt-3 text-xs italic text-muted-foreground">
-                      Funded by the Australian Government
+                      {t('agedCare.programs.acvvs.fundingNote')}
                     </p>
                   )}
                 </GlassCard>
@@ -289,24 +263,24 @@ const AgedCarePage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-left">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Who Can Access Our Services?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">{t('agedCare.sections.eligibility.title')}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Seniors from multicultural backgrounds requiring home care support</span>
+                  <span className="text-gray-700 dark:text-gray-100">{t('agedCare.eligibility.items.0')}</span>
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">People with approved home care packages</span>
+                  <span className="text-gray-700 dark:text-gray-100">{t('agedCare.eligibility.items.1')}</span>
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Families seeking culturally appropriate care options</span>
+                  <span className="text-gray-700 dark:text-gray-100">{t('agedCare.eligibility.items.2')}</span>
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-gray-700 dark:text-gray-100">Individuals requiring respite care services</span>
+                  <span className="text-gray-700 dark:text-gray-100">{t('agedCare.eligibility.items.3')}</span>
                 </div>
               </div>
               <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
@@ -329,29 +303,26 @@ const AgedCarePage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">How home care works</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Understanding rights, eligibility and getting started</h2>
+            <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">{t('agedCare.sections.how.badge')}</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{t('agedCare.sections.how.title')}</h2>
           </div>
           <div className="stack-vertical">
             <div>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
                   {
-                    title: 'Your Rights',
-                    description:
-                      'A new Statement of Rights outlines what you deserve: respect, quality care, and choice, regardless of language or background.',
+                    title: t('agedCare.how.rights.title'),
+                    description: t('agedCare.how.rights.description'),
                     icon: <ShieldCheck className="h-6 w-6 text-care" />,
                   },
                   {
-                    title: 'Your Choice',
-                    description:
-                      'You can formally register people who support your choices: family, friends, advocates, so your values guide your care.',
+                    title: t('agedCare.how.choice.title'),
+                    description: t('agedCare.how.choice.description'),
                     icon: <Megaphone className="h-6 w-6 text-care" />,
                   },
                   {
-                    title: 'Your Voice',
-                    description:
-                      'Complaints have clearer pathways to resolution. Providers are more accountable for respectful, safe, and quality care.',
+                    title: t('agedCare.how.voice.title'),
+                    description: t('agedCare.how.voice.description'),
                     icon: <Scale className="h-6 w-6 text-care" />,
                   },
                 ].map((card, i) => (
@@ -375,36 +346,34 @@ const AgedCarePage = () => {
         <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">Impact stories</p>
-              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Dignity, independence and cultural comfort</h2>
-              <p className="fluid-p text-gray-700 dark:text-gray-100 mb-5">
-                Short videos show clients staying independent at home with support in familiar languages and respectful care.
-              </p>
+              <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">{t('agedCare.impact.badge')}</p>
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('agedCare.impact.title')}</h2>
+              <p className="fluid-p text-gray-700 dark:text-gray-100 mb-5">{t('agedCare.impact.body')}</p>
               <ul className="space-y-3 text-gray-700 dark:text-gray-100 text-sm">
                 <li className="flex items-start space-x-2">
                   <span className="text-care mt-1">•</span>
-                  <span>Stories matched to language or culture.</span>
+                  <span>{t('agedCare.impact.bullets.0')}</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-care mt-1">•</span>
-                  <span>Captions and interpreter voiceovers.</span>
+                  <span>{t('agedCare.impact.bullets.1')}</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-care mt-1">•</span>
-                  <span>Invite families to contact Mosaic.</span>
+                  <span>{t('agedCare.impact.bullets.2')}</span>
                 </li>
               </ul>
             </div>
             <div>
               <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
                 <div className="text-center px-6">
-                  <p className="text-white font-semibold mb-2">Impact video placeholder</p>
-                  <p className="text-white/80 text-sm mb-4">Embed a video via CMS.</p>
+                  <p className="text-white font-semibold mb-2">{t('agedCare.impact.videoPlaceholderTitle')}</p>
+                  <p className="text-white/80 text-sm mb-4">{t('agedCare.impact.videoPlaceholderSubtitle')}</p>
                   <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow transition">
                     <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    Watch story
+                    {t('agedCare.impact.watchLabel')}
                   </button>
                 </div>
               </div>
@@ -417,10 +386,8 @@ const AgedCarePage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Aged Care Team</h2>
-            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
-              Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey.
-            </p>
+            <h2 className="fluid-h2 font-bold text-foreground">{t('agedCare.team.title')}</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">{t('agedCare.team.description')}</p>
           </div>
           <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
             {locations.map((loc) => {
@@ -464,12 +431,10 @@ const AgedCarePage = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Frequently Asked Questions</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('agedCare.sections.faq.badge')}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Questions About Our Home Care Programs</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
-              Clear answers about Support at Home, CHSP services, eligibility, and getting started.
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('agedCare.sections.faq.title')}</h2>
+            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('agedCare.sections.faq.subtitle')}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -512,23 +477,21 @@ const AgedCarePage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300 break-words">Ready to Discuss Your Care Needs?</h2>
-            <p className="text-base sm:text-xl text-gray-700 dark:text-gray-100 mb-8 max-w-3xl mx-auto break-words">
-              We can talk through your options, explain home care and volunteer visitor supports, and help you understand next steps. There’s no obligation, and support is available in your preferred language.
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300 break-words">{t('agedCare.cta.title')}</h2>
+            <p className="text-base sm:text-xl text-gray-700 dark:text-gray-100 mb-8 max-w-3xl mx-auto break-words">{t('agedCare.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
                 className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 1800 813 205
+                {t('agedCare.cta.callLabel')}
               </a>
               <Link
                 to="/contact-us"
                 className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
-                Contact Us Online
+                {t('agedCare.cta.contactLabel')}
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </div>

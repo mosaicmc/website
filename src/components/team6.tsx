@@ -37,7 +37,7 @@ const Team6 = ({
           {members.map((member, idx) => (
             <div
               key={member.id ?? `${member.name}-${idx}`}
-              className="group relative p-8 md:p-10 border border-border bg-card dark:bg-[#1A1A1A] dark:border-[#2D2D2D] rounded-2xl shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300"
+              className="group relative p-8 md:p-10 border border-border bg-card dark:bg-card dark:border-border rounded-2xl shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300"
             >
               <div className="md:flex md:items-start md:gap-8">
                 <div className="mb-6 md:mb-0 md:w-32 md:flex-shrink-0">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { serviceYearsBase } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
@@ -13,6 +14,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
+  const { t } = useTranslation();
   const storyData = React.useMemo(() => [
     { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: undefined as unknown as string, alt: "Galbally Report (PDF)", details: "The Review of Post‑Arrival Programs and Services to Migrants (1978) set a foundation for migrant integration and equal opportunity. Its recommendations were fully adopted by the Federal Government, funding a range of programs and services and establishing migrant resource centres across Australia. These centres would provide post‑arrival services including settlement assistance, welfare, advocacy, individual support and referral. Their aim was to help migrants and refugees participate in Australian life while maintaining their culture and heritage.", gallery: [], links: [
       { label: "Galbally Report 01 (PDF)", href: "/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf" },
@@ -503,14 +505,6 @@ const AboutPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">The Mosaic Story</h2>
             <p className="text-muted-foreground">Milestones across 40+ years of service in NSW</p>
           </div>
-          <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground relative z-10">
-            <span>Select Year</span>
-            <YearSelect
-              years={yearsInSelectedDecade}
-              value={selectedYear}
-              onChange={(v) => setSelectedYear(v)}
-            />
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
@@ -836,16 +830,15 @@ const AboutPage = () => {
           <div className="text-center subsection-break">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Management</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('about.management.badge')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">Our</span>{" "}
               <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
-                Management Team
+                {t('about.management.title')}
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experienced leaders committed to guide Mosaic's work with integrity, collaboration and community impact.
+              {t('about.management.description')}
             </p>
           </div>
           <div>
@@ -884,7 +877,7 @@ const AboutPage = () => {
                   <h3 id="manager-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeManager.name || activeManager.title}</h3>
                   {activeManager.name && (<p className="text-muted-foreground mb-1">{activeManager.title}</p>)}
                   {activeManager.languages && activeManager.languages.length > 0 && (
-                    <p className="text-sm text-muted-foreground mb-2">Languages: {activeManager.languages.join(', ')}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{t('about.management.languagesLabel')}: {activeManager.languages.join(', ')}</p>
                   )}
                   <p className="text-sm md:text-base text-foreground leading-relaxed">{activeManager.bio}</p>
                 </div>

@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useTranslation, Trans } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,29 +27,32 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const title = "Contact Form";
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z
-    .email({
-      error: "Please enter a valid email address.",
-    })
-    .min(1, {
-      error: "Email is required.",
+const buildFormSchema = (t: (key: string) => string) =>
+  z.object({
+    name: z.string().min(2, {
+      message: t('contact.form.validation.nameMin'),
     }),
-  service: z.string().min(1, {
-    message: "Please select a service.",
-  }),
-  location: z.string().min(1, {
-    message: "Please select an office.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
+    email: z
+      .email({
+        error: t('contact.form.validation.emailInvalid'),
+      })
+      .min(1, {
+        error: t('contact.form.validation.emailRequired'),
+      }),
+    service: z.string().min(1, {
+      message: t('contact.form.validation.serviceRequired'),
+    }),
+    location: z.string().min(1, {
+      message: t('contact.form.validation.locationRequired'),
+    }),
+    message: z.string().min(10, {
+      message: t('contact.form.validation.messageMin'),
+    }),
+  });
 
 const Example = () => {
+  const { t } = useTranslation();
+  const formSchema = buildFormSchema(t);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -81,9 +85,13 @@ const Example = () => {
       <Form {...form}>
         <form className="space-y-4 text-left" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold">Contact us</h2>
+            <h2 className="text-2xl font-bold">{t('contact.form.title')}</h2>
+            <p className="text-sm text-muted-foreground">{t('contact.form.intro')}</p>
             <p className="text-sm text-muted-foreground">
-              Use the form below to ask a question, request support, or connect with a local Mosaic office. Our team will respond within <span className="font-semibold">48 business hours</span>.
+              <Trans
+                i18nKey="contact.form.responseTime"
+                components={{ strong: <span className="font-semibold" /> }}
+              />
             </p>
           </div>
           <FormField
@@ -91,15 +99,16 @@ const Example = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-left">Name</FormLabel>
+                <FormLabel className="text-left">{t('contact.form.fields.name')}</FormLabel>
                 <FormControl>
                   <Input
                     className="bg-background focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2"
                     placeholder="John Doe"
+                    aria-describedby="contact-name-desc"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Please enter your full name.</FormDescription>
+                <FormDescription id="contact-name-desc">{t('contact.form.descriptions.name')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -109,16 +118,17 @@ const Example = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-left">Email</FormLabel>
+                <FormLabel className="text-left">{t('contact.form.fields.email')}</FormLabel>
                 <FormControl>
                   <Input
                     className="bg-background focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2"
                     placeholder="you@example.com"
                     type="email"
+                    aria-describedby="contact-email-desc"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>We’ll use this email to reply to your enquiry.</FormDescription>
+                <FormDescription id="contact-email-desc">{t('contact.form.descriptions.email')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -130,26 +140,26 @@ const Example = () => {
                 name="service"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-left">Service interest</FormLabel>
+                  <FormLabel className="text-left">{t('contact.form.fields.service')}</FormLabel>
                   <Select
                     defaultValue={field.value}
                     onValueChange={field.onChange}
                   >
                     <FormControl>
-                        <SelectTrigger className="bg-background w-full focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2">
-                          <SelectValue placeholder="Select a service" />
+                        <SelectTrigger aria-describedby="contact-service-desc" className="bg-background w-full focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2">
+                          <SelectValue placeholder={t('contact.form.fields.serviceOptions.select')} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="settlement">Settlement Support</SelectItem>
-                        <SelectItem value="aged-care">Home Care Services</SelectItem>
-                        <SelectItem value="family">Family Support</SelectItem>
-                        <SelectItem value="community">Community Engagement</SelectItem>
-                        <SelectItem value="volunteer">Volunteer Opportunities</SelectItem>
-                        <SelectItem value="general">General Inquiry</SelectItem>
+                        <SelectItem value="settlement">{t('contact.form.fields.serviceOptions.settlement')}</SelectItem>
+                        <SelectItem value="aged-care">{t('contact.form.fields.serviceOptions.agedCare')}</SelectItem>
+                        <SelectItem value="family">{t('contact.form.fields.serviceOptions.familySupport')}</SelectItem>
+                        <SelectItem value="community">{t('contact.form.fields.serviceOptions.communityEngagement')}</SelectItem>
+                        <SelectItem value="volunteer">{t('contact.form.fields.serviceOptions.volunteer')}</SelectItem>
+                        <SelectItem value="general">{t('contact.form.fields.serviceOptions.general')}</SelectItem>
                       </SelectContent>
                     </Select>
-                    <FormDescription>Select the service you’re enquiring about so we can direct your message to the right team.</FormDescription>
+                    <FormDescription id="contact-service-desc">{t('contact.form.descriptions.service')}</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -161,24 +171,24 @@ const Example = () => {
                 name="location"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-left">Preferred office</FormLabel>
+                  <FormLabel className="text-left">{t('contact.form.fields.location')}</FormLabel>
                   <Select
                     defaultValue={field.value}
                     onValueChange={field.onChange}
                   >
                     <FormControl>
-                        <SelectTrigger className="bg-background w-full focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2">
-                          <SelectValue placeholder="Select an office" />
+                        <SelectTrigger aria-describedby="contact-location-desc" className="bg-background w-full focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2">
+                          <SelectValue placeholder={t('contact.form.fields.locationOptions.select')} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="newcastle">Newcastle</SelectItem>
-                        <SelectItem value="central-coast">Central Coast</SelectItem>
-                        <SelectItem value="armidale">Armidale</SelectItem>
-                        <SelectItem value="tamworth">Tamworth</SelectItem>
+                        <SelectItem value="newcastle">{t('contact.form.fields.locationOptions.newcastle')}</SelectItem>
+                        <SelectItem value="central-coast">{t('contact.form.fields.locationOptions.centralCoast')}</SelectItem>
+                        <SelectItem value="armidale">{t('contact.form.fields.locationOptions.armidale') ?? 'Armidale'}</SelectItem>
+                        <SelectItem value="tamworth">{t('contact.form.fields.locationOptions.tamworth') ?? 'Tamworth'}</SelectItem>
                       </SelectContent>
                     </Select>
-                    <FormDescription>Choose the office closest to you, or the location you’d like to connect with.</FormDescription>
+                    <FormDescription id="contact-location-desc">{t('contact.form.descriptions.location')}</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -190,25 +200,26 @@ const Example = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-left">Message</FormLabel>
+                <FormLabel className="text-left">{t('contact.form.fields.message')}</FormLabel>
                 <FormControl>
                   <Textarea
                     className="resize-none bg-background focus-visible:ring-ocean focus-visible:border-ocean focus-visible:ring-offset-2"
-                    placeholder="How can we help you?"
+                    placeholder={t('contact.form.fields.placeholders.message')}
                     rows={5}
+                    aria-describedby="contact-message-desc"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Tell us a little about your situation or enquiry. The more detail you provide, the better we can help.</FormDescription>
+                <FormDescription id="contact-message-desc">{t('contact.form.descriptions.message')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
           <Button className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2" type="submit">
-            Send Message
+            {t('contact.form.submit')}
           </Button>
           <p className="text-xs text-muted-foreground mt-2">
-            Your information is kept private and shared only with the Mosaic team supporting your request.
+            {t('contact.form.privacyNote')}
           </p>
         </form>
       </Form>
