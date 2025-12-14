@@ -242,7 +242,7 @@ export default function NewcastleVolunteerPage() {
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.98, y: -8 }}
                                     transition={{ type: 'spring', stiffness: 180, damping: 20 }}
-                                    className="relative w-full max-w-lg rounded-3xl border border-border dark:border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl"
+                                    className="glass-surface relative w-full max-w-lg rounded-3xl border border-border p-6 shadow-2xl"
                                   >
                                     <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
                                     <Dialog.Title className="text-xl font-semibold text-foreground">{r.title}</Dialog.Title>
@@ -358,7 +358,7 @@ export default function NewcastleVolunteerPage() {
                                     <Facebook className="h-5 w-5" />
                                   </a>
                                 </div>
-                                <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+                                <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
                                   <X className="h-4 w-4 text-muted-foreground" />
                                 </Dialog.Close>
                               </motion.div>

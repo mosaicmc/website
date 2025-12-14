@@ -22,7 +22,7 @@ const Hero = () => {
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/20 border border-white/30 px-4 py-2 text-sm shadow-lg dark:bg-slate-800/30 dark:border-slate-700/50 animate-fade-in-up hover:bg-white/30 dark:hover:bg-slate-800/40 transition-all duration-300 group cursor-pointer">
+              <div className="inline-flex items-center rounded-full glass-surface px-4 py-2 text-sm shadow-lg animate-fade-in-up transition-all duration-300 group cursor-pointer">
                 <span className="mr-2 h-2 w-2 rounded-full bg-green-500 animate-pulse group-hover:animate-heartbeat"></span>
                 <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">{t('hero.badge', { years: serviceYearsLabel() })}</span>
               </div>
@@ -53,7 +53,7 @@ const Hero = () => {
               
               <Link
                 to="/stories"
-                className="group inline-flex h-12 items-center justify-center rounded-xl backdrop-blur-md bg-white/20 border border-border px-8 text-sm font-semibold shadow-lg transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:bg-slate-800/30 dark:text-foreground hover:scale-105 active:scale-98 hover:shadow-xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
+                className="group inline-flex h-12 items-center justify-center rounded-xl glass-surface px-8 text-sm font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background dark:text-foreground hover:scale-105 active:scale-98 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
               >
                 <Play className="mr-2 h-4 w-4" />
                 Watch Stories
@@ -77,7 +77,7 @@ const Hero = () => {
           
           {/* Right Content - Image with subtle animations */}
           <div className="relative animate-fade-in-right">
-            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl backdrop-blur-md bg-gradient-to-br from-white/20 to-blue-100/30 shadow-2xl dark:from-slate-800/30 dark:to-blue-900/20 hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
+            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl glass-surface hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
               <picture>
                 <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg" type="image/jpeg" />
@@ -95,7 +95,7 @@ const Hero = () => {
               <Link
                 to="/locations"
                 aria-label="View office locations across NSW"
-                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 rounded-xl backdrop-blur-md bg-background/85 border border-border p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group/card hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 rounded-xl glass-surface p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group/card hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <div className="flex items-center space-x-3">
                   <div className="h-10 w-10 rounded-full bg-gradient-to-br from-ocean to-sky flex items-center justify-center shadow-md">
@@ -110,7 +110,7 @@ const Hero = () => {
               
               
             </div>
-            <div className="absolute -top-4 -right-4 rounded-xl backdrop-blur-md bg-white/85 dark:bg-slate-800/85 p-5 shadow-2xl border border-white/30 dark:border-white/20 ring-1 ring-white/10 dark:ring-white/5 hover:scale-110 hover:-translate-y-2 transition-all duration-300 group/card cursor-pointer animate-fade-in-delay-300 hover:shadow-3xl">
+            <div className="absolute -top-4 -right-4 rounded-xl glass-surface p-5 shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group/card cursor-pointer animate-fade-in-delay-300 hover:shadow-3xl">
               <div className="flex items-center space-x-3">
                 <div className="h-11 w-11 rounded-full bg-gradient-to-br from-leaf to-leaf/80 flex items-center justify-center dark:from-leaf dark:to-leaf/80 shadow-md">
                   <span className="text-white font-semibold text-sm">95%</span>

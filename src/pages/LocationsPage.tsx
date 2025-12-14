@@ -18,6 +18,18 @@ const LocationsPage = () => {
       <Helmet>
         <title>Contact Mosaic Multicultural Connections — Get in touch</title>
         <meta name="description" content="Get in touch with Mosaic to find the right support, services, or local office. Whether for yourself, a family member, or a client, our team will guide you and respond within 48 business hours." />
+        <meta property="og:title" content="Contact Mosaic Multicultural Connections — Get in touch" />
+        <meta property="og:description" content="Get in touch with Mosaic to find the right support, services, or local office. Our team will respond within 48 business hours." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Contact Mosaic Multicultural Connections — Get in touch" />
+        <meta name="twitter:description" content="Use the form to ask a question, request support, or connect with a local office. Response within 48 business hours." />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Contact Mosaic Multicultural Connections',
+          url: 'https://mosaicmc.org.au/contact-us',
+          description: 'Get in touch with Mosaic to find the right support, services, or local office. Our team will respond within 48 business hours.',
+        })}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">

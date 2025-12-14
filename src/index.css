@@ -69,6 +69,21 @@
     --flipwords-alt3-from: var(--brand-care);
     --flipwords-alt3-via: var(--brand-sun);
     --flipwords-alt3-to: var(--brand-ocean);
+    
+    /* Glowing effect variables */
+    --glow-pink: var(--brand-care);
+    --glow-gold: var(--brand-sun);
+    --glow-leaf: var(--brand-leaf);
+    --glow-sky: var(--brand-sky);
+    --glow-mask: hsl(var(--foreground));
+
+    /* Navigation glass variables */
+    --nav-bg-light-base: 248, 250, 252;
+    --nav-bg-dark-base: 15, 23, 42;
+    --nav-bg: rgba(var(--nav-bg-light-base), 0.2);
+    --nav-shadow: rgba(0, 0, 0, 0.08);
+    --nav-border: rgba(203, 213, 225, 0.2);
+    --nav-blur: 8px;
   }
 
   .dark {
@@ -118,6 +133,25 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .nav-glass {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(var(--nav-blur));
+    -webkit-backdrop-filter: blur(var(--nav-blur));
+    box-shadow: 0 8px 24px var(--nav-shadow);
+    border-bottom: 1px solid var(--nav-border);
+  }
+  .glass-surface {
+    background-color: var(--glass-bg, var(--nav-bg));
+    backdrop-filter: blur(var(--glass-blur, var(--nav-blur)));
+    -webkit-backdrop-filter: blur(var(--glass-blur, var(--nav-blur)));
+    box-shadow: 0 8px 24px var(--glass-shadow, var(--nav-shadow));
+    border: 1px solid var(--glass-border, var(--nav-border));
+  }
+}
+@layer base {
   h1 { @apply text-3xl font-bold tracking-tight mb-4 text-foreground; }
   h2 { @apply text-2xl font-bold tracking-tight mb-3 text-foreground; }
   h3 { @apply text-xl font-semibold mb-2 text-foreground; }

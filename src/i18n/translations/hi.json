@@ -118,6 +118,81 @@
     "subtitle": "Verified feedback from people we support, shared publicly on Google."
   }
   ,
+  "contact": {
+    "badge": "Get in touch with Mosaic",
+    "title": "Get in touch with Mosaic",
+    "description": "We’re here to help you find the right support, services, or local office. Whether you’re reaching out for yourself, a family member, or a client, our team will guide you to the right place.",
+    "form": {
+      "title": "Contact us",
+      "intro": "Use the form below to ask a question, request support, or connect with a local Mosaic office.",
+      "responseTime": "Our team will respond within <strong>48 business hours</strong>.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "language": "Preferred Language",
+        "service": "Service interest",
+        "location": "Preferred office",
+        "message": "Message",
+        "placeholders": {
+          "message": "Please describe how we can help you..."
+        },
+        "languageOptions": {
+          "select": "Select a language",
+          "english": "English",
+          "arabic": "Arabic",
+          "mandarin": "Mandarin",
+          "spanish": "Spanish",
+          "vietnamese": "Vietnamese",
+          "tagalog": "Tagalog",
+          "hindi": "Hindi",
+          "korean": "Korean",
+          "other": "Other"
+        },
+        "serviceOptions": {
+          "select": "Select a service",
+          "settlement": "Settlement Support",
+          "agedCare": "Home Care Services",
+          "familySupport": "Family Support",
+          "communityEngagement": "Community Engagement",
+          "volunteer": "Volunteer Opportunities",
+          "general": "General Inquiry"
+        },
+        "locationOptions": {
+          "select": "Select an office",
+          "newcastle": "Newcastle",
+          "centralCoast": "Central Coast",
+          "armidale": "Armidale",
+          "tamworth": "Tamworth",
+          "lakeMacquarie": "Lake Macquarie",
+          "hunterRegion": "Hunter Region"
+        }
+      },
+      "descriptions": {
+        "name": "Please enter your full name.",
+        "email": "We’ll use this email to reply to your enquiry.",
+        "service": "Select the service you’re enquiring about so we can direct your message to the right team.",
+        "location": "Choose the office closest to you, or the location you’d like to connect with.",
+        "message": "Tell us a little about your situation or enquiry. The more detail you provide, the better we can help."
+      },
+      "submit": "Send Message",
+      "privacyNote": "Your information is kept private and shared only with the Mosaic team supporting your request."
+      ,
+      "validation": {
+        "nameMin": "नाम कम से कम 2 अक्षरों का होना चाहिए।",
+        "emailInvalid": "कृपया मान्य ईमेल पता दर्ज करें।",
+        "emailRequired": "ईमेल आवश्यक है।",
+        "serviceRequired": "कृपया एक सेवा चुनें।",
+        "locationRequired": "कृपया एक कार्यालय चुनें।",
+        "messageMin": "संदेश कम से कम 10 अक्षरों का होना चाहिए।"
+      }
+    },
+    "success": {
+      "title": "Message Sent Successfully!",
+      "message": "Thank you for contacting us. We’ll get back to you within 48 business hours.",
+      "urgentNote": "For urgent matters during business hours, please call us directly at 1800 813 205."
+    }
+  },
   "settlement": {
     "hero": {
       "headline": "Starting Again in Australia? We Walk With You.",

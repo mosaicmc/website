@@ -97,7 +97,7 @@ const GooglePlaceReviews = () => {
             fields: ['name', 'rating', 'user_ratings_total', 'reviews'],
           },
           (result: { reviews?: PlaceReview[] } | null, status: string) => {
-            if (status !== google.maps.places.PlacesServiceStatus.OK) {
+            if (status !== google!.maps!.places!.PlacesServiceStatus.OK) {
               setError('Unable to load live reviews automatically.');
               setLoading(false);
               return;

@@ -16,6 +16,126 @@
       "subheadline": "Ageing can bring new challenges for individuals and families.",
       "body": "You and your family can rely on culturally responsive in-home care and friendly volunteer visits, delivered in familiar languages and guided by respect for your choices. We help you stay independent, safe, connected, and supported while honouring your choice and culture.",
       "cta": "Discuss Your Care Options"
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Aged Care Programs"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How home care works",
+        "title": "Understanding rights, eligibility and getting started"
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions About Our Home Care Programs",
+        "subtitle": "Clear answers about Support at Home, CHSP services, eligibility, and getting started."
+      }
+    },
+    "programs": {
+      "sah": {
+        "title": "Support at Home (SaH)",
+        "description": "Tailored in‑home care to help you stay independent, from everyday support to nursing and allied health.",
+        "features": [
+          "Domestic assistance and personal care",
+          "Meal preparation and shopping",
+          "Transport to appointments",
+          "Care coordination in your language"
+        ]
+      },
+      "chspIndividual": {
+        "title": "CHSP Individual Social Support",
+        "description": "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
+        "features": [
+          "Friendly home visits and welfare checks",
+          "Assisted outings and social connection",
+          "Help with technology and communication",
+          "Links to community groups"
+        ]
+      },
+      "chspRespite": {
+        "title": "CHSP Flexible Respite",
+        "description": "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
+        "features": [
+          "In‑home day or overnight respite",
+          "Planned respite with culturally aware staff",
+          "Support for carers during emergencies",
+          "Coordination with your care plan"
+        ]
+      },
+      "acvvs": {
+        "title": "Aged Care Volunteer Visitors Scheme",
+        "description": "Regular volunteer visits to reduce social isolation, matched by language or culture where possible.",
+        "features": [
+          "Matched volunteers who share culture or language",
+          "Companionship and conversation",
+          "Community outings where possible",
+          "Ongoing coordinator support"
+        ],
+        "fundingNote": "Funded by the Australian Government"
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Seniors from multicultural backgrounds requiring home care support",
+        "People with approved home care packages",
+        "Families seeking culturally appropriate care options",
+        "Individuals requiring respite care services"
+      ]
+    },
+    "how": {
+      "rights": {
+        "title": "Your Rights",
+        "description": "A new Statement of Rights outlines what you deserve: respect, quality care, and choice, regardless of language or background."
+      },
+      "choice": {
+        "title": "Your Choice",
+        "description": "You can formally register people who support your choices: family, friends, advocates, so your values guide your care."
+      },
+      "voice": {
+        "title": "Your Voice",
+        "description": "Complaints have clearer pathways to resolution. Providers are more accountable for respectful, safe, and quality care."
+      }
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Dignity, independence and cultural comfort",
+      "body": "Short videos show clients staying independent at home with support in familiar languages and respectful care.",
+      "bullets": [
+        "Stories matched to language or culture.",
+        "Captions and interpreter voiceovers.",
+        "Invite families to contact Mosaic."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed a video via CMS."
+    },
+    "team": {
+      "title": "Meet Your Aged Care Team",
+      "description": "Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
+    },
+    "faq": {
+      "sahQuestion": "What is Support at Home (SaH)?",
+      "sahAnswer": "Support at Home helps you stay independent at home with a tailored care plan built around your life. Services range from everyday support (like showering, meals, and transport) to nursing and allied health. We match you with workers who speak your language and understand your culture.",
+      "chspQuestion": "What is CHSP and who is it for?",
+      "chspAnswer": "The Commonwealth Home Support Programme (CHSP) is entry‑level aged care for people who need a little help to remain independent at home. It’s ideal if you’re beginning to think about support, or waiting for a Support at Home allocation. Mosaic delivers Individual Social Support and Flexible Respite under CHSP.",
+      "eligibilityQuestion": "Am I eligible for your services?",
+      "eligibilityAnswer": "Generally, people aged 65+ (or 50+ for Aboriginal and Torres Strait Islander people) living at home are eligible for home care supports. Carers may access Flexible Respite. If you’re unsure, contact us and we’ll help you understand options and pathways.",
+      "startQuestion": "How do I get started?",
+      "startAnswer": "Call 1800 813 205 or contact us online. We can support you to navigate My Aged Care, arrange assessments, and develop a culturally appropriate support plan that fits your goals and preferences.",
+      "matchingQuestion": "Do you match workers to language and culture?",
+      "matchingAnswer": "Yes. Wherever possible we match you with care workers who share your language or cultural background. We also provide interpreters and culturally responsive services to ensure you feel respected and understood.",
+      "clinicalQuestion": "What if I need nursing or clinical care?",
+      "clinicalAnswer": "Under Support at Home we coordinate nursing and allied health services aligned to your care plan. We work with you, your family, and health providers to ensure safe, dignified support that meets your clinical needs."
+    },
+    "cta": {
+      "title": "Ready to Discuss Your Care Needs?",
+      "body": "We can talk through your options, explain home care and volunteer visitor supports, and help you understand next steps. There’s no obligation, and support is available in your preferred language.",
+      "callLabel": "Call 1800 813 205",
+      "contactLabel": "Contact Us Online"
     }
   },
   "family": {
@@ -24,6 +144,115 @@
       "subheadline": "Raising children in a new country can feel uncertain and stressful.",
       "body": "We work with multicultural families through confidential family support and welcoming community playgroups. Our focus is helping parents and children feel safe, connected, and understood.",
       "cta": "Explore Support Options"
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Family Support Programs"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How family support works",
+        "title": "Three steps from first call to confident parenting",
+        "description": "We listen, assess your goals, and match you to TEI casework or PAW playgroups. We check in until you feel supported and connected."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions Families Ask About Our Support Programs",
+        "subtitle": "Get answers to common questions about our family support services and programs"
+      }
+    },
+    "programs": {
+      "tei": {
+        "title": "TEI Family Support Program",
+        "description": "Focused, professional help with parenting challenges, family relationships, and access to essential services. Qualified family workers provide 3 to 6 months of individual support plus evidence‑based parenting workshops like Circle of Security and Bringing Up Great Kids.",
+        "features": [
+          "Qualified casework tailored to your family's goals",
+          "Evidence‑based parenting (Circle of Security, BUGK)",
+          "Referrals to services and crisis support",
+          "Flexible appointments at home, office or online"
+        ],
+        "whatWeProvideLabel": "What We Provide:"
+      },
+      "paw": {
+        "title": "Playing Around the World (PAW)",
+        "description": "Weekly cultural playgroups where children explore different countries through arts, crafts, stories and play while parents build community connections. Supports heritage celebration and early learning development in a welcoming environment.",
+        "features": [
+          "Weekly cultural playgroups in Central Coast locations",
+          "Play‑based early learning and school readiness",
+          "Community garden activities and morning tea",
+          "Drop‑in friendly; interpreter support available"
+        ],
+        "whatWeProvideLabel": "What We Provide:"
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Multicultural families seeking parenting support or community connection",
+        "Parents of children 0 to 18 for TEI; 0 to 6 for PAW playgroups",
+        "Families needing interpreters or culturally safe support",
+        "Drop-in welcome for PAW; quick intake for TEI"
+      ]
+    },
+    "how": {
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205 or ask a professional to refer you.",
+          "bullets": ["Free service with interpreters", "Simple intake and quick response"]
+        },
+        {
+          "title": "2. Plan together",
+          "description": "We assess needs and create a plan: professional casework or community playgroups, or both.",
+          "bullets": ["Clear actions for family goals", "Warm referrals and safety supports"]
+        },
+        {
+          "title": "3. Ongoing support",
+          "description": "We deliver sessions and workshops, check progress, and connect you with local services.",
+          "bullets": ["Evidence-based parenting", "Cultural celebration and community"]
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Families finding confidence and connection",
+      "body": "Short videos share how TEI and PAW helped parents navigate services, build skills, and celebrate culture with their children.",
+      "bullets": [
+        "One story per program or region.",
+        "Captions and interpreter voiceovers.",
+        "Invite families to contact Mosaic."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed a video via CMS."
+    },
+    "team": {
+      "title": "Meet Your Complete Family Support Team",
+      "description": "Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families.",
+      "integratedTitle": "Integrated Support Approach",
+      "integratedBody": "Both programs work together to provide families with seamless support. TEI workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
+    },
+    "faq": {
+      "whichProgramQuestion": "Which program is right for my family?",
+      "whichProgramAnswer": "It depends on what you need right now. If you're facing specific parenting challenges, family stress, or need help accessing services, TEI's professional family support is ideal. If you have young children (0-6) and want community connection with cultural celebration, PAW playgroups are perfect. Many families use both programs at different times. Call us and we'll help you decide what fits best. Our staff can assess your needs and recommend the most appropriate support pathway.",
+      "freeQuestion": "Are both programs really free?",
+      "freeAnswer": "Yes, completely free. TEI family support is funded by NSW Department of Communities and Justice. PAW playgroups are funded through government grants and community support. This includes individual casework, parenting workshops, cultural playgroup sessions, professional interpreters, materials, and morning tea. There are no hidden costs or fees for any family support services. Government funding agreements ensure ongoing free access for all eligible multicultural families.",
+      "languageQuestion": "Can I access help if I don't speak much English?",
+      "languageAnswer": "Absolutely - language is never a barrier. We provide professional interpreters through government-approved services for all programs. Many staff speak multiple languages and represent diverse cultural backgrounds. PAW sessions encourage families to use their home language, and TEI workers can arrange interpreter support for all meetings and workshops. We respect and celebrate multilingual families. Professional interpreter services meet government quality standards and are available in all required languages.",
+      "startQuestion": "How do I start accessing family support?",
+      "startAnswer": "Multiple easy ways to begin: Call our main number (02) 4960 8400 for TEI family support or (02) 4334 3877 for PAW playgroups. You can self-refer or ask teachers, doctors, or community workers to refer your family. For PAW, just drop in to any session - no registration needed before your first visit. We'll connect you with the right support quickly. Same-day response for urgent family support needs and immediate access to community playgroup sessions.",
+      "referralsQuestion": "Can professionals refer families to your programs?",
+      "referralsAnswer": "Yes, we welcome professional referrals for both programs. Teachers, social workers, doctors, community workers, and other service providers can refer families to TEI or PAW programs. We always get family consent before accepting referrals and keep referring professionals updated with family permission. We can provide joint case management for complex situations through TEI. Professional collaboration follows Australian Privacy Principles and helps ensure families get comprehensive support.",
+      "availabilityQuestion": "Where are your family support programs available?",
+      "availabilityAnswer": "TEI family support: Available across Newcastle, Hunter region, with outreach to Central Coast families. We offer home visits, office appointments, and phone/video support. PAW playgroups: Central Coast locations including Blue Haven (Tuesdays), The Entrance (Thursdays), and Watanobbi (Fridays). All venues are wheelchair accessible with family-friendly facilities. Regional coverage ensures multicultural families can access culturally appropriate support regardless of location."
+    },
+    "cta": {
+      "title": "Ready to Get Family Support?",
+      "body": "You don’t need to know which program to choose. We can talk about your needs, explore different options, and help you decide what feels right for your family. If you’d prefer to talk before filling out a form, you’re welcome to call us.",
+      "callLabel": "Call 1800 813 205",
+      "contactLabel": "Contact Us Online"
     }
   },
   "community": {
@@ -32,6 +261,137 @@
       "subheadline": "Finding connection and belonging in your community matters.",
       "body": "We create opportunities for people to connect, participate, and have a voice through cultural celebrations, leadership development, and community activities. Our focus is building belonging, strengthening connections, and celebrating the diversity of our communities.",
       "cta": "Build Your Community"
+    }
+    ,
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Community Engagement Programs",
+        "description": "Our community engagement programs are designed to celebrate cultural diversity, develop community leadership, create meaningful connections, and advocate for inclusive policies that benefit all members of our multicultural communities."
+      },
+      "eligibility": {
+        "title": "Who Can Get Involved?"
+      },
+      "how": {
+        "badge": "How community engagement works",
+        "title": "Three simple steps from first hello to active participation",
+        "description": "Start with a conversation, find events that fit, and grow into leadership and advocacy with support at every step."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions About Community Engagement",
+        "subtitle": "Get answers to common questions about our community engagement programs and how you can get involved"
+      }
+    },
+    "programs": {
+      "whatWeProvideLabel": "What We Provide:",
+      "gambleAware": {
+        "title": "Gambling Awareness",
+        "description": "The Gamble Aware program offers culturally appropriate education and support where multicultural families learn about gambling risks and access specialist help when needed.",
+        "features": [
+          "Culturally sensitive workshops in your language",
+          "Individual family support up to 4 sessions",
+          "Direct connections to specialist gambling counsellors",
+          "Education about gambling risks and impacts"
+        ],
+        "who": "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm."
+      },
+      "multiculturalDevelopment": {
+        "title": "Multicultural Community Development",
+        "description": "Mosaic’s Multicultural Community Groups are safe spaces where families build real connections, maintain their cultural identity, and strengthen ties to the wider community. Our community groups welcome drop-ins.",
+        "features": [
+          "Weekly playgroups & mothers' groups",
+          "Citizenship preparation and English practice",
+          "Regular information sessions, community workshops and cultural celebrations",
+          "\"Playing Around the World\" activities"
+        ],
+        "who": "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs."
+      },
+      "homeworkCenters": {
+        "title": "Homework & Learning Centres",
+        "description": "Supportive learning environments where students from migrant and refugee backgrounds develop academic skills, build social confidence, and achieve educational success alongside their peers.",
+        "features": [
+          "Free weekly tutoring during school terms",
+          "One-on-one support in small learning groups (maximum 15 students)",
+          "Help with English, numeracy and homework tasks",
+          "Progress reports and social confidence building"
+        ],
+        "who": "Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only."
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.",
+        "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.",
+        "Students from migrant and refugee backgrounds enrolled in local schools referred by EALD teachers"
+      ]
+    },
+    "how": {
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205 or visit a hub to discuss interests and goals.",
+          "bullets": ["Interpreter support available", "Flexible paths for individuals and groups"]
+        },
+        {
+          "title": "2. Participate",
+          "description": "Join festivals, workshops, playgroups, and volunteer roles that suit you.",
+          "bullets": ["Clear schedules and supportive coordinators", "Skills-building while celebrating culture"]
+        },
+        {
+          "title": "3. Lead & advocate",
+          "description": "Access leadership training and represent your community in consultations.",
+          "bullets": ["Mentoring and advisory group pathways", "Opportunities to influence programs and policy"]
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Celebrating culture, building leaders, growing community",
+      "body": "Stories from participants and volunteers highlight how cultural celebrations, leadership pathways and advocacy create lasting community impact.",
+      "bullets": [
+        "Festival highlights with captions and multilingual voiceovers.",
+        "Volunteer journeys into leadership and advisory roles.",
+        "Community advocacy wins and partnership outcomes."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed your video via CMS with transcripts and captions."
+    },
+    "team": {
+      "title": "Meet Your Community Engagement Team",
+      "description": "Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development.",
+      "collaborativeTitle": "Collaborative Community Approach",
+      "collaborativeBody": "Our community engagement team works collaboratively with community leaders, cultural organisations, government agencies, and local businesses to create inclusive programs that celebrate diversity and build stronger communities. We believe that the best community engagement happens when everyone has a voice and an opportunity to contribute their unique perspectives and talents."
+    },
+    "faq": {
+      "programsQuestion": "What types of community engagement programs do you offer?",
+      "programsAnswer": "We offer diverse community engagement opportunities including cultural festivals and celebrations, leadership development programs, volunteer coordination and training, advocacy and representation services, community consultation projects, and multicultural awareness training. Our programs are designed to celebrate cultural diversity while building stronger, more inclusive communities across NSW.",
+      "leadershipQuestion": "How can I get involved in community leadership?",
+      "leadershipAnswer": "Our leadership development programs provide training in public speaking, community advocacy, project management, and cultural competency. We offer mentorship opportunities, leadership workshops, and pathways to join community advisory groups. Whether you're interested in representing your cultural community or advocating for multicultural issues, we provide the skills and support you need to become an effective community leader.",
+      "volunteerQuestion": "What volunteer opportunities are available?",
+      "volunteerAnswer": "Volunteer opportunities include cultural event coordination, community program assistance, translation and interpretation support, mentoring new arrivals, administrative support, and advocacy campaign participation. We provide comprehensive training, flexible scheduling, and ongoing support for all volunteers. Volunteering is a great way to give back while developing new skills and building community connections.",
+      "festivalsQuestion": "How do you support cultural celebrations and festivals?",
+      "festivalsAnswer": "We coordinate annual multicultural festivals, provide funding and logistical support for cultural events, assist with venue booking and permits, offer event planning expertise and volunteer coordination, and help promote cultural celebrations throughout the community. Our goal is to showcase the rich cultural diversity of our communities while creating opportunities for cross-cultural understanding and celebration.",
+      "advocacyQuestion": "What advocacy services do you provide?",
+      "advocacyAnswer": "Our advocacy services include representing community interests in policy discussions, providing submissions to government consultations, advocating for improved multicultural services, supporting individual advocacy needs, and raising awareness about multicultural issues. We work at local, state, and federal levels to ensure multicultural voices are heard and multicultural communities receive appropriate support and recognition.",
+      "partnershipsQuestion": "How can organisations partner with you?",
+      "partnershipsAnswer": "Organisations can partner with us through joint program development, cultural competency training provision, event collaboration and sponsorship, volunteer program partnerships, and policy advocacy initiatives. We work with businesses, government agencies, educational institutions, and community organisations to create more inclusive and culturally responsive services and programs throughout NSW."
+    },
+    "cta": {
+      "title": "Ready to Grow Your Community?",
+      "body": "You’re welcome to start with a conversation. We can talk about events, groups, volunteering, or leadership opportunities and help you find ways to get involved that feel right for you.",
+      "callLabel": "Call 1800 813 205",
+      "contactLabel": "Contact Us Online",
+      "footnote": "All community members welcome • Flexible participation options • Professional development opportunities available"
+    }
+  },
+  "about": {
+    "management": {
+      "badge": "Management",
+      "title": "Our Management Team",
+      "description": "Experienced leaders committed to guide Mosaic's work with integrity, collaboration and community impact.",
+      "languagesLabel": "Languages"
     }
   },
   "services": {
@@ -154,22 +514,24 @@
   }
   ,
   "contact": {
-    "badge": "Get in Touch",
-    "title": "Contact Us",
-    "description": "Get in touch with our multilingual team. We're here to help you access the support and services you need.",
-    "form": {
-      "title": "Send Us a Message",
-      "fields": {
-        "name": "Full Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "language": "Preferred Language",
-        "service": "Service Interest",
-        "location": "Preferred Office",
-        "message": "Message",
-        "placeholders": {
-          "message": "Please describe how we can help you..."
-        },
+    "badge": "Get in touch with Mosaic",
+    "title": "Get in touch with Mosaic",
+    "description": "We’re here to help you find the right support, services, or local office. Whether you’re reaching out for yourself, a family member, or a client, our team will guide you to the right place.",
+      "form": {
+        "title": "Contact us",
+        "intro": "Use the form below to ask a question, request support, or connect with a local Mosaic office.",
+        "responseTime": "Our team will respond within <strong>48 business hours</strong>.",
+        "fields": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone Number",
+          "language": "Preferred Language",
+          "service": "Service interest",
+          "location": "Preferred office",
+          "message": "Message",
+          "placeholders": {
+            "message": "Please describe how we can help you..."
+          },
         "languageOptions": {
           "select": "Select a language",
           "english": "English",
@@ -191,20 +553,38 @@
           "volunteer": "Volunteer Opportunities",
           "general": "General Inquiry"
         },
-        "locationOptions": {
-          "select": "Select an office",
-          "newcastle": "Newcastle",
-          "centralCoast": "Central Coast",
-          "lakeMacquarie": "Lake Macquarie",
-          "hunterRegion": "Hunter Region"
-        }
+          "locationOptions": {
+            "select": "Select an office",
+            "newcastle": "Newcastle",
+            "centralCoast": "Central Coast",
+            "armidale": "Armidale",
+            "tamworth": "Tamworth",
+            "lakeMacquarie": "Lake Macquarie",
+            "hunterRegion": "Hunter Region"
+          }
+        },
+      "descriptions": {
+        "name": "Please enter your full name.",
+        "email": "We’ll use this email to reply to your enquiry.",
+        "service": "Select the service you’re enquiring about so we can direct your message to the right team.",
+        "location": "Choose the office closest to you, or the location you’d like to connect with.",
+        "message": "Tell us a little about your situation or enquiry. The more detail you provide, the better we can help."
       },
       "submit": "Send Message",
-      "note": "* Required fields. We'll respond within 24 hours during business days."
+      "privacyNote": "Your information is kept private and shared only with the Mosaic team supporting your request."
+      ,
+      "validation": {
+        "nameMin": "Name must be at least 2 characters.",
+        "emailInvalid": "Please enter a valid email address.",
+        "emailRequired": "Email is required.",
+        "serviceRequired": "Please select a service.",
+        "locationRequired": "Please select an office.",
+        "messageMin": "Message must be at least 10 characters."
+      }
     },
     "success": {
       "title": "Message Sent Successfully!",
-      "message": "Thank you for contacting us. We'll get back to you within 24 hours during business days.",
+      "message": "Thank you for contacting us. We’ll get back to you within 48 business hours.",
       "urgentNote": "For urgent matters during business hours, please call us directly at 1800 813 205."
     }
   },
@@ -241,20 +621,144 @@
       "subheadline": "Starting fresh in Australia can feel overwhelming when rentals, work, and government systems are unfamiliar.",
       "bodyPrimary": "If you’re unsure what support you need, your settlement caseworker will guide you through the next steps and help you build confidence along the way.",
       "bodySecondary": "We listen, map out a simple plan, and stay with you until you feel safe, connected and capable.",
-      "cta": "Find Your Support Path"
+      "cta": "Find Your Support Path",
+      "footerNote": "Free service • Interpreters available • Bring a trusted friend or family member."
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "What We Help You Tackle First"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How settlement support works",
+        "title": "Three simple steps from first call to feeling at home",
+        "description": "Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions New Arrivals Ask About Settlement Support",
+        "subtitle": "Get answers to common questions about our settlement support services and how we can help you establish your new life in Australia"
+      }
     },
     "programs": {
-      "helper": "Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week."
+      "helper": "Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week.",
+      "whatWeProvideLabel": "What We Provide:",
+      "housing": {
+        "title": "Housing & Accommodation Support",
+        "description": "Gain confidence finding a safe, affordable home with a settlement worker who helps you prepare for inspections, explains leasing rules and rehearses paperwork before you submit it.",
+        "features": [
+          "Property search coaching and real estate liaison",
+          "Rental application preparation and reference support",
+          "Tenant rights education and advocacy",
+          "Guidance for setting up utilities and household services",
+          "Rapid referrals to emergency accommodation partners"
+        ]
+      },
+      "employment": {
+        "title": "Employment & Career Development",
+        "description": "Turn your skills into local job opportunities with resume mentoring, interview practice and introductions to inclusive employers.",
+        "features": [
+          "Resume reviews and tailored interview coaching",
+          "Job search strategies and employer introductions",
+          "Support with skills recognition and qualification assessment",
+          "Workplace culture orientation and rights education",
+          "Career development advice and training referrals"
+        ]
+      },
+      "government": {
+        "title": "Government Services Navigation",
+        "description": "Work alongside a settlement worker who breaks down Centrelink, Medicare, tax and licensing steps so every form is correct and deadlines are met.",
+        "features": [
+          "Centrelink registration guidance and payment assistance",
+          "Medicare enrolment support and healthcare access",
+          "Tax file number applications and banking setup assistance",
+          "Driver licensing preparation and transport advice",
+          "Warm referrals to legal and advocacy services"
+        ]
+      },
+      "community": {
+        "title": "Community Orientation & Connection",
+        "description": "Learn your new city, schools, doctors and community hubs while staying proud of your culture and traditions, with guidance tailored to your family.",
+        "features": [
+          "Local area orientation and community tours",
+          "School enrolment preparation and education support",
+          "Healthcare system navigation and GP introductions",
+          "Cultural orientation and social connection sessions",
+          "Community group referrals and participation planning"
+        ]
+      }
     },
     "how": {
-      "helper": "Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete."
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205, visit a Mosaic hub or ask a service provider to refer you.",
+          "bullets": ["Free service with interpreters on request", "Available across Central Coast, Newcastle, Maitland, Tamworth & Armidale"]
+        },
+        {
+          "title": "2. Plan together",
+          "description": "We listen, map urgent needs, and create a settlement plan that fits your goals and family life.",
+          "bullets": ["Housing, work, English, legal and safety actions prioritised", "Clear steps with dates, contacts and responsibilities"]
+        },
+        {
+          "title": "3. Walk the journey",
+          "description": "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
+          "bullets": ["Warm referrals to local partners and programmes", "Stay connected with Mosaic until you feel confident navigating life in Australia."]
+        }
+      ]
     },
     "impact": {
-      "helper": "Short videos from Mosaic clients showcase practical wins: finding a rental, enrolling children, or feeling safe enough to volunteer, supported by settlement workers."
+      "badge": "Impact stories",
+      "title": "Watch how support sparks confidence",
+      "helper": "Short videos from Mosaic clients showcase practical wins: finding a rental, enrolling children, or feeling safe enough to volunteer, supported by settlement workers.",
+      "bullets": [
+        "Feature one impact story per region or service stream.",
+        "Include captions and interpreter voiceovers for accessibility.",
+        "Close with a call to contact Mosaic for settlement planning."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed your YouTube, Vimeo or hosted video here via CMS."
     },
     "comprehensive": {
       "title": "Comprehensive Settlement Approach",
       "paragraph": "Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community connection, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
+    },
+    "team": {
+      "title": "Meet Your Settlement Support Team",
+      "description": "Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
+    },
+    "eligibility": {
+      "items": [
+        "New migrants and multicultural communities within first 5 years",
+        "Families needing help with housing, work, English or legal support",
+        "Anyone seeking guidance to navigate Australian systems and services",
+        "Professional interpreters available for all appointments"
+      ]
+    },
+    "faq": {
+      "eligibilityQuestion": "Who is eligible for settlement support services?",
+      "eligibilityAnswer": "Settlement support is available to recent migrants and multicultural community members within their first 5 years in Australia, family members of eligible migrants, people from culturally and linguistically diverse backgrounds, and anyone needing assistance navigating Australian systems and services. There are no visa status restrictions - we support all multicultural families regardless of their immigration status.",
+      "housingQuestion": "What housing assistance do you provide?",
+      "housingAnswer": "We help with finding suitable accommodation, understanding rental processes and tenant rights, connecting with real estate agents and housing services, preparing rental applications, understanding utility connections, and advocating with housing providers. Our settlement workers guide you through inspections and negotiations so you feel confident engaging with real estate agents.",
+      "employmentQuestion": "How do you help with employment?",
+      "employmentAnswer": "Our employment support includes resume writing and interview preparation, job search assistance and connecting with employers, understanding Australian workplace culture and rights, skills recognition and qualification assessment support, referrals to training and education programmes, and ongoing career development guidance. We work with local employers who value cultural diversity.",
+      "govServicesQuestion": "What government services can you help me access?",
+      "govServicesAnswer": "We provide navigation support for Centrelink services and payments, Medicare registration and healthcare access, taxation and Australian Business Number (ABN) applications, driver licence and transport services, school enrolment for children, and legal services and advocacy support. Our workers can accompany you to appointments and help with paperwork.",
+      "languageQuestion": "Do you provide language support?",
+      "languageAnswer": "Yes, we offer professional interpreter services for all appointments and meetings, translation of important documents, referrals to English language programmes and classes, assistance with understanding official correspondence, and support in your preferred language during service delivery. Many of our staff speak multiple languages and understand the challenges of language barriers.",
+      "durationQuestion": "How long can I access settlement support?",
+      "durationAnswer": "Settlement support is typically available for up to 5 years after arrival in Australia, though this can vary based on individual circumstances and needs. We provide intensive support in the first 6-12 months, then ongoing assistance as needed. Our goal is to help you become independent and confident in navigating Australian systems, but we're here for as long as you need support."
+    },
+    "cta": {
+      "title": "Ready to Start Your Settlement Journey?",
+      "body": "Our experienced settlement team is here to guide you through every step of establishing your new life in Australia. Contact us today to begin your journey to independence and community connection.",
+      "callLabel": "Call 1800 813 205",
+      "contactLabel": "Contact Us Online",
+      "footnote": "Professional interpreters available • No appointment necessary for initial consultation • All services completely free"
     }
   }
 }

@@ -167,6 +167,8 @@ export default function MosaicNavigation() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [topQueries, setTopQueries] = useState<{ query: string; count: number }[]>([]);
   const [isOwner, setIsOwner] = useState(false);
+  const [sortMode, setSortMode] = useState<'relevance' | 'alpha'>('relevance');
+  const [showAll, setShowAll] = useState(false);
   const { theme } = useTheme();
   const glassRef = React.useRef<HTMLDivElement | null>(null);
   const clientRef = React.useRef<LocalSearchClient | null>(null);
@@ -188,22 +190,21 @@ export default function MosaicNavigation() {
       if (p > 1) p = 1;
       const blur = 2 + 14 * p;
       const alpha = 0.15 + 0.35 * p;
-      const bgLight = `rgba(248,250,252,${alpha})`; // slate-50 to match Hero base
-      const bgDark = `rgba(15,23,42,${alpha})`; // slate-900 to match Hero base
+      const baseLight = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-light-base').trim() || '248,250,252';
+      const baseDark = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-dark-base').trim() || '15,23,42';
+      const bgLight = `rgba(${baseLight},${alpha})`;
+      const bgDark = `rgba(${baseDark},${alpha})`;
       el.style.opacity = "1";
-      el.style.backgroundColor = theme === "dark" ? bgDark : bgLight;
-      if (supportsBackdrop) {
-        el.style.backdropFilter = `blur(${blur}px)`;
-        (el.style as unknown as CSSStyleDeclaration & { WebkitBackdropFilter?: string }).WebkitBackdropFilter = `blur(${blur}px)`;
-      }
+      const bg = theme === "dark" ? bgDark : bgLight;
+      el.style.setProperty("--nav-bg", bg);
+      el.style.setProperty("--nav-blur", `${blur}px`);
       const shadowAlpha = 0.05 + 0.15 * p;
-      el.style.boxShadow = `0 8px 24px rgba(0,0,0,${shadowAlpha})`;
+      el.style.setProperty("--nav-shadow", `rgba(0,0,0,${shadowAlpha})`);
       const borderAlpha = 0.06 + 0.10 * p;
-      // apply only bottom border to avoid side inconsistencies
-      el.style.border = "none";
-      el.style.borderBottom = theme === "dark"
-        ? `1px solid rgba(148,163,184,${borderAlpha})`
-        : `1px solid rgba(203,213,225,${borderAlpha})`; // slate-300
+      const border = theme === "dark"
+        ? `rgba(148,163,184,${borderAlpha})`
+        : `rgba(203,213,225,${borderAlpha})`; // slate-300
+      el.style.setProperty("--nav-border", border);
     };
     let ticking = false;
     const onScroll = () => {
@@ -440,7 +441,24 @@ export default function MosaicNavigation() {
     const close = scored.filter((x) => x.d <= 3).sort((a, b) => a.d - b.d).slice(0, 5).map((x) => x.t);
     close.forEach((c) => pool.add(c));
     pool.add(aus);
-    return Array.from(pool).slice(0, 5);
+    const arr = Array.from(pool).slice(0, 5);
+    return ['All', ...arr.filter((x) => x.toLowerCase() !== 'all')].slice(0, 5);
+  }
+
+  function filterByFacets(items: SearchItem[], facets: string[]): SearchItem[] {
+    if (!facets.length) return items;
+    return items.filter((it) => {
+      const tagset = new Set((it.tags || []).map((t) => t.toLowerCase()));
+      return facets.some((f) => tagset.has(f.toLowerCase()));
+    });
+  }
+
+  function allResults(items: SearchItem[], facets: string[], mode: 'relevance' | 'alpha'): SearchItem[] {
+    const filtered = filterByFacets(items, facets);
+    if (mode === 'alpha') {
+      return [...filtered].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return filtered;
   }
 
   return (
@@ -468,7 +486,7 @@ export default function MosaicNavigation() {
         </div>
       )}
 
-      <nav ref={glassRef} className="sticky top-0 z-50 w-full">
+      <nav ref={glassRef} className="nav-glass sticky top-0 z-50 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
@@ -521,7 +539,7 @@ export default function MosaicNavigation() {
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                             Core Services
                           </h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {services.map((service) => (
                               <ListItem
                                 key={service.title}
@@ -539,7 +557,7 @@ export default function MosaicNavigation() {
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                             Quick Links
                           </h6>
-                          <ul className="mt-2.5 grid gap-3">
+                          <ul className="mt-2.5 grid gap-3 list-none">
                             <ListItem
                               title="All Services"
                               to="/services"
@@ -591,7 +609,7 @@ export default function MosaicNavigation() {
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                                 About Mosaic
                               </h6>
-                              <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                              <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                                 {aboutLinks.map((link) => (
                                   <ListItem key={link.title} title={link.title} to={link.href} icon={link.icon}>
                                     {link.description}
@@ -601,7 +619,7 @@ export default function MosaicNavigation() {
                             </div>
                             <div className="pl-4">
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
-                              <ul className="mt-2.5 grid gap-3">
+                              <ul className="mt-2.5 grid gap-3 list-none">
                                 <ListItem title="Our Story" to="/about" icon={Home}>
                                   Discover our mission, history and leadership
                                 </ListItem>
@@ -636,7 +654,7 @@ export default function MosaicNavigation() {
                       <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
                         <div className="col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Participate</h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {getInvolvedLinks.map((gi) => (
                               gi.href ? (
                                 <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
@@ -670,7 +688,7 @@ export default function MosaicNavigation() {
                         </div>
                         <div className="pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
-                          <ul className="mt-2.5 grid gap-3">
+                          <ul className="mt-2.5 grid gap-3 list-none">
                             <ListItem title="Opportunities" to="/get-involved" icon={Phone}>
                               Join our Mission
                             </ListItem>
@@ -707,7 +725,7 @@ export default function MosaicNavigation() {
                       <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-border">
                         <div className="col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Key Resources</h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3">
+                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {resourcesLinks.map((res) => (
                               <ListItem key={res.title} title={res.title} to={res.href} icon={res.icon}>
                                 {res.description}
@@ -717,7 +735,7 @@ export default function MosaicNavigation() {
                         </div>
                         <div className="pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Explore</h6>
-                          <ul className="mt-2.5 grid gap-3">
+                          <ul className="mt-2.5 grid gap-3 list-none">
                             <ListItem title="All Resources" to="/resources" icon={Globe}>
                               Browse brochures, annual reports, helpful links, emergency & translation
                             </ListItem>
@@ -765,6 +783,7 @@ export default function MosaicNavigation() {
                       onChange={(e) => {
                         const v = e.target.value;
                         setSearchQuery(v);
+                        setShowAll(false);
                         if (!v.trim()) {
                           const popular = clientRef.current ? clientRef.current.popularPrompts() : ['Home care support','Employment services','Settlement help','Youth & family programs'];
                           setSuggestions(popular);
@@ -788,7 +807,21 @@ export default function MosaicNavigation() {
                   {suggestions.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1">
                       {suggestions.map((s) => (
-                        <button key={s} onClick={() => { setSearchQuery(s); setSuggestions([]); }} className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                        <button
+                          key={s}
+                          onClick={() => {
+                            const isAll = s.toLowerCase() === 'all';
+                            setShowAll(isAll);
+                            setSearchQuery(s);
+                            setSuggestions([]);
+                          }}
+                          className={cn(
+                            "text-xs rounded-md px-2 py-1 border",
+                            s.toLowerCase() === 'all'
+                              ? "bg-ocean text-white border-ocean"
+                              : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50"
+                          )}
+                        >
                           {s}
                         </button>
                       ))}
@@ -809,22 +842,49 @@ export default function MosaicNavigation() {
                       );
                     })}
                   </div>
+                  <div className="mt-2 flex items-center justify-end gap-2">
+                    <span className="text-xs text-muted-foreground">Sort</span>
+                    <button
+                      type="button"
+                      className={cn("text-xs rounded-md px-2 py-1 border", sortMode === 'relevance' ? "bg-ocean text-white border-ocean" : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50")}
+                      onClick={() => setSortMode('relevance')}
+                    >
+                      Relevance
+                    </button>
+                    <button
+                      type="button"
+                      className={cn("text-xs rounded-md px-2 py-1 border", sortMode === 'alpha' ? "bg-ocean text-white border-ocean" : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50")}
+                      onClick={() => setSortMode('alpha')}
+                    >
+                      A–Z
+                    </button>
+                  </div>
                   <div className="mt-3 max-h-64 overflow-auto">
-                    {searchQuery.trim() ? (
-                      <ul className="space-y-1">
-                        {(clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).slice(0, 12).map((item) => (
+                    {searchQuery.trim() || showAll ? (
+                      <ul className="divide-y divide-border">
+                        {(() => {
+                          const q = searchQuery.trim().toLowerCase();
+                          const isAllSel = showAll || q === 'all';
+                          const results = isAllSel
+                            ? allResults(runtimeIndex, selectedFacets, sortMode)
+                            : (clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets));
+                          const ordered = sortMode === 'alpha'
+                            ? [...results].sort((a, b) => a.title.localeCompare(b.title))
+                            : results;
+                          return ordered.slice(0, 12).map((item) => (
                           <li key={item.path}>
                             <Link
                               to={item.path}
-                              className="block rounded-md px-2 py-1.5 text-sm text-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                              className="block rounded-md px-2 py-2 text-sm text-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           {...prefetchOnHover(item.path)}
-                              onClick={() => { logSearchQuery(searchQuery, i18n.language); setIsSearchOpen(false); setSearchQuery(""); setShowOverlay(false); }}
+                              onClick={() => { logSearchQuery(searchQuery, i18n.language); setIsSearchOpen(false); setSearchQuery(""); setShowOverlay(false); setShowAll(false); }}
                             >
                               {item.title}
                             </Link>
                           </li>
-                        ))}
-                        {(clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).length === 0 && (
+                          ));
+                        })()}
+                        {!showAll && (clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).length === 0 && (
                           <li className="px-2 py-1.5 text-sm text-muted-foreground">
                             We couldn’t find results in this language.
                             <div className="mt-2 flex flex-wrap gap-1">

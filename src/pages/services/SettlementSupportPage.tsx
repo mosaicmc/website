@@ -122,30 +122,12 @@ const SettlementSupportPage = () => {
   const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
-    {
-      question: "Who is eligible for settlement support services?",
-      answer: "Settlement support is available to recent migrants and multicultural community members within their first 5 years in Australia, family members of eligible migrants, people from culturally and linguistically diverse backgrounds, and anyone needing assistance navigating Australian systems and services. There are no visa status restrictions - we support all multicultural families regardless of their immigration status."
-    },
-    {
-      question: "What housing assistance do you provide?",
-      answer: "We help with finding suitable accommodation, understanding rental processes and tenant rights, connecting with real estate agents and housing services, preparing rental applications, understanding utility connections, and advocating with housing providers. Our settlement workers guide you through inspections and negotiations so you feel confident engaging with real estate agents."
-    },
-    {
-      question: "How do you help with employment?",
-      answer: "Our employment support includes resume writing and interview preparation, job search assistance and connecting with employers, understanding Australian workplace culture and rights, skills recognition and qualification assessment support, referrals to training and education programmes, and ongoing career development guidance. We work with local employers who value cultural diversity."
-    },
-    {
-      question: "What government services can you help me access?",
-      answer: "We provide navigation support for Centrelink services and payments, Medicare registration and healthcare access, taxation and Australian Business Number (ABN) applications, driver licence and transport services, school enrolment for children, and legal services and advocacy support. Our workers can accompany you to appointments and help with paperwork."
-    },
-    {
-      question: "Do you provide language support?",
-      answer: "Yes, we offer professional interpreter services for all appointments and meetings, translation of important documents, referrals to English language programmes and classes, assistance with understanding official correspondence, and support in your preferred language during service delivery. Many of our staff speak multiple languages and understand the challenges of language barriers."
-    },
-    {
-      question: "How long can I access settlement support?",
-      answer: "Settlement support is typically available for up to 5 years after arrival in Australia, though this can vary based on individual circumstances and needs. We provide intensive support in the first 6-12 months, then ongoing assistance as needed. Our goal is to help you become independent and confident in navigating Australian systems, but we're here for as long as you need support."
-    }
+    { question: t('settlement.faq.eligibilityQuestion'), answer: t('settlement.faq.eligibilityAnswer') },
+    { question: t('settlement.faq.housingQuestion'), answer: t('settlement.faq.housingAnswer') },
+    { question: t('settlement.faq.employmentQuestion'), answer: t('settlement.faq.employmentAnswer') },
+    { question: t('settlement.faq.govServicesQuestion'), answer: t('settlement.faq.govServicesAnswer') },
+    { question: t('settlement.faq.languageQuestion'), answer: t('settlement.faq.languageAnswer') },
+    { question: t('settlement.faq.durationQuestion'), answer: t('settlement.faq.durationAnswer') },
   ];
 
   // Split FAQs into two columns
@@ -233,7 +215,7 @@ const SettlementSupportPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <Home className="mr-2 h-4 w-4 text-sky" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">Settlement Support</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('services.settlement')}</span>
             </div>
             <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('settlement.hero.headline')}</h1>
             <p
@@ -257,9 +239,7 @@ const SettlementSupportPage = () => {
                 {t('settlement.hero.cta')}
               </a>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
-              Free service • Interpreters available • Bring a trusted friend or family member.
-            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>{t('settlement.hero.footerNote')}</p>
           </div>
         </div>
       </section>
@@ -271,9 +251,9 @@ const SettlementSupportPage = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Our Programs</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('settlement.sections.programs.badge')}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">What We Help You Tackle First</h2>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('settlement.sections.programs.title')}</h2>
             <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
               {t('settlement.programs.helper')}
             </p>
@@ -282,54 +262,30 @@ const SettlementSupportPage = () => {
           <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
-                title: "Housing & Accommodation Support",
-                description: "Gain confidence finding a safe, affordable home with a settlement worker who helps you prepare for inspections, explains leasing rules and rehearses paperwork before you submit it.",
-                features: [
-                  "Property search coaching and real estate liaison",
-                  "Rental application preparation and reference support",
-                  "Tenant rights education and advocacy",
-                  "Guidance for setting up utilities and household services",
-                  "Rapid referrals to emergency accommodation partners"
-                ],
+                title: t('settlement.programs.housing.title'),
+                description: t('settlement.programs.housing.description'),
+                features: t('settlement.programs.housing.features', { returnObjects: true }) as string[],
                 icon: <Home className="h-8 w-8" />,
                 color: "sky"
               },
               {
-                title: "Employment & Career Development",
-                description: "Turn your skills into local job opportunities with resume mentoring, interview practice and introductions to inclusive employers.",
-                features: [
-                  "Resume reviews and tailored interview coaching",
-                  "Job search strategies and employer introductions",
-                  "Support with skills recognition and qualification assessment",
-                  "Workplace culture orientation and rights education",
-                  "Career development advice and training referrals"
-                ],
+                title: t('settlement.programs.employment.title'),
+                description: t('settlement.programs.employment.description'),
+                features: t('settlement.programs.employment.features', { returnObjects: true }) as string[],
                 icon: <Users className="h-8 w-8" />,
                 color: "sky"
               },
               {
-                title: "Government Services Navigation",
-                description: "Work alongside a settlement worker who breaks down Centrelink, Medicare, tax and licensing steps so every form is correct and deadlines are met.",
-                features: [
-                  "Centrelink registration guidance and payment assistance",
-                  "Medicare enrolment support and healthcare access",
-                  "Tax file number applications and banking setup assistance",
-                  "Driver licensing preparation and transport advice",
-                  "Warm referrals to legal and advocacy services"
-                ],
+                title: t('settlement.programs.government.title'),
+                description: t('settlement.programs.government.description'),
+                features: t('settlement.programs.government.features', { returnObjects: true }) as string[],
                 icon: <FileText className="h-8 w-8" />,
                 color: "sky"
               },
               {
-                title: "Community Orientation & Connection",
-                description: "Learn your new city, schools, doctors and community hubs while staying proud of your culture and traditions, with guidance tailored to your family.",
-                features: [
-                  "Local area orientation and community tours",
-                  "School enrolment preparation and education support",
-                  "Healthcare system navigation and GP introductions",
-                  "Cultural orientation and social connection sessions",
-                  "Community group referrals and participation planning"
-                ],
+                title: t('settlement.programs.community.title'),
+                description: t('settlement.programs.community.description'),
+                features: t('settlement.programs.community.features', { returnObjects: true }) as string[],
                 icon: <Globe className="h-8 w-8" />,
                 color: "sky"
               }
@@ -364,7 +320,7 @@ const SettlementSupportPage = () => {
                       service.color === 'leaf' ? 'text-leaf' :
                       'text-sun'
                     }`} />
-                    What We Provide:
+                    {t('settlement.programs.whatWeProvideLabel')}
                   </h4>
                   <ul className="space-y-3">
                     {service.features.map((feature, idx) => (
@@ -391,24 +347,24 @@ const SettlementSupportPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="stack-vertical">
             <div className="animate-fade-in-left">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Who Can Access Our Services?</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">{t('settlement.sections.eligibility.title')}</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3 group">
                     <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">New migrants and multicultural communities within first 5 years</span>
+                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.0')}</span>
                   </div>
                   <div className="flex items-start space-x-3 group">
                     <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Families needing help with housing, work, English or legal support</span>
+                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.1')}</span>
                   </div>
                   <div className="flex items-start space-x-3 group">
                     <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Anyone seeking guidance to navigate Australian systems and services</span>
+                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.2')}</span>
                   </div>
                   <div className="flex items-start space-x-3 group">
                     <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">Professional interpreters available for all appointments</span>
+                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.3')}</span>
                   </div>
                 </div>
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
@@ -434,36 +390,17 @@ const SettlementSupportPage = () => {
       <section className="py-16 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
         <div className="doc-container">
           <div className="text-center mb-12">
-            <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">How settlement support works</p>
-            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Three simple steps from first call to feeling at home</h2>
+            <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">{t('settlement.sections.how.badge')}</p>
+            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('settlement.sections.how.title')}</h2>
             <p className="fluid-p text-gray-600 dark:text-white/70 max-w-3xl mx-auto break-words">
-              {t('settlement.how.helper')}
+              {t('settlement.sections.how.description')}
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "1. Reach out",
-                description: "Call 1800 813 205, visit a Mosaic hub or ask a service provider to refer you.",
-                bullets: ["Free service with interpreters on request", "Available across Central Coast, Newcastle, Maitland, Tamworth & Armidale"],
-                icon: <Phone className="h-6 w-6 text-sky" />
-              },
-              {
-                title: "2. Plan together",
-                description: "We listen, map urgent needs, and create a settlement plan that fits your goals and family life.",
-                bullets: ["Housing, work, English, legal and safety actions prioritised", "Clear steps with dates, contacts and responsibilities"],
-                icon: <CheckCircle className="h-6 w-6 text-sky" />
-              },
-              {
-                title: "3. Walk the journey",
-                description: "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
-                bullets: ["Warm referrals to local partners and programmes", "Stay connected with Mosaic until you feel confident navigating life in Australia."],
-                icon: <Users className="h-6 w-6 text-sky" />
-              }
-            ].map((step, idx) => (
+            {(t('settlement.how.steps', { returnObjects: true }) as { title: string; description: string; bullets: string[] }[]).map((step, idx) => (
               <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-3 bg-sky/10 rounded-2xl">{step.icon}</div>
+                  <div className="p-3 bg-sky/10 rounded-2xl">{idx === 0 ? <Phone className="h-6 w-6 text-sky" /> : idx === 1 ? <CheckCircle className="h-6 w-6 text-sky" /> : <Users className="h-6 w-6 text-sky" />}</div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
                 </div>
                 <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
@@ -490,36 +427,36 @@ const SettlementSupportPage = () => {
         <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">Impact stories</p>
-              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Watch how support sparks confidence</h2>
+              <p className="text-sm uppercase tracking-[0.3em] text-sky font-semibold mb-3">{t('settlement.impact.badge')}</p>
+              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('settlement.impact.title')}</h2>
               <p className="fluid-p text-gray-600 dark:text-white/80 mb-5 break-words">
                 {t('settlement.impact.helper')}
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
                 <li className="flex items-start space-x-2">
                   <span className="text-sky mt-1">•</span>
-                  <span>Feature one impact story per region or service stream.</span>
+                  <span>{t('settlement.impact.bullets.0')}</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-sky mt-1">•</span>
-                  <span>Include captions and interpreter voiceovers for accessibility.</span>
+                  <span>{t('settlement.impact.bullets.1')}</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-sky mt-1">•</span>
-                  <span>Close with a call to contact Mosaic for settlement planning.</span>
+                  <span>{t('settlement.impact.bullets.2')}</span>
                 </li>
               </ul>
             </div>
             <div>
               <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
                 <div className="text-center px-6">
-                  <p className="text-white font-semibold mb-2">Impact video placeholder</p>
-                  <p className="text-white/80 text-sm mb-4">Embed your YouTube, Vimeo or hosted video here via CMS.</p>
+                  <p className="text-white font-semibold mb-2">{t('settlement.impact.videoPlaceholderTitle')}</p>
+                  <p className="text-white/80 text-sm mb-4">{t('settlement.impact.videoPlaceholderSubtitle')}</p>
                   <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow hover:scale-105 transition">
                     <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    Watch story
+                    {t('settlement.impact.watchLabel')}
                   </button>
                 </div>
               </div>
@@ -531,10 +468,8 @@ const SettlementSupportPage = () => {
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="fluid-h2 font-bold text-foreground">Meet Your Settlement Support Team</h2>
-            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">
-              Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support.
-            </p>
+            <h2 className="fluid-h2 font-bold text-foreground">{t('settlement.team.title')}</h2>
+            <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">{t('settlement.team.description')}</p>
           </div>
           <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
             {locations.map((loc) => {
@@ -586,12 +521,10 @@ const SettlementSupportPage = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
               <span className="mr-2 h-2 w-2 rounded-full bg-sun animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Frequently Asked Questions</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('settlement.sections.faq.badge')}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">Questions New Arrivals Ask About Settlement Support</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Get answers to common questions about our settlement support services and how we can help you establish your new life in Australia
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('settlement.sections.faq.title')}</h2>
+            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>{t('settlement.sections.faq.subtitle')}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -634,30 +567,26 @@ const SettlementSupportPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">Ready to Start Your Settlement Journey?</h2>
-            <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">
-              Our experienced settlement team is here to guide you through every step of establishing your new life in Australia. Contact us today to begin your journey to independence and community connection.
-            </p>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">{t('settlement.cta.title')}</h2>
+            <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">{t('settlement.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
                 className="bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 1800 813 205
+                {t('settlement.cta.callLabel')}
               </a>
               <Link
                 to="/contact-us"
                 className="border-2 border-sky text-sky hover:bg-sky hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
               >
-                Contact Us Online
+                {t('settlement.cta.contactLabel')}
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </div>
             <div className="mt-6 text-center">
-              <p className="text-gray-600 dark:text-white/70 text-sm">
-                Professional interpreters available • No appointment necessary for initial consultation • All services completely free
-              </p>
+              <p className="text-gray-600 dark:text-white/70 text-sm">{t('settlement.cta.footnote')}</p>
             </div>
           </div>
         </div>

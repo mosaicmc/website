@@ -1,8 +1,8 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import ServicesList from '../components/features-06/features-06';
 import RelatedServices from '@/components/RelatedServices';
 import { AU } from '@/lib/auSpelling';
+import Section from '@/components/ui/Section';
 
 const ServicesPage = () => {
 

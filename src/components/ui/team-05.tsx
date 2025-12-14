@@ -192,8 +192,8 @@ const Team05: React.FC<Team05Props> = ({
                             style={{ 
                               objectPosition: `50% ${typeof member.focalY === 'number' ? `${member.focalY}%` : '35%'}`,
                               transform: `scale(${typeof member.scale === 'number' ? member.scale : 1.08})`,
-                              WebkitMaskImage: 'radial-gradient(circle at 50% 38%, #fff 60%, transparent 100%)',
-                              maskImage: 'radial-gradient(circle at 50% 38%, #fff 60%, transparent 100%)'
+                              WebkitMaskImage: 'radial-gradient(circle at 50% 38%, var(--glow-mask) 60%, transparent 100%)',
+                              maskImage: 'radial-gradient(circle at 50% 38%, var(--glow-mask) 60%, transparent 100%)'
                             }}
                           />
                         ) : (
