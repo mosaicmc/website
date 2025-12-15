@@ -69,8 +69,8 @@ const AboutPage = () => {
       "/images/History_720px_webp/2021_40th Celebration06.webp",
       "/images/History_720px_webp/2021_40th Celebration07.webp"
     ] },
-    { year: "2022", label: "2022", description: "We adopt our new name, Mosaic Multicultural Connections, reflecting our evolving role.", image: "/images/History_720px_webp/2022_MosaicMC_Rebranding.webp", alt: "Mosaic Multicultural Connections rebranding", details: "A new name was adopted to reflect the organisation's evolving role and the vibrant diversity of the communities it serves.", gallery: [] },
-    { year: "2024", label: "2024", description: "Head office relocates to Charlestown, a modern, accessible base for growth.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "After more than forty years, we said goodbye to our beloved Chaucer Street office, a space filled with laughter, resilience and memories with our community. The farewell featured a ceremonial lock‑up by our first CEO, Violetta Walsh OAM, and long‑serving staff member, Irina Lupish. On 11 November we moved to our new home at 3 Hopetoun Street, Charlestown, and hosted an opening ceremony with clients, partners and collaborators. The day was marked by a moving Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and heartfelt words from community leaders reflecting on inclusion, collaboration and the resilience of multicultural communities.", gallery: [
+    { year: "2022", label: "2022", description: "A new name reflecting a shared identity and evolving role.", image: "/images/History_720px_webp/2022_MosaicMC_Rebranding.webp", alt: "Mosaic Multicultural Connections rebranding", details: "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.", gallery: [] },
+    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
       "/images/History_720px_webp/2024_Charlestown01.webp",
       "/images/History_720px_webp/2024_Charlestown02.webp",
       "/images/History_720px_webp/2024_Closing01.webp",
@@ -531,9 +531,10 @@ const AboutPage = () => {
         </div>
 
         <div
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 md:scroll-mt-28"
           role="region"
           aria-label="Timeline decade slider"
+          id="our-story"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'ArrowLeft') { goPrevDecade(); }
