@@ -620,7 +620,7 @@ export default function MosaicNavigation() {
                             <div className="pl-4">
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
                               <ul className="mt-2.5 grid gap-3 list-none">
-                                <ListItem title="Our Story" to="/about#our-story" icon={Home}>
+                                <ListItem title="Our Story" to="/about#our-story-heading" icon={Home}>
                                   Discover our mission, history and leadership
                                 </ListItem>
                               </ul>

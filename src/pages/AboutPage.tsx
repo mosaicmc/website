@@ -514,7 +514,7 @@ const AboutPage = () => {
         <AnimatedBackground variant="subtle" className="opacity-70" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">The Mosaic Story</h2>
+            <h2 id="our-story-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-3 scroll-mt-28">The Mosaic Story</h2>
             <p className="text-muted-foreground">Milestones across 40+ years of service in NSW</p>
           </div>
         </div>
