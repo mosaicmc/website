@@ -11,10 +11,21 @@ import { FeatureValues } from '@/components/ui/FeatureValues';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BoardSection } from '@/components/BoardSection';
 import { ManagementSection } from '@/components/ManagementSection';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const AboutPage = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+  React.useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        (el as HTMLElement).focus?.();
+      }
+    }
+  }, [location.hash]);
   const storyData = React.useMemo(() => [
     { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: "/images/History_720px_webp/1978_Galbally Report.webp", alt: "Migrant Services and Programs (Galbally Report) cover", details: "As Australia became more culturally diverse, communities called for inclusion, access, and representation. In 1978, SBS amplified multicultural voices nationwide, while the Review of Post‑Arrival Programs and Services to Migrants (popularly called The Galbally Report, 1978) reshaped settlement policy. Its recommendations were fully adopted, leading to the creation of migrant resource centres across Australia that provided settlement support, advocacy, and guidance to help migrants and refugees participate fully in Australian life while maintaining their culture and identity.", gallery: ["/images/History_720px_webp/1978_Galbally Report.webp", "/images/History_720px_webp/1978_SBS.webp"], links: [
       { label: "Migrant Services and Programs – Statement by the Prime Minister, Mr. Malcolm Fraser", href: "/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf" },
