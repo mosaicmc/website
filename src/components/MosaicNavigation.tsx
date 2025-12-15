@@ -218,8 +218,25 @@ export default function MosaicNavigation() {
     };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [theme]);
+
+  React.useEffect(() => {
+    const el = glassRef.current;
+    if (!el) return;
+    const applyOffset = () => {
+      const h = Math.ceil(el.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--header-offset", `${h}px`);
+      (document.documentElement.style as unknown as CSSStyleDeclaration & { scrollPaddingTop?: string }).scrollPaddingTop = `${h}px`;
+    };
+    applyOffset();
+    window.addEventListener("resize", applyOffset, { passive: true });
+    return () => {
+      window.removeEventListener("resize", applyOffset);
+    };
+  }, []);
 
   // Check if current path matches navigation item
   const isActivePath = (href: string, hasDropdown?: boolean) => {
