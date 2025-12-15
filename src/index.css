@@ -222,11 +222,16 @@
 
 @layer base {
   a {
-    @apply text-ocean dark:text-sky transition-colors;
+    color: hsl(var(--link));
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 200ms;
     @apply text-base leading-relaxed;
     text-decoration: none;
   }
-  a:hover { text-decoration: none; }
+  a:hover { 
+    color: hsl(var(--link-hover));
+    text-decoration: none; 
+  }
   a:focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
   ul { @apply list-disc pl-5 mb-4; }
   ol { @apply list-decimal pl-5 mb-4; }

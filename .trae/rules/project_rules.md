@@ -13,6 +13,11 @@
 - Body text contrast ≥ 4.5:1; large text/UI ≥ 3:1.
 - Hover/focus states maintain contrast in both themes.
 - Keep visible focus rings: `focus:ring-2` with brand `ring` and offset.
+- Links use CSS variables for color to ensure dynamic, theme-safe contrast:
+  - `--link` and `--link-hover` define link hues per theme (light/dark).
+  - Global anchors (`a`) render `color: hsl(var(--link))`; on hover `hsl(var(--link-hover))`.
+  - Do not hardcode `text-sky`/`text-ocean` on anchors; prefer variables or `text-foreground` in nav contexts.
+  - Validate anchor contrast via automated tests (Playwright) targeting ≥ 4.5:1.
 
 ## Brand & Theme Coherence
 - Use brand tokens: `ocean` (primary), `sky` (accent), `sand`, `earth`, `leaf`.

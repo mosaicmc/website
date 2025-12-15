@@ -46,7 +46,7 @@ const LocationsPage = () => {
         </div>
       </section>
 
-      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-6xl">
+      <Section overlay className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
           <div className="flex-1 min-w-0">
             <ContactFormBlock />
@@ -76,7 +76,7 @@ const LocationsPage = () => {
                 <a
                   href="tel:1800813205"
                   aria-label="Call 1800 813 205"
-                  className="bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-sky/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                  className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
                 >
                   <Phone className="h-5 w-5" />
                   Call 1800 813 205
