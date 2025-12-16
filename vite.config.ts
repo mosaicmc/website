@@ -93,6 +93,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  base: process.env.BASE_PATH || '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
