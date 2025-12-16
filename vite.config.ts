@@ -96,30 +96,6 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   build: {
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('/node_modules/react/')) return 'react';
-          if (id.includes('/node_modules/react-dom/')) return 'react';
-          if (id.includes('/node_modules/react-router-dom/')) return 'router';
-          if (
-            id.includes('/node_modules/i18next') ||
-            id.includes('/node_modules/react-i18next') ||
-            id.includes('/node_modules/i18next-browser-languagedetector') ||
-            id.includes('/node_modules/i18next-http-backend')
-          ) return 'i18n';
-          if (id.includes('/node_modules/lucide-react/')) return 'ui';
-          if (id.includes('/node_modules/framer-motion/')) return 'motion';
-          if (id.includes('/node_modules/motion/')) return 'motion';
-          if (id.includes('/node_modules/@radix-ui/')) return 'radix';
-          if (
-            id.includes('/node_modules/react-hook-form') ||
-            id.includes('/node_modules/@hookform/resolvers') ||
-            id.includes('/node_modules/zod')
-          ) return 'forms';
-        },
-      },
-    },
   },
   resolve: {
     alias: {

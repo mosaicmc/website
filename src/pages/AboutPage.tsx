@@ -214,6 +214,7 @@ const AboutPage = () => {
       level: 3 as const,
       languages: ["English", "Urdu", "Hindi"],
       bio: "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness, including women’s programs, parenting workshops and cultural awareness training, to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
+      ,credentialsSummary: "Bachelor of Engineering in Electronics; Diploma in Project Management; Certificate in Adult and Tertiary Teaching; Certificate of Proficiency, Psychology and Sociology; Master of Social Work"
     },
   ];
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {

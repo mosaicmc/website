@@ -168,9 +168,16 @@ export function ManagementSection({
                     </div>
                   )}
                   {m.credentialsSummary && (
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3">
-                      {m.credentialsSummary}
-                    </p>
+                    <>
+                      {m.credentialsSummary
+                        .split("\n")
+                        .filter((line) => line.trim().length > 0)
+                        .map((line, i) => (
+                          <p key={i} className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3">
+                            {line.trim()}
+                          </p>
+                        ))}
+                    </>
                   )}
                   {isMobileOrTablet ? (
                     <Sheet open={open} onOpenChange={(o) => { if (!o) setSelected(null); setOpen(o); }}>
