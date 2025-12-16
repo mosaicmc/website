@@ -97,5 +97,18 @@ The project was tested on Node 20+. To reduce dev environment drift, the repo in
 2. Make changes and run `npm run lint`
 3. Open a PR to `main`
 
+## Alpha Release Process
+- Versioning: bump `package.json` to an `-alpha` prerelease (e.g., `0.1.0-alpha.0`).
+- Pull Request: title “everything working” and include code changes, documentation updates, and CHANGELOG entries.
+- Tagging: after approval and merge, create a Git tag `alpha` pointing at the merge commit.
+- Release: publish a GitHub Release named “alpha” from the `alpha` tag.
+- Staging Deploy: update pipelines to deploy the merged commit to staging (e.g., Vercel Preview or a dedicated staging URL).
+- Smoke Tests: run automated smoke/UI tests against staging. Configure `STAGING_URL` as a secret in GitHub Actions and set `BASE_URL` accordingly.
+- Production Gate: proceed to production only after staging smoke tests pass and stakeholder sign-off is complete.
+
+### Pipelines
+- CI (`.github/workflows/ci.yml`) builds, lints, runs unit and UI tests, and validates the preview server.
+- Alpha workflow (`.github/workflows/release-alpha.yml`) scaffolds release/tag creation and optional staging smoke tests using `STAGING_URL`. Add provider tokens (e.g., `VERCEL_TOKEN`) as Actions secrets to enable automatic deploys.
+
 ## License
 Internal project for Mosaic MC.

@@ -72,7 +72,7 @@ const AboutPage = () => {
     ] },
     { year: "2006", label: "2006", description: "Twenty-five years of service and expanding regional reach.", image: "/images/History_720px_webp/2006_SilverJubilee.webp", alt: "Silver Jubilee", details: "In 2006, the Migrant Resource Centre marked its 25th anniversary, supported by 24 staff and more than 100 volunteers. The opening of the Tamworth office strengthened regional outreach, with services extending through partnerships and travelling staff to communities including Dubbo, Orange, Bathurst, Lightning Ridge, and Coffs Harbour. This period also saw services broaden to include family support, migrant employment pathways, rural information campaigns, and community aged care.", gallery: [] },
     { year: "2007", label: "2007", description: "Charitable status strengthens sustainability and community impact.", image: "/images/History_720px_webp/2007_NSS.webp", alt: "Northern Settlement Services Ltd", details: "In 2007, the organisation became Northern Settlement Services Ltd and secured charitable status. This milestone strengthened long‑term sustainability, enabling greater support for communities through donor contributions and improved capacity to invest in staff and services." },
-    { year: "2011", label: "2011", description: "Thirty years of service and a new chapter of leadership.", image: "/images/History_720px_webp/2011_VJW_Farewell.webp", alt: "Leadership transition", details: "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.", gallery: ["/images/History_720px_webp/2011_VJW_Farewell_01.webp", "/images/History_720px_webp/2011_VJW_Farewell_02.webp", "/images/History_720px_webp/2011_VJW_Farewell_03.webp", "/images/History_720px_webp/2011_VJW_Farewell_04.webp", "/images/History_720px_webp/2010_Lulu Tantos.webp"] },
+    { year: "2011", label: "2011", description: "Thirty years of service and a new chapter of leadership.", image: "/images/History_720px_webp/2011_VJW_Farewell.webp", alt: "Leadership transition", details: "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.", gallery: ["/images/History_720px_webp/2011_VJW_Farewell_01.webp", "/images/History_720px_webp/2011_VJW_Farewell_02.webp", "/images/History_720px_webp/2011_VJW_Farewell_03.webp", "/images/History_720px_webp/2011_VJW_Farewell_04.webp", "/images/History_720px_webp/2011_VJW_Farewell_05.webp", "/images/History_720px_webp/2010_Lulu Tantos.webp"] },
     { year: "2019", label: "2019", description: "A new chapter focused on innovation and strategic direction.", image: "/images/History_720px_webp/2019_ShaonDaishe.webp", alt: "CEO appointment", details: "In 2019, Sharon Daishe was appointed CEO, bringing a renewed focus on innovation, strategy, and sustainability. This appointment marked the beginning of the next chapter in the organisation’s evolution, strengthening its capacity to respond to changing community needs." },
     { year: "2021", label: "2021", description: "Forty years of service, shaped by people and community.", image: "/images/History_720px_webp/2021_40th Celebration01.webp", alt: "40th Celebration", details: "In 2021, Northern Settlement Services marked 40 years of service, supported by 65 staff and more than 175 volunteers across NSW. Regional offices continued their work across the North and Northwest, strengthening connections and support for multicultural communities.", gallery: [
       "/images/History_720px_webp/2021_40th Celebration04.webp",
@@ -89,17 +89,10 @@ const AboutPage = () => {
       "/images/History_720px_webp/2024_Closing03.webp"
     ] },
   ], []);
-  const allYears = Array.from(new Set(storyData.map((d) => d.year)));
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
   const decades = Array.from(new Set(storyData.map((d) => deriveDecade(d.year))));
   const [selectedDecade, setSelectedDecade] = React.useState<string>("all");
   const [selectedYear, setSelectedYear] = React.useState<string>("all");
-
-  const yearsInSelectedDecade = selectedDecade === "all"
-    ? allYears
-    : storyData
-        .filter((d) => deriveDecade(d.year) === selectedDecade)
-        .map((d) => d.year);
 
   const byDecade = selectedDecade === "all"
     ? storyData
@@ -196,7 +189,8 @@ const AboutPage = () => {
       title: "General Manager, Programs",
       level: 2 as const,
       languages: ["English", "Australian"],
-      bio: "Hi, I’m Belinda, and I’ve been part of the Mosaic family for 12 months. I have over 25 years of experience in the health and welfare industry across government, not‑for‑profit and charity sectors. I’m passionate about leading teams and believe each member has a unique story that adds value to the skills and experience we offer in service delivery. I respect the individual journey so that together we may thrive. I’ve recently taken up running and I’m enjoying the camaraderie of the running community."
+      bio: "Hi, I’m Belinda, and I’ve been part of the Mosaic family for 12 months. I have over 25 years of experience in the health and welfare industry across government, not‑for‑profit and charity sectors. I’m passionate about leading teams and believe each member has a unique story that adds value to the skills and experience we offer in service delivery. I respect the individual journey so that together we may thrive. I’ve recently taken up running and I’m enjoying the camaraderie of the running community.",
+      credentialsSummary: "Bachelor Social Work; Master Business Administration; Diploma Human Resource Management; Diploma Leadership and Management"
     },
     {
       name: "Richard Hanson",
@@ -304,69 +298,6 @@ const AboutPage = () => {
     setActiveImageIndex(0);
     setLastImageDirection(null);
   };
-
-  function YearSelect({ years, value, onChange }: { years: string[]; value: string; onChange: (v: string) => void }) {
-    const [open, setOpen] = React.useState(false);
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
-    const [focusIndex, setFocusIndex] = React.useState<number>(() => Math.max(0, years.indexOf(value)));
-
-    const toggle = () => setOpen((o) => !o);
-    const close = () => setOpen(false);
-
-    return (
-      <div className="relative" aria-expanded={open}>
-        <button
-          ref={buttonRef}
-          id="year-select-button"
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          onClick={toggle}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          {value === 'all' ? 'All' : value}
-          <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
-        </button>
-        {open && (
-          <ul
-            role="listbox"
-            aria-labelledby="year-select-button"
-            className="absolute right-0 mt-2 min-w-[8rem] rounded-md border border-border bg-background shadow focus:outline-none"
-            tabIndex={-1}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') { close(); buttonRef.current?.focus(); }
-              if (e.key === 'ArrowDown') { e.preventDefault(); setFocusIndex((i) => Math.min(i + 1, years.length - 1)); }
-              if (e.key === 'ArrowUp') { e.preventDefault(); setFocusIndex((i) => Math.max(i - 1, 0)); }
-              if (e.key === 'Enter') { const y = years[focusIndex]; onChange(y); close(); buttonRef.current?.focus(); }
-            }}
-          >
-            <li>
-              <button
-                role="option"
-                aria-selected={value === 'all'}
-                onClick={() => { onChange('all'); close(); buttonRef.current?.focus(); }}
-                className={`w-full text-left px-3 py-1.5 ${value === 'all' ? 'bg-ocean text-white' : 'text-muted-foreground hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-              >
-                All
-              </button>
-            </li>
-            {years.map((y, idx) => (
-              <li key={y}>
-                <button
-                  role="option"
-                  aria-selected={value === y}
-                  onMouseEnter={() => setFocusIndex(idx)}
-                  onClick={() => { onChange(y); close(); buttonRef.current?.focus(); }}
-                    className={`w-full text-left px-3 py-1.5 ${value === y ? 'bg-ocean text-white' : 'text-muted-foreground hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-                  >
-                    {y}
-                  </button>
-                </li>
-              ))}
-          </ul>
-        )}
-      </div>
-    );
-  }
 
   const goPrevDecade = () => {
     if (!canGoPrev) return;
@@ -727,7 +658,7 @@ const AboutPage = () => {
                           onClick={() => { setLastImageDirection(idx > activeImageIndex ? 'right' : 'left'); setActiveImageIndex(idx); }}
                           className={`h-16 w-24 flex-shrink-0 rounded-md overflow-hidden border ${activeImageIndex === idx ? 'border-ocean' : 'border-border'} focus:outline-none focus:ring-2 focus:ring-ring`}
                         >
-                            <img src={src} alt="" className="h-full w-full object-contain bg-background" />
+                            <img src={src} alt={`${activeStory.alt} – Image ${idx + 1}`} className="h-full w-full object-contain bg-background" />
                         </button>
                       ))}
                     </div>

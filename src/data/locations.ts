@@ -42,8 +42,8 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image: "/images/Location/Location_Charlestown_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
-    videoWebm: "/Media/Google-Earth_Charlestown_720p.webm",
-    videoMp4: "/Media/Google-Earth_Charlestown_720p.mp4",
+    videoWebm: "/Media/charlestown_720p.webm",
+    videoMp4: undefined,
   },
   {
     name: "Central Coast",
@@ -66,8 +66,8 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image: "/images/Location/Location_Central-Coast_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
-    videoWebm: "/Media/Google-Earth_Central-Coast_720p.webm",
-    videoMp4: "/Media/Google-Earth_Central-Coast_720p.mp4",
+    videoWebm: "/Media/central-coast_720p.webm",
+    videoMp4: undefined,
   },
   {
     name: "Tamworth",
@@ -83,8 +83,8 @@ export const LOCATIONS: OfficeLocation[] = [
     transport: ["Local bus services", "Street parking available"],
     image: "/images/Location/Location_Tamworth_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
-    videoWebm: "/Media/Google-Earth_Tamworth_720p.webm",
-    videoMp4: "/Media/Google-Earth_Tamworth_720p.mp4",
+    videoWebm: "/Media/tamworth_720p.webm",
+    videoMp4: undefined,
   },
   {
     name: "Armidale",
@@ -102,7 +102,7 @@ export const LOCATIONS: OfficeLocation[] = [
     transport: ["Local bus services", "Street parking available"],
     image: "/images/Location/Location_Armidale_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/pcY7U7BQao6CdcTi6",
-    videoWebm: "/Media/Google-Earth_Armidale_720p.webm",
-    videoMp4: "/Media/Google-Earth_Armidale_720p.mp4",
+    videoWebm: "/Media/armidale_720p.webm",
+    videoMp4: undefined,
   },
 ];

@@ -180,9 +180,6 @@ export default function MosaicNavigation() {
     (el.style as unknown as CSSStyleDeclaration & { webkitTransition?: string }).webkitTransition = "all 300ms ease";
     el.style.willChange = "opacity, backdrop-filter, transform, box-shadow, border-color";
     el.style.transform = "translateZ(0)";
-    const supportsBackdrop =
-      (window.CSS && CSS.supports("backdrop-filter: blur(1px)")) ||
-      (window.CSS && CSS.supports("-webkit-backdrop-filter: blur(1px)"));
     const update = () => {
       const y = window.scrollY || 0;
       let p = y / 300;

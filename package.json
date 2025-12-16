@@ -1,7 +1,7 @@
 {
   "name": "mosaic-multicultural-connections",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.1.0-alpha.0",
   "type": "module",
   "scripts": {
     "prebuild": "tsc scripts/generate-search-index.ts --outDir scripts/dist --module ESNext --target ES2020 --moduleResolution node --skipLibCheck --types node && node scripts/dist/generate-search-index.js",
