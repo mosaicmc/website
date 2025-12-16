@@ -12,12 +12,21 @@ import { Button } from '@/components/ui/button';
 
 const LocationsPage = () => {
   const locations = LOCATIONS;
-  const videoByLocation: Record<string, string> = {
-    "Armidale": "/Media/Google-Earth_Armidale_720p.webm",
-    "Central Coast": "/Media/Google-Earth_Central-Coast_720p.webm",
-    "Charlestown (Head Office)": "/Media/Google-Earth_Charlestown_720p.webm",
-    "Tamworth": "/Media/Google-Earth_Tamworth_720p.webm",
-  };
+  const isIntersectingRef = React.useRef<boolean>(false);
+  React.useEffect(() => {
+    const videos = Array.from(document.querySelectorAll('section .grid video')) as HTMLVideoElement[];
+    if (!videos.length) return;
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting) {
+          v.preload = 'metadata';
+        }
+      }
+    }, { rootMargin: '200px 0px' });
+    videos.forEach((v) => io.observe(v));
+    return () => io.disconnect();
+  }, []);
 
   return (
     <div className="animate-fade-in">
@@ -101,7 +110,7 @@ const LocationsPage = () => {
             {locations.map((location, index) => (
               <div key={index} className="backdrop-blur-md bg-card/70 rounded-2xl shadow-xl overflow-hidden border border-border/60 hover:shadow-2xl transition-all duration-300">
                 <div className="relative">
-                  {videoByLocation[location.name] ? (
+                  {(location.videoWebm || location.videoMp4) ? (
                     <video
                       className="w-full h-64 object-cover"
                       muted
@@ -115,8 +124,8 @@ const LocationsPage = () => {
                       onFocus={(e) => e.currentTarget.play()}
                       onBlur={(e) => e.currentTarget.pause()}
                     >
-                      <source src={videoByLocation[location.name]} type="video/webm" />
-                      <source src={videoByLocation[location.name].replace('.webm', '.mp4')} type="video/mp4" />
+                      {location.videoWebm && <source src={location.videoWebm} type="video/webm" />}
+                      {location.videoMp4 && <source src={location.videoMp4} type="video/mp4" />}
                     </video>
                   ) : (
                     <img

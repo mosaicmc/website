@@ -9,6 +9,8 @@ export type OfficeLocation = {
   transport: string[];
   image: string;
   directionsUrl?: string;
+  videoWebm?: string;
+  videoMp4?: string;
 };
 
 export const LOCATIONS: OfficeLocation[] = [
@@ -41,6 +43,8 @@ export const LOCATIONS: OfficeLocation[] = [
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
     directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
+    videoWebm: "/Media/Google-Earth_Charlestown_720p.webm",
+    videoMp4: "/Media/Google-Earth_Charlestown_720p.mp4",
   },
   {
     name: "Central Coast",
@@ -64,6 +68,8 @@ export const LOCATIONS: OfficeLocation[] = [
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
     directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
+    videoWebm: "/Media/Google-Earth_Central-Coast_720p.webm",
+    videoMp4: "/Media/Google-Earth_Central-Coast_720p.mp4",
   },
   {
     name: "Tamworth",
@@ -80,6 +86,8 @@ export const LOCATIONS: OfficeLocation[] = [
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
     directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
+    videoWebm: "/Media/Google-Earth_Tamworth_720p.webm",
+    videoMp4: "/Media/Google-Earth_Tamworth_720p.mp4",
   },
   {
     name: "Armidale",
@@ -98,5 +106,7 @@ export const LOCATIONS: OfficeLocation[] = [
     image:
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
     directionsUrl: "https://maps.app.goo.gl/pcY7U7BQao6CdcTi6",
+    videoWebm: "/Media/Google-Earth_Armidale_720p.webm",
+    videoMp4: "/Media/Google-Earth_Armidale_720p.mp4",
   },
 ];
