@@ -1,5 +1,8 @@
 name: Release Alpha
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
@@ -37,6 +40,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
       - name: Optional staging smoke check (curl)
         shell: bash
         env:
