@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import BackLink from "../../components/ui/BackLink";
 import { ShieldCheck, BadgeCheck, Scale, Layers, ClipboardList, ChevronRight } from "lucide-react";
 import ErrorBoundary from "../../components/ErrorBoundary";
-import Section from "@/components/ui/Section";
+import Section from "../../components/ui/Section";
 
 type KBItem = {
   title: string;
