@@ -97,7 +97,7 @@ const LocationsPage = () => {
                 <div className="relative">
                   {(location.videoWebm || location.videoMp4) ? (
                     <video
-                      className="w-full h-64 object-cover"
+                      className="w-full aspect-video object-cover"
                       muted
                       playsInline
                       loop
