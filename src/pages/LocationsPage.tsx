@@ -179,9 +179,6 @@ const LocationsPage = () => {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="flex-1 bg-ocean text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
-                      Visit This Office
-                    </button>
                     {location.directionsUrl ? (
                       <a
                         href={location.directionsUrl}

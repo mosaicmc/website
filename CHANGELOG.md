@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.0 — Alpha Release
+
+### Added
+- Locations page videos: responsive sizing using `aspect-video` and object cover for consistent rendering across breakpoints.
+- Hover/focus/touch playback handling for reliability and accessibility on the Locations page.
+- Accessibility: descriptive `alt` text for history gallery thumbnails on About page.
+- CI pipeline: alpha release workflow scaffolding for tag-based release and smoke checks.
+
+### Changed
+- Locations: removed “Visit This Office” buttons to streamline actions, retained “Get Directions” with accessible focus states.
+- Updated location video sources to match new filenames in `/public/Media` and posters mapped to webp assets.
+
+### Fixed
+- Prevented video edge bleed by switching from fixed height to `aspect-video`.
+- Test selectors and assertions updated to reflect responsive classnames and preload behavior (`metadata`).
+
+### Notes
+- Version bumped to `0.1.0-alpha.0`. Tag `alpha` will be used for release. See README for release steps and staging verification.
+
 ## 2025-12-12
 
 ### Removed

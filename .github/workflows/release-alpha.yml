@@ -1,0 +1,56 @@
+name: Release Alpha
+
+on:
+  push:
+    tags:
+      - 'alpha'
+  workflow_dispatch:
+    inputs:
+      staging_url:
+        description: 'Staging URL to smoke test'
+        required: false
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/alpha')
+        with:
+          tag_name: alpha
+          name: alpha
+          body: |
+            Alpha release for website. See CHANGELOG.md for details.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  smoke:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Optional staging smoke check (curl)
+        shell: bash
+        env:
+          STAGING_URL: ${{ github.event.inputs.staging_url || secrets.STAGING_URL }}
+        run: |
+          if [ -n "$STAGING_URL" ]; then
+            echo "Checking $STAGING_URL"
+            curl -sSf "$STAGING_URL" >/dev/null
+          else
+            echo "No STAGING_URL provided; skipping remote smoke check."
+          fi
+      - name: Local build & UI tests (fallback)
+        run: |
+          npm run build
+          npm run preview &
+          npx wait-on http://127.0.0.1:4173
+          BASE_URL=http://127.0.0.1:4173 npm run test:ui
