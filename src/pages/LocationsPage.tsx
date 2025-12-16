@@ -12,6 +12,12 @@ import { Button } from '@/components/ui/button';
 
 const LocationsPage = () => {
   const locations = LOCATIONS;
+  const videoByLocation: Record<string, string> = {
+    "Armidale": "/media/Google-Earth_Armidale_720p.webm",
+    "Central Coast": "/media/Google-Earth_Central-Coast_720p.webm",
+    "Charlestown": "/media/Google-Earth_Charlestown_720p.webm",
+    "Tamworth": "/media/Google-Earth_Tamworth_720p.webm",
+  };
 
   return (
     <div className="animate-fade-in">
@@ -95,13 +101,31 @@ const LocationsPage = () => {
             {locations.map((location, index) => (
               <div key={index} className="backdrop-blur-md bg-card/70 rounded-2xl shadow-xl overflow-hidden border border-border/60 hover:shadow-2xl transition-all duration-300">
                 <div className="relative">
-                  <img
-                    src={location.image}
-                    alt={`${location.name} exterior`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-64 object-cover"
-                  />
+                  {videoByLocation[location.name] ? (
+                    <video
+                      className="w-full h-64 object-cover"
+                      muted
+                      playsInline
+                      loop
+                      preload="none"
+                      poster={location.image}
+                      aria-label={`${location.name} exterior video`}
+                      onMouseEnter={(e) => e.currentTarget.play()}
+                      onMouseLeave={(e) => e.currentTarget.pause()}
+                      onFocus={(e) => e.currentTarget.play()}
+                      onBlur={(e) => e.currentTarget.pause()}
+                    >
+                      <source src={videoByLocation[location.name]} type="video/webm" />
+                    </video>
+                  ) : (
+                    <img
+                      src={location.image}
+                      alt={`${location.name} exterior`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-64 object-cover"
+                    />
+                  )}
                   <div className="absolute top-4 left-4 bg-ocean text-white px-4 py-2 rounded-full font-semibold shadow-lg">
                     {location.name}
                   </div>
