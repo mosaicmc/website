@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/221</span>
+                <span class='fraction'>0/223</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/221</span>
+                <span class='fraction'>0/223</span>
             </div>
         
             
@@ -284,7 +284,11 @@
 <a name='L219'></a><a href='#L219'>219</a>
 <a name='L220'></a><a href='#L220'>220</a>
 <a name='L221'></a><a href='#L221'>221</a>
-<a name='L222'></a><a href='#L222'>222</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -507,6 +511,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React, { useState, useEffect, useRef } from 'react';</span></span></span>
 <span class="cstat-no" title="statement not covered" >import { serviceYearsBase, languagesSpokenBase } from '@/lib/utils';</span>
+<span class="cstat-no" title="statement not covered" >import { useTranslation } from 'react-i18next';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const STATS = [</span>
 <span class="cstat-no" title="statement not covered" >  { </span>
@@ -543,6 +548,7 @@
 <span class="cstat-no" title="statement not covered" >  const [isVisible, setIsVisible] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" >  const [counts, setCounts] = useState(() =&gt; STATS.map(() =&gt; 0));</span>
 <span class="cstat-no" title="statement not covered" >  const sectionRef = useRef&lt;HTMLElement&gt;(null);</span>
+<span class="cstat-no" title="statement not covered" >  const { t } = useTranslation();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // Intersection Observer to trigger animation when section comes into view</span>
 <span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
@@ -647,7 +653,7 @@
 <span class="cstat-no" title="statement not covered" >            Our Impact by the Numbers</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/h2&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto"&gt;</span>
-<span class="cstat-no" title="statement not covered" >            Four decades of measurable impact supporting multicultural communities across New South Wales</span>
+<span class="cstat-no" title="statement not covered" >            {t('serviceCards.sectionDescription')}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -706,7 +712,7 @@
 <span class="cstat-no" title="statement not covered" >                &lt;div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 rounded-b-full ${getProgressColor(stat.color)} opacity-60`}&gt;&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >                </span>
 <span class="cstat-no" title="statement not covered" >                {/* Corner glow effect */}</span>
-<span class="cstat-no" title="statement not covered" >                &lt;div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${stat.color === 'ocean' ? 'bg-ocean' : stat.color === 'sky' ? 'bg-sky' : stat.color === 'earth' ? 'bg-earth' : stat.color === 'sun' ? 'bg-sun' : 'bg-leaf'} opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm`}&gt;&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${stat.color === 'sky' ? 'bg-sky' : stat.color === 'earth' ? 'bg-earth' : stat.color === 'sun' ? 'bg-sun' : 'bg-leaf'} opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm`}&gt;&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >          ))}</span>
@@ -733,7 +739,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-12T14:28:04.921Z
+                at 2025-12-16T04:43:00.129Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/232</span>
+                <span class='fraction'>0/233</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/232</span>
+                <span class='fraction'>0/233</span>
             </div>
         
             
@@ -295,7 +295,9 @@
 <a name='L230'></a><a href='#L230'>230</a>
 <a name='L231'></a><a href='#L231'>231</a>
 <a name='L232'></a><a href='#L232'>232</a>
-<a name='L233'></a><a href='#L233'>233</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -531,7 +533,9 @@
 <span class="cstat-no" title="statement not covered" >import { Helmet } from "react-helmet-async";</span>
 <span class="cstat-no" title="statement not covered" >import RelatedServices from '@/components/RelatedServices';</span>
 <span class="cstat-no" title="statement not covered" >import { FileText, ExternalLink } from "lucide-react";</span>
-<span class="cstat-no" title="statement not covered" >import DecadeCards, { computeDecadeGroups } from '@/components/DecadeCards';</span>
+<span class="cstat-no" title="statement not covered" >import DecadeCards from '@/components/DecadeCards';</span>
+<span class="cstat-no" title="statement not covered" >import { computeDecadeGroups } from '@/components/DecadeCards.data';</span>
+<span class="cstat-no" title="statement not covered" >import Section from '@/components/ui/Section';</span>
 <span class="cstat-no" title="statement not covered" >import {</span>
 <span class="cstat-no" title="statement not covered" >  Sheet,</span>
 <span class="cstat-no" title="statement not covered" >  SheetContent,</span>
@@ -564,7 +568,8 @@
 <span class="cstat-no" title="statement not covered" >  { year: "2009", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2009.pdf" },</span>
 <span class="cstat-no" title="statement not covered" >  { year: "2010", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2010-1.pdf" },</span>
 <span class="cstat-no" title="statement not covered" >  { year: "2011", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2011-1.pdf" },</span>
-<span class="cstat-no" title="statement not covered" >  { year: "2012", href: "/annual-reports/Annual Report  2012-2013.pdf" },</span>
+<span class="cstat-no" title="statement not covered" >  { year: "2012", href: "/annual-reports/Annual Report 2012.pdf" },</span>
+<span class="cstat-no" title="statement not covered" >  { year: "2013", href: "/annual-reports/Annual Report 2013.pdf" },</span>
 <span class="cstat-no" title="statement not covered" >  { year: "2014", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2014-1.pdf" },</span>
 <span class="cstat-no" title="statement not covered" >  { year: "2015", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2015.pdf" },</span>
 <span class="cstat-no" title="statement not covered" >  { year: "2016", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2016-1.pdf" },</span>
@@ -632,11 +637,10 @@
 <span class="cstat-no" title="statement not covered" >        /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/Helmet&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;section className="relative overflow-hidden"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className="mx-auto max-w-6xl px-6 py-16"&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Section padding="lg" center overlay overlayClassName="from-ocean/10 via-transparent to-sky/10"&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;div className="text-center mb-10"&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;h1 className="text-3xl md:text-4xl font-bold tracking-tight"&gt;Annual Reports&lt;/h1&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;p className="mt-3 text-muted-foreground max-w-2xl mx-auto"&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight"&gt;Annual Reports&lt;/h1&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto"&gt;</span>
 <span class="cstat-no" title="statement not covered" >              Click a year to open the report in a smooth side panel, or use the</span>
 <span class="cstat-no" title="statement not covered" >              external link to download directly.</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/p&gt;</span>
@@ -753,8 +757,7 @@
 <span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/SheetContent&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Sheet&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/Section&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;RelatedServices /&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
@@ -766,7 +769,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-12T14:28:04.921Z
+                at 2025-12-16T04:43:00.129Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

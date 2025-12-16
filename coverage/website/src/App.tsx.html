@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/104</span>
+                <span class='fraction'>0/106</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/104</span>
+                <span class='fraction'>0/106</span>
             </div>
         
             
@@ -167,7 +167,11 @@
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -289,7 +293,6 @@
 <span class="cstat-no" title="statement not covered" >const GetInvolvedPage = lazy(() =&gt; import('./pages/GetInvolvedPage'));</span>
 <span class="cstat-no" title="statement not covered" >const ResourcesPage = lazy(() =&gt; import('./pages/ResourcesPage'));</span>
 <span class="cstat-no" title="statement not covered" >const StoriesPage = lazy(() =&gt; import('./pages/StoriesPage'));</span>
-<span class="cstat-no" title="statement not covered" >const ContactPage = lazy(() =&gt; import('./pages/ContactPage'));</span>
 <span class="cstat-no" title="statement not covered" >const DonatePage = lazy(() =&gt; import('./pages/DonatePage'));</span>
 <span class="cstat-no" title="statement not covered" >// Resources subpages</span>
 <span class="cstat-no" title="statement not covered" >const AnnualReportsPage = lazy(() =&gt; import('./pages/resources/AnnualReportsPage'));</span>
@@ -304,6 +307,7 @@
 <span class="cstat-no" title="statement not covered" >const WorkHealthSafetyPolicyPage = lazy(() =&gt; import('./pages/policies/WorkHealthSafetyPolicyPage'));</span>
 <span class="cstat-no" title="statement not covered" >const KnowledgeBasePage = lazy(() =&gt; import('./pages/company/KnowledgeBasePage'));</span>
 <span class="cstat-no" title="statement not covered" >const CareersPage = lazy(() =&gt; import('./pages/company/CareersPage'));</span>
+<span class="cstat-no" title="statement not covered" >const NewsPage = lazy(() =&gt; import('./pages/company/NewsPage'));</span>
 <span class="cstat-no" title="statement not covered" >const SettlementSupportPage = lazy(() =&gt; import('./pages/services/SettlementSupportPage'));</span>
 <span class="cstat-no" title="statement not covered" >const AgedCarePage = lazy(() =&gt; import('./pages/services/AgedCarePage'));</span>
 <span class="cstat-no" title="statement not covered" >const FamilySupportPage = lazy(() =&gt; import('./pages/services/FamilySupportPage'));</span>
@@ -317,7 +321,7 @@
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;ThemeProvider&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;Router&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className="min-h-screen bg-background transition-colors duration-300"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className="min-h-screen bg-page transition-colors duration-300"&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;a</span>
 <span class="cstat-no" title="statement not covered" >            href="#main"</span>
 <span class="cstat-no" title="statement not covered" >            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 bg-white dark:bg-slate-800 text-blue-700 dark:text-white px-3 py-2 rounded shadow"</span>
@@ -338,7 +342,7 @@
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/services/aged-care" element={&lt;AgedCarePage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/services/family-support" element={&lt;FamilySupportPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/services/community-engagement" element={&lt;CommunityEngagementPage /&gt;} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;Route path="/locations" element={&lt;LocationsPage /&gt;} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Route path="/contact-us" element={&lt;LocationsPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/get-involved" element={&lt;GetInvolvedPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/resources" element={&lt;ResourcesPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/resources/emergency-services" element={&lt;Navigate to="/resources/emergency-translation" replace /&gt;} /&gt;</span>
@@ -348,7 +352,7 @@
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/resources/helpful-links" element={&lt;HelpfulLinksPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/resources/faqs" element={&lt;FAQPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/stories" element={&lt;StoriesPage /&gt;} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;Route path="/contact" element={&lt;ContactPage /&gt;} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Route path="/contact" element={&lt;Navigate to="/contact-us" replace /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/donate" element={&lt;DonatePage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/volunteer/newcastle" element={&lt;NewcastleVolunteerPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Route path="/volunteer/central-coast" element={&lt;CentralCoastVolunteerPage /&gt;} /&gt;</span>
@@ -362,6 +366,8 @@
 <span class="cstat-no" title="statement not covered" >        &lt;Route path="/policies/work-health-safety" element={&lt;WorkHealthSafetyPolicyPage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Route path="/company/knowledge-base" element={&lt;KnowledgeBasePage /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Route path="/company/careers" element={&lt;CareersPage /&gt;} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Route path="/company/news" element={&lt;NewsPage /&gt;} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Route path="/locations" element={&lt;Navigate to="/contact-us" replace /&gt;} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/Routes&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/Suspense&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/main&gt;</span>
@@ -382,7 +388,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-12T14:28:04.921Z
+                at 2025-12-16T04:43:00.129Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

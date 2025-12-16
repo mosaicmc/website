@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/283</span>
+                <span class='fraction'>0/285</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/283</span>
+                <span class='fraction'>0/285</span>
             </div>
         
             
@@ -346,7 +346,11 @@
 <a name='L281'></a><a href='#L281'>281</a>
 <a name='L282'></a><a href='#L282'>282</a>
 <a name='L283'></a><a href='#L283'>283</a>
-<a name='L284'></a><a href='#L284'>284</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L284'></a><a href='#L284'>284</a>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -634,13 +638,15 @@
 <span class="cstat-no" title="statement not covered" >import { Button } from '@/components/ui/button';</span>
 <span class="cstat-no" title="statement not covered" >import { Home, Heart, Users, Handshake, ArrowRight, CheckCircle } from 'lucide-react';</span>
 <span class="cstat-no" title="statement not covered" >import { GlowingEffect } from './ui/glowing-effect';</span>
+<span class="cstat-no" title="statement not covered" >import { useTranslation } from 'react-i18next';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const ServiceCards = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { t } = useTranslation();</span>
 <span class="cstat-no" title="statement not covered" >  const services = [</span>
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      icon: &lt;Home className="h-8 w-8" /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >      title: "Settlement Support",</span>
-<span class="cstat-no" title="statement not covered" >      description: "New to Australia? We can guide you to find housing, apply for jobs, and build your new life with confidence.",</span>
+<span class="cstat-no" title="statement not covered" >      description: t('serviceCards.settlement.description'),</span>
 <span class="cstat-no" title="statement not covered" >      features: [</span>
 <span class="cstat-no" title="statement not covered" >        "Housing assistance and navigation",</span>
 <span class="cstat-no" title="statement not covered" >        "Employment support and mentoring",</span>
@@ -653,7 +659,7 @@
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      icon: &lt;Heart className="h-8 w-8" /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >      title: "Aged Care Services",</span>
-<span class="cstat-no" title="statement not covered" >      description: "Need care that honours your independence and respects your culture? We provide culturally informed in-home support and community connections",</span>
+<span class="cstat-no" title="statement not covered" >      description: t('serviceCards.agedCare.description'),</span>
 <span class="cstat-no" title="statement not covered" >      features: [</span>
 <span class="cstat-no" title="statement not covered" >        "Personal care at home",</span>
 <span class="cstat-no" title="statement not covered" >        "Companionship and social support",</span>
@@ -666,7 +672,7 @@
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      icon: &lt;Users className="h-8 w-8" /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >      title: "Family Support",</span>
-<span class="cstat-no" title="statement not covered" >      description: "Looking for parenting help? We offer family counselling and community playgroups to help you, and your children thrive.",</span>
+<span class="cstat-no" title="statement not covered" >      description: t('serviceCards.familySupport.description'),</span>
 <span class="cstat-no" title="statement not covered" >      features: [</span>
 <span class="cstat-no" title="statement not covered" >        "One-on-one family counselling",</span>
 <span class="cstat-no" title="statement not covered" >        "Parenting skills workshops",</span>
@@ -679,7 +685,7 @@
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      icon: &lt;Handshake className="h-8 w-8" /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >      title: "Community Engagement",</span>
-<span class="cstat-no" title="statement not covered" >      description: "Struggling to cope with your new life in Australia? We help your children excel academically and connect your family with community support.",</span>
+<span class="cstat-no" title="statement not covered" >      description: t('serviceCards.communityEngagement.description'),</span>
 <span class="cstat-no" title="statement not covered" >      features: [</span>
 <span class="cstat-no" title="statement not covered" >        "Free academic tutoring programmes",</span>
 <span class="cstat-no" title="statement not covered" >        "Skill training with recognised certificates",</span>
@@ -762,7 +768,7 @@
 <span class="cstat-no" title="statement not covered" >              &lt;div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200/50 dark:border-white/10"&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70"&gt;</span>
 <span class="cstat-no" title="statement not covered" >                  &lt;div className="w-2 h-2 bg-sky rounded-full"&gt;&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >                  &lt;span&gt;Professional Services&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;span&gt;Interpreters Available&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70"&gt;</span>
 <span class="cstat-no" title="statement not covered" >                  &lt;div className="w-2 h-2 bg-ocean rounded-full"&gt;&lt;/div&gt;</span>
@@ -788,7 +794,7 @@
 <span class="cstat-no" title="statement not covered" >            Comprehensive Support Services</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/h2&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto"&gt;</span>
-<span class="cstat-no" title="statement not covered" >            Culturally appropriate services designed to meet the unique needs of multicultural communities across NSW delivered by our qualified staff</span>
+<span class="cstat-no" title="statement not covered" >            {t('serviceCards.sectionDescription')}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -919,7 +925,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-12T14:28:04.921Z
+                at 2025-12-16T04:43:00.129Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

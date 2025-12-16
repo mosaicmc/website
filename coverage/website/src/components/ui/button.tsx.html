@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/60</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/60</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -123,7 +123,13 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -195,6 +201,8 @@
 <span class="cstat-no" title="statement not covered" >    variants: {</span>
 <span class="cstat-no" title="statement not covered" >      variant: {</span>
 <span class="cstat-no" title="statement not covered" >        default: "bg-primary text-primary-foreground hover:bg-primary/90",</span>
+<span class="cstat-no" title="statement not covered" >        cta:</span>
+<span class="cstat-no" title="statement not covered" >          "bg-gradient-to-r from-ocean to-sky text-white shadow-xl hover:from-ocean/90 hover:to-sky/90 focus-visible:ring-ocean dark:from-sky dark:to-ocean",</span>
 <span class="cstat-no" title="statement not covered" >        destructive:</span>
 <span class="cstat-no" title="statement not covered" >          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",</span>
 <span class="cstat-no" title="statement not covered" >        outline:</span>
@@ -221,28 +229,29 @@
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >)</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >function Button({</span>
-<span class="cstat-no" title="statement not covered" >  className,</span>
-<span class="cstat-no" title="statement not covered" >  variant,</span>
-<span class="cstat-no" title="statement not covered" >  size,</span>
-<span class="cstat-no" title="statement not covered" >  asChild = false,</span>
-<span class="cstat-no" title="statement not covered" >  ...props</span>
-<span class="cstat-no" title="statement not covered" >}: React.ComponentProps&lt;"button"&gt; &amp;</span>
-<span class="cstat-no" title="statement not covered" >  VariantProps&lt;typeof buttonVariants&gt; &amp; {</span>
-<span class="cstat-no" title="statement not covered" >    asChild?: boolean</span>
-<span class="cstat-no" title="statement not covered" >  }) {</span>
-<span class="cstat-no" title="statement not covered" >  const Comp = asChild ? Slot : "button"</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;Comp</span>
-<span class="cstat-no" title="statement not covered" >      data-slot="button"</span>
-<span class="cstat-no" title="statement not covered" >      className={cn(buttonVariants({ variant, size, className }))}</span>
-<span class="cstat-no" title="statement not covered" >      {...props}</span>
-<span class="cstat-no" title="statement not covered" >    /&gt;</span>
-<span class="cstat-no" title="statement not covered" >  )</span>
+<span class="cstat-no" title="statement not covered" >interface ButtonProps</span>
+<span class="cstat-no" title="statement not covered" >  extends React.ButtonHTMLAttributes&lt;HTMLButtonElement&gt;,</span>
+<span class="cstat-no" title="statement not covered" >    VariantProps&lt;typeof buttonVariants&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  asChild?: boolean</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export { Button, buttonVariants }</span>
+<span class="cstat-no" title="statement not covered" >const Button = React.forwardRef&lt;HTMLButtonElement, ButtonProps&gt;(</span>
+<span class="cstat-no" title="statement not covered" >  ({ className, variant, size, asChild = false, ...props }, ref) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const Comp = asChild ? Slot : "button"</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Comp</span>
+<span class="cstat-no" title="statement not covered" >        data-slot="button"</span>
+<span class="cstat-no" title="statement not covered" >        className={cn(buttonVariants({ variant, size, className }))}</span>
+<span class="cstat-no" title="statement not covered" >        ref={ref}</span>
+<span class="cstat-no" title="statement not covered" >        {...props}</span>
+<span class="cstat-no" title="statement not covered" >      /&gt;</span>
+<span class="cstat-no" title="statement not covered" >    )</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >)</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Button.displayName = "Button"</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export { Button }</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -250,7 +259,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-12T14:28:04.921Z
+                at 2025-12-16T04:43:00.129Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
