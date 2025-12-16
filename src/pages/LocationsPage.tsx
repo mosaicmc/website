@@ -13,10 +13,10 @@ import { Button } from '@/components/ui/button';
 const LocationsPage = () => {
   const locations = LOCATIONS;
   const videoByLocation: Record<string, string> = {
-    "Armidale": "/media/Google-Earth_Armidale_720p.webm",
-    "Central Coast": "/media/Google-Earth_Central-Coast_720p.webm",
-    "Charlestown": "/media/Google-Earth_Charlestown_720p.webm",
-    "Tamworth": "/media/Google-Earth_Tamworth_720p.webm",
+    "Armidale": "/Media/Google-Earth_Armidale_720p.webm",
+    "Central Coast": "/Media/Google-Earth_Central-Coast_720p.webm",
+    "Charlestown (Head Office)": "/Media/Google-Earth_Charlestown_720p.webm",
+    "Tamworth": "/Media/Google-Earth_Tamworth_720p.webm",
   };
 
   return (
@@ -116,6 +116,7 @@ const LocationsPage = () => {
                       onBlur={(e) => e.currentTarget.pause()}
                     >
                       <source src={videoByLocation[location.name]} type="video/webm" />
+                      <source src={videoByLocation[location.name].replace('.webm', '.mp4')} type="video/mp4" />
                     </video>
                   ) : (
                     <img
