@@ -12,21 +12,6 @@ import { Button } from '@/components/ui/button';
 
 const LocationsPage = () => {
   const locations = LOCATIONS;
-  const isIntersectingRef = React.useRef<boolean>(false);
-  React.useEffect(() => {
-    const videos = Array.from(document.querySelectorAll('section .grid video')) as HTMLVideoElement[];
-    if (!videos.length) return;
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        const v = e.target as HTMLVideoElement;
-        if (e.isIntersecting) {
-          v.preload = 'metadata';
-        }
-      }
-    }, { rootMargin: '200px 0px' });
-    videos.forEach((v) => io.observe(v));
-    return () => io.disconnect();
-  }, []);
 
   return (
     <div className="animate-fade-in">
@@ -116,13 +101,40 @@ const LocationsPage = () => {
                       muted
                       playsInline
                       loop
-                      preload="none"
+                      preload="metadata"
                       poster={location.image}
                       aria-label={`${location.name} exterior video`}
-                      onMouseEnter={(e) => e.currentTarget.play()}
-                      onMouseLeave={(e) => e.currentTarget.pause()}
-                      onFocus={(e) => e.currentTarget.play()}
-                      onBlur={(e) => e.currentTarget.pause()}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.play().catch(() => {});
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.pause();
+                        e.currentTarget.currentTime = 0;
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.play().catch(() => {});
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.pause();
+                        e.currentTarget.currentTime = 0;
+                      }}
+                      onTouchStart={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.play().catch(() => {});
+                      }}
+                      onTouchEnd={(e) => {
+                        e.currentTarget.pause();
+                        e.currentTarget.currentTime = 0;
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          const v = e.currentTarget as HTMLVideoElement;
+                          v.muted = true;
+                          v.play().catch(() => {});
+                        }
+                      }}
                     >
                       {location.videoWebm && <source src={location.videoWebm} type="video/webm" />}
                       {location.videoMp4 && <source src={location.videoMp4} type="video/mp4" />}

@@ -179,6 +179,7 @@ const AboutPage = () => {
     level: 1 | 2 | 3;
     languages?: string[];
     bio: string;
+    credentialsSummary?: string;
   };
 
   const managementMembers: ManagementMember[] = [
@@ -187,7 +188,8 @@ const AboutPage = () => {
       title: "Chief Executive Officer",
       level: 1 as const,
       languages: ["English"],
-      bio: "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose, helping people have power over their lives, the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren."
+      bio: "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose, helping people have power over their lives, the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren.",
+      credentialsSummary: "Master of International and Community Development"
     },
     {
       name: "Belinda Latimore",
@@ -201,14 +203,16 @@ const AboutPage = () => {
       title: "Manager, Finance & Corporate",
       level: 2 as const,
       languages: ["English", "Yorkshire"],
-      bio: "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner."
+      bio: "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner.",
+      credentialsSummary: "CA; FCCA"
     },
     {
       name: "Karthik Ramamurthy",
       title: "Manager, Aged Care",
       level: 3 as const,
-      languages: ["English", "Hindi", "Tamil"],
-      bio: "Bio content to be provided later."
+      languages: ["English", "Tamil", "Malayalam", "Hindi", "French (basic)"],
+      bio: "Vanakkam, I’m Karthik. With over 20 years of executive experience in aged care and luxury hotels, I specialise in operational leadership. I joined Mosaic Multicultural to strengthen our Homecare services, ensuring compassionate, high‑quality support for the multicultural community. Outside of work, I enjoy competitive tennis, have travelled to around 40 countries, and enjoy exotic food.",
+      credentialsSummary: "Bachelor’s Degree in Accounting; MSc in International Hotel Management; Diploma of Management (Aged Care); Certificate III in Aged Care"
     },
     {
       name: "Jawaid Pardehi",
@@ -864,6 +868,7 @@ const AboutPage = () => {
                   bio: m.bio,
                   languages: m.languages,
                   avatar: m.name ? (managementImgMap[m.name]?.webp ?? managementImgMap[m.name]?.jpg) : undefined,
+                  credentialsSummary: m.credentialsSummary,
                 }));
               return <ManagementSection members={members} />;
             })()}
