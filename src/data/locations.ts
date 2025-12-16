@@ -40,8 +40,7 @@ export const LOCATIONS: OfficeLocation[] = [
       "Local bus services",
       "Paid parking available",
     ],
-    image:
-      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/images/Location/Location_Charlestown_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
     videoWebm: "/Media/Google-Earth_Charlestown_720p.webm",
     videoMp4: "/Media/Google-Earth_Charlestown_720p.mp4",
@@ -65,8 +64,7 @@ export const LOCATIONS: OfficeLocation[] = [
       "Nearest bus routes and parking available",
       "Wheelchair accessible",
     ],
-    image:
-      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/images/Location/Location_Central-Coast_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
     videoWebm: "/Media/Google-Earth_Central-Coast_720p.webm",
     videoMp4: "/Media/Google-Earth_Central-Coast_720p.mp4",
@@ -83,8 +81,7 @@ export const LOCATIONS: OfficeLocation[] = [
     services: ["Settlement Support", "Community Programs"],
     staff: [{ name: "David Thompson", role: "Regional Manager", languages: ["English"] }],
     transport: ["Local bus services", "Street parking available"],
-    image:
-      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/images/Location/Location_Tamworth_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
     videoWebm: "/Media/Google-Earth_Tamworth_720p.webm",
     videoMp4: "/Media/Google-Earth_Tamworth_720p.mp4",
@@ -103,8 +100,7 @@ export const LOCATIONS: OfficeLocation[] = [
       { name: "Fatima Al-Zahra", role: "Settlement Worker", languages: ["English", "Arabic", "Farsi"] },
     ],
     transport: ["Local bus services", "Street parking available"],
-    image:
-      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/images/Location/Location_Armidale_720p.webp",
     directionsUrl: "https://maps.app.goo.gl/pcY7U7BQao6CdcTi6",
     videoWebm: "/Media/Google-Earth_Armidale_720p.webm",
     videoMp4: "/Media/Google-Earth_Armidale_720p.mp4",
