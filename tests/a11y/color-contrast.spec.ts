@@ -21,19 +21,7 @@ function parseColor(rgbString: string): number[] {
   return [parseInt(match[1], 10), parseInt(match[2], 10), parseInt(match[3], 10)];
 }
 
-async function getEffectiveBackgroundColor(el: Element): Promise<string> {
-  const transparent = (c: string) => c.includes('rgba') && c.endsWith(', 0)');
-  let current: Element | null = el;
-  while (current) {
-    const style = getComputedStyle(current);
-    const bg = style.backgroundColor;
-    if (bg && !transparent(bg)) return bg;
-    current = current.parentElement;
-  }
-  return getComputedStyle(document.body).backgroundColor;
-}
-
-async function assertAnchorsContrast(pageUrl: string) {
+async function assertAnchorsContrast(page: import('@playwright/test').Page, pageUrl: string) {
   await page.goto(pageUrl);
   // Check both light and dark themes
   for (const theme of ['light', 'dark'] as const) {
@@ -47,10 +35,17 @@ async function assertAnchorsContrast(pageUrl: string) {
     for (let i = 0; i < count; i++) {
       const handle = await anchors.nth(i).elementHandle();
       if (!handle) continue;
-      const { fg, bg } = await handle.evaluate(async (el) => {
+      const { fg, bg } = await handle.evaluate((el) => {
         const color = getComputedStyle(el).color;
-        const bg = await (getEffectiveBackgroundColor as any)(el);
-        return { fg: color, bg };
+        const transparent = (c: string) => c.includes('rgba') && c.endsWith(', 0)');
+        let current: Element | null = el;
+        while (current) {
+          const style = getComputedStyle(current);
+          const bgc = style.backgroundColor;
+          if (bgc && !transparent(bgc)) return { fg: color, bg: bgc };
+          current = current.parentElement;
+        }
+        return { fg: color, bg: getComputedStyle(document.body).backgroundColor };
       });
       const ratio = contrastRatio(parseColor(fg), parseColor(bg));
       // WCAG AA for normal text
@@ -73,10 +68,17 @@ test.describe('Anchor color contrast', () => {
       for (let i = 0; i < count; i++) {
         const handle = await headerAnchors.nth(i).elementHandle();
         if (!handle) continue;
-        const { fg, bg } = await handle.evaluate(async (el) => {
+        const { fg, bg } = await handle.evaluate((el) => {
           const color = getComputedStyle(el).color;
-          const bg = await (getEffectiveBackgroundColor as any)(el);
-          return { fg: color, bg };
+          const transparent = (c: string) => c.includes('rgba') && c.endsWith(', 0)');
+          let current: Element | null = el;
+          while (current) {
+            const style = getComputedStyle(current);
+            const bgc = style.backgroundColor;
+            if (bgc && !transparent(bgc)) return { fg: color, bg: bgc };
+            current = current.parentElement;
+          }
+          return { fg: color, bg: getComputedStyle(document.body).backgroundColor };
         });
         const ratio = contrastRatio(parseColor(fg), parseColor(bg));
         expect(ratio).toBeGreaterThanOrEqual(4.5);
@@ -85,7 +87,6 @@ test.describe('Anchor color contrast', () => {
   });
 
   test('Contact page anchors contrast meets WCAG AA', async ({ page }) => {
-    await assertAnchorsContrast('/contact-us');
+    await assertAnchorsContrast(page, '/contact-us');
   });
 });
-

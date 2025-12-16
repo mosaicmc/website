@@ -89,17 +89,10 @@ const AboutPage = () => {
       "/images/History_720px_webp/2024_Closing03.webp"
     ] },
   ], []);
-  const allYears = Array.from(new Set(storyData.map((d) => d.year)));
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
   const decades = Array.from(new Set(storyData.map((d) => deriveDecade(d.year))));
   const [selectedDecade, setSelectedDecade] = React.useState<string>("all");
   const [selectedYear, setSelectedYear] = React.useState<string>("all");
-
-  const yearsInSelectedDecade = selectedDecade === "all"
-    ? allYears
-    : storyData
-        .filter((d) => deriveDecade(d.year) === selectedDecade)
-        .map((d) => d.year);
 
   const byDecade = selectedDecade === "all"
     ? storyData
@@ -305,69 +298,6 @@ const AboutPage = () => {
     setActiveImageIndex(0);
     setLastImageDirection(null);
   };
-
-  function YearSelect({ years, value, onChange }: { years: string[]; value: string; onChange: (v: string) => void }) {
-    const [open, setOpen] = React.useState(false);
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
-    const [focusIndex, setFocusIndex] = React.useState<number>(() => Math.max(0, years.indexOf(value)));
-
-    const toggle = () => setOpen((o) => !o);
-    const close = () => setOpen(false);
-
-    return (
-      <div className="relative" aria-expanded={open}>
-        <button
-          ref={buttonRef}
-          id="year-select-button"
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          onClick={toggle}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          {value === 'all' ? 'All' : value}
-          <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
-        </button>
-        {open && (
-          <ul
-            role="listbox"
-            aria-labelledby="year-select-button"
-            className="absolute right-0 mt-2 min-w-[8rem] rounded-md border border-border bg-background shadow focus:outline-none"
-            tabIndex={-1}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') { close(); buttonRef.current?.focus(); }
-              if (e.key === 'ArrowDown') { e.preventDefault(); setFocusIndex((i) => Math.min(i + 1, years.length - 1)); }
-              if (e.key === 'ArrowUp') { e.preventDefault(); setFocusIndex((i) => Math.max(i - 1, 0)); }
-              if (e.key === 'Enter') { const y = years[focusIndex]; onChange(y); close(); buttonRef.current?.focus(); }
-            }}
-          >
-            <li>
-              <button
-                role="option"
-                aria-selected={value === 'all'}
-                onClick={() => { onChange('all'); close(); buttonRef.current?.focus(); }}
-                className={`w-full text-left px-3 py-1.5 ${value === 'all' ? 'bg-ocean text-white' : 'text-muted-foreground hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-              >
-                All
-              </button>
-            </li>
-            {years.map((y, idx) => (
-              <li key={y}>
-                <button
-                  role="option"
-                  aria-selected={value === y}
-                  onMouseEnter={() => setFocusIndex(idx)}
-                  onClick={() => { onChange(y); close(); buttonRef.current?.focus(); }}
-                    className={`w-full text-left px-3 py-1.5 ${value === y ? 'bg-ocean text-white' : 'text-muted-foreground hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-                  >
-                    {y}
-                  </button>
-                </li>
-              ))}
-          </ul>
-        )}
-      </div>
-    );
-  }
 
   const goPrevDecade = () => {
     if (!canGoPrev) return;
