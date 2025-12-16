@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
+      - run: npm ci --no-optional
       - name: Build site for Pages
         env:
           BASE_PATH: /website/
