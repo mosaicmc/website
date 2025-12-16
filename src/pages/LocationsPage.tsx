@@ -102,11 +102,18 @@ const LocationsPage = () => {
                       playsInline
                       loop
                       preload="metadata"
+                      tabIndex={0}
                       poster={location.image}
                       aria-label={`${location.name} exterior video`}
                       onMouseEnter={(e) => {
                         e.currentTarget.muted = true;
                         e.currentTarget.play().catch(() => {});
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.muted = true;
+                        if (e.currentTarget.paused) {
+                          e.currentTarget.play().catch(() => {});
+                        }
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.pause();
