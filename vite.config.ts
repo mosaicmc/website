@@ -94,6 +94,18 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   base: process.env.BASE_PATH || '/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
+          ui: ['framer-motion', 'lucide-react'],
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
