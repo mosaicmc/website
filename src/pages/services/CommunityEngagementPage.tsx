@@ -36,6 +36,14 @@ const CommunityEngagementPage = () => {
       email: "n.meliendrez@mosaicmc.org.au",
       image: "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp"
     },
+    {
+      name: "Helen Mieres",
+      role: "Playing around the world – play group facilitator",
+      location: "Central Coast",
+      experience: "With more than 15 years of community-focused experience, Helen has worked alongside families, children, and people experiencing homelessness to build strength, stability, and connection.",
+      languages: ["English", "Spanish"],
+      image: "/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp"
+    },
     // Removed retired staff entry
   ];
 
