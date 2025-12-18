@@ -147,7 +147,7 @@ const Logo = () => {
     <Link to="/" className="flex-shrink-0 group relative flex items-center h-16 md:h-20">
       <img
         className="block transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg h-full w-auto max-w-none"
-        src={theme === 'dark' ? '/3.png' : '/4.png'}
+        src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
         alt="Mosaic Multicultural Connections"
       />
     </Link>

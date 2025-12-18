@@ -41,7 +41,7 @@ const Footer = () => {
                     <Link to="/" className="inline-flex items-center gap-3">
                       <img
                         className="h-12 w-auto sm:h-14 lg:h-16"
-                        src={theme === 'dark' ? '/3.png' : '/4.png'}
+                        src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
                         alt="Mosaic Multicultural Connections"
                       />
                     </Link>

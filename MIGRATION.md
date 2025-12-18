@@ -63,7 +63,7 @@ This document captures the current implementation, decisions made, and a phased 
 
 ## Theme Decisions (Facts)
 - `ThemeProvider` at app root; `ThemeToggle` in desktop header actions.
-- Logo switches based on theme (`/3.png` for dark, `/4.png` for light).
+- Logo switches based on theme (`/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg` for dark, `/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg` for light).
 
 ## Known Gaps (Facts)
 - Inconsistent language lists: `LanguageSwitcher` offers languages that lack i18n resources.

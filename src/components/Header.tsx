@@ -92,7 +92,7 @@ const Header = () => {
                   ? 'h-14 sm:h-16 lg:h-20' 
                   : 'h-16 sm:h-20 lg:h-24'
               } w-auto max-w-none`}
-              src={theme === 'dark' ? '/3.png' : '/4.png'}
+              src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
               alt="Mosaic Multicultural Connections"
             />
           </Link>
