@@ -20,8 +20,19 @@ const Newsletter = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    const to = 'info@mosaicmc.org.au';
+    const subject = 'Website inquiry — Newsletter contact';
+    const body = [
+      `First name: ${formData.firstName}`,
+      `Last name: ${formData.lastName}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      '',
+      'Message:',
+      formData.message,
+    ].join('\n');
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   };
 
   return (
