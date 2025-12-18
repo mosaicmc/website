@@ -192,7 +192,7 @@ const AboutPage = () => {
       title: "General Manager, Programs",
       level: 2 as const,
       languages: ["English", "Australian"],
-      bio: "Hi, I’m Belinda, and I’ve been part of the Mosaic family for 12 months. I have over 25 years of experience in the health and welfare industry across government, not‑for‑profit and charity sectors. I’m passionate about leading teams and believe each member has a unique story that adds value to the skills and experience we offer in service delivery. I respect the individual journey so that together we may thrive. I’ve recently taken up running and I’m enjoying the camaraderie of the running community.",
+      bio: "Hi, I’m Belinda. I love coming to work each day as part of Mosaic’s multicultural family. I bring over 25 years of experience in the health and welfare sector, working across government, not-for-profit and charity organisations. I’m passionate about leading and supporting teams, and I believe every person brings a unique story that strengthens the skills, experience and care we deliver together. I deeply respect each individual journey and value the power of working collaboratively so we can all thrive. Outside of work, I’ve recently taken up running and am enjoying the sense of connection and camaraderie within the running community.",
       credentialsSummary: "Bachelor Social Work; Master Business Administration; Diploma Human Resource Management; Diploma Leadership and Management"
     },
     {
