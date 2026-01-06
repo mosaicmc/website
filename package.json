@@ -9,9 +9,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "smoke": "sh -c 'vite preview --port 4173 & PREVIEW_PID=$!; sleep 4; node -e \"(async()=>{const net=require(\\\"net\\\");const s=net.connect(4173,\\\"127.0.0.1\\\",()=>{s.end();process.exit(0);});s.on(\\\"error\\\",()=>process.exit(1));})();\"; EXIT=$?; kill $PREVIEW_PID; exit $EXIT'",
+    "smoke": "sh -c 'vite preview --host 127.0.0.1 --port 4173 & PREVIEW_PID=$!; sleep 10; node -e \"(async()=>{const net=require(\\\"net\\\");const s=net.connect(4173,\\\"127.0.0.1\\\",()=>{s.end();process.exit(0);});s.on(\\\"error\\\",()=>process.exit(1));})();\"; EXIT=$?; kill $PREVIEW_PID; exit $EXIT'",
     "validate": "npm run lint && npm run typecheck && npm run test && npm run build && npm run smoke",
-    "preview": "vite preview",
+    "preview": "vite preview --host 127.0.0.1",
     "scrape:reviews": "ts-node --esm --transpile-only scripts/scrape-google-reviews.ts",
     "scrape:reviews:xpath": "ts-node --esm --transpile-only scripts/scrape-google-reviews-xpath.ts",
     "scrape:reviews:custom": "ts-node --esm --transpile-only scripts/scrape-google-reviews-custom.ts",
@@ -71,7 +71,8 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.3.0",
     "vite": "^7.3.0",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.16",
+    "wait-on": "^9.0.3"
   },
   "optionalDependencies": {
     "devtools-protocol": "0.0.1558402",
