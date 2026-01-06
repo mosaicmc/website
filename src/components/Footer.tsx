@@ -146,14 +146,14 @@ const Footer = () => {
 
         <div className="mt-4 rounded-3xl border border-border bg-muted/40 p-6 shadow-2xl shadow-black/20 backdrop-blur">
           <div className="grid gap-6 lg:gap-8 lg:grid-cols-2 lg:items-stretch">
-            <div className="flex flex-col gap-[6px]">
+            <div className="flex flex-col gap-1.5">
               <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">Acknowledgement of Country</p>
               <p className="text-sm leading-relaxed text-foreground">{acknowledgementCopy}</p>
               <p className="text-xs text-muted-foreground">
                 We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
               </p>
             </div>
-            <div className="flex h-full flex-col lg:border-l lg:border-border lg:pl-8 gap-[6px]">
+            <div className="flex h-full flex-col lg:border-l lg:border-border lg:pl-8 gap-1.5">
               <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.aboutMosaic')}</p>
               <p className="text-sm leading-relaxed text-foreground">{t('footer.description')}</p>
               <div className="lg:mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2">
