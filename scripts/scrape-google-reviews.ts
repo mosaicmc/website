@@ -241,7 +241,9 @@ function pickTopSix(items: ScrapedReview[]): ScrapedReview[] {
 async function run() {
   let browser: Browser | null = null;
   try {
-    browser = await puppeteer.launch({ headless: 'new' });
+    const headlessEnv = (process.env.HEADLESS || '').toLowerCase();
+    const headless = headlessEnv === '1' || headlessEnv === 'true' ? true : 'new';
+    browser = await puppeteer.launch({ headless, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setUserAgent(
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'
