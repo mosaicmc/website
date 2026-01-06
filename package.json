@@ -60,6 +60,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^4.0.16",
     "autoprefixer": "^10.4.18",
+    "devtools-protocol": "0.0.1558402",
     "eslint": "^9.9.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.11",
@@ -75,7 +76,6 @@
     "wait-on": "^9.0.3"
   },
   "optionalDependencies": {
-    "devtools-protocol": "0.0.1558402",
     "puppeteer": "^22.15.0",
     "sanitize-html": "^2.17.0"
   },
