@@ -5,6 +5,7 @@ import { AU } from '@/lib/auSpelling';
 import Section from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { UserPlus } from 'lucide-react';
 
 const ServicesPage = () => {
 
@@ -77,12 +78,13 @@ const ServicesPage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up">
-            <Button asChild size="lg" className="bg-ocean hover:bg-ocean/90 text-white shadow-lg shadow-ocean/20">
+            <Button asChild variant="cta" size="lg">
               <a href="https://forms.mosaicmc.org.au/refer" target="_blank" rel="noopener noreferrer">
+                <UserPlus className="h-4 w-4 mr-2" />
                 Make a Referral
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-ocean/20 hover:bg-ocean/5 text-ocean dark:text-white dark:border-white/20 dark:hover:bg-white/10">
+            <Button asChild variant="outline" size="lg">
               <Link to="/contact">
                 Contact Us
               </Link>

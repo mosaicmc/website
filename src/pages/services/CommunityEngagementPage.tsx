@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, ChevronDown, ChevronUp, Heart, Award } from 'lucide-react';
+import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, ChevronDown, ChevronUp, Heart, Award, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
@@ -152,13 +152,15 @@ const CommunityEngagementPage = () => {
               {t('community.hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <a
-                href="tel:1800813205"
-                className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                {t('community.hero.cta')}
-              </a>
+              <div className="flex flex-col items-center">
+                <a
+                  href="tel:1800813205"
+                  className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+                >
+                  <Phone className="h-5 w-5 mr-2" />
+                  {t('community.hero.cta')}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -469,10 +471,12 @@ const CommunityEngagementPage = () => {
             <p className="text-base sm:text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto break-words">{t('community.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:1800813205"
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
-                <Phone className="h-5 w-5 mr-2" />
+                <UserPlus className="h-5 w-5 mr-2" />
                 {t('community.cta.callLabel')}
               </a>
               <Link

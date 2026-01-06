@@ -14,7 +14,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu-trig
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { prefetchOnHover, prefetchRoute } from "@/lib/prefetch";
-import { Menu, Phone, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search } from "lucide-react";
+import { Menu, Phone, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search, UserPlus } from "lucide-react";
 import { logSearchQuery, getMonthlyTop } from '@/lib/searchAnalytics';
 import { auSpelling } from '@/lib/auSpelling';
 import { LocalSearchClient, buildFacets as buildFacetsFromClient, initSearchConfigs } from '@/lib/searchClient';
@@ -601,7 +601,7 @@ export default function MosaicNavigation() {
                                 aria-label="Make a Referral – external link"
                               >
                                 <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-                                  <ShieldCheck className="h-5 w-5" />
+                                  <UserPlus className="h-5 w-5" />
                                   Make a Referral
                                 </div>
                                 <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">

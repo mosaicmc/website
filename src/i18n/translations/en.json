@@ -141,16 +141,18 @@
     "cta": {
       "title": "Ready to Discuss Your Care Needs?",
       "body": "We can talk through your options, explain home care and volunteer visitor supports, and help you understand next steps. There’s no obligation, and support is available in your preferred language.",
-      "callLabel": "Call 1800 813 205",
+      "callLabel": "Discuss Your Care Options",
       "contactLabel": "Contact Us Online"
     }
   },
   "family": {
     "hero": {
-      "headline": "Looking for Family Support? We Listen Without Judgement.",
-      "subheadline": "Raising children in a new country can feel uncertain and stressful.",
-      "body": "We work with multicultural families through confidential family support and welcoming community playgroups. Our focus is helping parents and children feel safe, connected, and understood.",
-      "cta": "Explore Support Options"
+      "headline": "Raising Families in a New Culture? You Are Not Alone.",
+      "subheadline": "Parenting is hard. It's even harder without your village.",
+      "body": "We help you build a new village here. From playgroups that celebrate your culture to professional support for parenting challenges, we walk alongside your family.",
+      "cta": "Make a Referral",
+      "ctaPhone": "Explore Support Options",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
     },
     "sections": {
       "programs": {
@@ -198,8 +200,8 @@
     "eligibility": {
       "items": [
         "Multicultural families seeking parenting support or community connection",
-        "Parents of children 0 to 18 for TEI; 0 to 6 for PAW playgroups",
-        "Families needing interpreters or culturally safe support",
+        "Parents of children 0 to 12 for TEI; 0 to 6 for PAW playgroups",
+        "Families needing interpreters or culturally safe support, either for themselves or on behalf of a client or loved one.",
         "Drop-in welcome for PAW; quick intake for TEI"
       ]
     },
@@ -256,20 +258,21 @@
       "availabilityAnswer": "TEI family support: Available across Newcastle, Hunter region, with outreach to Central Coast families. We offer home visits, office appointments, and phone/video support. PAW playgroups: Central Coast locations including Blue Haven (Tuesdays), The Entrance (Thursdays), and Watanobbi (Fridays). All venues are wheelchair accessible with family-friendly facilities. Regional coverage ensures multicultural families can access culturally appropriate support regardless of location."
     },
     "cta": {
-      "title": "Ready to Get Family Support?",
-      "body": "You don’t need to know which program to choose. We can talk about your needs, explore different options, and help you decide what feels right for your family. If you’d prefer to talk before filling out a form, you’re welcome to call us.",
-      "callLabel": "Call 1800 813 205",
-      "contactLabel": "Contact Us Online"
-    }
+        "title": "Ready to Get Family Support?",
+        "body": "You don’t need to know which program to choose. We can talk about your needs, explore different options, and help you decide what feels right for your family. If you’d prefer to talk before filling out a form, you’re welcome to call us.",
+        "callLabel": "Explore Support Options",
+        "referralLabel": "Make a Referral",
+        "contactLabel": "Contact Us Online"
+      }
   },
   "community": {
     "hero": {
       "headline": "Looking for Community Connections? We Create Spaces to Belong.",
       "subheadline": "Finding connection and belonging in your community matters.",
       "body": "We create opportunities for people to connect, participate, and have a voice through cultural celebrations, leadership development, and community activities. Our focus is building belonging, strengthening connections, and celebrating the diversity of our communities.",
-      "cta": "Build Your Community"
-    }
-    ,
+      "cta": "Build Your Community",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
+    },
     "sections": {
       "programs": {
         "badge": "Our Programs",
@@ -328,7 +331,7 @@
     },
     "eligibility": {
       "items": [
-        "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.",
+        "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, including adults over 18 and young people experiencing gambling harm. Support is available for people seeking help for themselves or on behalf of a loved one.",
         "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.",
         "Students from migrant and refugee backgrounds enrolled in local schools referred by EALD teachers"
       ]
@@ -388,7 +391,7 @@
     "cta": {
       "title": "Ready to Grow Your Community?",
       "body": "You’re welcome to start with a conversation. We can talk about events, groups, volunteering, or leadership opportunities and help you find ways to get involved that feel right for you.",
-      "callLabel": "Call 1800 813 205",
+      "callLabel": "Make a Referral",
       "contactLabel": "Contact Us Online",
       "footnote": "All community members welcome • Flexible participation options • Professional development opportunities available"
     }
@@ -423,7 +426,7 @@
   "serviceCards": {
     "sectionBadge": "Our Services",
     "sectionTitle": "Comprehensive Support Services",
-    "sectionDescription": "Over four decades of realimpact, built through long-term community partnerships across New South Wales.",
+    "sectionDescription": "Over four decades of real impact, built through long-term community partnerships across New South Wales.",
     "settlement": {
       "title": "Settlement Support",
       "description": "New to Australia? We guide you through housing, employment, and next steps to help you feel at home with confidence.",
@@ -626,10 +629,11 @@
     "hero": {
       "headline": "Starting Again in Australia? We Walk With You.",
       "subheadline": "Starting fresh in Australia can feel overwhelming when rentals, work, and government systems are unfamiliar.",
-      "bodyPrimary": "If you’re unsure what support you need, your settlement caseworker will guide you through the next steps and help you build confidence along the way.",
-      "bodySecondary": "We listen, map out a simple plan, and stay with you until you feel safe, connected and capable.",
+      "bodyPrimary": "If you are unsure what support you need, a settlement caseworker will guide you through the next steps and help you build confidence as you settle into life in Australia.",
+      "bodySecondary": "We listen first, create a simple plan together, and support you until you feel safe, connected, and confident.",
       "cta": "Find Your Support Path",
-      "footerNote": "Free service • Interpreters available • Bring a trusted friend or family member."
+      "footerNote": "Free service • Interpreters available • You're welcome to bring a trusted support person.",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
     },
     "sections": {
       "programs": {
@@ -742,18 +746,20 @@
       "items": [
         "New migrants and multicultural communities within first 5 years",
         "Families needing help with housing, work, English or legal support",
-        "Anyone seeking guidance to navigate Australian systems and services",
+        "Anyone seeking guidance to navigate Australian systems and services, either for themselves or on behalf of a client or loved one.",
         "Professional interpreters available for all appointments"
       ]
     },
     "faq": {
+      "referralQuestion": "Can I refer someone to settlement support?",
+      "referralAnswer": "Anyone can make a referral, including individuals, family members, friends, carers, and professionals. You can also contact Mosaic directly if you prefer. Our team will help confirm the right support and guide the next steps.",
       "eligibilityQuestion": "Who is eligible for settlement support services?",
       "eligibilityAnswer": "Settlement support is available to recent migrants and multicultural community members within their first 5 years in Australia, family members of eligible migrants, people from culturally and linguistically diverse backgrounds, and anyone needing assistance navigating Australian systems and services. There are no visa status restrictions - we support all multicultural families regardless of their immigration status.",
       "housingQuestion": "What housing assistance do you provide?",
       "housingAnswer": "We help with finding suitable accommodation, understanding rental processes and tenant rights, connecting with real estate agents and housing services, preparing rental applications, understanding utility connections, and advocating with housing providers. Our settlement workers guide you through inspections and negotiations so you feel confident engaging with real estate agents.",
       "employmentQuestion": "How do you help with employment?",
       "employmentAnswer": "Our employment support includes resume writing and interview preparation, job search assistance and connecting with employers, understanding Australian workplace culture and rights, skills recognition and qualification assessment support, referrals to training and education programmes, and ongoing career development guidance. We work with local employers who value cultural diversity.",
-      "govServicesQuestion": "What government services can you help me access?",
+      "govServicesQuestion": "What services can you help me access?",
       "govServicesAnswer": "We provide navigation support for Centrelink services and payments, Medicare registration and healthcare access, taxation and Australian Business Number (ABN) applications, driver licence and transport services, school enrolment for children, and legal services and advocacy support. Our workers can accompany you to appointments and help with paperwork.",
       "languageQuestion": "Do you provide language support?",
       "languageAnswer": "Yes, we offer professional interpreter services for all appointments and meetings, translation of important documents, referrals to English language programmes and classes, assistance with understanding official correspondence, and support in your preferred language during service delivery. Many of our staff speak multiple languages and understand the challenges of language barriers.",
@@ -762,10 +768,10 @@
     },
     "cta": {
       "title": "Ready to Start Your Settlement Journey?",
-      "body": "Our experienced settlement team is here to guide you through every step of establishing your new life in Australia. Contact us today to begin your journey to independence and community connection.",
-      "callLabel": "Call 1800 813 205",
+      "body": "Our experienced settlement team is here to guide you through every step of establishing your new life in Australia. Contact us today to begin your journey or help a loved one on their journey to independence and community connection.",
+      "callLabel": "Make a Referral",
       "contactLabel": "Contact Us Online",
-      "footnote": "Professional interpreters available • No appointment necessary for initial consultation • All services completely free"
+      "footnote": "Professional interpreters available on request • All services completely free"
     }
   }
 }

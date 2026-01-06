@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Globe, FileText } from 'lucide-react';
+import { Home, Phone, ArrowRight, CheckCircle, Users, ChevronDown, ChevronUp, Globe, FileText, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
@@ -123,6 +123,7 @@ const SettlementSupportPage = () => {
   const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const faqData = [
+    { question: t('settlement.faq.referralQuestion'), answer: t('settlement.faq.referralAnswer') },
     { question: t('settlement.faq.eligibilityQuestion'), answer: t('settlement.faq.eligibilityAnswer') },
     { question: t('settlement.faq.housingQuestion'), answer: t('settlement.faq.housingAnswer') },
     { question: t('settlement.faq.employmentQuestion'), answer: t('settlement.faq.employmentAnswer') },
@@ -132,8 +133,8 @@ const SettlementSupportPage = () => {
   ];
 
   // Split FAQs into two columns
-  const leftColumnFaqs = faqData.slice(0, 3);
-  const rightColumnFaqs = faqData.slice(3, 6);
+  const leftColumnFaqs = faqData.slice(0, 4);
+  const rightColumnFaqs = faqData.slice(4, 7);
 
   const AccordionItem = ({ faq, index, value, onValueChange, columnPrefix }: {
     faq: typeof faqData[0];
@@ -240,7 +241,10 @@ const SettlementSupportPage = () => {
                 {t('settlement.hero.cta')}
               </a>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>{t('settlement.hero.footerNote')}</p>
+            <div className="mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">{t('settlement.hero.footerNote')}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{t('settlement.hero.referralNote')}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -568,10 +572,12 @@ const SettlementSupportPage = () => {
             <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">{t('settlement.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:1800813205"
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-sky to-sky/90 hover:from-sky/90 hover:to-sky text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
               >
-                <Phone className="h-5 w-5 mr-2" />
+                <UserPlus className="h-5 w-5 mr-2" />
                 {t('settlement.cta.callLabel')}
               </a>
               <Link

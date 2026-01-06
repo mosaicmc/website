@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
@@ -198,7 +198,7 @@ const FamilySupportPage = () => {
                 className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                {t('family.hero.cta')}
+                {t('family.hero.ctaPhone')}
               </a>
             </div>
           </div>
@@ -531,21 +531,19 @@ const FamilySupportPage = () => {
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300">{t('family.cta.title')}</h2>
             <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">{t('family.cta.body')}</p>
-            <div className="max-w-md mx-auto">
-              <div className="text-center">
-                <a
-                  href="tel:1800813205"
-                  className="w-full bg-gradient-to-r from-sun to-sun/90 hover:from-sun/90 hover:to-sun text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  {t('family.cta.callLabel')}
-                </a>
-              </div>
-            </div>
-            <div className="mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-sun to-sun/90 hover:from-sun/90 hover:to-sun text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
+              >
+                <UserPlus className="h-5 w-5 mr-2" />
+                {t('family.cta.referralLabel')}
+              </a>
               <Link
                 to="/contact-us"
-                className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center hover:scale-105"
+                className="border-2 border-sun text-sun hover:bg-sun hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
               >
                 {t('family.cta.contactLabel')}
                 <ArrowRight className="h-5 w-5 ml-2" />
