@@ -113,7 +113,7 @@ const AgedCarePage = () => {
           <ul className="list-disc pl-5 space-y-2">
             <li>
               <a
-                href="/brochures/Home%20Care%20Price%20List/SaH%20Pricelist%202025.pdf"
+                href="/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf"
                 download
                 className="underline underline-offset-4"
               >
@@ -122,7 +122,7 @@ const AgedCarePage = () => {
             </li>
             <li>
               <a
-                href="/brochures/Home%20Care%20Price%20List/CHSP%20Pricelist%202025.pdf"
+                href="/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf"
                 download
                 className="underline underline-offset-4"
               >
