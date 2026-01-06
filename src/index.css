@@ -113,8 +113,9 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-    --link: 183 52% 59%;
-    --link-hover: 183 52% 70%;
+    /* Increased brightness for WCAG AA contrast against dark backgrounds */
+    --link: 190 90% 75%;
+    --link-hover: 190 90% 85%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;

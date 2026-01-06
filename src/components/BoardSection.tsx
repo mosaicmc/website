@@ -94,6 +94,29 @@ export function BoardSection({
                         {m.credentialsSummary}
                       </p>
                     )}
+                    
+                    {/* Social Links */}
+                    {m.social && m.social.length > 0 && (
+                      <div className="flex gap-3 mb-4">
+                        {m.social.map((s) => {
+                          const Icon = s.platform === "linkedin" ? Linkedin : s.platform === "twitter" ? Twitter : Globe;
+                          const label = s.platform === "linkedin" ? "LinkedIn" : s.platform === "twitter" ? "Twitter" : "Website";
+                          return (
+                            <a
+                              key={`${m.name}-${s.platform}`}
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${m.name} on ${label}`}
+                              className="text-muted-foreground hover:text-ocean dark:hover:text-sky transition-colors"
+                            >
+                              <Icon className="h-5 w-5" />
+                            </a>
+                          );
+                        })}
+                      </div>
+                    )}
+
                     {isMobileOrTablet ? (
                       <Sheet open={open} onOpenChange={(o) => { if (!o) setSelected(null); setOpen(o); }}>
                         <SheetTrigger asChild>

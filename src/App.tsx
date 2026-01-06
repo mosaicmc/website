@@ -91,8 +91,11 @@ function App() {
         <Route path="/company/careers" element={<CareersPage />} />
         <Route path="/company/news" element={<NewsPage />} />
         <Route path="/locations" element={<Navigate to="/contact-us" replace />} />
-              </Routes>
-            </Suspense>
+        
+        {/* Test Routes */}
+        <Route path="/tests/color-contrast" element={<ColorContrastTestPage />} />
+      </Routes>
+    </Suspense>
           </main>
         
         <Footer />
