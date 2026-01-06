@@ -89,7 +89,7 @@ let indexLoaded = false;
 async function loadSearchIndex() {
   if (indexLoaded) return;
   try {
-    const res = await fetch('/search-index.json');
+    const res = await fetch(assetPath('/search-index.json'));
     const data = await res.json();
     runtimeIndex = Array.isArray(data.items) ? data.items : [];
     indexLoaded = true;
@@ -141,13 +141,15 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
 );
 ListItem.displayName = "ListItem";
 
+import { assetPath } from '@/lib/utils';
+
 const Logo = () => {
   const { theme } = useTheme();
   return (
     <Link to="/" className="flex-shrink-0 group relative flex items-center h-12 md:h-[60px]">
       <img
         className="block transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg h-full w-auto max-w-none"
-        src={theme === 'dark' ? '/images/Logos/Mosaic_Logo_white_Dark.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
+        src={theme === 'dark' ? assetPath('/images/Logos/Mosaic_Logo_white_Dark.svg') : assetPath('/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg')}
         alt="Mosaic Multicultural Connections"
       />
     </Link>

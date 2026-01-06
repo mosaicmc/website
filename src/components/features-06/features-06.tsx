@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/Section";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 interface ServiceFeature {
   category: string;
@@ -68,24 +69,24 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   const imageForCategory = (category: string) => {
     if (category === "Settlement Support") {
       return {
-        src: "/images/All_Services_webp/AllServices_SettlementServices_720px.webp",
+        src: assetPath("/images/All_Services_webp/AllServices_SettlementServices_720px.webp"),
         alt: "Settlement Services overview",
       };
     }
     if (category === "Home Care Services") {
       return {
-        src: "/images/All_Services_webp/AllServices_HomeCare_720px.webp",
+        src: assetPath("/images/All_Services_webp/AllServices_HomeCare_720px.webp"),
         alt: "Home Care services overview",
       };
     }
     if (category === "Family Support") {
       return {
-        src: "/images/All_Services_webp/AllServices_FamilyServices_720px.webp",
+        src: assetPath("/images/All_Services_webp/AllServices_FamilyServices_720px.webp"),
         alt: "Family Services overview",
       };
     }
     return {
-      src: "/images/All_Services_webp/AllServices_CommunityEngagement_720px.webp",
+      src: assetPath("/images/All_Services_webp/AllServices_CommunityEngagement_720px.webp"),
       alt: "Community Engagement overview",
     };
   };

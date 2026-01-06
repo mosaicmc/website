@@ -43,7 +43,7 @@ const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolun
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <div className="min-h-screen bg-page transition-colors duration-300">
           <a
             href="#main"

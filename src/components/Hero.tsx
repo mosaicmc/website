@@ -3,7 +3,7 @@ import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FlipWords } from './ui/flip-words';
-import { serviceYearsLabel, languagesSpokenLabel } from '@/lib/utils';
+import { serviceYearsLabel, languagesSpokenLabel, assetPath } from '@/lib/utils';
 import AnimatedBackground from './ui/AnimatedBackground';
 
 const Hero = () => {
@@ -79,11 +79,11 @@ const Hero = () => {
           <div className="relative animate-fade-in-right">
             <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl glass-surface hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
               <picture>
-                <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg" type="image/jpeg" />
-                <source srcSet="/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp")} type="image/webp" />
+                <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg")} type="image/jpeg" />
+                <source srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp")} type="image/webp" />
                 <img
-                  src="/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg"
+                  src={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg")}
                   alt="Diverse group of young people celebrating together in a library setting"
                   className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000 group-hover:brightness-110"
                   loading="lazy"

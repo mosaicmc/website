@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { assetPath } from '@/lib/utils';
 import { AU } from '@/lib/auSpelling';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
@@ -184,10 +185,10 @@ const GetInvolvedPage = () => {
     if (!code) return;
     try { console.log('[Spotlight] shortcode', code); } catch (e) { void e; }
     const localCandidates = [
-      `/spotlights/${code}.png`,
-      `/spotlights/${code}.jpg`,
-      `/images/spotlights/${code}.png`,
-      `/images/spotlights/${code}.jpg`,
+      assetPath(`/spotlights/${code}.png`),
+      assetPath(`/spotlights/${code}.jpg`),
+      assetPath(`/images/spotlights/${code}.png`),
+      assetPath(`/images/spotlights/${code}.jpg`),
     ];
     const initial = localCandidates[0] as string;
     try { console.log('[Spotlight] image(local)', initial); } catch (e) { void e; }

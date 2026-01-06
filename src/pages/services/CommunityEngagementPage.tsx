@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
 
 const CommunityEngagementPage = () => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ const CommunityEngagementPage = () => {
       experience: "Chiyedza has worked in community services and the Permanency Support Program, supporting families to achieve stable, long‑term outcomes.",
       languages: ["English", "Shona"],
       email: "c.magwerekwete@mosaicmc.org.au",
-      image: "/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp"
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp")
     },
     {
       name: "Natalia Meliendrez",
@@ -34,7 +35,7 @@ const CommunityEngagementPage = () => {
       languages: ["Spanish", "English"],
       phone: "0431 491 748",
       email: "n.meliendrez@mosaicmc.org.au",
-      image: "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp"
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp")
     },
     {
       name: "Helen Mieres",
@@ -42,7 +43,7 @@ const CommunityEngagementPage = () => {
       location: "Central Coast",
       experience: "With more than 15 years of community-focused experience, Helen has worked alongside families, children, and people experiencing homelessness to build strength, stability, and connection.",
       languages: ["English", "Spanish"],
-      image: "/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp"
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp")
     },
     // Removed retired staff entry
   ];
@@ -276,16 +277,12 @@ const CommunityEngagementPage = () => {
                   <span className="text-gray-700 dark:text-gray-100">{t('community.eligibility.items.2')}</span>
                 </div>
               </div>
-              <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
-                <div className="aspect-video">
-                  <img
-                    src="/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp"
-                    alt="Community engagement participation"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+              <div className="relative h-64 overflow-hidden rounded-xl md:h-full">
+                <img
+                  src={assetPath("/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp")}
+                  alt="Community Engagement"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
             </div>
           </div>

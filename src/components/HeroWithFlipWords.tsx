@@ -3,7 +3,7 @@ import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FlipWords } from './ui/flip-words';
-import { serviceYearsLabel, languagesSpokenLabel } from '@/lib/utils';
+import { serviceYearsLabel, languagesSpokenLabel, assetPath } from '@/lib/utils';
 
 const HeroWithFlipWords = () => {
   const { t } = useTranslation();
@@ -88,7 +88,7 @@ const HeroWithFlipWords = () => {
           <div className="relative animate-fade-in-right">
             <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl glass-surface shadow-2xl hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
               <img
-                src="/pexels-yankrukov-8199708.jpg"
+                src={assetPath("/pexels-yankrukov-8199708.jpg")}
                 alt="Diverse group of young people celebrating together in a library setting"
                 className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000 group-hover:brightness-110"
               />

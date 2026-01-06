@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/utils';
 import { auSpelling } from './auSpelling';
 
 export type SearchItem = { path: string; title: string; body: string; tags: string[]; lang?: string };
@@ -16,10 +17,10 @@ export async function initSearchConfigs(): Promise<void> {
   if (configsLoaded) return;
   try {
     const [syn, tr, meta, ico] = await Promise.all([
-      fetch('/search-config/synonyms.json').then((r) => r.ok ? r.json() : {}),
-      fetch('/search-config/translations.json').then((r) => r.ok ? r.json() : {}),
-      fetch('/search-config/metadata.json').then((r) => r.ok ? r.json() : {}),
-      fetch('/search-config/icons.json').then((r) => r.ok ? r.json() : {})
+      fetch(assetPath('/search-config/synonyms.json')).then((r) => r.ok ? r.json() : {}),
+      fetch(assetPath('/search-config/translations.json')).then((r) => r.ok ? r.json() : {}),
+      fetch(assetPath('/search-config/metadata.json')).then((r) => r.ok ? r.json() : {}),
+      fetch(assetPath('/search-config/icons.json')).then((r) => r.ok ? r.json() : {})
     ]);
     synonymsDict = syn || {};
     translationsLookup = tr || {};

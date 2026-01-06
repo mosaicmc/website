@@ -1,3 +1,5 @@
+import { assetPath } from '@/lib/utils';
+
 export type OfficeLocation = {
   name: string;
   address: string;
@@ -40,9 +42,9 @@ export const LOCATIONS: OfficeLocation[] = [
       "Local bus services",
       "Paid parking available",
     ],
-    image: "/images/Location/Location_Charlestown_720p.webp",
+    image: assetPath("/images/Location/Location_Charlestown_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
-    videoWebm: "/Media/charlestown_720p.webm",
+    videoWebm: assetPath("/Media/charlestown_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -64,9 +66,9 @@ export const LOCATIONS: OfficeLocation[] = [
       "Nearest bus routes and parking available",
       "Wheelchair accessible",
     ],
-    image: "/images/Location/Location_Central-Coast_720p.webp",
+    image: assetPath("/images/Location/Location_Central-Coast_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
-    videoWebm: "/Media/central-coast_720p.webm",
+    videoWebm: assetPath("/Media/central-coast_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -81,9 +83,9 @@ export const LOCATIONS: OfficeLocation[] = [
     services: ["Settlement Support", "Community Programs"],
     staff: [{ name: "David Thompson", role: "Regional Manager", languages: ["English"] }],
     transport: ["Local bus services", "Street parking available"],
-    image: "/images/Location/Location_Tamworth_720p.webp",
+    image: assetPath("/images/Location/Location_Tamworth_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
-    videoWebm: "/Media/tamworth_720p.webm",
+    videoWebm: assetPath("/Media/tamworth_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -100,9 +102,9 @@ export const LOCATIONS: OfficeLocation[] = [
       { name: "Fatima Al-Zahra", role: "Settlement Worker", languages: ["English", "Arabic", "Farsi"] },
     ],
     transport: ["Local bus services", "Street parking available"],
-    image: "/images/Location/Location_Armidale_720p.webp",
-    directionsUrl: "https://maps.app.goo.gl/pcY7U7BQao6CdcTi6",
-    videoWebm: "/Media/armidale_720p.webm",
+    image: assetPath("/images/Location/Location_Armidale_720p.webp"),
+    directionsUrl: "https://maps.app.goo.gl/1jZ6aD7bC1w2k1D7",
+    videoWebm: assetPath("/Media/armidale_720p.webm"),
     videoMp4: undefined,
   },
 ];

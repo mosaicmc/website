@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Testimonial04 } from './ui/testimonial-04';
 import { normalizeTestimonialText } from '@/lib/testimonialsParser';
+import { assetPath } from '@/lib/utils';
 
 type LocalTestimonial = {
   testimonial: string;
@@ -72,7 +73,7 @@ const Testimonials = () => {
     let cancelled = false;
     async function loadTestimonials() {
       try {
-        const res = await fetch('/testimonials.json', { cache: 'no-store' });
+        const res = await fetch(assetPath('/testimonials.json'), { cache: 'no-store' });
         if (!res.ok) return; // fallback to defaults
         const data = await res.json();
 
@@ -84,7 +85,7 @@ const Testimonials = () => {
           : [];
 
         const placeholderImages = new Set([
-          '/pexels-yankrukov-8199708.jpg',
+          assetPath('/pexels-yankrukov-8199708.jpg'),
         ]);
 
         const cleaned = entries

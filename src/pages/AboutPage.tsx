@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { serviceYearsBase } from '@/lib/utils';
+import { serviceYearsBase, assetPath } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import RelatedServices from '@/components/RelatedServices';
@@ -27,66 +27,66 @@ const AboutPage = () => {
     }
   }, [location.hash]);
   const storyData = React.useMemo(() => [
-    { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: "/images/History_720px_webp/1978_Galbally Report.webp", alt: "Migrant Services and Programs (Galbally Report) cover", details: "As Australia became more culturally diverse, communities called for inclusion, access, and representation. In 1978, SBS amplified multicultural voices nationwide, while the Review of Post‑Arrival Programs and Services to Migrants (popularly called The Galbally Report, 1978) reshaped settlement policy. Its recommendations were fully adopted, leading to the creation of migrant resource centres across Australia that provided settlement support, advocacy, and guidance to help migrants and refugees participate fully in Australian life while maintaining their culture and identity.", gallery: ["/images/History_720px_webp/1978_Galbally Report.webp", "/images/History_720px_webp/1978_SBS.webp"], links: [
-      { label: "Migrant Services and Programs – Statement by the Prime Minister, Mr. Malcolm Fraser", href: "/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf" },
-      { label: "It’s Not the Thought That Counts by Lidio Bertelli", href: "/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf" }
+    { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), alt: "Migrant Services and Programs (Galbally Report) cover", details: "As Australia became more culturally diverse, communities called for inclusion, access, and representation. In 1978, SBS amplified multicultural voices nationwide, while the Review of Post‑Arrival Programs and Services to Migrants (popularly called The Galbally Report, 1978) reshaped settlement policy. Its recommendations were fully adopted, leading to the creation of migrant resource centres across Australia that provided settlement support, advocacy, and guidance to help migrants and refugees participate fully in Australian life while maintaining their culture and identity.", gallery: [assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), assetPath("/images/History_720px_webp/1978_SBS.webp")], links: [
+      { label: "Migrant Services and Programs – Statement by the Prime Minister, Mr. Malcolm Fraser", href: assetPath("/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf") },
+      { label: "It’s Not the Thought That Counts by Lidio Bertelli", href: assetPath("/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf") }
     ] },
-    { year: "1981", label: "1981", description: "We open in Newcastle with two staff.", image: "/images/History_720px_webp/1981_Ian MacPhee.webp", alt: "Foundation year in Newcastle and the Hunter Region", details: "Mr Ian MacPhee officially opened the Newcastle Migrant Resource Centre on 20 May 1981. The Centre began operating in this region from upstairs premises at 414 Hunter Street above the State Bank building, with an interim Committee of Management and administered by the Newcastle City Council. There were just two staff: a Coordinator (the first being Veronica Hendry) and an Assistant Coordinator. The Centre operated from these premises for three years, serving as a fledgling community hub.", gallery: [], links: [
-      { label: "Opening Address by Mr. Ian MacPhee, Minister for Immigration and Ethnic Affairs", href: "/images/History_720px_webp/1981_OPENING OF MRC ADDRESS BY MINI.pdf" }
+    { year: "1981", label: "1981", description: "We open in Newcastle with two staff.", image: assetPath("/images/History_720px_webp/1981_Ian MacPhee.webp"), alt: "Foundation year in Newcastle and the Hunter Region", details: "Mr Ian MacPhee officially opened the Newcastle Migrant Resource Centre on 20 May 1981. The Centre began operating in this region from upstairs premises at 414 Hunter Street above the State Bank building, with an interim Committee of Management and administered by the Newcastle City Council. There were just two staff: a Coordinator (the first being Veronica Hendry) and an Assistant Coordinator. The Centre operated from these premises for three years, serving as a fledgling community hub.", gallery: [], links: [
+      { label: "Opening Address by Mr. Ian MacPhee, Minister for Immigration and Ethnic Affairs", href: assetPath("/images/History_720px_webp/1981_OPENING OF MRC ADDRESS BY MINI.pdf") }
     ] },
-    { year: "1984", label: "1984", description: "We move to 8 Chaucer Street, Hamilton, closer to our communities.", image: "/images/History_720px_webp/1984_Chaucer Street.webp", alt: "Relocation to 8 Chaucer Street Hamilton", details: "In 1984 Violetta Walsh became Coordinator and led the organisation for 30 years across roles of coordinator, director and CEO. The premises chosen were 8 Chaucer Street, Hamilton, which remained the operational base for more than forty years, as the Migrant Resource Centre, then Northern Settlement Services, and finally Mosaic Multicultural Connections until the relocation to Charlestown.", gallery: [] },
-    { year: "1985", label: "1985", description: "Formal incorporation strengthens community leadership and outreach.", image: "/images/History_720px_webp/1985.webp", alt: "Incorporation and outreach to Singleton and Muswellbrook", details: "In 1985, the organisation was formally incorporated, with governance led by elected members of ethnic communities and Faith Trent appointed as founding Chair. With additional support, outreach expanded beyond Newcastle to regional areas including Singleton and Muswellbrook. This period also saw strong investment in women’s leadership and community capacity, including programs that supported mature‑age migrant women into training, employment, and leadership roles, alongside initiatives to maintain community languages for migrant children." },
-    { year: "1989", label: "1989", description: "Standing with the community in a time of crisis.", image: "/images/History_720px_webp/1989_Earthquake01.webp", alt: "Newcastle Earthquake response", details: "In late 1989, the Newcastle earthquake deeply affected families, businesses, and neighbourhoods across the city. The centre (MRC) played a vital role in recovery efforts, supporting displaced families and local businesses to access assistance, rebuild stability, and begin restoring community life.", gallery: [
-      "/images/History_720px_webp/1989_Earthquake02.webp",
-      "/images/History_720px_webp/1989_Earthquake03.webp"
+    { year: "1984", label: "1984", description: "We move to 8 Chaucer Street, Hamilton, closer to our communities.", image: assetPath("/images/History_720px_webp/1984_Chaucer Street.webp"), alt: "Relocation to 8 Chaucer Street Hamilton", details: "In 1984 Violetta Walsh became Coordinator and led the organisation for 30 years across roles of coordinator, director and CEO. The premises chosen were 8 Chaucer Street, Hamilton, which remained the operational base for more than forty years, as the Migrant Resource Centre, then Northern Settlement Services, and finally Mosaic Multicultural Connections until the relocation to Charlestown.", gallery: [] },
+    { year: "1985", label: "1985", description: "Formal incorporation strengthens community leadership and outreach.", image: assetPath("/images/History_720px_webp/1985.webp"), alt: "Incorporation and outreach to Singleton and Muswellbrook", details: "In 1985, the organisation was formally incorporated, with governance led by elected members of ethnic communities and Faith Trent appointed as founding Chair. With additional support, outreach expanded beyond Newcastle to regional areas including Singleton and Muswellbrook. This period also saw strong investment in women’s leadership and community capacity, including programs that supported mature‑age migrant women into training, employment, and leadership roles, alongside initiatives to maintain community languages for migrant children." },
+    { year: "1989", label: "1989", description: "Standing with the community in a time of crisis.", image: assetPath("/images/History_720px_webp/1989_Earthquake01.webp"), alt: "Newcastle Earthquake response", details: "In late 1989, the Newcastle earthquake deeply affected families, businesses, and neighbourhoods across the city. The centre (MRC) played a vital role in recovery efforts, supporting displaced families and local businesses to access assistance, rebuild stability, and begin restoring community life.", gallery: [
+      assetPath("/images/History_720px_webp/1989_Earthquake02.webp"),
+      assetPath("/images/History_720px_webp/1989_Earthquake03.webp")
     ] },
-    { year: "1990", label: "1990", description: "Carnivale brings Hamilton together in a celebration of resilience and community.", image: "/images/History_720px_webp/1990_Carnivale01.webp", alt: "1990 Carnivale", details: "In 1990, Carnivale was launched as a street festival in Hamilton, bringing people together after a period of recovery and change. The Centre delivered the event in partnership with the Hamilton Chamber of Commerce and the Ethnic Communities Council, celebrating cultural diversity, connection, and the strength of the local community.", gallery: [
-      "/images/History_720px_webp/1990_Carnivale03.webp",
-      "/images/History_720px_webp/1990_Carnivale04.webp",
-      "/images/History_720px_webp/1990_Carnivale05.webp",
-      "/images/History_720px_webp/1990_Carnivale06.webp",
-      "/images/History_720px_webp/1990_Carnivale07.webp",
-      "/images/History_720px_webp/1990_Carnivale.webp"
+    { year: "1990", label: "1990", description: "Carnivale brings Hamilton together in a celebration of resilience and community.", image: assetPath("/images/History_720px_webp/1990_Carnivale01.webp"), alt: "1990 Carnivale", details: "In 1990, Carnivale was launched as a street festival in Hamilton, bringing people together after a period of recovery and change. The Centre delivered the event in partnership with the Hamilton Chamber of Commerce and the Ethnic Communities Council, celebrating cultural diversity, connection, and the strength of the local community.", gallery: [
+      assetPath("/images/History_720px_webp/1990_Carnivale03.webp"),
+      assetPath("/images/History_720px_webp/1990_Carnivale04.webp"),
+      assetPath("/images/History_720px_webp/1990_Carnivale05.webp"),
+      assetPath("/images/History_720px_webp/1990_Carnivale06.webp"),
+      assetPath("/images/History_720px_webp/1990_Carnivale07.webp"),
+      assetPath("/images/History_720px_webp/1990_Carnivale.webp")
     ] },
-    { year: "1991", label: "1991", description: "Ten years on, our reach and community connections continue to grow.", image: "/images/History_720px_webp/1991_10Years_AGM.webp", alt: "Tenth anniversary", details: "In 1991, the Migrant Resource Centre (MRC) marked its tenth anniversary, growing from two staff to eleven and supporting people from more than 100 nationalities. During this period, services expanded across the Northwest of NSW and the Central Coast, including the launch of the Community Visitors Scheme for older migrants and the introduction of immigration assistance and advice.", gallery: [
-      "/images/History_720px_webp/1991_10Years_AGM01.webp",
-      "/images/History_720px_webp/1991_10Years_AGM02.webp"
+    { year: "1991", label: "1991", description: "Ten years on, our reach and community connections continue to grow.", image: assetPath("/images/History_720px_webp/1991_10Years_AGM.webp"), alt: "Tenth anniversary", details: "In 1991, the Migrant Resource Centre (MRC) marked its tenth anniversary, growing from two staff to eleven and supporting people from more than 100 nationalities. During this period, services expanded across the Northwest of NSW and the Central Coast, including the launch of the Community Visitors Scheme for older migrants and the introduction of immigration assistance and advice.", gallery: [
+      assetPath("/images/History_720px_webp/1991_10Years_AGM01.webp"),
+      assetPath("/images/History_720px_webp/1991_10Years_AGM02.webp")
     ] },
-    { year: "1999", label: "1999", description: "Responding at the frontline during a humanitarian crisis.", image: "/images/History_720px_webp/1999_Kosovar01.webp", alt: "Kosovar refugee support", details: "In 1999, the Centre played a frontline role in the national humanitarian response for Kosovar refugees, supporting nearly 900 people displaced by conflict. Working alongside government and interagency partners, the organisation provided settlement support, referrals, and community liaison, while also expanding assistance for skilled migrants to have qualifications recognised and access local employment opportunities.", gallery: [
-      "/images/History_720px_webp/1999_Kosovar02.webp",
-      "/images/History_720px_webp/1999_Kosovar03.webp",
-      "/images/History_720px_webp/1999_Kosovar04.webp",
-      "/images/History_720px_webp/1999_Kosovar05.webp"
+    { year: "1999", label: "1999", description: "Responding at the frontline during a humanitarian crisis.", image: assetPath("/images/History_720px_webp/1999_Kosovar01.webp"), alt: "Kosovar refugee support", details: "In 1999, the Centre played a frontline role in the national humanitarian response for Kosovar refugees, supporting nearly 900 people displaced by conflict. Working alongside government and interagency partners, the organisation provided settlement support, referrals, and community liaison, while also expanding assistance for skilled migrants to have qualifications recognised and access local employment opportunities.", gallery: [
+      assetPath("/images/History_720px_webp/1999_Kosovar02.webp"),
+      assetPath("/images/History_720px_webp/1999_Kosovar03.webp"),
+      assetPath("/images/History_720px_webp/1999_Kosovar04.webp"),
+      assetPath("/images/History_720px_webp/1999_Kosovar05.webp")
     ] },
-    { year: "2001", label: "2001", description: "Twenty years of service and growing regional partnerships.", image: "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp", alt: "20-year anniversary celebration", details: "In 2001, the organisation marked 20 years of service to the community, building on strong foundations of trust and connection. This period saw continued growth in regional outreach and partnerships, strengthening support for multicultural communities across the Hunter and surrounding regions.", gallery: [
-      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp",
-      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp",
-      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp",
-      "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp",
+    { year: "2001", label: "2001", description: "Twenty years of service and growing regional partnerships.", image: assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp"), alt: "20-year anniversary celebration", details: "In 2001, the organisation marked 20 years of service to the community, building on strong foundations of trust and connection. This period saw continued growth in regional outreach and partnerships, strengthening support for multicultural communities across the Hunter and surrounding regions.", gallery: [
+      assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp"),
+      assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp"),
+      assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp"),
+      assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp"),
     ] },
     { year: "2004", label: "2004", description: "Expanding regional presence across New England and the Northwest.", image: undefined as unknown as string, alt: "Historical entry 2004", details: "In 2004, MRC opened its Armidale office, strengthening settlement outreach across the New England region and the Northwest Plains. This expansion extended support to communities including Tamworth, Inverell, Wellington, and Gunnedah, bringing services closer to people where they lived.", gallery: [] },
-    { year: "2005", label: "2005", description: "Expanding settlement and care in response to new humanitarian arrivals.", image: "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp", alt: "Central Coast office opening", details: "In 2005, MRC responded to the arrival of African refugees by expanding settlement support across the region, working in partnership with other migrant resource centres to deliver coordinated assistance. This period also saw the opening of a Central Coast office, strengthening welfare and aged care support in a rapidly growing community.", gallery: [
-      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp",
-      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp",
-      "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp",
+    { year: "2005", label: "2005", description: "Expanding settlement and care in response to new humanitarian arrivals.", image: assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp"), alt: "Central Coast office opening", details: "In 2005, MRC responded to the arrival of African refugees by expanding settlement support across the region, working in partnership with other migrant resource centres to deliver coordinated assistance. This period also saw the opening of a Central Coast office, strengthening welfare and aged care support in a rapidly growing community.", gallery: [
+      assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp"),
+      assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp"),
+      assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp"),
     ] },
-    { year: "2006", label: "2006", description: "Twenty-five years of service and expanding regional reach.", image: "/images/History_720px_webp/2006_SilverJubilee.webp", alt: "Silver Jubilee", details: "In 2006, the Migrant Resource Centre marked its 25th anniversary, supported by 24 staff and more than 100 volunteers. The opening of the Tamworth office strengthened regional outreach, with services extending through partnerships and travelling staff to communities including Dubbo, Orange, Bathurst, Lightning Ridge, and Coffs Harbour. This period also saw services broaden to include family support, migrant employment pathways, rural information campaigns, and community aged care.", gallery: [] },
-    { year: "2007", label: "2007", description: "Charitable status strengthens sustainability and community impact.", image: "/images/History_720px_webp/2007_NSS.webp", alt: "Northern Settlement Services Ltd", details: "In 2007, the organisation became Northern Settlement Services Ltd and secured charitable status. This milestone strengthened long‑term sustainability, enabling greater support for communities through donor contributions and improved capacity to invest in staff and services." },
-    { year: "2011", label: "2011", description: "Thirty years of service and a new chapter of leadership.", image: "/images/History_720px_webp/2011_VJW_Farewell.webp", alt: "Leadership transition", details: "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.", gallery: ["/images/History_720px_webp/2011_VJW_Farewell_01.webp", "/images/History_720px_webp/2011_VJW_Farewell_02.webp", "/images/History_720px_webp/2011_VJW_Farewell_03.webp", "/images/History_720px_webp/2011_VJW_Farewell_04.webp", "/images/History_720px_webp/2011_VJW_Farewell_05.webp", "/images/History_720px_webp/2010_Lulu Tantos.webp"] },
-    { year: "2019", label: "2019", description: "A new chapter focused on innovation and strategic direction.", image: "/images/History_720px_webp/2019_ShaonDaishe.webp", alt: "CEO appointment", details: "In 2019, Sharon Daishe was appointed CEO, bringing a renewed focus on innovation, strategy, and sustainability. This appointment marked the beginning of the next chapter in the organisation’s evolution, strengthening its capacity to respond to changing community needs." },
-    { year: "2021", label: "2021", description: "Forty years of service, shaped by people and community.", image: "/images/History_720px_webp/2021_40th Celebration01.webp", alt: "40th Celebration", details: "In 2021, Northern Settlement Services marked 40 years of service, supported by 65 staff and more than 175 volunteers across NSW. Regional offices continued their work across the North and Northwest, strengthening connections and support for multicultural communities.", gallery: [
-      "/images/History_720px_webp/2021_40th Celebration04.webp",
-      "/images/History_720px_webp/2021_40th Celebration05.webp",
-      "/images/History_720px_webp/2021_40th Celebration06.webp",
-      "/images/History_720px_webp/2021_40th Celebration07.webp"
+    { year: "2006", label: "2006", description: "Twenty-five years of service and expanding regional reach.", image: assetPath("/images/History_720px_webp/2006_SilverJubilee.webp"), alt: "Silver Jubilee", details: "In 2006, the Migrant Resource Centre marked its 25th anniversary, supported by 24 staff and more than 100 volunteers. The opening of the Tamworth office strengthened regional outreach, with services extending through partnerships and travelling staff to communities including Dubbo, Orange, Bathurst, Lightning Ridge, and Coffs Harbour. This period also saw services broaden to include family support, migrant employment pathways, rural information campaigns, and community aged care.", gallery: [] },
+    { year: "2007", label: "2007", description: "Charitable status strengthens sustainability and community impact.", image: assetPath("/images/History_720px_webp/2007_NSS.webp"), alt: "Northern Settlement Services Ltd", details: "In 2007, the organisation became Northern Settlement Services Ltd and secured charitable status. This milestone strengthened long‑term sustainability, enabling greater support for communities through donor contributions and improved capacity to invest in staff and services." },
+    { year: "2011", label: "2011", description: "Thirty years of service and a new chapter of leadership.", image: assetPath("/images/History_720px_webp/2011_VJW_Farewell.webp"), alt: "Leadership transition", details: "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.", gallery: [assetPath("/images/History_720px_webp/2011_VJW_Farewell_01.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_02.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_03.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_04.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_05.webp"), assetPath("/images/History_720px_webp/2010_Lulu Tantos.webp")] },
+    { year: "2019", label: "2019", description: "A new chapter focused on innovation and strategic direction.", image: assetPath("/images/History_720px_webp/2019_ShaonDaishe.webp"), alt: "CEO appointment", details: "In 2019, Sharon Daishe was appointed CEO, bringing a renewed focus on innovation, strategy, and sustainability. This appointment marked the beginning of the next chapter in the organisation’s evolution, strengthening its capacity to respond to changing community needs." },
+    { year: "2021", label: "2021", description: "Forty years of service, shaped by people and community.", image: assetPath("/images/History_720px_webp/2021_40th Celebration01.webp"), alt: "40th Celebration", details: "In 2021, Northern Settlement Services marked 40 years of service, supported by 65 staff and more than 175 volunteers across NSW. Regional offices continued their work across the North and Northwest, strengthening connections and support for multicultural communities.", gallery: [
+      assetPath("/images/History_720px_webp/2021_40th Celebration04.webp"),
+      assetPath("/images/History_720px_webp/2021_40th Celebration05.webp"),
+      assetPath("/images/History_720px_webp/2021_40th Celebration06.webp"),
+      assetPath("/images/History_720px_webp/2021_40th Celebration07.webp")
     ] },
-    { year: "2022", label: "2022", description: "A new name reflecting a shared identity and evolving role.", image: "/images/History_720px_webp/2022_MosaicMC_Rebranding.webp", alt: "Mosaic Multicultural Connections rebranding", details: "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.", gallery: [] },
-    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: "/images/History_720px_webp/2024_Charlestown.webp", alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
-      "/images/History_720px_webp/2024_Charlestown01.webp",
-      "/images/History_720px_webp/2024_Charlestown02.webp",
-      "/images/History_720px_webp/2024_Closing01.webp",
-      "/images/History_720px_webp/2024_Closing02.webp",
-      "/images/History_720px_webp/2024_Closing03.webp"
+    { year: "2022", label: "2022", description: "A new name reflecting a shared identity and evolving role.", image: assetPath("/images/History_720px_webp/2022_MosaicMC_Rebranding.webp"), alt: "Mosaic Multicultural Connections rebranding", details: "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.", gallery: [] },
+    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: assetPath("/images/History_720px_webp/2024_Charlestown.webp"), alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
+      assetPath("/images/History_720px_webp/2024_Charlestown01.webp"),
+      assetPath("/images/History_720px_webp/2024_Charlestown02.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing01.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing02.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing03.webp")
     ] },
   ], []);
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
@@ -132,40 +132,40 @@ const AboutPage = () => {
   ] as const;
   const boardImgMap: Record<string, { webp: string; jpg: string }> = {
     "Sandra Feltham": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg"),
     },
     "Dr Shirley Schulz-Robinson": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg"),
     },
     "Zachary Ekandi": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg"),
     },
     "Kasey Preston": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg"),
     },
     "Naomi McLean": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg"),
     },
     "Peter Gittins": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg"),
     },
     "Catherine Candiloro": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg"),
     },
     "Lauren Croiset": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg"),
     },
     "Felix Rajeev (Raj) Sirimanne": {
-      webp: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp",
-      jpg: "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp",
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
     },
   };
   

@@ -7,6 +7,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
 
 const FamilySupportPage = () => {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ const FamilySupportPage = () => {
       languages: ["English", "Tagalog", "Tetum (Timorese)"],
       phone: "(02) 4960 8401",
       email: "g.lapina@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Gener_128px.webp"
+      image: assetPath("/images/Families Team 128px/FamTeam_Gener_128px.webp")
     },
     {
       name: "Miza (Mirsada) Torlakovic",
@@ -36,7 +37,7 @@ const FamilySupportPage = () => {
       languages: ["Serbo-Croatian", "Bosnian", "Macedonian", "English"],
       phone: "(02) 4960 8402",
       email: "m.torlakovic@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Miza_128px.webp"
+      image: assetPath("/images/Families Team 128px/FamTeam_Miza_128px.webp")
     },
     {
       name: "Juanita Q. Purcell-Loli",
@@ -47,20 +48,19 @@ const FamilySupportPage = () => {
       languages: ["English", "Samoan"],
       phone: "(02) 4960 8403",
       email: "j.lolli@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Juanita_128px.webp"
+      image: assetPath("/images/Families Team 128px/FamTeam_Juanita_128px.webp")
     },
     {
-      name: "Elena Ferguson",
+      name: "Elena Martinez",
       role: "Multicultural Families Caseworker",
       location: "Newcastle",
       qualifications: "Honours Degree in Social Science (Australia); Teaching Degree (Russia)",
       experience: "Drawing on experience across education and community services, Elena has a background in primary teaching, disability support and multicultural casework.",
       languages: ["Russian", "English"],
-      phone: "(02) 4960 8404",
-      email: "e.ferguson@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Elena_128px.webp"
+      phone: "0429 146 459",
+      email: "e.martinez@mosaicmc.org.au",
+      image: assetPath("/images/Families Team 128px/FamTeam_Elena_128px.webp")
     },
-    
     {
       name: "Natalia Meliendrez",
       role: "Multicultural Community Development Lead",
@@ -70,7 +70,7 @@ const FamilySupportPage = () => {
       languages: ["Spanish", "English"],
       phone: "0431 491 748",
       email: "n.meliendrez@mosaicmc.org.au",
-      image: "/images/Families Team 128px/FamTeam_Natalia_128px.webp"
+      image: assetPath("/images/Families Team 128px/FamTeam_Natalia_128px.webp")
     },
   ];
 
@@ -331,9 +331,9 @@ const FamilySupportPage = () => {
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                   <div className="aspect-video">
                     <picture>
-                      <source srcSet="/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp" type="image/webp" />
+                      <source srcSet={assetPath("/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp")} type="image/webp" />
                       <img
-                        src="/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp"
+                        src={assetPath("/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp")}
                         alt="Family support eligibility"
                         className="w-full h-full object-cover"
                         loading="lazy"

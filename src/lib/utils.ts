@@ -21,3 +21,18 @@ export function serviceYearsBase(startYear = 1985) {
 export function languagesSpokenBase(count = 42) {
   return count;
 }
+
+/**
+ * Resolves an absolute asset path by prepending the Vite base URL.
+ * Handles paths starting with '/' correctly.
+ */
+export function assetPath(path: string): string {
+  const base = import.meta.env.BASE_URL;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  
+  // If base is '/', ensure we return /path
+  if (base === '/') return `/${cleanPath}`;
+  
+  // Vite's BASE_URL includes trailing slash
+  return `${base}${cleanPath}`;
+}

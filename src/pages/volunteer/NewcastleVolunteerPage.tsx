@@ -7,6 +7,7 @@ import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, In
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
+import { assetPath } from '@/lib/utils';
  
 
 export default function NewcastleVolunteerPage() {
@@ -213,7 +214,7 @@ export default function NewcastleVolunteerPage() {
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-care text-white flex items-center justify-center">
                         <img
-                          src="/images/ACVVS_logo.svg"
+                          src={assetPath("/images/ACVVS_logo.svg")}
                           alt="ACVVS logo"
                           className="block h-7 w-7 object-contain object-center"
                           loading="lazy"
@@ -249,7 +250,7 @@ export default function NewcastleVolunteerPage() {
                                     <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{r.blurb}</Dialog.Description>
                                     <div className="mt-4 flex gap-3">
                                       <a
-                                        href={`/pd/newcastle/${toSlug(r.title)}.pdf`}
+                                        href={assetPath(`/pd/newcastle/${toSlug(r.title)}.pdf`)}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"

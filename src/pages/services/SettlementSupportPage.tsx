@@ -16,6 +16,7 @@ import SamiImg from './SETS Team 128px/SETSTeam_Sami_128px.webp';
 import MaramImg from './SETS Team 128px/SETSTeam_Maram_128px.webp';
 import MichaelImg from './SETS Team 128px/SETSTeam_Michael_128px.webp';
 import LeeImg from './SETS Team 128px/SETSTeam_Lee_128px.webp';
+import { assetPath } from '@/lib/utils';
 
 const SettlementSupportPage = () => {
   const { t } = useTranslation();
@@ -367,16 +368,12 @@ const SettlementSupportPage = () => {
                     <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.3')}</span>
                   </div>
                 </div>
-                <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
-                  <div className="aspect-video">
-                    <img
-                      src="/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp"
-                      alt="Settlement support eligibility"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
+                <div className="relative h-64 overflow-hidden rounded-xl md:h-full">
+                  <img
+                    src={assetPath('/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp')}
+                    alt="Settlement Support"
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import RelatedServices from '@/components/RelatedServices';
 import { Helmet } from 'react-helmet-async';
+import { assetPath } from '@/lib/utils';
 
 const DonatePage = () => {
   return (
@@ -49,9 +50,9 @@ const DonatePage = () => {
                     className="inline-flex items-center rounded-xl focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                   >
                     <img
-                      src="/images/charity_logo-150x150.png"
-                      alt="Registered Charity — ACNC"
-                      className="h-16 w-16 object-contain"
+                      src={assetPath("/images/charity_logo-150x150.png")}
+                      alt="ACNC Registered Charity"
+                      className="h-24 w-auto object-contain transition-transform hover:scale-105"
                     />
                   </a>
                 </div>

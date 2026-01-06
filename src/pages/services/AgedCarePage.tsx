@@ -7,6 +7,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import { GlassCard } from '@/components/ui/GlassCard';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
 
 const AgedCarePage = () => {
   const { t } = useTranslation();
@@ -29,7 +30,7 @@ const AgedCarePage = () => {
       qualifications: "Endorsed Enrolled Nurse; Diploma Community Services (started).",
       experience: "With experience in Emergency, Theatres, Outpatients, and the Australian Red Cross Blood Service, Stacey has held roles as a Treatment Nurse, Improvement Coach, and manager of a dementia-specific day centre.",
       languages: ["English", "Spanish (learning)"],
-      image: "/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp"
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp")
     },
     {
       name: "Corinne Rietdijk",
@@ -38,7 +39,7 @@ const AgedCarePage = () => {
       qualifications: "Certificate III in Aged Care.",
       experience: "Corinne has more than 20 years in aged, dementia, palliative, community, residential disability and mental health care, supporting older people to live safely and with dignity at home and in the community.",
       languages: ["English"],
-      image: "/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp"
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp")
     },
     {
       name: "Dianne Rainbow",
@@ -47,7 +48,7 @@ const AgedCarePage = () => {
       qualifications: "Diploma in Aged Care (Case Management).",
       experience: "Dianne has worked across residential care, community support, RAS assessment and case management for 30+ years.",
       languages: ["English"],
-      image: "/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp"
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp")
     },
     {
       name: "Sally Wiltshire",
@@ -56,7 +57,7 @@ const AgedCarePage = () => {
       qualifications: "",
       experience: "Sally coordinates volunteers across aged, palliative and community care, building meaningful connections through the ACVVS program over more than 12 years.",
       languages: ["English"],
-      image: "/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp"
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp")
     }
   ];
 
@@ -113,7 +114,7 @@ const AgedCarePage = () => {
           <ul className="list-disc pl-5 space-y-2">
             <li>
               <a
-                href="/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf"
+                href={assetPath("/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf")}
                 download
                 className="underline underline-offset-4"
               >
@@ -122,7 +123,7 @@ const AgedCarePage = () => {
             </li>
             <li>
               <a
-                href="/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf"
+                href={assetPath("/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf")}
                 download
                 className="underline underline-offset-4"
               >
@@ -279,7 +280,7 @@ const AgedCarePage = () => {
                     <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                       {program.title === t('agedCare.programs.acvvs.title') ? (
                         <img
-                          src="/images/ACVVS_logo.svg"
+                          src={assetPath("/images/ACVVS_logo.svg")}
                           alt="ACVVS logo"
                           className="block h-7 w-7 object-contain object-center"
                           loading="lazy"
@@ -340,7 +341,7 @@ const AgedCarePage = () => {
               <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                 <div className="aspect-video">
                   <img
-                    src="/images/aged-care/eligibility.png"
+                    src={assetPath("/images/aged-care/eligibility.png")}
                     alt="Multicultural home care support"
                     className="w-full h-full object-cover"
                     loading="lazy"

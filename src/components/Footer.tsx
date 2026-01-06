@@ -4,8 +4,9 @@ import { UserPlus } from 'lucide-react';
 import FooterLanguageBar from '@/components/FooterLanguageBar';
 import { useTheme } from '../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
  
-
+ 
 const Footer = () => {
   const { theme } = useTheme();
   const { t } = useTranslation();
@@ -41,7 +42,7 @@ const Footer = () => {
                     <Link to="/" className="inline-flex items-center gap-3">
                       <img
                         className="h-[30px] w-auto sm:h-[35px] lg:h-10"
-                        src={theme === 'dark' ? '/images/Logos/Mosaic_Logo_white_Dark.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
+                        src={theme === 'dark' ? assetPath('/images/Logos/Mosaic_Logo_white_Dark.svg') : assetPath('/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg')}
                         alt="Mosaic Multicultural Connections"
                       />
                     </Link>

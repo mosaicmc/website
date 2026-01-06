@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { StarRating } from './StarRating';
 import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
 
 type ScrapedReview = {
   id: string;
@@ -31,7 +32,7 @@ const GoogleReviews = () => {
     const loadReviews = () => {
       if (fetchedRef.current) return;
       fetchedRef.current = true;
-      fetch('/reviews.json')
+      fetch(assetPath('/reviews.json'))
         .then(async (res) => {
           if (!res.ok) throw new Error(`Failed to load reviews: ${res.status}`);
           return res.json();

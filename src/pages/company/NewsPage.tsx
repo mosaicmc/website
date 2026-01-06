@@ -7,6 +7,7 @@ import { ArrowRight, Calendar, Megaphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { prefetchOnHover } from '@/lib/prefetch';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { assetPath } from '@/lib/utils';
 
 type NewsItem = {
   title: string;
@@ -61,23 +62,23 @@ const externalLinks = [
 ];
 
 const customThumbFor: Record<string, string> = {
-  'https://www.abc.net.au/news/2016-04-04/government-yet-to-finalise-refugee-numbers-for-the-hunter-region/7295702': '/News_Thumbnails_720px_WEBP/4 Apr 2016.webp',
-  'https://www.abc.net.au/news/2016-03-01/congolese-refugee-calls-for-reform/7208142': '/News_Thumbnails_720px_WEBP/1 Mar 2016.webp',
-  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/new-lives-emerge-from-multicultural-program': '/News_Thumbnails_720px_WEBP/18 May 2017.webp',
-  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/neighbourly-newy-celebrates-the-best-ingredients-of-multiculturalism': '/News_Thumbnails_720px_WEBP/03 May 2025.webp',
-  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/class-in-for-multicultural-business-program': '/News_Thumbnails_720px_WEBP/15 Feb 2017.webp',
-  'https://greekreporter.com/2019/02/23/greek-orthodox-priest-receives-seniors-local-achievement-award/': '/News_Thumbnails_720px_WEBP/February 23, 2019.webp',
-  'https://www.sbs.com.au/news/article/how-a-regional-australian-city-became-an-unlikely-home-for-hundreds-of-yazidi-refugees/z755d1rzl': '/News_Thumbnails_720px_WEBP/27 December 2020.webp',
-  'https://www.abc.net.au/news/2021-12-11/armidale-land-used-by-ezidi-refugees-to-work-grow-food/100680696': '/News_Thumbnails_720px_WEBP/11 Dec 2021.webp',
-  'https://hunterheadline.com.au/article/northern-settlement-services-rebrands-to-align-with-evolving-mission/': '/News_Thumbnails_720px_WEBP/1 October 2022.webp',
-  'https://newcastleweekly.com.au/newcastle-afghan-refugees-cleaning-up-after-tafe-course/': '/News_Thumbnails_720px_WEBP/26 June, 2023.webp',
-  'https://www.theguardian.com/australia-news/2023/may/07/im-armidaleian-ezidi-refugees-put-down-new-roots-in-new-england': '/News_Thumbnails_720px_WEBP/7 May 2023.webp',
-  'https://www.netimes.com.au/2024/06/22/a-time-to-celebrate-and-raise-awareness-about-the-struggles-faced-by-refugees/': '/News_Thumbnails_720px_WEBP/June 22, 2024.webp',
-  'https://www.abc.net.au/news/2024-08-02/housing-crisis-afghan-refugee-accommodation-struggle/104127114': '/News_Thumbnails_720px_WEBP/2 Aug 2024.webp',
-  'https://newcastleweekly.com.au/teens-bring-sense-of-home-to-wallsend-mural/': '/News_Thumbnails_720px_WEBP/May 8, 2024.webp',
-  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/funding-boost-to-support-newcastle-communities-in-need': '/News_Thumbnails_720px_WEBP/10 Nov 2025.webp',
-  'https://dcj.nsw.gov.au/children-and-families/shining-a-light/culture-and-connection.html': '/News_Thumbnails_720px_WEBP/30 March 2023.webp',
-  'https://www.newsofthearea.com.au/celebrating-cultural-differences-on-international-womens-day': '/News_Thumbnails_720px_WEBP/International Women’s Day 2025.webp',
+  'https://www.abc.net.au/news/2016-04-04/government-yet-to-finalise-refugee-numbers-for-the-hunter-region/7295702': assetPath('/News_Thumbnails_720px_WEBP/4 Apr 2016.webp'),
+  'https://www.abc.net.au/news/2016-03-01/congolese-refugee-calls-for-reform/7208142': assetPath('/News_Thumbnails_720px_WEBP/1 Mar 2016.webp'),
+  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/new-lives-emerge-from-multicultural-program': assetPath('/News_Thumbnails_720px_WEBP/18 May 2017.webp'),
+  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/neighbourly-newy-celebrates-the-best-ingredients-of-multiculturalism': assetPath('/News_Thumbnails_720px_WEBP/03 May 2025.webp'),
+  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/class-in-for-multicultural-business-program': assetPath('/News_Thumbnails_720px_WEBP/15 Feb 2017.webp'),
+  'https://greekreporter.com/2019/02/23/greek-orthodox-priest-receives-seniors-local-achievement-award/': assetPath('/News_Thumbnails_720px_WEBP/February 23, 2019.webp'),
+  'https://www.sbs.com.au/news/article/how-a-regional-australian-city-became-an-unlikely-home-for-hundreds-of-yazidi-refugees/z755d1rzl': assetPath('/News_Thumbnails_720px_WEBP/27 December 2020.webp'),
+  'https://www.abc.net.au/news/2021-12-11/armidale-land-used-by-ezidi-refugees-to-work-grow-food/100680696': assetPath('/News_Thumbnails_720px_WEBP/11 Dec 2021.webp'),
+  'https://hunterheadline.com.au/article/northern-settlement-services-rebrands-to-align-with-evolving-mission/': assetPath('/News_Thumbnails_720px_WEBP/1 October 2022.webp'),
+  'https://newcastleweekly.com.au/newcastle-afghan-refugees-cleaning-up-after-tafe-course/': assetPath('/News_Thumbnails_720px_WEBP/26 June, 2023.webp'),
+  'https://www.theguardian.com/australia-news/2023/may/07/im-armidaleian-ezidi-refugees-put-down-new-roots-in-new-england': assetPath('/News_Thumbnails_720px_WEBP/7 May 2023.webp'),
+  'https://www.netimes.com.au/2024/06/22/a-time-to-celebrate-and-raise-awareness-about-the-struggles-faced-by-refugees/': assetPath('/News_Thumbnails_720px_WEBP/June 22, 2024.webp'),
+  'https://www.abc.net.au/news/2024-08-02/housing-crisis-afghan-refugee-accommodation-struggle/104127114': assetPath('/News_Thumbnails_720px_WEBP/2 Aug 2024.webp'),
+  'https://newcastleweekly.com.au/teens-bring-sense-of-home-to-wallsend-mural/': assetPath('/News_Thumbnails_720px_WEBP/May 8, 2024.webp'),
+  'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/funding-boost-to-support-newcastle-communities-in-need': assetPath('/News_Thumbnails_720px_WEBP/10 Nov 2025.webp'),
+  'https://dcj.nsw.gov.au/children-and-families/shining-a-light/culture-and-connection.html': assetPath('/News_Thumbnails_720px_WEBP/30 March 2023.webp'),
+  'https://www.newsofthearea.com.au/celebrating-cultural-differences-on-international-womens-day': assetPath('/News_Thumbnails_720px_WEBP/International Women’s Day 2025.webp'),
 };
 
 const customTitleFor: Record<string, string> = {

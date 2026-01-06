@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { prefetchOnHover } from '@/lib/prefetch';
+import { assetPath } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
 import { FileText, Phone, AlertTriangle, Book, ChevronRight, FileDown } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
@@ -9,6 +9,8 @@ import { Card, CardHeader, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Section from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
+
+import { prefetchOnHover } from '@/lib/prefetch';
 
 const ResourcesPage = () => {
   // Removed Downloads and FAQs per request; keeping page focused on key links
@@ -63,10 +65,10 @@ const ResourcesPage = () => {
   };
 
   const brochures = [
-    { title: 'Settlement Support', href: '/brochures/settlement-support.pdf', color: 'sky' },
-    { title: 'Mosaic Overview', href: '/brochures/generic-mosaic.pdf', color: 'sun' },
-    { title: 'Aged Care', href: '/brochures/aged-care.pdf', color: 'earth' },
-    { title: 'Community Engagement', href: '/brochures/community-engagement.pdf', color: 'leaf' },
+    { title: 'Settlement Support', href: assetPath('/brochures/settlement-support.pdf'), color: 'sky' },
+    { title: 'Mosaic Overview', href: assetPath('/brochures/generic-mosaic.pdf'), color: 'sun' },
+    { title: 'Aged Care', href: assetPath('/brochures/aged-care.pdf'), color: 'earth' },
+    { title: 'Community Engagement', href: assetPath('/brochures/community-engagement.pdf'), color: 'leaf' },
   ];
 
   return (
