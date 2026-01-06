@@ -3,6 +3,8 @@ import ServicesList from '../components/features-06/features-06';
 import RelatedServices from '@/components/RelatedServices';
 import { AU } from '@/lib/auSpelling';
 import Section from '@/components/ui/Section';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
 
@@ -12,7 +14,7 @@ const ServicesPage = () => {
         <title>Services | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content={AU('Simple, culturally appropriate support to help people build a new life in Australia — including settlement services, family support, home care and community services across NSW.')}
+          content={AU('Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.')}
         />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
@@ -68,8 +70,24 @@ const ServicesPage = () => {
             {AU('Support to help you build a new life in Australia')}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-up">
-            {AU('Simple, culturally appropriate services across NSW — settlement, family support, home care and community services.')}
+            {AU('Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.')}
           </p>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up">
+            {AU('You can seek support for yourself or make a referral for someone you care about. Our team will guide the next steps.')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up">
+            <Button asChild size="lg" className="bg-ocean hover:bg-ocean/90 text-white shadow-lg shadow-ocean/20">
+              <a href="https://forms.mosaicmc.org.au/refer" target="_blank" rel="noopener noreferrer">
+                Make a Referral
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-ocean/20 hover:bg-ocean/5 text-ocean dark:text-white dark:border-white/20 dark:hover:bg-white/10">
+              <Link to="/contact">
+                Contact Us
+              </Link>
+            </Button>
+          </div>
         </div>
       </Section>
 

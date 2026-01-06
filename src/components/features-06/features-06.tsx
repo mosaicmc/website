@@ -38,7 +38,7 @@ const defaultFeatures: ServiceFeature[] = [
   {
     category: "Community Engagement",
     title: "Building Connections",
-    details: "Creating opportunities for participation, cultural celebration, and meaningful social connection. Cultural festivals, leadership development, and volunteer programs.",
+    details: "Creating opportunities for participation, cultural celebration, and meaningful social connection for individuals and families. Cultural festivals, leadership development, and volunteer programs.",
     tutorialLink: "/services/community-engagement",
   },
 ];
