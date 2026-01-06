@@ -77,7 +77,6 @@ const resourcesLinks: { title: string; href: string; description: string; icon: 
 ];
 
 const getInvolvedLinks: { title: string; href?: string; description: string; icon: LucideIcon; external?: string }[] = [
-  { title: "Refer", description: "Refer a client via our secure online form.", icon: ShieldCheck, external: "https://forms.mosaicmc.org.au/refer" },
   { title: "Careers", description: "Explore open roles and work with our team.", icon: Search, href: "/company/careers" },
   { title: "Volunteer", description: "Participate in community programs across NSW.", icon: Users, external: "https://forms.mosaicmc.org.au/Volunteer_Application" },
   { title: "Donate", description: "Support our work with a contribution.", icon: Heart, href: "/donate" },
@@ -588,6 +587,28 @@ export default function MosaicNavigation() {
                             >
                               Contact us for immediate assistance and guidance
                             </ListItem>
+                            <li>
+                              <a
+                                href="https://forms.mosaicmc.org.au/refer"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={cn(
+                                  "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
+                                  "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
+                                  "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
+                                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                                )}
+                                aria-label="Make a Referral – external link"
+                              >
+                                <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
+                                  <ShieldCheck className="h-5 w-5" />
+                                  Make a Referral
+                                </div>
+                                <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  Secure online referral form for clients, families and individuals
+                                </p>
+                              </a>
+                            </li>
                             {/* Removed duplicate Locations link from Services quick links */}
                           </ul>
                         </div>

@@ -10,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from './ui/dropdown-menu';
 import { assetPath } from '@/lib/utils';
 
@@ -134,6 +135,18 @@ const Header = () => {
                           </Link>
                         </DropdownMenuItem>
                       ))}
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild>
+                        <a
+                          href="https://forms.mosaicmc.org.au/refer"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20"
+                          aria-label="Make a Referral"
+                        >
+                          Make a Referral
+                        </a>
+                      </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
@@ -164,15 +177,6 @@ const Header = () => {
                 <span className="text-xs">▾</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild>
-                  <a
-                    href="https://tally.so/r/w4veNk"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Refer
-                  </a>
-                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
                     href="https://employmenthero.com/mosaic-mc"
@@ -255,6 +259,16 @@ const Header = () => {
                             {dropdownItem.name}
                           </Link>
                         ))}
+                        <div className="border-t border-border my-2" />
+                        <a
+                          href="https://forms.mosaicmc.org.au/refer"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block px-4 py-2 rounded-lg transition-all duration-300 text-sm text-gray-600 dark:text-gray-400 hover:text-ocean dark:hover:text-sky hover:bg-white/40 dark:hover:bg-slate-800/40"
+                          aria-label="Make a Referral"
+                        >
+                          Make a Referral
+                        </a>
                       </div>
                     </>
                   ) : (
