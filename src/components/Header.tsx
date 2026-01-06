@@ -89,10 +89,10 @@ const Header = () => {
             <img
               className={`transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg ${
                 isScrolled 
-                  ? 'h-14 sm:h-16 lg:h-20' 
-                  : 'h-16 sm:h-20 lg:h-24'
+                  ? 'h-[42px] sm:h-12 lg:h-[60px]' 
+                  : 'h-12 sm:h-[60px] lg:h-[72px]'
               } w-auto max-w-none`}
-              src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
+              src={theme === 'dark' ? '/images/Logos/Mosaic_Logo_white_Dark.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
               alt="Mosaic Multicultural Connections"
             />
           </Link>

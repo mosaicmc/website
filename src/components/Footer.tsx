@@ -40,8 +40,8 @@ const Footer = () => {
                   <div>
                     <Link to="/" className="inline-flex items-center gap-3">
                       <img
-                        className="h-12 w-auto sm:h-14 lg:h-16"
-                        src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
+                        className="h-[30px] w-auto sm:h-[35px] lg:h-10"
+                        src={theme === 'dark' ? '/images/Logos/Mosaic_Logo_white_Dark.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
                         alt="Mosaic Multicultural Connections"
                       />
                     </Link>
@@ -146,16 +146,16 @@ const Footer = () => {
 
         <div className="mt-4 rounded-3xl border border-border bg-muted/40 p-6 shadow-2xl shadow-black/20 backdrop-blur">
           <div className="grid gap-6 lg:gap-8 lg:grid-cols-2 lg:items-stretch">
-            <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Acknowledgement of Country</p>
+            <div className="flex flex-col gap-[6px]">
+              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">Acknowledgement of Country</p>
               <p className="text-sm leading-relaxed text-foreground">{acknowledgementCopy}</p>
               <p className="text-xs text-muted-foreground">
                 We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship.
               </p>
             </div>
-            <div className="flex h-full flex-col lg:border-l lg:border-border lg:pl-8 space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.aboutMosaic')}</p>
-              <p className="text-sm text-foreground">{t('footer.description')}</p>
+            <div className="flex h-full flex-col lg:border-l lg:border-border lg:pl-8 gap-[6px]">
+              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.aboutMosaic')}</p>
+              <p className="text-sm leading-relaxed text-foreground">{t('footer.description')}</p>
               <div className="lg:mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {/* Row 1 */}
                 {!isEmergencyMode && (

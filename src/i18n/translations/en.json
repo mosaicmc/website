@@ -129,7 +129,14 @@
       "matchingQuestion": "Do you match workers to language and culture?",
       "matchingAnswer": "Yes. Wherever possible we match you with care workers who share your language or cultural background. We also provide interpreters and culturally responsive services to ensure you feel respected and understood.",
       "clinicalQuestion": "What if I need nursing or clinical care?",
-      "clinicalAnswer": "Under Support at Home we coordinate nursing and allied health services aligned to your care plan. We work with you, your family, and health providers to ensure safe, dignified support that meets your clinical needs."
+      "clinicalAnswer": "Under Support at Home we coordinate nursing and allied health services aligned to your care plan. We work with you, your family, and health providers to ensure safe, dignified support that meets your clinical needs.",
+      "costsQuestion": "Will I know my costs before services start?",
+      "costsAnswer1": "Yes. We believe cost information should be clear and explained before any services begin.",
+      "costsAnswer2": "Your Care Coordinator will talk through your services, funding, and any contributions with you, and answer any questions you may have.",
+      "pricingQuestion": "Where can I see detailed pricing?",
+      "pricingAnswerIntro": "If you would like to view service rates and contribution details, pricing guides are available to download:",
+      "pricingLinkSah": "Support at Home Price Guide (PDF)",
+      "pricingLinkChsp": "CHSP Price Guide (PDF)"
     },
     "cta": {
       "title": "Ready to Discuss Your Care Needs?",

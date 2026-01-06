@@ -15,6 +15,12 @@ const AgedCarePage = () => {
   const [rightColumnValue, setRightColumnValue] = useState<string | undefined>('faq-1');
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
+  type FaqItem = {
+    question: string;
+    answer: React.ReactNode;
+    schemaAnswer: string;
+  };
+
   const teamMembers = [
     {
       name: "Stacey Anderson",
@@ -58,39 +64,87 @@ const AgedCarePage = () => {
   const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
   const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
-  const faqData = [
+  const faqData: FaqItem[] = [
     {
       question: t('agedCare.faq.sahQuestion'),
       answer: t('agedCare.faq.sahAnswer'),
+      schemaAnswer: t('agedCare.faq.sahAnswer'),
     },
     {
       question: t('agedCare.faq.chspQuestion'),
       answer: t('agedCare.faq.chspAnswer'),
+      schemaAnswer: t('agedCare.faq.chspAnswer'),
     },
     {
       question: t('agedCare.faq.eligibilityQuestion'),
       answer: t('agedCare.faq.eligibilityAnswer'),
+      schemaAnswer: t('agedCare.faq.eligibilityAnswer'),
     },
     {
       question: t('agedCare.faq.startQuestion'),
       answer: t('agedCare.faq.startAnswer'),
+      schemaAnswer: t('agedCare.faq.startAnswer'),
     },
     {
       question: t('agedCare.faq.matchingQuestion'),
       answer: t('agedCare.faq.matchingAnswer'),
+      schemaAnswer: t('agedCare.faq.matchingAnswer'),
     },
     {
       question: t('agedCare.faq.clinicalQuestion'),
       answer: t('agedCare.faq.clinicalAnswer'),
+      schemaAnswer: t('agedCare.faq.clinicalAnswer'),
+    },
+    {
+      question: t('agedCare.faq.costsQuestion'),
+      answer: (
+        <div className="space-y-3 text-base leading-relaxed">
+          <p>{t('agedCare.faq.costsAnswer1')}</p>
+          <p>{t('agedCare.faq.costsAnswer2')}</p>
+        </div>
+      ),
+      schemaAnswer: `${t('agedCare.faq.costsAnswer1')} ${t('agedCare.faq.costsAnswer2')}`,
+    },
+    {
+      question: t('agedCare.faq.pricingQuestion'),
+      answer: (
+        <div className="space-y-3 text-base leading-relaxed">
+          <p>{t('agedCare.faq.pricingAnswerIntro')}</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <a
+                href="/brochures/Home%20Care%20Price%20List/SaH%20Pricelist%202025.pdf"
+                download
+                className="underline underline-offset-4"
+              >
+                {t('agedCare.faq.pricingLinkSah')}
+              </a>
+            </li>
+            <li>
+              <a
+                href="/brochures/Home%20Care%20Price%20List/CHSP%20Pricelist%202025.pdf"
+                download
+                className="underline underline-offset-4"
+              >
+                {t('agedCare.faq.pricingLinkChsp')}
+              </a>
+            </li>
+          </ul>
+        </div>
+      ),
+      schemaAnswer: `${t('agedCare.faq.pricingAnswerIntro')} ${t('agedCare.faq.pricingLinkSah')} ${t('agedCare.faq.pricingLinkChsp')}`,
     },
   ];
 
   // Split FAQs into two columns
-  const leftColumnFaqs = faqData.slice(0, 3);
-  const rightColumnFaqs = faqData.slice(3, 6);
+  const midpoint = Math.ceil(faqData.length / 2);
+  const leftColumnFaqs = faqData.slice(0, midpoint);
+  const rightColumnFaqs = faqData.slice(midpoint);
+
+  const schemaFaqs = faqData.map((f) => ({ question: f.question, answer: f.schemaAnswer }));
 
   const AccordionItem = ({ faq, index, value, onValueChange, columnPrefix }: {
-    faq: typeof faqData[0];
+    faq: FaqItem;
     index: number;
     value: string | undefined;
     onValueChange: (value: string | undefined) => void;
@@ -137,7 +191,7 @@ const AgedCarePage = () => {
         <title>Mosaic Multicultural - Aged Care Services</title>
         <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
       </Helmet>
-      <FAQSchema faqs={faqData} name="Home Care FAQs" />
+      <FAQSchema faqs={schemaFaqs} name="Home Care FAQs" />
       
       {/* Hero Section with enhanced animations */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">

@@ -144,10 +144,10 @@ ListItem.displayName = "ListItem";
 const Logo = () => {
   const { theme } = useTheme();
   return (
-    <Link to="/" className="flex-shrink-0 group relative flex items-center h-16 md:h-20">
+    <Link to="/" className="flex-shrink-0 group relative flex items-center h-12 md:h-[60px]">
       <img
         className="block transition-all duration-500 group-hover:scale-105 hover:drop-shadow-lg h-full w-auto max-w-none"
-        src={theme === 'dark' ? '/images/Logos/320w/Mosaic_Logo_White_Dark_320px.svg.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
+        src={theme === 'dark' ? '/images/Logos/Mosaic_Logo_white_Dark.svg' : '/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg'}
         alt="Mosaic Multicultural Connections"
       />
     </Link>
