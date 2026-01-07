@@ -281,7 +281,7 @@ const GetInvolvedPage = () => {
 
               <CardFooter className="px-3 pb-3 justify-center">
                 {opportunity.external ? (
-                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white">
                     <a
                       href={opportunity.link}
                       target="_blank"
@@ -293,7 +293,7 @@ const GetInvolvedPage = () => {
                     </a>
                   </Button>
                 ) : (
-                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white">
+                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white">
                     <Link
                       to={opportunity.link}
                       className="group"
@@ -425,7 +425,7 @@ const GetInvolvedPage = () => {
                 ))}
               </ul>
             </Card>
-            <Button asChild className="inline-flex items-center bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white px-5 py-2.5 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+            <Button asChild className="inline-flex items-center bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-5 py-2.5 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
               <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer">
                 Apply to Volunteer
                 <ExternalLink className="ml-2 h-5 w-5" />

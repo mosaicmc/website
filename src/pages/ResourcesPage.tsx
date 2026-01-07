@@ -69,6 +69,7 @@ const ResourcesPage = () => {
     { title: 'Mosaic Overview', href: assetPath('/brochures/generic-mosaic.pdf'), color: 'sun' },
     { title: 'Aged Care', href: assetPath('/brochures/aged-care.pdf'), color: 'earth' },
     { title: 'Community Engagement', href: assetPath('/brochures/community-engagement.pdf'), color: 'leaf' },
+    { title: 'Mosaic Home Care Guide 2026', href: assetPath('/brochures/Aged Care_Guide 2026.pdf'), color: 'earth' },
   ];
 
   return (

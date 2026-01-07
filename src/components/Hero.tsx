@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="flex flex-col gap-4 min-[400px]:flex-row animate-fade-in-up-delay-300">
               <Link
                 to="/services"
-                className="group inline-flex h-12 items-center justify-center rounded-xl bg-ocean px-8 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background backdrop-blur-sm hover:scale-105 active:scale-98 hover:shadow-2xl hover:shadow-ocean/30 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
+                className="group inline-flex h-12 items-center justify-center rounded-xl bg-ocean px-8 text-sm font-semibold text-white hover:text-white shadow-xl transition-all duration-300 hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background backdrop-blur-sm hover:scale-105 active:scale-98 hover:shadow-2xl hover:shadow-ocean/30 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
               >
                 Explore Our Services
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

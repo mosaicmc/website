@@ -190,8 +190,6 @@ export default function MosaicNavigation() {
       const blur = 2 + 14 * p;
       const alphaLight = 0.15 + 0.35 * p;
       const alphaDark = 0.7 + 0.2 * p;
-      const baseLight = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-light-base').trim() || '248,250,252';
-      const baseDark = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-dark-base').trim() || '15,23,42';
       // bgLight/bgDark construction removed - handled in CSS
 
       el.style.opacity = "1";
@@ -526,7 +524,7 @@ export default function MosaicNavigation() {
                         className={cn(
                           navigationMenuTriggerStyle(),
                           isActivePath('/')
-                            ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
+                            ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
                             : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                           "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                         )}
@@ -542,7 +540,7 @@ export default function MosaicNavigation() {
                   <NavigationMenuItem className="flex items-center">
                     <NavigationMenuTrigger className={cn(
                       isActivePath('/services', true)
-                        ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
+                        ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
                         : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                       "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     )}
@@ -632,7 +630,7 @@ export default function MosaicNavigation() {
                         <NavigationMenuTrigger
                           className={cn(
                             aboutActive
-                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
+                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
                               : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                             "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           )}
@@ -681,7 +679,7 @@ export default function MosaicNavigation() {
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/get-involved', true)
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
+                          ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
                           : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                         "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                       )}
@@ -752,7 +750,7 @@ export default function MosaicNavigation() {
                     <NavigationMenuTrigger
                       className={cn(
                         isActivePath('/resources', true)
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky shadow-lg border border-ocean/20 dark:border-sky/20"
+                          ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
                           : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
                         "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                       )}
@@ -1015,7 +1013,7 @@ export default function MosaicNavigation() {
                       to="/" 
                       className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                     isActivePath('/')
-                          ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                          ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                           : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
                       "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     )}
@@ -1031,7 +1029,7 @@ export default function MosaicNavigation() {
                           to="/services" 
                           className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                         isActivePath('/services', true)
-                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                               : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
                           "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                         )}
@@ -1068,7 +1066,7 @@ export default function MosaicNavigation() {
                             to={item.href}
                             className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                               isActivePath(item.href)
-                                ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                                ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                                 : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
                               "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                             )}
@@ -1088,7 +1086,7 @@ export default function MosaicNavigation() {
                           to="/resources" 
                           className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                             isActivePath('/resources')
-                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                               : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
                             "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           )}
@@ -1124,10 +1122,10 @@ export default function MosaicNavigation() {
                           to="/get-involved" 
                           className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
                             isActivePath('/get-involved', true)
-                              ? "text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
                               : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                          )}
+                          "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                        )}
                           {...prefetchOnHover('/get-involved')}
                           onClick={() => setIsOpen(false)}
                         >

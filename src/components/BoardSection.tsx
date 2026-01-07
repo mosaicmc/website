@@ -108,7 +108,7 @@ export function BoardSection({
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${m.name} on ${label}`}
-                              className="text-muted-foreground hover:text-ocean dark:hover:text-sky transition-colors"
+                              className="text-muted-foreground hover:text-ocean dark:hover:text-sky transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky rounded-full"
                             >
                               <Icon className="h-5 w-5" />
                             </a>

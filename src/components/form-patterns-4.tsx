@@ -215,7 +215,7 @@ const Example = () => {
               </FormItem>
             )}
           />
-          <Button className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2" type="submit">
+          <Button className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2" type="submit">
             {t('contact.form.submit')}
           </Button>
           <p className="text-xs text-muted-foreground mt-2">

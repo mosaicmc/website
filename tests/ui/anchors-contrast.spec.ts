@@ -50,6 +50,7 @@ test.describe('Anchors contrast – header and contact page', () => {
           if (href && href.includes('translate.google.com')) continue;
 
           const { fg, bg, html, classes } = await handle.evaluate((el) => {
+            type RGBA = { r: number; g: number; b: number; a: number };
             const getRgba = (c: string) => {
               const match = c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)/);
               if (!match) return null;
@@ -61,7 +62,7 @@ test.describe('Anchors contrast – header and contact page', () => {
               };
             };
 
-            const blend = (fg: any, bg: any) => {
+            const blend = (fg: RGBA, bg: RGBA) => {
               const a = fg.a + bg.a * (1 - fg.a);
               if (a === 0) return { r: 0, g: 0, b: 0, a: 0 };
               const r = (fg.r * fg.a + bg.r * bg.a * (1 - fg.a)) / a;
@@ -74,7 +75,7 @@ test.describe('Anchors contrast – header and contact page', () => {
             
             // Collect background stack
             let current: Element | null = el;
-            let bgStack: any[] = [];
+            const bgStack: RGBA[] = [];
             while (current) {
               const style = getComputedStyle(current);
               const c = getRgba(style.backgroundColor);
@@ -125,4 +126,3 @@ test.describe('Anchors contrast – header and contact page', () => {
     });
   }
 });
-

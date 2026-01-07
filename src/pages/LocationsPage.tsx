@@ -60,7 +60,7 @@ const LocationsPage = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources page.
                 </p>
-                <Button asChild className="bg-ocean bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                <Button asChild className="bg-ocean bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
                   <a href="/resources" aria-label="View Emergency Services">View Emergency Services</a>
                 </Button>
               </CardContent>
@@ -76,7 +76,7 @@ const LocationsPage = () => {
                 <a
                   href="tel:1800813205"
                   aria-label="Call 1800 813 205"
-                  className="bg-ocean hover:bg-ocean/90 text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                  className="bg-ocean hover:bg-ocean/90 text-white hover:text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
                 >
                   <Phone className="h-5 w-5" />
                   Call 1800 813 205
@@ -185,7 +185,7 @@ const LocationsPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Get directions to ${location.name}`}
-                        className="flex-1 bg-ocean text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                        className="flex-1 bg-ocean text-white hover:text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                       >
                         <Navigation className="h-4 w-4 mr-2" />
                         Get Directions
@@ -215,7 +215,7 @@ const LocationsPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${SITE_CONTACT_PHONE.replace(/\s/g, '')}`}
-                className="bg-ocean text-white px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                className="bg-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
               >
                 Call {SITE_CONTACT_PHONE}
               </a>

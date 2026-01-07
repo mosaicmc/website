@@ -93,7 +93,7 @@ export default function TamworthVolunteerPage() {
             href="https://tally.so/r/3qoXjg"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
           >
             Apply to Volunteer
           </a>
