@@ -227,13 +227,7 @@ const ServiceCards = () => {
                     <Button
                       variant="cta"
                       asChild
-                      className={`inline-flex items-center px-6 py-3 rounded-full text-white dark:text-foreground font-medium min-w-40 text-[15px] ${
-                        service.color === 'sky' ? 'bg-sky hover:bg-sky/90 hover:shadow-sky/25' :
-                        service.color === 'earth' ? 'bg-earth hover:bg-earth/90 hover:shadow-earth/25' :
-                        service.color === 'care' ? 'bg-care hover:bg-care/90 hover:shadow-care/25' :
-                        service.color === 'leaf' ? 'bg-leaf hover:bg-leaf/90 hover:shadow-leaf/25' :
-                        'bg-sun hover:bg-sun/90 hover:shadow-sun/25'
-                      }`}
+                      className="inline-flex items-center px-6 py-3 rounded-full bg-ocean text-white font-medium min-w-40 text-[15px] hover:bg-ocean/90 hover:shadow-ocean/25"
                     >
                       <Link to={service.link}>
                         Learn More
@@ -269,7 +263,7 @@ const ServiceCards = () => {
           <Button
             variant="cta"
             asChild
-            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-ocean to-sky px-8 py-4 text-base font-semibold text-white shadow-xl hover:from-ocean/90 hover:to-sky/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean backdrop-blur-sm dark:from-sky dark:to-ocean"
+            className="inline-flex items-center justify-center rounded-xl bg-ocean px-8 py-4 text-base font-semibold text-white shadow-xl hover:bg-ocean/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean backdrop-blur-sm"
           >
             <Link to="/services">
               View All Services

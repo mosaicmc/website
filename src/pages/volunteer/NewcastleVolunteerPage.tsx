@@ -122,7 +122,7 @@ export default function NewcastleVolunteerPage() {
 
               <div className="mt-6">
                 <Tabs.Content value="settlement">
-                  <GlassCard padding="md" className="rounded-2xl">
+                  <GlassCard padding="md" className="rounded-2xl overflow-visible">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-sky text-white flex items-center justify-center">
                         <Users className="h-6 w-6" />
@@ -138,7 +138,7 @@ export default function NewcastleVolunteerPage() {
                               aria-haspopup="dialog"
                               title="View details"
                               type="button"
-                              className="group relative backdrop-blur-md bg-ocean/10 dark:bg-ocean/5 rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-ocean/15 dark:hover:bg-ocean/10 text-left w-full focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                              className="group relative backdrop-blur-md bg-ocean/10 dark:bg-ocean/5 rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-ocean/15 dark:hover:bg-ocean/10 text-left w-full focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background z-30 relative"
                             >
                               <div className="flex items-start justify-between">
                                 <div className="font-semibold text-foreground">{r.title}</div>
@@ -210,7 +210,7 @@ export default function NewcastleVolunteerPage() {
                 </Tabs.Content>
 
                 <Tabs.Content value="aged-care">
-                  <GlassCard padding="md" className="rounded-2xl">
+                  <GlassCard padding="md" className="rounded-2xl overflow-visible">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-care text-white flex items-center justify-center">
                         <img
@@ -232,7 +232,7 @@ export default function NewcastleVolunteerPage() {
                           <div className="flex items-start justify-between">
                             <div className="font-semibold text-foreground">{r.title}</div>
                             <Dialog.Root>
-                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px]">
+                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative">
                                 <ChevronRight className="h-4 w-4" />
                               </Dialog.Trigger>
                               <Dialog.Portal>

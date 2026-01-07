@@ -53,7 +53,7 @@ const Hero = () => {
               
               <Link
                 to="/stories"
-                className="group inline-flex h-12 items-center justify-center rounded-xl glass-surface px-8 text-sm font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background dark:text-foreground hover:scale-105 active:scale-98 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
+                className="group inline-flex h-12 items-center justify-center rounded-xl bg-card text-foreground px-8 text-sm font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background hover:scale-105 active:scale-98 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
               >
                 <Play className="mr-2 h-4 w-4" />
                 Watch Stories
@@ -95,7 +95,7 @@ const Hero = () => {
               <Link
                 to="/locations"
                 aria-label="View office locations across NSW"
-                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 rounded-xl glass-surface p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group/card hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 rounded-xl glass-surface bg-card dark:bg-card p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group/card hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <div className="flex items-center space-x-3">
                   <div className="h-10 w-10 rounded-full bg-gradient-to-br from-ocean to-sky flex items-center justify-center shadow-md">
@@ -103,7 +103,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-foreground">Office Locations</div>
-                    <div className="text-xs text-muted-foreground">Across NSW</div>
+                    <div className="text-xs text-foreground">Across NSW</div>
                   </div>
                 </div>
               </Link>
@@ -116,8 +116,8 @@ const Hero = () => {
                   <span className="text-white font-semibold text-sm">95%</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-gray-900 dark:text-gray-100">Satisfaction Rate</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Client feedback</div>
+                  <div className="font-semibold text-sm text-foreground">Satisfaction Rate</div>
+                  <div className="text-xs text-foreground">Client feedback</div>
                 </div>
               </div>
             </div>

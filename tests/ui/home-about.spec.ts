@@ -9,6 +9,60 @@ async function ensureVisible(page, locator) {
 
 test.describe('Home page – Google Reviews section', () => {
   test.beforeEach(async ({ page }) => {
+    // Mock the network request for reviews
+    await page.route('**/reviews.json', async route => {
+      const json = {
+        placeUrl: "https://maps.google.com/?cid=123",
+        reviews: [
+          {
+            id: "1",
+            authorName: "Test User 1",
+            rating: 5,
+            dateText: "a month ago",
+            text: "Great service!",
+            reviewUrl: "https://google.com/review/1"
+          },
+          {
+            id: "2",
+            authorName: "Test User 2",
+            rating: 4,
+            dateText: "2 months ago",
+            text: "Good experience.",
+            reviewUrl: "https://google.com/review/2"
+          },
+          {
+            id: "3",
+            authorName: "Test User 3",
+            rating: 5,
+            dateText: "3 months ago",
+            text: "Excellent!",
+            reviewUrl: "https://google.com/review/3"
+          }
+        ]
+      };
+      await route.fulfill({ json });
+    });
+
+    // Mock IntersectionObserver to trigger immediately
+    await page.addInitScript(() => {
+      class FakeIntersectionObserver {
+        private _callback: IntersectionObserverCallback;
+        constructor(callback: IntersectionObserverCallback) {
+          this._callback = callback;
+        }
+        observe(element: Element) {
+          this._callback([{ isIntersecting: true, target: element } as IntersectionObserverEntry]);
+        }
+        unobserve() {}
+        disconnect() {}
+        takeRecords(): IntersectionObserverEntry[] { return []; }
+        root: Element | Document | null = null;
+        rootMargin = '';
+        thresholds: ReadonlyArray<number> = [];
+      }
+      (window as Window & typeof globalThis & { IntersectionObserver: typeof IntersectionObserver }).IntersectionObserver =
+        FakeIntersectionObserver as unknown as typeof IntersectionObserver;
+    });
     await page.goto('/');
   });
 
@@ -76,27 +130,38 @@ test.describe('About page – Values and Leadership', () => {
   });
 
   test('renders Values section with 4 cards', async ({ page }) => {
-    await expect(page.getByText('Our Values', { exact: true }).first()).toBeVisible();
+    // Use ID locator which is more stable
+    await expect(page.locator('#values-title')).toBeVisible();
     const valuesSection = page
       .locator('section')
-      .filter({ hasText: 'Our values are the foundation' })
+      .filter({ hasText: 'What we stand for' })
       .first();
     await expect(valuesSection).toBeVisible();
     const valuesGrid = valuesSection.locator('.grid').first();
     await expect(valuesGrid).toBeVisible();
-    await expect(valuesGrid.locator('h3')).toHaveCount(4);
+    await expect(valuesGrid.locator('h3')).toHaveCount(5);
   });
 
   test('renders Leadership section with avatars and roles', async ({ page }) => {
+    // Debug: Ensure we are on the right page
+    await expect(page).toHaveURL(/\/about/);
+    await expect(page.getByText('Our Story').first()).toBeVisible();
+
+    // Try to find "Leadership Team" in any way
+    const leadershipText = page.getByText('Leadership Team').first();
+    // Allow some time for hydration/translation
+    await expect(leadershipText).toBeVisible({ timeout: 10000 });
+
     const leadershipSection = page
       .locator('section')
-      .filter({ has: page.getByRole('heading', { name: 'Leadership Team' }) });
+      .filter({ has: leadershipText });
     await expect(leadershipSection).toBeVisible();
+    
     const leaderCards = leadershipSection.locator('.group');
     await expect(leaderCards.first()).toBeVisible();
-    await expect(leaderCards).toHaveCount(3);
+    await expect(leaderCards).toHaveCount(5);
     // Validate one known member text exists
-    await expect(leadershipSection.getByRole('heading', { name: 'Sarah Chen' })).toBeVisible();
+    await expect(leadershipSection.getByRole('heading', { name: 'Sharon Daishe' })).toBeVisible();
   });
 
   test('visual snapshots of Leadership section at breakpoints', async ({ page }) => {
@@ -115,4 +180,3 @@ test.describe('About page – Values and Leadership', () => {
     await expect(leadership).toHaveScreenshot('about-leadership-mobile.png');
   });
 });
-

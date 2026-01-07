@@ -39,16 +39,15 @@ function ButtonLink({ to, label, color }: { to: string; label: string; color: st
     <Link
       to={to}
       aria-label={`${label} – Navigate`}
-      className="group block w-full"
+      className="group block w-full rounded-2xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
     >
       <div className="w-full rounded-2xl border border-white/40 dark:border-white/20 bg-transparent">
         <div className="p-3">
-          <button
-            type="button"
+          <span
             className={classes}
           >
             {label}
-          </button>
+          </span>
         </div>
       </div>
     </Link>
@@ -58,10 +57,10 @@ function ButtonLink({ to, label, color }: { to: string; label: string; color: st
 function buttonClasses(color: string) {
   const base = 'inline-flex items-center justify-center w-full h-10 md:h-11 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background';
   const byColor =
-    color === 'sky' ? 'bg-gradient-to-r from-sky to-sky/90 text-white hover:from-sky/90 hover:to-sky' :
-    color === 'earth' ? 'bg-gradient-to-r from-earth to-earth/90 text-white hover:from-earth/90 hover:to-earth' :
-    color === 'care' ? 'bg-gradient-to-r from-care to-care/90 text-white hover:from-care/90 hover:to-care' :
-    color === 'leaf' ? 'bg-gradient-to-r from-leaf to-leaf/90 text-white hover:from-leaf/90 hover:to-leaf' :
-    'bg-gradient-to-r from-sun to-sun/90 text-white hover:from-sun/90 hover:to-sun';
+    color === 'sky' ? 'bg-sky bg-gradient-to-r from-sky to-sky/90 text-ocean hover:from-sky/90 hover:to-sky' :
+    color === 'earth' ? 'bg-earth bg-gradient-to-r from-earth to-earth/90 text-gray-900 hover:from-earth/90 hover:to-earth' :
+    color === 'care' ? 'bg-care bg-gradient-to-r from-care to-care/90 text-gray-900 hover:from-care/90 hover:to-care' :
+    color === 'leaf' ? 'bg-leaf bg-gradient-to-r from-leaf to-leaf/90 text-ocean hover:from-leaf/90 hover:to-leaf' :
+    'bg-sun bg-gradient-to-r from-sun to-sun/90 text-ocean hover:from-sun/90 hover:to-sun';
   return cn(base, byColor);
 }

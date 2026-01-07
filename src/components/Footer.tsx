@@ -13,7 +13,7 @@ const Footer = () => {
   const location = useLocation();
   const isEmergencyMode = location.pathname.startsWith('/resources/emergency-');
 
-  const GOOGLE_REVIEWS_URL = 'https://g.page/r/CS2sb5dkY56KEBM/review';
+  const GOOGLE_REVIEWS_URL = 'https://share.google/G2RRRo3M2HAuMbduE';
 
   
 
@@ -55,17 +55,17 @@ const Footer = () => {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.overview')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
-                        <Link to="/" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('nav.home')}
                         </Link>
                       </li>
                       <li>
-                        <Link to="/about" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/about" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('nav.about')}
                         </Link>
                       </li>
                       <li>
-                        <Link to="/stories" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/stories" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('nav.stories')}
                         </Link>
                       </li>
@@ -75,22 +75,22 @@ const Footer = () => {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.services')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
-                        <Link to="/services/settlement-support" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/services/settlement-support" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('services.settlement')}
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services/aged-care" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/services/aged-care" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('services.agedCare')}
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services/family-support" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/services/family-support" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('services.familySupport')}
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services/community-engagement" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/services/community-engagement" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('services.communityEngagement')}
                         </Link>
                       </li>
@@ -100,17 +100,17 @@ const Footer = () => {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('nav.resources')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
-                        <Link to="/resources/emergency-translation" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/resources/emergency-translation" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Emergency & Translation Services
                         </Link>
                       </li>
                       <li>
-                        <Link to="/resources/annual-reports" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/resources/annual-reports" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Annual Reports
                         </Link>
                       </li>
                       <li>
-                        <Link to="/company/knowledge-base" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/company/knowledge-base" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Knowledge Base
                         </Link>
                       </li>
@@ -120,17 +120,17 @@ const Footer = () => {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.getInvolved')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
-                        <a href="https://tally.so/r/3qoXjg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <a href="https://tally.so/r/3qoXjg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Volunteer
                         </a>
                       </li>
                       <li>
-                        <a href="https://employmenthero.com/mosaic-mc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <a href="https://employmenthero.com/mosaic-mc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Career
                         </a>
                       </li>
                       <li>
-                        <Link to="/donate" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/donate" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           Donate
                         </Link>
                       </li>
@@ -162,7 +162,7 @@ const Footer = () => {
                 {!isEmergencyMode && (
                   <Link
                     to="/contact-us"
-                    className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white dark:text-ocean shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-sky dark:bg-sky dark:hover:bg-sky/90 dark:focus:ring-sky"
+                    className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-sky hover:text-ocean focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-ocean dark:bg-ocean dark:hover:bg-sky dark:hover:text-ocean dark:focus:ring-ocean"
                   >
                     <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>
                     Contact
@@ -175,7 +175,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Refer a client"
-                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white dark:text-ocean shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-sky dark:bg-sky dark:hover:bg-sky/90 dark:focus:ring-sky"
+                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-sky hover:text-ocean focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-ocean dark:bg-ocean dark:hover:bg-sky dark:hover:text-ocean dark:focus:ring-ocean"
                     >
                       <UserPlus className="h-3.5 w-3.5" aria-hidden="true" />
                       Refer
@@ -185,7 +185,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Leave a Google Review"
-                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-transparent px-3 py-2 text-sm font-semibold text-ocean shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-ocean/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-sky dark:text-sky dark:hover:bg-white/10"
+                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-sky hover:text-ocean focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-ocean dark:bg-ocean dark:hover:bg-sky dark:hover:text-ocean"
                     >
                       <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                         <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
@@ -197,7 +197,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Share Your Feedback"
-                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-transparent px-3 py-2 text-sm font-semibold text-ocean shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-ocean/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-sky dark:text-sky dark:hover:bg-white/10"
+                      className="group relative overflow-hidden inline-flex items-center gap-2 rounded-2xl border border-ocean bg-ocean px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-98 hover:bg-sky hover:text-ocean focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 dark:border-ocean dark:bg-ocean dark:hover:bg-sky dark:hover:text-ocean"
                     >
                       <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/><path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244 .637c-.079 .186 .074 .394 .273 .362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711 .074c-.387 .196 -1.24 .57 -2.634 .893a11 11 0 0 0 .398 -2"/></svg>
                       Share Your Feedback

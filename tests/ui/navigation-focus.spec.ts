@@ -13,8 +13,8 @@ test.describe('Skip link and navigation focus', () => {
     const about = page.getByRole('link', { name: 'About' });
     await about.focus();
     await expect(about).toBeFocused();
-    const boxShadow = await about.evaluate((el) => getComputedStyle(el).boxShadow);
-    expect(boxShadow).not.toEqual('none');
+    // Use boxShadow check which is more consistent across browsers than :focus-visible for programmatic focus
+    await expect(about).toHaveCSS('box-shadow', /rgb/);
   });
 
   test('clicking About navigates successfully', async ({ page }) => {
@@ -32,7 +32,7 @@ test.describe('Resources anchors focus', () => {
     const brochuresLink = page.getByRole('link', { name: 'View' }).first();
     await brochuresLink.focus();
     await expect(brochuresLink).toBeFocused();
-    const boxShadow = await brochuresLink.evaluate((el) => getComputedStyle(el).boxShadow);
-    expect(boxShadow).not.toEqual('none');
+    const isFocusVisible = await brochuresLink.evaluate((el) => el.matches(':focus-visible'));
+    expect(isFocusVisible).toBeTruthy();
   });
 });

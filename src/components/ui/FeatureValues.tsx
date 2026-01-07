@@ -39,7 +39,7 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-sky animate-pulse" aria-hidden="true"></span>
-            <span id="values-title">Values</span>
+            <span id="values-title">Our Values</span>
           </div>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
             What we stand for

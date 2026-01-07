@@ -64,23 +64,20 @@ const SimpleCTA = () => {
             
             <Link
               to="/contact-us"
-              className="group relative inline-flex items-center justify-center rounded-2xl backdrop-blur-md bg-white/15 border-2 border-border text-foreground px-10 py-5 text-xl font-bold shadow-2xl hover:bg-sand/20 hover:text-foreground transition-all duration-300 hover:scale-105 active:scale-98 overflow-hidden focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+              className="group relative inline-flex items-center justify-center rounded-2xl bg-background border-2 border-border text-foreground px-10 py-5 text-xl font-bold shadow-2xl hover:bg-card transition-all duration-300 hover:scale-105 active:scale-98 overflow-hidden focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
             >
               <Phone className="mr-3 h-6 w-6 relative z-10" />
               <span className="relative z-10">{t('cta.secondaryButtonLabel')}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </Link>
           </div>
           
           <div className="backdrop-blur-md bg-sand/20 rounded-2xl p-8 border border-sand/30 shadow-xl max-w-3xl mx-auto">
             <p className="text-foreground/90 dark:text-white/90 text-base leading-relaxed">
               <span className="text-sand font-bold">{t('cta.footnote.label')}</span> {t('cta.footnote.textPrefix')}{" "}
-              <Link 
-                to="/contact-us" 
-                className="text-white hover:text-sand font-bold underline decoration-2 underline-offset-4 hover:decoration-sand transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-              >
+              <span className="font-bold text-foreground">
                 {t('cta.footnote.contactLink')}
-              </Link>{" "}
+              </span>{" "}
               {t('cta.footnote.textSuffix')}
             </p>
           </div>

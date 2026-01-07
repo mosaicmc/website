@@ -10,7 +10,7 @@ const routes = [
 
 for (const route of routes) {
   test(`RelatedServices shows ≤3 items on ${route}`, async ({ page }) => {
-    await page.goto(`http://localhost:5173${route}`);
+    await page.goto(route);
     await expect(page.locator('text=You May Also Be Interested In')).toBeVisible();
     const cards = page.locator('a:has-text("Learn more")');
     const count = await cards.count();
@@ -19,7 +19,7 @@ for (const route of routes) {
 }
 
 test('QuickLinks section is removed globally', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   const quickHeading = page.locator('text=You may also be interested in…');
   await expect(quickHeading).toHaveCount(0);
 });
@@ -37,7 +37,7 @@ test('Footer volunteer link points to Tally form', async ({ page }) => {
 });
 
 test('Volunteer spotlight shows attribution link', async ({ page }) => {
-  await page.goto('http://localhost:5173/get-involved');
+  await page.goto('/get-involved');
   const attribution = page.locator('a:has-text("Source: Instagram")');
   await expect(attribution).toBeVisible();
   await expect(attribution).toHaveAttribute('href', /instagram\.com/);

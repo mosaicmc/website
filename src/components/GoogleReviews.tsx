@@ -66,7 +66,7 @@ const GoogleReviews = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
+      className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
       aria-label="Google Reviews"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
@@ -113,7 +113,7 @@ const GoogleReviews = () => {
           {!loading && (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {reviews.map((item) => (
-                <Card key={item.id} className="group relative hover:scale-[1.02] focus-within:ring-2 focus-within:ring-primary" tabIndex={0}>
+                <Card key={item.id} className="group relative bg-card dark:bg-slate-900 border border-border hover:scale-[1.02] focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background" tabIndex={0}>
                   <CardHeader className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Avatar className="size-10">
@@ -136,12 +136,12 @@ const GoogleReviews = () => {
                     <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
                   </CardContent>
                   <CardFooter>
-                    <span className="text-xs text-gray-500 dark:text-white/60">Source: Google Reviews</span>
+                    <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
                     <a
                       href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
                       aria-label="View review on Google"
                     >
                       View on Google
@@ -161,7 +161,7 @@ const GoogleReviews = () => {
             href={placeUrl || GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border bg-card px-5 py-3 text-sm shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+            className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background bg-ocean text-white hover:bg-ocean/90"
             aria-label="Read all reviews on Google"
           >
             Read all reviews on Google

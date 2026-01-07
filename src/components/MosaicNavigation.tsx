@@ -116,6 +116,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
             ref={ref}
             className={cn(
               "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
+              "text-foreground",
               // Improved hover/focus visibility in dark mode
               "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
               "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
@@ -187,22 +188,25 @@ export default function MosaicNavigation() {
       if (p < 0) p = 0;
       if (p > 1) p = 1;
       const blur = 2 + 14 * p;
-      const alpha = 0.15 + 0.35 * p;
+      const alphaLight = 0.15 + 0.35 * p;
+      const alphaDark = 0.7 + 0.2 * p;
       const baseLight = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-light-base').trim() || '248,250,252';
       const baseDark = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-dark-base').trim() || '15,23,42';
-      const bgLight = `rgba(${baseLight},${alpha})`;
-      const bgDark = `rgba(${baseDark},${alpha})`;
+      // bgLight/bgDark construction removed - handled in CSS
+
       el.style.opacity = "1";
-      const bg = theme === "dark" ? bgDark : bgLight;
-      el.style.setProperty("--nav-bg", bg);
+      
+      // Update CSS variables for opacity/blur logic
+      // Theme switching is now handled via CSS classes using these variables
+      el.style.setProperty("--nav-opacity-light", alphaLight.toFixed(3));
+      el.style.setProperty("--nav-opacity-dark", alphaDark.toFixed(3));
       el.style.setProperty("--nav-blur", `${blur}px`);
+      
       const shadowAlpha = 0.05 + 0.15 * p;
       el.style.setProperty("--nav-shadow", `rgba(0,0,0,${shadowAlpha})`);
+      
       const borderAlpha = 0.06 + 0.10 * p;
-      const border = theme === "dark"
-        ? `rgba(148,163,184,${borderAlpha})`
-        : `rgba(203,213,225,${borderAlpha})`; // slate-300
-      el.style.setProperty("--nav-border", border);
+      el.style.setProperty("--nav-border-opacity", borderAlpha.toFixed(3));
     };
     let ticking = false;
     const onScroll = () => {
@@ -216,6 +220,9 @@ export default function MosaicNavigation() {
     };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
+    
+    // Observer no longer needed for theme switching as it's handled by CSS
+    
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
@@ -983,7 +990,7 @@ export default function MosaicNavigation() {
                     variant="cta"
                     size="default" 
                     asChild
-                    className="bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                    className="bg-sun bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   >
                     <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
                   </Button>

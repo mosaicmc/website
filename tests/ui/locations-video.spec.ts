@@ -9,7 +9,7 @@ const locations = [
 
 test.describe('Locations videos', () => {
   test('renders videos with poster and plays on hover', async ({ page }) => {
-    await page.goto('http://localhost:5173/contact-us');
+    await page.goto('/contact-us');
     const cards = page.locator('section .grid > div:has(video)');
     await expect(cards).toHaveCount(locations.length);
 

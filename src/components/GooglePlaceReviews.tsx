@@ -144,7 +144,7 @@ const GooglePlaceReviews = () => {
             {reviews.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                className="group relative backdrop-blur-xl bg-white/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-sm font-semibold text-gray-800 dark:text-white">{item.author_name}</div>

@@ -60,7 +60,7 @@ const LocationsPage = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources page.
                 </p>
-                <Button asChild className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                <Button asChild className="bg-ocean bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
                   <a href="/resources" aria-label="View Emergency Services">View Emergency Services</a>
                 </Button>
               </CardContent>
@@ -76,7 +76,7 @@ const LocationsPage = () => {
                 <a
                   href="tel:1800813205"
                   aria-label="Call 1800 813 205"
-                  className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                  className="bg-ocean hover:bg-ocean/90 text-white h-9 px-4 py-2 rounded-md text-sm font-medium w-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
                 >
                   <Phone className="h-5 w-5" />
                   Call 1800 813 205
@@ -185,13 +185,13 @@ const LocationsPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Get directions to ${location.name}`}
-                        className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                        className="flex-1 bg-ocean text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                       >
                         <Navigation className="h-4 w-4 mr-2" />
                         Get Directions
                       </a>
                     ) : (
-                      <button className="flex-1 border border-border text-foreground hover:bg-sand/50 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
+                      <button className="flex-1 bg-ocean text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                         <Navigation className="h-4 w-4 mr-2" />
                         Get Directions
                       </button>
@@ -221,7 +221,7 @@ const LocationsPage = () => {
               </a>
               <a
                 href={`mailto:${SITE_CONTACT_EMAIL}`}
-                className="border-2 border-border text-foreground hover:bg-sand/50 px-8 py-4 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                className="bg-slate-900 dark:bg-slate-700 text-white border-2 border-slate-900 dark:border-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-slate-800 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
               >
                 Email Us
               </a>

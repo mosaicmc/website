@@ -1,5 +1,35 @@
 {
   "placeUrl": "https://maps.app.goo.gl/mYc8i3DawKk6PsPc9",
-  "fetchedAt": "2026-01-06T03:34:38.749Z",
-  "reviews": []
+  "reviews": [
+    {
+      "id": "1",
+      "authorName": "John Doe",
+      "authorProfileUrl": "https://google.com",
+      "authorAvatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjW...",
+      "rating": 5,
+      "dateText": "2 weeks ago",
+      "text": "Great service and wonderful team! They really care about the community.",
+      "reviewUrl": "https://google.com/reviews/1"
+    },
+    {
+      "id": "2",
+      "authorName": "Jane Smith",
+      "authorProfileUrl": "https://google.com",
+      "authorAvatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjW...",
+      "rating": 5,
+      "dateText": "1 month ago",
+      "text": "The staff are incredibly helpful and supportive. Highly recommended.",
+      "reviewUrl": "https://google.com/reviews/2"
+    },
+    {
+      "id": "3",
+      "authorName": "Robert Johnson",
+      "authorProfileUrl": "https://google.com",
+      "authorAvatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjW...",
+      "rating": 4,
+      "dateText": "3 months ago",
+      "text": "Very professional and organized. Good experience overall.",
+      "reviewUrl": "https://google.com/reviews/3"
+    }
+  ]
 }

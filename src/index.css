@@ -122,14 +122,25 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    /* Dark mode brand heading color */
-    --brand-heading: var(--brand-sky);
-  }
-  
-  /* Dark mode body gradient for e2e tests */
+    /* Dark mode navigation glass overrides */
+  /* --nav-bg removed in favor of scoped opacity variables */
+  --nav-shadow: rgba(0, 0, 0, 0.4);
+
+  /* Dark mode brand heading color */
+  --brand-heading: var(--brand-sky);
+}
+
+/* Dark mode body gradient for e2e tests */
   .dark body {
     background-image: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--card)));
     background-attachment: fixed;
+  }
+
+  a {
+    color: hsl(var(--link));
+  }
+  a:hover {
+    color: hsl(var(--link-hover));
   }
 }
 
@@ -144,11 +155,15 @@
 
 @layer components {
   .nav-glass {
-    background-color: var(--nav-bg);
+    background-color: rgba(var(--nav-bg-light-base), var(--nav-opacity-light, 0.2));
     backdrop-filter: blur(var(--nav-blur));
     -webkit-backdrop-filter: blur(var(--nav-blur));
     box-shadow: 0 8px 24px var(--nav-shadow);
-    border-bottom: 1px solid var(--nav-border);
+    border-bottom: 1px solid rgba(203, 213, 225, var(--nav-border-opacity, 0.2));
+  }
+  .dark .nav-glass {
+    background-color: rgba(var(--nav-bg-dark-base), var(--nav-opacity-dark, 0.7));
+    border-bottom: 1px solid rgba(148, 163, 184, var(--nav-border-opacity, 0.1));
   }
   .glass-surface {
     background-color: var(--glass-bg, var(--nav-bg));

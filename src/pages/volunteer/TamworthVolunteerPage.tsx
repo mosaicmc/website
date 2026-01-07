@@ -3,6 +3,9 @@ import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
+import * as Dialog from '@radix-ui/react-dialog';
+import { ChevronRight, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { AlertTriangle } from 'lucide-react';
 
 export default function TamworthVolunteerPage() {
@@ -37,7 +40,7 @@ export default function TamworthVolunteerPage() {
       <Section overlay>
         <div className="max-w-6xl mx-auto">
           <div className="mb-6 flex items-center justify-center">
-            <GlassCard padding="md" className="rounded-2xl w-full max-w-6xl">
+            <GlassCard padding="md" className="rounded-2xl w-full max-w-6xl overflow-visible">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-sand text-foreground flex items-center justify-center">
                   <AlertTriangle className="h-6 w-6" />
@@ -45,6 +48,42 @@ export default function TamworthVolunteerPage() {
                 <h2 className="text-lg font-semibold text-foreground">No Opportunities Currently Available</h2>
               </div>
               <p className="mt-2 text-muted-foreground">Sorry, we currently have no volunteering opportunities available in this location.</p>
+              <div className="mt-4">
+                <Dialog.Root>
+                  <Dialog.Trigger asChild>
+                    <button
+                      aria-label="View details"
+                      aria-haspopup="dialog"
+                      title="View details"
+                      type="button"
+                      className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/70 dark:bg-card/30 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background z-30 relative"
+                    >
+                      <span>Why no openings?</span>
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </Dialog.Trigger>
+                  <Dialog.Portal>
+                    <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
+                    <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.98, y: 8 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.98, y: -8 }}
+                        transition={{ type: 'spring', stiffness: 180, damping: 20 }}
+                        className="relative w-full max-w-lg rounded-3xl border border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl"
+                      >
+                        <Dialog.Title className="text-lg font-semibold text-foreground">Recruitment Paused</Dialog.Title>
+                        <Dialog.Description className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          Local volunteer recruitment is currently paused due to program capacity. Follow our socials or check back later for updates.
+                        </Dialog.Description>
+                        <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
+                          <X className="h-4 w-4 text-muted-foreground" />
+                        </Dialog.Close>
+                      </motion.div>
+                    </Dialog.Content>
+                  </Dialog.Portal>
+                </Dialog.Root>
+              </div>
             </GlassCard>
             
           </div>

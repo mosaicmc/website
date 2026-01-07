@@ -65,7 +65,7 @@ export default function CentralCoastVolunteerPage() {
 
               <div className="mt-6">
                 <Tabs.Content value="aged-care">
-                  <GlassCard padding="md" className="rounded-2xl">
+                  <GlassCard padding="md" className="rounded-2xl overflow-visible">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-care text-white flex items-center justify-center">
                         <img
@@ -87,7 +87,7 @@ export default function CentralCoastVolunteerPage() {
                           <div className="flex items-start justify-between">
                             <div className="font-semibold text-foreground">{r.title}</div>
                             <Dialog.Root>
-                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px]">
+                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative">
                                 <ChevronRight className="h-4 w-4" />
                               </Dialog.Trigger>
                               <Dialog.Portal>

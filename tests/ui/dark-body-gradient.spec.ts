@@ -9,15 +9,18 @@ const sizes = [
 
 for (const p of paths) {
   test.describe(`Dark body gradient on ${p}`, () => {
+    test.beforeEach(async ({ page }) => {
+      await page.emulateMedia({ colorScheme: 'dark' });
+      await page.addInitScript(() => {
+        localStorage.setItem('preferredTheme', 'dark');
+      });
+    });
+
     for (const s of sizes) {
       test(`renders gradient at ${s.name}`, async ({ page }) => {
-        await page.addInitScript(() => {
-          localStorage.setItem('preferredTheme', 'dark');
-        });
         await page.setViewportSize({ width: s.width, height: s.height });
         await page.goto(p);
-        const hasDark = await page.evaluate(() => document.documentElement.classList.contains('dark'));
-        expect(hasDark).toBeTruthy();
+        await expect(page.locator('html')).toHaveClass(/dark/);
         const bgImage = await page.evaluate(() => getComputedStyle(document.body).backgroundImage);
         const attach = await page.evaluate(() => getComputedStyle(document.body).backgroundAttachment);
         expect(bgImage.includes('linear-gradient')).toBeTruthy();

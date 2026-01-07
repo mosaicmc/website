@@ -127,7 +127,7 @@ const Header = () => {
                             className={`block px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 ${
                               location.pathname === dropdownItem.href
                                 ? 'text-ocean dark:text-sky bg-sand/80 dark:bg-slate-800/80 shadow-md border border-ocean/20 dark:border-sky/20'
-                                : 'text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20'
+                                : 'text-foreground hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20'
                             }`}
                             onClick={handleLinkClick}
                           >
@@ -155,7 +155,7 @@ const Header = () => {
                     className={`relative inline-flex items-center h-9 px-4 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
                       isActivePath(item.href)
                         ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
-                        : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
+                        : 'text-foreground hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
                     }`}
                     onClick={handleLinkClick}
                   >
