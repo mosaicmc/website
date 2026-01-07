@@ -40,6 +40,9 @@ const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCo
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
 
+// Test pages
+const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
+
 function App() {
   return (
     <ThemeProvider>

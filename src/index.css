@@ -125,6 +125,12 @@
     /* Dark mode brand heading color */
     --brand-heading: var(--brand-sky);
   }
+  
+  /* Dark mode body gradient for e2e tests */
+  .dark body {
+    background-image: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--card)));
+    background-attachment: fixed;
+  }
 }
 
 @layer base {

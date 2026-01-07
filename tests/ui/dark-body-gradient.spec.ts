@@ -11,6 +11,9 @@ for (const p of paths) {
   test.describe(`Dark body gradient on ${p}`, () => {
     for (const s of sizes) {
       test(`renders gradient at ${s.name}`, async ({ page }) => {
+        await page.addInitScript(() => {
+          localStorage.setItem('preferredTheme', 'dark');
+        });
         await page.setViewportSize({ width: s.width, height: s.height });
         await page.goto(p);
         const hasDark = await page.evaluate(() => document.documentElement.classList.contains('dark'));

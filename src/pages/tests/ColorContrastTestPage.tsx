@@ -55,7 +55,7 @@ export default function ColorContrastTestPage() {
         </div>
 
         <div className="mt-8 text-sm text-muted-foreground">
-          <p>Use the button above to toggle between original black and #11182e.</p>
+          <p>Use the button above to toggle between original background and card surface.</p>
         </div>
       </section>
     </div>

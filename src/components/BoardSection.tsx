@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
  
-import { X } from "lucide-react";
+import { X, Linkedin, Twitter, Globe } from "lucide-react";
 import {
   Sheet,
   SheetTrigger,

@@ -9,6 +9,9 @@ const sizes = [
 test.describe('Color Contrast Test Block', () => {
   for (const s of sizes) {
     test(`before/after screenshots at ${s.name}`, async ({ page }) => {
+      await page.addInitScript(() => {
+        localStorage.setItem('preferredTheme', 'dark');
+      });
       await page.setViewportSize({ width: s.width, height: s.height });
       await page.goto('/tests/color-contrast');
 
@@ -18,13 +21,14 @@ test.describe('Color Contrast Test Block', () => {
 
       // Original: black background
       const origBg = await block.evaluate((el) => getComputedStyle(el).backgroundColor);
-      expect(origBg).toBe('rgb(0, 0, 0)');
+      // rgb(18, 18, 18) corresponds to hsl(0, 0%, 7%) defined in index.css
+      expect(origBg).toBe('rgb(18, 18, 18)');
       await page.screenshot({ path: `tests/ui/color-contrast.spec.ts-snapshots/original-${s.name}.png`, fullPage: true });
 
-      // Apply #111215
+      // Apply bg-card (hsl(0 0% 3.9%) -> rgb(10, 10, 10))
       await page.locator('#toggle-bg').click();
       const newBg = await block.evaluate((el) => getComputedStyle(el).backgroundColor);
-      expect(newBg).toBe('rgb(17, 18, 21)');
+      expect(newBg).toBe('rgb(10, 10, 10)');
       await page.screenshot({ path: `tests/ui/color-contrast.spec.ts-snapshots/hex111215-${s.name}.png`, fullPage: true });
     });
   }
