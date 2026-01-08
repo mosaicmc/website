@@ -8,6 +8,12 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL || 'http://127.0.0.1:4173',
   },
+  webServer: {
+    command: 'npm run preview',
+    url: 'http://127.0.0.1:4173',
+    timeout: 120_000,
+    reuseExistingServer: true,
+  },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },

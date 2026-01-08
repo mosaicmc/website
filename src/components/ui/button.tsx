@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-ocean text-white hover:text-white hover:bg-ocean/90 hover:shadow-lg dark:bg-sky dark:text-ocean dark:hover:text-ocean dark:hover:bg-sky/90",
-        cta: "relative overflow-hidden cta-shine bg-gradient-to-r from-ocean to-sky text-white hover:text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus-visible:ring-ocean dark:from-sky dark:to-ocean dark:text-white dark:hover:text-white",
+        cta: "relative overflow-hidden cta-shine bg-ocean bg-gradient-to-r from-ocean to-sky text-white hover:text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus-visible:ring-ocean dark:bg-ocean dark:from-sky dark:to-ocean dark:text-white dark:hover:text-white",
         sky: "bg-sky bg-gradient-to-r from-sky to-sky/90 text-ocean hover:from-sky/90 hover:to-sky shadow-md hover:shadow-lg focus-visible:ring-sky",
         earth: "bg-earth bg-gradient-to-r from-earth to-earth/90 text-gray-900 hover:from-earth/90 hover:to-earth shadow-md hover:shadow-lg focus-visible:ring-earth",
         care: "bg-care bg-gradient-to-r from-care to-care/90 text-gray-900 hover:from-care/90 hover:to-care shadow-md hover:shadow-lg focus-visible:ring-care",

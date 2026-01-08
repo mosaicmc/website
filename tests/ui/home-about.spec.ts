@@ -9,6 +9,7 @@ async function ensureVisible(page, locator) {
 
 test.describe('Home page – Google Reviews section', () => {
   test.beforeEach(async ({ page }) => {
+    await page.addStyleTag({ content: '* { transition: none !important; animation: none !important; }' });
     // Mock the network request for reviews
     await page.route('**/reviews.json', async route => {
       const json = {
@@ -126,6 +127,7 @@ test.describe('Home page – Google Reviews section', () => {
 
 test.describe('About page – Values and Leadership', () => {
   test.beforeEach(async ({ page }) => {
+    await page.addStyleTag({ content: '* { transition: none !important; animation: none !important; }' });
     await page.goto('/about');
   });
 

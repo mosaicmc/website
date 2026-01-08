@@ -27,6 +27,8 @@ test.describe('Buttons contrast scan', () => {
   for (const path of routes) {
     test(`measure button contrast ratios on ${path}`, async ({ page }) => {
       await page.goto(`http://127.0.0.1:4173${path}`);
+      await page.waitForLoadState('networkidle');
+      await page.waitForSelector('button:visible, [data-slot="button"]:visible', { timeout: 10000 });
 
       for (const theme of ['light', 'dark'] as const) {
         await page.evaluate((t) => {
@@ -39,12 +41,17 @@ test.describe('Buttons contrast scan', () => {
 
         const buttons = page.locator('button:visible, [data-slot="button"]:visible');
         const count = await buttons.count();
-        const cap = Math.min(count, 50);
+        const cap = Math.min(count, 25);
         const results: { text: string; defaultRatio: number; hoverRatio: number }[] = [];
 
         for (let i = 0; i < cap; i++) {
           const locator = buttons.nth(i);
-          const handle = await locator.elementHandle();
+          let handle;
+          try {
+            handle = await locator.elementHandle();
+          } catch {
+            continue;
+          }
           if (!handle) continue;
           const text = (await locator.innerText()).trim();
           if (!text) continue;

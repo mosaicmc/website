@@ -1176,7 +1176,7 @@ export default function MosaicNavigation() {
                           <Button 
                             size="default" 
                             asChild 
-                            className="w-full bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                            className="w-full bg-ocean hover:bg-ocean/90 text-white font-semibold h-9 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                           >
                             <Link to="/donate" {...prefetchOnHover('/donate')} onClick={() => setIsOpen(false)}>
                               Donate to Support Our Community

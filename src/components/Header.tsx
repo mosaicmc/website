@@ -156,7 +156,7 @@ const Header = () => {
                       isActivePath(item.href)
                         ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
                         : 'text-foreground hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
-                    }`}
+                    } focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
                     onClick={handleLinkClick}
                   >
                     {item.name}
@@ -201,14 +201,13 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             {/* Donate CTA remains */}
-            <Link
-              to="/donate"
-              className="relative inline-flex items-center h-9 px-4 bg-gradient-to-r from-sun to-earth text-white rounded-md font-semibold text-sm transition-all duration-300 hover:from-sun/90 hover:to-earth/90 hover:shadow-xl hover:shadow-sun/30 hover:scale-105 active:scale-95 backdrop-blur-sm border border-sun/20 overflow-hidden group"
-              onClick={handleLinkClick}
-            >
-              <span className="relative z-10">Donate</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </Link>
+                  <Link
+                    to="/donate"
+                    className="relative inline-flex items-center h-9 px-4 bg-ocean text-white rounded-md font-semibold text-sm transition-all duration-300 hover:bg-ocean/90 hover:shadow-xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                    onClick={handleLinkClick}
+                  >
+                    <span className="relative z-10">Donate</span>
+                  </Link>
           </div>
 
           {/* Mobile quick actions + menu */}
@@ -324,7 +323,7 @@ const Header = () => {
                   </a>
                   <Link
                     to="/donate"
-                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     onClick={handleLinkClick}
                   >
                     Donate
@@ -332,7 +331,7 @@ const Header = () => {
                 </div>
                 <Link
                   to="/donate"
-                  className="block bg-gradient-to-r from-sun to-sun/90 text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:from-sun/90 hover:to-sun transition-all duration-300"
+                  className="block bg-ocean text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:bg-ocean/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   onClick={handleLinkClick}
                 >
                   Donate
