@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import BackLink from "../../components/ui/BackLink";
-import { ShieldCheck, BadgeCheck, Scale, Layers, ClipboardList, ChevronRight } from "lucide-react";
+import { ShieldCheck, BadgeCheck, Scale, Layers, ClipboardList, ChevronRight, Lock, MessageCircle } from "lucide-react";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import Section from "../../components/ui/Section";
 
@@ -44,6 +44,18 @@ export default function KnowledgeBasePage() {
       href: "/policies/quality-management",
       desc: "Continuous improvement and compliance practices.",
       icon: ClipboardList,
+    },
+    {
+      title: "Privacy Policy",
+      href: "/policies/privacy",
+      desc: "How we collect, use, and protect your personal information.",
+      icon: Lock,
+    },
+    {
+      title: "Feedback & Complaints",
+      href: "/policies/feedback-complaints",
+      desc: "How to share your feedback or make a formal complaint.",
+      icon: MessageCircle,
     },
   ];
 

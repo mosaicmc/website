@@ -161,7 +161,7 @@ const GoogleReviews = () => {
             href={placeUrl || GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background bg-ocean text-white hover:bg-ocean/90"
+            className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background bg-ocean text-white hover:bg-ocean/90 hover:text-white"
             aria-label="Read all reviews on Google"
           >
             Read all reviews on Google

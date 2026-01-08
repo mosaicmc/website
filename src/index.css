@@ -84,6 +84,39 @@
     --nav-shadow: rgba(0, 0, 0, 0.08);
     --nav-border: rgba(203, 213, 225, 0.2);
     --nav-blur: 8px;
+
+    /* Hero glass card tokens (responsive, theme-adaptive) */
+    --hero-card-blur: 12px;
+    --hero-card-pad: 1rem;
+    --hero-card-min-w: 200px;
+    --hero-card-max-w: 280px;
+    --hero-card-min-h: 96px;
+    --hero-icon-size: 3rem;
+    --hero-card-border-opacity: 0.2;
+    --hero-top-right-offset-x: 1.5rem;
+    --hero-top-right-offset-y: 1rem;
+    --hero-bottom-left-offset-x: 1.5rem;
+    --hero-bottom-left-offset-y: 1rem;
+    --hero-top-right-translate-x: 22%;
+    --hero-top-right-translate-y: -22%;
+    --hero-bottom-left-translate-x: -22%;
+    --hero-bottom-left-translate-y: 22%;
+    /* Hover-out target translations */
+    --hero-top-right-hover-translate-x: 30%;
+    --hero-top-right-hover-translate-y: -30%;
+    --hero-bottom-left-hover-translate-x: -30%;
+    --hero-bottom-left-hover-translate-y: 30%;
+    /* Current translations (overridden on hover) */
+    --hero-top-right-current-x: var(--hero-top-right-translate-x);
+    --hero-top-right-current-y: var(--hero-top-right-translate-y);
+    --hero-bottom-left-current-x: var(--hero-bottom-left-translate-x);
+    --hero-bottom-left-current-y: var(--hero-bottom-left-translate-y);
+    /* Responsive sizing factor */
+    --hero-card-size-factor: 0.75;
+    /* Shine color tokens for glass highlights */
+    --glass-shine-rgb: 255, 255, 255;
+    --glass-shine-opacity: 0.35;
+    --cta-shine-opacity: 0.18;
   }
 
   .dark {
@@ -128,6 +161,10 @@
 
   /* Dark mode brand heading color */
   --brand-heading: var(--brand-sky);
+  /* Dark mode adjustments for hero glass */
+  --hero-card-border-opacity: 0.12;
+    --glass-shine-opacity: 0.25;
+    --cta-shine-opacity: 0.20;
 }
 
 /* Dark mode body gradient for e2e tests */
@@ -171,6 +208,149 @@
     -webkit-backdrop-filter: blur(var(--glass-blur, var(--nav-blur)));
     box-shadow: 0 8px 24px var(--glass-shadow, var(--nav-shadow));
     border: 1px solid var(--glass-border, var(--nav-border));
+  }
+  .dark .glass-surface {
+    background-color: rgba(var(--nav-bg-dark-base), var(--glass-opacity-dark, var(--nav-opacity-dark, 0.65)));
+    backdrop-filter: blur(var(--glass-blur, var(--nav-blur)));
+    -webkit-backdrop-filter: blur(var(--glass-blur, var(--nav-blur)));
+    box-shadow: 0 8px 24px var(--glass-shadow, var(--nav-shadow));
+    border: 1px solid rgba(148, 163, 184, var(--nav-border-opacity, 0.12));
+  }
+
+  /* Reusable hero glass card (no hard-coded colors or sizes) */
+  .hero-card {
+    position: relative;
+    background-color: rgba(var(--nav-bg-light-base), var(--glass-opacity-light, 0.25));
+    backdrop-filter: blur(var(--hero-card-blur));
+    -webkit-backdrop-filter: blur(var(--hero-card-blur));
+    border: 1px solid rgba(203, 213, 225, var(--hero-card-border-opacity));
+    box-shadow: 0 8px 24px var(--nav-shadow);
+    border-radius: var(--radius);
+    padding: calc(var(--hero-card-pad) * var(--hero-card-size-factor));
+    min-width: clamp(
+      calc(var(--hero-card-min-w) * var(--hero-card-size-factor)),
+      calc(28vw * var(--hero-card-size-factor)),
+      calc(var(--hero-card-max-w) * var(--hero-card-size-factor))
+    );
+    min-height: calc(var(--hero-card-min-h) * var(--hero-card-size-factor));
+    transition: all 300ms ease;
+  }
+  .dark .hero-card {
+    background-color: rgba(var(--nav-bg-dark-base), var(--glass-opacity-dark, 0.7));
+    border-color: rgba(148, 163, 184, var(--hero-card-border-opacity));
+    box-shadow: 0 8px 24px var(--nav-shadow);
+  }
+  /* Position helpers driven by CSS variables */
+  .hero-card-pos-top-right {
+    position: absolute;
+    top: var(--hero-top-right-offset-y);
+    right: var(--hero-top-right-offset-x);
+    transform: translate(var(--hero-top-right-current-x), var(--hero-top-right-current-y));
+    will-change: transform;
+    transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .hero-card-pos-bottom-left {
+    position: absolute;
+    bottom: var(--hero-bottom-left-offset-y);
+    left: var(--hero-bottom-left-offset-x);
+    transform: translate(var(--hero-bottom-left-current-x), var(--hero-bottom-left-current-y));
+    will-change: transform;
+    transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  /* Float OUT on hover by increasing outward translate */
+  .hero-card-pos-top-right:hover {
+    --hero-top-right-current-x: var(--hero-top-right-hover-translate-x);
+    --hero-top-right-current-y: var(--hero-top-right-hover-translate-y);
+  }
+  .hero-card-pos-bottom-left:hover {
+    --hero-bottom-left-current-x: var(--hero-bottom-left-hover-translate-x);
+    --hero-bottom-left-current-y: var(--hero-bottom-left-hover-translate-y);
+  }
+  .hero-icon {
+    width: calc(var(--hero-icon-size) * var(--hero-card-size-factor));
+    height: calc(var(--hero-icon-size) * var(--hero-card-size-factor));
+  }
+  .hero-card-compact {
+    min-height: calc(var(--hero-card-min-h) * var(--hero-card-size-factor) * 0.75);
+  }
+  /* Subtle, theme-safe shine overlay; animated on hover */
+  .shine-overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(var(--glass-shine-rgb), var(--glass-shine-opacity)),
+      rgba(255, 255, 255, 0)
+    );
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 300ms ease;
+  }
+  /* No shimmer on cards per requirement */
+  /* CTA shine via pseudo-element */
+  .cta-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Ensure content sits above shimmer background */
+  .cta-shine > * {
+    position: relative;
+    z-index: 1;
+  }
+  .cta-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 60%;
+    background-image: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, var(--cta-shine-opacity)),
+      rgba(255, 255, 255, var(--cta-shine-opacity)),
+      rgba(255, 255, 255, 0)
+    );
+    transform: translateX(-100%) skewX(12deg);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+  .cta-shine:hover::before,
+  .cta-shine:focus-visible::before,
+  .cta-shine:active::before {
+    opacity: 1;
+    animation: cta-shimmer 1.6s ease-out infinite;
+  }
+
+  @keyframes cta-shimmer {
+    0% {
+      transform: translateX(-100%) skewX(12deg);
+    }
+    100% {
+      transform: translateX(100%) skewX(12deg);
+    }
+  }
+
+  /* Accessibility: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cta-shine:hover::before,
+    .cta-shine:focus-visible::before,
+    .cta-shine:active::before {
+      animation: none;
+      opacity: 0.6;
+    }
+  }
+
+  /* Fallback for older browsers */
+  @supports not (background-image: linear-gradient(115deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, var(--cta-shine-opacity)))) {
+    .cta-shine::before {
+      background-image: none;
+      background-color: rgba(255, 255, 255, var(--cta-shine-opacity));
+      transform: none;
+    }
   }
 }
 @layer base {

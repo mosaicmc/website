@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
 
 const SimpleCTA = () => {
   const { t } = useTranslation();
@@ -53,23 +54,19 @@ const SimpleCTA = () => {
           
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center section-break">
-            <Link
-              to="/services"
-              className="group relative inline-flex items-center justify-center rounded-2xl bg-ocean text-white px-10 py-5 text-xl font-bold shadow-2xl hover:bg-ocean/90 hover:shadow-ocean/30 transition-all duration-300 hover:scale-105 active:scale-98 border-2 border-ocean/20 overflow-hidden focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-            >
-              <span className="relative z-10">{t('cta.primaryButtonLabel')}</span>
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform relative z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </Link>
+            <Button asChild size="lg" variant="default" className="h-auto px-10 py-5 text-xl font-bold rounded-2xl shadow-2xl hover:scale-105 hover:shadow-ocean/30 border-2 border-ocean/20">
+              <Link to="/services">
+                <span className="relative z-10">{t('cta.primaryButtonLabel')}</span>
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform relative z-10" />
+              </Link>
+            </Button>
             
-            <Link
-              to="/contact-us"
-              className="group relative inline-flex items-center justify-center rounded-2xl bg-background border-2 border-border text-foreground px-10 py-5 text-xl font-bold shadow-2xl hover:bg-card transition-all duration-300 hover:scale-105 active:scale-98 overflow-hidden focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-            >
-              <Phone className="mr-3 h-6 w-6 relative z-10" />
-              <span className="relative z-10">{t('cta.secondaryButtonLabel')}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </Link>
+            <Button asChild size="lg" variant="outline" className="h-auto px-10 py-5 text-xl font-bold rounded-2xl shadow-2xl hover:scale-105 bg-background border-2 border-border text-foreground hover:bg-card">
+              <Link to="/contact-us">
+                <Phone className="mr-3 h-6 w-6 relative z-10" />
+                <span className="relative z-10">{t('cta.secondaryButtonLabel')}</span>
+              </Link>
+            </Button>
           </div>
           
           <div className="backdrop-blur-md bg-sand/20 rounded-2xl p-8 border border-sand/30 shadow-xl max-w-3xl mx-auto">

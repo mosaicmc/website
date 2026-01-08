@@ -3,7 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
  
-import { X, Linkedin, Twitter, Globe } from "lucide-react";
+import { X, Twitter, Globe } from "lucide-react";
+import BrandLinkedIn from "@/components/ui/icons/BrandLinkedIn";
 import {
   Sheet,
   SheetTrigger,
@@ -38,6 +39,7 @@ export function BoardSection({
   const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
     typeof window !== "undefined" ? window.innerWidth < 1024 : false
   );
+  const [unlinked, setUnlinked] = React.useState<Record<string, boolean>>({});
   React.useEffect(() => {
     const onResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
     window.addEventListener("resize", onResize);
@@ -95,39 +97,34 @@ export function BoardSection({
                       </p>
                     )}
                     
-                    {/* Social Links */}
-                    {m.social && m.social.length > 0 && (
-                      <div className="flex gap-3 mb-4">
-                        {m.social.map((s) => {
-                          const Icon = s.platform === "linkedin" ? Linkedin : s.platform === "twitter" ? Twitter : Globe;
-                          const label = s.platform === "linkedin" ? "LinkedIn" : s.platform === "twitter" ? "Twitter" : "Website";
-                          return (
-                            <a
-                              key={`${m.name}-${s.platform}`}
-                              href={s.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`${m.name} on ${label}`}
-                              className="text-muted-foreground hover:text-ocean dark:hover:text-sky transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky rounded-full"
-                            >
-                              <Icon className="h-5 w-5" />
-                            </a>
-                          );
-                        })}
-                      </div>
-                    )}
+                    
 
                     {isMobileOrTablet ? (
                       <Sheet open={open} onOpenChange={(o) => { if (!o) setSelected(null); setOpen(o); }}>
-                        <SheetTrigger asChild>
-                          <Button
-                            aria-label={`Read bio for ${m.name}`}
-                            onClick={() => { setSelected(m); setOpen(true); }}
-                            className="mt-1"
-                          >
-                            Read Bio
-                          </Button>
-                        </SheetTrigger>
+                        <div className="flex items-center gap-2 mt-1">
+                          <SheetTrigger asChild>
+                            <Button
+                              aria-label={`Read bio for ${m.name}`}
+                              onClick={() => { setSelected(m); setOpen(true); }}
+                            >
+                              Read Bio
+                            </Button>
+                          </SheetTrigger>
+                          {(() => {
+                            const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                            return li ? (
+                              <a
+                                href={li.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`${m.name} on LinkedIn`}
+                                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                              >
+                                <BrandLinkedIn className="h-4 w-4" />
+                              </a>
+                            ) : null;
+                          })()}
+                        </div>
                         <SheetContent side="bottom" className="max-w-lg w-full">
                           <SheetHeader>
                             <SheetTitle>{selected?.name}</SheetTitle>
@@ -150,13 +147,28 @@ export function BoardSection({
                         </SheetContent>
                       </Sheet>
                     ) : (
-                      <Button
-                        aria-label={`Read bio for ${m.name}`}
-                        onClick={() => { setSelected(m); setOpen(true); }}
-                        className="mt-1"
-                      >
-                        Read Bio
-                      </Button>
+                      <div className="flex items-center gap-2 mt-1">
+                        <Button
+                          aria-label={`Read bio for ${m.name}`}
+                          onClick={() => { setSelected(m); setOpen(true); }}
+                        >
+                          Read Bio
+                        </Button>
+                        {(() => {
+                          const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                          return li ? (
+                            <a
+                              href={li.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${m.name} on LinkedIn`}
+                              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                            >
+                              <BrandLinkedIn className="h-4 w-4" />
+                            </a>
+                          ) : null;
+                        })()}
+                      </div>
                     )}
                   </div>
               </CardContent>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import Button from '@/components/ui/button';
 import { Home, Heart, Users, Handshake, ArrowRight, CheckCircle } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
 import { useTranslation } from 'react-i18next';

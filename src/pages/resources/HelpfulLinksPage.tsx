@@ -163,7 +163,7 @@ export default function HelpfulLinksPage() {
             </CardHeader>
             <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
               <div className="flex flex-wrap gap-3">
-                <Button asChild className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white">
+                <Button asChild variant="cta">
                   <Link to="/contact-us" aria-label="Contact Mosaic for guidance">
                     Contact Mosaic
                   </Link>

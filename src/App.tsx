@@ -28,6 +28,8 @@ const DiversityInclusionPolicyPage = lazy(() => import('./pages/policies/Diversi
 const WhistleblowerPolicyPage = lazy(() => import('./pages/policies/WhistleblowerPolicyPage'));
 const QualityManagementPolicyPage = lazy(() => import('./pages/policies/QualityManagementPolicyPage'));
 const WorkHealthSafetyPolicyPage = lazy(() => import('./pages/policies/WorkHealthSafetyPolicyPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/policies/PrivacyPolicyPage'));
+const FeedbackComplaintsPolicyPage = lazy(() => import('./pages/policies/FeedbackComplaintsPolicyPage'));
 const KnowledgeBasePage = lazy(() => import('./pages/company/KnowledgeBasePage'));
 const CareersPage = lazy(() => import('./pages/company/CareersPage'));
 const NewsPage = lazy(() => import('./pages/company/NewsPage'));
@@ -90,6 +92,8 @@ function App() {
                 <Route path="/policies/whistleblower" element={<WhistleblowerPolicyPage />} />
         <Route path="/policies/quality-management" element={<QualityManagementPolicyPage />} />
         <Route path="/policies/work-health-safety" element={<WorkHealthSafetyPolicyPage />} />
+        <Route path="/policies/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/policies/feedback-complaints" element={<FeedbackComplaintsPolicyPage />} />
         <Route path="/company/knowledge-base" element={<KnowledgeBasePage />} />
         <Route path="/company/careers" element={<CareersPage />} />
         <Route path="/company/news" element={<NewsPage />} />

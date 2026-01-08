@@ -4,6 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
  
 import { X } from "lucide-react";
+import BrandLinkedIn from "@/components/ui/icons/BrandLinkedIn";
 import {
   Sheet,
   SheetTrigger,
@@ -181,27 +182,44 @@ export function ManagementSection({
                   )}
                   {isMobileOrTablet ? (
                     <Sheet open={open} onOpenChange={(o) => { if (!o) setSelected(null); setOpen(o); }}>
-                      <SheetTrigger asChild>
-                        <Button
-                          aria-label={`Read bio for ${m.name}`}
-                          onClick={() => { setSelected(m); setOpen(true); }}
-                          className={`mt-1 ${
-                            accentColor === "care"
-                              ? "hover:shadow-care/25"
-                              : accentColor === "sky"
-                              ? "hover:shadow-sky/25"
-                              : accentColor === "earth"
-                              ? "hover:shadow-earth/25"
-                              : accentColor === "leaf"
-                              ? "hover:shadow-leaf/25"
-                              : accentColor === "sun"
-                              ? "hover:shadow-sun/25"
-                              : "hover:shadow-ocean/25"
-                          }`}
+                      <div className="flex items-center gap-2 mt-1">
+                        <SheetTrigger asChild>
+                          <Button
+                            variant={accentColor === "ocean" ? "default" : accentColor}
+                            aria-label={`Read bio for ${m.name}`}
+                            onClick={() => { setSelected(m); setOpen(true); }}
+                            className={`${
+                              accentColor === "care"
+                                ? "hover:shadow-care/25"
+                                : accentColor === "sky"
+                                ? "hover:shadow-sky/25"
+                                : accentColor === "earth"
+                                ? "hover:shadow-earth/25"
+                                : accentColor === "leaf"
+                                ? "hover:shadow-leaf/25"
+                                : accentColor === "sun"
+                                ? "hover:shadow-sun/25"
+                                : "hover:shadow-ocean/25"
+                            }`}
                         >
                           Read Bio
                         </Button>
-                      </SheetTrigger>
+                        </SheetTrigger>
+                        {(() => {
+                          const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                          return li ? (
+                            <a
+                              href={li.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${m.name} on LinkedIn`}
+                              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                            >
+                              <BrandLinkedIn className="h-4 w-4" />
+                            </a>
+                          ) : null;
+                        })()}
+                      </div>
                       <SheetContent side="bottom" className="max-w-lg w-full">
                         <SheetHeader>
                           <SheetTitle>{selected?.name}</SheetTitle>
@@ -223,25 +241,42 @@ export function ManagementSection({
                       </SheetContent>
                     </Sheet>
                   ) : (
-                    <Button
-                      aria-label={`Read bio for ${m.name}`}
-                      onClick={() => { setSelected(m); setOpen(true); }}
-                      className={`mt-1 ${
-                        accentColor === "care"
-                          ? "hover:shadow-care/25"
-                          : accentColor === "sky"
-                          ? "hover:shadow-sky/25"
-                          : accentColor === "earth"
-                          ? "hover:shadow-earth/25"
-                          : accentColor === "leaf"
-                          ? "hover:shadow-leaf/25"
-                          : accentColor === "sun"
-                          ? "hover:shadow-sun/25"
-                          : "hover:shadow-ocean/25"
-                      }`}
-                    >
-                      Read Bio
-                    </Button>
+                    <div className="flex items-center gap-2 mt-1">
+                      <Button
+                        variant={accentColor === "ocean" ? "default" : accentColor}
+                        aria-label={`Read bio for ${m.name}`}
+                        onClick={() => { setSelected(m); setOpen(true); }}
+                        className={`${
+                          accentColor === "care"
+                            ? "hover:shadow-care/25"
+                            : accentColor === "sky"
+                            ? "hover:shadow-sky/25"
+                            : accentColor === "earth"
+                            ? "hover:shadow-earth/25"
+                            : accentColor === "leaf"
+                            ? "hover:shadow-leaf/25"
+                            : accentColor === "sun"
+                            ? "hover:shadow-sun/25"
+                            : "hover:shadow-ocean/25"
+                        }`}
+                      >
+                        Read Bio
+                      </Button>
+                      {(() => {
+                        const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                        return li ? (
+                          <a
+                            href={li.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${m.name} on LinkedIn`}
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                          >
+                            <BrandLinkedIn className="h-4 w-4" />
+                          </a>
+                        ) : null;
+                      })()}
+                    </div>
                   )}
                 </div>
               </CardContent>

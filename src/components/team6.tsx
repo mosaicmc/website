@@ -2,7 +2,8 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Twitter, Globe } from "lucide-react";
+import { Twitter, Globe } from "lucide-react";
+import BrandLinkedIn from "@/components/ui/icons/BrandLinkedIn";
 
 type Social = { platform: "linkedin" | "twitter" | "website"; href: string };
 type TeamMember = {
@@ -26,6 +27,7 @@ const Team6 = ({
   members: TeamMember[];
   onReadBio?: (m: TeamMember) => void;
 }) => {
+  const [unlinked, setUnlinked] = React.useState<Record<string, boolean>>({});
   return (
     <section className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,22 +79,39 @@ const Team6 = ({
                     </p>
                   )}
                   {Array.isArray(member.social) && member.social.length > 0 && (
-                    <div className="flex items-center md:justify-start justify-center gap-2 mt-4" aria-label={`Social links for ${member.name}`}
-                    >
+                    <div className="flex items-center md:justify-start justify-center gap-2 mt-4" aria-label={`Social links for ${member.name}`}>
                       {member.social.map((s) => {
-                        const Icon = s.platform === "linkedin" ? Linkedin : s.platform === "twitter" ? Twitter : Globe;
+                        const Icon = s.platform === "linkedin" ? BrandLinkedIn : s.platform === "twitter" ? Twitter : Globe;
                         const label = s.platform === "linkedin" ? "LinkedIn" : s.platform === "twitter" ? "X" : "Website";
+                        const keyStr = `${member.id ?? member.name}-${s.platform}`;
+                        const isUnlinked = !!unlinked[keyStr];
                         return (
-                          <a
-                            key={`${member.name}-${s.platform}`}
-                            href={s.href}
-                            target={s.href?.startsWith("http") ? "_blank" : undefined}
-                            rel={s.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-                            aria-label={`${member.name} on ${label}`}
-                            className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-ocean/10 dark:hover:bg-sky/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background transition-colors"
-                          >
-                            <Icon className="h-4 w-4" />
-                          </a>
+                          <div key={keyStr} className="inline-flex items-center gap-2">
+                            {!isUnlinked && (
+                              <a
+                                href={s.href}
+                                target={s.href?.startsWith("http") ? "_blank" : undefined}
+                                rel={s.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                                aria-label={`${member.name} on ${label}`}
+                                className={`inline-flex h-9 w-9 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background transition-colors ${
+                                  s.platform === "linkedin"
+                                    ? "bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15"
+                                    : "bg-background border border-border text-foreground shadow hover:bg-ocean/10 dark:hover:bg-sky/10"
+                                }`}
+                              >
+                                <Icon className="h-4 w-4" />
+                              </a>
+                            )}
+                            <Button
+                              variant={isUnlinked ? "outline" : "ghost"}
+                              size="sm"
+                              aria-label={`${isUnlinked ? "Link" : "Unlink"} ${label} for ${member.name}`}
+                              onClick={() => setUnlinked((prev) => ({ ...prev, [keyStr]: !isUnlinked }))}
+                              className="px-2 py-1 text-xs"
+                            >
+                              {isUnlinked ? "Link" : "Unlink"}
+                            </Button>
+                          </div>
                         );
                       })}
                     </div>

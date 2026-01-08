@@ -90,7 +90,7 @@ export default {
         // Background animations
         'spin-slow': 'spin 20s linear infinite',
         'spin-reverse': 'spinReverse 15s linear infinite',
-        'shimmer': 'shimmer 3s linear infinite',
+        'shimmer': 'shimmer 1.5s linear infinite',
         'shimmer-slow': 'shimmerSlow 4s linear infinite',
         'blob': 'blob 12s infinite',
         'blob-delayed': 'blob 12s infinite 4s',

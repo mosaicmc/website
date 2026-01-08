@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { assetPath } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
-import { FileText, Phone, AlertTriangle, Book, ChevronRight, FileDown } from 'lucide-react';
+import { FileText, Phone, AlertTriangle, Book, ChevronRight, FileDown, ClipboardList } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import RelatedServices from '../components/RelatedServices';
 import { Card, CardHeader, CardFooter } from '@/components/ui/card';
@@ -70,6 +70,23 @@ const ResourcesPage = () => {
     { title: 'Aged Care', href: assetPath('/brochures/aged-care.pdf'), color: 'earth' },
     { title: 'Community Engagement', href: assetPath('/brochures/community-engagement.pdf'), color: 'leaf' },
     { title: 'Mosaic Home Care Guide 2026', href: assetPath('/brochures/Aged Care_Guide 2026.pdf'), color: 'earth' },
+  ];
+
+  const projectReports = [
+    {
+      title: 'Welcoming Workplaces Project Final Report',
+      program: 'Innovation Fund',
+      href: assetPath('/Project Reports/Innovation Fund_Welcoming Workplaces Project_Final Report.pdf'),
+      color: 'leaf',
+      year: undefined
+    },
+    {
+      title: 'REAP Project Report',
+      program: 'REAP Project',
+      href: assetPath('/Project Reports/REAP Project Report.pdf'),
+      color: 'sky',
+      year: undefined
+    }
   ];
 
   return (
@@ -303,6 +320,28 @@ const ResourcesPage = () => {
                 </div>
               </GlassCard>
             </Link>
+            <a href="#project-reports" className="block">
+              <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
+                <div className="p-6 border-b border-border relative rounded-t-xl">
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-leaf/10 via-transparent to-transparent rounded-t-xl"></div>
+                  <div className="flex items-center gap-4 relative">
+                    <span className="inline-flex items-center justify-center rounded-lg bg-leaf text-white p-3">
+                      <ClipboardList className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground">Project Reports</h3>
+                      <p className="text-sm text-muted-foreground">Download reports that share outcomes, learnings, and insights from Mosaic programs and funded projects.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6 mt-auto">
+                  <Button variant="link" className="text-primary">
+                    View
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
+              </GlassCard>
+            </a>
             <a href="#brochures" className="block">
               <GlassCard className="group h-full flex flex-col rounded-xl hover:shadow-md hover:ring-1 hover:ring-ocean/20" padding="none">
                 <div className="p-6 border-b border-border relative rounded-t-xl">
@@ -357,6 +396,47 @@ const ResourcesPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Download ${b.title} brochure (PDF)`}
+                    >
+                      <FileDown className="h-4 w-4 mr-2" />
+                      Download
+                    </a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section padding="lg" className="bg-background border-t border-border/60">
+        <div id="project-reports">
+          <div className="text-center mb-10">
+            <h2 className="fluid-h2 font-bold text-foreground">Project Reports</h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {projectReports.map((r) => (
+              <Card key={r.title} className="group">
+                <CardHeader className="p-6 border-b border-border">
+                  <div className="flex items-center gap-3">
+                    <span className={`inline-flex items-center justify-center rounded-lg ${getAccentColor(r.color)} text-white p-2`}>
+                      <FileText className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <div className="text-lg font-semibold text-foreground">{r.title}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {r.program}
+                        {r.year && <span> • {r.year}</span>}
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardFooter className="p-6">
+                  <Button asChild variant="outline" size="sm" className="rounded-lg">
+                    <a
+                      href={r.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Download ${r.title} (PDF)`}
                     >
                       <FileDown className="h-4 w-4 mr-2" />
                       Download

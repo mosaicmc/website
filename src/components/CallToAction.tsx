@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
 
 const CallToAction = () => {
   const { t } = useTranslation();
@@ -38,21 +39,19 @@ const CallToAction = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center subsection-break">
-            <Link
-              to="/services"
-              className="group inline-flex items-center justify-center rounded-xl bg-white text-ocean px-8 py-4 text-lg font-semibold shadow-xl hover:bg-sand hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
-            >
-              {t('cta.primaryButtonLabel')}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <Button asChild size="lg" variant="cta" className="rounded-xl px-8 py-4 text-lg font-semibold">
+              <Link to="/services">
+                {t('cta.primaryButtonLabel')}
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
             
-            <Link
-              to="/contact-us"
-              className="group inline-flex items-center justify-center rounded-xl backdrop-blur-md bg-white/10 border border-white/30 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg:white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 hover:scale-105 active:scale-98 hover:shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              {t('cta.secondaryButtonLabel')}
-            </Link>
+            <Button asChild size="lg" variant="outline" className="rounded-xl px-8 py-4 text-lg font-semibold border-white/30 bg-white/10 text-white hover:bg-white/20 focus-visible:ring-white">
+              <Link to="/contact-us">
+                <Phone className="mr-2 h-5 w-5" />
+                {t('cta.secondaryButtonLabel')}
+              </Link>
+            </Button>
           </div>
           
           {/* Service Areas Notice */}

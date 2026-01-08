@@ -180,22 +180,26 @@ const LocationsPage = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4">
                     {location.directionsUrl ? (
-                      <a
-                        href={location.directionsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Get directions to ${location.name}`}
-                        className="flex-1 bg-ocean text-white hover:text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                      >
-                        <Navigation className="h-4 w-4 mr-2" />
-                        Get Directions
-                      </a>
-                    ) : (
-                      <button className="flex-1 bg-ocean text-white hover:bg-ocean/90 px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-ocean/25 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                        <Navigation className="h-4 w-4 mr-2" />
-                        Get Directions
-                      </button>
-                    )}
+                        <Button asChild className="flex-1 rounded-lg px-6 py-3 font-medium">
+                          <a
+                            href={location.directionsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Get directions to ${location.name}`}
+                            className="flex items-center justify-center"
+                          >
+                            <Navigation className="h-4 w-4 mr-2" />
+                            Get Directions
+                          </a>
+                        </Button>
+                      ) : (
+                      <Button className="flex-1 rounded-lg px-6 py-3 font-medium">
+                        <span className="flex items-center justify-center">
+                          <Navigation className="h-4 w-4 mr-2" />
+                          Get Directions
+                        </span>
+                      </Button>
+                      )}
                   </div>
                 </div>
               </div>

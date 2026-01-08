@@ -34,7 +34,7 @@ export function GlassCard({
       className={cn(
         "relative isolate overflow-hidden group bg-card/80 dark:bg-card/40 backdrop-blur-md",
         bordered && "border border-border",
-        hover && "transition-all duration-500 ease-out hover:shadow-md hover:scale-[1.02] hover:bg-card/90 dark:hover:bg-card/50",
+        hover && "transition-all duration-300 ease-in-out hover:shadow-md hover:scale-[1.02] hover:bg-card/90 dark:hover:bg-card/50",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background",
         "shadow-sm",

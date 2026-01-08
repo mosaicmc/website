@@ -474,7 +474,7 @@ export default function NewsPage() {
             <div className="mt-8 flex justify-center">
               <Link
                 to="/contact?topic=media"
-                className="group inline-flex items-center justify-center rounded-xl bg-ocean text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg-ocean/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-300"
+                className="group inline-flex items-center justify-center rounded-xl bg-ocean text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg-ocean/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-300"
                 aria-label="Media enquiries"
               >
                 Media enquiries

@@ -6,6 +6,8 @@ import { FlipWords } from './ui/flip-words';
 import { serviceYearsLabel, languagesSpokenLabel, assetPath } from '@/lib/utils';
 import AnimatedBackground from './ui/AnimatedBackground';
 
+import Button from '@/components/ui/button';
+
 const Hero = () => {
   const { t } = useTranslation();
   
@@ -43,21 +45,19 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col gap-4 min-[400px]:flex-row animate-fade-in-up-delay-300">
-              <Link
-                to="/services"
-                className="group inline-flex h-12 items-center justify-center rounded-xl bg-ocean px-8 text-sm font-semibold text-white hover:text-white shadow-xl transition-all duration-300 hover:bg-ocean/90 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background backdrop-blur-sm hover:scale-105 active:scale-98 hover:shadow-2xl hover:shadow-ocean/30 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
-              >
+              <Button asChild size="lg" variant="cta" className="h-12 rounded-xl text-sm font-semibold">
+              <Link to="/services" data-testid="hero-explore-btn">
                 Explore Our Services
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+            </Button>
               
-              <Link
-                to="/stories"
-                className="group inline-flex h-12 items-center justify-center rounded-xl bg-card text-foreground px-8 text-sm font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background hover:scale-105 active:scale-98 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
-              >
-                <Play className="mr-2 h-4 w-4" />
-                Watch Stories
-              </Link>
+              <Button asChild size="lg" variant="outline" className="h-12 rounded-xl text-sm font-semibold shadow-lg hover:scale-105 border-0 bg-card text-foreground hover:bg-card/90">
+                <Link to="/stories">
+                  <Play className="mr-2 h-4 w-4" />
+                  Watch Stories
+                </Link>
+              </Button>
             </div>
             
             {/* Stats */}
@@ -76,8 +76,8 @@ const Hero = () => {
           </div>
           
           {/* Right Content - Image with subtle animations */}
-          <div className="relative animate-fade-in-right">
-            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl glass-surface hover:scale-105 transition-all duration-700 group hover:shadow-3xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
+          <div className="relative animate-fade-in-right z-10">
+            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl transition-all duration-700 group shadow-2xl z-10">
               <picture>
                 <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp")} type="image/webp" />
                 <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg")} type="image/jpeg" />
@@ -85,52 +85,65 @@ const Hero = () => {
                 <img
                   src={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg")}
                   alt="Diverse group of young people celebrating together in a library setting"
-                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-1000 group-hover:brightness-110"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
-                />
+                  />
               </picture>
               
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-ocean/10 via-transparent to-sky/10 pointer-events-none"></div>
+            </div>
+
+              {/* Floating card: Satisfaction Rate */}
+              <div className="hero-card hero-card-compact hero-card-pos-top-right animate-fade-in-left delay-500 z-20 group/card hover:shadow-2xl">
+                <div className="flex items-center gap-4">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-ocean font-bold text-sm shadow-inner shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
+                  95%
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">Satisfaction Rate</p>
+                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">Client feedback</p>
+                </div>
+              </div>
+              </div>
+             
               {/* Floating card: Office Locations (brand-aligned, accessible) */}
               <Link
                 to="/locations"
                 aria-label="View office locations across NSW"
-                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 rounded-xl glass-surface bg-card dark:bg-card p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group/card hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              className="hero-card hero-card-compact hero-card-pos-bottom-left hover:shadow-2xl transition-all duration-300 group/card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background z-20"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-ocean to-sky flex items-center justify-center shadow-md">
-                    <span className="text-white font-semibold text-sm">4</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm text-foreground">Office Locations</div>
-                    <div className="text-xs text-foreground">Across NSW</div>
-                  </div>
-                </div>
-              </Link>
-              
-              
-            </div>
-            <div className="absolute -top-4 -right-4 rounded-xl glass-surface p-5 shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group/card cursor-pointer animate-fade-in-delay-300 hover:shadow-3xl">
-              <div className="flex items-center space-x-3">
-                <div className="h-11 w-11 rounded-full bg-gradient-to-br from-leaf to-leaf/80 flex items-center justify-center dark:from-leaf dark:to-leaf/80 shadow-md">
-                  <span className="text-white font-semibold text-sm">95%</span>
+                <div className="flex items-center gap-4">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-ocean group-hover/card:bg-ocean group-hover/card:text-white transition-colors duration-300 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-foreground">Satisfaction Rate</div>
-                  <div className="text-xs text-foreground">Client feedback</div>
+                  <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">
+                    4 Locations
+                  </p>
+                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">
+                    Across NSW
+                  </p>
                 </div>
               </div>
-            </div>
-            
-            {/* Background elements */}
-            <div className="absolute -z-10 -top-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-400/30 to-purple-400/30 blur-xl dark:from-blue-500/20 dark:to-purple-500/20 animate-float"></div>
-            <div className="absolute -z-10 -bottom-8 -left-8 h-24 w-24 rounded-full bg-gradient-to-br from-green-400/30 to-blue-400/30 blur-xl dark:from-green-500/20 dark:to-blue-500/20 animate-float-delayed"></div>
+              </Link>
           </div>
         </div>
       </div>
-      
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-20 dark:bg-[linear-gradient(to_right,#374151_1px,transparent_1px),linear-gradient(to_bottom,#374151_1px,transparent_1px)]"></div>
     </section>
   );
 };
