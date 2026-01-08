@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
  
-import { X, Twitter, Globe } from "lucide-react";
+import { X } from "lucide-react";
 import BrandLinkedIn from "@/components/ui/icons/BrandLinkedIn";
 import {
   Sheet,
@@ -39,7 +39,7 @@ export function BoardSection({
   const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
     typeof window !== "undefined" ? window.innerWidth < 1024 : false
   );
-  const [unlinked, setUnlinked] = React.useState<Record<string, boolean>>({});
+  
   React.useEffect(() => {
     const onResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
     window.addEventListener("resize", onResize);

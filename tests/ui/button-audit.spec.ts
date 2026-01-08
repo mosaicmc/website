@@ -116,7 +116,7 @@ for (const viewport of viewports) {
         // Wait for element to be attached and visible
         try {
             await page.waitForSelector(exploreSelector, { state: 'visible', timeout: 5000 });
-        } catch (e) {
+        } catch {
             console.log('Timeout waiting for hero button.');
             await page.screenshot({ path: `error-home-${theme}-${viewport.name}.png` });
         }

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Lock, FileText, Share2, ShieldAlert, Phone, Mail, Building } from "lucide-react";
+import { Lock, FileText, Share2, ShieldAlert, Mail, Building } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   return (

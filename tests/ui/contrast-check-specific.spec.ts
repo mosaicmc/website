@@ -28,7 +28,7 @@ function parseColor(colorStr: string) {
 }
 
 // Helper to toggle theme
-async function setTheme(page: any, theme: 'light' | 'dark') {
+async function setTheme(page: Page, theme: 'light' | 'dark') {
   await page.evaluate((t: string) => {
     const root = document.documentElement;
     if (t === 'dark') {
