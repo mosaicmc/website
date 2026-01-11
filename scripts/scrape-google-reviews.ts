@@ -109,82 +109,83 @@ async function scrollReviews(ctx: FrameLike) {
 }
 async function extractReviews(ctx: FrameLike): Promise<ScrapedReview[]> {
   // This extraction uses heuristic selectors as Google DOM changes often.
-  const reviews: ScrapedReview[] = await ctx.evaluate(function() {
-    const sanitize = (s: string) => s.replace(/\s+/g, ' ').trim();
-    // Helper: query across shadow DOM
-    function queryAllDeep(selectorList: string[]): Element[] {
-      const selectors = selectorList;
-      const results: Element[] = [];
-      const visit = (root: Document | ShadowRoot | Element) => {
-        for (const sel of selectors) {
-          const queryable = root as Document | ShadowRoot | Element;
-          const matched = queryable.querySelectorAll ? Array.from(queryable.querySelectorAll(sel)) : [];
-          results.push(...matched);
-        }
-        const treeWalker = document.createTreeWalker(root as Node, NodeFilter.SHOW_ELEMENT, null);
-        let current = treeWalker.currentNode as Element | null;
-        while (current) {
-          const sr = (current as Element & { shadowRoot?: ShadowRoot | null }).shadowRoot || null;
-          if (sr) visit(sr);
-          current = treeWalker.nextNode() as Element | null;
-        }
+  const evaluateScript = `
+    (() => {
+      const sanitize = (s) => s.replace(/\\s+/g, ' ').trim();
+      
+      // Helper: query across shadow DOM
+      const queryAllDeep = (selectorList) => {
+        const selectors = selectorList;
+        const results = [];
+        const visit = (root) => {
+          for (const sel of selectors) {
+            const queryable = root;
+            const matched = queryable.querySelectorAll ? Array.from(queryable.querySelectorAll(sel)) : [];
+            results.push(...matched);
+          }
+          const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null);
+          let current = treeWalker.currentNode;
+          while (current) {
+            const sr = current.shadowRoot || null;
+            if (sr) visit(sr);
+            current = treeWalker.nextNode();
+          }
+        };
+        visit(document);
+        return Array.from(new Set(results));
       };
-      visit(document);
-      return Array.from(new Set(results));
-    }
-    const nodes = Array.from(
-      queryAllDeep([
-        // Common historic selectors
-        'div.section-review-content',
-        // More generic fallbacks
-        'div[aria-label*="review"]',
-        'div[data-review-id]',
-        'div[jslog*="review"]',
-        // Google Search reviews overlay
-        'div[class^="gws-localreviews__google-review"]',
-        'div[jscontroller*="e6MZhf"] article',
-      ])
-    );
-
-    function getRating(el: Element): number {
-      // Try star elements with aria-label
-      const starLabelEl = el.querySelector('[aria-label*="stars"]') as HTMLElement | null;
-      if (starLabelEl && starLabelEl.getAttribute('aria-label')) {
-        const m = starLabelEl.getAttribute('aria-label')!.match(/(\d\.?\d?) out of 5/);
-        if (m) return Math.round(parseFloat(m[1]));
-      }
-      // Fallback: count filled stars
-      const stars = el.querySelectorAll('svg[aria-hidden="true"], span[class*="star"]');
-      if (stars && stars.length) return Math.min(5, stars.length);
-      return 0;
-    };
-
-    return nodes.map((el, idx) => {
-      const id = (el.getAttribute('data-review-id') || `${Date.now()}-${idx}`).toString();
-      const authorAnchor = (el.querySelector('a[href*="/maps/contrib/"]') as HTMLAnchorElement | null) || null;
-      const authorNameEl = (el.querySelector('[class*="author"], [data-attr*="author"], a[aria-label*="Profile"], div[role="heading"]') as HTMLElement | null) || null;
-      const avatarImg = (el.querySelector('img') as HTMLImageElement | null) || null;
-      const textEl = (el.querySelector('[class*="text"], [jsname*="review"], div[aria-label*="Review"] span') as HTMLElement | null) || null;
-      const dateEl = (el.querySelector('[class*="date"], time, span[aria-label*="ago"], span[class*="published"]') as HTMLElement | null) || null;
-      const reviewAnchor = (el.querySelector('a[href*="#lrd"], a[href*="review"], a[href*="/maps/place/"]') as HTMLAnchorElement | null) || null;
-
-      const authorName = sanitize(authorNameEl?.textContent || '');
-      const rating = getRating(el);
-      const dateText = sanitize(dateEl?.textContent || '');
-      const text = sanitize(textEl?.textContent || '');
-
-      return {
-        id,
-        authorName,
-        authorProfileUrl: authorAnchor?.href || undefined,
-        authorAvatarUrl: avatarImg?.src || undefined,
-        rating,
-        dateText,
-        text,
-        reviewUrl: reviewAnchor?.href || undefined,
+  
+      const nodes = Array.from(
+        queryAllDeep([
+          'div.section-review-content',
+          'div[aria-label*="review"]',
+          'div[data-review-id]',
+          'div[jslog*="review"]',
+          'div[class^="gws-localreviews__google-review"]',
+          'div[jscontroller*="e6MZhf"] article',
+        ])
+      );
+  
+      const getRating = (el) => {
+        const starLabelEl = el.querySelector('[aria-label*="stars"]');
+        if (starLabelEl && starLabelEl.getAttribute('aria-label')) {
+          const m = starLabelEl.getAttribute('aria-label').match(/(\\d\\.?\\d?) out of 5/);
+          if (m) return Math.round(parseFloat(m[1]));
+        }
+        const stars = el.querySelectorAll('svg[aria-hidden="true"], span[class*="star"]');
+        if (stars && stars.length) return Math.min(5, stars.length);
+        return 0;
       };
-    }).filter(r => r.text);
-  });
+  
+      return nodes.map((el, idx) => {
+        const id = (el.getAttribute('data-review-id') || (Date.now() + '-' + idx)).toString();
+        const authorAnchor = el.querySelector('a[href*="/maps/contrib/"]') || null;
+        const authorNameEl = el.querySelector('[class*="author"], [data-attr*="author"], a[aria-label*="Profile"], div[role="heading"]') || null;
+        const avatarImg = el.querySelector('img') || null;
+        const textEl = el.querySelector('[class*="text"], [jsname*="review"], div[aria-label*="Review"] span') || null;
+        const dateEl = el.querySelector('[class*="date"], time, span[aria-label*="ago"], span[class*="published"]') || null;
+        const reviewAnchor = el.querySelector('a[href*="#lrd"], a[href*="review"], a[href*="/maps/place/"]') || null;
+  
+        const authorName = sanitize(authorNameEl?.textContent || '');
+        const rating = getRating(el);
+        const dateText = sanitize(dateEl?.textContent || '');
+        const text = sanitize(textEl?.textContent || '');
+  
+        return {
+          id,
+          authorName,
+          authorProfileUrl: authorAnchor?.href || undefined,
+          authorAvatarUrl: avatarImg?.src || undefined,
+          rating,
+          dateText,
+          text,
+          reviewUrl: reviewAnchor?.href || undefined,
+        };
+      }).filter(r => r.text);
+    })()
+  `;
+  
+  const reviews: ScrapedReview[] = await ctx.evaluate(evaluateScript);
 
   // Basic sanitization server-side
   return reviews.slice(0, MAX_REVIEWS).map((r) => ({

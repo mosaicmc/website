@@ -90,13 +90,11 @@ async function clickAllReviews(page: Page) {
     }
   }
   // Fallback: click by text content
-  await page.evaluate(function() {
-    function findAndClick(texts: string[]) {
-      const all = Array.from(document.querySelectorAll('button, a, div, span')) as HTMLElement[];
-      const target = all.find((el) => texts.some((t) => (el.textContent || '').toLowerCase().includes(t)));
-      if (target) target.click();
-    }
-    findAndClick(['all reviews', 'reviews']);
+  await page.evaluate(() => {
+    const texts = ['all reviews', 'reviews'];
+    const all = Array.from(document.querySelectorAll('button, a, div, span')) as HTMLElement[];
+    const target = all.find((el) => texts.some((t) => (el.textContent || '').toLowerCase().includes(t)));
+    if (target) target.click();
   });
   await sleep(5000); // rate limit
 
