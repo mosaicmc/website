@@ -90,7 +90,7 @@ async function clickAllReviews(page: Page) {
     }
   }
   // Fallback: click by text content
-  await page.evaluate(() => {
+  await page.evaluate(function() {
     function findAndClick(texts: string[]) {
       const all = Array.from(document.querySelectorAll('button, a, div, span')) as HTMLElement[];
       const target = all.find((el) => texts.some((t) => (el.textContent || '').toLowerCase().includes(t)));

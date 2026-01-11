@@ -109,7 +109,7 @@ async function scrollReviews(ctx: FrameLike) {
 }
 async function extractReviews(ctx: FrameLike): Promise<ScrapedReview[]> {
   // This extraction uses heuristic selectors as Google DOM changes often.
-  const reviews: ScrapedReview[] = await ctx.evaluate(() => {
+  const reviews: ScrapedReview[] = await ctx.evaluate(function() {
     const sanitize = (s: string) => s.replace(/\s+/g, ' ').trim();
     // Helper: query across shadow DOM
     function queryAllDeep(selectorList: string[]): Element[] {
@@ -146,7 +146,7 @@ async function extractReviews(ctx: FrameLike): Promise<ScrapedReview[]> {
       ])
     );
 
-    const getRating = (el: Element): number => {
+    function getRating(el: Element): number {
       // Try star elements with aria-label
       const starLabelEl = el.querySelector('[aria-label*="stars"]') as HTMLElement | null;
       if (starLabelEl && starLabelEl.getAttribute('aria-label')) {
