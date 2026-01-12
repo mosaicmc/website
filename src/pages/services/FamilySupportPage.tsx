@@ -65,7 +65,7 @@ const FamilySupportPage = () => {
       name: "Natalia Meliendrez",
       role: "Multicultural Community Development Lead",
       location: "Central Coast",
-      qualifications: "Community Service Diploma; Diploma of Leadership and Management.",
+      qualifications: "Bachelor of Early and Primary Education, Community Service Diploma- Certificate IV in Disability, Accreditation to parenting programs and Diploma of leadership and management",
       experience: "Natalia creates spaces where people from diverse cultural backgrounds feel respected, understood and empowered, leading groups and community programs that honour shared experiences and cultural identities.",
       languages: ["Spanish", "English"],
       phone: "0431 491 748",
