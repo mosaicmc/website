@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 // Helper to calculate relative luminance
 function getLuminance(r, g, b) {
@@ -26,6 +27,10 @@ function parseColor(colorStr) {
 }
 
 test.describe('Button Contrast Check', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('Check contrast of buttons on hover', async ({ page }) => {
     // Go to Get Involved page
     await page.goto('/get-involved');

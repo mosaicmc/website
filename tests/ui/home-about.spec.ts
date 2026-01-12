@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 // Utility: scroll a locator into view and wait for potential lazy-load
 async function ensureVisible(page, locator) {
@@ -11,38 +12,7 @@ test.describe('Home page – Google Reviews section', () => {
   test.beforeEach(async ({ page }) => {
     await page.addStyleTag({ content: '* { transition: none !important; animation: none !important; }' });
     // Mock the network request for reviews
-    await page.route('**/reviews.json', async route => {
-      const json = {
-        placeUrl: "https://maps.google.com/?cid=123",
-        reviews: [
-          {
-            id: "1",
-            authorName: "Test User 1",
-            rating: 5,
-            dateText: "a month ago",
-            text: "Great service!",
-            reviewUrl: "https://google.com/review/1"
-          },
-          {
-            id: "2",
-            authorName: "Test User 2",
-            rating: 4,
-            dateText: "2 months ago",
-            text: "Good experience.",
-            reviewUrl: "https://google.com/review/2"
-          },
-          {
-            id: "3",
-            authorName: "Test User 3",
-            rating: 5,
-            dateText: "3 months ago",
-            text: "Excellent!",
-            reviewUrl: "https://google.com/review/3"
-          }
-        ]
-      };
-      await route.fulfill({ json });
-    });
+    await mockGoogleReviews(page);
 
     // Mock IntersectionObserver to trigger immediately
     await page.addInitScript(() => {

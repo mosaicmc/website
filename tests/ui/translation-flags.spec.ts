@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 test.describe('Translation Flags – pure i18n', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('switches to RU and updates html lang without reload', async ({ page }) => {
     await page.goto('/');
     const ruButton = page.getByRole('button', { name: 'Change language to RU' });

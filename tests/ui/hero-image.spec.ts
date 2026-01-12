@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 test.describe('Homepage hero image loads responsively', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('Hero image is visible and loaded', async ({ page }) => {
     await page.goto('/');
     const img = page.getByAltText('Diverse group of young people celebrating together in a library setting');

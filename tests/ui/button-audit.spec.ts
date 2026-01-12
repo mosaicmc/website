@@ -138,7 +138,7 @@ for (const viewport of viewports) {
         }
 
         // 2. Resources Page "Call 1800"
-        await page.goto('http://localhost:4173/resources');
+        await page.goto('/resources');
         await page.waitForLoadState('networkidle');
         await setTheme(page, theme);
 

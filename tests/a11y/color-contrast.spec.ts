@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 function contrastRatio([r1, g1, b1]: number[], [r2, g2, b2]: number[]) {
   const srgb = (c: number) => c / 255;
@@ -55,6 +56,10 @@ async function assertAnchorsContrast(page: import('@playwright/test').Page, page
 }
 
 test.describe('Anchor color contrast', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('Header anchors contrast meets WCAG AA', async ({ page }) => {
     await page.goto('/');
     for (const theme of ['light', 'dark'] as const) {

@@ -146,8 +146,10 @@ async function scrollToLoad(page: Page, minIterations = 6) {
 }
 
 async function getTextFromXPath(page: Page, root: ElementHandle, xpath: string): Promise<string> {
-  const val = await page.evaluate(function(el: any, xp: any) {
-    const res = document.evaluate(xp, el, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+  const val = await page.evaluate(function(el: unknown, xp: unknown) {
+    const element = el as Node;
+    const xpathStr = xp as string;
+    const res = document.evaluate(xpathStr, element, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     const node = res.singleNodeValue as Node | null;
     return node ? (node.textContent || '') : '';
   }, root, xpath);
@@ -155,10 +157,13 @@ async function getTextFromXPath(page: Page, root: ElementHandle, xpath: string):
 }
 
 async function getAttrFromXPath(page: Page, root: ElementHandle, xpath: string, attr: string): Promise<string> {
-  const v = await page.evaluate(function(el: any, xp: any, a: any) {
-    const res = document.evaluate(xp, el, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+  const v = await page.evaluate(function(el: unknown, xp: unknown, a: unknown) {
+    const element = el as Node;
+    const xpathStr = xp as string;
+    const attrName = a as string;
+    const res = document.evaluate(xpathStr, element, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     const node = res.singleNodeValue as Element | null;
-    return node ? node.getAttribute(a) || '' : '';
+    return node ? node.getAttribute(attrName) || '' : '';
   }, root, xpath, attr);
   return String(v || '');
 }

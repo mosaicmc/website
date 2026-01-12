@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
-test.describe('Skip link and navigation focus', () => {
-  test('skip link appears on focus', async ({ page }) => {
+test.describe('Navigation keyboard focus', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
+  test('Skip to content link appears on focus', async ({ page }) => {
     await page.goto('/');
     await page.keyboard.press('Tab');
     const skip = page.getByRole('link', { name: 'Skip to content' });

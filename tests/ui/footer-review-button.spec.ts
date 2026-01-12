@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 test.describe('Footer – Review Us button', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('is visible and opens Google Reviews', async ({ page }) => {
     await page.goto('/');
     const footer = page.locator('footer');
