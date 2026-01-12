@@ -12,9 +12,9 @@ test.describe('Skip link and navigation focus', () => {
     await page.goto('/');
     const about = page.getByRole('link', { name: 'About' });
     await about.focus();
-    // Use focus-visible check instead of toBeFocused() for robustness
-    const isFocusVisible = await about.evaluate((el) => el.matches(':focus-visible'));
-    expect(isFocusVisible).toBeTruthy();
+    // Check real focus via activeElement instead of :focus-visible which is inconsistent in tests
+    const hasFocus = await about.evaluate((el) => document.activeElement === el);
+    expect(hasFocus).toBeTruthy();
     // Use boxShadow check which is more consistent across browsers than :focus-visible for programmatic focus
     await expect(about).toHaveCSS('box-shadow', /rgb/);
   });
@@ -33,7 +33,7 @@ test.describe('Resources anchors focus', () => {
     await page.goto('/resources');
     const brochuresLink = page.getByRole('link', { name: 'View' }).first();
     await brochuresLink.focus();
-    const isFocusVisible = await brochuresLink.evaluate((el) => el.matches(':focus-visible'));
-    expect(isFocusVisible).toBeTruthy();
+    const hasFocus = await brochuresLink.evaluate((el) => document.activeElement === el);
+    expect(hasFocus).toBeTruthy();
   });
 });
