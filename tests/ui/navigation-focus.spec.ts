@@ -34,6 +34,10 @@ test.describe('Navigation keyboard focus', () => {
 });
 
 test.describe('Resources anchors focus', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockGoogleReviews(page);
+  });
+
   test('anchors on resources page show focus ring', async ({ page }) => {
     await page.goto('/resources');
     const brochuresLink = page.getByRole('link', { name: 'View' }).first();

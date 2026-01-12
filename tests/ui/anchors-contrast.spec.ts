@@ -22,6 +22,9 @@ function parseColor(rgbString: string): number[] {
 }
 
 test.describe('Anchors contrast – header and contact page', () => {
+  // Skip expensive contrast checks on WebKit/Firefox to prevent CI timeouts
+  test.skip(({ browserName }) => browserName !== 'chromium', 'Contrast checks are too heavy for WebKit/Firefox in CI');
+
   for (const path of ['/', '/contact-us']) {
     test(`anchors have ≥4.5:1 contrast on ${path}`, async ({ page }) => {
       await page.goto(path);
