@@ -36,7 +36,7 @@ test.describe('Locations videos', () => {
   });
 
   test('responsive sizing at breakpoints', async ({ page }) => {
-    await page.goto('http://localhost:5173/contact-us');
+    await page.goto('/contact-us');
     // Mobile
     await page.setViewportSize({ width: 390, height: 844 });
     let vids = page.locator('video.w-full.aspect-video.object-cover');
