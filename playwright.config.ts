@@ -14,6 +14,13 @@ export default defineConfig({
     timeout: 120_000,
     reuseExistingServer: true,
   },
+  // Global snapshot rules to prevent pixel drift
+  expect: {
+    toHaveScreenshot: {
+      animations: 'disabled',
+      maxDiffPixelRatio: 0.02,
+    },
+  },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },

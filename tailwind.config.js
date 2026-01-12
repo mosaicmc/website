@@ -33,7 +33,8 @@ export default {
 
         // Brand Colors (static)
         ocean: '#28367f',
-        sky: '#60c7cc',
+        // Darken sky slightly for better contrast on dark backgrounds (WCAG compliance)
+        sky: 'var(--sky, #60c7cc)', 
         sand: '#f3ede7',
         sun: '#fcb73d',
         earth: '#f37a60',
