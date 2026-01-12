@@ -90,7 +90,7 @@ async function clickAllReviews(page: Page) {
     }
   }
   // Fallback: click by text content
-  await page.evaluate(() => {
+  await page.evaluate(function() {
     const texts = ['all reviews', 'reviews'];
     const all = Array.from(document.querySelectorAll('button, a, div, span')) as HTMLElement[];
     const target = all.find((el) => texts.some((t) => (el.textContent || '').toLowerCase().includes(t)));
@@ -100,7 +100,7 @@ async function clickAllReviews(page: Page) {
 
   // Fallback: click a direct reviews link if present (href contains lrd)
   try {
-    await page.evaluate(() => {
+    await page.evaluate(function() {
       const anchors = Array.from(document.querySelectorAll('a[href]')) as HTMLAnchorElement[];
       const a = anchors.find((el) => /[?#]lrd=/.test(el.href));
       if (a) a.click();
@@ -136,7 +136,7 @@ async function ensureReviewsVisible(page: Page) {
 async function scrollToLoad(page: Page, minIterations = 6) {
   // Scroll the reviews container or window, throttled
   for (let i = 0; i < minIterations; i++) {
-    await page.evaluate(() => {
+    await page.evaluate(function() {
       const containers = Array.from(document.querySelectorAll('div[role="main"], div[aria-label*="Reviews"], div[class*="scroll"]')) as HTMLElement[];
       const el = containers[0] || document.documentElement;
       el.scrollBy({ top: 1000, behavior: 'smooth' });
@@ -146,7 +146,7 @@ async function scrollToLoad(page: Page, minIterations = 6) {
 }
 
 async function getTextFromXPath(page: Page, root: ElementHandle, xpath: string): Promise<string> {
-  const val = await page.evaluate((el, xp) => {
+  const val = await page.evaluate(function(el: any, xp: any) {
     const res = document.evaluate(xp, el, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     const node = res.singleNodeValue as Node | null;
     return node ? (node.textContent || '') : '';
@@ -155,7 +155,7 @@ async function getTextFromXPath(page: Page, root: ElementHandle, xpath: string):
 }
 
 async function getAttrFromXPath(page: Page, root: ElementHandle, xpath: string, attr: string): Promise<string> {
-  const v = await page.evaluate((el, xp, a) => {
+  const v = await page.evaluate(function(el: any, xp: any, a: any) {
     const res = document.evaluate(xp, el, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     const node = res.singleNodeValue as Element | null;
     return node ? node.getAttribute(a) || '' : '';
@@ -211,7 +211,7 @@ async function run() {
 
     // Consent handling
     try {
-      await page.evaluate(() => {
+      await page.evaluate(function() {
         const buttons = Array.from(document.querySelectorAll('button')) as HTMLButtonElement[];
         const target = buttons.find((b) => /accept all|i agree|agree|accept/i.test((b.innerText || '').toLowerCase()));
         if (target) target.click();
