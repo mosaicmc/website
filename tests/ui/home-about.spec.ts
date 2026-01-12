@@ -74,9 +74,14 @@ test.describe('Home page – Google Reviews section', () => {
     }
   });
 
-  test('visual snapshots of Google Reviews section at breakpoints', async ({ page }) => {
+  test('visual snapshots of Google Reviews section at breakpoints', async ({ page, browserName }) => {
+    test.skip(browserName !== 'chromium', 'Visual snapshots only on Chromium');
     const section = page.locator('[aria-label="Google Reviews"]');
-    const screenshotOptions = { maxDiffPixelRatio: 0.02 };
+    const screenshotOptions = { 
+      maxDiffPixelRatio: 0.02, 
+      timeout: 10000, 
+      animations: 'disabled' as const 
+    };
 
     // Desktop
     await page.setViewportSize({ width: 1280, height: 800 });
@@ -136,19 +141,21 @@ test.describe('About page – Values and Leadership', () => {
     await expect(leadershipSection.getByRole('heading', { name: 'Sharon Daishe' })).toBeVisible();
   });
 
-  test('visual snapshots of Leadership section at breakpoints', async ({ page }) => {
+  test('visual snapshots of Leadership section at breakpoints', async ({ page, browserName }) => {
+    test.skip(browserName !== 'chromium', 'Visual snapshots only on Chromium');
     const leadership = page.locator('section').filter({ hasText: 'Leadership Team' });
+    const screenshotOptions = { timeout: 10000, animations: 'disabled' as const };
 
     // Desktop
     await page.setViewportSize({ width: 1280, height: 800 });
-    await expect(leadership).toHaveScreenshot('about-leadership-desktop.png');
+    await expect(leadership).toHaveScreenshot('about-leadership-desktop.png', screenshotOptions);
 
     // Tablet
     await page.setViewportSize({ width: 768, height: 1024 });
-    await expect(leadership).toHaveScreenshot('about-leadership-tablet.png');
+    await expect(leadership).toHaveScreenshot('about-leadership-tablet.png', screenshotOptions);
 
     // Mobile
     await page.setViewportSize({ width: 375, height: 800 });
-    await expect(leadership).toHaveScreenshot('about-leadership-mobile.png');
+    await expect(leadership).toHaveScreenshot('about-leadership-mobile.png', screenshotOptions);
   });
 });

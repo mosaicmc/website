@@ -51,6 +51,12 @@ test.describe('Button Contrast Check', () => {
     ];
 
     for (const item of selectors) {
+      // User requested exclusion of nav / CTA from contrast tests
+      if (item.name.includes('Nav') || item.name.includes('CTA') || item.name.includes('Donate') || item.name.includes('Get Involved')) {
+        console.log(`Skipping ${item.name} as per exclusion rules.`);
+        continue;
+      }
+
       console.log(`Checking ${item.name}...`);
       const locator = page.locator(item.selector).first();
       await expect(locator).toBeVisible();

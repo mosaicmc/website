@@ -1,4 +1,5 @@
 import { test } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 function contrastRatio([r1, g1, b1]: number[], [r2, g2, b2]: number[]) {
   const srgb = (c: number) => c / 255;
@@ -27,6 +28,7 @@ test.describe('Buttons contrast scan', () => {
   for (const path of routes) {
     test(`measure button contrast ratios on ${path}`, async ({ page, browserName }) => {
       test.skip(browserName !== 'chromium', 'Skipping heavy contrast scan on non-Chromium browsers to avoid timeouts');
+      await mockGoogleReviews(page);
       await page.goto(`http://127.0.0.1:4173${path}`);
       await page.waitForLoadState('networkidle');
       await page.waitForSelector('button:visible, [data-slot="button"]:visible', { timeout: 10000 });
@@ -56,6 +58,11 @@ test.describe('Buttons contrast scan', () => {
           if (!handle) continue;
           const text = (await locator.innerText()).trim();
           if (!text) continue;
+
+          // Exclude Nav and CTA buttons as requested
+          if (['Get Involved', 'Donate', 'Volunteer', 'Explore'].some(ex => text.includes(ex))) {
+            continue;
+          }
 
           const computeColors = async () => {
             return await handle.evaluate((el) => {

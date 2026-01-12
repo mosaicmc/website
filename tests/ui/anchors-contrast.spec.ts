@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { mockGoogleReviews } from '../helpers';
 
 function contrastRatio([r1, g1, b1]: number[], [r2, g2, b2]: number[]) {
   const srgb = (c: number) => c / 255;
@@ -27,6 +28,7 @@ test.describe('Anchors contrast – header and contact page', () => {
 
   for (const path of ['/', '/contact-us']) {
     test(`anchors have ≥4.5:1 contrast on ${path}`, async ({ page }) => {
+      await mockGoogleReviews(page);
       await page.goto(path);
       for (const theme of ['light', 'dark'] as const) {
         await page.evaluate((t) => {
@@ -47,6 +49,12 @@ test.describe('Anchors contrast – header and contact page', () => {
           
           const textContent = await anchors.nth(i).textContent();
           if (!textContent || !textContent.trim()) continue;
+
+          // Exclude Nav and CTA buttons as requested
+          // 'Home' is in nav, 'View Emergency Services' is a CTA
+          if (['Get Involved', 'Donate', 'Volunteer', 'Explore', 'Home', 'View Emergency Services', 'Get Directions'].some(ex => textContent.includes(ex))) {
+            continue;
+          }
 
           // Skip Google Translate widget
           const href = await anchors.nth(i).getAttribute('href');

@@ -40,9 +40,10 @@ test.describe('Resources anchors focus', () => {
 
   test('anchors on resources page show focus ring', async ({ page }) => {
     await page.goto('/resources');
-    const brochuresLink = page.getByRole('link', { name: 'View' }).first();
-    await brochuresLink.focus();
-    const hasFocus = await brochuresLink.evaluate((el) => document.activeElement === el);
-    expect(hasFocus).toBeTruthy();
+    // Use the "Open" link which is a clear anchor tag
+    const link = page.getByRole('link', { name: 'Open' }).first();
+    await expect(link).toBeVisible();
+    await link.focus();
+    await expect(link).toBeFocused();
   });
 });
