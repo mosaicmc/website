@@ -165,43 +165,46 @@ async function extractReviews(page: Page, limit = 6): Promise<Review[]> {
   }
   if (reviews.length > 0) return reviews;
   // Deep shadow DOM fallback
-  const deep = await page.evaluate((limitEval: number) => {
-    function queryAllDeep(selector: string, root: Document | ShadowRoot | Element = document): Element[] {
-      const results: Element[] = [];
-      const search = (node: Document | ShadowRoot | Element) => {
-        const found = (node as Document | ShadowRoot).querySelectorAll?.(selector);
-        if (found) results.push(...Array.from(found));
-        const children = (node as Element).children || [];
-        Array.from(children).forEach((child) => {
-          search(child);
-          const shadowHost = child as Element & { shadowRoot?: ShadowRoot | null };
-          if (shadowHost.shadowRoot) search(shadowHost.shadowRoot);
-        });
+  const deep = await page.evaluate(`
+    (() => {
+      const limitEval = ${limit};
+      const queryAllDeep = (selector, root = document) => {
+        const results = [];
+        const search = (node) => {
+          const found = node.querySelectorAll ? node.querySelectorAll(selector) : [];
+          if (found) results.push(...Array.from(found));
+          const children = node.children || [];
+          Array.from(children).forEach((child) => {
+            search(child);
+            const shadowHost = child;
+            if (shadowHost.shadowRoot) search(shadowHost.shadowRoot);
+          });
+        };
+        search(root);
+        return results;
       };
-      search(root);
-      return results;
-    }
-    const arts = queryAllDeep('div[role="article"], [data-review-id]');
-    const items = [] as { author: string; ariaLabel: string; text: string; date: string }[];
-    for (const a of arts.slice(0, limitEval)) {
-      const author = (a.querySelector('.d4r55, a[href*="/maps/contrib/"]')?.textContent || '').trim();
-      const text = (
-        a.querySelector('[jsname="bN97Pc"], [data-expandable]')?.textContent ||
-        a.querySelector('span[class*="wiI7pd"], div[class*="MyEned"]')?.textContent ||
-        ''
-      ).trim();
-      const dateText = (
-        a.querySelector('.dehysf, span[class*="rsqaWe"], span[class*="fTKm4e"]')?.textContent || ''
-      ).trim();
-      const ariaLabel = (
-        a.querySelector('span[role="img"][aria-label], div[aria-label*="star"], span[aria-label*="star"]')?.getAttribute('aria-label') || ''
-      );
-      if (author && text && dateText && ariaLabel) {
-        items.push({ author, text, date: dateText, ariaLabel });
+      const arts = queryAllDeep('div[role="article"], [data-review-id]');
+      const items = [];
+      for (const a of arts.slice(0, limitEval)) {
+        const author = (a.querySelector('.d4r55, a[href*="/maps/contrib/"]')?.textContent || '').trim();
+        const text = (
+          a.querySelector('[jsname="bN97Pc"], [data-expandable]')?.textContent ||
+          a.querySelector('span[class*="wiI7pd"], div[class*="MyEned"]')?.textContent ||
+          ''
+        ).trim();
+        const dateText = (
+          a.querySelector('.dehysf, span[class*="rsqaWe"], span[class*="fTKm4e"]')?.textContent || ''
+        ).trim();
+        const ariaLabel = (
+          a.querySelector('span[role="img"][aria-label], div[aria-label*="star"], span[aria-label*="star"]')?.getAttribute('aria-label') || ''
+        );
+        if (author && text && dateText && ariaLabel) {
+          items.push({ author, text, date: dateText, ariaLabel });
+        }
       }
-    }
-    return items;
-  }, limit);
+      return items;
+    })()
+  `) as { author: string; ariaLabel: string; text: string; date: string }[];
   return deep.map((d) => ({
     author: cleanText(d.author),
     rating: parseRatingFromAria(d.ariaLabel),
