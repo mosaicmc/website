@@ -25,13 +25,13 @@ test('QuickLinks section is removed globally', async ({ page }) => {
 });
 
 test('Apply to Volunteer link points to Tally form', async ({ page }) => {
-  await page.goto('http://localhost:5173/get-involved');
+  await page.goto('/get-involved');
   const applyBtn = page.locator('a:has-text("Apply to Volunteer")').first();
   await expect(applyBtn).toHaveAttribute('href', 'https://tally.so/r/3qoXjg');
 });
 
 test('Footer volunteer link points to Tally form', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   const footerLink = page.locator('footer a[href="https://tally.so/r/3qoXjg"]');
   await expect(footerLink).toBeVisible();
 });

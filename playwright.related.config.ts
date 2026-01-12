@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './tests',
   testMatch: /related-ui\.spec\.ts/,
   use: {
-    baseURL: 'http://localhost:5173',
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:4173',
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

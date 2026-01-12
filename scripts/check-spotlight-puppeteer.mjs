@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 
 async function run() {
-  const url = 'http://localhost:5173/get-involved';
+  const url = process.env.BASE_URL || 'http://127.0.0.1:4173/get-involved';
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
   await page.setCacheEnabled(false);
