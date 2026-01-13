@@ -111,46 +111,89 @@ const GoogleReviews = () => {
           )}
 
           {!loading && (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {reviews.map((item) => (
-                <Card key={item.id} className="group relative bg-card dark:bg-slate-900 border border-border hover:scale-[1.02] focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background" tabIndex={0}>
-                  <CardHeader className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="size-10">
-                        {item.authorAvatarUrl ? (
-                          <AvatarImage src={item.authorAvatarUrl} alt={item.authorName} loading="lazy" decoding="async" />
-                        ) : (
-                          <AvatarFallback className="text-foreground font-semibold">
-                            {(item.authorName || 'Anonymous').split(' ').map((n) => n[0]).join('')}
-                          </AvatarFallback>
-                        )}
-                      </Avatar>
-                      <div>
-                        <div className="text-sm font-semibold text-gray-800 dark:text-white/90">{item.authorName || 'Anonymous'}</div>
-                        <div className="text-xs text-gray-500 dark:text-white/60">{item.dateText}</div>
+            reviews.length > 0 ? (
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {reviews.map((item) => (
+                  <Card key={item.id} className="group relative bg-card dark:bg-slate-900 border border-border hover:scale-[1.02] focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background" tabIndex={0}>
+                    <CardHeader className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="size-10">
+                          {item.authorAvatarUrl ? (
+                            <AvatarImage src={item.authorAvatarUrl} alt={item.authorName} loading="lazy" decoding="async" />
+                          ) : (
+                            <AvatarFallback className="text-foreground font-semibold">
+                              {(item.authorName || 'Anonymous').split(' ').map((n) => n[0]).join('')}
+                            </AvatarFallback>
+                          )}
+                        </Avatar>
+                        <div>
+                          <div className="text-sm font-semibold text-gray-800 dark:text-white/90">{item.authorName || 'Anonymous'}</div>
+                          <div className="text-xs text-gray-500 dark:text-white/60">{item.dateText}</div>
+                        </div>
                       </div>
-                    </div>
-                    <StarRating value={item.rating} ariaLabel={`${item.rating} out of 5 stars`} />
-                  </CardHeader>
-                  <CardContent>
-                    <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
-                  </CardContent>
-                  <CardFooter>
-                    <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
-                    <a
-                      href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
-                      aria-label="View review on Google"
-                    >
-                      View on Google
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
+                      <StarRating value={item.rating} ariaLabel={`${item.rating} out of 5 stars`} />
+                    </CardHeader>
+                    <CardContent>
+                      <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
+                    </CardContent>
+                    <CardFooter>
+                      <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
+                      <a
+                        href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
+                        aria-label="View review on Google"
+                      >
+                        View on Google
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  'https://maps.app.goo.gl/DrXPngzuP6QN6kTk9',
+                  'https://maps.app.goo.gl/hbbf81UHNpfRJzH39',
+                  'https://maps.app.goo.gl/A4SD8B75KhLm5NeQA',
+                  'https://maps.app.goo.gl/eN1xkicjMGUxKvPK6',
+                ].map((url, idx) => (
+                  <Card key={url} className="group relative bg-card dark:bg-slate-900 border border-border hover:scale-[1.02] focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background">
+                    <CardHeader className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="size-10">
+                          <AvatarFallback className="text-foreground font-semibold">GR</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="text-sm font-semibold text-gray-800 dark:text-white/90">Featured Google Review</div>
+                          <div className="text-xs text-gray-500 dark:text-white/60">Recently posted</div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">
+                        {idx === 0 ? '“Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!”' : '“View this review on Google.”'}
+                      </blockquote>
+                    </CardContent>
+                    <CardFooter>
+                      <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
+                        aria-label="View review on Google"
+                      >
+                        View on Google
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            )
           )}
         </div>
 
