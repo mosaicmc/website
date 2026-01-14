@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ShieldCheck, Ban, FileWarning, HandCoins, Users, AlertTriangle } from "lucide-react";
+import { PolicyPageFooter } from "@/components/policies/PolicyPageFooter";
 
 export default function CodeOfConductPolicyPage() {
   return (
@@ -135,17 +136,7 @@ export default function CodeOfConductPolicyPage() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-muted-foreground">This page summarises Mosaic’s Code of Conduct. For detailed procedures, speak with HR.</p>
-        <div className="mt-6">
-          <a
-            href="https://mosaicmc.org.au/wp-content/uploads/2025/10/Mosaic-Code-of-Conduct.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition"
-          >
-            Download full policy (PDF)
-          </a>
-        </div>
+        <PolicyPageFooter policyKey="code-of-conduct" policyName="Code of Conduct" />
       </section>
     </div>
   );

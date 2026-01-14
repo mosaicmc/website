@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, ChevronDown, ChevronUp, UserPlus } from 'lucide-react';
+import { FAQSection } from '@/components/FAQSection';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
@@ -11,9 +12,6 @@ import { assetPath } from '@/lib/utils';
 
 const FamilySupportPage = () => {
   const { t } = useTranslation();
-  // Two separate states for each accordion column
-  const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
-  const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
@@ -104,66 +102,6 @@ const FamilySupportPage = () => {
       answer: t('family.faq.availabilityAnswer')
     }
   ];
-
-  // Split FAQs into two columns
-  const leftColumnFaqs = faqData.slice(0, 3);
-  const rightColumnFaqs = faqData.slice(3, 6);
-
-  const AccordionItem = ({ faq, index, value, onValueChange, columnPrefix }: {
-    faq: typeof faqData[0];
-    index: number;
-    value: string | undefined;
-    onValueChange: (value: string | undefined) => void;
-    columnPrefix: string;
-  }) => {
-    const itemValue = `${columnPrefix}-${index}`;
-    const isOpen = value === itemValue;
-
-    const toggleItem = () => {
-      onValueChange(isOpen ? undefined : itemValue);
-    };
-
-    return (
-      <div className="group backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden hover:scale-[1.01]">
-        {/* Question Button */}
-        <button
-          onClick={toggleItem}
-          className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-white/80 dark:hover:bg-white/15 transition-all duration-300 group"
-        >
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4 leading-relaxed">
-            "{faq.question}"
-          </h3>
-          <div className="flex-shrink-0">
-            {isOpen ? (
-              <ChevronUp className="h-6 w-6 text-leaf transition-transform duration-300" />
-            ) : (
-              <ChevronDown className="h-6 w-6 text-leaf transition-transform duration-300 group-hover:scale-110" />
-            )}
-          </div>
-        </button>
-
-        {/* Answer Content */}
-        <div 
-          className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            isOpen 
-              ? 'max-h-[500px] opacity-100' 
-              : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="px-6 pb-6 border-t border-white/30 dark:border-white/20 pt-6">
-            <p className="text-gray-600 dark:text-white/80 leading-relaxed text-base">
-              {faq.answer}
-            </p>
-          </div>
-        </div>
-
-        {/* Subtle accent line */}
-        <div className={`h-1 bg-gradient-to-r from-leaf to-leaf/80 transition-all duration-500 ${
-          isOpen ? 'opacity-100' : 'opacity-0'
-        }`}></div>
-      </div>
-    );
-  };
 
   return (
     <div className="animate-fade-in">
@@ -256,7 +194,7 @@ const FamilySupportPage = () => {
                 </div>
               </div>
 
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
             </div>
 
@@ -296,7 +234,7 @@ const FamilySupportPage = () => {
                 </div>
               </div>
 
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r from-sun to-sun/80 opacity-60"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
             </div>
           </div>
@@ -311,22 +249,12 @@ const FamilySupportPage = () => {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">{t('family.sections.eligibility.title')}</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sun mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('family.eligibility.items.0')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sun mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('family.eligibility.items.1')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sun mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('family.eligibility.items.2')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sun mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('family.eligibility.items.3')}</span>
-                  </div>
+                  {(t('family.eligibility.items', { returnObjects: true }) as string[]).map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3 group">
+                      <CheckCircle className="h-5 w-5 text-sun mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-gray-700 dark:text-gray-100">{item}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                   <div className="aspect-video">
@@ -335,13 +263,18 @@ const FamilySupportPage = () => {
                       <img
                         src={assetPath("/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp")}
                         alt="Family support eligibility"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
                     </picture>
                   </div>
                 </div>
+              </div>
+              <div className="mt-8 text-center md:text-left">
+                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                  {t('family.eligibility.note')}
+                </p>
               </div>
             </div>
           </div>
@@ -470,57 +403,13 @@ const FamilySupportPage = () => {
       </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        {/* Enhanced glass morphism background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
-              <span className="mr-2 h-2 w-2 rounded-full bg-sun animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('family.sections.faq.badge')}</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('family.sections.faq.title')}</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>{t('family.sections.faq.subtitle')}</p>
-          </div>
-
-          {/* FAQ Accordion - 2 Column Layout with Independent State */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Left Column */}
-            <div className="space-y-6">
-              {leftColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={leftColumnValue}
-                  onValueChange={setLeftColumnValue}
-                  columnPrefix="left"
-                />
-              ))}
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-6">
-              {rightColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={rightColumnValue}
-                  onValueChange={setRightColumnValue}
-                  columnPrefix="right"
-                />
-              ))}
-            </div>
-          </div>
-
-      
-        </div>
-      </section>
+      <FAQSection
+        title={t('family.sections.faq.title')}
+        subtitle={t('family.sections.faq.subtitle')}
+        badge={t('family.sections.faq.badge')}
+        items={faqData}
+        accentColor="sun"
+      />
 
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
@@ -536,7 +425,7 @@ const FamilySupportPage = () => {
                 href="https://forms.mosaicmc.org.au/refer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-sun to-sun/90 hover:from-sun/90 hover:to-sun text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
+                className="bg-sun hover:bg-sun/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
               >
                 <UserPlus className="h-5 w-5 mr-2" />
                 {t('family.cta.referralLabel')}

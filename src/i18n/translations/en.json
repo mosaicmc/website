@@ -175,13 +175,13 @@
     },
     "programs": {
       "tei": {
-        "title": "TEI Family Support Program",
-        "description": "Focused, professional help with parenting challenges, family relationships, and access to essential services. Qualified family workers provide 3 to 6 months of individual support plus evidence‑based parenting workshops like Circle of Security and Bringing Up Great Kids.",
+        "title": "Family Support",
+        "description": "Our professional, culturally responsive family support programs work alongside multicultural families to build positive parenting, healthy relationships, and family wellbeing. We combine evidence-based parenting programs with individual family support, so families feel heard, supported, and empowered.",
         "features": [
-          "Qualified casework tailored to your family's goals",
-          "Evidence‑based parenting (Circle of Security, BUGK)",
-          "Referrals to services and crisis support",
-          "Flexible appointments at home, office or online"
+          "Qualified family casework tailored to your goals",
+          "Evidence-based parenting programs (Circle of Security, Bringing Up Great Kids, Black Box Parenting, 123 Magic)",
+          "Referrals to services and crisis support when needed",
+          "Flexible appointments at home, in the office, or online"
         ],
         "whatWeProvideLabel": "What We Provide:"
       },
@@ -200,10 +200,11 @@
     "eligibility": {
       "items": [
         "Multicultural families seeking parenting support or community connection",
-        "Parents of children 0 to 12 for TEI; 0 to 6 for PAW playgroups",
-        "Families needing interpreters or culturally safe support, either for themselves or on behalf of a client or loved one.",
-        "Drop-in welcome for PAW; quick intake for TEI"
-      ]
+        "Parents and carers of children aged 0 to 12 can access Family Support services",
+        "Parents and carers of children aged 0 to 6 can join PAW (Playing Around the World) playgroups",
+        "Support can be accessed for yourself, or on behalf of a child, client, or loved one"
+      ],
+      "note": "Please note: Community and Family Support is available regardless of visa status or citizenship. Services are culturally safe, with support available in your preferred language."
     },
     "how": {
       "steps": [
@@ -300,20 +301,20 @@
         "description": "The Gamble Aware program offers culturally appropriate education and support where multicultural families learn about gambling risks and access specialist help when needed.",
         "features": [
           "Culturally sensitive workshops in your language",
-          "Individual family support up to 4 sessions",
+          "Individual family support casework",
           "Direct connections to specialist gambling counsellors",
           "Education about gambling risks and impacts"
         ],
         "who": "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm."
       },
       "multiculturalDevelopment": {
-        "title": "Multicultural Community Development",
+        "title": "Community Capacity Building",
         "description": "Mosaic’s Multicultural Community Groups are safe spaces where families build real connections, maintain their cultural identity, and strengthen ties to the wider community. Our community groups welcome drop-ins.",
         "features": [
-          "Weekly playgroups & mothers' groups",
-          "Citizenship preparation and English practice",
-          "Regular information sessions, community workshops and cultural celebrations",
-          "\"Playing Around the World\" activities"
+          "Weekly playgroups, men & mothers groups",
+          "Citizenship preparation",
+          "Free English Conversation Classes - Talking Around the World (TATW)",
+          "Regular information sessions, community workshops and cultural celebrations"
         ],
         "who": "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs."
       },
@@ -350,7 +351,7 @@
         },
         {
           "title": "3. Lead & advocate",
-          "description": "Access leadership training and represent your community in consultations.",
+          "description": "Participate in Mosaic's quarterly leaders consultation sessions to advocate for your community",
           "bullets": ["Mentoring and advisory group pathways", "Opportunities to influence programs and policy"]
         }
       ]
@@ -736,7 +737,7 @@
     },
     "comprehensive": {
       "title": "Comprehensive Settlement Approach",
-      "paragraph": "Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community connection, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
+      "paragraph": "Our settlement support follows the Settlement Council of Australia (SCOA) framework, which recognises that settling into life in Australia involves many connected needs. Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community connection, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
     },
     "team": {
       "title": "Meet Your Settlement Support Team",
@@ -744,27 +745,29 @@
     },
     "eligibility": {
       "items": [
-        "New migrants and multicultural communities within first 5 years",
-        "Families needing help with housing, work, English or legal support",
-        "Anyone seeking guidance to navigate Australian systems and services, either for themselves or on behalf of a client or loved one.",
-        "Professional interpreters available for all appointments"
-      ]
+        "People who arrived in Australia within the last five years, especially those needing urgent support. This includes people experiencing health and wellbeing challenges, or family or domestic violence.",
+        "Family members and dependants, often women, who may have focused on caring for others and delayed seeking settlement support for themselves.",
+        "People with limited English or low literacy, who need extra help understanding services, forms, or everyday systems.",
+        "People with complex or ongoing settlement needs, where other settlement or mainstream services are not available or accessible.",
+        "Older migrants, or people who arrived in Australia at a young age and experience new challenges as they get older, even if they have lived in Australia for more than five years."
+      ],
+      "note": "Please note: Professional interpreters are available free of charge for appointments, on request. Australian citizens are not eligible for the SETS program."
     },
     "faq": {
       "referralQuestion": "Can I refer someone to settlement support?",
       "referralAnswer": "Anyone can make a referral, including individuals, family members, friends, carers, and professionals. You can also contact Mosaic directly if you prefer. Our team will help confirm the right support and guide the next steps.",
       "eligibilityQuestion": "Who is eligible for settlement support services?",
-      "eligibilityAnswer": "Settlement support is available to recent migrants and multicultural community members within their first 5 years in Australia, family members of eligible migrants, people from culturally and linguistically diverse backgrounds, and anyone needing assistance navigating Australian systems and services. There are no visa status restrictions - we support all multicultural families regardless of their immigration status.",
+      "eligibilityAnswer": "Settlement support is available to recent migrants and refugees in their first five years in Australia, as well as family members of eligible migrants. We also support people from culturally and linguistically diverse backgrounds who need help understanding or navigating Australian systems and services, such as housing, employment, healthcare, education, or government processes. Mosaic provides settlement support across Central Coast, Newcastle, Lake Macquarie, Maitland and surrounding areas, as well as Tamworth and Armidale. If you’re unsure whether you’re eligible, you’re welcome to get in touch and we’ll talk it through with you. <1>Check your eligibility here.</1>",
       "housingQuestion": "What housing assistance do you provide?",
       "housingAnswer": "We help with finding suitable accommodation, understanding rental processes and tenant rights, connecting with real estate agents and housing services, preparing rental applications, understanding utility connections, and advocating with housing providers. Our settlement workers guide you through inspections and negotiations so you feel confident engaging with real estate agents.",
       "employmentQuestion": "How do you help with employment?",
       "employmentAnswer": "Our employment support includes resume writing and interview preparation, job search assistance and connecting with employers, understanding Australian workplace culture and rights, skills recognition and qualification assessment support, referrals to training and education programmes, and ongoing career development guidance. We work with local employers who value cultural diversity.",
       "govServicesQuestion": "What services can you help me access?",
-      "govServicesAnswer": "We provide navigation support for Centrelink services and payments, Medicare registration and healthcare access, taxation and Australian Business Number (ABN) applications, driver licence and transport services, school enrolment for children, and legal services and advocacy support. Our workers can accompany you to appointments and help with paperwork.",
+      "govServicesAnswer": "Mosaic can help you understand and access everyday Australian services. This includes Centrelink payments, Medicare and healthcare, tax and ABN applications, driver licences and transport, and school enrolment for children. We can also guide you to legal services and advocacy when needed. If you’re unsure where to start or which service applies to you, we’ll help explain your options and support you step by step.",
       "languageQuestion": "Do you provide language support?",
       "languageAnswer": "Yes, we offer professional interpreter services for all appointments and meetings, translation of important documents, referrals to English language programmes and classes, assistance with understanding official correspondence, and support in your preferred language during service delivery. Many of our staff speak multiple languages and understand the challenges of language barriers.",
       "durationQuestion": "How long can I access settlement support?",
-      "durationAnswer": "Settlement support is typically available for up to 5 years after arrival in Australia, though this can vary based on individual circumstances and needs. We provide intensive support in the first 6-12 months, then ongoing assistance as needed. Our goal is to help you become independent and confident in navigating Australian systems, but we're here for as long as you need support."
+      "durationAnswer": "<0>Settlement support is usually available during your first five years after arriving in Australia. This can vary depending on your situation and the support you need.</0><1>Our aim is to help you feel confident and independent when using Australian systems. We’ll support you for as long as it’s helpful and work with you at a pace that suits you.</1>"
     },
     "cta": {
       "title": "Ready to Start Your Settlement Journey?",

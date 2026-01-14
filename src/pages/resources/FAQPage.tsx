@@ -1,15 +1,18 @@
 import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search as SearchIcon, ChevronDown, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Search as SearchIcon, ThumbsUp, ThumbsDown } from 'lucide-react';
 import FAQSchema from '@/components/FAQSchema';
 import RelatedServices from '@/components/RelatedServices';
 import { logFaqFeedback, logFaqView } from '@/lib/searchAnalytics';
 import Section from '@/components/ui/Section';
+import { AccordionItem } from '@/components/ui/AccordionItem';
 
 type QA = { question: string; answer: string };
 
 export default function FAQPage() {
   const [query, setQuery] = useState('');
+  const [openItem, setOpenItem] = useState<string | undefined>();
+  
   const faqs: QA[] = useMemo(() => ([
     { question: 'Am I eligible for services in NSW?', answer: 'If you live in NSW and need support with settlement, family wellbeing, home care or community connection, we can help. Eligibility varies by program — contact us to check your pathway.' },
     { question: 'How do I start getting support?', answer: 'Call 1800 813 205 or visit a local office in Newcastle, Tamworth, Armidale or the Central Coast. We discuss your goals, agree a plan, and connect you to housing, work, language and community supports.' },
@@ -48,6 +51,11 @@ export default function FAQPage() {
     return faqs.filter((i) => i.question.toLowerCase().includes(q) || i.answer.toLowerCase().includes(q));
   }, [query, faqs]);
 
+  const faqColors = {
+    bg: 'bg-ocean',
+    border: 'border-ocean',
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -80,51 +88,49 @@ export default function FAQPage() {
           </div>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4 max-w-3xl mx-auto">
           {filteredFaqs.map((item, idx) => {
             const id = `faq-${idx}`;
-            const panelId = `${id}-panel`;
+            const isOpen = openItem === id;
+            
+            const answerContent = (
+              <>
+                <p className="leading-relaxed">{item.answer}</p>
+                <div className="mt-4 flex items-center gap-3">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-xs hover:bg-sand/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    aria-label="Mark this answer as helpful"
+                    onClick={() => logFaqFeedback(item.question, true)}
+                  >
+                    <ThumbsUp className="h-3.5 w-3.5" /> Helpful
+                  </button>
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-xs hover:bg-sand/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    aria-label="Report this answer needs improvement"
+                    onClick={() => logFaqFeedback(item.question, false)}
+                  >
+                    <ThumbsDown className="h-3.5 w-3.5" /> Needs improvement
+                  </button>
+                </div>
+              </>
+            );
+
             return (
-              <div key={id} className="rounded-xl border bg-card p-4 shadow-sm">
-                      <button
-                        type="button"
-                        className="w-full flex items-center justify-between text-left"
-                        aria-expanded="false"
-                        aria-controls={panelId}
-                        onClick={(e) => {
-                          const btn = e.currentTarget;
-                          const expanded = btn.getAttribute('aria-expanded') === 'true';
-                          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-                          const panel = document.getElementById(panelId);
-                          if (panel) panel.hidden = expanded;
-                          if (!expanded) logFaqView(item.question);
-                        }}
-                      >
-                        <span className="font-medium text-foreground">{item.question}</span>
-                        <ChevronDown className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
-                      </button>
-                      <div id={panelId} hidden className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                        {item.answer}
-                        <div className="mt-4 flex items-center gap-3">
-                          <button
-                            type="button"
-                            className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-xs hover:bg-sand/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                            aria-label="Mark this answer as helpful"
-                            onClick={() => logFaqFeedback(item.question, true)}
-                          >
-                            <ThumbsUp className="h-3.5 w-3.5" /> Helpful
-                          </button>
-                          <button
-                            type="button"
-                            className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-xs hover:bg-sand/50 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                            aria-label="Report this answer needs improvement"
-                            onClick={() => logFaqFeedback(item.question, false)}
-                          >
-                            <ThumbsDown className="h-3.5 w-3.5" /> Needs improvement
-                          </button>
-                        </div>
-                      </div>
-              </div>
+              <AccordionItem
+                key={id}
+                id={id}
+                question={item.question}
+                answer={answerContent}
+                isOpen={isOpen}
+                onToggle={() => {
+                  const nextOpen = isOpen ? undefined : id;
+                  setOpenItem(nextOpen);
+                  if (nextOpen) logFaqView(item.question);
+                }}
+                colors={faqColors}
+              />
             );
           })}
         </div>
@@ -138,3 +144,4 @@ export default function FAQPage() {
     </div>
   );
 }
+

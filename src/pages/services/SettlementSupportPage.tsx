@@ -6,7 +6,7 @@ import { Home, Phone, ArrowRight, CheckCircle, Users, Globe, FileText, UserPlus 
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import MirjaImg from './SETS Team 128px/SETSTeam_Mirja_128px.webp';
 import MadanImg from './SETS Team 128px/SETSTeam_Madan_128px.webp';
 import BasimImg from './SETS Team 128px/SETSTeam_Basim_128px.webp';
@@ -122,12 +122,30 @@ const SettlementSupportPage = () => {
 
   const faqData = [
     { question: t('settlement.faq.referralQuestion'), answer: t('settlement.faq.referralAnswer') },
-    { question: t('settlement.faq.eligibilityQuestion'), answer: t('settlement.faq.eligibilityAnswer') },
+    {
+      question: t('settlement.faq.eligibilityQuestion'),
+      answer: (
+        <Trans
+          i18nKey="settlement.faq.eligibilityAnswer"
+          components={{ 1: <a href="https://immi.homeaffairs.gov.au/settling-in-australia/sets-program/eligibility" target="_blank" rel="noopener noreferrer" className="text-sky hover:underline font-medium" /> }}
+        />
+      ),
+      schemaAnswer: t('settlement.faq.eligibilityAnswer').replace(/<[^>]*>/g, '')
+    },
     { question: t('settlement.faq.housingQuestion'), answer: t('settlement.faq.housingAnswer') },
     { question: t('settlement.faq.employmentQuestion'), answer: t('settlement.faq.employmentAnswer') },
     { question: t('settlement.faq.govServicesQuestion'), answer: t('settlement.faq.govServicesAnswer') },
     { question: t('settlement.faq.languageQuestion'), answer: t('settlement.faq.languageAnswer') },
-    { question: t('settlement.faq.durationQuestion'), answer: t('settlement.faq.durationAnswer') },
+    {
+      question: t('settlement.faq.durationQuestion'),
+      answer: (
+        <Trans
+          i18nKey="settlement.faq.durationAnswer"
+          components={{ 0: <div className="mb-4" />, 1: <div /> }}
+        />
+      ),
+      schemaAnswer: t('settlement.faq.durationAnswer').replace(/<[^>]*>/g, ' ')
+    },
   ];
 
   return (
@@ -179,7 +197,12 @@ const SettlementSupportPage = () => {
               </a>
             </div>
             <div className="mt-6 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">{t('settlement.hero.footerNote')}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
+                <Trans
+                  i18nKey="settlement.hero.footerNote"
+                  components={{ 1: <a href="https://immi.homeaffairs.gov.au/settling-in-australia/sets-program/eligibility" target="_blank" rel="noopener noreferrer" className="text-sky hover:underline font-medium" /> }}
+                />
+              </p>
               <p className="text-sm text-gray-500 dark:text-gray-400">{t('settlement.hero.referralNote')}</p>
             </div>
           </div>
@@ -301,7 +324,7 @@ const SettlementSupportPage = () => {
         </div>
       </section>
 
-      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+      <section id="eligibility" className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="stack-vertical">
@@ -309,22 +332,12 @@ const SettlementSupportPage = () => {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">{t('settlement.sections.eligibility.title')}</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.0')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.1')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.2')}</span>
-                  </div>
-                  <div className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-100">{t('settlement.eligibility.items.3')}</span>
-                  </div>
+                  {(t('settlement.eligibility.items', { returnObjects: true }) as string[]).map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3 group">
+                      <CheckCircle className="h-5 w-5 text-sky mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-gray-700 dark:text-gray-100">{item}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className="relative h-64 overflow-hidden rounded-xl md:h-full">
                   <img
@@ -333,6 +346,12 @@ const SettlementSupportPage = () => {
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
+              </div>
+              
+              <div className="mt-8 text-center md:text-left">
+                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                  {t('settlement.eligibility.note')}
+                </p>
               </div>
             </div>
 

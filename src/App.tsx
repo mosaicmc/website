@@ -30,6 +30,7 @@ const QualityManagementPolicyPage = lazy(() => import('./pages/policies/QualityM
 const WorkHealthSafetyPolicyPage = lazy(() => import('./pages/policies/WorkHealthSafetyPolicyPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/policies/PrivacyPolicyPage'));
 const FeedbackComplaintsPolicyPage = lazy(() => import('./pages/policies/FeedbackComplaintsPolicyPage'));
+const ChildSafetyPolicyPage = lazy(() => import('./pages/policies/ChildSafetyPolicyPage'));
 const KnowledgeBasePage = lazy(() => import('./pages/company/KnowledgeBasePage'));
 const CareersPage = lazy(() => import('./pages/company/CareersPage'));
 const NewsPage = lazy(() => import('./pages/company/NewsPage'));
@@ -94,6 +95,7 @@ function App() {
         <Route path="/policies/work-health-safety" element={<WorkHealthSafetyPolicyPage />} />
         <Route path="/policies/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/policies/feedback-complaints" element={<FeedbackComplaintsPolicyPage />} />
+        <Route path="/policies/child-safety" element={<ChildSafetyPolicyPage />} />
         <Route path="/company/knowledge-base" element={<KnowledgeBasePage />} />
         <Route path="/company/careers" element={<CareersPage />} />
         <Route path="/company/news" element={<NewsPage />} />

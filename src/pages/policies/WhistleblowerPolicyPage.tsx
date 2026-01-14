@@ -1,10 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { FileWarning, ShieldCheck, Scale, AlertTriangle } from "lucide-react";
-import Section from '@/components/ui/Section';
+import Section from "@/components/ui/Section";
+import { PolicyPageFooter } from "@/components/policies/PolicyPageFooter";
 
 export default function WhistleblowerPolicyPage() {
-  const pdfHref = "https://mosaicmc.org.au/wp-content/uploads/2025/10/Mosaic-Whistleblower-Policy-.pdf";
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -70,22 +69,7 @@ export default function WhistleblowerPolicyPage() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-muted-foreground">This page summarises Mosaic’s Whistleblower Policy. For confidential advice, contact HR.</p>
-        <div className="mt-6">
-          <a
-            href={pdfHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition"
-          >
-            Download full policy (PDF)
-          </a>
-        </div>
-
-        <div className="mt-8 text-sm space-x-4">
-          <Link to="/policies/code-of-conduct" className="text-primary hover:underline">View Code of Conduct</Link>
-          <Link to="/policies/work-health-safety" className="text-primary hover:underline">View Work Health & Safety</Link>
-        </div>
+        <PolicyPageFooter policyKey="whistleblower" policyName="Whistleblower Policy" />
       </Section>
     </div>
   );

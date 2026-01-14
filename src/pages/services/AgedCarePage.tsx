@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import FAQSchema from '@/components/FAQSchema';
+import { FAQSection } from '@/components/FAQSection';
 import { Heart, Phone, ArrowRight, CheckCircle, Users, Home, Clock, ShieldCheck, Megaphone, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
-import { GlassCard } from '@/components/ui/GlassCard';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
@@ -12,15 +11,7 @@ import { assetPath } from '@/lib/utils';
 const AgedCarePage = () => {
   const { t } = useTranslation();
   // FAQ state and data (matching other services pages)
-  const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
-  const [rightColumnValue, setRightColumnValue] = useState<string | undefined>('faq-1');
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
-
-  type FaqItem = {
-    question: string;
-    answer: React.ReactNode;
-    schemaAnswer: string;
-  };
 
   const teamMembers = [
     {
@@ -65,7 +56,7 @@ const AgedCarePage = () => {
   const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
   const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
-  const faqData: FaqItem[] = [
+  const faqData = [
     {
       question: t('agedCare.faq.sahQuestion'),
       answer: t('agedCare.faq.sahAnswer'),
@@ -137,64 +128,12 @@ const AgedCarePage = () => {
     },
   ];
 
-  // Split FAQs into two columns
-  const midpoint = Math.ceil(faqData.length / 2);
-  const leftColumnFaqs = faqData.slice(0, midpoint);
-  const rightColumnFaqs = faqData.slice(midpoint);
-
-  const schemaFaqs = faqData.map((f) => ({ question: f.question, answer: f.schemaAnswer }));
-
-  const AccordionItem = ({ faq, index, value, onValueChange, columnPrefix }: {
-    faq: FaqItem;
-    index: number;
-    value: string | undefined;
-    onValueChange: (value: string | undefined) => void;
-    columnPrefix: string;
-  }) => {
-    const itemValue = `${columnPrefix}-${index}`;
-    const isOpen = value === itemValue;
-    return (
-      <div
-        className={`rounded-2xl overflow-hidden transition-all duration-300 border backdrop-blur-md bg-white/60 dark:bg-white/10 ${
-          isOpen ? 'border-care shadow-xl' : 'border-white/40 dark:border-white/20'
-        }`}
-      >
-        <button
-          className="w-full text-left px-6 py-5 flex items-start justify-between gap-4"
-          onClick={() => onValueChange(isOpen ? undefined : itemValue)}
-        >
-          <div className="flex items-start gap-3">
-            <span className="mt-1 h-2 w-2 rounded-full bg-care"></span>
-            <span className="text-lg font-semibold text-gray-900 dark:text-white">{faq.question}</span>
-          </div>
-          <span
-            className={`inline-flex items-center justify-center h-8 w-8 rounded-full border ${
-              isOpen ? 'bg-care text-white border-care' : 'border-white/40 dark:border-white/20 text-gray-600 dark:text-white/70'
-            }`}
-          >
-            {isOpen ? '−' : '+'}
-          </span>
-        </button>
-        <div
-          className={`px-6 pt-0 pb-6 text-gray-700 dark:text-gray-100 transition-all duration-300 ${
-            isOpen ? 'block' : 'hidden'
-          }`}
-        >
-          {faq.answer}
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="animate-fade-in">
       <Helmet>
         <title>Mosaic Multicultural - Aged Care Services</title>
         <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
       </Helmet>
-      <FAQSchema faqs={schemaFaqs} name="Home Care FAQs" />
-      
-      {/* Hero Section with enhanced animations */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
@@ -253,60 +192,84 @@ const AgedCarePage = () => {
                 {
                   title: t('agedCare.programs.sah.title'),
                   description: t('agedCare.programs.sah.description'),
-                  icon: <Home className="h-6 w-6" />,
+                  icon: <Home className="h-8 w-8" />,
                   features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
                 },
                 {
                   title: t('agedCare.programs.chspIndividual.title'),
                   description: t('agedCare.programs.chspIndividual.description'),
-                  icon: <Users className="h-6 w-6" />,
+                  icon: <Users className="h-8 w-8" />,
                   features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
                 },
                 {
                   title: t('agedCare.programs.chspRespite.title'),
                   description: t('agedCare.programs.chspRespite.description'),
-                  icon: <Clock className="h-6 w-6" />,
+                  icon: <Clock className="h-8 w-8" />,
                   features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
                 },
                 {
                   title: t('agedCare.programs.acvvs.title'),
                   description: t('agedCare.programs.acvvs.description'),
-                  icon: <Users className="h-6 w-6" />,
+                  icon: <Users className="h-8 w-8" />,
                   features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
                 }
               ].map((program, index) => (
-                <GlassCard key={index} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30 group hover:scale-105 animate-fade-in-up" padding="lg" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-care rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                      {program.title === t('agedCare.programs.acvvs.title') ? (
-                        <img
-                          src={assetPath("/images/ACVVS_logo.svg")}
-                          alt="ACVVS logo"
-                          className="block h-7 w-7 object-contain object-center"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        program.icon
+                <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-start space-x-4 mb-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-care rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-care/25 transition-all duration-300 group-hover:scale-110">
+                          <div className="text-white">
+                            {program.title === t('agedCare.programs.acvvs.title') ? (
+                              <img
+                                src={assetPath("/images/ACVVS_logo.svg")}
+                                alt="ACVVS logo"
+                                className="block h-8 w-8 object-contain object-center brightness-0 invert"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            ) : (
+                              program.icon
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
+                    </div>
+
+                    <div className="mb-8">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <CheckCircle className="h-5 w-5 text-care mr-2" />
+                        {t('agedCare.programs.whatWeProvideLabel', 'What we provide')}
+                      </h4>
+                      <ul className="space-y-3">
+                        {Array.isArray(program.features) && program.features.map((f, i) => (
+                          <li key={i} className="flex items-start space-x-3">
+                            <div className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-600 dark:text-white/80 text-sm">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {program.title === t('agedCare.programs.acvvs.title') && (
+                        <p className="mt-3 text-xs italic text-muted-foreground">
+                          {t('agedCare.programs.acvvs.fundingNote')}
+                        </p>
                       )}
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-care transition-colors">{program.title}</h3>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-100 mb-4">{program.description}</p>
-                  <ul className="space-y-2">
-                    {program.features.map((f, i) => (
-                      <li key={i} className="flex items-start space-x-3">
-                        <span className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></span>
-                        <span className="text-gray-700 dark:text-gray-100 text-sm">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {program.title === t('agedCare.programs.acvvs.title') && (
-                    <p className="mt-3 text-xs italic text-muted-foreground">
-                      {t('agedCare.programs.acvvs.fundingNote')}
-                    </p>
-                  )}
-                </GlassCard>
+
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-care opacity-60"></div>
+                  <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-care opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+                </div>
               ))}
             </div>
           </div>
@@ -343,7 +306,7 @@ const AgedCarePage = () => {
                   <img
                     src={assetPath("/images/aged-care/eligibility.png")}
                     alt="Multicultural home care support"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
@@ -381,13 +344,13 @@ const AgedCarePage = () => {
                     icon: <Scale className="h-6 w-6 text-care" />,
                   },
                 ].map((card, i) => (
-                  <GlassCard key={i} className="rounded-xl hover:shadow-lg hover:ring-1 hover:ring-care/30" padding="lg">
+                  <div key={i} className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-lg hover:ring-1 hover:ring-care/30 transition-all duration-300">
                     <div className="flex items-center space-x-3 mb-2">
                       <div className="p-3 bg-care/10 rounded-2xl">{card.icon}</div>
                       <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{card.title}</h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-100">{card.description}</p>
-                  </GlassCard>
+                  </div>
                 ))}
               </div>
               
@@ -479,50 +442,13 @@ const AgedCarePage = () => {
       </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-care/10 dark:bg-care/15 mix-blend-multiply pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
-              <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('agedCare.sections.faq.badge')}</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('agedCare.sections.faq.title')}</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('agedCare.sections.faq.subtitle')}</p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6">
-            <div className="space-y-6">
-              {leftColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={leftColumnValue}
-                  onValueChange={setLeftColumnValue}
-                  columnPrefix="left"
-                />
-              ))}
-            </div>
-
-            <div className="space-y-6">
-              {rightColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={rightColumnValue}
-                  onValueChange={setRightColumnValue}
-                  columnPrefix="right"
-                />
-              ))}
-            </div>
-          </div>
-
-          
-        </div>
-      </section>
+      <FAQSection
+        title={t('agedCare.sections.faq.title')}
+        subtitle={t('agedCare.sections.faq.subtitle')}
+        badge={t('agedCare.sections.faq.badge')}
+        items={faqData}
+        accentColor="care"
+      />
 
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
@@ -537,7 +463,7 @@ const AgedCarePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
-                className="bg-gradient-to-r from-care to-care/90 hover:from-care/90 hover:to-care text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
+                className="bg-care hover:bg-care/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 {t('agedCare.cta.callLabel')}

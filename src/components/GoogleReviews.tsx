@@ -40,7 +40,7 @@ const GoogleReviews = () => {
         .then((data) => {
           const items: ScrapedReview[] = Array.isArray(data?.reviews) ? data.reviews : [];
           if (typeof data?.placeUrl === 'string') setPlaceUrl(data.placeUrl);
-          setReviews(items.slice(0, 3));
+          setReviews(items.slice(0, 6));
           setLoading(false);
         })
         .catch((err) => {
@@ -92,7 +92,7 @@ const GoogleReviews = () => {
         <div className="relative" aria-live="polite">
           {loading && (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, i) => (
+              {Array.from({ length: 6 }).map((_, i) => (
                 <Card key={`skeleton-${i}`} className="animate-pulse">
                   <CardHeader>
                     <div className="h-4 w-24 bg-white/40 dark:bg-white/10 rounded" />

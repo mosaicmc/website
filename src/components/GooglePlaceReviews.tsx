@@ -169,45 +169,71 @@ const GooglePlaceReviews = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center">
-            {/* Graceful loader and messaging */}
-            {loading ? (
+          <>
+            {/* Graceful loader */}
+            {loading && (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow animate-pulse bg-white/60 dark:bg-white/10">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow animate-pulse bg-white/60 dark:bg-white/10"
+                  >
                     <div className="h-4 w-1/2 bg-gray-200 dark:bg-slate-700 rounded mb-4"></div>
-                    <div className="h-20 bg-gray-200 dark:bg-slate-700 rounded"></div>
+                    <div className="h-16 bg-gray-200 dark:bg-slate-700 rounded"></div>
                     <div className="mt-4 h-3 w-1/3 bg-gray-200 dark:bg-slate-700 rounded"></div>
                   </div>
                 ))}
               </div>
-            ) : null}
-            {error ? (
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{error}</p>
-            ) : (
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Live reviews will appear here when available.</p>
             )}
-            {/* Fallback to a simple embed or external link */}
-            <div className="max-w-3xl mx-auto rounded-lg overflow-hidden border border-white/50 dark:border-white/20 shadow">
-              <iframe
-                title="Google Maps"
-                src="https://maps.google.com/maps?q=Mosaic%20Multicultural%20Connections&output=embed"
-                className="w-full h-64"
-                loading="lazy"
-              />
-            </div>
-            <div className="mt-6">
-              <a
-                href={GOOGLE_REVIEWS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border bg-card px-5 py-3 text-sm shadow-sm hover:shadow-md transition"
-              >
-                Read all reviews on Google
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
+
+            {/* Static featured cards when live reviews are not available */}
+            {!loading && (
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  'https://maps.app.goo.gl/DrXPngzuP6QN6kTk9',
+                  'https://maps.app.goo.gl/hbbf81UHNpfRJzH39',
+                  'https://maps.app.goo.gl/A4SD8B75KhLm5NeQA',
+                  'https://maps.app.goo.gl/eN1xkicjMGUxKvPK6',
+                ].map((url, idx) => (
+                  <div
+                    key={url}
+                    className="group relative backdrop-blur-xl bg-white/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-sm font-semibold text-gray-800 dark:text-white">Featured Google Review</div>
+                        <div className="text-xs text-gray-500 dark:text-white/60">Recently posted</div>
+                      </div>
+                    </div>
+                    <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed mb-6 text-base">
+                      {idx === 0
+                        ? '“Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!”'
+                        : '“View this review on Google.”'}
+                    </blockquote>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-500 dark:text-white/60">Source: Google Reviews</span>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                      >
+                        View on Google
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Error or helper text */}
+            {error && (
+              <p className="mt-6 text-center text-gray-600 dark:text-gray-300">
+                Unable to load live reviews automatically. Showing featured Google review links instead.
+              </p>
+            )}
+          </>
         )}
       </div>
     </section>

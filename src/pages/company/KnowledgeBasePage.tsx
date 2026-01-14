@@ -57,6 +57,12 @@ export default function KnowledgeBasePage() {
       desc: "How to share your feedback or make a formal complaint.",
       icon: MessageCircle,
     },
+    {
+      title: "Child Safety Policy",
+      href: "/policies/child-safety",
+      desc: "Child protection, safeguarding practices, and reporting procedures.",
+      icon: ShieldCheck,
+    },
   ];
 
   return (

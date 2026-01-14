@@ -330,7 +330,7 @@ const ResourcesPage = () => {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-foreground">Project Reports</h3>
-                      <p className="text-sm text-muted-foreground">Download reports that share outcomes, learnings, and insights from Mosaic programs and funded projects.</p>
+                      <p className="text-sm text-muted-foreground">Download reports on Mosaic programs.</p>
                     </div>
                   </div>
                 </div>

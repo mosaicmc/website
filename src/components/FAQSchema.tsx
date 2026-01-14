@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-type FAQ = { question: string; answer: string };
+type FAQ = { question: string; answer: string | React.ReactNode; schemaAnswer?: string };
 
 export default function FAQSchema({ faqs, name }: { faqs: FAQ[]; name?: string }) {
   const json = {
@@ -13,7 +13,7 @@ export default function FAQSchema({ faqs, name }: { faqs: FAQ[]; name?: string }
       name: f.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: f.answer,
+        text: f.schemaAnswer || (typeof f.answer === 'string' ? f.answer : ''),
       },
     })),
   };

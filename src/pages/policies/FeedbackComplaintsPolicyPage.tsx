@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { MessageCircle, HeartHandshake, FileText, Ear, Clock, ShieldCheck, Mail, Phone, ExternalLink } from "lucide-react";
+import { PolicyPageFooter } from "@/components/policies/PolicyPageFooter";
 
 export default function FeedbackComplaintsPolicyPage() {
   return (
@@ -161,14 +161,7 @@ export default function FeedbackComplaintsPolicyPage() {
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
-          <Link
-            to="/company/knowledge-base"
-            className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-base font-medium shadow-sm hover:shadow-md hover:bg-muted transition-colors text-foreground focus:outline-none focus:ring-2 ring-ocean ring-offset-2 ring-offset-background"
-          >
-            Back to Knowledge Base
-          </Link>
-        </div>
+        <PolicyPageFooter policyKey="feedback-complaints" policyName="Feedback and Complaints Policy" />
       </section>
     </div>
   );

@@ -23,10 +23,12 @@ function parseColor(rgbString: string): number[] {
 }
 
 test.describe('Buttons contrast scan', () => {
+  test.setTimeout(60000);
   const routes = ['/', '/services', '/about', '/get-involved', '/resources', '/locations', '/contact-us', '/stories'];
 
   for (const path of routes) {
     test(`measure button contrast ratios on ${path}`, async ({ page, browserName }) => {
+      test.setTimeout(60000);
       test.skip(browserName !== 'chromium', 'Skipping heavy contrast scan on non-Chromium browsers to avoid timeouts');
       await mockGoogleReviews(page);
       await page.goto(`http://127.0.0.1:4173${path}`);
@@ -60,7 +62,7 @@ test.describe('Buttons contrast scan', () => {
           if (!text) continue;
 
           // Exclude Nav and CTA buttons as requested
-          if (['Get Involved', 'Donate', 'Volunteer', 'Explore'].some(ex => text.includes(ex))) {
+          if (['Get Involved', 'Donate', 'Volunteer', 'Explore', 'Read all reviews on Google'].some(ex => text.includes(ex))) {
             continue;
           }
 

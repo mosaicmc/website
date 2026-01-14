@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import FAQSchema from '@/components/FAQSchema';
-import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, ChevronDown, ChevronUp, Heart, Award, UserPlus } from 'lucide-react';
+import { Handshake, Phone, ArrowRight, CheckCircle, Calendar, Globe, Heart, Award, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
+import { FAQSection } from '@/components/FAQSection';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
@@ -11,8 +11,6 @@ import { assetPath } from '@/lib/utils';
 const CommunityEngagementPage = () => {
   const { t } = useTranslation();
   // Two separate states for each accordion column
-  const [leftColumnValue, setLeftColumnValue] = useState<string | undefined>();
-  const [rightColumnValue, setRightColumnValue] = useState<string | undefined>("faq-1"); // Second FAQ open by default
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
 
   const teamMembers = [
@@ -61,73 +59,12 @@ const CommunityEngagementPage = () => {
     { question: t('community.faq.partnershipsQuestion'), answer: t('community.faq.partnershipsAnswer') }
   ];
 
-  // Split FAQs into two columns
-  const leftColumnFaqs = faqData.slice(0, 3);
-  const rightColumnFaqs = faqData.slice(3, 6);
-
-  const AccordionItem = ({ faq, index, value, onValueChange, columnPrefix }: {
-    faq: typeof faqData[0];
-    index: number;
-    value: string | undefined;
-    onValueChange: (value: string | undefined) => void;
-    columnPrefix: string;
-  }) => {
-    const itemValue = `${columnPrefix}-${index}`;
-    const isOpen = value === itemValue;
-
-    const toggleItem = () => {
-      onValueChange(isOpen ? undefined : itemValue);
-    };
-
-    return (
-      <div className="group backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden hover:scale-[1.01]">
-        {/* Question Button */}
-        <button
-          onClick={toggleItem}
-          className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-white/80 dark:hover:bg-white/15 transition-all duration-300 group"
-        >
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4 leading-relaxed">
-            "{faq.question}"
-          </h3>
-          <div className="flex-shrink-0">
-            {isOpen ? (
-              <ChevronUp className="h-6 w-6 text-leaf transition-transform duration-300" />
-            ) : (
-              <ChevronDown className="h-6 w-6 text-leaf transition-transform duration-300 group-hover:scale-110" />
-            )}
-          </div>
-        </button>
-
-        {/* Answer Content */}
-        <div 
-          className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            isOpen 
-              ? 'max-h-[500px] opacity-100' 
-              : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="px-6 pb-6 border-t border-white/30 dark:border-white/20 pt-6">
-            <p className="text-gray-600 dark:text-white/80 leading-relaxed text-base">
-              {faq.answer}
-            </p>
-          </div>
-        </div>
-
-        {/* Subtle accent line */}
-        <div className={`h-1 bg-gradient-to-r from-leaf to-leaf/80 transition-all duration-500 ${
-          isOpen ? 'opacity-100' : 'opacity-0'
-        }`}></div>
-      </div>
-    );
-  };
-
   return (
     <div className="animate-fade-in">
       <Helmet>
         <title>Mosaic Multicultural - Community Engagement</title>
         <meta name="description" content="Community engagement programs including cultural festivals, leadership development, volunteering, and advocacy to build inclusive communities." />
       </Helmet>
-      <FAQSchema faqs={faqData} name="Community Engagement FAQs" />
       {/* Hero Section with enhanced animations */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
@@ -206,15 +143,18 @@ const CommunityEngagementPage = () => {
                 color: "leaf"
               }
             ].map((program, index) => (
-              <div key={index} className="group backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+              <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
                 
-                <div className="flex items-start space-x-4 mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-4 mb-6">
                   <div className="flex-shrink-0">
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 ${
-                      program.color === 'sun' ? 'bg-gradient-to-br from-sun to-sun/80' :
-                      program.color === 'sky' ? 'bg-gradient-to-br from-sky to-sky/80' :
-                      program.color === 'earth' ? 'bg-gradient-to-br from-earth to-earth/80' :
-                      'bg-gradient-to-br from-leaf to-leaf/80'
+                      program.color === 'sun' ? 'bg-sun' :
+                      program.color === 'sky' ? 'bg-sky' :
+                      program.color === 'earth' ? 'bg-earth' :
+                      'bg-leaf'
                     }`}>
                       <div className="text-white">
                         {program.icon}
@@ -252,7 +192,20 @@ const CommunityEngagementPage = () => {
                     ))}
                   </ul>
                 </div>
-                
+                </div>
+
+                <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full opacity-60 ${
+                  program.color === 'sun' ? 'bg-sun' :
+                  program.color === 'sky' ? 'bg-sky' :
+                  program.color === 'earth' ? 'bg-earth' :
+                  'bg-leaf'
+                }`}></div>
+                <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm ${
+                  program.color === 'sun' ? 'bg-sun' :
+                  program.color === 'sky' ? 'bg-sky' :
+                  program.color === 'earth' ? 'bg-earth' :
+                  'bg-leaf'
+                }`}></div>
               </div>
             ))}
           </div>
@@ -411,53 +364,13 @@ const CommunityEngagementPage = () => {
       </section>
 
       {/* FAQ Section - Enhanced 2-Column Accordion Design */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-leaf/10 dark:bg-leaf/15 mix-blend-multiply pointer-events-none"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
-              <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('community.sections.faq.badge')}</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('community.sections.faq.title')}</h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>{t('community.sections.faq.subtitle')}</p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Left Column */}
-            <div className="space-y-6">
-              {leftColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={leftColumnValue}
-                  onValueChange={setLeftColumnValue}
-                  columnPrefix="left"
-                />
-              ))}
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-6">
-              {rightColumnFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  value={rightColumnValue}
-                  onValueChange={setRightColumnValue}
-                  columnPrefix="right"
-                />
-              ))}
-            </div>
-          </div>
-
-          
-        </div>
-      </section>
+      <FAQSection
+        title={t('community.sections.faq.title')}
+        subtitle={t('community.sections.faq.subtitle')}
+        badge={t('community.sections.faq.badge')}
+        items={faqData}
+        accentColor="leaf"
+      />
 
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
@@ -474,7 +387,7 @@ const CommunityEngagementPage = () => {
                 href="https://forms.mosaicmc.org.au/refer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-leaf to-leaf/90 hover:from-leaf/90 hover:to-leaf text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
+                className="bg-leaf hover:bg-leaf/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
                 <UserPlus className="h-5 w-5 mr-2" />
                 {t('community.cta.callLabel')}
