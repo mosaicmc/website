@@ -2,7 +2,23 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { FAQSection } from '@/components/FAQSection';
-import { Home, Phone, ArrowRight, CheckCircle, Users, Globe, FileText, UserPlus } from 'lucide-react';
+import {
+  Home,
+  Phone,
+  ArrowRight,
+  CheckCircle,
+  Users,
+  Globe,
+  FileText,
+  UserPlus,
+  HeartPulse,
+  BookOpen,
+  Briefcase,
+  Languages,
+  Route,
+  Scale,
+  HeartHandshake,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
@@ -227,6 +243,27 @@ const SettlementSupportPage = () => {
           <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
+                title: t('settlement.programs.educationTraining.title'),
+                description: t('settlement.programs.educationTraining.description'),
+                features: t('settlement.programs.educationTraining.features', { returnObjects: true }) as string[],
+                icon: <BookOpen className="h-8 w-8" />,
+                color: "sky"
+              },
+              {
+                title: t('settlement.programs.employment.title'),
+                description: t('settlement.programs.employment.description'),
+                features: t('settlement.programs.employment.features', { returnObjects: true }) as string[],
+                icon: <Briefcase className="h-8 w-8" />,
+                color: "sky"
+              },
+              {
+                title: t('settlement.programs.healthWellbeing.title'),
+                description: t('settlement.programs.healthWellbeing.description'),
+                features: t('settlement.programs.healthWellbeing.features', { returnObjects: true }) as string[],
+                icon: <HeartPulse className="h-8 w-8" />,
+                color: "sky"
+              },
+              {
                 title: t('settlement.programs.housing.title'),
                 description: t('settlement.programs.housing.description'),
                 features: t('settlement.programs.housing.features', { returnObjects: true }) as string[],
@@ -234,27 +271,48 @@ const SettlementSupportPage = () => {
                 color: "sky"
               },
               {
-                title: t('settlement.programs.employment.title'),
-                description: t('settlement.programs.employment.description'),
-                features: t('settlement.programs.employment.features', { returnObjects: true }) as string[],
-                icon: <Users className="h-8 w-8" />,
+                title: t('settlement.programs.languageServices.title'),
+                description: t('settlement.programs.languageServices.description'),
+                features: t('settlement.programs.languageServices.features', { returnObjects: true }) as string[],
+                icon: <Languages className="h-8 w-8" />,
                 color: "sky"
               },
               {
-                title: t('settlement.programs.government.title'),
-                description: t('settlement.programs.government.description'),
-                features: t('settlement.programs.government.features', { returnObjects: true }) as string[],
-                icon: <FileText className="h-8 w-8" />,
+                title: t('settlement.programs.transport.title'),
+                description: t('settlement.programs.transport.description'),
+                features: t('settlement.programs.transport.features', { returnObjects: true }) as string[],
+                icon: <Route className="h-8 w-8" />,
                 color: "sky"
               },
               {
-                title: t('settlement.programs.community.title'),
-                description: t('settlement.programs.community.description'),
-                features: t('settlement.programs.community.features', { returnObjects: true }) as string[],
+                title: t('settlement.programs.civicParticipation.title'),
+                description: t('settlement.programs.civicParticipation.description'),
+                features: t('settlement.programs.civicParticipation.features', { returnObjects: true }) as string[],
                 icon: <Globe className="h-8 w-8" />,
                 color: "sky"
+              },
+              {
+                title: t('settlement.programs.familySocialSupport.title'),
+                description: t('settlement.programs.familySocialSupport.description'),
+                features: t('settlement.programs.familySocialSupport.features', { returnObjects: true }) as string[],
+                icon: <HeartHandshake className="h-8 w-8" />,
+                color: "sky"
+              },
+              {
+                title: t('settlement.programs.justice.title'),
+                description: t('settlement.programs.justice.description'),
+                features: t('settlement.programs.justice.features', { returnObjects: true }) as string[],
+                icon: <Scale className="h-8 w-8" />,
+                color: "sky"
+              },
+              {
+                title: t('settlement.programs.finance.title'),
+                description: t('settlement.programs.finance.description'),
+                features: t('settlement.programs.finance.features', { returnObjects: true }) as string[],
+                icon: <FileText className="h-8 w-8" />,
+                color: "sky"
               }
-                ].map((service, index) => (
+            ].map((service, index) => (
               <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
 
                 <div className="absolute inset-0 bg-white/10 dark:bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -351,6 +409,16 @@ const SettlementSupportPage = () => {
               <div className="mt-8 text-center md:text-left">
                 <p className="text-sm text-gray-500 dark:text-gray-400 italic">
                   {t('settlement.eligibility.note')}
+                </p>
+                <p className="mt-2 text-sm">
+                  <a
+                    href="https://immi.homeaffairs.gov.au/settling-in-australia/sets-program/eligibility"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky hover:underline font-medium"
+                  >
+                    {t('settlement.eligibility.eligibilityLinkLabel')}
+                  </a>
                 </p>
               </div>
             </div>
@@ -480,7 +548,25 @@ const SettlementSupportPage = () => {
             <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
               <h3 className="text-xl font-bold text-foreground mb-4">{t('settlement.comprehensive.title')}</h3>
               <p className="text-muted-foreground leading-relaxed break-words">
-                {t('settlement.comprehensive.paragraph')}
+                {(() => {
+                  const scoaText = 'Settlement Council of Australia (SCOA) framework';
+                  const paragraph = t('settlement.comprehensive.paragraph');
+                  const parts = paragraph.split(scoaText);
+                  return (
+                    <>
+                      {parts[0]}
+                      <a
+                        href="https://scoa.org.au/wp-content/uploads/2021/02/SCoA-SSQF.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sky hover:underline font-medium"
+                      >
+                        {scoaText}
+                      </a>
+                      {parts[1] ?? ''}
+                    </>
+                  );
+                })()}
               </p>
             </div>
           </div>

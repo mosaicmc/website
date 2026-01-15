@@ -76,7 +76,7 @@ export default function CentralCoastVolunteerPage() {
                           decoding="async"
                         />
                       </div>
-                      <h2 className="text-lg font-semibold text-foreground">Aged Care Volunteer Visitor Scheme</h2>
+                      <h2 className="text-lg font-semibold text-foreground">Aged Care Volunteer Visitor Scheme (ACVVS)</h2>
                     </div>
                     <p className="mt-1 text-xs italic text-muted-foreground">
                       Funded by the Australian Government

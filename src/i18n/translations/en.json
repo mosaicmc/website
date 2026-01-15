@@ -44,30 +44,33 @@
           "Meal preparation and shopping",
           "Transport to appointments",
           "Care coordination in your language"
-        ]
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
       },
       "chspIndividual": {
-        "title": "CHSP Individual Social Support",
+        "title": "CHSP - Social Support and Engagement",
         "description": "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
         "features": [
           "Friendly home visits and welfare checks",
           "Assisted outings and social connection",
           "Help with technology and communication",
           "Links to community groups"
-        ]
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
       },
       "chspRespite": {
-        "title": "CHSP Flexible Respite",
+        "title": "CHSP - Flexible Respite",
         "description": "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
         "features": [
           "In‑home day or overnight respite",
           "Planned respite with culturally aware staff",
           "Support for carers during emergencies",
           "Coordination with your care plan"
-        ]
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
       },
       "acvvs": {
-        "title": "Aged Care Volunteer Visitors Scheme",
+        "title": "Aged Care Volunteer Visitors Scheme (ACVVS)",
         "description": "Regular volunteer visits to reduce social isolation, matched by language or culture where possible.",
         "features": [
           "Matched volunteers who share culture or language",
@@ -75,7 +78,7 @@
           "Community outings where possible",
           "Ongoing coordinator support"
         ],
-        "fundingNote": "Funded by the Australian Government"
+        "fundingNote": "This program is supported by funding from the Australian Government."
       }
     },
     "eligibility": {
@@ -183,7 +186,8 @@
           "Referrals to services and crisis support when needed",
           "Flexible appointments at home, in the office, or online"
         ],
-        "whatWeProvideLabel": "What We Provide:"
+        "whatWeProvideLabel": "What We Provide:",
+        "fundingNote": "This program is supported with funding from the NSW Government Department of Communities and Justice."
       },
       "paw": {
         "title": "Playing Around the World (PAW)",
@@ -194,7 +198,8 @@
           "Community garden activities and morning tea",
           "Drop‑in friendly; interpreter support available"
         ],
-        "whatWeProvideLabel": "What We Provide:"
+        "whatWeProvideLabel": "What We Provide:",
+        "fundingNote": "This project is jointly supported with funding from the NSW Government Department of Communities and Justice and Benevolent Society."
       }
     },
     "eligibility": {
@@ -297,7 +302,7 @@
     "programs": {
       "whatWeProvideLabel": "What We Provide:",
       "gambleAware": {
-        "title": "Gambling Awareness",
+        "title": "Gambling Aware",
         "description": "The Gamble Aware program offers culturally appropriate education and support where multicultural families learn about gambling risks and access specialist help when needed.",
         "features": [
           "Culturally sensitive workshops in your language",
@@ -305,7 +310,8 @@
           "Direct connections to specialist gambling counsellors",
           "Education about gambling risks and impacts"
         ],
-        "who": "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm."
+        "who": "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.",
+        "fundingNote": "This program is supported with funding from the NSW Government Department of Communities and Justice."
       },
       "multiculturalDevelopment": {
         "title": "Community Capacity Building",
@@ -316,7 +322,8 @@
           "Free English Conversation Classes - Talking Around the World (TATW)",
           "Regular information sessions, community workshops and cultural celebrations"
         ],
-        "who": "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs."
+        "who": "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.",
+        "fundingNote": "This program is jointly supported with funding from the Australian Government’s Department of Home Affairs and NSW Government Department of Communities and Justice."
       },
       "homeworkCenters": {
         "title": "Homework & Learning Centres",
@@ -327,7 +334,8 @@
           "Help with English, numeracy and homework tasks",
           "Progress reports and social confidence building"
         ],
-        "who": "Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only."
+        "who": "Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only.",
+        "fundingNote": "This program is supported with funding from the Waratah Education Foundation Limited."
       }
     },
     "eligibility": {
@@ -656,50 +664,116 @@
       }
     },
     "programs": {
-      "helper": "Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week.",
+      "helper": "Tell us which areas of life feel most urgent right now. We work with you across education, work, health, housing, language, transport and more so your whole settlement journey feels connected.",
       "whatWeProvideLabel": "What We Provide:",
-      "housing": {
-        "title": "Housing & Accommodation Support",
-        "description": "Gain confidence finding a safe, affordable home with a settlement worker who helps you prepare for inspections, explains leasing rules and rehearses paperwork before you submit it.",
+      "educationTraining": {
+        "title": "Education & Training",
+        "description": "Build skills, confidence, and pathways into learning that support long-term settlement and independence.",
         "features": [
-          "Property search coaching and real estate liaison",
-          "Rental application preparation and reference support",
-          "Tenant rights education and advocacy",
-          "Guidance for setting up utilities and household services",
-          "Rapid referrals to emergency accommodation partners"
+          "Support to understand education and training options in Australia",
+          "Help enrolling in schools, TAFE, university, and community learning",
+          "Referrals to English language programs and skills development courses",
+          "Guidance on recognising overseas qualifications and prior learning",
+          "Support navigating education systems for children and adults"
         ]
       },
       "employment": {
-        "title": "Employment & Career Development",
-        "description": "Turn your skills into local job opportunities with resume mentoring, interview practice and introductions to inclusive employers.",
+        "title": "Employment",
+        "description": "Turn skills and experience into meaningful, sustainable employment in the Australian workforce.",
         "features": [
           "Resume reviews and tailored interview coaching",
-          "Job search strategies and employer introductions",
-          "Support with skills recognition and qualification assessment",
-          "Workplace culture orientation and rights education",
-          "Career development advice and training referrals"
+          "Job search support and introductions to inclusive employers",
+          "Guidance on skills recognition and qualification assessment",
+          "Workplace culture orientation and employment rights education",
+          "Referrals to training, volunteering, and work-experience opportunities"
         ]
       },
-      "government": {
-        "title": "Government Services Navigation",
-        "description": "Work alongside a settlement worker who breaks down Centrelink, Medicare, tax and licensing steps so every form is correct and deadlines are met.",
+      "healthWellbeing": {
+        "title": "Health & Wellbeing",
+        "description": "Access healthcare, wellbeing supports, and early intervention services that help you stay healthy and supported.",
         "features": [
-          "Centrelink registration guidance and payment assistance",
-          "Medicare enrolment support and healthcare access",
-          "Tax file number applications and banking setup assistance",
-          "Driver licensing preparation and transport advice",
-          "Warm referrals to legal and advocacy services"
+          "Support accessing GPs, hospitals, and health services",
+          "Medicare enrolment and healthcare navigation",
+          "Referrals to mental health, wellbeing, and counselling services",
+          "Information on preventative health and early intervention programs",
+          "Support connecting with culturally responsive health providers"
         ]
       },
-      "community": {
-        "title": "Community Orientation & Connection",
-        "description": "Learn your new city, schools, doctors and community hubs while staying proud of your culture and traditions, with guidance tailored to your family.",
+      "housing": {
+        "title": "Housing",
+        "description": "Find safe, affordable, and stable housing close to community supports and employment opportunities.",
         "features": [
-          "Local area orientation and community tours",
-          "School enrolment preparation and education support",
-          "Healthcare system navigation and GP introductions",
-          "Cultural orientation and social connection sessions",
-          "Community group referrals and participation planning"
+          "Property search coaching and real estate liaison",
+          "Rental application preparation and reference support",
+          "Tenant rights education and housing advocacy",
+          "Guidance setting up utilities and household services",
+          "Rapid referrals to emergency or short-term accommodation partners"
+        ]
+      },
+      "languageServices": {
+        "title": "Language Services",
+        "description": "Access interpreters, translated information, and language support so communication is never a barrier.",
+        "features": [
+          "Free professional interpreters for appointments and meetings",
+          "Support accessing translated information and resources",
+          "Help understanding letters, forms, and official documents",
+          "Referrals to English language programs and conversation groups",
+          "Advocacy to ensure language access across services"
+        ]
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Navigate transport options so you can get to work, school, appointments, and community activities.",
+        "features": [
+          "Guidance on public transport options and concessions",
+          "Support understanding driver licensing processes",
+          "Help planning transport for work, study, and appointments",
+          "Referrals to local transport and community travel supports",
+          "Advice on safe and affordable transport options"
+        ]
+      },
+      "civicParticipation": {
+        "title": "Civic Participation",
+        "description": "Understand your rights and responsibilities and feel confident participating in Australian community life.",
+        "features": [
+          "Information about Australian laws, systems, and civic rights",
+          "Support with citizenship preparation and applications",
+          "Help engaging with local services and community organisations",
+          "Referrals to volunteering and community leadership opportunities",
+          "Guidance navigating government and civic processes"
+        ]
+      },
+      "familySocialSupport": {
+        "title": "Family & Social Support",
+        "description": "Strengthen family relationships and build social connections that support wellbeing and belonging.",
+        "features": [
+          "Family-centred settlement and wellbeing support",
+          "Referrals to parenting, family, and relationship services",
+          "Support accessing childcare, schools, and youth services",
+          "Connections to community groups and cultural networks",
+          "Early intervention support during periods of stress or change"
+        ]
+      },
+      "justice": {
+        "title": "Justice",
+        "description": "Access legal information and support so your rights and responsibilities are understood and upheld.",
+        "features": [
+          "Referrals to legal advice and advocacy services",
+          "Support understanding legal processes and options",
+          "Help accessing services related to visas, tenancy, and family matters",
+          "Assistance connecting with culturally appropriate legal providers",
+          "Advocacy and warm referrals where needed"
+        ]
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Build confidence managing money, understanding systems, and making informed financial decisions.",
+        "features": [
+          "Support understanding banking and financial systems in Australia",
+          "Help accessing Centrelink payments and concessions",
+          "Guidance with tax file numbers and basic financial setup",
+          "Referrals to financial counselling and budgeting support",
+          "Information to help avoid financial stress and exploitation"
         ]
       }
     },
@@ -751,7 +825,8 @@
         "People with complex or ongoing settlement needs, where other settlement or mainstream services are not available or accessible.",
         "Older migrants, or people who arrived in Australia at a young age and experience new challenges as they get older, even if they have lived in Australia for more than five years."
       ],
-      "note": "Please note: Professional interpreters are available free of charge for appointments, on request. Australian citizens are not eligible for the SETS program."
+      "note": "Please note: Professional interpreters are available free of charge for appointments, on request. Australian citizens are not eligible for the SETS program.",
+      "eligibilityLinkLabel": "Check your eligibility here."
     },
     "faq": {
       "referralQuestion": "Can I refer someone to settlement support?",

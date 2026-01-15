@@ -194,31 +194,35 @@ const AgedCarePage = () => {
                   description: t('agedCare.programs.sah.description'),
                   icon: <Home className="h-8 w-8" />,
                   features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
+                  fundingNote: t('agedCare.programs.sah.fundingNote'),
                 },
                 {
                   title: t('agedCare.programs.chspIndividual.title'),
                   description: t('agedCare.programs.chspIndividual.description'),
                   icon: <Users className="h-8 w-8" />,
                   features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
+                  fundingNote: t('agedCare.programs.chspIndividual.fundingNote'),
                 },
                 {
                   title: t('agedCare.programs.chspRespite.title'),
                   description: t('agedCare.programs.chspRespite.description'),
                   icon: <Clock className="h-8 w-8" />,
                   features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
+                  fundingNote: t('agedCare.programs.chspRespite.fundingNote'),
                 },
                 {
                   title: t('agedCare.programs.acvvs.title'),
                   description: t('agedCare.programs.acvvs.description'),
                   icon: <Users className="h-8 w-8" />,
                   features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
+                  fundingNote: t('agedCare.programs.acvvs.fundingNote'),
                 }
               ].map((program, index) => (
-                <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+                <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up h-full" style={{ animationDelay: `${index * 200}ms` }}>
                   
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start space-x-4 mb-6">
                       <div className="flex-shrink-0">
                         <div className="w-16 h-16 bg-care rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-care/25 transition-all duration-300 group-hover:scale-110">
@@ -259,12 +263,12 @@ const AgedCarePage = () => {
                           </li>
                         ))}
                       </ul>
-                      {program.title === t('agedCare.programs.acvvs.title') && (
-                        <p className="mt-3 text-xs italic text-muted-foreground">
-                          {t('agedCare.programs.acvvs.fundingNote')}
-                        </p>
-                      )}
                     </div>
+                    {program.fundingNote && (
+                      <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
+                        {program.fundingNote}
+                      </p>
+                    )}
                   </div>
 
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-care opacity-60"></div>

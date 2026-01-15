@@ -124,7 +124,8 @@ const CommunityEngagementPage = () => {
                 features: t('community.programs.gambleAware.features', { returnObjects: true }) as string[],
                 who: t('community.programs.gambleAware.who'),
                 icon: <Heart className="h-8 w-8" />,
-                color: "leaf"
+                color: "leaf",
+                fundingNote: t('community.programs.gambleAware.fundingNote'),
               },
               {
                 title: t('community.programs.multiculturalDevelopment.title'),
@@ -132,7 +133,8 @@ const CommunityEngagementPage = () => {
                 features: t('community.programs.multiculturalDevelopment.features', { returnObjects: true }) as string[],
                 who: t('community.programs.multiculturalDevelopment.who'),
                 icon: <Globe className="h-8 w-8" />,
-                color: "leaf"
+                color: "leaf",
+                fundingNote: t('community.programs.multiculturalDevelopment.fundingNote'),
               },
               {
                 title: t('community.programs.homeworkCenters.title'),
@@ -140,58 +142,63 @@ const CommunityEngagementPage = () => {
                 features: t('community.programs.homeworkCenters.features', { returnObjects: true }) as string[],
                 who: t('community.programs.homeworkCenters.who'),
                 icon: <Award className="h-8 w-8" />,
-                color: "leaf"
+                color: "leaf",
+                fundingNote: t('community.programs.homeworkCenters.fundingNote'),
               }
             ].map((program, index) => (
               <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
-                
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 ${
-                      program.color === 'sun' ? 'bg-sun' :
-                      program.color === 'sky' ? 'bg-sky' :
-                      program.color === 'earth' ? 'bg-earth' :
-                      'bg-leaf'
-                    }`}>
-                      <div className="text-white">
-                        {program.icon}
+                    <div className="flex-shrink-0">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 ${
+                        program.color === 'sun' ? 'bg-sun' :
+                        program.color === 'sky' ? 'bg-sky' :
+                        program.color === 'earth' ? 'bg-earth' :
+                        'bg-leaf'
+                      }`}>
+                        <div className="text-white">
+                          {program.icon}
+                        </div>
                       </div>
                     </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
-                  </div>
-                </div>
 
-                <p className="text-gray-600 dark:text-white/80 leading-relaxed mb-6">{program.description}</p>
-                
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <CheckCircle className={`h-5 w-5 mr-2 ${
-                      program.color === 'sun' ? 'text-sun' :
-                      program.color === 'sky' ? 'text-sky' :
-                      program.color === 'earth' ? 'text-earth' :
-                      'text-leaf'
-                    }`} />
-                    {t('community.programs.whatWeProvideLabel')}
-                  </h4>
-                  <ul className="space-y-3">
-                    {program.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-                          program.color === 'sun' ? 'bg-sun' :
-                          program.color === 'sky' ? 'bg-sky' :
-                          program.color === 'earth' ? 'bg-earth' :
-                          'bg-leaf'
-                        }`}></div>
-                        <span className="text-gray-600 dark:text-white/80 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <p className="text-gray-600 dark:text-white/80 leading-relaxed mb-6">{program.description}</p>
+                  
+                  <div className="mb-8">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                      <CheckCircle className={`h-5 w-5 mr-2 ${
+                        program.color === 'sun' ? 'text-sun' :
+                        program.color === 'sky' ? 'text-sky' :
+                        program.color === 'earth' ? 'text-earth' :
+                        'text-leaf'
+                      }`} />
+                      {t('community.programs.whatWeProvideLabel')}
+                    </h4>
+                    <ul className="space-y-3">
+                      {program.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-3">
+                          <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                            program.color === 'sun' ? 'bg-sun' :
+                            program.color === 'sky' ? 'bg-sky' :
+                            program.color === 'earth' ? 'bg-earth' :
+                            'bg-leaf'
+                          }`}></div>
+                          <span className="text-gray-600 dark:text-white/80 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {program.fundingNote && (
+                    <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
+                      {program.fundingNote}
+                    </p>
+                  )}
                 </div>
 
                 <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full opacity-60 ${
