@@ -8,7 +8,8 @@ import { ScrollToTopButton } from './components/ui/floating-elements';
 import GoogleTranslateInit from './components/GoogleTranslateInit';
 import DefaultSEO from './components/SEO';
 
-// Lazy load pages
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
@@ -17,12 +18,10 @@ const GetInvolvedPage = lazy(() => import('./pages/GetInvolvedPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const StoriesPage = lazy(() => import('./pages/StoriesPage'));
 const DonatePage = lazy(() => import('./pages/DonatePage'));
-// Resources subpages
 const AnnualReportsPage = lazy(() => import('./pages/resources/AnnualReportsPage'));
 const EmergencyTranslationPage = lazy(() => import('./pages/resources/EmergencyTranslationPage'));
 const HelpfulLinksPage = lazy(() => import('./pages/resources/HelpfulLinksPage'));
 const FAQPage = lazy(() => import('./pages/resources/FAQPage'));
-// Policy pages
 const CodeOfConductPolicyPage = lazy(() => import('./pages/policies/CodeOfConductPolicyPage'));
 const DiversityInclusionPolicyPage = lazy(() => import('./pages/policies/DiversityInclusionPolicyPage'));
 const WhistleblowerPolicyPage = lazy(() => import('./pages/policies/WhistleblowerPolicyPage'));
@@ -42,8 +41,6 @@ const NewcastleVolunteerPage = lazy(() => import('./pages/volunteer/NewcastleVol
 const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCoastVolunteerPage'));
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
-
-// Test pages
 const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
 
 function App() {
@@ -80,7 +77,7 @@ function App() {
                 <Route path="/resources/annual-reports" element={<AnnualReportsPage />} />
                 <Route path="/resources/helpful-links" element={<HelpfulLinksPage />} />
                 <Route path="/resources/faqs" element={<FAQPage />} />
-                <Route path="/stories" element={<StoriesPage />} />
+                {STORIES_ENABLED && <Route path="/stories" element={<StoriesPage />} />}
                 <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
                 <Route path="/donate" element={<DonatePage />} />
                 <Route path="/volunteer/newcastle" element={<NewcastleVolunteerPage />} />

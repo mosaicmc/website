@@ -14,6 +14,8 @@ import {
 } from './ui/dropdown-menu';
 import { assetPath } from '@/lib/utils';
 
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,18 +43,18 @@ const Header = () => {
   const navigation = [
     { name: t('nav.home'), href: '/' },
     { name: t('nav.about'), href: '/about' },
-    { 
-      name: t('nav.services'), 
+    {
+      name: t('nav.services'),
       href: '/services',
       hasDropdown: true,
       dropdownItems: [
         { name: t('services.settlement'), href: '/services/settlement-support' },
         { name: t('services.agedCare'), href: '/services/aged-care' },
         { name: t('services.familySupport'), href: '/services/family-support' },
-        { name: t('services.communityEngagement'), href: '/services/community-engagement' }
-      ]
+        { name: t('services.communityEngagement'), href: '/services/community-engagement' },
+      ],
     },
-    { name: t('nav.stories'), href: '/stories' },
+    ...(STORIES_ENABLED ? [{ name: t('nav.stories'), href: '/stories' }] as const : []),
     { name: t('nav.resources'), href: '/resources' },
   ];
 

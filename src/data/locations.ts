@@ -22,15 +22,16 @@ export const LOCATIONS: OfficeLocation[] = [
     phone: "1800 813 205",
     email: "info@mosaicmc.org.au",
     hours: {
-      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekdays: "Monday to Friday - 9:00am - 5:00pm",
       weekend: "Closed weekends",
     },
     services: [
-      "All Services",
-      "Home Care",
       "Settlement Support",
+      "Home Care",
       "Family Support",
-      "Administration",
+      "Community Programs",
+      "Youth Services",
+      "Aged Care Volunteer Visitors Scheme (ACVVS)",
     ],
     staff: [
       { name: "Sarah Chen", role: "CEO", languages: ["English", "Mandarin"] },
@@ -44,7 +45,7 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image: assetPath("/images/Location/Location_Charlestown_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/1Gz2RxDMd5kq2k1D7",
-    videoWebm: assetPath("/Media/charlestown_720p.webm"),
+    videoWebm: assetPath("/media/charlestown_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -54,10 +55,17 @@ export const LOCATIONS: OfficeLocation[] = [
     phone: "1800 813 205",
     email: "info@mosaicmc.org.au",
     hours: {
-      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekdays: "Monday to Friday - 8:00am - 4:00pm",
       weekend: "Closed weekends",
     },
-    services: ["Settlement Support", "Family Services", "Community Programs", "Youth Services"],
+    services: [
+      "Settlement Support",
+      "Home Care",
+      "Family Services",
+      "Community Programs",
+      "Youth Services",
+      "Aged Care Volunteer Visitors Scheme (ACVVS)",
+    ],
     staff: [
       { name: "Lisa Wong", role: "Office Manager", languages: ["English", "Mandarin", "Cantonese"] },
       { name: "Carlos Rodriguez", role: "Settlement Worker", languages: ["English", "Spanish", "Portuguese"] },
@@ -68,7 +76,7 @@ export const LOCATIONS: OfficeLocation[] = [
     ],
     image: assetPath("/images/Location/Location_Central-Coast_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/yqR8oGEx4TDEPcmD7",
-    videoWebm: assetPath("/Media/central-coast_720p.webm"),
+    videoWebm: assetPath("/media/central-coast_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -77,15 +85,15 @@ export const LOCATIONS: OfficeLocation[] = [
     phone: "1800 813 205",
     email: "info@mosaicmc.org.au",
     hours: {
-      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekdays: "Monday to Friday - 8:00am - 4:00pm",
       weekend: "Closed weekends",
     },
-    services: ["Settlement Support", "Community Programs"],
+    services: ["Settlement Support", "Community Programs", "Youth Services"],
     staff: [{ name: "David Thompson", role: "Regional Manager", languages: ["English"] }],
     transport: ["Local bus services", "Street parking available"],
     image: assetPath("/images/Location/Location_Tamworth_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/ranJYc6KHfv8k28r7",
-    videoWebm: assetPath("/Media/tamworth_720p.webm"),
+    videoWebm: assetPath("/media/tamworth_720p.webm"),
     videoMp4: undefined,
   },
   {
@@ -94,17 +102,17 @@ export const LOCATIONS: OfficeLocation[] = [
     phone: "1800 813 205",
     email: "info@mosaicmc.org.au",
     hours: {
-      weekdays: "Business Hours (Monday - Friday: 9:00 AM - 5:00 PM)",
+      weekdays: "Monday to Friday - 9:00am - 5:00pm",
       weekend: "Closed weekends",
     },
-    services: ["Settlement Support", "Community Programs"],
+    services: ["Settlement Support", "Community Programs", "Youth Services"],
     staff: [
       { name: "Fatima Al-Zahra", role: "Settlement Worker", languages: ["English", "Arabic", "Farsi"] },
     ],
     transport: ["Local bus services", "Street parking available"],
     image: assetPath("/images/Location/Location_Armidale_720p.webp"),
     directionsUrl: "https://maps.app.goo.gl/1jZ6aD7bC1w2k1D7",
-    videoWebm: assetPath("/Media/armidale_720p.webm"),
+    videoWebm: assetPath("/media/armidale_720p.webm"),
     videoMp4: undefined,
   },
 ];

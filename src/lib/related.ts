@@ -1,3 +1,5 @@
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 export type PageKey =
   | 'home'
   | 'about'
@@ -41,7 +43,9 @@ const INDEX: Meta[] = [
   { key: 'annual-reports', path: '/resources/annual-reports', tags: ['reports', 'governance', 'resources'] },
   { key: 'emergency-translation', path: '/resources/emergency-translation', tags: ['emergency', 'translation', 'interpreting', 'language', 'resources'] },
   { key: 'helpful-links', path: '/resources/helpful-links', tags: ['links', 'resources', 'legal', 'traffic', 'weather'] },
-  { key: 'stories', path: '/stories', tags: ['stories', 'impact', 'community', 'volunteer'] },
+  ...(STORIES_ENABLED
+    ? [{ key: 'stories', path: '/stories', tags: ['stories', 'impact', 'community', 'volunteer'] }]
+    : []),
   { key: 'contact', path: '/contact-us', tags: ['contact', 'support', 'help', 'connect'] },
   { key: 'donate', path: '/donate', tags: ['donate', 'support', 'funding'] },
 ];
@@ -50,7 +54,9 @@ const PREFERRED: Partial<Record<PageKey, PageKey[]>> = {
   'settlement-support': ['family-support', 'community-engagement', 'resources'],
   'aged-care': ['family-support', 'get-involved', 'resources'],
   'family-support': ['settlement-support', 'community-engagement', 'resources'],
-  'community-engagement': ['get-involved', 'services', 'stories'],
+  'community-engagement': STORIES_ENABLED
+    ? ['get-involved', 'services', 'stories']
+    : ['get-involved', 'services'],
   resources: ['emergency-translation', 'helpful-links', 'annual-reports'],
   'emergency-translation': ['helpful-links', 'resources', 'contact'],
   'annual-reports': ['about', 'resources', 'get-involved'],

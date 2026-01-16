@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { FAQSection } from '@/components/FAQSection';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, Shield, UserPlus } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
@@ -13,6 +13,26 @@ import { assetPath } from '@/lib/utils';
 const FamilySupportPage = () => {
   const { t } = useTranslation();
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
+  const [expandedProgramIndex, setExpandedProgramIndex] = useState<number | null>(null);
+
+  const programs = [
+    {
+      title: t('family.programs.tei.title'),
+      description: t('family.programs.tei.description'),
+      features: t('family.programs.tei.features', { returnObjects: true }) as string[],
+      fundingNote: t('family.programs.tei.fundingNote'),
+      icon: <Users className="h-8 w-8" />,
+      color: "sun"
+    },
+    {
+      title: t('family.programs.paw.title'),
+      description: t('family.programs.paw.description'),
+      features: t('family.programs.paw.features', { returnObjects: true }) as string[],
+      fundingNote: t('family.programs.paw.fundingNote'),
+      icon: <Heart className="h-8 w-8" />,
+      color: "sun"
+    }
+  ];
 
   const teamMembers = [
     {
@@ -107,7 +127,7 @@ const FamilySupportPage = () => {
     <div className="animate-fade-in">
       <Helmet>
         <title>Mosaic Multicultural - Family Support</title>
-        <meta name="description" content="Free multicultural family support including TEI casework and PAW playgroups, with interpreters and culturally safe programs." />
+        <meta name="description" content="Free multicultural family support including CAFS casework and PAW playgroups, with interpreters and culturally safe programs." />
       </Helmet>
       <FAQSchema faqs={faqData} name="Family Support FAQs" />
       
@@ -157,92 +177,88 @@ const FamilySupportPage = () => {
               <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('family.sections.programs.title')}</h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-left h-full">
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
-                      <Shield className="h-8 w-8 text-white" />
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            {programs.map((program, index) => (
+              <div 
+                className="mb-6 lg:mb-8 break-inside-avoid" 
+                key={index}
+              >
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={expandedProgramIndex === index}
+                  aria-controls={`family-program-${index}-details`}
+                  onMouseEnter={() => setExpandedProgramIndex(index)}
+                  onMouseLeave={() => setExpandedProgramIndex(current => current === index ? null : current)}
+                  onFocus={() => setExpandedProgramIndex(index)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                      setExpandedProgramIndex(current => current === index ? null : current);
+                    }
+                  }}
+                  onClick={() => setExpandedProgramIndex(current => current === index ? null : index)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setExpandedProgramIndex(current => current === index ? null : index);
+                    }
+                  }}
+                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4 mb-1">
+                      <div className="flex-shrink-0">
+                        <div className={`w-14 h-14 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110`}>
+                          <div className="text-white">
+                            {program.icon}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{t('family.programs.tei.title')}</h3>
-                  </div>
-                </div>
 
-                <div className="mb-6">
-                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">{t('family.programs.tei.description')}</p>
-                </div>
+                    {expandedProgramIndex === index && (
+                      <div 
+                        id={`family-program-${index}-details`}
+                        className="grid gap-3 pt-3 transition-opacity duration-300 ease-out"
+                      >
+                        <div className="mb-6">
+                          <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
+                        </div>
 
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
-                    {t('family.programs.tei.whatWeProvideLabel')}
-                  </h4>
-                  <ul className="space-y-3">
-                    {(t('family.programs.tei.features', { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                        <div className="mb-8">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                            <CheckCircle className="h-5 w-5 text-sun mr-2" />
+                            {program.title === t('family.programs.tei.title') 
+                              ? t('family.programs.tei.whatWeProvideLabel')
+                              : t('family.programs.paw.whatWeProvideLabel')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {program.features.map((item, idx) => (
+                              <li key={idx} className="flex items-start space-x-3">
+                                <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
+                                <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
+                          {program.fundingNote}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
+                  <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
                 </div>
-                <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                  {t('family.programs.tei.fundingNote')}
-                </p>
               </div>
-
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
-              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
-            </div>
-
-            <div className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-right h-full">
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110">
-                      <Heart className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{t('family.programs.paw.title')}</h3>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <p className="text-gray-600 dark:text-white/80 leading-relaxed">{t('family.programs.paw.description')}</p>
-                </div>
-
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-sun mr-2" />
-                    {t('family.programs.paw.whatWeProvideLabel')}
-                  </h4>
-                  <ul className="space-y-3">
-                    {(t('family.programs.paw.features', { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                  {t('family.programs.paw.fundingNote')}
-                </p>
-              </div>
-
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
-              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

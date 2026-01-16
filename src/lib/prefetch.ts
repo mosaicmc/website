@@ -1,5 +1,4 @@
-// Lightweight route prefetch utility to warm up lazy-loaded chunks
-// Maps pathname to dynamic import functions matching React.lazy definitions in App.tsx
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
 
 const prefetched = new Set<string>();
 
@@ -24,10 +23,9 @@ const routeImportMap: Record<string, Prefetcher> = {
   '/resources/annual-reports': () => import('../pages/resources/AnnualReportsPage'),
   '/resources/helpful-links': () => import('../pages/resources/HelpfulLinksPage'),
   '/resources/faqs': () => import('../pages/resources/FAQPage'),
-  '/stories': () => import('../pages/StoriesPage'),
+  ...(STORIES_ENABLED ? { '/stories': () => import('../pages/StoriesPage') } : {}),
   '/contact': () => import('../pages/LocationsPage'),
   '/donate': () => import('../pages/DonatePage'),
-  // Policies
   '/policies/code-of-conduct': () => import('../pages/policies/CodeOfConductPolicyPage'),
   '/policies/diversity-inclusion': () => import('../pages/policies/DiversityInclusionPolicyPage'),
   '/policies/whistleblower': () => import('../pages/policies/WhistleblowerPolicyPage'),

@@ -413,14 +413,14 @@ const GetInvolvedPage = () => {
                   { name: 'Armidale', href: '/volunteer/armidale' },
                   { name: 'Tamworth', href: '/volunteer/tamworth' },
                 ].map((place) => (
-                  <li key={place.href} className="flex items-center justify-between py-2">
+                  <li key={place.href}>
                     <Link
                       to={place.href}
-                      className="text-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded px-1"
+                      className="flex items-center justify-between py-2 text-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded px-1"
                     >
-                      {place.name}
+                      <span>{place.name}</span>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     </Link>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
                   </li>
                 ))}
               </ul>

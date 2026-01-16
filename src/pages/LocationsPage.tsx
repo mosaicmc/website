@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Navigation, Phone } from 'lucide-react';
+import { Clock, MapPin, Navigation, Phone } from 'lucide-react';
 import RelatedServices from '@/components/RelatedServices';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import { LOCATIONS } from '@/data/locations';
@@ -160,11 +160,17 @@ const LocationsPage = () => {
                   </div>
                 </div>
                 <div className="p-8">
-                  <h2 className="text-3xl font-bold text-foreground mb-6">{location.name}</h2>
+                  <h2 className="text-3xl font-bold text-foreground mb-4">{location.name}</h2>
                   <div className="space-y-4 mb-8">
-                    <div className="flex items-start space-x-3">
-                      <MapPin className="h-5 w-5 text-sky mt-1 flex-shrink-0" />
+                    <div className="flex items-center space-x-3">
+                      <MapPin className="h-5 w-5 text-sky flex-shrink-0" />
                       <span className="text-muted-foreground">{location.address}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Clock className="h-5 w-5 text-sky flex-shrink-0" />
+                      <span className="text-muted-foreground text-sm">
+                        {location.hours.weekdays}
+                      </span>
                     </div>
                   </div>
                   <div className="mb-8">
@@ -172,7 +178,7 @@ const LocationsPage = () => {
                     <div className="grid grid-cols-2 gap-2">
                       {location.services.map((service, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-leaf rounded-full"></div>
+                          <span className="inline-block size-2 bg-leaf rounded-full flex-shrink-0" />
                           <span className="text-muted-foreground text-sm">{service}</span>
                         </div>
                       ))}
@@ -225,7 +231,7 @@ const LocationsPage = () => {
               </a>
               <a
                 href={`mailto:${SITE_CONTACT_EMAIL}`}
-                className="bg-slate-900 dark:bg-slate-700 text-white border-2 border-slate-900 dark:border-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-slate-800 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+                className="bg-slate-900 dark:bg-slate-700 text-white border-2 border-slate-900 dark:border-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-slate-800 dark:hover:bg-slate-600 hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
               >
                 Email Us
               </a>

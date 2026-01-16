@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface Language {
@@ -27,36 +27,73 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const [query, setQuery] = useState('');
   const [languages, setLanguages] = useState<Language[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [rotatingIndex, setRotatingIndex] = useState(0);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const itemRefs = React.useRef<HTMLButtonElement[]>([]);
 
   const rtlLangs = useMemo(() => new Set(['ar', 'fa', 'he', 'ur', 'ps']), []);
-  const gtToApp = useMemo(() => ({
-    'zh-CN': 'zh',
-    'zh-TW': 'zh-tw',
-  } as Record<string, string>), []);
-  const appToGt = useMemo(() => ({
-    'zh': 'zh-CN',
-    'zh-tw': 'zh-TW',
-  } as Record<string, string>), []);
-  const nativeEndonyms = useMemo(() => ({
-    ar: 'العربية',
-    zh: '简体中文',
-    'zh-tw': '繁體中文',
-    tl: 'Tagalog',
-    hi: 'हिन्दी',
-    it: 'Italiano',
-    ku: 'Kurdî',
-    ps: 'پښتو',
-    fa: 'فارسی',
-    pt: 'Português',
-    ru: 'Русский',
-    es: 'Español',
-    sw: 'Kiswahili',
-    th: 'ไทย',
-    uk: 'Українська',
-    vi: 'Tiếng Việt',
-  } as Record<string, string>), []);
+  const gtToApp = useMemo(
+    () =>
+      ({
+        'zh-CN': 'zh',
+        'zh-TW': 'zh-tw',
+      }) as Record<string, string>,
+    []
+  );
+  const appToGt = useMemo(
+    () =>
+      ({
+        zh: 'zh-CN',
+        'zh-tw': 'zh-TW',
+      }) as Record<string, string>,
+    []
+  );
+  const nativeEndonyms = useMemo(
+    () =>
+      ({
+        ar: 'العربية',
+        zh: '简体中文',
+        'zh-tw': '繁體中文',
+        tl: 'Tagalog',
+        hi: 'हिन्दी',
+        it: 'Italiano',
+        ku: 'Kurdî',
+        ps: 'پښتو',
+        fa: 'فارسی',
+        pt: 'Português',
+        ru: 'Русский',
+        es: 'Español',
+        sw: 'Kiswahili',
+        th: 'ไทย',
+        uk: 'Українська',
+        vi: 'Tiếng Việt',
+      }) as Record<string, string>,
+    []
+  );
+  const flagMap = useMemo(
+    () =>
+      ({
+        ar: '🇸🇦',
+        zh: '🇨🇳',
+        'zh-tw': '🇹🇼',
+        en: '🇦🇺',
+        tl: '🇵🇭',
+        hi: '🇮🇳',
+        it: '🇮🇹',
+        ku: '🏳️',
+        ps: '🏳️',
+        fa: '🇮🇷',
+        pt: '🇵🇹',
+        ru: '🇷🇺',
+        es: '🇪🇸',
+        sw: '🇰🇪',
+        th: '🇹🇭',
+        uk: '🇺🇦',
+        vi: '🇻🇳',
+        sm: '🇼🇸',
+      }) as Record<string, string>,
+    []
+  );
 
   useEffect(() => {
     const extract = () => {
@@ -71,7 +108,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         const name = o.text;
         const direction: 'ltr' | 'rtl' = rtlLangs.has(code) ? 'rtl' : 'ltr';
         const nativeName = nativeEndonyms[code] || name;
-        return { code, name, nativeName, flag: '', direction } as Language;
+        const flag = flagMap[code] || '';
+        return { code, name, nativeName, flag, direction } as Language;
       });
       setLanguages(list);
     };
@@ -82,20 +120,20 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       obs.observe(target, { childList: true, subtree: true });
       return () => obs.disconnect();
     }
-  }, [rtlLangs, gtToApp, nativeEndonyms]);
+  }, [rtlLangs, gtToApp, nativeEndonyms, flagMap]);
 
   const currentLanguage = useMemo(() => {
     const code = (i18n.language || 'en').toLowerCase();
     return (
-      languages.find(l => l.code === code) || {
+      languages.find((l) => l.code === code) || {
         code,
         name: code === 'en' ? 'English' : code,
         nativeName: code === 'en' ? 'English' : code,
-        flag: '',
+        flag: flagMap[code] || '',
         direction: rtlLangs.has(code) ? 'rtl' : 'ltr',
       }
     );
-  }, [i18n.language, languages, rtlLangs]);
+  }, [i18n.language, languages, rtlLangs, flagMap]);
 
   const setGoogTransCookie = (targetLang: string) => {
     const lang = appToGt[targetLang] || targetLang;
@@ -142,6 +180,25 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         )
       : languages
   ), [languages, query]);
+
+  useEffect(() => {
+    if (!languages.length) return;
+    const code = (i18n.language || 'en').toLowerCase();
+    const idx = languages.findIndex((l) => l.code === code);
+    setRotatingIndex(idx >= 0 ? idx : 0);
+  }, [languages, i18n.language]);
+
+  useEffect(() => {
+    if (!languages.length || isOpen) return;
+    const id = window.setInterval(() => {
+      setRotatingIndex((prev) => {
+        if (!languages.length) return prev;
+        const next = (prev + 1) % languages.length;
+        return next;
+      });
+    }, 3000);
+    return () => window.clearInterval(id);
+  }, [languages, isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -193,6 +250,15 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     }
   };
 
+  const displayLanguage = useMemo(() => {
+    if (!languages.length) return currentLanguage;
+    const boundedIndex = Math.min(
+      Math.max(rotatingIndex, 0),
+      languages.length - 1
+    );
+    return languages[boundedIndex];
+  }, [languages, rotatingIndex, currentLanguage]);
+
   return (
     <div className={cn('relative', className)}>
       <button
@@ -203,11 +269,16 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         aria-expanded={isOpen}
         aria-controls={menuId}
       >
-        <Globe className="h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+        <span
+          className="text-base sm:text-lg leading-none mr-2"
+          aria-hidden="true"
+        >
+          {displayLanguage.flag || '🏳️'}
+        </span>
         {showText && (
           <>
             <span className="text-sm font-medium">
-              {currentLanguage.nativeName}
+              {displayLanguage.nativeName}
             </span>
             <ChevronDown className={cn(
               'h-4 w-4 transition-transform duration-300',
@@ -264,6 +335,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                       }}
                     >
                       <div className="flex items-center space-x-3">
+                        <span
+                          className="text-base leading-none"
+                          aria-hidden="true"
+                        >
+                          {language.flag || flagMap[language.code] || '🏳️'}
+                        </span>
                         <div className="text-sm font-medium text-gray-900 dark:text-white">
                           <span>{language.nativeName}</span>
                           <span className="mx-1" aria-hidden="true">-</span>

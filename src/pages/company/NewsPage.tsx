@@ -9,6 +9,8 @@ import { prefetchOnHover } from '@/lib/prefetch';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { assetPath } from '@/lib/utils';
 
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 type NewsItem = {
   title: string;
   date: string;
@@ -482,9 +484,23 @@ export default function NewsPage() {
               </Link>
             </div>
             <div className="mt-4 text-sm text-muted-foreground">
-              <Link to="/contact-us" className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">Contact our team</Link>
-              <span className="px-2 text-muted-foreground">•</span>
-              <Link to="/stories" className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">Explore community stories</Link>
+              <Link
+                to="/contact-us"
+                className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              >
+                Contact our team
+              </Link>
+              {STORIES_ENABLED && (
+                <>
+                  <span className="px-2 text-muted-foreground">•</span>
+                  <Link
+                    to="/stories"
+                    className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                  >
+                    Explore community stories
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function FAQPage() {
     { question: 'How do I start getting support?', answer: 'Call 1800 813 205 or visit a local office in Newcastle, Tamworth, Armidale or the Central Coast. We discuss your goals, agree a plan, and connect you to housing, work, language and community supports.' },
     { question: 'Do you provide interpreters?', answer: 'Yes. Ask for an interpreter in your language. In emergencies, call 000. For interpreters, call TIS National on 131 450.' },
     { question: 'What settlement support do you offer?', answer: 'Housing and tenancy guidance, employment preparation and connections, government service navigation (Centrelink, Medicare, tax, licences), and community orientation including language programs.' },
-    { question: 'Which family program is right for us?', answer: 'TEI family support helps with casework and parenting. PAW playgroups (0–6) offer community connection and cultural celebration. Many families use both at different times — we help you choose.' },
+    { question: 'Which family program is right for us?', answer: 'CAFS family support helps with casework and parenting. PAW playgroups (0–6) offer community connection and cultural celebration. Many families use both at different times — we help you choose.' },
     { question: 'Are programs free?', answer: 'Settlement, family and community programs are free to access. Interpreters are provided at no cost. Home care supports are funded via My Aged Care pathways (SaH/CHSP) and may include client co‑payments based on government assessment. We help you understand any fees and support options.' },
     { question: 'What home care supports are available?', answer: 'Culturally responsive in‑home and community care across NSW: Support at Home and CHSP. We match workers to language/culture where possible, and organise nursing or allied health when needed.' },
     { question: 'Where are services available?', answer: 'Across NSW with hubs in Newcastle, Tamworth, Armidale and the Central Coast — plus outreach, home visits, and phone/video options where appropriate.' },
@@ -144,4 +144,3 @@ export default function FAQPage() {
     </div>
   );
 }
-

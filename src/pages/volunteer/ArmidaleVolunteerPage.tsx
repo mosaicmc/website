@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
@@ -7,39 +8,279 @@ import { Users, ChevronRight, FileDown, X } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { assetPath } from '@/lib/utils';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+
+const downloadSchema = z.object({
+  firstName: z.string().min(1, { message: 'First name is required' }),
+  lastName: z.string().min(1, { message: 'Last name is required' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+});
+
+type DownloadFormValues = z.infer<typeof downloadSchema>;
+
+type SettlementRole = {
+  title: string;
+  blurb: string;
+};
+
+const ROLE_DOWNLOAD_PATH: Record<string, string> = {
+  'Homework Centre Tutor':
+    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_HWC Tutor (2025).pdf',
+  'Citizenship Application Support':
+    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_Citizenship Application Support (2025).pdf',
+  'Digital Literacy Support':
+    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_Digital Literacy Support (2025).pdf',
+};
+
+function SettlementRoleCard({ role }: { role: SettlementRole }) {
+  const short = (s: string) => (s.length > 220 ? s.slice(0, 220) + '…' : s);
+  const [showForm, setShowForm] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const form = useForm<DownloadFormValues>({
+    resolver: zodResolver(downloadSchema),
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
+  });
+
+  const directDownloadPath = ROLE_DOWNLOAD_PATH[role.title];
+
+  const triggerDownload = (path: string) => {
+    const url = assetPath(path);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = '';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const onSubmit = async (values: DownloadFormValues) => {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const resp = await fetch('/api/volunteer-pd-download', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          roleTitle: role.title,
+        }),
+      });
+
+      let resolvedPath: string | undefined;
+
+      if (resp.ok) {
+        const data = (await resp.json()) as { downloadPath?: string };
+        resolvedPath = data?.downloadPath || directDownloadPath;
+      } else {
+        resolvedPath = directDownloadPath;
+      }
+
+      if (resolvedPath) {
+        triggerDownload(resolvedPath);
+        form.reset();
+        setShowForm(false);
+        return;
+      }
+
+      setSubmitError('We could not start your download. Please try again.');
+    } catch {
+      if (directDownloadPath) {
+        triggerDownload(directDownloadPath);
+        form.reset();
+        setShowForm(false);
+        return;
+      }
+      setSubmitError('We could not start your download. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="group relative glass-surface rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md">
+      <div className="flex items-start justify-between">
+        <div className="font-semibold text-foreground">{role.title}</div>
+        <Dialog.Root>
+          <Dialog.Trigger
+            aria-label="View details"
+            aria-haspopup="dialog"
+            title="View details"
+            className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
+            <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
+              <div className="glass-surface relative w-full max-w-lg rounded-3xl border border-border p-6 shadow-2xl transition-all duration-300">
+                <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
+                <Dialog.Title className="text-xl font-semibold text-foreground">{role.title}</Dialog.Title>
+                <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">
+                  {role.blurb}
+                </Dialog.Description>
+                {!showForm && (
+                  <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="border border-border text-foreground hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky"
+                      onClick={() => setShowForm(true)}
+                    >
+                      <FileDown className="h-4 w-4 mr-2" />
+                      Download PDF
+                    </Button>
+                    <a
+                      href="https://tally.so/r/3qoXjg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
+                    >
+                      Apply
+                    </a>
+                  </div>
+                )}
+                {showForm && (
+                  <div className="mt-4 space-y-4">
+                    <Form {...form}>
+                      <form
+                        className="space-y-4"
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        noValidate
+                      >
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <FormField
+                            control={form.control}
+                            name="firstName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>First name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    autoComplete="given-name"
+                                    inputMode="text"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Last name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    autoComplete="family-name"
+                                    inputMode="text"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email address</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  autoComplete="email"
+                                  inputMode="email"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        {submitError && (
+                          <p className="text-sm text-destructive">{submitError}</p>
+                        )}
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <Button
+                            type="submit"
+                            disabled={submitting}
+                            className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90"
+                          >
+                            {submitting ? 'Preparing download…' : 'Submit and download'}
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            className="w-full sm:w-auto"
+                            onClick={() => {
+                              setShowForm(false);
+                              setSubmitError(null);
+                            }}
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      </form>
+                    </Form>
+                  </div>
+                )}
+                <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
+                  <X className="h-4 w-4 text-muted-foreground" />
+                </Dialog.Close>
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
+      </div>
+      <p className="text-sm text-muted-foreground mt-2">{short(role.blurb)}</p>
+    </div>
+  );
+}
 
 export default function ArmidaleVolunteerPage() {
-  const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const short = (s: string) => (s.length > 220 ? s.slice(0, 220) + '…' : s);
-
-  const settlementRoles = [
+  const settlementRoles: SettlementRole[] = [
     {
-      title: 'English Literacy & Conversation Tutor',
+      title: 'Homework Centre Tutor',
       blurb:
-        "Help someone find their voice in a new language. You'll meet weekly for one to two hours with clients—mainly from refugee backgrounds—building conversational confidence and literacy skills through formal coursework, everyday practice, and creative learning tools. If you have teaching or tutoring experience, genuine patience, and you understand that language learning is about belonging and possibility as much as grammar, this role offers the chance to watch people discover their capabilities week by week.",
+        "Help recently-arrived young people discover their potential in a supportive after-school environment. You'll spend 90 minutes each Tuesday or Wednesday at Drummond Memorial Public School, working with refugee and migrant students through fun learning activities, one-on-one tutoring, and homework help. If you have strong English skills, patience, and a sense of humour, and you understand that showing up consistently for these students is as important as the tutoring itself, this two-term commitment could be exactly what you're looking for.",
     },
     {
-      title: 'Citizenship Test Preparation Tutor',
+      title: 'Citizenship Application Support',
       blurb:
-        "Be part of someone's journey to calling Australia home in the fullest sense. You'll work one-on-one preparing clients for their citizenship test, using government resources and Mosaic materials to break down complex concepts and support English comprehension at the right pace. If you have knowledge of the citizenship test process, enjoy tutoring, and understand that this milestone represents years of hope and hard work, this five-month commitment could be your perfect match.",
+        "Help someone navigate one of the most meaningful milestones in their Australian journey. You'll provide one-on-one guidance at our Armidale office for two to three hours weekly, helping applicants complete citizenship forms, understand requirements, and gather supporting documents with confidence. If you have attention to detail, clear communication skills, and you recognise that this paperwork represents years of hope and hard work for the people you'll support, this three-month commitment offers genuine impact.",
     },
     {
-      title: 'Homework & Learning Centre Tutor',
+      title: 'Digital Literacy Support',
       blurb:
-        "Help recently-arrived young people overcome educational disadvantage and discover their academic potential. You'll volunteer at a school venue for 90 minutes weekly, supporting refugee and migrant students with English skills, homework, and academic confidence through fun learning activities (primary) or one-on-one tutoring (secondary). If you have strong English proficiency, enjoy working with young people, and you're committed to showing up consistently because these students need that reliability, this role offers enormous rewards for a two-term commitment.",
-    },
-    {
-      title: 'Employment Mentor',
-      blurb:
-        "Help someone rebuild their career in a new country. Meeting at our local office for at least two hours weekly or fortnightly, you'll support clients—mainly from refugee backgrounds—with resume writing, interview practice, job search skills, and navigating Australian employment pathways, working alongside caseworkers to provide comprehensive support. If you understand job search processes, have strong computer skills, and you recognize that employment is about rebuilding identity and independence after displacement, this three-month minimum commitment offers the chance to change trajectories.",
-    },
-    {
-      title: 'Housing Mentor',
-      blurb:
-        "Help families find a place to call home. Working from our local office for at least two hours weekly or fortnightly, you'll support clients in searching for properties, liaising with real estate agents, preparing rental applications, and building comprehensive housing resource lists. If you understand how the rental market works, have strong communication skills for dealing with housing professionals, and you recognize that housing is the foundation for everything else in a new life, this three-month minimum commitment lets you provide something essential.",
+        "Help bridge the digital divide for people building new lives in Australia. You'll spend two to three flexible hours weekly at our Armidale office, teaching essential skills like setting up email, navigating the internet, using word processing, and safely accessing online government services. If you're patient, tech-comfortable, and you understand that digital confidence opens doors to employment, education, and connection, this three-month commitment lets you give people tools they'll use every day.",
     },
   ];
-
 
   return (
     <div className="animate-fade-in">
@@ -87,50 +328,8 @@ export default function ArmidaleVolunteerPage() {
                       <h2 className="text-lg font-semibold text-foreground">Settlement Support</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
-                      {settlementRoles.map((r) => (
-                        <div key={r.title} className="group relative glass-surface rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md">
-                          <div className="flex items-start justify-between">
-                            <div className="font-semibold text-foreground">{r.title}</div>
-                            <Dialog.Root>
-                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative">
-                                <ChevronRight className="h-4 w-4" />
-                              </Dialog.Trigger>
-                              <Dialog.Portal>
-                                <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
-                                <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
-                                  <div className="glass-surface relative w-full max-w-lg rounded-3xl border border-border p-6 shadow-2xl transition-all duration-300">
-                                    <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
-                                    <Dialog.Title className="text-xl font-semibold text-foreground">{r.title}</Dialog.Title>
-                                    <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{r.blurb}</Dialog.Description>
-                                    <div className="mt-4 flex gap-3">
-                                      <a
-                                        href={assetPath(`/pd/armidale/${toSlug(r.title)}.pdf`)}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                                      >
-                                        <FileDown className="h-4 w-4 mr-2" />
-                                        Download PD
-                                      </a>
-                                      <a
-                                        href="https://tally.so/r/3qoXjg"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                                      >
-                                        Apply
-                                      </a>
-                                    </div>
-                                    <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
-                                      <X className="h-4 w-4 text-muted-foreground" />
-                                    </Dialog.Close>
-                                  </div>
-                                </Dialog.Content>
-                              </Dialog.Portal>
-                            </Dialog.Root>
-                          </div>
-                          <p className="text-sm text-muted-foreground mt-2">{short(r.blurb)}</p>
-                        </div>
+                      {settlementRoles.map((role) => (
+                        <SettlementRoleCard key={role.title} role={role} />
                       ))}
                     </div>
                   </GlassCard>

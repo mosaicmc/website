@@ -8,6 +8,8 @@ import AnimatedBackground from './ui/AnimatedBackground';
 
 import Button from '@/components/ui/button';
 
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 const Hero = () => {
   const { t } = useTranslation();
   
@@ -46,18 +48,24 @@ const Hero = () => {
             
             <div className="flex flex-col gap-4 min-[400px]:flex-row animate-fade-in-up-delay-300">
               <Button asChild size="lg" variant="cta" className="h-12 rounded-xl text-sm font-semibold">
-              <Link to="/services" data-testid="hero-explore-btn">
-                Explore Our Services
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-              
-              <Button asChild size="lg" variant="outline" className="h-12 rounded-xl text-sm font-semibold shadow-lg hover:scale-105 border-0 bg-card text-foreground hover:bg-card/90">
-                <Link to="/stories">
-                  <Play className="mr-2 h-4 w-4" />
-                  Watch Stories
+                <Link to="/services" data-testid="hero-explore-btn">
+                  Explore Our Services
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
+              {STORIES_ENABLED && (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-12 rounded-xl text-sm font-semibold shadow-lg hover:scale-105 border-0 bg-card text-foreground hover:bg-card/90"
+                >
+                  <Link to="/stories">
+                    <Play className="mr-2 h-4 w-4" />
+                    Watch Stories
+                  </Link>
+                </Button>
+              )}
             </div>
             
             {/* Stats */}

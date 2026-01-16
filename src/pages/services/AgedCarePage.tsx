@@ -12,6 +12,7 @@ const AgedCarePage = () => {
   const { t } = useTranslation();
   // FAQ state and data (matching other services pages)
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
+  const [expandedProgramIndex, setExpandedProgramIndex] = useState<number | null>(null);
 
   const teamMembers = [
     {
@@ -178,7 +179,6 @@ const AgedCarePage = () => {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 animate-fade-in-up">
             <div className="text-center mb-6">
               <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg animate-fade-in-down">
                 <span className="mr-2 h-2 w-2 rounded-full bg-care animate-pulse"></span>
@@ -187,45 +187,71 @@ const AgedCarePage = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">{t('agedCare.sections.programs.title')}</h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: t('agedCare.programs.sah.title'),
-                  description: t('agedCare.programs.sah.description'),
-                  icon: <Home className="h-8 w-8" />,
-                  features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
-                  fundingNote: t('agedCare.programs.sah.fundingNote'),
-                },
-                {
-                  title: t('agedCare.programs.chspIndividual.title'),
-                  description: t('agedCare.programs.chspIndividual.description'),
-                  icon: <Users className="h-8 w-8" />,
-                  features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
-                  fundingNote: t('agedCare.programs.chspIndividual.fundingNote'),
-                },
-                {
-                  title: t('agedCare.programs.chspRespite.title'),
-                  description: t('agedCare.programs.chspRespite.description'),
-                  icon: <Clock className="h-8 w-8" />,
-                  features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
-                  fundingNote: t('agedCare.programs.chspRespite.fundingNote'),
-                },
-                {
-                  title: t('agedCare.programs.acvvs.title'),
-                  description: t('agedCare.programs.acvvs.description'),
-                  icon: <Users className="h-8 w-8" />,
-                  features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
-                  fundingNote: t('agedCare.programs.acvvs.fundingNote'),
-                }
-              ].map((program, index) => (
-                <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up h-full" style={{ animationDelay: `${index * 200}ms` }}>
+          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
+            {[
+              {
+                title: t('agedCare.programs.sah.title'),
+                description: t('agedCare.programs.sah.description'),
+                icon: <Home className="h-8 w-8" />,
+                features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
+                fundingNote: t('agedCare.programs.sah.fundingNote'),
+              },
+              {
+                title: t('agedCare.programs.chspIndividual.title'),
+                description: t('agedCare.programs.chspIndividual.description'),
+                icon: <Users className="h-8 w-8" />,
+                features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
+                fundingNote: t('agedCare.programs.chspIndividual.fundingNote'),
+              },
+              {
+                title: t('agedCare.programs.chspRespite.title'),
+                description: t('agedCare.programs.chspRespite.description'),
+                icon: <Clock className="h-8 w-8" />,
+                features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
+                fundingNote: t('agedCare.programs.chspRespite.fundingNote'),
+              },
+              {
+                title: t('agedCare.programs.acvvs.title'),
+                description: t('agedCare.programs.acvvs.description'),
+                icon: <Users className="h-8 w-8" />,
+                features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
+                fundingNote: t('agedCare.programs.acvvs.fundingNote'),
+              }
+            ].map((program, index) => (
+              <div 
+                className="mb-6 lg:mb-8 break-inside-avoid" 
+                key={index}
+              >
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={expandedProgramIndex === index}
+                  aria-controls={`aged-program-${index}-details`}
+                  onMouseEnter={() => setExpandedProgramIndex(index)}
+                  onMouseLeave={() => setExpandedProgramIndex(current => current === index ? null : current)}
+                  onFocus={() => setExpandedProgramIndex(index)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                      setExpandedProgramIndex(current => current === index ? null : current);
+                    }
+                  }}
+                  onClick={() => setExpandedProgramIndex(current => current === index ? null : index)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setExpandedProgramIndex(current => current === index ? null : index);
+                    }
+                  }}
+                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-care focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
                   
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="flex items-start space-x-4 mb-6">
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4 mb-1">
                       <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-care rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-care/25 transition-all duration-300 group-hover:scale-110">
+                        <div className="w-14 h-14 bg-care rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-care/25 transition-all duration-300 group-hover:scale-110">
                           <div className="text-white">
                             {program.title === t('agedCare.programs.acvvs.title') ? (
                               <img
@@ -241,42 +267,49 @@ const AgedCarePage = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
-                    </div>
+                    {expandedProgramIndex === index && (
+                      <div 
+                        id={`aged-program-${index}-details`}
+                        className="grid gap-3 pt-3 transition-opacity duration-300 ease-out"
+                      >
+                        <div className="mb-6">
+                          <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
+                        </div>
 
-                    <div className="mb-8">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <CheckCircle className="h-5 w-5 text-care mr-2" />
-                        {t('agedCare.programs.whatWeProvideLabel', 'What we provide')}
-                      </h4>
-                      <ul className="space-y-3">
-                        {Array.isArray(program.features) && program.features.map((f, i) => (
-                          <li key={i} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></div>
-                            <span className="text-gray-600 dark:text-white/80 text-sm">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    {program.fundingNote && (
-                      <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                        {program.fundingNote}
-                      </p>
+                        <div className="mb-8">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                            <CheckCircle className="h-5 w-5 text-care mr-2" />
+                            {t('agedCare.programs.whatWeProvideLabel', 'What we provide')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {Array.isArray(program.features) && program.features.map((f, i) => (
+                              <li key={i} className="flex items-start space-x-3">
+                                <div className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></div>
+                                <span className="text-gray-600 dark:text-white/80 text-sm">{f}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        {program.fundingNote && (
+                          <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
+                            {program.fundingNote}
+                          </p>
+                        )}
+                      </div>
                     )}
                   </div>
 
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-care opacity-60"></div>
                   <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-care opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
                 </div>
-              ))}
+              </div>
+            ))}
             </div>
-          </div>
         </div>
       </section>
 

@@ -122,7 +122,8 @@ function extractTitleAndText(pageSource: string): { title: string; body: string 
   const literals = pageSource.match(/(['"])((?:[^'"\\]|\\.)+?)\1/g) || [];
   for (const lit of literals) {
     const unq = lit.replace(/^['"]|['"]$/g, '');
-    if (unq && /[A-Za-z]/.test(unq)) texts.push(unq);
+    const looksLikeKey = unq.includes('.') && !/\s/.test(unq) && /^[A-Za-z0-9_.]+$/.test(unq);
+    if (unq && /[A-Za-z]/.test(unq) && !looksLikeKey) texts.push(unq);
   }
   // Prefer an H1 if available
   const h1 = pageSource.match(/<h1[^>]*>([^<]+)<\/h1>/);

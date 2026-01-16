@@ -8,7 +8,6 @@ import {
   ArrowRight,
   CheckCircle,
   Users,
-  Globe,
   FileText,
   UserPlus,
   HeartPulse,
@@ -38,6 +37,7 @@ import { assetPath } from '@/lib/utils';
 const SettlementSupportPage = () => {
   const { t } = useTranslation();
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
+  const [expandedProgramIndex, setExpandedProgramIndex] = useState<number | null>(null);
 
   const teamMembers = [
     {
@@ -240,7 +240,7 @@ const SettlementSupportPage = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
             {[
               {
                 title: t('settlement.programs.educationTraining.title'),
@@ -288,7 +288,7 @@ const SettlementSupportPage = () => {
                 title: t('settlement.programs.civicParticipation.title'),
                 description: t('settlement.programs.civicParticipation.description'),
                 features: t('settlement.programs.civicParticipation.features', { returnObjects: true }) as string[],
-                icon: <Globe className="h-8 w-8" />,
+                icon: <Users className="h-8 w-8" />,
                 color: "sky"
               },
               {
@@ -313,14 +313,48 @@ const SettlementSupportPage = () => {
                 color: "sky"
               }
             ].map((service, index) => (
-              <div key={index} className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+              <div
+                className="mb-6 lg:mb-8 break-inside-avoid"
+                key={index}
+              >
+                <div
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedProgramIndex === index}
+                aria-controls={`settlement-program-${index}-details`}
+                onMouseEnter={() => setExpandedProgramIndex(index)}
+                onMouseLeave={() =>
+                  setExpandedProgramIndex((current) => (current === index ? null : current))
+                }
+                onFocus={() => setExpandedProgramIndex(index)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                    setExpandedProgramIndex((current) =>
+                      current === index ? null : current
+                    );
+                  }
+                }}
+                onClick={() =>
+                  setExpandedProgramIndex((current) => (current === index ? null : index))
+                }
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setExpandedProgramIndex((current) =>
+                      current === index ? null : index
+                    );
+                  }
+                }}
+                className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
 
                 <div className="absolute inset-0 bg-white/10 dark:bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
-                  <div className="flex items-start space-x-4 mb-6">
+                  <div className="flex items-center space-x-4 mb-1">
                     <div className="flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 ${
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500 ease-out group-hover:scale-110 ${
                         service.color === 'sky' ? 'bg-sky' :
                         service.color === 'earth' ? 'bg-earth' :
                         service.color === 'leaf' ? 'bg-leaf' :
@@ -331,51 +365,63 @@ const SettlementSupportPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{service.title}</h3>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">
+                        {service.title}
+                      </h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-white/80 leading-relaxed mb-6">{service.description}</p>
-                  
-                  <div className="mb-8">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <CheckCircle className={`h-5 w-5 mr-2 ${
-                        service.color === 'sky' ? 'text-sky' :
-                        service.color === 'earth' ? 'text-earth' :
-                        service.color === 'leaf' ? 'text-leaf' :
-                        'text-sun'
-                      }`} />
-                      {t('settlement.programs.whatWeProvideLabel')}
-                    </h4>
-                    <ul className="space-y-3">
-                      {Array.isArray(service.features) && service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-                            service.color === 'sky' ? 'bg-sky' :
-                            service.color === 'earth' ? 'bg-earth' :
-                            service.color === 'leaf' ? 'bg-leaf' :
-                            'bg-sun'
-                          }`}></div>
-                          <span className="text-gray-600 dark:text-white/80 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {expandedProgramIndex === index && (
+                    <div
+                      id={`settlement-program-${index}-details`}
+                      className="grid gap-3 pt-3 transition-opacity duration-300 ease-out"
+                    >
+                      <p className="text-gray-600 dark:text-white/80 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                          <CheckCircle className={`h-5 w-5 mr-2 ${
+                            service.color === 'sky' ? 'text-sky' :
+                            service.color === 'earth' ? 'text-earth' :
+                            service.color === 'leaf' ? 'text-leaf' :
+                            'text-sun'
+                          }`} />
+                          {t('settlement.programs.whatWeProvideLabel')}
+                        </h4>
+                        <ul className="space-y-3">
+                          {Array.isArray(service.features) && service.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start space-x-3">
+                              <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                                service.color === 'sky' ? 'bg-sky' :
+                                service.color === 'earth' ? 'bg-earth' :
+                                service.color === 'leaf' ? 'bg-leaf' :
+                                'bg-sun'
+                              }`}></div>
+                              <span className="text-gray-600 dark:text-white/80 text-sm">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full opacity-60 ${
-                  service.color === 'sky' ? 'bg-sky' :
-                  service.color === 'earth' ? 'bg-earth' :
-                  service.color === 'leaf' ? 'bg-leaf' :
-                  'bg-sun'
-                }`}></div>
-                <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm ${
-                  service.color === 'sky' ? 'bg-sky' :
-                  service.color === 'earth' ? 'bg-earth' :
-                  service.color === 'leaf' ? 'bg-leaf' :
-                  'bg-sun'
-                }`}></div>
+                  <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full opacity-60 ${
+                    service.color === 'sky' ? 'bg-sky' :
+                    service.color === 'earth' ? 'bg-earth' :
+                    service.color === 'leaf' ? 'bg-leaf' :
+                    'bg-sun'
+                  }`}></div>
+                  <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm ${
+                    service.color === 'sky' ? 'bg-sky' :
+                    service.color === 'earth' ? 'bg-earth' :
+                    service.color === 'leaf' ? 'bg-leaf' :
+                    'bg-sun'
+                  }`}></div>
+                </div>
               </div>
             ))}
           </div>

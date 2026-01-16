@@ -5,8 +5,9 @@ import FooterLanguageBar from '@/components/FooterLanguageBar';
 import { useTheme } from '../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
- 
- 
+
+const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
 const Footer = () => {
   const { theme } = useTheme();
   const { t } = useTranslation();
@@ -64,11 +65,16 @@ const Footer = () => {
                           {t('nav.about')}
                         </Link>
                       </li>
-                      <li>
-                        <Link to="/stories" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
-                          {t('nav.stories')}
-                        </Link>
-                      </li>
+                      {STORIES_ENABLED && (
+                        <li>
+                          <Link
+                            to="/stories"
+                            className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky"
+                          >
+                            {t('nav.stories')}
+                          </Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                   <div>
