@@ -22,9 +22,14 @@ function parseColor(rgbString: string): number[] {
   return [parseInt(match[1], 10), parseInt(match[2], 10), parseInt(match[3], 10)];
 }
 
+const STORIES_ENABLED = process.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
+const baseRoutes = ['/', '/services', '/about', '/get-involved', '/resources', '/locations', '/contact-us'];
+
+const routes = STORIES_ENABLED ? [...baseRoutes, '/stories'] : baseRoutes;
+
 test.describe('Buttons contrast scan', () => {
   test.setTimeout(60000);
-  const routes = ['/', '/services', '/about', '/get-involved', '/resources', '/locations', '/contact-us', '/stories'];
 
   for (const path of routes) {
     test(`measure button contrast ratios on ${path}`, async ({ page, browserName }) => {

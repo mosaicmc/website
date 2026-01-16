@@ -1,11 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-const paths = [
+const STORIES_ENABLED = process.env.VITE_FEATURE_STORIES_PAGE === 'true';
+
+const basePaths = [
   '/services',
   '/services/settlement-support',
   '/about',
-  '/stories',
 ];
+
+const paths = STORIES_ENABLED ? [...basePaths, '/stories'] : basePaths;
 
 test.describe('Related Services section is centered', () => {
   for (const path of paths) {
