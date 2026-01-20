@@ -205,7 +205,7 @@ const GetInvolvedPage = () => {
       .then((data) => {
         if (data && typeof data.thumbnail_url === 'string') {
           setSpotlightImage(data.thumbnail_url);
-          try { console.log('[Spotlight] image(oembed)', data.thumbnail_url); } catch (e) { void e; }
+          // try { console.log('[Spotlight] image(oembed)', data.thumbnail_url); } catch (e) { void e; }
           sessionStorage.setItem(cacheKey, data.thumbnail_url);
           return;
         }

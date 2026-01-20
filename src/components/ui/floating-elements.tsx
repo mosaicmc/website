@@ -120,7 +120,7 @@ export const ContactFloatingMenu: React.FC = () => {
   const contactOptions = [
     { icon: <Phone className="h-4 w-4" />, label: 'Call', action: () => window.open('tel:+1234567890') },
     { icon: <Mail className="h-4 w-4" />, label: 'Email', action: () => window.open('mailto:contact@example.com') },
-    { icon: <MessageCircle className="h-4 w-4" />, label: 'Chat', action: () => console.log('Open chat') },
+    { icon: <MessageCircle className="h-4 w-4" />, label: 'Chat', action: () => {} },
   ];
 
   return (

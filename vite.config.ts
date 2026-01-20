@@ -96,6 +96,18 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   build: {
     chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-slot', '@radix-ui/react-label', '@radix-ui/react-select', '@radix-ui/react-tabs', '@radix-ui/react-avatar', '@radix-ui/react-dropdown-menu', '@radix-ui/react-navigation-menu', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          motion: ['framer-motion', 'motion'],
+          forms: ['react-hook-form', 'zod', '@hookform/resolvers'],
+          i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
+          icons: ['lucide-react', '@radix-ui/react-icons'],
+        },
+      },
+    },
   },
   resolve: {
     alias: {
