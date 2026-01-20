@@ -6,7 +6,7 @@ import { FlipWords } from './ui/flip-words';
 import { serviceYearsLabel, languagesSpokenLabel, assetPath } from '@/lib/utils';
 import AnimatedBackground from './ui/AnimatedBackground';
 
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
 
