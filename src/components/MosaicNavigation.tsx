@@ -507,7 +507,7 @@ export default function MosaicNavigation() {
       )}
 
       <nav ref={glassRef} className="nav-glass sticky top-0 z-50 w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Logo />
