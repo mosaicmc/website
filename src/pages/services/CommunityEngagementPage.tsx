@@ -38,9 +38,10 @@ const CommunityEngagementPage = () => {
     },
     {
       name: "Helen Mieres",
-      role: "Playing around the world – play group facilitator",
+      role: "Playing around the world – playgroup facilitator",
       location: "Central Coast",
-      experience: "With more than 15 years of community-focused experience, Helen has worked alongside families, children, and people experiencing homelessness to build strength, stability, and connection.",
+      qualifications: "Community Service Diploma",
+      experience: "With more than 15 years of community-focused experience, Helen has worked alongside families, children, and people experiencing homelessness to build strength, stability, and connection.\n\nShe also has extensive experience supporting people with disability and their families in inclusive community settings.",
       languages: ["English", "Spanish"],
       image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp")
     },

@@ -9,6 +9,7 @@ import { Card, CardHeader, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Section from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { DownloadGate } from '@/components/DownloadGate';
 
 import { prefetchOnHover } from '@/lib/prefetch';
 
@@ -59,14 +60,16 @@ const ResourcesPage = () => {
       sky: "bg-sky",
       earth: "bg-earth", 
       leaf: "bg-leaf",
-      sun: "bg-sun"
+      sun: "bg-sun",
+      ocean: "bg-ocean"
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.sky;
   };
 
   const brochures = [
     { title: 'Settlement Support', href: assetPath('/brochures/settlement-support.pdf'), color: 'sky' },
-    { title: 'Mosaic Overview', href: assetPath('/brochures/generic-mosaic.pdf'), color: 'sun' },
+    { title: 'Family Support', href: assetPath('/brochures/family-support.pdf'), color: 'sun' },
+    { title: 'Mosaic Overview', href: assetPath('/brochures/generic-mosaic.pdf'), color: 'ocean' },
     { title: 'Aged Care', href: assetPath('/brochures/aged-care.pdf'), color: 'earth' },
     { title: 'Community Engagement', href: assetPath('/brochures/community-engagement.pdf'), color: 'leaf' },
     { title: 'Mosaic Home Care Guide 2026', href: assetPath('/brochures/Aged Care_Guide 2026.pdf'), color: 'earth' },
@@ -390,17 +393,21 @@ const ResourcesPage = () => {
                   </div>
                 </CardHeader>
                 <CardFooter className="p-6">
-                  <Button asChild variant="outline" size="sm" className="rounded-lg">
-                    <a
-                      href={b.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Download ${b.title} brochure (PDF)`}
-                    >
-                      <FileDown className="h-4 w-4 mr-2" />
-                      Download
-                    </a>
-                  </Button>
+                  <DownloadGate downloadUrl={b.href} resourceLabel={`${b.title} brochure`}>
+                    {(openForm) => (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={openForm}
+                        aria-label={`Download ${b.title} brochure (PDF)`}
+                      >
+                        <FileDown className="h-4 w-4 mr-2" />
+                        Download
+                      </Button>
+                    )}
+                  </DownloadGate>
                 </CardFooter>
               </Card>
             ))}
@@ -431,17 +438,21 @@ const ResourcesPage = () => {
                   </div>
                 </CardHeader>
                 <CardFooter className="p-6">
-                  <Button asChild variant="outline" size="sm" className="rounded-lg">
-                    <a
-                      href={r.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Download ${r.title} (PDF)`}
-                    >
-                      <FileDown className="h-4 w-4 mr-2" />
-                      Download
-                    </a>
-                  </Button>
+                  <DownloadGate downloadUrl={r.href} resourceLabel={r.title}>
+                    {(openForm) => (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={openForm}
+                        aria-label={`Download ${r.title} (PDF)`}
+                      >
+                        <FileDown className="h-4 w-4 mr-2" />
+                        Download
+                      </Button>
+                    )}
+                  </DownloadGate>
                 </CardFooter>
               </Card>
             ))}

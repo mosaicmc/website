@@ -8,7 +8,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
 import { assetPath } from '@/lib/utils';
- 
+import { DownloadGate } from '@/components/DownloadGate';
 
 export default function NewcastleVolunteerPage() {
   const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -249,15 +249,21 @@ export default function NewcastleVolunteerPage() {
                                     <Dialog.Title className="text-xl font-semibold text-foreground">{r.title}</Dialog.Title>
                                     <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{r.blurb}</Dialog.Description>
                                     <div className="mt-4 flex gap-3">
-                                      <a
-                                        href={assetPath(`/pd/newcastle/${toSlug(r.title)}.pdf`)}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                                      <DownloadGate
+                                        downloadUrl={assetPath(`/pd/newcastle/${toSlug(r.title)}.pdf`)}
+                                        resourceLabel={`${r.title} position description`}
                                       >
-                                        <FileDown className="h-4 w-4 mr-2" />
-                                        Download PD
-                                      </a>
+                                        {(openForm) => (
+                                          <button
+                                            type="button"
+                                            onClick={openForm}
+                                            className="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                                          >
+                                            <FileDown className="h-4 w-4 mr-2" />
+                                            Download PD
+                                          </button>
+                                        )}
+                                      </DownloadGate>
                                       <a
                                         href="https://tally.so/r/3qoXjg"
                                         target="_blank"

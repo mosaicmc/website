@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function serviceYearsLabel(startYear = 1985) {
+export function serviceYearsLabel(startYear = 1981) {
   const years = new Date().getFullYear() - startYear;
   return `${years}+`;
 }
@@ -14,7 +14,7 @@ export function languagesSpokenLabel(count = 42) {
   return `${count}+`;
 }
 
-export function serviceYearsBase(startYear = 1985) {
+export function serviceYearsBase(startYear = 1981) {
   return new Date().getFullYear() - startYear;
 }
 

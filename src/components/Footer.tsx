@@ -48,7 +48,7 @@ const Footer = () => {
                       />
                     </Link>
                     <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                      <span className="rounded-full border border-border bg-ocean/10 text-ocean dark:bg-white/10 dark:text-sky px-3 py-1.5">40+ Years of Impact</span>
+                      <span className="rounded-full border border-border bg-ocean/10 text-ocean dark:bg-white/10 dark:text-sky px-3 py-1.5">45 Years of Impact</span>
                       <span className="rounded-full border border-border bg-ocean/10 text-ocean dark:bg-white/10 dark:text-sky px-3 py-1.5">Multicultural Services NSW</span>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ import { FileText, ExternalLink } from "lucide-react";
 import DecadeCards from '@/components/DecadeCards';
 import { computeDecadeGroups } from '@/components/DecadeCards.data';
 import Section from '@/components/ui/Section';
+import { DownloadGate } from "@/components/DownloadGate";
 import {
   Sheet,
   SheetContent,
@@ -177,15 +178,18 @@ export default function AnnualReportsPage() {
                       <p className="text-sm text-muted-foreground">Annual Report</p>
                     </div>
                   </div>
-                  <a
-                    href={r.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary"
-                    aria-label={`Download Annual Report ${r.year}`}
-                  >
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
+                  <DownloadGate downloadUrl={r.href} resourceLabel={`Annual Report ${r.year}`}>
+                    {(openForm) => (
+                      <button
+                        type="button"
+                        onClick={openForm}
+                        className="text-muted-foreground hover:text-primary focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded-full p-1"
+                        aria-label={`Download Annual Report ${r.year}`}
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </button>
+                    )}
+                  </DownloadGate>
                 </div>
                 <div className="mt-4">
                   <button

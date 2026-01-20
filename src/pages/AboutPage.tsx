@@ -81,12 +81,20 @@ const AboutPage = () => {
       assetPath("/images/History_720px_webp/2021_40th Celebration07.webp")
     ] },
     { year: "2022", label: "2022", description: "A new name reflecting a shared identity and evolving role.", image: assetPath("/images/History_720px_webp/2022_MosaicMC_Rebranding.webp"), alt: "Mosaic Multicultural Connections rebranding", details: "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.", gallery: [] },
-    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: assetPath("/images/History_720px_webp/2024_Charlestown.webp"), alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
+    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: assetPath("/images/History_720px_webp/2024_Closing01.webp"), alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
+      assetPath("/images/History_720px_webp/2024_Closing01.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing07.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing02.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing05.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing03.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing06.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing04.webp"),
+      assetPath("/images/History_720px_webp/2024_Closing.webp"),
+      assetPath("/images/History_720px_webp/2024_Charlestown.webp"),
       assetPath("/images/History_720px_webp/2024_Charlestown01.webp"),
       assetPath("/images/History_720px_webp/2024_Charlestown02.webp"),
-      assetPath("/images/History_720px_webp/2024_Closing01.webp"),
-      assetPath("/images/History_720px_webp/2024_Closing02.webp"),
-      assetPath("/images/History_720px_webp/2024_Closing03.webp")
+      assetPath("/images/History_720px_webp/2024_Closing09.webp"),
+      assetPath("/images/History_720px_webp/2024_Charlestown04.webp")
     ] },
   ], []);
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
@@ -204,7 +212,7 @@ const AboutPage = () => {
       level: 2 as const,
       languages: ["English", "Yorkshire"],
       bio: "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner.",
-      credentialsSummary: "CA; FCCA",
+      credentialsSummary: "Chartered Accountant Australia and New Zealand; Fellow of the Association of Chartered Certified Accountants",
       social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/richardmarkhanson/' }]
     },
     {
@@ -460,7 +468,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
           <div>
             <h2 id="our-story-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-3 scroll-mt-40 md:scroll-mt-48">The Mosaic Story</h2>
-            <p className="text-muted-foreground">Milestones across 40+ years of service in NSW</p>
+            <p className="text-muted-foreground">Milestones across 45 years of service in NSW</p>
           </div>
         </div>
 

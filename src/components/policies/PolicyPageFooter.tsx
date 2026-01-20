@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
+import { DownloadGate } from "@/components/DownloadGate";
 
 type PolicyKey =
   | "code-of-conduct"
@@ -47,16 +48,18 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
           <ChevronLeft className="h-4 w-4" />
           Back to Knowledge Base
         </Link>
-        <a
-          href={pdfHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition"
-        >
-          Download full policy (PDF)
-        </a>
+        <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`}>
+          {(openForm) => (
+            <button
+              type="button"
+              onClick={openForm}
+              className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+            >
+              Download full policy (PDF)
+            </button>
+          )}
+        </DownloadGate>
       </div>
     </>
   );
 }
-

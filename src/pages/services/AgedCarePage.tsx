@@ -7,6 +7,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
+import { DownloadGate } from '@/components/DownloadGate';
 
 const AgedCarePage = () => {
   const { t } = useTranslation();
@@ -103,26 +104,40 @@ const AgedCarePage = () => {
       answer: (
         <div className="space-y-3 text-base leading-relaxed">
           <p>{t('agedCare.faq.pricingAnswerIntro')}</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <a
-                href={assetPath("/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf")}
-                download
-                className="underline underline-offset-4"
-              >
-                {t('agedCare.faq.pricingLinkSah')}
-              </a>
-            </li>
-            <li>
-              <a
-                href={assetPath("/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf")}
-                download
-                className="underline underline-offset-4"
-              >
-                {t('agedCare.faq.pricingLinkChsp')}
-              </a>
-            </li>
-          </ul>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <DownloadGate
+                  downloadUrl={assetPath("/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf")}
+                  resourceLabel={t('agedCare.faq.pricingLinkSah')}
+                >
+                  {(openForm) => (
+                    <button
+                      type="button"
+                      onClick={openForm}
+                      className="underline underline-offset-4 text-left"
+                    >
+                      {t('agedCare.faq.pricingLinkSah')}
+                    </button>
+                  )}
+                </DownloadGate>
+              </li>
+              <li>
+                <DownloadGate
+                  downloadUrl={assetPath("/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf")}
+                  resourceLabel={t('agedCare.faq.pricingLinkChsp')}
+                >
+                  {(openForm) => (
+                    <button
+                      type="button"
+                      onClick={openForm}
+                      className="underline underline-offset-4 text-left"
+                    >
+                      {t('agedCare.faq.pricingLinkChsp')}
+                    </button>
+                  )}
+                </DownloadGate>
+              </li>
+            </ul>
         </div>
       ),
       schemaAnswer: `${t('agedCare.faq.pricingAnswerIntro')} ${t('agedCare.faq.pricingLinkSah')} ${t('agedCare.faq.pricingLinkChsp')}`,
