@@ -75,23 +75,26 @@ export default async function handler(req: Req, res: Res) {
     return;
   }
 
+  // File existence check removed to prevent Vercel from bundling the entire public directory
+  // const relativePath = cleanedPath;
+  // const publicRoot = path.join(process.cwd(), "public");
+  // const resolvedPublicRoot = path.resolve(publicRoot);
+  // const filePath = path.join(publicRoot, relativePath);
+  // const resolvedFilePath = path.resolve(filePath);
+  //
+  // if (!resolvedFilePath.startsWith(resolvedPublicRoot)) {
+  //   res.status(400).json({ error: "Invalid file path" });
+  //   return;
+  // }
+  //
+  // try {
+  //   await fs.promises.access(resolvedFilePath, fs.constants.R_OK);
+  // } catch {
+  //   res.status(404).json({ error: "File not found" });
+  //   return;
+  // }
+
   const relativePath = cleanedPath;
-  const publicRoot = path.join(process.cwd(), "public");
-  const resolvedPublicRoot = path.resolve(publicRoot);
-  const filePath = path.join(publicRoot, relativePath);
-  const resolvedFilePath = path.resolve(filePath);
-
-  if (!resolvedFilePath.startsWith(resolvedPublicRoot)) {
-    res.status(400).json({ error: "Invalid file path" });
-    return;
-  }
-
-  try {
-    await fs.promises.access(resolvedFilePath, fs.constants.R_OK);
-  } catch {
-    res.status(404).json({ error: "File not found" });
-    return;
-  }
 
   try {
     await appendSubmission({

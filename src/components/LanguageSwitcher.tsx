@@ -263,28 +263,30 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <div className={cn('relative', className)}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center h-9 md:h-10 px-4 rounded-md text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+        className="flex items-center justify-between gap-2 h-9 md:h-10 px-4 rounded-md text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
         aria-label={t('common.changeLanguage')}
         aria-haspopup="menu"
         aria-expanded={isOpen}
         aria-controls={menuId}
       >
-        <span
-          className="text-base sm:text-lg leading-none mr-2"
-          aria-hidden="true"
-        >
-          {displayLanguage.flag || '🏳️'}
-        </span>
-        {showText && (
-          <>
-            <span className="text-sm font-medium">
+        <div className="flex items-center gap-2">
+          <span
+            className="text-base sm:text-lg leading-none w-6 text-center inline-block"
+            aria-hidden="true"
+          >
+            {displayLanguage.flag || '🏳️'}
+          </span>
+          {showText && (
+            <span className="text-sm font-medium w-24 text-left truncate">
               {displayLanguage.nativeName}
             </span>
-            <ChevronDown className={cn(
-              'h-4 w-4 transition-transform duration-300',
-              isOpen && 'rotate-180'
-            )} />
-          </>
+          )}
+        </div>
+        {showText && (
+          <ChevronDown className={cn(
+            'h-4 w-4 opacity-50 transition-transform duration-300',
+            isOpen && 'rotate-180'
+          )} />
         )}
       </button>
 

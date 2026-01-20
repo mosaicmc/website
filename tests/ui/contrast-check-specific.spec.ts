@@ -68,7 +68,7 @@ test.describe('Specific Button Contrast Verification', () => {
       url: '/resources',
       elements: [
         // Targeting the first download button in the Brochures section
-        { name: 'Brochure Download', selector: 'a[aria-label*="Download"]:first-of-type' }
+        { name: 'Brochure Download', selector: '[data-testid="resource-download-btn"]' }
       ]
     }
   ];
@@ -100,9 +100,24 @@ test.describe('Specific Button Contrast Verification', () => {
           await locator.screenshot({ path: screenshotPath });
           console.log(`Screenshot saved to: ${screenshotPath}`);
 
-          // Get computed styles
+          // Get computed styles with effective background color resolution
           const color = await locator.evaluate((e) => window.getComputedStyle(e).color);
-          const backgroundColor = await locator.evaluate((e) => window.getComputedStyle(e).backgroundColor);
+          const backgroundColor = await locator.evaluate((e) => {
+            let current = e;
+            while (current) {
+              const style = window.getComputedStyle(current);
+              const bg = style.backgroundColor;
+              // Check for non-transparent background (ignore low opacity overlays)
+              const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+              if (match) {
+                const alpha = match[4] !== undefined ? parseFloat(match[4]) : 1;
+                if (alpha >= 0.9) return bg;
+              }
+              current = current.parentElement as Element;
+            }
+            // Default to white if no background found (standard web default)
+            return 'rgb(255, 255, 255)';
+          });
           
           // Log values
           console.log(`Element: ${el.name} (${theme})`);

@@ -1,7 +1,7 @@
 type Req = { query?: Record<string, unknown> };
 type Res = { status: (code: number) => Res; json: (body: unknown) => void };
 
-import { getValidatedEnv } from "./_env";
+import { getValidatedEnv } from "./_env.js";
 
 export default async function handler(req: Req, res: Res) {
   const fetchFn: (input: string, init?: RequestInit) => Promise<Response> = (globalThis as unknown as { fetch: (input: string, init?: RequestInit) => Promise<Response> }).fetch;

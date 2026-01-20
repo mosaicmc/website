@@ -401,6 +401,7 @@ const ResourcesPage = () => {
                         size="sm"
                         className="rounded-lg"
                         onClick={openForm}
+                        data-testid="resource-download-btn"
                         aria-label={`Download ${b.title} brochure (PDF)`}
                       >
                         <FileDown className="h-4 w-4 mr-2" />
@@ -446,6 +447,7 @@ const ResourcesPage = () => {
                         size="sm"
                         className="rounded-lg"
                         onClick={openForm}
+                        data-testid="resource-download-btn"
                         aria-label={`Download ${r.title} (PDF)`}
                       >
                         <FileDown className="h-4 w-4 mr-2" />

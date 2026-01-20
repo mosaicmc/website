@@ -142,7 +142,7 @@ const GoogleReviews = () => {
                         href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
                         aria-label="View review on Google"
                       >
                         View on Google
@@ -183,7 +183,7 @@ const GoogleReviews = () => {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean/80 dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
                         aria-label="View review on Google"
                       >
                         View on Google
