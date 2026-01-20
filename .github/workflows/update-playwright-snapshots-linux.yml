@@ -2,6 +2,9 @@ name: Update Playwright Snapshots (Linux)
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/update-playwright-snapshots-linux.yml'
 
 permissions:
   contents: write
