@@ -114,14 +114,6 @@ export default function CentralCoastVolunteerPage() {
                                           </button>
                                         )}
                                       </DownloadGate>
-                                      <a
-                                        href="https://tally.so/r/3qoXjg"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                                      >
-                                        Apply
-                                      </a>
                                     </div>
                                     <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
                                       <X className="h-4 w-4 text-muted-foreground" />

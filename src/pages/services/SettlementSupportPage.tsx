@@ -322,18 +322,6 @@ const SettlementSupportPage = () => {
                 tabIndex={0}
                 aria-expanded={expandedProgramIndex === index}
                 aria-controls={`settlement-program-${index}-details`}
-                onMouseEnter={() => setExpandedProgramIndex(index)}
-                onMouseLeave={() =>
-                  setExpandedProgramIndex((current) => (current === index ? null : current))
-                }
-                onFocus={() => setExpandedProgramIndex(index)}
-                onBlur={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                    setExpandedProgramIndex((current) =>
-                      current === index ? null : current
-                    );
-                  }
-                }}
                 onClick={() =>
                   setExpandedProgramIndex((current) => (current === index ? null : index))
                 }
@@ -345,7 +333,7 @@ const SettlementSupportPage = () => {
                     );
                   }
                 }}
-                className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
+                className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden cursor-pointer"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
 
@@ -510,7 +498,7 @@ const SettlementSupportPage = () => {
 
       
 
-      {/* Impact video stories */}
+      {/* Impact video stories section hidden as per request (videos missing)
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -552,6 +540,7 @@ const SettlementSupportPage = () => {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

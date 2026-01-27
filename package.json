@@ -21,7 +21,9 @@
     "test": "vitest",
     "test:ui": "playwright test",
     "test:puppeteer": "node tests/section-order.puppeteer.cjs",
-    "scan:secrets": "node scripts/scan-secrets.cjs"
+    "scan:secrets": "node scripts/scan-secrets.cjs",
+    "i18n:merge": "node scripts/merge_translations.cjs",
+    "i18n:validate": "node scripts/validate_translations.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

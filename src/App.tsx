@@ -5,8 +5,8 @@ import MosaicNavigation from './components/MosaicNavigation';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
 import { ScrollToTopButton } from './components/ui/floating-elements';
-import GoogleTranslateInit from './components/GoogleTranslateInit';
 import DefaultSEO from './components/SEO';
+import { LanguageSEO } from './components/LanguageSEO';
 
 const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
 
@@ -42,6 +42,7 @@ const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCo
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
 const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   return (
@@ -55,7 +56,7 @@ function App() {
             Skip to content
           </a>
           <DefaultSEO />
-          <GoogleTranslateInit />
+          <LanguageSEO />
           <ScrollToTop />
           <MosaicNavigation />
           <main id="main">
@@ -100,6 +101,9 @@ function App() {
         
         {/* Test Routes */}
         <Route path="/tests/color-contrast" element={<ColorContrastTestPage />} />
+
+        {/* Catch-all 404 */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
           </main>

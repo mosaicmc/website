@@ -1,4 +1,1376 @@
 {
+  "about": {
+    "management": {
+      "badge": "Management",
+      "title": "Leadership Team",
+      "description": "Experienced leaders committed to guide Mosaic's work with integrity, collaboration and community impact.",
+      "languagesLabel": "Languages"
+    }
+  },
+  "aboutPage": {
+    "title": "About Mosaic Multicultural Connections",
+    "description": "Mosaic Multicultural Connections supports multicultural communities across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW. Discover our mission, values and 40+ year story of settlement support, home care and family services.",
+    "meta": {
+      "title": "About Us | Mosaic Multicultural Connections",
+      "description": "Learn about Mosaic's 40+ year history of supporting multicultural communities in Newcastle and Northern NSW.",
+      "schema": {
+        "webPage": {
+          "name": "About Mosaic Multicultural Connections",
+          "about": [
+            "multicultural support",
+            "settlement services",
+            "aged care",
+            "family support",
+            "refugee services",
+            "community advocacy"
+          ],
+          "spatialCoverage": [
+            "Newcastle",
+            "Hunter Region",
+            "Central Coast",
+            "Tamworth",
+            "Armidale",
+            "New England",
+            "North West NSW"
+          ]
+        },
+        "faqPage": {
+          "q1": {
+            "question": "What is Mosaic Multicultural Connections?",
+            "answer": "Mosaic Multicultural Connections is a community organisation supporting culturally and linguistically diverse people across NSW through settlement support, home care, family services and community advocacy."
+          },
+          "q2": {
+            "question": "Where does Mosaic operate?",
+            "answer": "We serve communities in Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW."
+          },
+          "q3": {
+            "question": "How does Mosaic support newcomers?",
+            "answer": "We provide information and referral, settlement and employment support, language services, home care programs and community connections to help people thrive."
+          }
+        }
+      }
+    },
+    "hero": {
+      "label": "Our Story",
+      "title": "Where Belonging, Care, and Community Come Together",
+      "years": "40+ Years of Service",
+      "programs": "50+ Programs",
+      "button": "Explore Our History",
+      "description_prefix": "For {{years}}+ years, Mosaic Multicultural Connections has walked alongside migrants and multicultural communities, offering support, care, and connection from first arrival through later life. From settling into life in Australia, to caring for loved ones at home, strengthening families, and building community leadership, our work spans",
+      "description_suffix": " across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW.",
+      "services": {
+        "settlement": "Settlement Support",
+        "agedCare": "Aged Care",
+        "family": "Family Support",
+        "community": "Community Engagement"
+      },
+      "stats": {
+        "yearsOfService": "Years of Service",
+        "communitiesServed": "Communities Served",
+        "familiesSupported": "Families Supported"
+      }
+    },
+    "mission": {
+      "title": "Our Mission & Vision",
+      "mission": "To support and inspire culturally diverse people and communities to overcome barriers and thrive.",
+      "vision": "A connected community where diversity defines and nourishes us.",
+      "values": {
+        "badge": "Our Values",
+        "title": "What we stand for",
+        "trust": {
+          "label": "Trust",
+          "description": "We rely on and have faith in people and our organisation."
+        },
+        "transparency": {
+          "label": "Transparency",
+          "description": "We share openly with each other, without judgement."
+        },
+        "respect": {
+          "label": "Respect",
+          "description": "We treat everyone equally and consider the opinions of others, no matter our differences."
+        },
+        "collaboration": {
+          "label": "Collaboration",
+          "description": "We work together to support each other in our endeavours."
+        },
+        "creation": {
+          "label": "Creation",
+          "description": "We grow through collective ideas and innovation."
+        }
+      }
+    },
+    "history": {
+      "title": "Our Journey",
+      "subtitle": "From a small migrant resource centre to a leading multicultural services provider.",
+      "items": {
+        "1978": {
+          "label": "1978",
+          "description": "The Galbally Report sets the foundation for inclusive settlement in Australia.",
+          "details": "As Australia became more culturally diverse, communities called for inclusion, access, and representation. In 1978, SBS amplified multicultural voices nationwide, while the Review of Post‑Arrival Programs and Services to Migrants (popularly called The Galbally Report, 1978) reshaped settlement policy. Its recommendations were fully adopted, leading to the creation of migrant resource centres across Australia that provided settlement support, advocacy, and guidance to help migrants and refugees participate fully in Australian life while maintaining their culture and identity.",
+          "alt": "Migrant Services and Programs (Galbally Report) cover",
+          "links": [
+            {
+              "label": "Migrant Services and Programs – Statement by the Prime Minister, Mr. Malcolm Fraser"
+            },
+            {
+              "label": "It’s Not the Thought That Counts by Lidio Bertelli"
+            }
+          ]
+        },
+        "1981": {
+          "label": "1981",
+          "description": "We open in Newcastle with two staff.",
+          "details": "Mr Ian MacPhee officially opened the Newcastle Migrant Resource Centre on 20 May 1981. The Centre began operating in this region from upstairs premises at 414 Hunter Street above the State Bank building, with an interim Committee of Management and administered by the Newcastle City Council. There were just two staff: a Coordinator (the first being Veronica Hendry) and an Assistant Coordinator. The Centre operated from these premises for three years, serving as a fledgling community hub.",
+          "alt": "Foundation year in Newcastle and the Hunter Region",
+          "links": [
+            {
+              "label": "Opening Address by Mr. Ian MacPhee, Minister for Immigration and Ethnic Affairs"
+            }
+          ]
+        },
+        "1984": {
+          "label": "1984",
+          "description": "We move to 8 Chaucer Street, Hamilton, closer to our communities.",
+          "details": "In 1984 Violetta Walsh became Coordinator and led the organisation for 30 years across roles of coordinator, director and CEO. The premises chosen were 8 Chaucer Street, Hamilton, which remained the operational base for more than forty years, as the Migrant Resource Centre, then Northern Settlement Services, and finally Mosaic Multicultural Connections until the relocation to Charlestown.",
+          "alt": "Relocation to 8 Chaucer Street Hamilton"
+        },
+        "1985": {
+          "label": "1985",
+          "description": "Formal incorporation strengthens community leadership and outreach.",
+          "details": "In 1985, the organisation was formally incorporated, with governance led by elected members of ethnic communities and Faith Trent appointed as founding Chair. With additional support, outreach expanded beyond Newcastle to regional areas including Singleton and Muswellbrook. This period also saw strong investment in women’s leadership and community capacity, including programs that supported mature‑age migrant women into training, employment, and leadership roles, alongside initiatives to maintain community languages for migrant children.",
+          "alt": "Incorporation and outreach to Singleton and Muswellbrook"
+        },
+        "1989": {
+          "label": "1989",
+          "description": "Standing with the community in a time of crisis.",
+          "details": "In late 1989, the Newcastle earthquake deeply affected families, businesses, and neighbourhoods across the city. The centre (MRC) played a vital role in recovery efforts, supporting displaced families and local businesses to access assistance, rebuild stability, and begin restoring community life.",
+          "alt": "Newcastle Earthquake response"
+        },
+        "1990": {
+          "label": "1990",
+          "description": "Carnivale brings Hamilton together in a celebration of resilience and community.",
+          "details": "In 1990, Carnivale was launched as a street festival in Hamilton, bringing people together after a period of recovery and change. The Centre delivered the event in partnership with the Hamilton Chamber of Commerce and the Ethnic Communities Council, celebrating cultural diversity, connection, and the strength of the local community.",
+          "alt": "1990 Carnivale"
+        },
+        "1991": {
+          "label": "1991",
+          "description": "Ten years on, our reach and community connections continue to grow.",
+          "details": "In 1991, the Migrant Resource Centre (MRC) marked its tenth anniversary, growing from two staff to eleven and supporting people from more than 100 nationalities. During this period, services expanded across the Northwest of NSW and the Central Coast, including the launch of the Community Visitors Scheme for older migrants and the introduction of immigration assistance and advice.",
+          "alt": "Tenth anniversary"
+        },
+        "1999": {
+          "label": "1999",
+          "description": "Responding at the frontline during a humanitarian crisis.",
+          "details": "In 1999, the Centre played a frontline role in the national humanitarian response for Kosovar refugees, supporting nearly 900 people displaced by conflict. Working alongside government and interagency partners, the organisation provided settlement support, referrals, and community liaison, while also expanding assistance for skilled migrants to have qualifications recognised and access local employment opportunities.",
+          "alt": "Kosovar refugee support"
+        },
+        "2001": {
+          "label": "2001",
+          "description": "Twenty years of service and growing regional partnerships.",
+          "details": "In 2001, the organisation marked 20 years of service to the community, building on strong foundations of trust and connection. This period saw continued growth in regional outreach and partnerships, strengthening support for multicultural communities across the Hunter and surrounding regions.",
+          "alt": "20-year anniversary celebration"
+        },
+        "2004": {
+          "label": "2004",
+          "description": "Expanding regional presence across New England and the Northwest.",
+          "details": "In 2004, MRC opened its Armidale office, strengthening settlement outreach across the New England region and the Northwest Plains. This expansion extended support to communities including Tamworth, Inverell, Wellington, and Gunnedah, bringing services closer to people where they lived.",
+          "alt": "Historical entry 2004"
+        },
+        "2005": {
+          "label": "2005",
+          "description": "Expanding settlement and care in response to new humanitarian arrivals.",
+          "details": "In 2005, MRC responded to the arrival of African refugees by expanding settlement support across the region, working in partnership with other migrant resource centres to deliver coordinated assistance. This period also saw the opening of a Central Coast office, strengthening welfare and aged care support in a rapidly growing community.",
+          "alt": "Central Coast office opening"
+        },
+        "2006": {
+          "label": "2006",
+          "description": "Twenty-five years of service and expanding regional reach.",
+          "details": "In 2006, the Migrant Resource Centre marked its 25th anniversary, supported by 24 staff and more than 100 volunteers. The opening of the Tamworth office strengthened regional outreach, with services extending through partnerships and travelling staff to communities including Dubbo, Orange, Bathurst, Lightning Ridge, and Coffs Harbour. This period also saw services broaden to include family support, migrant employment pathways, rural information campaigns, and community aged care.",
+          "alt": "Silver Jubilee"
+        },
+        "2007": {
+          "label": "2007",
+          "description": "Charitable status strengthens sustainability and community impact.",
+          "details": "In 2007, the organisation became Northern Settlement Services Ltd and secured charitable status. This milestone strengthened long‑term sustainability, enabling greater support for communities through donor contributions and improved capacity to invest in staff and services.",
+          "alt": "Northern Settlement Services Ltd"
+        },
+        "2011": {
+          "label": "2011",
+          "description": "Thirty years of service and a new chapter of leadership.",
+          "details": "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.",
+          "alt": "Leadership transition"
+        },
+        "2019": {
+          "label": "2019",
+          "description": "A new chapter focused on innovation and strategic direction.",
+          "details": "In 2019, Sharon Daishe was appointed CEO, bringing a renewed focus on innovation, strategy, and sustainability. This appointment marked the beginning of the next chapter in the organisation’s evolution, strengthening its capacity to respond to changing community needs.",
+          "alt": "CEO appointment"
+        },
+        "2021": {
+          "label": "2021",
+          "description": "Forty years of service, shaped by people and community.",
+          "details": "In 2021, Northern Settlement Services marked 40 years of service, supported by 65 staff and more than 175 volunteers across NSW. Regional offices continued their work across the North and Northwest, strengthening connections and support for multicultural communities.",
+          "alt": "40th Celebration"
+        },
+        "2022": {
+          "label": "2022",
+          "description": "A new name reflecting a shared identity and evolving role.",
+          "details": "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.",
+          "alt": "Mosaic Multicultural Connections rebranding"
+        },
+        "2024": {
+          "label": "2024",
+          "description": "A new home in Charlestown, honouring the past and looking ahead.",
+          "details": "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.",
+          "alt": "Charlestown relocation"
+        }
+      }
+    },
+    "board": {
+      "badge": "Board of Directors",
+      "title": "Our Board",
+      "subtitle": "Governance, strategy and community leadership grounded in lived experience and professionalism.",
+      "members": {
+        "sandra": {
+          "name": "Sandra Feltham",
+          "title": "Chair",
+          "role": "Board Member since 2020",
+          "credentials": "Masters Public Health (Distinction), Grad Dip Urban & Regional Planning, BSc (Hons) Human Geography • Cert IV TAE • RN, RM",
+          "summary": "40+ years’ experience in health and local government, specialising in inclusive strategic planning, governance and community-focused advisory work.",
+          "languages": [
+            "English"
+          ],
+          "bio": "Hello! I’m Sandra Feltham. I have over 40 years’ experience in health and local government, specialising in inclusive, community‑focused strategic planning. I’ve advised government, service providers and community groups, and served on advisory and executive boards. My motivation is a belief in the strength and value of cultural diversity in Australia. My vision is for inclusive, resilient communities where every individual feels seen, heard and empowered."
+        },
+        "shirley": {
+          "name": "Dr Shirley Schulz-Robinson",
+          "title": "Vice Chair",
+          "role": "Board Member since 2021",
+          "credentials": "PhD Health Administration, BA (Hons) Sociology • Assoc Dip Nursing Education • Dip Life Coaching • Cert IV Small Business Management • Cert IV TAE • RN",
+          "summary": "Lived experience as migrant, carer and mature-aged student; career across health, education and multicultural mental health with focus on equity and inclusion.",
+          "languages": [
+            "English"
+          ],
+          "bio": "Hi, I’m Shirley Schulz‑Robinson. I bring lived experience as a migrant, carer and mature‑aged student, with a career spanning health, education and multicultural mental health. I’ve contributed to policy, research and advocacy, and served on boards and committees focused on ethics and quality. My motivation is equity, inclusion and the transformative power of community. My vision is compassionate, culturally intelligent and meaningful engagement where every voice is valued and every person can thrive."
+        },
+        "zachary": {
+          "name": "Zachary Ekandi",
+          "title": "Director",
+          "role": "Board Member since 2022",
+          "credentials": "MInfoTech, BInfoSci, AdvDipMgmt, Cert IV TAE, NAATI Interpreter, QTEAC Counsellor, GradDip Migration Law (ongoing)",
+          "summary": "Senior Educational Officer at TAFE NSW with deep experience in multicultural education, engagement and partnerships supporting migrant and refugee learners.",
+          "languages": [
+            "English",
+            "Swahili"
+          ],
+          "bio": "Hello! I’m Zachary Ekandi. I’m a Senior Educational Officer at TAFE NSW with extensive experience in multicultural education, community engagement and strategic partnerships. I’ve led initiatives supporting migrant and refugee learners, advised government and academic bodies, and championed inclusive education across NSW. My motivation is empowering culturally diverse communities and ensuring services are responsive, inclusive and impactful."
+        },
+        "raj": {
+          "name": "Felix Rajeev (Raj) Sirimanne",
+          "title": "Director",
+          "role": "Board Member since 2025",
+          "credentials": "CPA | AICD | BCom Accounting (UNSW) | Diploma Aviation | Diploma Frontline Management",
+          "summary": "25+ years’ senior leadership across NFPs, ASX-listed and multinationals; expertise in governance, finance and strategy; large programs and cost optimisation.",
+          "languages": [
+            "English"
+          ],
+          "bio": "Hey, I’m Raj! I’m passionate about supporting multicultural, migrant and refugee communities, particularly through quality aged care and settlement services. As a current Director of Compassion Philippines Inc., I established full governance and operational structures for an international NGO — experience that prepares me well to contribute to Mosaic’s mission. With over 25 years of senior leadership across not‑for‑profits, ASX‑listed and multinational organisations, I bring expertise in governance, finance and strategy. I’ve led large‑scale programs delivering over $100M in revenue, driven $80M+ cost optimisation initiatives, and guided complex transformations in regulated environments. Mosaic’s vision of dignity, inclusion and care resonates strongly with my own values. I’m committed to using my cross‑cultural leadership — building teams and launching organisations across Asia, Africa and Australia — to strengthen Mosaic’s long‑term sustainability and impact."
+        },
+        "peter": {
+          "name": "Peter Gittins",
+          "title": "Director",
+          "role": "Board Member since 2024",
+          "credentials": "BA, Dip Education, Cert ESL, Cert Business",
+          "summary": "Retired international educator and Newcastle City Councillor with expertise in leadership, governance, financial management and multicultural engagement.",
+          "languages": [
+            "English"
+          ],
+          "bio": "Hi, I’m Peter Gittins. I am a retired international educator and an independent Councillor on Newcastle City Council. I’ve taught in PNG and Nepal and led international schools in Germany, Sri Lanka and Vietnam. I bring expertise in governance, financial management and strategic planning. My motivation is a lifelong commitment to education, inclusion and community development. My vision is to help Mosaic connect across cultures through thoughtful governance, strategic leadership and meaningful engagement."
+        },
+        "catherine": {
+          "name": "Catherine Candiloro",
+          "title": "Director",
+          "role": "Board Member since 2025",
+          "credentials": "Master of International & Community Development, Grad Cert NFP Management, Specialist Cert Implementation Science",
+          "summary": "Career in government and NGOs leading refugee and child-focused programs; now specialising in regulation, compliance, safeguarding and community advocacy.",
+          "languages": [
+            "English",
+            "Spanish",
+            "Italian"
+          ],
+          "bio": "Hello! I’m Catherine Candiloro. I bring lived experience as the child of a refugee and a career spanning government and NGOs. I’ve led refugee and child‑focused support programs and now work in regulation, with expertise in compliance, safeguarding and change management. Motivated by a desire to give back to my community, my vision is integrity, inclusion and strategic growth, where community voices are amplified."
+        },
+        "lauren": {
+          "name": "Lauren Croiset",
+          "title": "Director",
+          "role": "Board Member since 2025",
+          "credentials": "Diploma of Counselling (currently studying)",
+          "summary": "Strategic leader in home care with expertise in compliance, policy and operations; leads growth and community initiatives and volunteers in multicultural organisations.",
+          "languages": [
+            "English",
+            "French"
+          ],
+          "bio": "Hi, I’m Lauren Croiset. I’m a strategic leader in home care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging."
+        }
+      }
+    },
+    "management": {
+      "badge": "Management Team",
+      "title": "Management Team",
+      "description": "Leading our daily operations and services.",
+      "languagesLabel": "Languages spoken",
+      "members": {
+        "sharon": {
+          "name": "Sharon Daishe",
+          "title": "Chief Executive Officer",
+          "role": "CEO since 2023",
+          "level": 1,
+          "credentials": "Master of International and Community Development",
+          "languages": [
+            "English"
+          ],
+          "bio": "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose, helping people have power over their lives, the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren."
+        },
+        "belinda": {
+          "name": "Belinda Latimore",
+          "title": "General Manager, Programs",
+          "role": "General Manager, Programs",
+          "level": 2,
+          "credentials": "Bachelor Social Work; Master Business Administration; Diploma Human Resource Management; Diploma Leadership and Management",
+          "languages": [
+            "English",
+            "Australian"
+          ],
+          "bio": "Hi, I’m Belinda. I love coming to work each day as part of Mosaic’s multicultural family. I bring over 25 years of experience in the health and welfare sector, working across government, not-for-profit and charity organisations. I’m passionate about leading and supporting teams, and I believe every person brings a unique story that strengthens the skills, experience and care we deliver together. I deeply respect each individual journey and value the power of working collaboratively so we can all thrive. Outside of work, I’ve recently taken up running and am enjoying the sense of connection and camaraderie within the running community."
+        },
+        "richard": {
+          "name": "Richard Hanson",
+          "title": "Manager, Finance & Corporate",
+          "role": "Manager, Finance & Corporate",
+          "level": 2,
+          "credentials": "Chartered Accountant Australia and New Zealand; Fellow of the Association of Chartered Certified Accountants",
+          "languages": [
+            "English",
+            "Yorkshire"
+          ],
+          "bio": "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner."
+        },
+        "karthik": {
+          "name": "Karthik Ramamurthy",
+          "title": "Manager, Aged Care",
+          "role": "Manager, Aged Care",
+          "level": 3,
+          "credentials": "Bachelor’s Degree in Accounting; MSc in International Hotel Management; Diploma of Management (Aged Care); Certificate III in Aged Care",
+          "languages": [
+            "English",
+            "Tamil",
+            "Malayalam",
+            "Hindi",
+            "French (basic)"
+          ],
+          "bio": "Vanakkam, I’m Karthik. With over 20 years of executive experience in aged care and luxury hotels, I specialise in operational leadership. I joined Mosaic Multicultural to strengthen our Homecare services, ensuring compassionate, high‑quality support for the multicultural community. Outside of work, I enjoy competitive tennis, have travelled to around 40 countries, and enjoy exotic food."
+        },
+        "jawaid": {
+          "name": "Jawaid Pardehi",
+          "title": "Manager, Settlement, Families & Communities",
+          "role": "Manager, Settlement, Families & Communities",
+          "level": 3,
+          "credentials": "Bachelor of Engineering in Electronics; Diploma in Project Management; Certificate in Adult and Tertiary Teaching; Certificate of Proficiency, Psychology and Sociology; Master of Social Work",
+          "languages": [
+            "English",
+            "Urdu",
+            "Sindhi",
+            "Hindi",
+            "Punjabi",
+            "Arabic (Basic)"
+          ],
+          "bio": "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness, including women’s programs, parenting workshops and cultural awareness training, to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
+        }
+      }
+    }
+  },
+  "agedCare": {
+    "hero": {
+      "headline": "Living Independently at Home? We’re Here With You.",
+      "subheadline": "Ageing at home can bring new challenges for individuals and families.",
+      "body": "You and your family can rely on culturally responsive in-home care and friendly volunteer visits, delivered in familiar languages and guided by respect for your choices. We help you stay independent, connected, and supported at home.",
+      "cta": "Discuss Your Care Options"
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Aged Care Programs"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How home care works",
+        "title": "Understanding rights, eligibility and getting started"
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions About Our Home Care Programs",
+        "subtitle": "Clear answers about Support at Home, CHSP services, eligibility, and getting started."
+      }
+    },
+    "programs": {
+      "sah": {
+        "title": "Support at Home (SaH)",
+        "description": "Tailored in‑home care to help you stay independent, from everyday support to nursing and allied health.",
+        "features": [
+          "Domestic assistance and personal care",
+          "Meal preparation and shopping",
+          "Transport to appointments",
+          "Care coordination in your language"
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
+      },
+      "chspIndividual": {
+        "title": "CHSP - Social Support and Engagement",
+        "description": "Entry‑level one‑to‑one support to keep you connected to community, culture, and everyday activities.",
+        "features": [
+          "Friendly home visits and welfare checks",
+          "Assisted outings and social connection",
+          "Help with technology and communication",
+          "Links to community groups"
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
+      },
+      "chspRespite": {
+        "title": "CHSP - Flexible Respite",
+        "description": "Short‑term in‑home support so carers can rest, attend appointments, or take a break.",
+        "features": [
+          "In‑home day or overnight respite",
+          "Planned respite with culturally aware staff",
+          "Support for carers during emergencies",
+          "Coordination with your care plan"
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government Department of Health, Disability and Ageing."
+      },
+      "acvvs": {
+        "title": "Aged Care Volunteer Visitors Scheme (ACVVS)",
+        "description": "Regular volunteer visits to reduce social isolation, matched by language or culture where possible.",
+        "features": [
+          "Matched volunteers who share culture or language",
+          "Companionship and conversation",
+          "Community outings where possible",
+          "Ongoing coordinator support"
+        ],
+        "fundingNote": "This program is supported by funding from the Australian Government."
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Seniors from multicultural backgrounds requiring home care support",
+        "People with approved home care packages",
+        "Families seeking culturally appropriate care options",
+        "Individuals requiring respite care services"
+      ]
+    },
+    "how": {
+      "rights": {
+        "title": "Your Rights",
+        "description": "A new Statement of Rights outlines what you deserve: respect, quality care, and choice, regardless of language or background."
+      },
+      "choice": {
+        "title": "Your Choice",
+        "description": "You can formally register people who support your choices: family, friends, advocates, so your values guide your care."
+      },
+      "voice": {
+        "title": "Your Voice",
+        "description": "Complaints have clearer pathways to resolution. Providers are more accountable for respectful, safe, and quality care."
+      }
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Dignity, independence and cultural comfort",
+      "body": "Short videos show clients staying independent at home with support in familiar languages and respectful care.",
+      "bullets": [
+        "Stories matched to language or culture.",
+        "Captions and interpreter voiceovers.",
+        "Invite families to contact Mosaic."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed a video via CMS."
+    },
+    "team": {
+      "title": "Meet Your Aged Care Team",
+      "description": "Our home care team combines professional nursing expertise with deep cultural understanding. Each team member is trained in culturally appropriate care delivery and speaks multiple languages to ensure your comfort and dignity are maintained throughout your care journey."
+    },
+    "faq": {
+      "sahQuestion": "What is Support at Home (SaH)?",
+      "sahAnswer": "Support at Home helps you stay independent at home with a tailored care plan built around your life. Services range from everyday support (like showering, meals, and transport) to nursing and allied health. We match you with workers who speak your language and understand your culture.",
+      "chspQuestion": "What is CHSP and who is it for?",
+      "chspAnswer": "The Commonwealth Home Support Programme (CHSP) is entry‑level aged care for people who need a little help to remain independent at home. It’s ideal if you’re beginning to think about support, or waiting for a Support at Home allocation. Mosaic delivers Individual Social Support and Flexible Respite under CHSP.",
+      "eligibilityQuestion": "Am I eligible for your services?",
+      "eligibilityAnswer": "Generally, people aged 65+ (or 50+ for Aboriginal and Torres Strait Islander people) living at home are eligible for home care supports. Carers may access Flexible Respite. If you’re unsure, contact us and we’ll help you understand options and pathways.",
+      "startQuestion": "How do I get started?",
+      "startAnswer": "Call 1800 813 205 or contact us online. We can support you to navigate My Aged Care, arrange assessments, and develop a culturally appropriate support plan that fits your goals and preferences.",
+      "matchingQuestion": "Do you match workers to language and culture?",
+      "matchingAnswer": "Yes. Wherever possible we match you with care workers who share your language or cultural background. We also provide interpreters and culturally responsive services to ensure you feel respected and understood.",
+      "clinicalQuestion": "What if I need nursing or clinical care?",
+      "clinicalAnswer": "Under Support at Home we coordinate nursing and allied health services aligned to your care plan. We work with you, your family, and health providers to ensure safe, dignified support that meets your clinical needs.",
+      "costsQuestion": "Will I know my costs before services start?",
+      "costsAnswer1": "Yes. We believe cost information should be clear and explained before any services begin.",
+      "costsAnswer2": "Your Care Coordinator will talk through your services, funding, and any contributions with you, and answer any questions you may have.",
+      "pricingQuestion": "Where can I see detailed pricing?",
+      "pricingAnswerIntro": "If you would like to view service rates and contribution details, pricing guides are available to download:",
+      "pricingLinkSah": "Support at Home Price Guide (PDF)",
+      "pricingLinkChsp": "CHSP Price Guide (PDF)"
+    },
+    "cta": {
+      "title": "Ready to Discuss Your Care Needs?",
+      "body": "We can talk through your options, explain home care and volunteer visitor supports, and help you understand next steps. There’s no obligation, and support is available in your preferred language.",
+      "callLabel": "Discuss Your Care Options",
+      "contactLabel": "Contact Us Online"
+    }
+  },
+  "common": {
+    "translateThisPage": "Translate This Page",
+    "welcome": "Ласкаво просимо",
+    "loading": "Завантаження...",
+    "error": "Помилка",
+    "retry": "Повторити",
+    "close": "Закрити",
+    "open": "Відкрити",
+    "menu": "Меню",
+    "language": "Мова",
+    "changeLanguage": "Змінити мову",
+    "download": "Завантажити",
+    "downloadBrochureAria": "Завантажити брошуру {{title}} (PDF)",
+    "downloadReportAria": "Завантажити {{title}} (PDF)",
+    "readBio": "Read Bio",
+    "languages": "Languages"
+  },
+  "community": {
+    "hero": {
+      "headline": "Looking for Community Connections? We Create Spaces to Belong.",
+      "subheadline": "Finding connection and belonging in your community matters.",
+      "body": "We create opportunities for people to connect, participate, and have a voice through cultural celebrations, leadership development, and community activities. Our focus is building belonging, strengthening connections, and celebrating the diversity of our communities.",
+      "cta": "Build Your Community",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Community Engagement Programs",
+        "description": "Our community engagement programs are designed to celebrate cultural diversity, develop community leadership, create meaningful connections, and advocate for inclusive policies that benefit all members of our multicultural communities."
+      },
+      "eligibility": {
+        "title": "Who Can Get Involved?"
+      },
+      "how": {
+        "badge": "How community engagement works",
+        "title": "Three simple steps from first hello to active participation",
+        "description": "Start with a conversation, find events that fit, and grow into leadership and advocacy with support at every step."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions About Community Engagement",
+        "subtitle": "Get answers to common questions about our community engagement programs and how you can get involved"
+      }
+    },
+    "programs": {
+      "whatWeProvideLabel": "What We Provide:",
+      "gambleAware": {
+        "title": "Gambling Aware",
+        "description": "The Gamble Aware program offers culturally appropriate education and support where multicultural families learn about gambling risks and access specialist help when needed.",
+        "features": [
+          "Culturally sensitive workshops in your language",
+          "Individual family support casework",
+          "Direct connections to specialist gambling counsellors",
+          "Education about gambling risks and impacts"
+        ],
+        "who": "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, and adults over 18 and young people experiencing gambling harm.",
+        "fundingNote": "This program is supported with funding from the NSW Government Department of Communities and Justice."
+      },
+      "multiculturalDevelopment": {
+        "title": "Community Capacity Building",
+        "description": "Mosaic’s Multicultural Community Groups are safe spaces where families build real connections, maintain their cultural identity, and strengthen ties to the wider community. Our community groups welcome drop-ins.",
+        "features": [
+          "Weekly playgroups, men & mothers groups",
+          "Citizenship preparation",
+          "Free English Conversation Classes - Talking Around the World (TATW)",
+          "Regular information sessions, community workshops and cultural celebrations"
+        ],
+        "who": "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.",
+        "fundingNote": "This program is jointly supported with funding from the Australian Government’s Department of Home Affairs and NSW Government Department of Communities and Justice."
+      },
+      "homeworkCenters": {
+        "title": "Homework & Learning Centres",
+        "description": "Supportive learning environments where students from migrant and refugee backgrounds develop academic skills, build social confidence, and achieve educational success alongside their peers.",
+        "features": [
+          "Free weekly tutoring during school terms",
+          "One-on-one support in small learning groups (maximum 15 students)",
+          "Help with English, numeracy and homework tasks",
+          "Progress reports and social confidence building"
+        ],
+        "who": "Students from migrant and refugee backgrounds enrolled in local primary and secondary schools who are referred by their EALD (English as an Additional Language or Dialect) teacher. Programs run during school terms only.",
+        "fundingNote": "This program is supported with funding from the Waratah Education Foundation Limited."
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Multicultural families wanting to learn about gambling risks or needing support with gambling concerns, including adults over 18 and young people experiencing gambling harm. Support is available for people seeking help for themselves or on behalf of a loved one.",
+        "Community members from all cultural backgrounds, especially families with children, plus aspiring community leaders seeking mentorship, volunteers looking to contribute, and organisations interested in partnerships and cultural programs.",
+        "Students from migrant and refugee backgrounds enrolled in local schools referred by EALD teachers"
+      ]
+    },
+    "how": {
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205 or visit a hub to discuss interests and goals.",
+          "bullets": [
+            "Interpreter support available",
+            "Flexible paths for individuals and groups"
+          ]
+        },
+        {
+          "title": "2. Participate",
+          "description": "Join festivals, workshops, playgroups, and volunteer roles that suit you.",
+          "bullets": [
+            "Clear schedules and supportive coordinators",
+            "Skills-building while celebrating culture"
+          ]
+        },
+        {
+          "title": "3. Lead & advocate",
+          "description": "Participate in Mosaic's quarterly leaders consultation sessions to advocate for your community",
+          "bullets": [
+            "Mentoring and advisory group pathways",
+            "Opportunities to influence programs and policy"
+          ]
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Celebrating culture, building leaders, growing community",
+      "body": "Stories from participants and volunteers highlight how cultural celebrations, leadership pathways and advocacy create lasting community impact.",
+      "bullets": [
+        "Festival highlights with captions and multilingual voiceovers.",
+        "Volunteer journeys into leadership and advisory roles.",
+        "Community advocacy wins and partnership outcomes."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed your video via CMS with transcripts and captions."
+    },
+    "team": {
+      "title": "Meet Your Community Engagement Team",
+      "description": "Our community engagement team brings together expertise in event management, community development, volunteer coordination, and advocacy. Each team member is passionate about celebrating cultural diversity and creating opportunities for meaningful community participation and leadership development.",
+      "collaborativeTitle": "Collaborative Community Approach",
+      "collaborativeBody": "Our community engagement team works collaboratively with community leaders, cultural organisations, government agencies, and local businesses to create inclusive programs that celebrate diversity and build stronger communities. We believe that the best community engagement happens when everyone has a voice and an opportunity to contribute their unique perspectives and talents."
+    },
+    "faq": {
+      "programsQuestion": "What types of community engagement programs do you offer?",
+      "programsAnswer": "We offer diverse community engagement opportunities including cultural festivals and celebrations, leadership development programs, volunteer coordination and training, advocacy and representation services, community consultation projects, and multicultural awareness training. Our programs are designed to celebrate cultural diversity while building stronger, more inclusive communities across NSW.",
+      "leadershipQuestion": "How can I get involved in community leadership?",
+      "leadershipAnswer": "Our leadership development programs provide training in public speaking, community advocacy, project management, and cultural competency. We offer mentorship opportunities, leadership workshops, and pathways to join community advisory groups. Whether you're interested in representing your cultural community or advocating for multicultural issues, we provide the skills and support you need to become an effective community leader.",
+      "volunteerQuestion": "What volunteer opportunities are available?",
+      "volunteerAnswer": "Volunteer opportunities include cultural event coordination, community program assistance, translation and interpretation support, mentoring new arrivals, administrative support, and advocacy campaign participation. We provide comprehensive training, flexible scheduling, and ongoing support for all volunteers. Volunteering is a great way to give back while developing new skills and building community connections.",
+      "festivalsQuestion": "How do you support cultural celebrations and festivals?",
+      "festivalsAnswer": "We coordinate annual multicultural festivals, provide funding and logistical support for cultural events, assist with venue booking and permits, offer event planning expertise and volunteer coordination, and help promote cultural celebrations throughout the community. Our goal is to showcase the rich cultural diversity of our communities while creating opportunities for cross-cultural understanding and celebration.",
+      "advocacyQuestion": "What advocacy services do you provide?",
+      "advocacyAnswer": "Our advocacy services include representing community interests in policy discussions, providing submissions to government consultations, advocating for improved multicultural services, supporting individual advocacy needs, and raising awareness about multicultural issues. We work at local, state, and federal levels to ensure multicultural voices are heard and multicultural communities receive appropriate support and recognition.",
+      "partnershipsQuestion": "How can organisations partner with you?",
+      "partnershipsAnswer": "Organisations can partner with us through joint program development, cultural competency training provision, event collaboration and sponsorship, volunteer program partnerships, and policy advocacy initiatives. We work with businesses, government agencies, educational institutions, and community organisations to create more inclusive and culturally responsive services and programs throughout NSW."
+    },
+    "cta": {
+      "title": "Ready to Grow Your Community?",
+      "body": "You’re welcome to start with a conversation. We can talk about events, groups, volunteering, or leadership opportunities and help you find ways to get involved that feel right for you.",
+      "callLabel": "Make a Referral",
+      "contactLabel": "Contact Us Online",
+      "footnote": "All community members welcome • Flexible participation options • Professional development opportunities available"
+    }
+  },
+  "contact": {
+    "badge": "Get in touch with Mosaic",
+    "title": "Get in touch with Mosaic",
+    "description": "We’re here to help you find the right support, services, or local office. Whether you’re reaching out for yourself, a family member, or a client, our team will guide you to the right place.",
+    "form": {
+      "title": "Contact us",
+      "intro": "Use the form below to ask a question, request support, or connect with a local Mosaic office.",
+      "responseTime": "Our team will respond within <strong>48 business hours</strong>.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "language": "Preferred Language",
+        "service": "Service interest",
+        "location": "Preferred office",
+        "message": "Message",
+        "placeholders": {
+          "message": "Please describe how we can help you..."
+        },
+        "languageOptions": {
+          "select": "Select a language",
+          "english": "English",
+          "arabic": "Arabic",
+          "mandarin": "Mandarin",
+          "spanish": "Spanish",
+          "vietnamese": "Vietnamese",
+          "tagalog": "Tagalog",
+          "hindi": "Hindi",
+          "korean": "Korean",
+          "other": "Other"
+        },
+        "serviceOptions": {
+          "select": "Select a service",
+          "settlement": "Settlement Support",
+          "agedCare": "Home Care Services",
+          "familySupport": "Family Support",
+          "communityEngagement": "Community Engagement",
+          "volunteer": "Volunteer Opportunities",
+          "general": "General Inquiry"
+        },
+        "locationOptions": {
+          "select": "Select an office",
+          "newcastle": "Newcastle",
+          "centralCoast": "Central Coast",
+          "armidale": "Armidale",
+          "tamworth": "Tamworth",
+          "lakeMacquarie": "Lake Macquarie",
+          "hunterRegion": "Hunter Region"
+        }
+      },
+      "descriptions": {
+        "name": "Please enter your full name.",
+        "email": "We’ll use this email to reply to your enquiry.",
+        "service": "Select the service you’re enquiring about so we can direct your message to the right team.",
+        "location": "Choose the office closest to you, or the location you’d like to connect with.",
+        "message": "Tell us a little about your situation or enquiry. The more detail you provide, the better we can help."
+      },
+      "submit": "Send Message",
+      "privacyNote": "Your information is kept private and shared only with the Mosaic team supporting your request.",
+      "validation": {
+        "nameMin": "Name must be at least 2 characters.",
+        "emailInvalid": "Please enter a valid email address.",
+        "emailRequired": "Email is required.",
+        "serviceRequired": "Please select a service.",
+        "locationRequired": "Please select an office.",
+        "messageMin": "Message must be at least 10 characters."
+      }
+    },
+    "success": {
+      "title": "Message Sent Successfully!",
+      "message": "Thank you for contacting us. We’ll get back to you within 48 business hours.",
+      "urgentNote": "For urgent matters during business hours, please call us directly at 1800 813 205."
+    }
+  },
+  "cta": {
+    "badge": "Приєднуйтеся до нашої місії",
+    "helperText": "Незалежно від того, чи потребуєте ви підтримки при переселенні, сімейної допомоги, послуг з догляду за літніми або громадської участі, наша кваліфікована команда готова допомогти. Усі консультації безкоштовні та доступні мовою, якою ви володієте.",
+    "stepsHeader": "Що далі",
+    "headlinePrefix": "Готові зробити свій",
+    "headlineEmphasis": "Наступний крок?",
+    "steps": {
+      "one": "Ми розглянемо вашу заявку.",
+      "two": "Ми зв'яжемося з вами бажаною мовою.",
+      "three": "Ми проведемо вас через наступні кроки."
+    },
+    "primaryButtonLabel": "Дослідити наші послуги",
+    "secondaryButtonLabel": "Отримати підтримку зараз",
+    "footnote": {
+      "label": "*Зони обслуговування:",
+      "textPrefix": "Наші послуги можуть відрізнятися залежно від місця. Будь ласка",
+      "contactLink": "Зв'яжіться з нами",
+      "textSuffix": "щоб підтвердити доступність."
+    }
+  },
+  "donate": {
+    "title": "Donate to Mosaic",
+    "subtitle": "Your contribution directly supports multicultural communities throughout New South Wales.",
+    "impact": {
+      "title": "Your Impact",
+      "text1": "We need your help to deliver the important programs and activities that you can find throughout our website.",
+      "text2": "By donating to Mosaic Multicultural Connections, you will be making a positive difference to the lives of individuals, families and communities.",
+      "text3": "Mosaic Multicultural Connections is a registered business name of Northern Settlement Services Limited and is a registered charity with the ACNC. We can provide tax deductible receipts for gifts over $2.00",
+      "abn": "ABN 72 002 898 759"
+    },
+    "securePayment": "Secure payments processed by Raisely.",
+    "meta": {
+      "title": "Donate | Mosaic Multicultural Connections",
+      "description": "Support Mosaic Multicultural Connections. Your donation empowers multicultural communities across NSW through settlement support, home care, family services, and community engagement."
+    }
+  },
+  "emergency": {
+    "title": "Emergency & Translation Services",
+    "description": "This page provides essential emergency contacts and language support information.",
+    "tabs": {
+      "quick": "Quick Actions",
+      "contacts": "Emergency Contacts",
+      "language": "Language Support",
+      "links": "Helpful Links"
+    },
+    "items": {
+      "lifeThreatening": {
+        "title": "Life threatening emergencies",
+        "desc": "Police, Fire or Ambulance"
+      },
+      "bushfire": {
+        "title": "Major bushfire incident updates",
+        "desc": "NSW Rural Fire Service"
+      },
+      "floods": {
+        "title": "Floods, storms and tsunamis",
+        "desc": "State Emergency Service (SES)"
+      },
+      "ses": {
+        "title": "NSW SES general enquiries",
+        "desc": "Non-emergency / general"
+      },
+      "power": {
+        "title": "Power outages / fallen powerlines",
+        "desc": "Ausgrid"
+      },
+      "weather": {
+        "title": "Weather updates and flood warnings",
+        "desc": "Bureau of Meteorology"
+      },
+      "traffic": {
+        "title": "Live traffic and road closures",
+        "desc": "Live Traffic NSW"
+      },
+      "local": {
+        "title": "Local emergency information",
+        "desc": "Hazards Near Me NSW app"
+      },
+      "radio": {
+        "title": "Live radio updates",
+        "desc": "1233 ABC Newcastle"
+      }
+    },
+    "tis": {
+      "title": "TIS 131 450",
+      "subtitle": "Interpreter support",
+      "call": "Call TIS 131 450",
+      "info": "NSW Emergency Info"
+    },
+    "languageSupport": {
+      "intro": "If you need language support, call the Translating & Interpreting Service on <1>131 450</1>. Ask for an interpreter and the language you speak.",
+      "whenCalling": "When you call emergency services",
+      "whenCallingDesc": "Tell the operator you need an interpreter. They can connect TIS for you.",
+      "atHospitals": "At hospitals and government services",
+      "atHospitalsDesc": "Staff can arrange an interpreter so you can understand what is happening.",
+      "beforeYouCall": "Before you call",
+      "beforeYouCallDesc": "Have your name, location, and phone number ready if you can.",
+      "whatToSay": "What to say when you call",
+      "script": "I need an interpreter for my language. Please connect me to TIS National.",
+      "copyScript": "Copy script",
+      "visitTis": "Visit TIS National"
+    },
+    "nswEmergencies": {
+      "title": "NSW Government — Emergencies",
+      "desc": "Official emergency information and guidance",
+      "open": "Open"
+    },
+    "hazardsNearMe": {
+      "title": "Hazards Near Me NSW",
+      "desc": "Local emergency alerts and updates",
+      "open": "Open"
+    },
+    "liveTraffic": {
+      "title": "Live Traffic NSW",
+      "desc": "Road closures and live traffic updates",
+      "open": "Open"
+    },
+    "backToResources": "Back to Resources",
+    "aria": {
+      "call000": "Call 000 for Police, Fire, Ambulance",
+      "callTis": "Call TIS National 131 450 for interpreters",
+      "openNswEmergency": "Open NSW Government emergency information",
+      "copyScript": "Copy interpreter request script",
+      "visitTis": "Visit TIS National website",
+      "openHazards": "Open Hazards Near Me NSW",
+      "openLiveTraffic": "Open Live Traffic NSW",
+      "callAction": "Call {{title}} on {{number}}",
+      "openAction": "Open {{title}}"
+    }
+  },
+  "family": {
+    "hero": {
+      "headline": "Looking for Family Support? We Listen Without Judgement.",
+      "subheadline": "Raising children in a new country can feel uncertain and stressful.",
+      "body": "We work with multicultural families through confidential family support and welcoming community playgroups. Our focus is helping parents and children feel safe, connected, and understood.",
+      "cta": "Explore Support Options",
+      "ctaPhone": "Explore Support Options",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "Comprehensive Family Support Programs"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How family support works",
+        "title": "Three steps from first call to confident parenting",
+        "description": "We listen, assess your goals, and match you to CAFS casework or PAW playgroups. We check in until you feel supported and connected."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions Families Ask About Our Support Programs",
+        "subtitle": "Get answers to common questions about our family support services and programs"
+      }
+    },
+    "programs": {
+      "tei": {
+        "title": "Family Support",
+        "description": "Our professional, culturally responsive family support programs work alongside multicultural families to build positive parenting, healthy relationships, and family wellbeing. We combine evidence-based parenting programs with individual family support, so families feel heard, supported, and empowered.",
+        "features": [
+          "Qualified family casework tailored to your goals",
+          "Evidence-based parenting programs (Circle of Security, Bringing Up Great Kids, Black Box Parenting, 123 Magic)",
+          "Referrals to services and crisis support when needed",
+          "Flexible appointments at home, in the office, or online"
+        ],
+        "whatWeProvideLabel": "What We Provide:",
+        "fundingNote": "This program is supported with funding from the NSW Government Department of Communities and Justice."
+      },
+      "paw": {
+        "title": "Playing Around the World (PAW)",
+        "description": "Weekly cultural playgroups where children explore different countries through arts, crafts, stories and play while parents build community connections. Supports heritage celebration and early learning development in a welcoming environment.",
+        "features": [
+          "Weekly cultural playgroups in Central Coast locations",
+          "Play‑based early learning and school readiness",
+          "Theme activities sessions and morning tea",
+          "Drop‑in friendly; interpreter support available"
+        ],
+        "whatWeProvideLabel": "What We Provide:",
+        "fundingNote": "This project is jointly supported with funding from the NSW Government Department of Communities and Justice and Benevolent Society."
+      }
+    },
+    "eligibility": {
+      "items": [
+        "Multicultural families seeking parenting support or community connection",
+        "Parents and carers of children aged 0 to 12 can access Family Support services",
+        "Parents and carers of children aged 0 to 6 can join PAW (Playing Around the World) playgroups",
+        "Support can be accessed for yourself, or on behalf of a child, client, or loved one"
+      ],
+      "note": "Please note: Community and Family Support is available regardless of visa status or citizenship. Services are culturally safe, with support available in your preferred language."
+    },
+    "how": {
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205 or ask a professional to refer you.",
+          "bullets": [
+            "Free service with interpreters",
+            "Simple intake and quick response"
+          ]
+        },
+        {
+          "title": "2. Plan together",
+          "description": "We assess needs and create a plan: professional casework or community playgroups, or both.",
+          "bullets": [
+            "Clear actions for family goals",
+            "Warm referrals and safety supports"
+          ]
+        },
+        {
+          "title": "3. Ongoing support",
+          "description": "We deliver sessions and workshops, check progress, and connect you with local services.",
+          "bullets": [
+            "Evidence-based parenting",
+            "Cultural celebration and community"
+          ]
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Impact stories",
+      "title": "Families finding confidence and connection",
+      "body": "Short videos share how CAFS and PAW helped parents navigate services, build skills, and celebrate culture with their children.",
+      "bullets": [
+        "One story per program or region.",
+        "Captions and interpreter voiceovers.",
+        "Invite families to contact Mosaic."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed a video via CMS."
+    },
+    "team": {
+      "title": "Meet Your Complete Family Support Team",
+      "description": "Our family support programs are led by university-qualified professionals with specialized training in multicultural family support, early childhood development, trauma-informed care, and evidence-based parenting interventions. Our team represents diverse cultural backgrounds and understands both professional best practices and the lived experience of multicultural families.",
+      "integratedTitle": "Integrated Support Approach",
+      "integratedBody": "Both programs work together to provide families with seamless support. CAFS workers can recommend PAW for ongoing community connection, while PAW facilitators can identify families who might benefit from professional family support. This integrated approach ensures your family gets the right level of support at the right time."
+    },
+    "faq": {
+      "whichProgramQuestion": "Which program is right for my family?",
+      "whichProgramAnswer": "It depends on what you need right now. If you're facing specific parenting challenges, family stress, or need help accessing services, CAFS's professional family support is ideal. If you have young children (0-6) and want community connection with cultural celebration, PAW playgroups are perfect. Many families use both programs at different times. Call us and we'll help you decide what fits best. Our staff can assess your needs and recommend the most appropriate support pathway.",
+      "freeQuestion": "Are both programs really free?",
+      "freeAnswer": "Yes, completely free. CAFS family support is funded by NSW Department of Communities and Justice. PAW playgroups are funded through government grants and community support. This includes individual casework, parenting workshops, cultural playgroup sessions, professional interpreters, materials, and morning tea. There are no hidden costs or fees for any family support services. Government funding agreements ensure ongoing free access for all eligible multicultural families.",
+      "languageQuestion": "Can I access help if I don't speak much English?",
+      "languageAnswer": "Absolutely - language is never a barrier. We provide professional interpreters through government-approved services for all programs. Many staff speak multiple languages and represent diverse cultural backgrounds. PAW sessions encourage families to use their home language, and CAFS workers can arrange interpreter support for all meetings and workshops. We respect and celebrate multilingual families. Professional interpreter services meet government quality standards and are available in all required languages.",
+      "startQuestion": "How do I start accessing family support?",
+      "startAnswer": "Multiple easy ways to begin: Call our main number (02) 4960 8400 for CAFS family support or (02) 4334 3877 for PAW playgroups. You can self-refer or ask teachers, doctors, or community workers to refer your family. For PAW, just drop in to any session - no registration needed before your first visit. We'll connect you with the right support quickly. Same-day response for urgent family support needs and immediate access to community playgroup sessions.",
+      "referralsQuestion": "Can professionals refer families to your programs?",
+      "referralsAnswer": "Yes, we welcome professional referrals for both programs. Teachers, social workers, doctors, community workers, and other service providers can refer families to CAFS or PAW programs. We always get family consent before accepting referrals and keep referring professionals updated with family permission. We can provide joint case management for complex situations through CAFS. Professional collaboration follows Australian Privacy Principles and helps ensure families get comprehensive support.",
+      "availabilityQuestion": "Where are your family support programs available?",
+      "availabilityAnswer": "CAFS family support: Available across Newcastle, Hunter region, with outreach to Central Coast families. We offer home visits, office appointments, and phone/video support. PAW playgroups: Central Coast locations including Blue Haven (Tuesdays), The Entrance (Thursdays), and Watanobbi (Fridays). All venues are wheelchair accessible with family-friendly facilities. Regional coverage ensures multicultural families can access culturally appropriate support regardless of location."
+    },
+    "cta": {
+      "title": "Ready to Get Family Support?",
+      "body": "You don’t need to know which program to choose. We can talk about your needs, explore different options, and help you decide what feels right for your family. If you’d prefer to talk before filling out a form, you’re welcome to call us.",
+      "callLabel": "Explore Support Options",
+      "referralLabel": "Make a Referral",
+      "contactLabel": "Contact Us Online"
+    }
+  },
+  "faqPage": {
+    "title": "Frequently Asked Questions",
+    "description": "Find clear answers to common questions. Use the search to filter by topic.",
+    "searchPlaceholder": "Search FAQs",
+    "actions": {
+      "helpful": "Helpful",
+      "needsImprovement": "Needs improvement",
+      "backToResources": "Back to Resources",
+      "aria": {
+        "helpful": "Mark this answer as helpful",
+        "needsImprovement": "Report this answer needs improvement"
+      }
+    },
+    "meta": {
+      "title": "FAQs | Mosaic Multicultural Connections",
+      "description": "Frequently asked questions about eligibility, getting support, interpreters, home care, family programs, referrals, donations and reporting in NSW."
+    },
+    "items": [
+      {
+        "question": "Am I eligible for services in NSW?",
+        "answer": "If you live in NSW and need support with settlement, family wellbeing, home care or community connection, we can help. Eligibility varies by program — contact us to check your pathway."
+      },
+      {
+        "question": "How do I start getting support?",
+        "answer": "Call 1800 813 205 or visit a local office in Newcastle, Tamworth, Armidale or the Central Coast. We discuss your goals, agree a plan, and connect you to housing, work, language and community supports."
+      },
+      {
+        "question": "Do you provide interpreters?",
+        "answer": "Yes. Ask for an interpreter in your language. In emergencies, call 000. For interpreters, call TIS National on 131 450."
+      },
+      {
+        "question": "What settlement support do you offer?",
+        "answer": "Housing and tenancy guidance, employment preparation and connections, government service navigation (Centrelink, Medicare, tax, licences), and community orientation including language programs."
+      },
+      {
+        "question": "Which family program is right for us?",
+        "answer": "CAFS family support helps with casework and parenting. PAW playgroups (0–6) offer community connection and cultural celebration. Many families use both at different times — we help you choose."
+      },
+      {
+        "question": "Are programs free?",
+        "answer": "Settlement, family and community programs are free to access. Interpreters are provided at no cost. Home care supports are funded via My Aged Care pathways (SaH/CHSP) and may include client co‑payments based on government assessment. We help you understand any fees and support options."
+      },
+      {
+        "question": "What home care supports are available?",
+        "answer": "Culturally responsive in‑home and community care across NSW: Support at Home and CHSP. We match workers to language/culture where possible, and organise nursing or allied health when needed."
+      },
+      {
+        "question": "Where are services available?",
+        "answer": "Across NSW with hubs in Newcastle, Tamworth, Armidale and the Central Coast — plus outreach, home visits, and phone/video options where appropriate."
+      },
+      {
+        "question": "How do I refer a client?",
+        "answer": "Use the Contact page or call 1800 813 205. Provide consent, language needs, and brief context. We acknowledge referrals, contact the client promptly, and share progress updates with permission."
+      },
+      {
+        "question": "Do you provide warm handovers and interpreters?",
+        "answer": "Yes. We welcome joint appointments and provide interpreter support. Our approach ensures smooth transitions and coordinated care that respects privacy and consent."
+      },
+      {
+        "question": "How can I donate and is it tax‑deductible?",
+        "answer": "Donate online via the Donate page or partner on programs. Eligible donations may be tax‑deductible; receipts provided. Funds support practical services across NSW."
+      },
+      {
+        "question": "How are donations used?",
+        "answer": "Funding supports settlement casework, family support, culturally appropriate home care and community engagement activities. We report impact transparently."
+      },
+      {
+        "question": "How do you track outcomes and report?",
+        "answer": "We measure service utilisation, casework outcomes and community impact, and report in line with NSW compliance, privacy and ethics. Annual reports and governance resources are publicly available."
+      },
+      {
+        "question": "What is Mosaic Multicultural Connections?",
+        "answer": "Mosaic Multicultural Connections is a community organisation supporting multicultural communities across NSW with settlement support, family services, culturally responsive home care and community engagement."
+      },
+      {
+        "question": "How long has Mosaic served communities?",
+        "answer": "We have supported multicultural communities in NSW for over 40 years, partnering with communities to improve access, inclusion and wellbeing."
+      },
+      {
+        "question": "Where can I find policies and annual reports?",
+        "answer": "Visit the Resources section for Annual Reports and the Knowledge Base for organisational policies and governance resources."
+      },
+      {
+        "question": "Where are your offices located?",
+        "answer": "We operate across NSW with hubs in Newcastle, Tamworth, Armidale and the Central Coast, with outreach, home visits and phone/video support where appropriate."
+      },
+      {
+        "question": "Which languages do you support?",
+        "answer": "Our multilingual team and professional interpreters support many languages. Ask for an interpreter in your language; in emergencies call 000 or TIS National 131 450."
+      },
+      {
+        "question": "How can I provide feedback or make a complaint?",
+        "answer": "Use the Contact page to share feedback. We follow transparent, respectful processes and respond promptly, consistent with our governance standards and duty of care."
+      },
+      {
+        "question": "Do you offer volunteer opportunities?",
+        "answer": "Yes. Explore opportunities in the Get Involved section and our volunteer pages for Newcastle, Central Coast, Armidale and Tamworth."
+      },
+      {
+        "question": "Do you partner with organisations?",
+        "answer": "We collaborate with schools, health services, community groups and government to deliver coordinated programs, cultural competency training and inclusive community initiatives."
+      },
+      {
+        "question": "How do I apply to volunteer?",
+        "answer": "Apply online via our Volunteer application form. Visit Get Involved or local volunteer pages (Newcastle, Central Coast, Armidale, Tamworth). We provide training and flexible scheduling. Application form: https://tally.so/r/3qoXjg"
+      },
+      {
+        "question": "What volunteer roles are available?",
+        "answer": "Roles include ACVVS visitor (residential or home), homework and settlement tutoring, citizenship assistance and community events. Local volunteer pages include role descriptions and links to position documents."
+      },
+      {
+        "question": "Do volunteers receive training?",
+        "answer": "Yes. We provide comprehensive onboarding, cultural competency training and support. Scheduling is flexible and we help match roles to your interests and availability."
+      },
+      {
+        "question": "Where can I find volunteer role descriptions?",
+        "answer": "Role descriptions are available on local volunteer pages. Some roles include downloadable position descriptions (PDs) with responsibilities and time commitments."
+      },
+      {
+        "question": "What are your office hours?",
+        "answer": "Business Hours: Monday to Friday, 9:00 AM – 5:00 PM."
+      },
+      {
+        "question": "How do I get directions to your offices?",
+        "answer": "See the Contact page and the Locations page for addresses and directions. Call 1800 813 205 if you need assistance finding an office."
+      },
+      {
+        "question": "Where can I read community stories?",
+        "answer": "Visit the Stories section to learn how Mosaic supports communities across NSW through real experiences and outcomes."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Підтримка мультикультурних громад по всьому NSW з культурно відповідними послугами та програмами.",
+    "quickLinks": "Швидкі посилання",
+    "contactInfo": "Контактна інформація",
+    "followUs": "Слідкуйте за нами",
+    "copyright": "© 2024 Мозаїка мультикультурних зв'язків. Усі права захищені.",
+    "sections": {
+      "overview": "Overview",
+      "services": "Services",
+      "getInvolved": "Get Involved",
+      "help": "Help",
+      "aboutMosaic": "About Mosaic"
+    },
+    "links": {
+      "allServices": "All Services",
+      "emergencyTranslation": "Emergency & Translation",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "knowledgeBase": "Knowledge Base",
+      "annualReports": "Annual Reports",
+      "policies": "Policies",
+      "volunteer": "Volunteer",
+      "career": "Career",
+      "donate": "Donate"
+    },
+    "newsletter": {
+      "title": "Stay up to date",
+      "description": "Get updates on our programs and community events",
+      "subscribe": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "translateLabel": "Translate This Page",
+    "badges": {
+      "impact": "45 Years of Impact",
+      "services": "Multicultural Services NSW"
+    },
+    "acknowledgement": {
+      "title": "Acknowledgement of Country",
+      "text": "Mosaic Multicultural Connections acknowledges the Traditional Owners of the lands where we work and pay our respects to Elders, past and present. As an organisation supporting people from many cultures in building new connections, we honour First Nations peoples' continuing connection to country and culture.",
+      "subtext": "We walk alongside Elders, knowledge holders, and communities to ensure our work honours their custodianship."
+    },
+    "actions": {
+      "contact": "Contact",
+      "refer": "Refer",
+      "review": "Leave a Google Review",
+      "feedback": "Share Your Feedback"
+    },
+    "aria": {
+      "refer": "Refer a client",
+      "review": "Leave a Google Review",
+      "feedback": "Share Your Feedback",
+      "linkedin": "Visit LinkedIn",
+      "instagram": "Visit Instagram",
+      "facebook": "Visit Facebook"
+    }
+  },
+  "getInvolved": {
+    "badge": "Join Our Mission",
+    "title": "Get Involved",
+    "description": "Join us in supporting multicultural communities across NSW. There are many ways to make a meaningful difference.",
+    "volunteerSpotlight": "Volunteer Spotlight",
+    "impactTitle": "Your Impact",
+    "actions": {
+      "apply": "Apply to Volunteer",
+      "donate": "Donate Now"
+    },
+    "benefitsTitle": "Benefits & Impact",
+    "opportunities": {
+      "donate": {
+        "title": "Make a Donation",
+        "description": "Your financial support helps us provide essential services to multicultural communities across NSW.",
+        "benefits": {
+          "0": "Tax-deductible donations",
+          "1": "Direct impact on families in need",
+          "2": "Regular updates on how funds are used",
+          "3": "Recognition in annual reports"
+        },
+        "action": "Donate Now"
+      },
+      "volunteer": {
+        "title": "Volunteer With Us",
+        "description": "Join our team of dedicated volunteers and make a direct difference in people's lives.",
+        "benefits": {
+          "0": "Flexible scheduling options",
+          "1": "Comprehensive training provided",
+          "2": "Cultural competency development",
+          "3": "Meaningful community connections"
+        },
+        "action": "Volunteer with Us"
+      },
+      "careers": {
+        "title": "Join Our Team",
+        "description": "Build a rewarding career helping multicultural communities while developing your professional skills.",
+        "benefits": {
+          "0": "Competitive salary packages",
+          "1": "Professional development opportunities",
+          "2": "Supportive team environment",
+          "3": "Work-life balance focus"
+        },
+        "action": "View Careers"
+      },
+      "referral": {
+        "title": "Make a referral",
+        "description": "Make a referral for yourself, a loved one, or a client, and our team will connect you to the right services.",
+        "benefits": {
+          "0": "Easy online referral for individuals, families, or clients",
+          "1": "Respectful, person-centred follow-up",
+          "2": "Services tailored to diverse cultural needs",
+          "3": "Clear communication throughout the referral journey"
+        },
+        "action": "Find Support"
+      }
+    }
+  },
+  "hero": {
+    "badge": "Обслуговуємо громади NSW понад {{years}} років",
+    "title": "Підтримка різноманітних громад по всьому NSW",
+    "titleHighlight": "різноманітних",
+    "description": "Розширення можливостей мультикультурних громад через підтримку переселення, догляд за літніми, сімейні послуги та програми громадської участі, адаптовані під ваші потреби.",
+    "exploreServices": "Дослідити наші послуги",
+    "watchStories": "Дивитися історії",
+    "stats": {
+      "years": "років служіння",
+      "families": "сімей підтримано",
+      "languages": "мов",
+      "satisfaction": "Satisfaction Rate",
+      "feedback": "Client feedback",
+      "locations": "4 Locations",
+      "coverage": "Across NSW"
+    },
+    "supporting": "Supporting",
+    "communities": "Communities Across NSW",
+    "words": [
+      "Multicultural",
+      "Migrant",
+      "Refugee",
+      "Vibrant",
+      "Connected",
+      "Thriving",
+      "United",
+      "Diverse",
+      "Resilient",
+      "Empowered",
+      "Ageing",
+      "Senior"
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "Mosaic Multicultural Connections | Support for NSW Communities",
+      "description": "Empowering multicultural communities across New South Wales through settlement support, home care, family services, and community engagement.",
+      "links": {
+        "emergency": "Emergency & Translation Services",
+        "annualReports": "Annual Reports",
+        "knowledgeBase": "Knowledge Base",
+        "volunteer": "Volunteer",
+        "career": "Career",
+        "donate": "Donate"
+      }
+    }
+  },
+  "impact": {
+    "floatingCard": {
+      "title": "Partnership",
+      "subtitle": "Building stronger communities together"
+    },
+    "mainTitle": "Partner with us",
+    "description": "We believe in the power of partnership to create sustainable change. Join us in our mission to tackle poverty through innovative community-driven solutions.",
+    "features": {
+      "community": {
+        "title": "Community-Centered Approach",
+        "description": "Working directly with local communities to identify needs and develop sustainable solutions."
+      },
+      "longTerm": {
+        "title": "Long-term Impact",
+        "description": "Focusing on sustainable programs that create lasting change for generations to come."
+      },
+      "transparency": {
+        "title": "Transparency & Accountability",
+        "description": "Providing clear reporting on impact and ensuring responsible use of resources."
+      }
+    },
+    "cta": "Learn about partnerships",
+    "imageAlt": "Community impact"
+  },
+  "locationsPage": {
+    "meta": {
+      "title": "Contact Mosaic Multicultural Connections — Get in touch",
+      "description": "Get in touch with Mosaic to find the right support, services, or local office. Whether for yourself, a family member, or a client, our team will guide you and respond within 48 business hours."
+    },
+    "hero": {
+      "badge": "Contact",
+      "title": "Get in touch with Mosaic",
+      "description": "We’re here to help you find the right support, services, or local office. Whether you’re reaching out for yourself, a family member, or a client, our team will guide you to the right place."
+    },
+    "emergency": {
+      "title": "Emergency Services",
+      "text": "We do not provide 24/7 emergency support. For crisis services and emergency contacts, please visit our resources page.",
+      "button": "View Emergency Services"
+    },
+    "quickConnect": {
+      "title": "Quick Connect",
+      "hours": "Working Days: Monday - Friday (except Public Holidays). Business Hours: 9:00am - 5:00pm",
+      "call": "Call {{phone}}"
+    },
+    "locations": {
+      "availableServices": "Available Services",
+      "getDirections": "Get Directions"
+    },
+    "cta": {
+      "title": "Not Sure Which Office to Visit?",
+      "description": "Contact our head office and we'll help you find the right location and services for your needs.",
+      "call": "Call {{phone}}",
+      "email": "Email Us"
+    }
+  },
   "nav": {
     "home": "Головна",
     "about": "Про нас",
@@ -8,26 +1380,315 @@
     "locations": "Місця",
     "contact": "Контакти",
     "getInvolved": "Долучитися",
-    "donate": "Пожертвувати"
-  },
-  "services": {
-    "settlement": "Підтримка переселення",
-    "agedCare": "Послуги для літніх",
-    "familySupport": "Підтримка сім'ї",
-    "communityEngagement": "Громадська участь"
-  },
-  "hero": {
-    "badge": "Обслуговуємо громади NSW понад 40 років",
-    "title": "Підтримка різноманітних громад по всьому NSW",
-    "titleHighlight": "різноманітних",
-    "description": "Розширення можливостей мультикультурних громад через підтримку переселення, догляд за літніми, сімейні послуги та програми громадської участі, адаптовані під ваші потреби.",
-    "exploreServices": "Дослідити наші послуги",
-    "watchStories": "Дивитися історії",
-    "stats": {
-      "years": "років служіння",
-      "families": "сімей підтримано",
-      "languages": "мов"
+    "donate": "Пожертвувати",
+    "menu": {
+      "about": {
+        "mosaic": {
+          "title": "About Mosaic",
+          "description": "Learn about our mission, values, board and management."
+        },
+        "media": {
+          "title": "Media & Press",
+          "description": "External media coverage and articles featuring Mosaic."
+        }
+      },
+      "resources": {
+        "emergency": {
+          "title": "Emergency & Translation",
+          "description": "Emergency contacts and interpreter support (NSW compliance)"
+        },
+        "links": {
+          "title": "Helpful Links",
+          "description": "Legal Aid NSW, interpreter support, emergency info"
+        },
+        "knowledge": {
+          "title": "Knowledge Base",
+          "description": "Organisational policies and governance resources"
+        },
+        "faqs": {
+          "title": "FAQs",
+          "description": "Common questions across services and access"
+        }
+      },
+      "involved": {
+        "careers": {
+          "title": "Careers",
+          "description": "Explore open roles and work with our team."
+        },
+        "volunteer": {
+          "title": "Volunteer",
+          "description": "Participate in community programs across NSW."
+        },
+        "donate": {
+          "title": "Donate",
+          "description": "Support our work with a contribution."
+        }
+      },
+      "crisis": {
+        "banner": "🚨 Crisis and Emergency Services",
+        "button": "View Emergency Services"
+      },
+      "quickLinks": "Quick Links"
+    },
+    "makeReferral": "Make a Referral",
+    "refer": "Refer",
+    "search": {
+      "placeholder": "Search the site (Cmd+K)",
+      "noSuggestions": "We couldn’t find suggestions in this language. Try English or browse our services.",
+      "noResults": "We couldn’t find results in this language.",
+      "typeToSearch": "Type to search",
+      "close": "Press Esc to close",
+      "viewTop": "View monthly top searches",
+      "topSearches": "Top searches",
+      "sort": "Sort",
+      "relevance": "Relevance",
+      "az": "A–Z",
+      "contactHelp": "Not sure what you need? Contact us — we’re here to help."
+    },
+    "headers": {
+      "coreServices": "Core Services",
+      "quickLinks": "Quick Links",
+      "participate": "Participate",
+      "explore": "Explore",
+      "keyResources": "Key Resources",
+      "aboutMosaic": "About Mosaic"
+    },
+    "items": {
+      "allServices": {
+        "title": "All Services",
+        "desc": "Explore our complete range of multicultural support services"
+      },
+      "getSupport": {
+        "title": "Get Support",
+        "desc": "Contact us for immediate assistance and guidance"
+      },
+      "makeReferral": {
+        "title": "Make a Referral",
+        "desc": "Secure online referral form for clients, families and individuals"
+      },
+      "opportunities": {
+        "title": "Opportunities",
+        "desc": "Join our Mission"
+      },
+      "contactUs": {
+        "title": "Contact Us",
+        "desc": "Find service locations across New South Wales"
+      },
+      "ourStory": {
+        "title": "Our Story",
+        "desc": "Discover our mission, history and leadership"
+      },
+      "allResources": {
+        "title": "All Resources",
+        "desc": "Browse brochures, annual reports, helpful links, emergency & translation"
+      },
+      "contact": {
+        "title": "Contact",
+        "desc": "Reach us for guidance and support"
+      }
     }
+  },
+  "newsPage": {
+    "title": "Media & Press",
+    "description": "Mosaic Multicultural Connections is regularly featured by trusted media outlets for our work supporting people from multicultural and refugee backgrounds across NSW.",
+    "description2": "These stories reflect the voices, experiences, and impact of the communities we walk alongside.",
+    "filterByTag": "Filter by tag",
+    "readMore": "Read More",
+    "mediaCoverage": {
+      "title": "Media Coverage",
+      "subtitle": "Explore news articles and media coverage featuring Mosaic Multicultural Connections."
+    },
+    "cta": {
+      "title": "Interested in learning more about our work or media enquiries?",
+      "subtitle": "Contact our team or explore our community stories.",
+      "button": "Media enquiries",
+      "contactLink": "Contact our team",
+      "storiesLink": "Explore community stories"
+    },
+    "types": {
+      "pressRelease": "Press Release",
+      "news": "News"
+    },
+    "tags": {
+      "all": "All",
+      "community": "Community",
+      "family": "Family",
+      "youth": "Youth",
+      "settlement": "Settlement",
+      "advocacy": "Advocacy",
+      "companyUpdate": "Company Update",
+      "agedCare": "Aged Care"
+    },
+    "aria": {
+      "readArticle": "Read article on {{outlet}}: {{title}}"
+    },
+    "demo": {
+      "item1": {
+        "title": "Mosaic Announces Community Engagement Initiative for 2025",
+        "summary": "A new initiative will support multicultural events and participation across NSW, focusing on inclusion and local leadership.",
+        "type": "Press Release"
+      },
+      "item2": {
+        "title": "Settlement Support Milestone: 5,000 Families Assisted",
+        "summary": "Our teams have supported 5,000 families with culturally appropriate services, with sustained outcomes across locations.",
+        "type": "News"
+      },
+      "item3": {
+        "title": "New Partnerships Strengthen Aged Care and Family Support",
+        "summary": "Partnerships with local organisations improve access to in‑home care and family programs for CALD communities.",
+        "type": "Press Release"
+      }
+    }
+  },
+  "partners": {
+    "title": "Become a changemaker today",
+    "description": "When you donate to Mosaic Multicultural Connections your gift works harder. We're part of a global movement, so your generosity supports communities across the world - not just individual causes.",
+    "features": {
+      "globalReach": "Global reach with local impact",
+      "transparency": "Transparent use of donations",
+      "sustainable": "Sustainable long-term solutions"
+    },
+    "cta": {
+      "donate": "Start donating",
+      "learnMore": "Learn more"
+    },
+    "impactBadge": {
+      "value": "100%",
+      "label": "Transparency",
+      "sublabel": "Every dollar tracked"
+    },
+    "imageAlt": "Community member working in garden"
+  },
+  "resources": {
+    "hero": {
+      "badge": "Ресурси",
+      "title": "Ресурси та Підтримка",
+      "description": "Отримуйте доступ до важливої інформації, контактів екстрених служб та завантажуваних ресурсів багатьма мовами."
+    },
+    "emergencyBar": {
+      "call": "У разі надзвичайної ситуації телефонуйте <1>000</1>",
+      "interpreter": "Доступний перекладач — TIS <1>131 450</1>"
+    },
+    "emergencyCards": {
+      "policeFireAmbulance": "Поліція • Пожежна • Швидка",
+      "callNow": "Зателефонувати",
+      "tisTitle": "TIS 131 450",
+      "tisDesc": "Служба письмового та усного перекладу",
+      "nswTitle": "Екстрена інформація NSW",
+      "nswDesc": "Офіційні інструкції та контакти",
+      "open": "Відкрити"
+    },
+    "featured": {
+      "title": "Рекомендовані ресурси",
+      "description": "Дізнайтеся про наші найбільш затребувані ресурси: Екстрені служби, Послуги перекладу, Річні звіти та База знань.",
+      "emergencyTranslation": {
+        "title": "Екстрена допомога та переклад",
+        "desc": "Контакти екстрених служб та підтримка перекладача (відповідність NSW)"
+      },
+      "helpfulLinks": {
+        "title": "Корисні посилання",
+        "desc": "Надійні зовнішні ресурси"
+      },
+      "knowledgeBase": {
+        "title": "База знань",
+        "desc": "Усі організаційні політики та ресурси управління"
+      },
+      "faqs": {
+        "title": "Поширені запитання",
+        "desc": "Відповіді на поширені запитання"
+      },
+      "annualReports": {
+        "title": "Річні звіти",
+        "desc": "1990–2025 з інтерактивним переглядом"
+      },
+      "projectReports": {
+        "title": "Звіти про проекти",
+        "desc": "Завантажте звіти про програми Mosaic."
+      },
+      "brochures": {
+        "title": "Брошури",
+        "desc": "Завантажити PDF-файли послуг"
+      },
+      "view": "Переглянути"
+    },
+    "brochuresSection": {
+      "title": "Брошури",
+      "description": "Завантажуйте брошури про послуги, щоб поділитися ними або читати офлайн. Доступно для всіх основних послуг.",
+      "pdf": "Брошура PDF"
+    },
+    "projectReportsSection": {
+      "title": "Звіти про проекти",
+      "description": "Завантажуйте звіти про результати та вплив наших спеціальних проектів.",
+      "download": "Завантажити"
+    },
+    "brochureTitles": {
+      "settlementSupport": "Підтримка переселення",
+      "familySupport": "Підтримка сім'ї",
+      "mosaicOverview": "Огляд Mosaic",
+      "agedCare": "Догляд за літніми людьми",
+      "communityEngagement": "Громадська участь",
+      "homeCareGuide": "Довідник з догляду вдома Mosaic 2026"
+    },
+    "reportTitles": {
+      "welcomingWorkplaces": "Фінальний звіт проекту «Гостинні робочі місця»",
+      "reapProject": "Звіт проекту REAP"
+    },
+    "qualityStats": {
+      "accuracyVerified": "Точність перевірено",
+      "accuracyVerifiedDesc": "Усі ресурси професійно перевірені",
+      "languagesAvailable": "Доступні мови",
+      "languagesAvailableDesc": "Багатомовний доступ до ресурсів",
+      "onlineAccess": "Онлайн доступ",
+      "onlineAccessDesc": "Ресурси доступні в будь-який час",
+      "officeLocations": "Розташування офісів",
+      "officeLocationsDesc": "Фізична підтримка по всьому NSW"
+    },
+    "qualityAssurance": {
+      "badge": "Забезпечення якості",
+      "title": "Досконалість ресурсів",
+      "description": "Наше зобов'язання надавати надійні, доступні та професійно підтримувані ресурси"
+    },
+    "emergencyContacts": {
+      "title": "Екстрені контакти",
+      "description": "Важливі номери телефонів для кризових ситуацій та негайної підтримки.",
+      "needInterpreter": "Потрібен перекладач?",
+      "tisInfo": "Зателефонуйте до Служби письмового та усного перекладу (TIS) за номером <1>131 450</1> для негайної мовної підтримки під час надзвичайних ситуацій.",
+      "tisAvailability": "Доступно 24/7 понад 160 мовами",
+      "services": {
+        "police": "Поліція, Пожежна, Швидка",
+        "lifeline": "Кризова підтримка Lifeline",
+        "dv": "Гаряча лінія з питань домашнього насильства",
+        "mentalHealth": "Кризова лінія психічного здоров'я",
+        "mosaic": "Mosaic Multicultural Connections",
+        "tis": "Служба письмового та усного перекладу"
+      },
+      "availability": {
+        "247": "24/7",
+        "businessHours": "Робочі години (Пн–Пт 9:00–17:00)"
+      }
+    },
+    "cta": {
+      "title": "Потрібні додаткові ресурси?",
+      "description": "Не можете знайти те, що шукаєте? Наш багатомовний персонал допоможе вам отримати доступ до необхідної інформації та підтримки.",
+      "call": "Телефонуйте 1800 813 205",
+      "email": "Електронна пошта для ресурсів",
+      "aria": {
+        "callMosaic": "Зателефонуйте до Mosaic Multicultural Connections",
+        "emailMosaic": "Напишіть Mosaic для отримання ресурсів"
+      }
+    }
+  },
+  "reviews": {
+    "subtitle": "Підтверджений відгук від людей, яких ми підтримуємо, опублікований на Google.",
+    "badge": "Google Reviews",
+    "title": "What People Are Saying",
+    "source": "Source: Google Reviews",
+    "viewOnGoogle": "View on Google",
+    "featured": "Featured Google Review",
+    "recent": "Recently posted",
+    "fallback": "Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!",
+    "viewReview": "View this review on Google.",
+    "readAll": "Read all reviews on Google"
   },
   "serviceCards": {
     "sectionBadge": "Наші послуги",
@@ -74,106 +1735,421 @@
       ]
     },
     "learnMore": "Дізнатися більше",
-    "viewAll": "Переглянути всі послуги"
-  },
-  "common": {
-    "welcome": "Ласкаво просимо",
-    "loading": "Завантаження...",
-    "error": "Помилка",
-    "retry": "Повторити",
-    "close": "Закрити",
-    "open": "Відкрити",
-    "menu": "Меню",
-    "language": "Мова",
-    "changeLanguage": "Змінити мову"
-  },
-  "footer": {
-    "description": "Підтримка мультикультурних громад по всьому NSW з культурно відповідними послугами та програмами.",
-    "quickLinks": "Швидкі посилання",
-    "contactInfo": "Контактна інформація",
-    "followUs": "Слідкуйте за нами",
-    "copyright": "© 2024 Мозаїка мультикультурних зв'язків. Усі права захищені."
-  },
-  "cta": {
-    "badge": "Приєднуйтеся до нашої місії",
-    "helperText": "Незалежно від того, чи потребуєте ви підтримки при переселенні, сімейної допомоги, послуг з догляду за літніми або громадської участі, наша кваліфікована команда готова допомогти. Усі консультації безкоштовні та доступні мовою, якою ви володієте.",
-    "stepsHeader": "Що далі",
-    "headlinePrefix": "Готові зробити свій",
-    "headlineEmphasis": "Наступний крок?",
-    "steps": {
-      "one": "Ми розглянемо вашу заявку.",
-      "two": "Ми зв'яжемося з вами бажаною мовою.",
-      "three": "Ми проведемо вас через наступні кроки."
-    },
-    "primaryButtonLabel": "Дослідити наші послуги",
-    "secondaryButtonLabel": "Отримати підтримку зараз",
-    "footnote": {
-      "label": "*Зони обслуговування:",
-      "textPrefix": "Наші послуги можуть відрізнятися залежно від місця. Будь ласка",
-      "contactLink": "Зв'яжіться з нами",
-      "textSuffix": "щоб підтвердити доступність."
+    "viewAll": "Переглянути всі послуги",
+    "trustedPartner": {
+      "badge": "Since 1981",
+      "titlePrefix": "Your",
+      "titleHighlight": "Trusted",
+      "titleSuffix": "Partner",
+      "subtitle": "Building belonging, one family at a time",
+      "intro": "Since <1>1981</1>, Mosaic Multicultural Connections has been supporting people from migrant and refugee backgrounds throughout every stage of their Australian journey.",
+      "body1": "We understand that building a life in Australia brings both opportunities and challenges - whether you have just arrived or have been here for years, are raising a family, or are caring for elderly loved ones who deserve to live their best possible lives.",
+      "quote": "Our approach is simple: we meet you where you are, respect your cultural background, and provide professional support that empowers you to achieve your goals.",
+      "conclusionPrefix": "We are here as your",
+      "conclusionHighlight": "trusted partner",
+      "conclusionSuffix": "in creating the connected, confident life you want.",
+      "trustIndicators": {
+        "interpreters": "Interpreters Available",
+        "culturallyResponsive": "Culturally Responsive",
+        "communityFocused": "Community Focused"
+      }
     }
   },
-  "reviews": {
-    "subtitle": "Підтверджений відгук від людей, яких ми підтримуємо, опублікований на Google."
-  }
-  ,
+  "services": {
+    "settlement": "Підтримка переселення",
+    "agedCare": "Послуги для літніх",
+    "familySupport": "Підтримка сім'ї",
+    "communityEngagement": "Громадська участь"
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Services | Mosaic Multicultural Connections",
+      "description": "Simple, culturally appropriate services across NSW for individuals, families, and the people who support them."
+    },
+    "hero": {
+      "badge": "Our Services",
+      "title": "Support to help you build a new life in Australia",
+      "description": "Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.",
+      "subtext": "You can seek support for yourself or make a referral for someone you care about. Our team will guide the next steps.",
+      "referral": "Make a Referral",
+      "contact": "Contact Us"
+    },
+    "list": {
+      "title": "Our Comprehensive Services"
+    }
+  },
   "settlement": {
     "hero": {
       "headline": "Starting Again in Australia? We Walk With You.",
       "subheadline": "Starting fresh in Australia can feel overwhelming when rentals, work, and government systems are unfamiliar.",
       "bodyPrimary": "If you’re unsure what support you need, your settlement caseworker will guide you through the next steps and help you build confidence along the way.",
       "bodySecondary": "We listen, map out a simple plan, and stay with you until you feel safe, connected and capable.",
-      "cta": "Find Your Support Path"
+      "cta": "Find Your Support Path",
+      "footerNote": "Free service • Interpreters available • You're welcome to bring a trusted support person.",
+      "referralNote": "You can contact us directly or be referred by a family member, friend, or service provider."
+    },
+    "sections": {
+      "programs": {
+        "badge": "Our Programs",
+        "title": "What We Help You Tackle First"
+      },
+      "eligibility": {
+        "title": "Who Can Access Our Services?"
+      },
+      "how": {
+        "badge": "How settlement support works",
+        "title": "Three simple steps from first call to feeling at home",
+        "description": "Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete."
+      },
+      "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Questions New Arrivals Ask About Settlement Support",
+        "subtitle": "Get answers to common questions about our settlement support services and how we can help you establish your new life in Australia"
+      }
     },
     "programs": {
-      "helper": "Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week."
+      "helper": "Tell us whether housing, work, government forms or community connections feel hardest right now. We break each step into plain-language actions so you can see progress every week.",
+      "whatWeProvideLabel": "What We Provide:",
+      "educationTraining": {
+        "title": "Education & Training",
+        "description": "Build skills, confidence, and pathways into learning that support long-term settlement and independence.",
+        "features": [
+          "Support to understand education and training options in Australia",
+          "Help enrolling in schools, TAFE, university, and community learning",
+          "Referrals to English language programs and skills development courses",
+          "Guidance on recognising overseas qualifications and prior learning",
+          "Support navigating education systems for children and adults"
+        ]
+      },
+      "employment": {
+        "title": "Employment",
+        "description": "Turn skills and experience into meaningful, sustainable employment in the Australian workforce.",
+        "features": [
+          "Resume reviews and tailored interview coaching",
+          "Job search support and introductions to inclusive employers",
+          "Guidance on skills recognition and qualification assessment",
+          "Workplace culture orientation and employment rights education",
+          "Referrals to training, volunteering, and work-experience opportunities"
+        ]
+      },
+      "healthWellbeing": {
+        "title": "Health & Wellbeing",
+        "description": "Access healthcare, wellbeing supports, and early intervention services that help you stay healthy and supported.",
+        "features": [
+          "Support accessing GPs, hospitals, and health services",
+          "Medicare enrolment and healthcare navigation",
+          "Referrals to mental health, wellbeing, and counselling services",
+          "Information on preventative health and early intervention programs",
+          "Support connecting with culturally responsive health providers"
+        ]
+      },
+      "housing": {
+        "title": "Housing",
+        "description": "Find safe, affordable, and stable housing close to community supports and employment opportunities.",
+        "features": [
+          "Property search coaching and real estate liaison",
+          "Rental application preparation and reference support",
+          "Tenant rights education and housing advocacy",
+          "Guidance setting up utilities and household services",
+          "Rapid referrals to emergency or short-term accommodation partners"
+        ]
+      },
+      "languageServices": {
+        "title": "Language Services",
+        "description": "Access interpreters, translated information, and language support so communication is never a barrier.",
+        "features": [
+          "Free professional interpreters for appointments and meetings",
+          "Support accessing translated information and resources",
+          "Help understanding letters, forms, and official documents",
+          "Referrals to English language programs and conversation groups",
+          "Advocacy to ensure language access across services"
+        ]
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Navigate transport options so you can get to work, school, appointments, and community activities.",
+        "features": [
+          "Guidance on public transport options and concessions",
+          "Support understanding driver licensing processes",
+          "Help planning transport for work, study, and appointments",
+          "Referrals to local transport and community travel supports",
+          "Advice on safe and affordable transport options"
+        ]
+      },
+      "civicParticipation": {
+        "title": "Civic Participation",
+        "description": "Understand your rights and responsibilities and feel confident participating in Australian community life.",
+        "features": [
+          "Information about Australian laws, systems, and civic rights",
+          "Support with citizenship preparation and applications",
+          "Help engaging with local services and community organisations",
+          "Referrals to volunteering and community leadership opportunities",
+          "Guidance navigating government and civic processes"
+        ]
+      },
+      "familySocialSupport": {
+        "title": "Family & Social Support",
+        "description": "Strengthen family relationships and build social connections that support wellbeing and belonging.",
+        "features": [
+          "Family-centred settlement and wellbeing support",
+          "Referrals to parenting, family, and relationship services",
+          "Support accessing childcare, schools, and youth services",
+          "Connections to community groups and cultural networks",
+          "Early intervention support during periods of stress or change"
+        ]
+      },
+      "justice": {
+        "title": "Justice",
+        "description": "Access legal information and support so your rights and responsibilities are understood and upheld.",
+        "features": [
+          "Referrals to legal advice and advocacy services",
+          "Support understanding legal processes and options",
+          "Help accessing services related to visas, tenancy, and family matters",
+          "Assistance connecting with culturally appropriate legal providers",
+          "Advocacy and warm referrals where needed"
+        ]
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Build confidence managing money, understanding systems, and making informed financial decisions.",
+        "features": [
+          "Support understanding banking and financial systems in Australia",
+          "Help accessing Centrelink payments and concessions",
+          "Guidance with tax file numbers and basic financial setup",
+          "Referrals to financial counselling and budgeting support",
+          "Information to help avoid financial stress and exploitation"
+        ]
+      }
     },
     "how": {
+      "steps": [
+        {
+          "title": "1. Reach out",
+          "description": "Call 1800 813 205, visit a Mosaic hub or ask a service provider to refer you.",
+          "bullets": [
+            "Free service with interpreters on request",
+            "Available across Central Coast, Newcastle, Maitland, Tamworth & Armidale"
+          ]
+        },
+        {
+          "title": "2. Plan together",
+          "description": "We listen, map urgent needs, and create a settlement plan that fits your goals and family life.",
+          "bullets": [
+            "Housing, work, English, legal and safety actions prioritised",
+            "Clear steps with dates, contacts and responsibilities"
+          ]
+        },
+        {
+          "title": "3. Walk the journey",
+          "description": "Your worker walks beside you at appointments, checks forms, and keeps you connected to community supports.",
+          "bullets": [
+            "Warm referrals to local partners and programmes",
+            "Stay connected with Mosaic until you feel confident navigating life in Australia."
+          ]
+        }
+      ],
       "helper": "Every pathway starts with your story. We match you with a settlement worker, agree on priorities, then check in until the plan is complete."
     },
     "impact": {
-      "helper": "Short videos from Mosaic clients showcase practical wins: finding a rental, enrolling children, or feeling safe enough to volunteer, supported by settlement workers."
+      "badge": "Impact stories",
+      "title": "Watch how support sparks confidence",
+      "helper": "Short videos from Mosaic clients showcase practical wins: finding a rental, enrolling children, or feeling safe enough to volunteer, supported by settlement workers.",
+      "bullets": [
+        "Feature one impact story per region or service stream.",
+        "Include captions and interpreter voiceovers for accessibility.",
+        "Close with a call to contact Mosaic for settlement planning."
+      ],
+      "watchLabel": "Watch story",
+      "videoPlaceholderTitle": "Impact video placeholder",
+      "videoPlaceholderSubtitle": "Embed your YouTube, Vimeo or hosted video here via CMS."
     },
     "comprehensive": {
       "title": "Comprehensive Settlement Approach",
       "paragraph": "Our settlement support follows the Settlement Council of Australia (SCOA) framework, which recognises that settling into life in Australia involves many connected needs. Our team works collaboratively to provide integrated settlement support that addresses all aspects of establishing life in Australia. From immediate practical needs to long-term community connection, we ensure no aspect of your settlement journey is overlooked. Professional interpreters are available for all services, and we maintain strong partnerships with local employers, housing providers, and community organisations."
+    },
+    "team": {
+      "title": "Meet Your Settlement Support Team",
+      "description": "Our settlement support team combines professional expertise with lived experience of migration and cultural diversity. Each team member brings specialised skills in settlement services, cultural competency, and community development to ensure you receive comprehensive, culturally appropriate support."
+    },
+    "eligibility": {
+      "items": [
+        "People who arrived in Australia within the last five years, especially those needing urgent support. This includes people experiencing health and wellbeing challenges, or family or domestic violence.",
+        "Family members and dependants, often women, who may have focused on caring for others and delayed seeking settlement support for themselves.",
+        "People with limited English or low literacy, who need extra help understanding services, forms, or everyday systems.",
+        "People with complex or ongoing settlement needs, where other settlement or mainstream services are not available or accessible.",
+        "Older migrants, or people who arrived in Australia at a young age and experience new challenges as they get older, even if they have lived in Australia for more than five years."
+      ],
+      "note": "Please note: Professional interpreters are available free of charge for appointments, on request. Australian citizens are not eligible for the SETS program.",
+      "eligibilityLinkLabel": "Check your eligibility here."
+    },
+    "faq": {
+      "referralQuestion": "Can I refer someone to settlement support?",
+      "referralAnswer": "Anyone can make a referral, including individuals, family members, friends, carers, and professionals. You can also contact Mosaic directly if you prefer. Our team will help confirm the right support and guide the next steps.",
+      "eligibilityQuestion": "Who is eligible for settlement support services?",
+      "eligibilityAnswer": "Settlement support is available to recent migrants and refugees in their first five years in Australia, as well as family members of eligible migrants. We also support people from culturally and linguistically diverse backgrounds who need help understanding or navigating Australian systems and services, such as housing, employment, healthcare, education, or government processes. Mosaic provides settlement support across Central Coast, Newcastle, Lake Macquarie, Maitland and surrounding areas, as well as Tamworth and Armidale. If you’re unsure whether you’re eligible, you’re welcome to get in touch and we’ll talk it through with you. <1>Check your eligibility here.</1>",
+      "housingQuestion": "What housing assistance do you provide?",
+      "housingAnswer": "We help with finding suitable accommodation, understanding rental processes and tenant rights, connecting with real estate agents and housing services, preparing rental applications, understanding utility connections, and advocating with housing providers. Our settlement workers guide you through inspections and negotiations so you feel confident engaging with real estate agents.",
+      "employmentQuestion": "How do you help with employment?",
+      "employmentAnswer": "Our employment support includes resume writing and interview preparation, job search assistance and connecting with employers, understanding Australian workplace culture and rights, skills recognition and qualification assessment support, referrals to training and education programmes, and ongoing career development guidance. We work with local employers who value cultural diversity.",
+      "govServicesQuestion": "What services can you help me access?",
+      "govServicesAnswer": "Mosaic can help you understand and access everyday Australian services. This includes Centrelink payments, Medicare and healthcare, tax and ABN applications, driver licences and transport, and school enrolment for children. We can also guide you to legal services and advocacy when needed. If you’re unsure where to start or which service applies to you, we’ll help explain your options and support you step by step.",
+      "languageQuestion": "Do you provide language support?",
+      "languageAnswer": "Yes, we offer professional interpreter services for all appointments and meetings, translation of important documents, referrals to English language programmes and classes, assistance with understanding official correspondence, and support in your preferred language during service delivery. Many of our staff speak multiple languages and understand the challenges of language barriers.",
+      "durationQuestion": "How long can I access settlement support?",
+      "durationAnswer": "<0>Settlement support is usually available during your first five years after arriving in Australia. This can vary depending on your situation and the support you need.</0><1>Our aim is to help you feel confident and independent when using Australian systems. We’ll support you for as long as it’s helpful and work with you at a pace that suits you.</1>"
+    },
+    "cta": {
+      "title": "Ready to Start Your Settlement Journey?",
+      "body": "Our experienced settlement team is here to guide you through every step of establishing your new life in Australia. Contact us today to begin your journey or help a loved one on their journey to independence and community connection.",
+      "callLabel": "Make a Referral",
+      "contactLabel": "Contact Us Online",
+      "footnote": "Professional interpreters available on request • All services completely free"
     }
   },
-  "agedCare": {
-    "hero": {
-      "headline": "Living Independently at Home? We’re Here With You.",
-      "subheadline": "Ageing at home can bring new challenges for individuals and families.",
-      "body": "You and your family can rely on culturally responsive in-home care and friendly volunteer visits, delivered in familiar languages and guided by respect for your choices. We help you stay independent, connected, and supported at home.",
-      "cta": "Discuss Your Care Options"
-    }
-  },
-  "family": {
-    "hero": {
-      "headline": "Looking for Family Support? We Listen Without Judgement.",
-      "subheadline": "Raising children in a new country can feel uncertain and stressful.",
-      "body": "We work with multicultural families through confidential family support and welcoming community playgroups. Our focus is helping parents and children feel safe, connected, and understood.",
-      "cta": "Explore Support Options"
-    }
-  },
-  "community": {
-    "hero": {
-      "headline": "Looking for Community Connections? We Create Spaces to Belong.",
-      "subheadline": "Finding connection and belonging in your community matters.",
-      "body": "We create opportunities for people to connect, participate, and have a voice through cultural celebrations, leadership development, and community activities. Our focus is building belonging, strengthening connections, and celebrating the diversity of our communities.",
-      "cta": "Build Your Community"
-    }
-  },
-  "contact": {
-    "form": {
-      "validation": {
-        "nameMin": "Name must be at least 2 characters.",
-        "emailInvalid": "Please enter a valid email address.",
-        "emailRequired": "Email is required.",
-        "serviceRequired": "Please select a service.",
-        "locationRequired": "Please select an office.",
-        "messageMin": "Message must be at least 10 characters."
+  "statistics": {
+    "sectionBadge": "See our Data",
+    "sectionTitle": "Our Impact by the Numbers",
+    "items": {
+      "service": {
+        "label": "Years of Service",
+        "description": "Serving communities since 1981"
+      },
+      "offices": {
+        "label": "Office Locations",
+        "description": "Across NSW regions"
+      },
+      "families": {
+        "label": "Families Supported",
+        "description": "Lives transformed annually"
+      },
+      "languages": {
+        "label": "Languages Spoken",
+        "description": "Cultural diversity embraced"
       }
+    }
+  },
+  "storiesPage": {
+    "meta": {
+      "title": "Community Stories | Mosaic Multicultural Connections",
+      "description": "Read inspiring stories and impact highlights from multicultural communities supported by Mosaic Multicultural Connections."
+    },
+    "hero": {
+      "badge": "Community Stories",
+      "title": "Stories & Impact",
+      "description": "Real stories from our community members, showcasing the transformative power of support, connection, and cultural celebration."
+    },
+    "categories": {
+      "all": "All Stories",
+      "settlement": "Settlement Success",
+      "homeCare": "Home Care",
+      "youth": "Youth Programs",
+      "family": "Family Support",
+      "volunteer": "Volunteer Stories",
+      "events": "Community Events"
+    },
+    "readMore": "Read Full Story",
+    "impact": {
+      "title": "Our Community Impact",
+      "description": "These numbers represent real lives changed and communities strengthened through our work.",
+      "stats": {
+        "families": {
+          "label": "Families Supported",
+          "desc": "Across all our programs"
+        },
+        "stories": {
+          "label": "Success Stories",
+          "desc": "Documented transformations"
+        },
+        "languages": {
+          "label": "Languages",
+          "desc": "Community representation"
+        },
+        "outcomes": {
+          "label": "Positive Outcomes",
+          "desc": "Client satisfaction rate"
+        }
+      }
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter to receive the latest stories, program updates, and community news.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "note": "Monthly updates • Unsubscribe anytime • Privacy respected"
+    },
+    "items": {
+      "ahmed": {
+        "title": "From Refugee to Community Leader: Ahmed's Journey",
+        "excerpt": "After arriving from Sudan with his family, Ahmed Hassan found hope and support through Mosaic's settlement services. Today, he leads community programs helping other new arrivals."
+      },
+      "maria": {
+        "title": "Preserving Culture Through Home Care",
+        "excerpt": "Maria's story shows how culturally appropriate home care helps seniors maintain their identity while receiving the support they need in their golden years."
+      },
+      "youth": {
+        "title": "Building Bridges: The Youth Leadership Program",
+        "excerpt": "Young people from diverse backgrounds come together to develop leadership skills and create positive change in their communities through our youth programs."
+      },
+      "family": {
+        "title": "Family Reunification: A Story of Hope",
+        "excerpt": "After years of separation, the Chen family was reunited in Australia. Our family support services helped them rebuild their lives and strengthen their bonds."
+      },
+      "volunteer": {
+        "title": "Volunteer Spotlight: Making a Difference",
+        "excerpt": "Meet Jennifer, a dedicated volunteer who has been supporting settlement services for three years, helping dozens of families find their place in Australia."
+      },
+      "festival": {
+        "title": "Cultural Festival Brings Community Together",
+        "excerpt": "The annual Multicultural Festival showcased the rich diversity of our community, featuring food, music, and traditions from over 20 different cultures."
+      }
+    },
+    "readTime": "{{count}} min read"
+  },
+  "testimonials": {
+    "title": "Mosaic Testimonials – Client & Volunteer Stories",
+    "subtitle": "Warm, real experiences from clients and volunteers across our community",
+    "bottomText": "95% client satisfaction rate",
+    "badgeLabel": "Testimonials",
+    "items": [
+      {
+        "text": "Mosaic helped us settle with culturally aware support in Tagalog. We felt understood and welcomed.",
+        "name": "Maria Santos",
+        "role": "Settlement Support Client",
+        "origin": "Originally from Philippines"
+      },
+      {
+        "text": "Family support made parenting in a new country easier while honouring our culture. Counselors were thoughtful and kind.",
+        "name": "Ahmed Hassan",
+        "role": "Family Support Client",
+        "origin": "Originally from Sudan"
+      },
+      {
+        "text": "Mum’s home care respects our traditions. Mandarin-speaking staff make support feel natural and dignified.",
+        "name": "Li Wei Chen",
+        "role": "Home Care Family Member",
+        "origin": "Originally from China"
+      },
+      {
+        "text": "Community programs helped us connect and feel at home in Australia.",
+        "name": "Jennifer Kim",
+        "role": "Community Member",
+        "origin": "Originally from Korea"
+      },
+      {
+        "text": "Volunteering is rewarding—supporting families through their first months and watching confidence grow.",
+        "name": "Sarah Wilson",
+        "role": "Volunteer",
+        "origin": "Local community member"
+      },
+      {
+        "text": "Dad received dignified care at home in his final years.",
+        "name": "David Chen",
+        "role": "Family Member",
+        "origin": "Originally from Taiwan"
+      }
+    ],
+    "fallback": {
+      "role": "Community Member"
     }
   }
 }

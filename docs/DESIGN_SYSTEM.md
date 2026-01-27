@@ -10,25 +10,25 @@ Standardized styling for buttons and Call-to-Action (CTA) links across the appli
 Used for the main action on a page (e.g., "Call Now", "Make a Referral").
 
 - **Visuals**:
-  - **Background**: Solid brand color (e.g., `bg-care`, `bg-sky`, `bg-sun`, `bg-leaf`). No gradients.
+  - **Background**: Solid brand colour (e.g., `bg-care`, `bg-sky`, `bg-sun`, `bg-leaf`). No gradients.
   - **Text**: White (`text-white`).
   - **Font**: Semibold (`font-semibold`).
   - **Padding**: `px-8 py-4` (Standard size).
   - **Radius**: `rounded-lg`.
-  - **Icon**: Flex layout with icon (`flex items-center justify-center`, icon `mr-2`).
+  - **Icon**: Flex layout with icon (`flex items-centre justify-centre`, icon `mr-2`).
 - **Interaction**:
-  - **Hover**: Slightly darker/transparent background (`hover:bg-{color}/90`).
+  - **Hover**: Slightly darker/transparent background (`hover:bg-{colour}/90`).
   - **Scale**: Subtle scale up (`hover:scale-105`).
-  - **Shadow**: Colored shadow on hover (`hover:shadow-lg hover:shadow-{color}/25`).
+  - **Shadow**: Colored shadow on hover (`hover:shadow-lg hover:shadow-{colour}/25`).
   - **Transition**: Smooth transition (`transition-all duration-300`).
 - **Accessibility**:
-  - **Focus**: Visible focus ring (`focus:ring-2 focus:ring-{color} focus:ring-offset-2`).
+  - **Focus**: Visible focus ring (`focus:ring-2 focus:ring-{colour} focus:ring-offset-2`).
 
 **Example Usage:**
 ```tsx
 <a
   href="tel:1800813205"
-  className="bg-care hover:bg-care/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
+  className="bg-care hover:bg-care/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-centre justify-centre hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
 >
   <Phone className="h-5 w-5 mr-2" />
   Call 1800 813 205
@@ -39,18 +39,18 @@ Used for the main action on a page (e.g., "Call Now", "Make a Referral").
 Used for alternative actions (e.g., "Contact Us", "Read More").
 
 - **Visuals**:
-  - **Border**: 2px solid brand color (`border-2 border-{color}`).
-  - **Text**: Brand color (`text-{color}`).
+  - **Border**: 2px solid brand colour (`border-2 border-{colour}`).
+  - **Text**: Brand colour (`text-{colour}`).
   - **Background**: Transparent (`bg-transparent`).
 - **Interaction**:
-  - **Hover**: Filled background (`hover:bg-{color}`), White text (`hover:text-white`).
+  - **Hover**: Filled background (`hover:bg-{colour}`), White text (`hover:text-white`).
   - **Scale**: Subtle scale up (`hover:scale-105`).
 
 **Example Usage:**
 ```tsx
 <Link
   to="/contact-us"
-  className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
+  className="border-2 border-care text-care hover:bg-care hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-centre justify-centre hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
 >
   Contact Us
   <ArrowRight className="h-5 w-5 ml-2" />
@@ -72,7 +72,7 @@ The core interactive component for a single FAQ item.
   - Rounded corners (`rounded-2xl`).
   - Frosted glass effect (`backdrop-blur-md`, `bg-white/60`).
   - Expand/collapse animation (`transition-all`).
-  - Custom color themes via props.
+  - Custom colour themes via props.
 - **Interaction**:
   - Click to toggle.
   - Keyboard accessible (Tab focus, Enter/Space to toggle).
@@ -82,7 +82,7 @@ The core interactive component for a single FAQ item.
   - `answer`: ReactNode (supports text, links, buttons).
   - `isOpen`: Boolean state.
   - `onToggle`: Callback function.
-  - `colors`: Object `{ bg, border }` defining theme colors.
+  - `colours`: Object `{ bg, border }` defining theme colours.
 
 #### `FAQSection` (`src/components/FAQSection.tsx`)
 A section wrapper for displaying a list of FAQs, typically used on service pages.
@@ -92,7 +92,7 @@ A section wrapper for displaying a list of FAQs, typically used on service pages
   - Single column on smaller screens.
 - **Features**:
   - Auto-generated Schema.org structured data (`FAQSchema`).
-  - Configurable accent colors (`care`, `leaf`, `sun`, `sky`, `earth`).
+  - Configurable accent colours (`care`, `leaf`, `sun`, `sky`, `earth`).
   - Optional badge and subtitle.
 
 #### `FAQPage` (`src/pages/resources/FAQPage.tsx`)
@@ -105,8 +105,8 @@ The dedicated FAQ page with search functionality.
 
 ### Design Patterns
 
-#### Colors
-Service pages use specific accent colors to match their branding:
+#### Colours
+Service pages use specific accent colours to match their branding:
 - **Aged Care**: `care` (Rose/Red)
 - **Settlement**: `sky` (Blue)
 - **Family Support**: `sun` (Yellow/Orange)
@@ -114,12 +114,12 @@ Service pages use specific accent colors to match their branding:
 - **General**: `ocean` (Deep Blue)
 
 #### Accessibility (WCAG AA)
-- **Contrast**: Text colors meet WCAG AA standards against backgrounds.
+- **Contrast**: Text colours meet WCAG AA standards against backgrounds.
 - **Focus Indicators**: Visible focus rings on interactive elements.
 - **Screen Readers**: Proper use of `button` for toggles, `aria-expanded` state, and `aria-controls` for content association.
 - **Motion**: Respects reduced motion settings.
 
-#### Responsive Behavior
+#### Responsive Behaviour
 - **Mobile**: Single column stack.
 - **Tablet/Desktop**: Two-column grid (for `FAQSection`) or constrained max-width (for `FAQPage`).
 - **Touch Targets**: Min 44px height for toggle buttons.

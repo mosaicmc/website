@@ -1,31 +1,32 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShieldCheck, Eye, Users, Lightbulb, HeartHandshake } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type ValueItem = {
   key: string;
   title: string;
+  description: string;
   Icon: React.ComponentType<{ className?: string }>;
 };
 
-export function FeatureValues({ values }: { values?: ValueItem[] }) {
-  const items: ValueItem[] =
-    values ??
-    [
-      { key: "trust", title: "TRUST", Icon: ShieldCheck },
-      { key: "transparency", title: "TRANSPARENCY", Icon: Eye },
-      { key: "respect", title: "RESPECT", Icon: HeartHandshake },
-      { key: "collaboration", title: "COLLABORATION", Icon: Users },
-      { key: "creation", title: "CREATION", Icon: Lightbulb },
-    ];
+export function FeatureValues() {
+  const { t } = useTranslation();
 
-  const descriptions: Record<string, string> = {
-    trust: "We rely on and have faith in people and our organisation.",
-    transparency: "We share openly with each other, without judgement.",
-    respect: "We treat everyone equally and consider the opinions of others, no matter our differences.",
-    collaboration: "We work together to support each other in our endeavours.",
-    creation: "We grow through collective ideas and innovation.",
-  };
+  const valuesConfig = [
+    { key: "trust", Icon: ShieldCheck },
+    { key: "transparency", Icon: Eye },
+    { key: "respect", Icon: HeartHandshake },
+    { key: "collaboration", Icon: Users },
+    { key: "creation", Icon: Lightbulb },
+  ];
+
+  const items: ValueItem[] = valuesConfig.map(({ key, Icon }) => ({
+    key,
+    title: t(`aboutPage.mission.values.${key}.label`),
+    description: t(`aboutPage.mission.values.${key}.description`),
+    Icon,
+  }));
 
   return (
     <section
@@ -39,10 +40,10 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-sky animate-pulse" aria-hidden="true"></span>
-            <span id="values-title">Our Values</span>
+            <span id="values-title">{t('aboutPage.mission.values.badge')}</span>
           </div>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            What we stand for
+            {t('aboutPage.mission.values.title')}
           </h2>
         </div>
 
@@ -51,7 +52,7 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
           aria-label="Organisational values"
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
         >
-          {items.map(({ key, title, Icon }) => (
+          {items.map(({ key, title, description, Icon }) => (
             <Card
               key={key}
               role="listitem"
@@ -64,10 +65,10 @@ export function FeatureValues({ values }: { values?: ValueItem[] }) {
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sand/60 dark:bg-white/10 border border-border text-ocean dark:text-sky">
                     <Icon aria-hidden="true" className="h-4 w-4" />
                   </span>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{title}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground uppercase">{title}</h3>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  {descriptions[key] ?? "Core organisational principle guiding decisions and behaviours."}
+                  {description}
                 </p>
               </CardContent>
             </Card>

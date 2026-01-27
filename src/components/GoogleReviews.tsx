@@ -67,7 +67,7 @@ const GoogleReviews = () => {
     <section
       ref={sectionRef}
       className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
-      aria-label="Google Reviews"
+      aria-label={t('reviews.badge')}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl" />
@@ -77,9 +77,9 @@ const GoogleReviews = () => {
         <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse" />
-            <span className="text-gray-700 dark:text-white/90 font-medium">Google Reviews</span>
+            <span className="text-gray-700 dark:text-white/90 font-medium">{t('reviews.badge')}</span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Are Saying</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('reviews.title')}</h2>
           <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('reviews.subtitle')}</p>
         </div>
 
@@ -137,15 +137,15 @@ const GoogleReviews = () => {
                       <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
                     </CardContent>
                     <CardFooter>
-                      <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
+                      <span className="text-xs text-muted-foreground">{t('reviews.source')}</span>
                       <a
                         href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
-                        aria-label="View review on Google"
+                        aria-label={t('reviews.viewOnGoogle')}
                       >
-                        View on Google
+                        {t('reviews.viewOnGoogle')}
                         <ExternalLink className="h-4 w-4" />
                       </a>
                     </CardFooter>
@@ -167,26 +167,26 @@ const GoogleReviews = () => {
                           <AvatarFallback className="text-foreground font-semibold">GR</AvatarFallback>
                         </Avatar>
                         <div>
-                          <div className="text-sm font-semibold text-gray-800 dark:text-white/90">Featured Google Review</div>
-                          <div className="text-xs text-gray-500 dark:text-white/60">Recently posted</div>
+                          <div className="text-sm font-semibold text-gray-800 dark:text-white/90">{t('reviews.featured')}</div>
+                          <div className="text-xs text-gray-500 dark:text-white/60">{t('reviews.recent')}</div>
                         </div>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">
-                        {idx === 0 ? '“Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!”' : '“View this review on Google.”'}
+                        {idx === 0 ? `“${t('reviews.fallback')}”` : `“${t('reviews.viewReview')}”`}
                       </blockquote>
                     </CardContent>
                     <CardFooter>
-                      <span className="text-xs text-muted-foreground">Source: Google Reviews</span>
+                      <span className="text-xs text-muted-foreground">{t('reviews.source')}</span>
                       <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm font-medium text-ocean hover:text-ocean dark:text-white dark:hover:text-sky hover:underline decoration-ocean dark:decoration-sky underline-offset-4"
-                        aria-label="View review on Google"
+                        aria-label={t('reviews.viewOnGoogle')}
                       >
-                        View on Google
+                        {t('reviews.viewOnGoogle')}
                         <ExternalLink className="h-4 w-4" />
                       </a>
                     </CardFooter>
@@ -205,9 +205,9 @@ const GoogleReviews = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background bg-ocean text-white hover:bg-ocean/90 hover:text-white"
-            aria-label="Read all reviews on Google"
+            aria-label={t('reviews.readAll')}
           >
-            Read all reviews on Google
+            {t('reviews.readAll')}
             <ExternalLink className="h-4 w-4" />
           </a>
         </div>

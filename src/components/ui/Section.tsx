@@ -3,6 +3,7 @@ import { cn } from "../../lib/utils";
 
 type SectionProps = {
   children: React.ReactNode;
+  id?: string;
   className?: string;
   containerClassName?: string;
   padding?: "sm" | "md" | "lg";
@@ -22,6 +23,7 @@ const paddingMap = {
 
 export function Section({
   children,
+  id,
   className,
   containerClassName,
   padding = "md",
@@ -52,6 +54,7 @@ export function Section({
 
   return (
     <section
+      id={id}
       className={cn(
         "relative overflow-hidden transition-colors duration-300",
         variantClass,

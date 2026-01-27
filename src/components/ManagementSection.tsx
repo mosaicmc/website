@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,7 @@ export function ManagementSection({
   members: ManagementMemberCard[];
   accentColor?: "ocean" | "sky" | "care" | "earth" | "leaf" | "sun";
 }) {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<ManagementMemberCard | null>(null);
   const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
@@ -93,7 +95,7 @@ export function ManagementSection({
                     }`}
                   />
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 top-0 h-28 w-28 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition ${
+                    className={`absolute left-1/2 -translate-x-1/2 top-0 h-40 w-40 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition ${
                       accentColor === "care"
                         ? "bg-care/30"
                         : accentColor === "sky"
@@ -186,7 +188,7 @@ export function ManagementSection({
                         <SheetTrigger asChild>
                           <Button
                             variant={accentColor === "ocean" ? "default" : accentColor}
-                            aria-label={`Read bio for ${m.name}`}
+                            aria-label={`${t('common.readBio')} for ${m.name}`}
                             onClick={() => { setSelected(m); setOpen(true); }}
                             className={`${
                               accentColor === "care"
@@ -202,7 +204,7 @@ export function ManagementSection({
                                 : "hover:shadow-ocean/25"
                             }`}
                         >
-                          Read Bio
+                          {t('common.readBio')}
                         </Button>
                         </SheetTrigger>
                         {(() => {
@@ -229,7 +231,7 @@ export function ManagementSection({
                         </SheetHeader>
                         <div className="mt-4">
                           {selected?.languages && selected.languages.length > 0 && (
-                            <p className="text-sm text-muted-foreground mb-2">Languages: {selected.languages.join(", ")}</p>
+                            <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
                           )}
                           {selected?.credentialsSummary && (
                             <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>
@@ -318,7 +320,7 @@ export function ManagementSection({
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
               {selected.role && (<p className="text-muted-foreground mb-1">{selected.role}</p>)}
               {selected.languages && selected.languages.length > 0 && (
-                <p className="text-sm text-muted-foreground mb-2">Languages: {selected.languages.join(", ")}</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
               )}
               {selected.credentialsSummary && (
                 <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>

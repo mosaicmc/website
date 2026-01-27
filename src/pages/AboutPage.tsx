@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { serviceYearsBase, assetPath } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
@@ -14,7 +14,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import { Link, useLocation } from 'react-router-dom';
 
 const AboutPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   React.useEffect(() => {
     if (location.hash) {
@@ -27,20 +27,20 @@ const AboutPage = () => {
     }
   }, [location.hash]);
   const storyData = React.useMemo(() => [
-    { year: "1978", label: "1978", description: "The Galbally Report sets the foundation for inclusive settlement in Australia.", image: assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), alt: "Migrant Services and Programs (Galbally Report) cover", details: "As Australia became more culturally diverse, communities called for inclusion, access, and representation. In 1978, SBS amplified multicultural voices nationwide, while the Review of Post‑Arrival Programs and Services to Migrants (popularly called The Galbally Report, 1978) reshaped settlement policy. Its recommendations were fully adopted, leading to the creation of migrant resource centres across Australia that provided settlement support, advocacy, and guidance to help migrants and refugees participate fully in Australian life while maintaining their culture and identity.", gallery: [assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), assetPath("/images/History_720px_webp/1978_SBS.webp")], links: [
-      { label: "Migrant Services and Programs – Statement by the Prime Minister, Mr. Malcolm Fraser", href: assetPath("/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf") },
-      { label: "It’s Not the Thought That Counts by Lidio Bertelli", href: assetPath("/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf") }
+    { year: "1978", label: t('aboutPage.history.items.1978.label'), description: t('aboutPage.history.items.1978.description'), image: assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), alt: t('aboutPage.history.items.1978.alt'), details: t('aboutPage.history.items.1978.details'), gallery: [assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), assetPath("/images/History_720px_webp/1978_SBS.webp")], links: [
+      { label: t('aboutPage.history.items.1978.links.0.label'), href: assetPath("/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf") },
+      { label: t('aboutPage.history.items.1978.links.1.label'), href: assetPath("/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf") }
     ] },
-    { year: "1981", label: "1981", description: "We open in Newcastle with two staff.", image: assetPath("/images/History_720px_webp/1981_Ian MacPhee.webp"), alt: "Foundation year in Newcastle and the Hunter Region", details: "Mr Ian MacPhee officially opened the Newcastle Migrant Resource Centre on 20 May 1981. The Centre began operating in this region from upstairs premises at 414 Hunter Street above the State Bank building, with an interim Committee of Management and administered by the Newcastle City Council. There were just two staff: a Coordinator (the first being Veronica Hendry) and an Assistant Coordinator. The Centre operated from these premises for three years, serving as a fledgling community hub.", gallery: [], links: [
-      { label: "Opening Address by Mr. Ian MacPhee, Minister for Immigration and Ethnic Affairs", href: assetPath("/images/History_720px_webp/1981_OPENING OF MRC ADDRESS BY MINI.pdf") }
+    { year: "1981", label: t('aboutPage.history.items.1981.label'), description: t('aboutPage.history.items.1981.description'), image: assetPath("/images/History_720px_webp/1981_Ian MacPhee.webp"), alt: t('aboutPage.history.items.1981.alt'), details: t('aboutPage.history.items.1981.details'), gallery: [], links: [
+      { label: t('aboutPage.history.items.1981.links.0.label'), href: assetPath("/images/History_720px_webp/1981_OPENING OF MRC ADDRESS BY MINI.pdf") }
     ] },
-    { year: "1984", label: "1984", description: "We move to 8 Chaucer Street, Hamilton, closer to our communities.", image: assetPath("/images/History_720px_webp/1984_Chaucer Street.webp"), alt: "Relocation to 8 Chaucer Street Hamilton", details: "In 1984 Violetta Walsh became Coordinator and led the organisation for 30 years across roles of coordinator, director and CEO. The premises chosen were 8 Chaucer Street, Hamilton, which remained the operational base for more than forty years, as the Migrant Resource Centre, then Northern Settlement Services, and finally Mosaic Multicultural Connections until the relocation to Charlestown.", gallery: [] },
-    { year: "1985", label: "1985", description: "Formal incorporation strengthens community leadership and outreach.", image: assetPath("/images/History_720px_webp/1985.webp"), alt: "Incorporation and outreach to Singleton and Muswellbrook", details: "In 1985, the organisation was formally incorporated, with governance led by elected members of ethnic communities and Faith Trent appointed as founding Chair. With additional support, outreach expanded beyond Newcastle to regional areas including Singleton and Muswellbrook. This period also saw strong investment in women’s leadership and community capacity, including programs that supported mature‑age migrant women into training, employment, and leadership roles, alongside initiatives to maintain community languages for migrant children." },
-    { year: "1989", label: "1989", description: "Standing with the community in a time of crisis.", image: assetPath("/images/History_720px_webp/1989_Earthquake01.webp"), alt: "Newcastle Earthquake response", details: "In late 1989, the Newcastle earthquake deeply affected families, businesses, and neighbourhoods across the city. The centre (MRC) played a vital role in recovery efforts, supporting displaced families and local businesses to access assistance, rebuild stability, and begin restoring community life.", gallery: [
+    { year: "1984", label: t('aboutPage.history.items.1984.label'), description: t('aboutPage.history.items.1984.description'), image: assetPath("/images/History_720px_webp/1984_Chaucer Street.webp"), alt: t('aboutPage.history.items.1984.alt'), details: t('aboutPage.history.items.1984.details'), gallery: [] },
+    { year: "1985", label: t('aboutPage.history.items.1985.label'), description: t('aboutPage.history.items.1985.description'), image: assetPath("/images/History_720px_webp/1985.webp"), alt: t('aboutPage.history.items.1985.alt'), details: t('aboutPage.history.items.1985.details') },
+    { year: "1989", label: t('aboutPage.history.items.1989.label'), description: t('aboutPage.history.items.1989.description'), image: assetPath("/images/History_720px_webp/1989_Earthquake01.webp"), alt: t('aboutPage.history.items.1989.alt'), details: t('aboutPage.history.items.1989.details'), gallery: [
       assetPath("/images/History_720px_webp/1989_Earthquake02.webp"),
       assetPath("/images/History_720px_webp/1989_Earthquake03.webp")
     ] },
-    { year: "1990", label: "1990", description: "Carnivale brings Hamilton together in a celebration of resilience and community.", image: assetPath("/images/History_720px_webp/1990_Carnivale01.webp"), alt: "1990 Carnivale", details: "In 1990, Carnivale was launched as a street festival in Hamilton, bringing people together after a period of recovery and change. The Centre delivered the event in partnership with the Hamilton Chamber of Commerce and the Ethnic Communities Council, celebrating cultural diversity, connection, and the strength of the local community.", gallery: [
+    { year: "1990", label: t('aboutPage.history.items.1990.label'), description: t('aboutPage.history.items.1990.description'), image: assetPath("/images/History_720px_webp/1990_Carnivale01.webp"), alt: t('aboutPage.history.items.1990.alt'), details: t('aboutPage.history.items.1990.details'), gallery: [
       assetPath("/images/History_720px_webp/1990_Carnivale03.webp"),
       assetPath("/images/History_720px_webp/1990_Carnivale04.webp"),
       assetPath("/images/History_720px_webp/1990_Carnivale05.webp"),
@@ -48,40 +48,40 @@ const AboutPage = () => {
       assetPath("/images/History_720px_webp/1990_Carnivale07.webp"),
       assetPath("/images/History_720px_webp/1990_Carnivale.webp")
     ] },
-    { year: "1991", label: "1991", description: "Ten years on, our reach and community connections continue to grow.", image: assetPath("/images/History_720px_webp/1991_10Years_AGM.webp"), alt: "Tenth anniversary", details: "In 1991, the Migrant Resource Centre (MRC) marked its tenth anniversary, growing from two staff to eleven and supporting people from more than 100 nationalities. During this period, services expanded across the Northwest of NSW and the Central Coast, including the launch of the Community Visitors Scheme for older migrants and the introduction of immigration assistance and advice.", gallery: [
+    { year: "1991", label: t('aboutPage.history.items.1991.label'), description: t('aboutPage.history.items.1991.description'), image: assetPath("/images/History_720px_webp/1991_10Years_AGM.webp"), alt: t('aboutPage.history.items.1991.alt'), details: t('aboutPage.history.items.1991.details'), gallery: [
       assetPath("/images/History_720px_webp/1991_10Years_AGM01.webp"),
       assetPath("/images/History_720px_webp/1991_10Years_AGM02.webp")
     ] },
-    { year: "1999", label: "1999", description: "Responding at the frontline during a humanitarian crisis.", image: assetPath("/images/History_720px_webp/1999_Kosovar01.webp"), alt: "Kosovar refugee support", details: "In 1999, the Centre played a frontline role in the national humanitarian response for Kosovar refugees, supporting nearly 900 people displaced by conflict. Working alongside government and interagency partners, the organisation provided settlement support, referrals, and community liaison, while also expanding assistance for skilled migrants to have qualifications recognised and access local employment opportunities.", gallery: [
+    { year: "1999", label: t('aboutPage.history.items.1999.label'), description: t('aboutPage.history.items.1999.description'), image: assetPath("/images/History_720px_webp/1999_Kosovar01.webp"), alt: t('aboutPage.history.items.1999.alt'), details: t('aboutPage.history.items.1999.details'), gallery: [
       assetPath("/images/History_720px_webp/1999_Kosovar02.webp"),
       assetPath("/images/History_720px_webp/1999_Kosovar03.webp"),
       assetPath("/images/History_720px_webp/1999_Kosovar04.webp"),
       assetPath("/images/History_720px_webp/1999_Kosovar05.webp")
     ] },
-    { year: "2001", label: "2001", description: "Twenty years of service and growing regional partnerships.", image: assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp"), alt: "20-year anniversary celebration", details: "In 2001, the organisation marked 20 years of service to the community, building on strong foundations of trust and connection. This period saw continued growth in regional outreach and partnerships, strengthening support for multicultural communities across the Hunter and surrounding regions.", gallery: [
+    { year: "2001", label: t('aboutPage.history.items.2001.label'), description: t('aboutPage.history.items.2001.description'), image: assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp"), alt: t('aboutPage.history.items.2001.alt'), details: t('aboutPage.history.items.2001.details'), gallery: [
       assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp"),
       assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp"),
       assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp"),
       assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp"),
     ] },
-    { year: "2004", label: "2004", description: "Expanding regional presence across New England and the Northwest.", image: undefined as unknown as string, alt: "Historical entry 2004", details: "In 2004, MRC opened its Armidale office, strengthening settlement outreach across the New England region and the Northwest Plains. This expansion extended support to communities including Tamworth, Inverell, Wellington, and Gunnedah, bringing services closer to people where they lived.", gallery: [] },
-    { year: "2005", label: "2005", description: "Expanding settlement and care in response to new humanitarian arrivals.", image: assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp"), alt: "Central Coast office opening", details: "In 2005, MRC responded to the arrival of African refugees by expanding settlement support across the region, working in partnership with other migrant resource centres to deliver coordinated assistance. This period also saw the opening of a Central Coast office, strengthening welfare and aged care support in a rapidly growing community.", gallery: [
+    { year: "2004", label: t('aboutPage.history.items.2004.label'), description: t('aboutPage.history.items.2004.description'), image: undefined as unknown as string, alt: t('aboutPage.history.items.2004.alt'), details: t('aboutPage.history.items.2004.details'), gallery: [] },
+    { year: "2005", label: t('aboutPage.history.items.2005.label'), description: t('aboutPage.history.items.2005.description'), image: assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp"), alt: t('aboutPage.history.items.2005.alt'), details: t('aboutPage.history.items.2005.details'), gallery: [
       assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp"),
       assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp"),
       assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp"),
     ] },
-    { year: "2006", label: "2006", description: "Twenty-five years of service and expanding regional reach.", image: assetPath("/images/History_720px_webp/2006_SilverJubilee.webp"), alt: "Silver Jubilee", details: "In 2006, the Migrant Resource Centre marked its 25th anniversary, supported by 24 staff and more than 100 volunteers. The opening of the Tamworth office strengthened regional outreach, with services extending through partnerships and travelling staff to communities including Dubbo, Orange, Bathurst, Lightning Ridge, and Coffs Harbour. This period also saw services broaden to include family support, migrant employment pathways, rural information campaigns, and community aged care.", gallery: [] },
-    { year: "2007", label: "2007", description: "Charitable status strengthens sustainability and community impact.", image: assetPath("/images/History_720px_webp/2007_NSS.webp"), alt: "Northern Settlement Services Ltd", details: "In 2007, the organisation became Northern Settlement Services Ltd and secured charitable status. This milestone strengthened long‑term sustainability, enabling greater support for communities through donor contributions and improved capacity to invest in staff and services." },
-    { year: "2011", label: "2011", description: "Thirty years of service and a new chapter of leadership.", image: assetPath("/images/History_720px_webp/2011_VJW_Farewell.webp"), alt: "Leadership transition", details: "In 2011, Northern Settlement Services (NSS) marked its 30th anniversary, supported by 45 staff and more than 200 volunteers across offices in Hamilton, the Central Coast, Tamworth, Armidale, and briefly Inverell. This year also marked a leadership transition, with long‑standing leader Violetta Walsh retiring after 27 years of service and Lulu Tantos appointed CEO, guiding the organisation into its next phase of growth and program diversification.", gallery: [assetPath("/images/History_720px_webp/2011_VJW_Farewell_01.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_02.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_03.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_04.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_05.webp"), assetPath("/images/History_720px_webp/2010_Lulu Tantos.webp")] },
-    { year: "2019", label: "2019", description: "A new chapter focused on innovation and strategic direction.", image: assetPath("/images/History_720px_webp/2019_ShaonDaishe.webp"), alt: "CEO appointment", details: "In 2019, Sharon Daishe was appointed CEO, bringing a renewed focus on innovation, strategy, and sustainability. This appointment marked the beginning of the next chapter in the organisation’s evolution, strengthening its capacity to respond to changing community needs." },
-    { year: "2021", label: "2021", description: "Forty years of service, shaped by people and community.", image: assetPath("/images/History_720px_webp/2021_40th Celebration01.webp"), alt: "40th Celebration", details: "In 2021, Northern Settlement Services marked 40 years of service, supported by 65 staff and more than 175 volunteers across NSW. Regional offices continued their work across the North and Northwest, strengthening connections and support for multicultural communities.", gallery: [
+    { year: "2006", label: t('aboutPage.history.items.2006.label'), description: t('aboutPage.history.items.2006.description'), image: assetPath("/images/History_720px_webp/2006_SilverJubilee.webp"), alt: t('aboutPage.history.items.2006.alt'), details: t('aboutPage.history.items.2006.details'), gallery: [] },
+    { year: "2007", label: t('aboutPage.history.items.2007.label'), description: t('aboutPage.history.items.2007.description'), image: assetPath("/images/History_720px_webp/2007_NSS.webp"), alt: t('aboutPage.history.items.2007.alt'), details: t('aboutPage.history.items.2007.details') },
+    { year: "2011", label: t('aboutPage.history.items.2011.label'), description: t('aboutPage.history.items.2011.description'), image: assetPath("/images/History_720px_webp/2011_VJW_Farewell.webp"), alt: t('aboutPage.history.items.2011.alt'), details: t('aboutPage.history.items.2011.details'), gallery: [assetPath("/images/History_720px_webp/2011_VJW_Farewell_01.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_02.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_03.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_04.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_05.webp"), assetPath("/images/History_720px_webp/2010_Lulu Tantos.webp")] },
+    { year: "2019", label: t('aboutPage.history.items.2019.label'), description: t('aboutPage.history.items.2019.description'), image: assetPath("/images/History_720px_webp/2019_ShaonDaishe.webp"), alt: t('aboutPage.history.items.2019.alt'), details: t('aboutPage.history.items.2019.details') },
+    { year: "2021", label: t('aboutPage.history.items.2021.label'), description: t('aboutPage.history.items.2021.description'), image: assetPath("/images/History_720px_webp/2021_40th Celebration01.webp"), alt: t('aboutPage.history.items.2021.alt'), details: t('aboutPage.history.items.2021.details'), gallery: [
       assetPath("/images/History_720px_webp/2021_40th Celebration04.webp"),
       assetPath("/images/History_720px_webp/2021_40th Celebration05.webp"),
       assetPath("/images/History_720px_webp/2021_40th Celebration06.webp"),
       assetPath("/images/History_720px_webp/2021_40th Celebration07.webp")
     ] },
-    { year: "2022", label: "2022", description: "A new name reflecting a shared identity and evolving role.", image: assetPath("/images/History_720px_webp/2022_MosaicMC_Rebranding.webp"), alt: "Mosaic Multicultural Connections rebranding", details: "In 2022, the organisation adopted the name Mosaic Multicultural Connections, reflecting its evolving role and the rich diversity of the communities it serves. The new name captured a renewed commitment to connection, inclusion, and support across all stages of life.", gallery: [] },
-    { year: "2024", label: "2024", description: "A new home in Charlestown, honouring the past and looking ahead.", image: assetPath("/images/History_720px_webp/2024_Closing01.webp"), alt: "Charlestown relocation", details: "In 2024, Mosaic Multicultural Connections relocated its head office to Charlestown, marking a new chapter after more than 40 years at Chaucer Street in Hamilton. The transition was honoured through a closing ceremony that celebrated shared memories, community resilience, and the legacy of connection built over decades, with Mosaic’s first CEO, Violetta Walsh OAM, leading a ceremonial lock‑up to symbolically close one chapter and open another. The opening of Mosaic’s new headquarters at Hopetoun Street, Charlestown was marked with a Welcome to Country by Aunty Cheryl and Uncle Ray from Awabakal, and reflections from Lake Macquarie Mayor Adam Shultz and The Hon. Jodie Harrison MP, State Member for Charlestown. These moments reaffirmed values of inclusion, collaboration, and the resilience of migrants and refugees that continue to shape Mosaic’s work.", gallery: [
+    { year: "2022", label: t('aboutPage.history.items.2022.label'), description: t('aboutPage.history.items.2022.description'), image: assetPath("/images/History_720px_webp/2022_MosaicMC_Rebranding.webp"), alt: t('aboutPage.history.items.2022.alt'), details: t('aboutPage.history.items.2022.details'), gallery: [] },
+    { year: "2024", label: t('aboutPage.history.items.2024.label'), description: t('aboutPage.history.items.2024.description'), image: assetPath("/images/History_720px_webp/2024_Closing01.webp"), alt: t('aboutPage.history.items.2024.alt'), details: t('aboutPage.history.items.2024.details'), gallery: [
       assetPath("/images/History_720px_webp/2024_Closing01.webp"),
       assetPath("/images/History_720px_webp/2024_Closing07.webp"),
       assetPath("/images/History_720px_webp/2024_Closing02.webp"),
@@ -96,7 +96,7 @@ const AboutPage = () => {
       assetPath("/images/History_720px_webp/2024_Closing09.webp"),
       assetPath("/images/History_720px_webp/2024_Charlestown04.webp")
     ] },
-  ], []);
+  ], [t]);
   const deriveDecade = (y: string) => `${Math.floor(Number(y) / 10) * 10}s`;
   const decades = Array.from(new Set(storyData.map((d) => deriveDecade(d.year))));
   const [selectedDecade, setSelectedDecade] = React.useState<string>("all");
@@ -121,6 +121,7 @@ const AboutPage = () => {
   const [lastImageDirection, setLastImageDirection] = React.useState<'left' | 'right' | null>(null);
   const [isImageAnimating, setIsImageAnimating] = React.useState<boolean>(false);
   type BoardMember = {
+    id: string;
     name: string;
     title?: string;
     role?: string;
@@ -129,55 +130,48 @@ const AboutPage = () => {
     bio: string;
     social?: Array<{ platform: 'linkedin' | 'twitter' | 'website'; href: string }>;
   };
-  const boardMembers: BoardMember[] = [
-    { name: "Sandra Feltham", title: "Chair", role: "Board Member since 2020", credentials: "Masters Public Health (Distinction), Grad Dip Urban & Regional Planning, BSc (Hons) Human Geography • Cert IV TAE • RN, RM", languages: ["English"], bio: "Hello! I’m Sandra Feltham. I have over 40 years’ experience in health and local government, specialising in inclusive, community‑focused strategic planning. I’ve advised government, service providers and community groups, and served on advisory and executive boards. My motivation is a belief in the strength and value of cultural diversity in Australia. My vision is for inclusive, resilient communities where every individual feels seen, heard and empowered.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/sandra-feltham-2b16a535/' }] },
-    { name: "Dr Shirley Schulz-Robinson", title: "Vice Chair", role: "Board Member since 2021", credentials: "PhD Health Administration, BA (Hons) Sociology • Assoc Dip Nursing Education • Dip Life Coaching • Cert IV Small Business Management • Cert IV TAE • RN", languages: ["English"], bio: "Hi, I’m Shirley Schulz‑Robinson. I bring lived experience as a migrant, carer and mature‑aged student, with a career spanning health, education and multicultural mental health. I’ve contributed to policy, research and advocacy, and served on boards and committees focused on ethics and quality. My motivation is equity, inclusion and the transformative power of community. My vision is compassionate, culturally intelligent and meaningful engagement where every voice is valued and every person can thrive.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/dr-shirley-schulz-robinson-pcc-%F0%9F%87%BA%F0%9F%87%A6-%F0%9F%87%B5%F0%9F%87%B8%F0%9F%87%AE%F0%9F%87%B1-43949938/' }] },
-    { name: "Zachary Ekandi", title: "Director", role: "Board Member since 2022", credentials: "MInfoTech, BInfoSci, AdvDipMgmt, Cert IV TAE, NAATI Interpreter, QTEAC Counsellor, GradDip Migration Law (ongoing)", languages: ["English", "Swahili"], bio: "Hello! I’m Zachary Ekandi. I’m a Senior Educational Officer at TAFE NSW with extensive experience in multicultural education, community engagement and strategic partnerships. I’ve led initiatives supporting migrant and refugee learners, advised government and academic bodies, and championed inclusive education across NSW. My motivation is empowering culturally diverse communities and ensuring services are responsive, inclusive and impactful.", social: [{ platform: 'linkedin', href: '#' }] },
-    { name: "Felix Rajeev (Raj) Sirimanne", title: "Director", role: "Board Member since 2025", credentials: "CPA | AICD | BCom Accounting (UNSW) | Diploma Aviation | Diploma Frontline Management", languages: ["English"], bio: "Hey, I’m Raj! I’m passionate about supporting multicultural, migrant and refugee communities, particularly through quality aged care and settlement services. As a current Director of Compassion Philippines Inc., I established full governance and operational structures for an international NGO — experience that prepares me well to contribute to Mosaic’s mission. With over 25 years of senior leadership across not‑for‑profits, ASX‑listed and multinational organisations, I bring expertise in governance, finance and strategy. I’ve led large‑scale programs delivering over $100M in revenue, driven $80M+ cost optimisation initiatives, and guided complex transformations in regulated environments. Mosaic’s vision of dignity, inclusion and care resonates strongly with my own values. I’m committed to using my cross‑cultural leadership — building teams and launching organisations across Asia, Africa and Australia — to strengthen Mosaic’s long‑term sustainability and impact.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/rajsirimanne/' }] },
-    { name: "Peter Gittins", title: "Director", role: "Board Member since 2024", credentials: "BA, Dip Education, Cert ESL, Cert Business", languages: ["English"], bio: "Hi, I’m Peter Gittins. I am a retired international educator and an independent Councillor on Newcastle City Council. I’ve taught in PNG and Nepal and led international schools in Germany, Sri Lanka and Vietnam. I bring expertise in governance, financial management and strategic planning. My motivation is a lifelong commitment to education, inclusion and community development. My vision is to help Mosaic connect across cultures through thoughtful governance, strategic leadership and meaningful engagement.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/peter-gittins-35bb376/' }] },
-    { name: "Catherine Candiloro", title: "Director", role: "Board Member since 2025", credentials: "Master of International & Community Development, Grad Cert NFP Management, Specialist Cert Implementation Science", languages: ["English", "Spanish", "Italian"], bio: "Hello! I’m Catherine Candiloro. I bring lived experience as the child of a refugee and a career spanning government and NGOs. I’ve led refugee and child‑focused support programs and now work in regulation, with expertise in compliance, safeguarding and change management. Motivated by a desire to give back to my community, my vision is integrity, inclusion and strategic growth, where community voices are amplified.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/catherinecandiloro/' }] },
-    { name: "Lauren Croiset", title: "Director", role: "Board Member since 2025", credentials: "Diploma of Counselling (currently studying)", languages: ["English", "French"], bio: "Hi, I’m Lauren Croiset. I’m a strategic leader in home care, with expertise in compliance, policy and operational excellence. I lead growth and community initiatives and volunteer in multicultural and gender‑focused organisations. My motivation is empowering others and contributing to a thriving, inclusive community. My vision is to help Mosaic grow ethically and sustainably, while continuing to be a beacon of support for those navigating settlement and belonging.", social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/locroiset/' }] },
-  ] as const;
+  const boardMembers = React.useMemo(() => [
+    { id: "sandra", name: t('aboutPage.board.members.sandra.name'), title: t('aboutPage.board.members.sandra.title'), role: t('aboutPage.board.members.sandra.role'), credentials: t('aboutPage.board.members.sandra.credentials'), summary: t('aboutPage.board.members.sandra.summary'), languages: t('aboutPage.board.members.sandra.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.sandra.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/sandra-feltham-2b16a535/' }] },
+    { id: "shirley", name: t('aboutPage.board.members.shirley.name'), title: t('aboutPage.board.members.shirley.title'), role: t('aboutPage.board.members.shirley.role'), credentials: t('aboutPage.board.members.shirley.credentials'), summary: t('aboutPage.board.members.shirley.summary'), languages: t('aboutPage.board.members.shirley.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.shirley.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/dr-shirley-schulz-robinson-pcc-%F0%9F%87%BA%F0%9F%87%A6-%F0%9F%87%B5%F0%9F%87%B8%F0%9F%87%AE%F0%9F%87%B1-43949938/' }] },
+    { id: "zachary", name: t('aboutPage.board.members.zachary.name'), title: t('aboutPage.board.members.zachary.title'), role: t('aboutPage.board.members.zachary.role'), credentials: t('aboutPage.board.members.zachary.credentials'), summary: t('aboutPage.board.members.zachary.summary'), languages: t('aboutPage.board.members.zachary.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.zachary.bio'), social: [{ platform: 'linkedin', href: '#' }] },
+    { id: "raj", name: t('aboutPage.board.members.raj.name'), title: t('aboutPage.board.members.raj.title'), role: t('aboutPage.board.members.raj.role'), credentials: t('aboutPage.board.members.raj.credentials'), summary: t('aboutPage.board.members.raj.summary'), languages: t('aboutPage.board.members.raj.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.raj.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/rajsirimanne/' }] },
+    { id: "peter", name: t('aboutPage.board.members.peter.name'), title: t('aboutPage.board.members.peter.title'), role: t('aboutPage.board.members.peter.role'), credentials: t('aboutPage.board.members.peter.credentials'), summary: t('aboutPage.board.members.peter.summary'), languages: t('aboutPage.board.members.peter.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.peter.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/peter-gittins-35bb376/' }] },
+    { id: "catherine", name: t('aboutPage.board.members.catherine.name'), title: t('aboutPage.board.members.catherine.title'), role: t('aboutPage.board.members.catherine.role'), credentials: t('aboutPage.board.members.catherine.credentials'), summary: t('aboutPage.board.members.catherine.summary'), languages: t('aboutPage.board.members.catherine.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.catherine.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/catherinecandiloro/' }] },
+    { id: "lauren", name: t('aboutPage.board.members.lauren.name'), title: t('aboutPage.board.members.lauren.title'), role: t('aboutPage.board.members.lauren.role'), credentials: t('aboutPage.board.members.lauren.credentials'), summary: t('aboutPage.board.members.lauren.summary'), languages: t('aboutPage.board.members.lauren.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.lauren.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/locroiset/' }] },
+  ], [t]);
   const boardImgMap: Record<string, { webp: string; jpg: string }> = {
-    "Sandra Feltham": {
+    "sandra": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg"),
     },
-    "Dr Shirley Schulz-Robinson": {
+    "shirley": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg"),
     },
-    "Zachary Ekandi": {
+    "zachary": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg"),
     },
-    "Kasey Preston": {
-      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp"),
-      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg"),
+    "raj": {
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
     },
-    "Naomi McLean": {
-      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp"),
-      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg"),
-    },
-    "Peter Gittins": {
+    "peter": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg"),
     },
-    "Catherine Candiloro": {
+    "catherine": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg"),
     },
-    "Lauren Croiset": {
+    "lauren": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg"),
-    },
-    "Felix Rajeev (Raj) Sirimanne": {
-      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
-      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Raj_128px.webp"),
     },
   };
   
   type ManagementMember = {
+    id: string;
     name: string;
     title: string;
     level: 1 | 2 | 3;
@@ -187,71 +181,76 @@ const AboutPage = () => {
     social?: Array<{ platform: 'linkedin' | 'twitter' | 'website'; href: string }>;
   };
 
-  const managementMembers: ManagementMember[] = [
+  const managementMembers = React.useMemo(() => [
     {
-      name: "Sharon Daishe",
-      title: "Chief Executive Officer",
+      id: "sharon",
+      name: t('aboutPage.management.members.sharon.name'),
+      title: t('aboutPage.management.members.sharon.title'),
       level: 1 as const,
-      languages: ["English"],
-      bio: "Hi, I’m Sharon. I’m passionate about equity and find Mosaic’s soulful purpose, helping people have power over their lives, the most rewarding part of my role. Delivering enduring positive impact for people and planet is the most important task of leadership, and how I measure my career highlights. My leadership career of over 25 years includes roles as a CEO in rural‑remote local government in two states, living with First Nations communities in the beautiful Australian outback. This followed volunteering with an education not‑for‑profit in rural Tanzania, an experience that changed my career focus. Outside of work, I am a Rotarian and remain a passionate supporter of the education program in Tanzania. I love being outdoors horse‑riding, kayaking and camping with my family including three sons and six grandchildren.",
-      credentialsSummary: "Master of International and Community Development",
+      languages: t('aboutPage.management.members.sharon.languages', { returnObjects: true }) as string[],
+      bio: t('aboutPage.management.members.sharon.bio'),
+      credentialsSummary: t('aboutPage.management.members.sharon.credentials'),
       social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/sdaishe/' }]
     },
     {
-      name: "Belinda Latimore",
-      title: "General Manager, Programs",
+      id: "belinda",
+      name: t('aboutPage.management.members.belinda.name'),
+      title: t('aboutPage.management.members.belinda.title'),
       level: 2 as const,
-      languages: ["English", "Australian"],
-      bio: "Hi, I’m Belinda. I love coming to work each day as part of Mosaic’s multicultural family. I bring over 25 years of experience in the health and welfare sector, working across government, not-for-profit and charity organisations. I’m passionate about leading and supporting teams, and I believe every person brings a unique story that strengthens the skills, experience and care we deliver together. I deeply respect each individual journey and value the power of working collaboratively so we can all thrive. Outside of work, I’ve recently taken up running and am enjoying the sense of connection and camaraderie within the running community.",
-      credentialsSummary: "Bachelor Social Work; Master Business Administration; Diploma Human Resource Management; Diploma Leadership and Management",
+      languages: t('aboutPage.management.members.belinda.languages', { returnObjects: true }) as string[],
+      bio: t('aboutPage.management.members.belinda.bio'),
+      credentialsSummary: t('aboutPage.management.members.belinda.credentials'),
       social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/belinda-latimore-46061175/' }]
     },
     {
-      name: "Richard Hanson",
-      title: "Manager, Finance & Corporate",
+      id: "richard",
+      name: t('aboutPage.management.members.richard.name'),
+      title: t('aboutPage.management.members.richard.title'),
       level: 2 as const,
-      languages: ["English", "Yorkshire"],
-      bio: "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner.",
-      credentialsSummary: "Chartered Accountant Australia and New Zealand; Fellow of the Association of Chartered Certified Accountants",
+      languages: t('aboutPage.management.members.richard.languages', { returnObjects: true }) as string[],
+      bio: t('aboutPage.management.members.richard.bio'),
+      credentialsSummary: t('aboutPage.management.members.richard.credentials'),
       social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/richardmarkhanson/' }]
     },
     {
-      name: "Karthik Ramamurthy",
-      title: "Manager, Aged Care",
+      id: "karthik",
+      name: t('aboutPage.management.members.karthik.name'),
+      title: t('aboutPage.management.members.karthik.title'),
       level: 3 as const,
-      languages: ["English", "Tamil", "Malayalam", "Hindi", "French (basic)"],
-      bio: "Vanakkam, I’m Karthik. With over 20 years of executive experience in aged care and luxury hotels, I specialise in operational leadership. I joined Mosaic Multicultural to strengthen our Homecare services, ensuring compassionate, high‑quality support for the multicultural community. Outside of work, I enjoy competitive tennis, have travelled to around 40 countries, and enjoy exotic food.",
-      credentialsSummary: "Bachelor’s Degree in Accounting; MSc in International Hotel Management; Diploma of Management (Aged Care); Certificate III in Aged Care",
+      languages: t('aboutPage.management.members.karthik.languages', { returnObjects: true }) as string[],
+      bio: t('aboutPage.management.members.karthik.bio'),
+      credentialsSummary: t('aboutPage.management.members.karthik.credentials'),
       social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/ramamurthykarthik/' }]
     },
     {
-      name: "Jawaid Pardehi",
-      title: "Manager, Settlement, Families & Communities",
+      id: "jawaid",
+      name: t('aboutPage.management.members.jawaid.name'),
+      title: t('aboutPage.management.members.jawaid.title'),
       level: 3 as const,
-      languages: ["English", "Urdu", "Sindhi", "Hindi", "Punjabi", "Arabic (Basic)"],
-      bio: "I’m Jawaid, and I’m passionate about creating opportunities for refugees and migrants to thrive in their new communities. I possess over a decade of experience in community development and program management. My career has been dedicated to empowering individuals and fostering inclusive communities. I have led initiatives across casework, community programs, youth engagement and settlement services, focused on building pathways for long‑term success. At Mosaic, I’m inspired by the resilience of the CALD communities we serve. My role focuses on developing and delivering impactful programs that foster social cohesion, enhance workforce readiness and increase cultural awareness, including women’s programs, parenting workshops and cultural awareness training, to build a stronger, more inclusive society. I also lead teams across the Central Coast, Newcastle and New England regions. Outside work, I’m a history enthusiast and a passionate cricket fan who enjoys exploring the landscapes of regional Australia with my family."
-      ,credentialsSummary: "Bachelor of Engineering in Electronics; Diploma in Project Management; Certificate in Adult and Tertiary Teaching; Certificate of Proficiency, Psychology and Sociology; Master of Social Work"
-      ,social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/jawaid-pardehi/' }]
+      languages: t('aboutPage.management.members.jawaid.languages', { returnObjects: true }) as string[],
+      bio: t('aboutPage.management.members.jawaid.bio'),
+      credentialsSummary: t('aboutPage.management.members.jawaid.credentials'),
+      social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/jawaid-pardehi/' }]
     },
-  ];
+  ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
-    "Sharon Daishe": {
+    "sharon": {
       webp: "/images/Management 128px/Management_Sharon_128px.webp",
       jpg: "/images/Management 128px/Management_Sharon_128px.jpg",
     },
-    "Belinda Latimore": {
+    "belinda": {
       webp: "/images/Management 128px/Management_Belinda_128px.webp",
       jpg: "/images/Management 128px/Management_Belinda_128px.jpg",
     },
-    "Richard Hanson": {
+    "richard": {
       webp: "/images/Management 128px/Management_Richard_128px.webp",
       jpg: "/images/Management 128px/Management_Richard_128px.jpg",
     },
-    "Karthik Ramamurthy": {
+    "karthik": {
       webp: "/images/Management 128px/Management_Karthik_128px.webp",
       jpg: "/images/Management 128px/Management_Karthik_128px.jpg",
     },
-    "Jawaid Pardehi": {
+    "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
       jpg: "/images/Management 128px/Management_Jawaid_128.jpg",
     },
@@ -347,30 +346,15 @@ const AboutPage = () => {
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>About Mosaic Multicultural Connections</title>
-        <meta name="description" content="Mosaic Multicultural Connections supports multicultural communities across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW. Discover our mission, values and 40+ year story of settlement support, home care and family services." />
+        <title>{t('aboutPage.meta.title')} | {t('common.brandName')}</title>
+        <meta name="description" content={t('aboutPage.meta.description')} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "About Mosaic Multicultural Connections",
-          "inLanguage": "en-AU",
-          "about": [
-            "multicultural support",
-            "settlement services",
-            "aged care",
-            "family support",
-            "refugee services",
-            "community advocacy"
-          ],
-          "spatialCoverage": [
-            "Newcastle",
-            "Hunter Region",
-            "Central Coast",
-            "Tamworth",
-            "Armidale",
-            "New England",
-            "North West NSW"
-          ]
+          "name": t('aboutPage.meta.schema.webPage.name'),
+          "inLanguage": i18n.language === 'hi' ? 'hi-IN' : 'en-AU',
+          "about": t('aboutPage.meta.schema.webPage.about', { returnObjects: true }),
+          "spatialCoverage": t('aboutPage.meta.schema.webPage.spatialCoverage', { returnObjects: true })
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -378,26 +362,26 @@ const AboutPage = () => {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is Mosaic Multicultural Connections?",
+              "name": t('aboutPage.meta.schema.faqPage.q1.question'),
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mosaic Multicultural Connections is a community organisation supporting culturally and linguistically diverse people across NSW through settlement support, home care, family services and community advocacy."
+                "text": t('aboutPage.meta.schema.faqPage.q1.answer')
               }
             },
             {
               "@type": "Question",
-              "name": "Where does Mosaic operate?",
+              "name": t('aboutPage.meta.schema.faqPage.q2.question'),
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We serve communities in Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW."
+                "text": t('aboutPage.meta.schema.faqPage.q2.answer')
               }
             },
             {
               "@type": "Question",
-              "name": "How does Mosaic support newcomers?",
+              "name": t('aboutPage.meta.schema.faqPage.q3.question'),
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We provide information and referral, settlement and employment support, language services, home care programs and community connections to help people thrive."
+                "text": t('aboutPage.meta.schema.faqPage.q3.answer')
               }
             }
           ]
@@ -414,30 +398,31 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Our Story</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.hero.label')}</span>
             </div>
             
             <h1 className="fluid-h1 text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
-              Where Belonging, Care, and Community Come Together
+              {t('aboutPage.hero.title')}
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              For <span className="font-bold text-ocean dark:text-foreground">{serviceYearsBase()}+ years</span>, Mosaic Multicultural Connections has walked alongside migrants and multicultural communities, offering support, care, and connection from first arrival through later life. From settling into life in Australia, to caring for loved ones at home, strengthening families, and building community leadership, our work spans{" "}
-              <Link to="/services/settlement-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Settlement Support</Link>,{" "}
-              <Link to="/services/aged-care" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Aged Care</Link>,{" "}
-              <Link to="/services/family-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Family Support</Link>,{" "}
+              {t('aboutPage.hero.description_prefix', { years: serviceYearsBase() })}
+              {" "}
+              <Link to="/services/settlement-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.settlement')}</Link>,{" "}
+              <Link to="/services/aged-care" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.agedCare')}</Link>,{" "}
+              <Link to="/services/family-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.family')}</Link>,{" "}
               and{" "}
-              <Link to="/services/community-engagement" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">Community Engagement</Link>{" "}
-              programs across NSW.
+              <Link to="/services/community-engagement" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.community')}</Link>{" "}
+              {t('aboutPage.hero.description_suffix')}
             </p>
             
             {/* Statistics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {[
-                { number: serviceYearsBase().toString(), label: "Years of Service", suffix: "+" },
-                { number: "25", label: "Communities Served", suffix: "+" },
-                { number: "15,000", label: "Families Supported", suffix: "+" }
-              ].map((stat, index) => (
+            { number: serviceYearsBase().toString(), label: t('aboutPage.hero.stats.yearsOfService'), suffix: "+" },
+            { number: "25", label: t('aboutPage.hero.stats.communitiesServed'), suffix: "+" },
+            { number: "15,000", label: t('aboutPage.hero.stats.familiesSupported'), suffix: "+" }
+          ].map((stat, index) => (
                 <div 
                   key={index}
                   className="backdrop-blur-md bg-white/60 dark:bg-white/10 rounded-xl p-6 border border-white/40 dark:border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -455,8 +440,8 @@ const AboutPage = () => {
 
       {/* Mission, Vision & Values - ShadCN-based */}
       <FeatureMissionVision
-        mission="To support and inspire culturally diverse people and communities to overcome barriers and thrive."
-        vision="A connected community where diversity defines and nourishes us."
+        mission={t('aboutPage.mission.mission')}
+        vision={t('aboutPage.mission.vision')}
       />
       <FeatureValues />
 
@@ -741,43 +726,26 @@ const AboutPage = () => {
           <div className="text-center subsection-break">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">Board of Directors</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.board.badge')}</span>
             </div>
             <h2 id="board-title" className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">Our</span>{" "}
               <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
-                Board
+                {t('aboutPage.board.title')}
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Governance, strategy and community leadership grounded in lived experience and professionalism.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('aboutPage.board.subtitle')}</p>
           </div>
           <div>
             {(() => {
-              const summarize = (text?: string, maxSentences = 2): string | undefined => {
-                if (!text) return undefined;
-                const trimmed = text.trim();
-                const sentences = trimmed.split(/(?<=[.!?])\s+/);
-                const pick = sentences.slice(0, Math.min(maxSentences, sentences.length)).join(' ');
-                return pick;
-              };
-              const boardSummaries: Record<string, string> = {
-                "Sandra Feltham": "40+ years’ experience in health and local government, specialising in inclusive strategic planning, governance and community-focused advisory work.",
-                "Dr Shirley Schulz-Robinson": "Lived experience as migrant, carer and mature-aged student; career across health, education and multicultural mental health with focus on equity and inclusion.",
-                "Zachary Ekandi": "Senior Educational Officer at TAFE NSW with deep experience in multicultural education, engagement and partnerships supporting migrant and refugee learners.",
-                "Felix Rajeev (Raj) Sirimanne": "25+ years’ senior leadership across NFPs, ASX-listed and multinationals; expertise in governance, finance and strategy; large programs and cost optimisation.",
-                "Peter Gittins": "Retired international educator and Newcastle City Councillor with expertise in leadership, governance, financial management and multicultural engagement.",
-                "Catherine Candiloro": "Career in government and NGOs leading refugee and child-focused programs; now specialising in regulation, compliance, safeguarding and community advocacy.",
-                "Lauren Croiset": "Strategic leader in home care with expertise in compliance, policy and operations; leads growth and community initiatives and volunteers in multicultural organisations.",
-              };
               const members = boardMembers.map((m) => ({
                 name: m.name,
                 role: m.title ? m.title : m.role,
                 bio: m.bio,
-                avatar: boardImgMap[m.name]?.jpg,
+                avatar: boardImgMap[m.id]?.jpg,
                 social: m.social,
                 languages: m.languages,
-                credentialsSummary: summarize(m.credentials, 2),
-                summary: boardSummaries[m.name],
+                credentialsSummary: m.credentials,
+                summary: m.summary,
               }));
               return <BoardSection members={members} />;
             })()}
@@ -795,15 +763,15 @@ const AboutPage = () => {
           <div className="text-center subsection-break">
             <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('about.management.badge')}</span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.management.badge')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
-                {t('about.management.title')}
+                {t('aboutPage.management.title')}
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('about.management.description')}
+              {t('aboutPage.management.description')}
             </p>
           </div>
           <div>
@@ -815,7 +783,7 @@ const AboutPage = () => {
                   role: m.title,
                   bio: m.bio,
                   languages: m.languages,
-                  avatar: m.name ? (managementImgMap[m.name]?.webp ?? managementImgMap[m.name]?.jpg) : undefined,
+                  avatar: m.id ? (managementImgMap[m.id]?.webp ?? managementImgMap[m.id]?.jpg) : undefined,
                   credentialsSummary: m.credentialsSummary,
                   social: m.social,
                 }));
@@ -844,7 +812,7 @@ const AboutPage = () => {
                   <h3 id="manager-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeManager.name || activeManager.title}</h3>
                   {activeManager.name && (<p className="text-muted-foreground mb-1">{activeManager.title}</p>)}
                   {activeManager.languages && activeManager.languages.length > 0 && (
-                    <p className="text-sm text-muted-foreground mb-2">{t('about.management.languagesLabel')}: {activeManager.languages.join(', ')}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{t('aboutPage.management.languagesLabel')}: {activeManager.languages.join(', ')}</p>
                   )}
                   <p className="text-sm md:text-base text-foreground leading-relaxed">{activeManager.bio}</p>
                 </div>

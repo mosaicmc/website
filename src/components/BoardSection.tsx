@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,7 @@ export function BoardSection({
   title?: string;
   members: BoardMemberCard[];
 }) {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<BoardMemberCard | null>(null);
   const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
@@ -59,11 +61,13 @@ export function BoardSection({
           {members.map((m, idx) => (
             <Card
               key={m.id ?? `${m.name}-${idx}`}
-              className="p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition"
+              className="group relative p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition hover:shadow-ocean/25 hover:scale-[1.01]"
             >
               <CardContent className="p-0">
-                <div className="mx-auto mb-6">
-                  <Avatar className="h-20 w-20 md:h-24 md:w-24 border-4 border-white dark:border-slate-700 shadow-lg">
+                <div className="relative mx-auto mb-6">
+                  <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-16 h-1 rounded-b-full opacity-60 bg-ocean" />
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 h-28 w-28 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition bg-ocean/30" />
+                  <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-white dark:border-slate-700 shadow-lg transition-transform group-hover:scale-105 group-hover:shadow-ocean/40">
                     {m.avatar && (
                       <AvatarImage src={m.avatar} alt={m.name} loading="lazy" decoding="async" />
                     )}
@@ -75,7 +79,7 @@ export function BoardSection({
                 <div className="md:flex-1">
                     <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">{m.name}</h3>
                     {m.role && (
-                      <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 dark:bg-sky/10 dark:text-foreground dark:border-sky/20 px-2.5 py-0.5 text-xs font-semibold mb-2">
+                      <span className="inline-flex items-center rounded-full bg-ocean/10 text-ocean border border-ocean/20 px-2.5 py-0.5 text-xs font-semibold mb-2">
                         {m.role}
                       </span>
                     )}
@@ -104,10 +108,10 @@ export function BoardSection({
                         <div className="flex items-center gap-2 mt-1">
                           <SheetTrigger asChild>
                             <Button
-                              aria-label={`Read bio for ${m.name}`}
+                              aria-label={`${t('common.readBio')} for ${m.name}`}
                               onClick={() => { setSelected(m); setOpen(true); }}
                             >
-                              Read Bio
+                              {t('common.readBio')}
                             </Button>
                           </SheetTrigger>
                           {(() => {
@@ -172,6 +176,7 @@ export function BoardSection({
                     )}
                   </div>
               </CardContent>
+              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition blur-sm bg-ocean" />
             </Card>
           ))}
         </div>
@@ -195,7 +200,7 @@ export function BoardSection({
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
               {selected.role && (<p className="text-muted-foreground mb-1">{selected.role}</p>)}
               {selected.languages && selected.languages.length > 0 && (
-                <p className="text-sm text-muted-foreground mb-2">Languages: {selected.languages.join(", ")}</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
               )}
               {selected.credentialsSummary && (
                 <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>

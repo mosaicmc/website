@@ -6,16 +6,18 @@ import Section from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { UserPlus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ServicesPage = () => {
+  const { t } = useTranslation();
 
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Services | Mosaic Multicultural Connections</title>
+        <title>{t('servicesPage.meta.title')}</title>
         <meta
           name="description"
-          content={AU('Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.')}
+          content={AU(t('servicesPage.meta.description'))}
         />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
@@ -65,28 +67,28 @@ const ServicesPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-gray-700 dark:text-white/90 font-medium">Our Services</span>
+            <span className="text-gray-700 dark:text-white/90 font-medium">{t('servicesPage.hero.badge')}</span>
           </div>
           <h1 className="fluid-h1 text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">
-            {AU('Support to help you build a new life in Australia')}
+            {AU(t('servicesPage.hero.title'))}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-up">
-            {AU('Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.')}
+            {AU(t('servicesPage.hero.description'))}
           </p>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up">
-            {AU('You can seek support for yourself or make a referral for someone you care about. Our team will guide the next steps.')}
+            {AU(t('servicesPage.hero.subtext'))}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up">
             <Button asChild variant="cta" size="lg">
               <a href="https://forms.mosaicmc.org.au/refer" target="_blank" rel="noopener noreferrer">
                 <UserPlus className="h-4 w-4 mr-2" />
-                Make a Referral
+                {t('servicesPage.hero.referral')}
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link to="/contact">
-                Contact Us
+                {t('servicesPage.hero.contact')}
               </Link>
             </Button>
           </div>
@@ -98,7 +100,7 @@ const ServicesPage = () => {
 
       {/* Services List Section */}
       <ServicesList
-        title="Our Comprehensive Services"
+        title={t('servicesPage.list.title')}
       />
       <RelatedServices />
     </div>

@@ -157,14 +157,6 @@ const CommunityEngagementPage = () => {
                   tabIndex={0}
                   aria-expanded={expandedProgramIndex === index}
                   aria-controls={`community-program-${index}-details`}
-                  onMouseEnter={() => setExpandedProgramIndex(index)}
-                  onMouseLeave={() => setExpandedProgramIndex(current => current === index ? null : current)}
-                  onFocus={() => setExpandedProgramIndex(index)}
-                  onBlur={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                      setExpandedProgramIndex(current => current === index ? null : current);
-                    }
-                  }}
                   onClick={() => setExpandedProgramIndex(current => current === index ? null : index)}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
@@ -172,7 +164,7 @@ const CommunityEngagementPage = () => {
                       setExpandedProgramIndex(current => current === index ? null : index);
                     }
                   }}
-                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
+                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden cursor-pointer"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -322,6 +314,7 @@ const CommunityEngagementPage = () => {
 
       
 
+      {/* Impact stories section hidden as per request (videos missing)
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -361,6 +354,7 @@ const CommunityEngagementPage = () => {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

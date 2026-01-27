@@ -151,7 +151,7 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90"
+                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   {submitting ? 'Preparing download…' : 'Submit and download'}
                 </Button>

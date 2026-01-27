@@ -40,7 +40,7 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
         </a>
         .
       </p>
-      <div className="mt-6 flex items-center justify-between">
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <Link
           to="/company/knowledge-base"
           className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-base font-medium shadow-sm hover:shadow-md hover:bg-muted transition-colors text-foreground focus:outline-none focus:ring-2 ring-ocean ring-offset-2 ring-offset-background"
@@ -48,17 +48,19 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
           <ChevronLeft className="h-4 w-4" />
           Back to Knowledge Base
         </Link>
-        <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`}>
-          {(openForm) => (
-            <button
-              type="button"
-              onClick={openForm}
-              className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-            >
-              Download full policy (PDF)
-            </button>
-          )}
-        </DownloadGate>
+        <div className="w-full sm:w-auto flex justify-end">
+          <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`}>
+            {(openForm) => (
+              <button
+                type="button"
+                onClick={openForm}
+                className="inline-flex items-center gap-2 rounded-lg border bg-ocean text-white px-4 py-2 text-sm shadow-sm hover:shadow-md hover:bg-ocean/90 transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+              >
+                Download full policy (PDF)
+              </button>
+            )}
+          </DownloadGate>
+        </div>
       </div>
     </>
   );

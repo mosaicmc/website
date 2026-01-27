@@ -55,8 +55,9 @@ i18n
     
     detection: {
       // Detection options
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
+      lookupQuerystring: 'lng', // ?lng=ar
     },
     
     debug: false, // Set to true for development debugging

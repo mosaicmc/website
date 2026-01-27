@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useTranslation, Trans } from 'react-i18next';
 import RelatedServices from '@/components/RelatedServices';
 import { Phone, AlertTriangle, Flame, CloudLightning, Satellite, Radio, Zap, MapPin } from "lucide-react";
 import { Section } from '@/components/ui/Section';
@@ -9,58 +10,60 @@ import { ExternalLink } from 'lucide-react';
 import BackLink from "../../components/ui/BackLink";
 
 export default function EmergencyTranslationPage() {
+  const { t } = useTranslation();
+
   const emergencyItems = [
     {
-      title: "Life threatening emergencies",
-      desc: "Police, Fire or Ambulance",
-      action: { label: "Call 000", href: "tel:000" },
+      title: t('emergency.items.lifeThreatening.title'),
+      desc: t('emergency.items.lifeThreatening.desc'),
+      action: { label: "000", href: "tel:000" },
       icon: AlertTriangle,
     },
     {
-      title: "Major bushfire incident updates",
-      desc: "NSW Rural Fire Service",
+      title: t('emergency.items.bushfire.title'),
+      desc: t('emergency.items.bushfire.desc'),
       action: { label: "1800 679 737", href: "tel:1800679737" },
       icon: Flame,
     },
     {
-      title: "Floods, storms and tsunamis",
-      desc: "State Emergency Service (SES)",
+      title: t('emergency.items.floods.title'),
+      desc: t('emergency.items.floods.desc'),
       action: { label: "132 500", href: "tel:132500" },
       icon: CloudLightning,
     },
     {
-      title: "NSW SES general enquiries",
-      desc: "Non-emergency / general",
+      title: t('emergency.items.ses.title'),
+      desc: t('emergency.items.ses.desc'),
       action: { label: "138 737", href: "tel:138737" },
       icon: Phone,
     },
     {
-      title: "Power outages / fallen powerlines",
-      desc: "Ausgrid",
+      title: t('emergency.items.power.title'),
+      desc: t('emergency.items.power.desc'),
       action: { label: "13 13 88", href: "tel:131388" },
       icon: Zap,
     },
     {
-      title: "Weather updates and flood warnings",
-      desc: "Bureau of Meteorology",
+      title: t('emergency.items.weather.title'),
+      desc: t('emergency.items.weather.desc'),
       link: { label: "bom.gov.au", href: "https://www.bom.gov.au/" },
       icon: Satellite,
     },
     {
-      title: "Live traffic and road closures",
-      desc: "Live Traffic NSW",
+      title: t('emergency.items.traffic.title'),
+      desc: t('emergency.items.traffic.desc'),
       link: { label: "livetraffic.com", href: "https://www.livetraffic.com/" },
       icon: MapPin,
     },
     {
-      title: "Local emergency information",
-      desc: "Hazards Near Me NSW app",
+      title: t('emergency.items.local.title'),
+      desc: t('emergency.items.local.desc'),
       link: { label: "Download app", href: "https://www.nsw.gov.au/emergencies/near-me" },
       icon: AlertTriangle,
     },
     {
-      title: "Live radio updates",
-      desc: "1233 ABC Newcastle",
+      title: t('emergency.items.radio.title'),
+      desc: t('emergency.items.radio.desc'),
       link: { label: "Listen live", href: "https://www.abc.net.au/newcastle/" },
       icon: Radio,
     },
@@ -79,26 +82,26 @@ export default function EmergencyTranslationPage() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Emergency & Translation Services | Mosaic Multicultural Connections</title>
+        <title>{t('emergency.title')} | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Quick access to emergency contacts and language support. Includes TIS National 131 450 and NSW emergency services links."
+          content={t('emergency.description')}
         />
       </Helmet>
 
       <Section overlay padding="lg" center containerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-10 md:space-y-12">
           <div>
-            <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight text-brand-gradient">Emergency & Translation Services</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl">This page provides essential emergency contacts and language support information.</p>
+            <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight text-brand-gradient">{t('emergency.title')}</h1>
+            <p className="mt-3 text-muted-foreground max-w-2xl">{t('emergency.description')}</p>
           </div>
 
           <Tabs defaultValue="quick" className="space-y-6">
             <TabsList className="mx-auto">
-              <TabsTrigger value="quick">Quick Actions</TabsTrigger>
-              <TabsTrigger value="contacts">Emergency Contacts</TabsTrigger>
-              <TabsTrigger value="language">Language Support</TabsTrigger>
-              <TabsTrigger value="links">Helpful Links</TabsTrigger>
+              <TabsTrigger value="quick">{t('emergency.tabs.quick')}</TabsTrigger>
+              <TabsTrigger value="contacts">{t('emergency.tabs.contacts')}</TabsTrigger>
+              <TabsTrigger value="language">{t('emergency.tabs.language')}</TabsTrigger>
+              <TabsTrigger value="links">{t('emergency.tabs.links')}</TabsTrigger>
             </TabsList>
             <TabsContent value="quick">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-stretch justify-center justify-items-center text-center max-w-[860px] mx-auto">
@@ -118,7 +121,7 @@ export default function EmergencyTranslationPage() {
                     <CardContent className="p-6 flex-1" />
                     <CardHeader className="px-6 pb-6 pt-0">
                       <Button asChild variant="outline" className="h-11 w-full">
-                        <a href="tel:000" aria-label="Call 000 for Police, Fire, Ambulance">
+                        <a href="tel:000" aria-label={t('emergency.aria.call000')}>
                           Call now
                         </a>
                       </Button>
@@ -133,8 +136,8 @@ export default function EmergencyTranslationPage() {
                           <Phone className="h-6 w-6" />
                         </span>
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground">TIS 131 450</h3>
-                          <p className="text-sm text-muted-foreground">Interpreter support</p>
+                          <h3 className="text-lg font-semibold text-foreground">{t('emergency.tis.title')}</h3>
+                          <p className="text-sm text-muted-foreground">{t('emergency.tis.subtitle')}</p>
                         </div>
                       </div>
                     </CardHeader>
@@ -142,11 +145,11 @@ export default function EmergencyTranslationPage() {
                     <CardHeader className="px-6 pb-6 pt-0">
                       <div className="grid grid-cols-1 gap-3">
                         <Button asChild variant="outline" className="h-11 w-full">
-                          <a href="tel:131450" aria-label="Call TIS National 131 450 for interpreters">Call TIS 131 450</a>
+                          <a href="tel:131450" aria-label={t('emergency.aria.callTis')}>{t('emergency.tis.call')}</a>
                         </Button>
                         <Button asChild variant="outline" className="h-11 w-full">
-                          <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label="Open NSW Government emergency information">
-                            NSW Emergency Info
+                          <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label={t('emergency.aria.openNswEmergency')}>
+                            {t('emergency.tis.info')}
                             <ExternalLink className="h-4 w-4 ml-2" />
                           </a>
                         </Button>
@@ -182,13 +185,13 @@ export default function EmergencyTranslationPage() {
                         <CardHeader className="p-6 pt-0">
                           {item.action ? (
                             <Button asChild variant="outline" className="h-11 w-full">
-                              <a href={item.action.href} aria-label={`Call ${displayTitle} on ${item.action.label}`}>
+                              <a href={item.action.href} aria-label={t('emergency.aria.callAction', { title: displayTitle, number: item.action.label })}>
                                 {`Call ${item.action.label}`}
                               </a>
                             </Button>
                           ) : item.link ? (
                             <Button asChild variant="outline" className="h-11 w-full">
-                              <a href={item.link.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${displayTitle}`}>
+                              <a href={item.link.href} target="_blank" rel="noopener noreferrer" aria-label={t('emergency.aria.openAction', { title: displayTitle })}>
                                 {item.link.label}
                                 <ExternalLink className="h-4 w-4 ml-2" />
                               </a>
@@ -205,54 +208,58 @@ export default function EmergencyTranslationPage() {
             <TabsContent value="language">
                   <Card className="glass-surface mt-3 h-full flex flex-col">
               <CardHeader className="p-6">
-                <p className="text-sm text-muted-foreground leading-relaxed">If you need language support, call the Translating & Interpreting Service on <a className="mc-link" href="tel:131450">131 450</a>. Ask for an interpreter and the language you speak.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <Trans i18nKey="emergency.languageSupport.intro">
+                    If you need language support, call the Translating & Interpreting Service on <a className="mc-link" href="tel:131450">131 450</a>. Ask for an interpreter and the language you speak.
+                  </Trans>
+                </p>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-8">
                   <div>
                     <Button asChild className="w-full md:w-auto h-11">
-                      <a href="tel:131450" aria-label="Call Translating and Interpreting Service on 131 450">Call TIS 131 450</a>
+                      <a href="tel:131450" aria-label={t('emergency.aria.callTis')}>{t('emergency.tis.call')}</a>
                     </Button>
                   </div>
                   <div className="space-y-5">
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">When you call emergency services</h3>
-                        <p className="text-sm text-muted-foreground">Tell the operator you need an interpreter. They can connect TIS for you.</p>
+                        <h3 className="text-lg font-semibold text-foreground">{t('emergency.languageSupport.whenCalling')}</h3>
+                        <p className="text-sm text-muted-foreground">{t('emergency.languageSupport.whenCallingDesc')}</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">At hospitals and government services</h3>
-                        <p className="text-sm text-muted-foreground">Staff can arrange an interpreter so you can understand what is happening.</p>
+                        <h3 className="text-lg font-semibold text-foreground">{t('emergency.languageSupport.atHospitals')}</h3>
+                        <p className="text-sm text-muted-foreground">{t('emergency.languageSupport.atHospitalsDesc')}</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-[1fr] items-start gap-3">
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">Before you call</h3>
-                        <p className="text-sm text-muted-foreground">Have your name, location, and phone number ready if you can.</p>
+                        <h3 className="text-lg font-semibold text-foreground">{t('emergency.languageSupport.beforeYouCall')}</h3>
+                        <p className="text-sm text-muted-foreground">{t('emergency.languageSupport.beforeYouCallDesc')}</p>
                       </div>
                     </div>
                   </div>
                   <div>
                     <div className="rounded-lg border border-border bg-sand/40 dark:bg-sand/25 p-5">
-                      <h3 className="text-lg font-semibold text-foreground mb-2">What to say when you call</h3>
-                      <p className="text-base text-foreground">“I need an interpreter for my language. Please connect me to TIS National.”</p>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">{t('emergency.languageSupport.whatToSay')}</h3>
+                      <p className="text-base text-foreground">“{t('emergency.languageSupport.script')}”</p>
                       <div className="mt-3 flex justify-center md:justify-end">
                         <Button
                           variant="secondary"
                           size="sm"
-                          onClick={() => navigator.clipboard.writeText('I need an interpreter for my language. Please connect me to TIS National.')}
-                          aria-label="Copy interpreter request script"
+                          onClick={() => navigator.clipboard.writeText(t('emergency.languageSupport.script'))}
+                          aria-label={t('emergency.aria.copyScript')}
                         >
-                          Copy script
+                          {t('emergency.languageSupport.copyScript')}
                         </Button>
                       </div>
                     </div>
                   </div>
                   <div>
                     <Button asChild variant="outline" className="w-full md:w-auto h-11">
-                      <a href="https://www.tisnational.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Visit TIS National website">Visit TIS National</a>
+                      <a href="https://www.tisnational.gov.au/" target="_blank" rel="noopener noreferrer" aria-label={t('emergency.aria.visitTis')}>{t('emergency.languageSupport.visitTis')}</a>
                     </Button>
                   </div>
                 </div>
@@ -269,8 +276,8 @@ export default function EmergencyTranslationPage() {
                           <Satellite className="h-6 w-6" />
                         </span>
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground">NSW Government — Emergencies</h3>
-                          <p className="text-sm text-muted-foreground">Official emergency information and guidance</p>
+                          <h3 className="text-lg font-semibold text-foreground">{t('emergency.nswEmergencies.title')}</h3>
+                          <p className="text-sm text-muted-foreground">{t('emergency.nswEmergencies.desc')}</p>
                         </div>
                       </div>
                     </CardHeader>
@@ -278,12 +285,12 @@ export default function EmergencyTranslationPage() {
                     <CardHeader className="p-6 pt-0">
                       <Button asChild variant="outline" className="h-11 w-full">
                         <a
-                          href="https://www.nsw.gov.au/emergencies"
+                          href="https://www.nsw.gov.au/emergency"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Open NSW Government emergency information"
+                          aria-label={t('emergency.aria.openNswEmergency')}
                         >
-                          Open
+                          {t('emergency.nswEmergencies.open')}
                           <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
                       </Button>
@@ -295,12 +302,12 @@ export default function EmergencyTranslationPage() {
                   <div className="relative z-10 h-full flex flex-col">
                     <CardHeader className="p-6">
                       <div className="flex items-center gap-4">
-                        <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-3">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-sky text-white p-3">
                           <AlertTriangle className="h-6 w-6" />
                         </span>
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground">Hazards Near Me NSW</h3>
-                          <p className="text-sm text-muted-foreground">Local emergency alerts and updates</p>
+                          <h3 className="text-lg font-semibold text-foreground">{t('emergency.hazardsNearMe.title')}</h3>
+                          <p className="text-sm text-muted-foreground">{t('emergency.hazardsNearMe.desc')}</p>
                         </div>
                       </div>
                     </CardHeader>
@@ -311,9 +318,9 @@ export default function EmergencyTranslationPage() {
                           href="https://www.nsw.gov.au/emergencies/near-me"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Open Hazards Near Me NSW"
+                          aria-label={t('emergency.aria.openHazards')}
                         >
-                          Open
+                          {t('emergency.hazardsNearMe.open')}
                           <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
                       </Button>
@@ -329,8 +336,8 @@ export default function EmergencyTranslationPage() {
                           <MapPin className="h-6 w-6" />
                         </span>
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground">Live Traffic NSW</h3>
-                          <p className="text-sm text-muted-foreground">Road closures and live traffic updates</p>
+                          <h3 className="text-lg font-semibold text-foreground">{t('emergency.liveTraffic.title')}</h3>
+                          <p className="text-sm text-muted-foreground">{t('emergency.liveTraffic.desc')}</p>
                         </div>
                       </div>
                     </CardHeader>
@@ -341,9 +348,9 @@ export default function EmergencyTranslationPage() {
                           href="https://www.livetraffic.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Open Live Traffic NSW"
+                          aria-label={t('emergency.aria.openLiveTraffic')}
                         >
-                          Open
+                          {t('emergency.liveTraffic.open')}
                           <ExternalLink className="h-4 w-4 ml-2" />
                         </a>
                       </Button>
@@ -356,7 +363,7 @@ export default function EmergencyTranslationPage() {
 
 
           <div className="mt-10">
-            <BackLink to="/resources">Back to Resources</BackLink>
+            <BackLink to="/resources">{t('emergency.backToResources')}</BackLink>
           </div>
         </div>
       </Section>

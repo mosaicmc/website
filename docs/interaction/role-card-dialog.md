@@ -10,14 +10,14 @@ Short blurbs are shown on cards. Full blurbs appear in an accessible dialog afte
 
 ## States
 - Default: Card visible; chevron focusable.
-- Hover: Subtle text color change on trigger; card shadow remains minimal.
+- Hover: Subtle text colour change on trigger; card shadow remains minimal.
 - Focus: Visible ring (`focus:ring-2`, `focus:ring-ocean`, `focus:ring-offset-2`).
 - Open: Dialog overlays page with transparent, blurred backdrop; underlying cards remain visually intact.
 - Close: Esc key, overlay click, or X button.
 
 ## Transitions
 - Dialog: 300ms transition on opacity/scale via Tailwind transitions.
-- Micro-interactions: Trigger color hover; CTA hover darken.
+- Micro-interactions: Trigger colour hover; CTA hover darken.
 
 ## Accessibility
 - Trigger: `aria-label="View details"`, `aria-haspopup="dialog"`.
@@ -36,9 +36,9 @@ Short blurbs are shown on cards. Full blurbs appear in an accessible dialog afte
 - Works from mobile to desktop.
 
 ## Developer Specs
-- Trigger classes: `inline-flex justify-center p-2 min-w-[40px] min-h-[40px] rounded focus:ring-2 ...`.
+- Trigger classes: `inline-flex justify-centre p-2 min-w-[40px] min-h-[40px] rounded focus:ring-2 ...`.
 - Overlay classes: `fixed inset-0 z-[60] backdrop-blur-sm`.
-- Content classes: `fixed inset-0 z-[60] flex items-center justify-center p-6` with inner container `rounded-3xl border bg-white/80 dark:bg-white/10 p-6 shadow-2xl`.
+- Content classes: `fixed inset-0 z-[60] flex items-centre justify-centre p-6` with inner container `rounded-3xl border bg-white/80 dark:bg-white/10 p-6 shadow-2xl`.
 - Short blurb: `short(s)` utility trims to ~220 chars with ellipsis.
 - PD link: `href={`/pd/<location>/${toSlug(title)}.pdf`}`.
 

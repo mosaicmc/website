@@ -144,9 +144,9 @@ const Header = () => {
                           target="_blank"
                           rel="noreferrer"
                           className="block px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20"
-                          aria-label="Make a Referral"
+                          aria-label={t('nav.makeReferral')}
                         >
-                          Make a Referral
+                          {t('nav.makeReferral')}
                         </a>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -185,7 +185,7 @@ const Header = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Career
+                    {t('nav.menu.involved.careers.title')}
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -194,11 +194,11 @@ const Header = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Volunteer
+                    {t('nav.menu.involved.volunteer.title')}
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/donate" onClick={handleLinkClick}>Donate</Link>
+                  <Link to="/donate" onClick={handleLinkClick}>{t('nav.donate')}</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -208,7 +208,7 @@ const Header = () => {
                     className="relative inline-flex items-center h-9 px-4 bg-ocean text-white rounded-md font-semibold text-sm transition-all duration-300 hover:bg-ocean/90 hover:shadow-xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     onClick={handleLinkClick}
                   >
-                    <span className="relative z-10">Donate</span>
+                    <span className="relative z-10">{t('nav.donate')}</span>
                   </Link>
           </div>
 
@@ -266,9 +266,9 @@ const Header = () => {
                           target="_blank"
                           rel="noreferrer"
                           className="block px-4 py-2 rounded-lg transition-all duration-300 text-sm text-gray-600 dark:text-gray-400 hover:text-ocean dark:hover:text-sky hover:bg-white/40 dark:hover:bg-slate-800/40"
-                          aria-label="Make a Referral"
+                          aria-label={t('nav.makeReferral')}
                         >
-                          Make a Referral
+                          {t('nav.makeReferral')}
                         </a>
                       </div>
                     </>
@@ -305,7 +305,7 @@ const Header = () => {
                     rel="noreferrer"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Refer
+                    {t('nav.refer')}
                   </a>
                   <a
                     href="https://employmenthero.com/mosaic-mc"
@@ -313,7 +313,7 @@ const Header = () => {
                     rel="noreferrer"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Career
+                    {t('nav.menu.involved.careers.title')}
                   </a>
                   <a
                     href="https://tally.so/r/3qoXjg"
@@ -321,14 +321,14 @@ const Header = () => {
                     rel="noreferrer"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Volunteer
+                    {t('nav.menu.involved.volunteer.title')}
                   </a>
                   <Link
                     to="/donate"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     onClick={handleLinkClick}
                   >
-                    Donate
+                    {t('nav.donate')}
                   </Link>
                 </div>
                 <Link
@@ -336,7 +336,7 @@ const Header = () => {
                   className="block bg-ocean text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:bg-ocean/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   onClick={handleLinkClick}
                 >
-                  Donate
+                  {t('nav.donate')}
                 </Link>
               </div>
             </div>

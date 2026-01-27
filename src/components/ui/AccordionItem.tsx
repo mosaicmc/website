@@ -38,7 +38,7 @@ export function AccordionItem({
       <button
         type="button"
         className={cn(
-          "w-full text-left px-6 py-5 flex items-start justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900",
+          "w-full text-left px-6 py-5 flex items-start justify-between gap-4 focus:outline-none",
           isOpen ? "rounded-t-2xl" : "rounded-2xl"
         )}
         onClick={onToggle}
@@ -47,7 +47,6 @@ export function AccordionItem({
         id={id}
       >
         <div className="flex items-start gap-3">
-          <span className={cn("mt-1 h-2 w-2 rounded-full flex-shrink-0", colors.bg)}></span>
           <span className="text-lg font-semibold text-gray-900 dark:text-white">{question}</span>
         </div>
         <span

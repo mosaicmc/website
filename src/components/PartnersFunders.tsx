@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { GlowingEffect } from './ui/glowing-effect';
+import { useTranslation } from 'react-i18next';
 
 type Partner = {
   name: string;
@@ -11,17 +12,6 @@ type Partner = {
 };
 
 // TODO: Replace favicon placeholders with official SVG/PNG logos before deploy
-const partners: Partner[] = [
-  { name: 'Department of Home Affairs (Cth)', url: 'https://www.homeaffairs.gov.au/', brandColor: 'ocean', short: 'Home Affairs', logo: 'https://www.homeaffairs.gov.au/favicon.ico' },
-  { name: 'NSW Department of Communities and Justice', url: 'https://dcj.nsw.gov.au/', brandColor: 'leaf', short: 'DCJ NSW', logo: 'https://dcj.nsw.gov.au/favicon.ico' },
-  { name: 'Benevolent Society, Communities for Children', url: 'https://www.benevolent.org.au/', brandColor: 'earth', short: 'Benevolent Society', logo: 'https://www.benevolent.org.au/favicon.ico' },
-  { name: 'NSW Office of Responsible Gambling', url: 'https://www.gambleaware.nsw.gov.au/', brandColor: 'sun', short: 'GambleAware NSW', logo: 'https://www.gambleaware.nsw.gov.au/favicon.ico' },
-  { name: 'Waratah Education Foundation', url: 'https://www.warataheducationfoundation.org.au/', brandColor: 'sky', short: 'Waratah Education', logo: 'https://www.warataheducationfoundation.org.au/favicon.ico' },
-  { name: 'Armidale Sanctuary Humanitarian Settlement Inc', url: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/', brandColor: 'leaf', short: 'Armidale Sanctuary', logo: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/favicon.ico' },
-  { name: 'Wright Family', brandColor: 'earth', short: 'Wright Family' },
-  { name: 'Department of Employment and Workplace Relations (Cth)', url: 'https://www.dewr.gov.au/', brandColor: 'ocean', short: 'DEWR', logo: 'https://www.dewr.gov.au/favicon.ico' },
-  { name: 'Department of Health, Disability and Ageing (Cth)', url: 'https://www.health.gov.au/', brandColor: 'care', short: 'Health, Disability & Ageing', logo: 'https://www.health.gov.au/favicon.ico' },
-];
 
 const badgeColor = (color: Partner['brandColor']) => {
   switch (color) {
@@ -43,6 +33,20 @@ const badgeColor = (color: Partner['brandColor']) => {
 };
 
 const PartnersFunders = ({ className }: { className?: string }) => {
+  const { t } = useTranslation();
+
+  const partners: Partner[] = [
+    { name: t('partners.items.homeAffairs'), url: 'https://www.homeaffairs.gov.au/', brandColor: 'ocean', short: 'Home Affairs', logo: 'https://www.homeaffairs.gov.au/favicon.ico' },
+    { name: t('partners.items.dcj'), url: 'https://dcj.nsw.gov.au/', brandColor: 'leaf', short: 'DCJ NSW', logo: 'https://dcj.nsw.gov.au/favicon.ico' },
+    { name: t('partners.items.benevolent'), url: 'https://www.benevolent.org.au/', brandColor: 'earth', short: 'Benevolent Society', logo: 'https://www.benevolent.org.au/favicon.ico' },
+    { name: t('partners.items.gambling'), url: 'https://www.gambleaware.nsw.gov.au/', brandColor: 'sun', short: 'GambleAware NSW', logo: 'https://www.gambleaware.nsw.gov.au/favicon.ico' },
+    { name: t('partners.items.waratah'), url: 'https://www.warataheducationfoundation.org.au/', brandColor: 'sky', short: 'Waratah Education', logo: 'https://www.warataheducationfoundation.org.au/favicon.ico' },
+    { name: t('partners.items.armidale'), url: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/', brandColor: 'leaf', short: 'Armidale Sanctuary', logo: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/favicon.ico' },
+    { name: t('partners.items.wright'), brandColor: 'earth', short: 'Wright Family' },
+    { name: t('partners.items.dewr'), url: 'https://www.dewr.gov.au/', brandColor: 'ocean', short: 'DEWR', logo: 'https://www.dewr.gov.au/favicon.ico' },
+    { name: t('partners.items.health'), url: 'https://www.health.gov.au/', brandColor: 'care', short: 'Health, Disability & Ageing', logo: 'https://www.health.gov.au/favicon.ico' },
+  ];
+
   return (
     <section
       className={cn(
@@ -56,10 +60,10 @@ const PartnersFunders = ({ className }: { className?: string }) => {
         <div className="text-center mb-10">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-4">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse" />
-            <span className="text-muted-foreground">Our Partners & Funders</span>
+            <span className="text-muted-foreground">{t('partners.badge')}</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">With Gratitude</h2>
-          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">We thank our major partners and funders for supporting inclusive, culturally appropriate services across NSW.</p>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{t('partners.title')}</h2>
+          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('partners.description')}</p>
         </div>
 
         <div className="relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-6 sm:p-8 border border-white/40 dark:border-white/20 shadow-2xl">

@@ -1,0 +1,281 @@
+# Translation Audit Report
+Date: 2026-01-20T07:42:04.476Z
+
+## Summary
+Total Keys in Source (EN): 578
+
+### AR (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (346):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 326 more
+
+### ES (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (351):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 331 more
+
+### HI (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (351):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 331 more
+
+### IT (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (409):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 389 more
+
+### KU (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (406):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 386 more
+
+### PS (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (406):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 386 more
+
+### RU (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (407):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 387 more
+
+### TL (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (408):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 388 more
+
+### UK (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (393):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 373 more
+
+### VI (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (357):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 337 more
+
+### ZH (Coverage: 100.0%)
+- ✅ No missing keys.
+- **Identical to English (Potential Untranslated) (352):**
+  - `agedCare.hero.headline`
+  - `agedCare.hero.cta`
+  - `agedCare.sections.programs.badge`
+  - `agedCare.sections.programs.title`
+  - `agedCare.sections.eligibility.title`
+  - `agedCare.sections.how.badge`
+  - `agedCare.sections.how.title`
+  - `agedCare.sections.faq.badge`
+  - `agedCare.sections.faq.title`
+  - `agedCare.sections.faq.subtitle`
+  - `agedCare.programs.sah.title`
+  - `agedCare.programs.sah.description`
+  - `agedCare.programs.sah.fundingNote`
+  - `agedCare.programs.chspIndividual.title`
+  - `agedCare.programs.chspIndividual.description`
+  - `agedCare.programs.chspIndividual.fundingNote`
+  - `agedCare.programs.chspRespite.title`
+  - `agedCare.programs.chspRespite.description`
+  - `agedCare.programs.chspRespite.fundingNote`
+  - `agedCare.programs.acvvs.title`
+  - ... and 332 more
+

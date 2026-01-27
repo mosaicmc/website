@@ -338,6 +338,7 @@ const FamilySupportPage = () => {
 
       
 
+      {/* Impact stories section hidden as per request (videos missing)
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="doc-container">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -377,6 +378,7 @@ const FamilySupportPage = () => {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -10,11 +10,11 @@
 2. **Resources Page (`/resources`)**: "Call 1800" and "Email" buttons.
 
 **Problem:** 
-- **Home Page:** The "Explore Our Services" buttons were using hardcoded Tailwind classes that caused inconsistent hover states (e.g., incorrect text/bg color combinations) and did not align with the global style guide.
-- **Resources Page:** The "Call 1800" button appeared to be retaining old styling (black/gray `bg-primary`) instead of the updated `ocean` brand color.
+- **Home Page:** The "Explore Our Services" buttons were using hardcoded Tailwind classes that caused inconsistent hover states (e.g., incorrect text/bg colour combinations) and did not align with the global style guide.
+- **Resources Page:** The "Call 1800" button appeared to be retaining old styling (black/gray `bg-primary`) instead of the updated `ocean` brand colour.
 
 ## 2. Resolution Strategy
-To ensure consistency across the application, hardcoded styles were replaced with the global `Button` component, which centrally manages brand colors and interaction states.
+To ensure consistency across the application, hardcoded styles were replaced with the global `Button` component, which centrally manages brand colours and interaction states.
 
 ### Changes Implemented
 

@@ -12,63 +12,64 @@ import { Badge } from '@/components/ui/badge';
 import RelatedServices from '@/components/RelatedServices';
 
 const GetInvolvedPage = () => {
+  const { t } = useTranslation();
   const opportunities = [
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Make a Donation",
-      description: AU("Your financial support helps us provide essential services to multicultural communities across NSW."),
+      title: t('getInvolved.opportunities.donate.title'),
+      description: t('getInvolved.opportunities.donate.description'),
       benefits: [
-        "Tax-deductible donations",
-        "Direct impact on families in need",
-        "Regular updates on how funds are used",
-        "Recognition in annual reports"
+        t('getInvolved.opportunities.donate.benefits.0'),
+        t('getInvolved.opportunities.donate.benefits.1'),
+        t('getInvolved.opportunities.donate.benefits.2'),
+        t('getInvolved.opportunities.donate.benefits.3')
       ],
-      action: "Donate Now",
-      link: "https://raisely.com/mosaic-multicultural",
-      external: true,
+      action: t('getInvolved.opportunities.donate.action'),
+      link: "/donate",
+      external: false,
       color: "earth"
     },
       {
         icon: <Users className="h-8 w-8" />,
-        title: "Volunteer With Us",
-        description: AU("Join our team of dedicated volunteers and make a direct difference in people's lives."),
+        title: t('getInvolved.opportunities.volunteer.title'),
+        description: t('getInvolved.opportunities.volunteer.description'),
         benefits: [
-          "Flexible scheduling options",
-          "Comprehensive training provided",
-          "Cultural competency development",
-          "Meaningful community connections"
+          t('getInvolved.opportunities.volunteer.benefits.0'),
+          t('getInvolved.opportunities.volunteer.benefits.1'),
+          t('getInvolved.opportunities.volunteer.benefits.2'),
+          t('getInvolved.opportunities.volunteer.benefits.3')
         ],
-        action: "Volunteer with Us",
+        action: t('getInvolved.opportunities.volunteer.action'),
         link: "#volunteer-with-us-heading",
         external: false,
         color: "sky"
       },
     {
       icon: <Briefcase className="h-8 w-8" />,
-      title: "Join Our Team",
-      description: AU("Build a rewarding career helping multicultural communities while developing your professional skills."),
+      title: t('getInvolved.opportunities.careers.title'),
+      description: t('getInvolved.opportunities.careers.description'),
       benefits: [
-        "Competitive salary packages",
-        "Professional development opportunities",
-        "Supportive team environment",
-        "Work-life balance focus"
+        t('getInvolved.opportunities.careers.benefits.0'),
+        t('getInvolved.opportunities.careers.benefits.1'),
+        t('getInvolved.opportunities.careers.benefits.2'),
+        t('getInvolved.opportunities.careers.benefits.3')
       ],
-      action: "View Careers",
+      action: t('getInvolved.opportunities.careers.action'),
       link: "/company/careers",
       external: false,
       color: "leaf"
     },
     {
       icon: <ClipboardList className="h-8 w-8" />,
-      title: "Make a referral",
-      description: AU("Make a referral for yourself, a loved one, or a client, and our team will connect you to the right services."),
+      title: t('getInvolved.opportunities.referral.title'),
+      description: t('getInvolved.opportunities.referral.description'),
       benefits: [
-        "Easy online referral for individuals, families, or clients",
-        "Respectful, person-centred follow-up",
-        "Services tailored to diverse cultural needs",
-        "Clear communication throughout the referral journey"
+        t('getInvolved.opportunities.referral.benefits.0'),
+        t('getInvolved.opportunities.referral.benefits.1'),
+        t('getInvolved.opportunities.referral.benefits.2'),
+        t('getInvolved.opportunities.referral.benefits.3')
       ],
-      action: "Find Support",
+      action: t('getInvolved.opportunities.referral.action'),
       link: "https://forms.mosaicmc.org.au/refer",
       external: true,
       color: "sun"
@@ -85,7 +86,6 @@ const GetInvolvedPage = () => {
     return colorMap[color as keyof typeof colorMap] || colorMap.sky;
   };
 
-  const { t } = useTranslation();
   const location = useLocation();
 
   const getHeaderHeight = () => {
@@ -251,7 +251,7 @@ const GetInvolvedPage = () => {
           {opportunities.map((opportunity, index) => (
             <Card
               key={index}
-              className="w-full rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="w-full flex flex-col h-full rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <CardHeader className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
                 <div className="flex items-center justify-center space-x-3">
@@ -268,7 +268,7 @@ const GetInvolvedPage = () => {
 
               <CardContent className="text-center p-3">
                 <p className="text-muted-foreground leading-relaxed mb-5">{opportunity.description}</p>
-                <h3 className="text-base font-bold text-foreground mb-3">Benefits & Impact</h3>
+                <h3 className="text-base font-bold text-foreground mb-3">{t('getInvolved.benefitsTitle')}</h3>
                 <ul className="space-y-2 mb-5 text-left">
                   {opportunity.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-center justify-start space-x-2.5">
@@ -279,7 +279,7 @@ const GetInvolvedPage = () => {
                 </ul>
               </CardContent>
 
-              <CardFooter className="px-3 pb-3 justify-center">
+              <CardFooter className="px-3 pb-3 justify-center mt-auto">
                 {opportunity.external ? (
                   <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white">
                     <a

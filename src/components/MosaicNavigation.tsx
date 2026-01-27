@@ -30,57 +30,6 @@ type ServiceNavItem = {
   icon: LucideIcon;
 };
 
-const mainNavigation = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-];
-
-const aboutLinks: { title: string; href: string; description: string; icon: LucideIcon }[] = [
-  {
-    title: "About Mosaic",
-    href: "/about",
-    description: "Learn about our mission, values, board and management.",
-    icon: Home,
-  },
-  {
-    title: "Media & Press",
-    href: "/company/news",
-    description: "External media coverage and articles featuring Mosaic.",
-    icon: Globe,
-  },
-];
-const resourcesLinks: { title: string; href: string; description: string; icon: LucideIcon }[] = [
-  {
-    title: "Emergency & Translation",
-    href: "/resources/emergency-translation",
-    description: "Emergency contacts and interpreter support (NSW compliance)",
-    icon: AlertTriangle,
-  },
-  {
-    title: "Helpful Links",
-    href: "/resources/helpful-links",
-    description: "Legal Aid NSW, interpreter support, emergency info",
-    icon: Globe,
-  },
-  {
-    title: "Knowledge Base",
-    href: "/company/knowledge-base",
-    description: "Organisational policies and governance resources",
-    icon: Book,
-  },
-  {
-    title: "FAQs",
-    href: "/resources/faqs",
-    description: "Common questions across services and access",
-    icon: Book,
-  },
-];
-
-const getInvolvedLinks: { title: string; href?: string; description: string; icon: LucideIcon; external?: string }[] = [
-  { title: "Careers", description: "Explore open roles and work with our team.", icon: Search, href: "/company/careers" },
-  { title: "Volunteer", description: "Participate in community programs across NSW.", icon: Users, external: "https://forms.mosaicmc.org.au/Volunteer_Application" },
-  { title: "Donate", description: "Support our work with a contribution.", icon: Heart, href: "/donate" },
-];
 
 type SearchItem = { path: string; title: string; body: string; tags: string[]; lang?: string };
 let runtimeIndex: SearchItem[] = [];
@@ -249,6 +198,12 @@ export default function MosaicNavigation() {
     return location.pathname === href;
   };
 
+  const mainNavigation = [
+    { title: t('nav.home'), href: "/" },
+    { title: t('nav.about'), href: "/about" },
+    { title: t('nav.contact'), href: "/contact-us" },
+  ];
+
   const services: ServiceNavItem[] = [
     {
       title: t('services.settlement'),
@@ -273,6 +228,69 @@ export default function MosaicNavigation() {
       href: "/services/community-engagement",
       description: t('serviceCards.communityEngagement.description'),
       icon: Globe,
+    },
+  ];
+
+  const aboutLinks = [
+    {
+      title: t('nav.menu.about.mosaic.title'),
+      href: "/about",
+      description: t('nav.menu.about.mosaic.description'),
+      icon: Home,
+    },
+    {
+      title: t('nav.menu.about.media.title'),
+      href: "/company/news",
+      description: t('nav.menu.about.media.description'),
+      icon: Globe,
+    },
+  ];
+
+  const resourcesLinks = [
+    {
+      title: t('nav.menu.resources.emergency.title'),
+      href: "/resources/emergency-translation",
+      description: t('nav.menu.resources.emergency.description'),
+      icon: AlertTriangle,
+    },
+    {
+      title: t('nav.menu.resources.links.title'),
+      href: "/resources/helpful-links",
+      description: t('nav.menu.resources.links.description'),
+      icon: Globe,
+    },
+    {
+      title: t('nav.menu.resources.knowledge.title'),
+      href: "/company/knowledge-base",
+      description: t('nav.menu.resources.knowledge.description'),
+      icon: Book,
+    },
+    {
+      title: t('nav.menu.resources.faqs.title'),
+      href: "/resources/faqs",
+      description: t('nav.menu.resources.faqs.description'),
+      icon: Search,
+    },
+  ];
+
+  const getInvolvedLinks = [
+    {
+      title: t('nav.menu.involved.careers.title'),
+      href: "/company/careers",
+      description: t('nav.menu.involved.careers.description'),
+      icon: UserPlus,
+    },
+    {
+      title: t('nav.menu.involved.volunteer.title'),
+      href: "/get-involved",
+      description: t('nav.menu.involved.volunteer.description'),
+      icon: Users,
+    },
+    {
+      title: t('nav.menu.involved.donate.title'),
+      href: "/donate",
+      description: t('nav.menu.involved.donate.description'),
+      icon: Heart,
     },
   ];
 
@@ -487,13 +505,13 @@ export default function MosaicNavigation() {
       {showCrisisBanner && (
         <div className="bg-red-600 text-white text-center py-2 text-sm font-medium relative z-[120]">
           <div className="max-w-7xl mx-auto px-4 flex items-center justify-center space-x-2 sm:space-x-4">
-            <span className="text-sm">🚨 Crisis and Emergency Services</span>
+            <span className="text-sm">{t('nav.menu.crisis.banner')}</span>
             <Link 
               to="/resources"
               className="inline-flex items-center bg-red-700 hover:bg-red-800 text-white px-3 py-1 rounded-md transition-colors text-sm font-medium"
             >
               <ShieldCheck className="w-3 h-3 mr-1" />
-              View Emergency Services
+              {t('nav.menu.crisis.button')}
             </Link>
             <button
               onClick={handleCloseCrisisBanner}
@@ -557,7 +575,7 @@ export default function MosaicNavigation() {
                       <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
                         <div className="col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                            Core Services
+                            {t('nav.headers.coreServices')}
                           </h6>
                           <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {services.map((service) => (
@@ -575,22 +593,22 @@ export default function MosaicNavigation() {
 
                         <div className="pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                            Quick Links
+                            {t('nav.headers.quickLinks')}
                           </h6>
                           <ul className="mt-2.5 grid gap-3 list-none">
                             <ListItem
-                              title="All Services"
+                              title={t('nav.items.allServices.title')}
                               to="/services"
                               icon={Globe}
                             >
-                              Explore our complete range of multicultural support services
+                              {t('nav.items.allServices.desc')}
                             </ListItem>
                             <ListItem
-                              title="Get Support"
+                              title={t('nav.items.getSupport.title')}
                               to="/contact-us"
                               icon={Phone}
                             >
-                              Contact us for immediate assistance and guidance
+                              {t('nav.items.getSupport.desc')}
                             </ListItem>
                             <li>
                               <a
@@ -607,10 +625,10 @@ export default function MosaicNavigation() {
                               >
                                 <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
                                   <UserPlus className="h-5 w-5" />
-                                  Make a Referral
+                                  {t('nav.items.makeReferral.title')}
                                 </div>
                                 <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                  Secure online referral form for clients, families and individuals
+                                  {t('nav.items.makeReferral.desc')}
                                 </p>
                               </a>
                             </li>
@@ -643,13 +661,13 @@ export default function MosaicNavigation() {
                             prefetchRoute("/company/news");
                           }}
                         >
-                          About
+                          {t('nav.about')}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
                           <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
                             <div className="col-span-2">
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                                About Mosaic
+                                {t('nav.headers.aboutMosaic')}
                               </h6>
                               <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                                 {aboutLinks.map((link) => (
@@ -660,10 +678,10 @@ export default function MosaicNavigation() {
                               </ul>
                             </div>
                             <div className="pl-4">
-                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
+                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">{t('nav.headers.explore')}</h6>
                               <ul className="mt-2.5 grid gap-3 list-none">
-                                <ListItem title="Our Story" to="/about#our-story-heading" icon={Home}>
-                                  Discover our mission, history and leadership
+                                <ListItem title={t('nav.items.ourStory.title')} to="/about#our-story-heading" icon={Home}>
+                                  {t('nav.items.ourStory.desc')}
                                 </ListItem>
                               </ul>
                             </div>
@@ -695,7 +713,7 @@ export default function MosaicNavigation() {
                     <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
                       <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
                         <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Participate</h6>
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">{t('nav.headers.participate')}</h6>
                           <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {getInvolvedLinks.map((gi) => (
                               gi.href ? (
@@ -729,13 +747,13 @@ export default function MosaicNavigation() {
                           </ul>
                         </div>
                         <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">{t('nav.headers.explore')}</h6>
                           <ul className="mt-2.5 grid gap-3 list-none">
-                            <ListItem title="Opportunities" to="/get-involved" icon={Phone}>
-                              Join our Mission
+                            <ListItem title={t('nav.items.opportunities.title')} to="/get-involved" icon={Phone}>
+                              {t('nav.items.opportunities.desc')}
                             </ListItem>
-                            <ListItem title="Contact Us" to="/contact-us" icon={Home}>
-                              Find service locations across New South Wales
+                            <ListItem title={t('nav.items.contactUs.title')} to="/contact-us" icon={Home}>
+                              {t('nav.items.contactUs.desc')}
                             </ListItem>
                           </ul>
                         </div>
@@ -762,11 +780,11 @@ export default function MosaicNavigation() {
                         prefetchRoute('/resources');
                         resourcesLinks.forEach(r => prefetchRoute(r.href));
                       }}
-                    >Resources</NavigationMenuTrigger>
+                    >{t('nav.resources')}</NavigationMenuTrigger>
                     <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
                       <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-border">
                         <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Key Resources</h6>
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">{t('nav.headers.keyResources')}</h6>
                           <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {resourcesLinks.map((res) => (
                               <ListItem key={res.title} title={res.title} to={res.href} icon={res.icon}>
@@ -776,13 +794,13 @@ export default function MosaicNavigation() {
                           </ul>
                         </div>
                         <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Explore</h6>
+                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">{t('nav.headers.explore')}</h6>
                           <ul className="mt-2.5 grid gap-3 list-none">
-                            <ListItem title="All Resources" to="/resources" icon={Globe}>
-                              Browse brochures, annual reports, helpful links, emergency & translation
+                            <ListItem title={t('nav.items.allResources.title')} to="/resources" icon={Globe}>
+                              {t('nav.items.allResources.desc')}
                             </ListItem>
-                            <ListItem title="Contact" to="/contact-us" icon={Phone}>
-                              Reach us for guidance and support
+                            <ListItem title={t('nav.items.contact.title')} to="/contact-us" icon={Phone}>
+                              {t('nav.items.contact.desc')}
                             </ListItem>
                           </ul>
                         </div>
@@ -834,7 +852,7 @@ export default function MosaicNavigation() {
                         const sugg = clientRef.current ? clientRef.current.suggestions(v) : buildSuggestions(v, runtimeIndex);
                         setSuggestions(sugg);
                       }}
-                      placeholder="Search the site (Cmd+K)"
+                      placeholder={t('nav.search.placeholder')}
                       className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     />
                     <button
@@ -871,7 +889,7 @@ export default function MosaicNavigation() {
                   )}
                   {searchQuery.trim() && suggestions.length === 0 && (
                     <div className="mt-2 text-xs text-muted-foreground">
-                      We couldn’t find suggestions in this language. Try English or browse our services.
+                      {t('nav.search.noSuggestions')}
                     </div>
                   )}
                   <div className="mt-2 flex flex-wrap gap-1">
@@ -885,20 +903,20 @@ export default function MosaicNavigation() {
                     })}
                   </div>
                   <div className="mt-2 flex items-center justify-end gap-2">
-                    <span className="text-xs text-muted-foreground">Sort</span>
+                    <span className="text-xs text-muted-foreground">{t('nav.search.sort')}</span>
                     <button
                       type="button"
                       className={cn("text-xs rounded-md px-2 py-1 border", sortMode === 'relevance' ? "bg-ocean text-white border-ocean" : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50")}
                       onClick={() => setSortMode('relevance')}
                     >
-                      Relevance
+                      {t('nav.search.relevance')}
                     </button>
                     <button
                       type="button"
                       className={cn("text-xs rounded-md px-2 py-1 border", sortMode === 'alpha' ? "bg-ocean text-white border-ocean" : "border-border hover:bg-sand/50 dark:hover:bg-slate-800/50")}
                       onClick={() => setSortMode('alpha')}
                     >
-                      A–Z
+                      {t('nav.search.az')}
                     </button>
                   </div>
                   <div className="mt-3 max-h-64 overflow-auto">
@@ -928,7 +946,7 @@ export default function MosaicNavigation() {
                         })()}
                         {!showAll && (clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets)).length === 0 && (
                           <li className="px-2 py-1.5 text-sm text-muted-foreground">
-                            We couldn’t find results in this language.
+                            {t('nav.search.noResults')}
                             <div className="mt-2 flex flex-wrap gap-1">
                               {['Home care','Employment support','Settlement help'].map((s) => (
                                 <button key={s} onClick={() => { setSearchQuery(s); setSuggestions([]); }} className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50">
@@ -938,29 +956,29 @@ export default function MosaicNavigation() {
                             </div>
                             <div className="mt-2">
                               <Link to="/contact-us" className="underline text-foreground" {...prefetchOnHover('/contact-us')} onClick={() => { setIsSearchOpen(false); setShowOverlay(false); }}>
-                                Not sure what you need? Contact us — we’re here to help.
+                                {t('nav.search.contactHelp')}
                               </Link>
                             </div>
                           </li>
                         )}
                       </ul>
                     ) : (
-                      <div className="px-2 py-1.5 text-sm text-muted-foreground">Type to search</div>
+                      <div className="px-2 py-1.5 text-sm text-muted-foreground">{t('nav.search.typeToSearch')}</div>
                     )}
                   </div>
                   <div className="mt-3 flex items-center justify-between">
-                    <div className="text-xs text-muted-foreground">Press Esc to close</div>
+                    <div className="text-xs text-muted-foreground">{t('nav.search.close')}</div>
                     {isOwner && (
                       <button
                         type="button"
                         className="text-xs rounded-md px-2 py-1 border border-border hover:bg-sand/50 dark:hover:bg-slate-800/50"
                         onClick={() => { setTopQueries(getMonthlyTop(undefined, 20)); }}
-                      >View monthly top searches</button>
+                      >{t('nav.search.viewTop')}</button>
                     )}
                   </div>
                   {isOwner && topQueries.length > 0 && (
                     <div className="mt-2 border-t border-border pt-2">
-                      <div className="text-xs font-semibold mb-1">Top searches</div>
+                      <div className="text-xs font-semibold mb-1">{t('nav.search.topSearches')}</div>
                       <ul className="text-xs text-muted-foreground grid grid-cols-2 gap-1">
                         {topQueries.map((x) => (
                           <li key={x.query} className="flex justify-between"><span>{x.query}</span><span>{x.count}</span></li>
@@ -990,7 +1008,7 @@ export default function MosaicNavigation() {
                     asChild
                     className="bg-sun bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold h-9 md:h-10 text-sm px-6 shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    <Link to="/donate" {...prefetchOnHover('/donate')}>Donate</Link>
+                    <Link to="/donate" {...prefetchOnHover('/donate')}>{t('nav.donate')}</Link>
                   </Button>
                 </div>
               )}

@@ -11,6 +11,21 @@ interface Language {
   direction: 'ltr' | 'rtl';
 }
 
+const LANGUAGES: Language[] = [
+  { code: 'en', name: 'English', nativeName: 'English', flag: '🇦🇺', direction: 'ltr' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦', direction: 'rtl' },
+  { code: 'zh', name: 'Chinese', nativeName: '简体中文', flag: '🇨🇳', direction: 'ltr' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸', direction: 'ltr' },
+  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳', direction: 'ltr' },
+  { code: 'it', name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹', direction: 'ltr' },
+  { code: 'ku', name: 'Kurdish', nativeName: 'Kurdî', flag: '🏳️', direction: 'ltr' },
+  { code: 'ps', name: 'Pashto', nativeName: 'پښتو', flag: '🏳️', direction: 'rtl' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺', direction: 'ltr' },
+  { code: 'tl', name: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭', direction: 'ltr' },
+  { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', flag: '🇺🇦', direction: 'ltr' },
+  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳', direction: 'ltr' },
+];
+
 interface LanguageSwitcherProps {
   className?: string;
   showText?: boolean;
@@ -25,180 +40,52 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [languages, setLanguages] = useState<Language[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [rotatingIndex, setRotatingIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const itemRefs = React.useRef<HTMLButtonElement[]>([]);
 
-  const rtlLangs = useMemo(() => new Set(['ar', 'fa', 'he', 'ur', 'ps']), []);
-  const gtToApp = useMemo(
-    () =>
-      ({
-        'zh-CN': 'zh',
-        'zh-TW': 'zh-tw',
-      }) as Record<string, string>,
-    []
-  );
-  const appToGt = useMemo(
-    () =>
-      ({
-        zh: 'zh-CN',
-        'zh-tw': 'zh-TW',
-      }) as Record<string, string>,
-    []
-  );
-  const nativeEndonyms = useMemo(
-    () =>
-      ({
-        ar: 'العربية',
-        zh: '简体中文',
-        'zh-tw': '繁體中文',
-        tl: 'Tagalog',
-        hi: 'हिन्दी',
-        it: 'Italiano',
-        ku: 'Kurdî',
-        ps: 'پښتو',
-        fa: 'فارسی',
-        pt: 'Português',
-        ru: 'Русский',
-        es: 'Español',
-        sw: 'Kiswahili',
-        th: 'ไทย',
-        uk: 'Українська',
-        vi: 'Tiếng Việt',
-      }) as Record<string, string>,
-    []
-  );
-  const flagMap = useMemo(
-    () =>
-      ({
-        ar: '🇸🇦',
-        zh: '🇨🇳',
-        'zh-tw': '🇹🇼',
-        en: '🇦🇺',
-        tl: '🇵🇭',
-        hi: '🇮🇳',
-        it: '🇮🇹',
-        ku: '🏳️',
-        ps: '🏳️',
-        fa: '🇮🇷',
-        pt: '🇵🇹',
-        ru: '🇷🇺',
-        es: '🇪🇸',
-        sw: '🇰🇪',
-        th: '🇹🇭',
-        uk: '🇺🇦',
-        vi: '🇻🇳',
-        sm: '🇼🇸',
-      }) as Record<string, string>,
-    []
-  );
-
-  useEffect(() => {
-    const extract = () => {
-      const hidden = document.querySelector('#google_translate_element_hidden select.goog-te-combo') as HTMLSelectElement | null;
-      const visible = document.querySelector('#google_translate_element select.goog-te-combo') as HTMLSelectElement | null;
-      const select = hidden || visible;
-      if (!select) return;
-      const opts = Array.from(select.options).filter(o => o.value && o.value !== 'auto');
-      const list = opts.map(o => {
-        const gt = o.value;
-        const code = (gtToApp[gt] || gt).toLowerCase();
-        const name = o.text;
-        const direction: 'ltr' | 'rtl' = rtlLangs.has(code) ? 'rtl' : 'ltr';
-        const nativeName = nativeEndonyms[code] || name;
-        const flag = flagMap[code] || '';
-        return { code, name, nativeName, flag, direction } as Language;
-      });
-      setLanguages(list);
-    };
-    extract();
-    const target = document.getElementById('google_translate_element_hidden');
-    if (target) {
-      const obs = new MutationObserver(() => extract());
-      obs.observe(target, { childList: true, subtree: true });
-      return () => obs.disconnect();
-    }
-  }, [rtlLangs, gtToApp, nativeEndonyms, flagMap]);
-
   const currentLanguage = useMemo(() => {
     const code = (i18n.language || 'en').toLowerCase();
-    return (
-      languages.find((l) => l.code === code) || {
-        code,
-        name: code === 'en' ? 'English' : code,
-        nativeName: code === 'en' ? 'English' : code,
-        flag: flagMap[code] || '',
-        direction: rtlLangs.has(code) ? 'rtl' : 'ltr',
-      }
-    );
-  }, [i18n.language, languages, rtlLangs, flagMap]);
+    return LANGUAGES.find((l) => l.code === code) || LANGUAGES[0];
+  }, [i18n.language]);
 
-  const setGoogTransCookie = (targetLang: string) => {
-    const lang = appToGt[targetLang] || targetLang;
-    const cookieVal = `/auto/${lang}`;
-    const hostname = window.location.hostname;
-    const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-    document.cookie = `googtrans=${cookieVal}; expires=${expires}; path=/;`;
-    document.cookie = `googtrans=${cookieVal}; expires=${expires}; domain=.${hostname}; path=/;`;
-  };
-
-  const clearGoogTransCookie = () => {
-    const hostname = window.location.hostname;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=.${hostname}; path=/;`;
-  };
-  
   const changeLanguage = (langCode: string) => {
-    const selectedLang = languages.find(lang => lang.code === langCode) || {
-      code: langCode,
-      direction: rtlLangs.has(langCode) ? 'rtl' : 'ltr',
-    } as Language;
+    const selectedLang = LANGUAGES.find(lang => lang.code === langCode) || LANGUAGES[0];
     i18n.changeLanguage(langCode);
     document.documentElement.dir = selectedLang.direction;
     document.documentElement.lang = langCode;
     localStorage.setItem('preferred-language', langCode);
-    if (langCode === 'en') {
-      clearGoogTransCookie();
-    } else {
-      setGoogTransCookie(langCode);
-    }
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
     setIsOpen(false);
   };
 
   const visibleLanguages = useMemo(() => (
     query
-      ? languages.filter(
+      ? LANGUAGES.filter(
           (l) =>
             l.name.toLowerCase().includes(query.toLowerCase()) ||
             l.nativeName.toLowerCase().includes(query.toLowerCase()) ||
             l.code.toLowerCase().includes(query.toLowerCase())
         )
-      : languages
-  ), [languages, query]);
+      : LANGUAGES
+  ), [query]);
 
   useEffect(() => {
-    if (!languages.length) return;
     const code = (i18n.language || 'en').toLowerCase();
-    const idx = languages.findIndex((l) => l.code === code);
+    const idx = LANGUAGES.findIndex((l) => l.code === code);
     setRotatingIndex(idx >= 0 ? idx : 0);
-  }, [languages, i18n.language]);
+  }, [i18n.language]);
 
   useEffect(() => {
-    if (!languages.length || isOpen) return;
+    if (isOpen) return;
     const id = window.setInterval(() => {
       setRotatingIndex((prev) => {
-        if (!languages.length) return prev;
-        const next = (prev + 1) % languages.length;
+        const next = (prev + 1) % LANGUAGES.length;
         return next;
       });
     }, 3000);
     return () => window.clearInterval(id);
-  }, [languages, isOpen]);
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -251,13 +138,13 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   };
 
   const displayLanguage = useMemo(() => {
-    if (!languages.length) return currentLanguage;
+    if (!LANGUAGES.length) return currentLanguage;
     const boundedIndex = Math.min(
       Math.max(rotatingIndex, 0),
-      languages.length - 1
+      LANGUAGES.length - 1
     );
-    return languages[boundedIndex];
-  }, [languages, rotatingIndex, currentLanguage]);
+    return LANGUAGES[boundedIndex];
+  }, [rotatingIndex, currentLanguage]);
 
   return (
     <div className={cn('relative', className)}>
@@ -315,7 +202,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
               </div>
               
               <div className="max-h-60 overflow-y-auto">
-                {languages.length === 0 ? (
+                {LANGUAGES.length === 0 ? (
                   <div className="px-4 py-3 text-sm text-muted-foreground" aria-live="polite">
                     Loading languages...
                   </div>
@@ -341,7 +228,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                           className="text-base leading-none"
                           aria-hidden="true"
                         >
-                          {language.flag || flagMap[language.code] || '🏳️'}
+                          {language.flag || '🏳️'}
                         </span>
                         <div className="text-sm font-medium text-gray-900 dark:text-white">
                           <span>{language.nativeName}</span>
@@ -363,7 +250,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             {/* Footer */}
             <div className="px-4 py-2 border-t border-gray-200/30 dark:border-slate-700/30 bg-gray-50/50 dark:bg-slate-800/50">
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                {languages.length} languages available
+                {LANGUAGES.length} languages available
               </p>
             </div>
           </div>

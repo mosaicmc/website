@@ -149,16 +149,8 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                       onClick={() => setShowForm(true)}
                     >
                       <FileDown className="h-4 w-4 mr-2" />
-                      Download PDF
+                      Download PD
                     </Button>
-                    <a
-                      href="https://tally.so/r/3qoXjg"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                    >
-                      Apply
-                    </a>
                   </div>
                 )}
                 {showForm && (
@@ -226,26 +218,26 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                         {submitError && (
                           <p className="text-sm text-destructive">{submitError}</p>
                         )}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <Button
-                            type="submit"
-                            disabled={submitting}
-                            className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90"
-                          >
-                            {submitting ? 'Preparing download…' : 'Submit and download'}
-                          </Button>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            className="w-full sm:w-auto"
-                            onClick={() => {
-                              setShowForm(false);
-                              setSubmitError(null);
-                            }}
-                          >
-                            Cancel
-                          </Button>
-                        </div>
+                        <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90"
+                      >
+                        {submitting ? 'Preparing download…' : 'Submit and download'}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full sm:w-auto"
+                        onClick={() => {
+                          setShowForm(false);
+                          setSubmitError(null);
+                        }}
+                      >
+                        Cancel
+                      </Button>
+                    </div>
                       </form>
                     </Form>
                   </div>

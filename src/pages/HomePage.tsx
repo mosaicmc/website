@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import ServiceCards from '../components/ServiceCards';
@@ -8,6 +9,7 @@ import SimpleCTA from '../components/SimpleCTA';
 import GoogleReviews from '../components/GoogleReviews';
 
 const HomePage = () => {
+  const { t } = useTranslation();
 
   useEffect(() => {
     try {
@@ -21,10 +23,10 @@ const HomePage = () => {
   return (
     <div>
       <Helmet>
-        <title>Mosaic Multicultural Connections | Support for NSW Communities</title>
+        <title>{t('home.meta.title')}</title>
         <meta
           name="description"
-          content="Empowering multicultural communities across New South Wales through settlement support, home care, family services, and community engagement."
+          content={t('home.meta.description')}
         />
       </Helmet>
       <Hero />

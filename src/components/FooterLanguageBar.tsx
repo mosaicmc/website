@@ -12,21 +12,16 @@ type Lang = {
 // Inspired by mosaicmc.org.au footer language strip
 // Uses emojis for simplicity (no external assets). Maps to Google Translate via cookies.
 const languages: Lang[] = [
+  { code: 'en', label: 'EN', flag: '🇦🇺', direction: 'ltr' },
   { code: 'ar', label: 'AR', flag: '🇸🇦', direction: 'rtl' },
   { code: 'zh', label: 'ZH', flag: '🇨🇳', direction: 'ltr' },
-  { code: 'zh-tw', label: 'ZH', flag: '🇹🇼', direction: 'ltr' },
-  { code: 'en', label: 'EN', flag: '🇦🇺', direction: 'ltr' },
-  { code: 'tl', label: 'TL', flag: '🇵🇭', direction: 'ltr' },
+  { code: 'es', label: 'ES', flag: '🇪🇸', direction: 'ltr' },
   { code: 'hi', label: 'HI', flag: '🇮🇳', direction: 'ltr' },
   { code: 'it', label: 'IT', flag: '🇮🇹', direction: 'ltr' },
-  { code: 'ru', label: 'RU', flag: '🇷🇺', direction: 'ltr' },
   { code: 'ku', label: 'KU', flag: '🏳️', direction: 'ltr' },
-  { code: 'fa', label: 'FA', flag: '🇮🇷', direction: 'rtl' },
-  { code: 'pt', label: 'PT', flag: '🇵🇹', direction: 'ltr' },
-  { code: 'sm', label: 'SM', flag: '🇼🇸', direction: 'ltr' },
-  { code: 'es', label: 'ES', flag: '🇪🇸', direction: 'ltr' },
-  { code: 'sw', label: 'SW', flag: '🇰🇪', direction: 'ltr' },
-  { code: 'th', label: 'TH', flag: '🇹🇭', direction: 'ltr' },
+  { code: 'ps', label: 'PS', flag: '🏳️', direction: 'rtl' },
+  { code: 'ru', label: 'RU', flag: '🇷🇺', direction: 'ltr' },
+  { code: 'tl', label: 'TL', flag: '🇵🇭', direction: 'ltr' },
   { code: 'uk', label: 'UK', flag: '🇺🇦', direction: 'ltr' },
   { code: 'vi', label: 'VI', flag: '🇻🇳', direction: 'ltr' },
 ];

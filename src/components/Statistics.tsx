@@ -2,42 +2,43 @@ import React, { useState, useEffect, useRef } from 'react';
 import { serviceYearsBase, languagesSpokenBase } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 
-const STATS = [
-  { 
-    number: serviceYearsBase(), 
-    suffix: "+", 
-    label: "Years of Service",
-    description: "Serving communities since 1981",
-    color: "earth"
-  },
-  { 
-    number: 4, 
-    suffix: "", 
-    label: "Office Locations",
-    description: "Across NSW regions",
-    color: "sun"
-  },
-  { 
-    number: 2500, 
-    suffix: "+", 
-    label: "Families Supported",
-    description: "Lives transformed annually",
-    color: "sky"
-  },
-  { 
-    number: languagesSpokenBase(), 
-    suffix: "+", 
-    label: "Languages Spoken",
-    description: "Cultural diversity embraced",
-    color: "leaf"
-  }
-] as const;
-
 const Statistics = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
+  
+  const STATS = [
+    { 
+      number: serviceYearsBase(), 
+      suffix: "+", 
+      label: t('statistics.items.service.label'),
+      description: t('statistics.items.service.description'),
+      color: "earth"
+    },
+    { 
+      number: 4, 
+      suffix: "", 
+      label: t('statistics.items.offices.label'),
+      description: t('statistics.items.offices.description'),
+      color: "sun"
+    },
+    { 
+      number: 2500, 
+      suffix: "+", 
+      label: t('statistics.items.families.label'),
+      description: t('statistics.items.families.description'),
+      color: "sky"
+    },
+    { 
+      number: languagesSpokenBase(), 
+      suffix: "+", 
+      label: t('statistics.items.languages.label'),
+      description: t('statistics.items.languages.description'),
+      color: "leaf"
+    }
+  ] as const;
+
   const [counts, setCounts] = useState(() => STATS.map(() => 0));
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useTranslation();
 
   // Intersection Observer to trigger animation when section comes into view
   useEffect(() => {
