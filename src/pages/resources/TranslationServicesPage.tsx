@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import RelatedServices from '@/components/RelatedServices';
-import { Globe, Phone, Info } from "lucide-react";
+import { Globe, Phone, Info, ExternalLink } from "lucide-react";
 import Section from '@/components/ui/Section';
 
 export default function TranslationServicesPage() {
@@ -10,7 +10,7 @@ export default function TranslationServicesPage() {
         <title>Translation Services | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Access translating and interpreting services, including TIS National (131 450) for language support."
+          content="Translation and interpreting services for multicultural communities. Access TIS National (131 450) and language support resources." 
         />
       </Helmet>
 
@@ -43,9 +43,11 @@ export default function TranslationServicesPage() {
                       href="https://www.tisnational.gov.au/"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="More about TIS National (opens in new tab)"
                       className="inline-flex items-center gap-2 text-primary hover:underline"
                     >
                       More about TIS National
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
                     </a>
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { assetPath } from '@/lib/utils';
-import { AU } from '@/lib/auSpelling';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { Heart, Users, Briefcase, ArrowRight, ExternalLink, ClipboardList, CheckCircle } from 'lucide-react';
@@ -10,65 +9,68 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import RelatedServices from '@/components/RelatedServices';
+import { PageTransition } from '@/components/ui/PageTransition';
 
 const GetInvolvedPage = () => {
+  const { t } = useTranslation();
+  const location = useLocation();
   const opportunities = [
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Make a Donation",
-      description: AU("Your financial support helps us provide essential services to multicultural communities across NSW."),
+      title: t('getInvolved.opportunities.donate.title'),
+      description: t('getInvolved.opportunities.donate.description'),
       benefits: [
-        "Tax-deductible donations",
-        "Direct impact on families in need",
-        "Regular updates on how funds are used",
-        "Recognition in annual reports"
+        t('getInvolved.opportunities.donate.benefits.0'),
+        t('getInvolved.opportunities.donate.benefits.1'),
+        t('getInvolved.opportunities.donate.benefits.2'),
+        t('getInvolved.opportunities.donate.benefits.3')
       ],
-      action: "Donate Now",
-      link: "https://raisely.com/mosaic-multicultural",
-      external: true,
+      action: t('getInvolved.opportunities.donate.action'),
+      link: "/donate",
+      external: false,
       color: "earth"
     },
       {
         icon: <Users className="h-8 w-8" />,
-        title: "Volunteer With Us",
-        description: AU("Join our team of dedicated volunteers and make a direct difference in people's lives."),
+        title: t('getInvolved.opportunities.volunteer.title'),
+        description: t('getInvolved.opportunities.volunteer.description'),
         benefits: [
-          "Flexible scheduling options",
-          "Comprehensive training provided",
-          "Cultural competency development",
-          "Meaningful community connections"
+          t('getInvolved.opportunities.volunteer.benefits.0'),
+          t('getInvolved.opportunities.volunteer.benefits.1'),
+          t('getInvolved.opportunities.volunteer.benefits.2'),
+          t('getInvolved.opportunities.volunteer.benefits.3')
         ],
-        action: "Volunteer with Us",
+        action: t('getInvolved.opportunities.volunteer.action'),
         link: "#volunteer-with-us-heading",
         external: false,
         color: "sky"
       },
     {
       icon: <Briefcase className="h-8 w-8" />,
-      title: "Join Our Team",
-      description: AU("Build a rewarding career helping multicultural communities while developing your professional skills."),
+      title: t('getInvolved.opportunities.careers.title'),
+      description: t('getInvolved.opportunities.careers.description'),
       benefits: [
-        "Competitive salary packages",
-        "Professional development opportunities",
-        "Supportive team environment",
-        "Work-life balance focus"
+        t('getInvolved.opportunities.careers.benefits.0'),
+        t('getInvolved.opportunities.careers.benefits.1'),
+        t('getInvolved.opportunities.careers.benefits.2'),
+        t('getInvolved.opportunities.careers.benefits.3')
       ],
-      action: "View Careers",
+      action: t('getInvolved.opportunities.careers.action'),
       link: "/company/careers",
       external: false,
       color: "leaf"
     },
     {
       icon: <ClipboardList className="h-8 w-8" />,
-      title: "Make a referral",
-      description: AU("Make a referral for yourself, a loved one, or a client, and our team will connect you to the right services."),
+      title: t('getInvolved.opportunities.referral.title'),
+      description: t('getInvolved.opportunities.referral.description'),
       benefits: [
-        "Easy online referral for individuals, families, or clients",
-        "Respectful, person-centred follow-up",
-        "Services tailored to diverse cultural needs",
-        "Clear communication throughout the referral journey"
+        t('getInvolved.opportunities.referral.benefits.0'),
+        t('getInvolved.opportunities.referral.benefits.1'),
+        t('getInvolved.opportunities.referral.benefits.2'),
+        t('getInvolved.opportunities.referral.benefits.3')
       ],
-      action: "Find Support",
+      action: t('getInvolved.opportunities.referral.action'),
       link: "https://forms.mosaicmc.org.au/refer",
       external: true,
       color: "sun"
@@ -84,9 +86,6 @@ const GetInvolvedPage = () => {
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.sky;
   };
-
-  const { t } = useTranslation();
-  const location = useLocation();
 
   const getHeaderHeight = () => {
     const header = document.querySelector('header');
@@ -117,53 +116,53 @@ const GetInvolvedPage = () => {
     image?: string;
   }> = [
     {
-      name: 'Peter Cook',
-      role: 'Employment & Housing Mentor',
-      quote: 'I feel duty bound to help others who haven\'t had such an easy path. I hope my small contribution helps them establish a fulfilled life in Australia.',
-      years: 'Volunteering weekly',
+      name: t('getInvolved.spotlights.0.name'),
+      role: t('getInvolved.spotlights.0.role'),
+      quote: t('getInvolved.spotlights.0.quote'),
+      years: t('getInvolved.spotlights.0.years'),
       image: undefined,
       source: 'https://www.instagram.com/p/DKDrctCRjg6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Gaylia Bigg',
-      role: 'Homework Centre Tutor',
-      quote: 'Working at the homework centre lets me use my teaching skills and make a difference. I enjoy helping recent arrivals and learning about other cultures.',
-      years: 'Volunteer Tutor',
+      name: t('getInvolved.spotlights.1.name'),
+      role: t('getInvolved.spotlights.1.role'),
+      quote: t('getInvolved.spotlights.1.quote'),
+      years: t('getInvolved.spotlights.1.years'),
       source: 'https://www.instagram.com/p/DKBGFPPuQui/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Joop de Wit',
-      role: 'ACVVS Volunteer Visitor',
-      quote: 'The most rewarding aspect of being a volunteer is the connections you build. These connections have created a very large family for me.',
-      years: '42 years with Mosaic',
+      name: t('getInvolved.spotlights.2.name'),
+      role: t('getInvolved.spotlights.2.role'),
+      quote: t('getInvolved.spotlights.2.quote'),
+      years: t('getInvolved.spotlights.2.years'),
       source: 'https://www.instagram.com/p/DJ-hZqSvuRb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Shani Herat Gunarathne',
-      role: 'Homework Centre Tutor',
-      quote: 'I enjoy meeting students and learning about their journeys. I\'m always in awe of their can‑do attitudes and maturity in a tough world.',
-      years: 'Volunteer Tutor',
+      name: t('getInvolved.spotlights.3.name'),
+      role: t('getInvolved.spotlights.3.role'),
+      quote: t('getInvolved.spotlights.3.quote'),
+      years: t('getInvolved.spotlights.3.years'),
       source: 'https://www.instagram.com/p/DJ78YFesQrH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Lizzie',
-      role: 'Citizenship Application Support Volunteer',
-      quote: 'I enjoy helping people navigate a complex process and meeting all the lovely people along the way. Everyone has a responsibility to help where they can.',
-      years: 'Volunteer Support',
+      name: t('getInvolved.spotlights.4.name'),
+      role: t('getInvolved.spotlights.4.role'),
+      quote: t('getInvolved.spotlights.4.quote'),
+      years: t('getInvolved.spotlights.4.years'),
       source: 'https://www.instagram.com/p/DJ5YKCbhTVn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Bill Livingstone',
-      role: 'ACVVS Volunteer Visitor',
-      quote: 'I enjoy seeing recognition and pleasure when I talk about places people remember from their youth. It\'s rewarding to bring comfort through conversation.',
-      years: 'Community Visitor',
+      name: t('getInvolved.spotlights.5.name'),
+      role: t('getInvolved.spotlights.5.role'),
+      quote: t('getInvolved.spotlights.5.quote'),
+      years: t('getInvolved.spotlights.5.years'),
       source: 'https://www.instagram.com/p/DJ2zIbUzoq3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
-      name: 'Dennis Archibald',
-      role: 'Citizenship Test Tutor',
-      quote: 'I want people who are starting fresh to feel welcome in their new country. Supportive volunteering creates meaningful connections and confidence.',
-      years: 'Volunteer Tutor',
+      name: t('getInvolved.spotlights.6.name'),
+      role: t('getInvolved.spotlights.6.role'),
+      quote: t('getInvolved.spotlights.6.quote'),
+      years: t('getInvolved.spotlights.6.years'),
       source: 'https://www.instagram.com/p/DJ0OG5KRnDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     }
   ];
@@ -173,25 +172,24 @@ const GetInvolvedPage = () => {
     return match ? match[1] : null;
   };
 
-  // Static tiles are expected at /spotlights/{shortcode}.png|.jpg. No placeholder fallback.
+  // Static tiles are expected at /spotlights/{shortcode}.webp|.png|.jpg. No placeholder fallback.
 
-  const chosenIndex = Math.floor(Math.random() * spotlights.length);
-  try { console.log('[Spotlight] chosenIndex', chosenIndex); } catch (e) { void e; }
-  const spotlight = spotlights[chosenIndex];
+  const [spotlightIndex] = useState(() => Math.floor(Math.random() * spotlights.length));
+  const spotlight = spotlights[spotlightIndex];
   const [spotlightImage, setSpotlightImage] = useState<string | null>(null);
 
   useEffect(() => {
     const code = getShortcode(spotlight.source);
     if (!code) return;
-    try { console.log('[Spotlight] shortcode', code); } catch (e) { void e; }
     const localCandidates = [
+      assetPath(`/spotlights/${code}.webp`),
       assetPath(`/spotlights/${code}.png`),
       assetPath(`/spotlights/${code}.jpg`),
+      assetPath(`/images/spotlights/${code}.webp`),
       assetPath(`/images/spotlights/${code}.png`),
       assetPath(`/images/spotlights/${code}.jpg`),
     ];
     const initial = localCandidates[0] as string;
-    try { console.log('[Spotlight] image(local)', initial); } catch (e) { void e; }
     setSpotlightImage(initial);
     const cacheKey = `spotlightTile:${code}`;
     const cached = sessionStorage.getItem(cacheKey);
@@ -217,7 +215,6 @@ const GetInvolvedPage = () => {
             const m = html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["'][^>]*>/i);
             if (m && m[1]) {
               setSpotlightImage(m[1]);
-              try { console.log('[Spotlight] image(proxy)', m[1]); } catch (e) { void e; }
               sessionStorage.setItem(cacheKey, m[1]);
             }
           });
@@ -226,10 +223,11 @@ const GetInvolvedPage = () => {
   }, [spotlight.source]);
  
   return (
-    <div className="animate-fade-in">
+    <PageTransition>
+      <div className="animate-fade-in">
       <Helmet>
-        <title>Mosaic Multicultural - Get Involved</title>
-        <meta name="description" content="Donate, volunteer, join our team, or partner with Mosaic Multicultural to support multicultural communities across NSW." />
+        <title>{t('getInvolved.pageTitle')}</title>
+        <meta name="description" content="Get involved with Mosaic — volunteer, donate, partner, or refer clients. Join us in supporting multicultural communities across NSW." />
       </Helmet>
       <Section padding="sm" center>
         <div className="max-w-3xl mx-auto text-center">
@@ -247,11 +245,11 @@ const GetInvolvedPage = () => {
 
       {/* Opportunities Grid */}
       <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-8 text-center">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-8 text-center items-stretch">
           {opportunities.map((opportunity, index) => (
             <Card
               key={index}
-              className="w-full rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="w-full rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
             >
               <CardHeader className={`bg-gradient-to-br ${getColorClasses(opportunity.color)} p-6 border-b border-white/20 dark:border-slate-700/50`}>
                 <div className="flex items-center justify-center space-x-3">
@@ -266,9 +264,9 @@ const GetInvolvedPage = () => {
                 </div>
               </CardHeader>
 
-              <CardContent className="text-center p-3">
+              <CardContent className="text-center p-3 flex-1 flex flex-col">
                 <p className="text-muted-foreground leading-relaxed mb-5">{opportunity.description}</p>
-                <h3 className="text-base font-bold text-foreground mb-3">Benefits & Impact</h3>
+                <h3 className="text-base font-bold text-foreground mb-3">{t('getInvolved.benefitsTitle')}</h3>
                 <ul className="space-y-2 mb-5 text-left">
                   {opportunity.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-center justify-start space-x-2.5">
@@ -279,14 +277,15 @@ const GetInvolvedPage = () => {
                 </ul>
               </CardContent>
 
-              <CardFooter className="px-3 pb-3 justify-center">
+              <CardFooter className="px-3 pb-3 justify-center mt-auto">
                 {opportunity.external ? (
                   <Button asChild size="sm" className="w-full bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white">
                     <a
                       href={opportunity.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group"
+                      aria-label={`${opportunity.action} (opens in new tab)`}
+                      className="group inline-flex items-center"
                     >
                       {opportunity.action}
                       <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -324,38 +323,38 @@ const GetInvolvedPage = () => {
 
       <Section center className="py-4 md:py-6 lg:py-7" containerClassName="max-w-4xl">
         <div id="volunteer-with-us" className="text-center mb-6">
-          <h2 id="volunteer-with-us-heading" className="text-3xl leading-tight font-bold text-foreground scroll-mt-28">Volunteer With Us</h2>
+          <h2 id="volunteer-with-us-heading" className="text-3xl leading-tight font-bold text-foreground scroll-mt-28">{t('getInvolved.volunteerWithUs')}</h2>
           {/* moved helper text into the card below for consistent layout */}
         </div>
         <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6">
-          <p className="text-base text-muted-foreground leading-relaxed mb-3">Why volunteer with us?</p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-3">{t('getInvolved.whyVolunteer')}</p>
           <p className="text-base text-foreground leading-relaxed mb-3">
-            Volunteering with Mosaic is about helping people feel welcomed, supported, and connected through companionship at every stage of life.
+            {t('getInvolved.volunteerDescription')}
           </p>
           <p className="text-base text-foreground leading-relaxed mb-3">
-            Our volunteers support families, young people, and older community members from many cultures through practical help, friendship, and encouragement. Many volunteers say they gain meaningful connections, new perspectives, and a strong sense of belonging in return.
+            {t('getInvolved.volunteerSupportDescription')}
           </p>
           <p className="mt-2 text-base font-bold text-ocean dark:text-sky leading-relaxed mb-4">
-            Is volunteering with Mosaic right for you?
+            {t('getInvolved.isVolunteeringRight')}
           </p>
           <p className="text-base text-foreground leading-relaxed mb-2">
-            You may want to join our mission if you:
+            {t('getInvolved.joinMissionIf')}
           </p>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
               <CheckCircle className="h-5 w-5 text-sky flex-shrink-0" />
-              <span className="text-foreground">Enjoy supporting people from diverse cultural backgrounds</span>
+              <span className="text-foreground">{t('getInvolved.missionChecks.0')}</span>
             </li>
             <li className="flex items-start gap-3">
               <CheckCircle className="h-5 w-5 text-earth flex-shrink-0" />
-              <span className="text-foreground">Can offer time regularly, even a few hours</span>
+              <span className="text-foreground">{t('getInvolved.missionChecks.1')}</span>
             </li>
             <li className="flex items-start gap-3">
               <CheckCircle className="h-5 w-5 text-leaf flex-shrink-0" />
-              <span className="text-foreground">Value empathy, patience, and respect</span>
+              <span className="text-foreground">{t('getInvolved.missionChecks.2')}</span>
             </li>
           </ul>
-          <p className="text-sm text-muted-foreground mt-4">We provide training and ongoing support to help you feel confident in your role.</p>
+          <p className="text-sm text-muted-foreground mt-4">{t('getInvolved.trainingSupport')}</p>
         </div>
       </Section>
 
@@ -372,7 +371,11 @@ const GetInvolvedPage = () => {
                   {spotlightImage ? (
                     <img
                       src={spotlightImage}
-                      alt={`${spotlight.name} Instagram tile`}
+                      alt={t('getInvolved.spotlight.imageAlt', { name: spotlight.name })}
+                      width={128}
+                      height={128}
+                      loading="lazy"
+                      decoding="async"
                       className="w-32 h-32 rounded-full object-cover border-2 border-white dark:border-slate-700"
                       onError={(e) => {
                         const el = e.currentTarget as HTMLImageElement;
@@ -394,8 +397,8 @@ const GetInvolvedPage = () => {
                   "{spotlight.quote}"
                 </blockquote>
                 <div className="mt-4 text-sm">
-                  <a href={spotlight.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:underline">
-                    Source: Instagram
+                  <a href={spotlight.source} target="_blank" rel="noopener noreferrer" aria-label={`${t('getInvolved.spotlight.sourceLabel')} (opens in new tab)`} className="inline-flex items-center text-primary hover:underline">
+                    {t('getInvolved.spotlight.sourceLabel')}
                     <ExternalLink className="ml-1 h-4 w-4" />
                   </a>
                 </div>
@@ -403,15 +406,15 @@ const GetInvolvedPage = () => {
           </div>
 
           <div className="space-y-8 scroll-mt-24 flex flex-col h-full" id="volunteer-opportunities">
-            <h2 className="text-3xl leading-tight font-bold text-foreground">Volunteer Opportunities</h2>
-            <p className="text-sm text-muted-foreground">Opportunities vary by location, choose your nearest area to learn more.</p>
+            <h2 className="text-3xl leading-tight font-bold text-foreground">{t('getInvolved.volunteerOpportunities')}</h2>
+            <p className="text-sm text-muted-foreground">{t('getInvolved.opportunitiesByLocation')}</p>
             <Card className="rounded-lg shadow-sm flex-1">
               <ul className="divide-y divide-border">
                 {[
-                  { name: 'Newcastle', href: '/volunteer/newcastle' },
-                  { name: 'Central Coast', href: '/volunteer/central-coast' },
-                  { name: 'Armidale', href: '/volunteer/armidale' },
-                  { name: 'Tamworth', href: '/volunteer/tamworth' },
+                  { name: t('getInvolved.locations.newcastle'), href: '/volunteer/newcastle' },
+                  { name: t('getInvolved.locations.centralCoast'), href: '/volunteer/central-coast' },
+                  { name: t('getInvolved.locations.armidale'), href: '/volunteer/armidale' },
+                  { name: t('getInvolved.locations.tamworth'), href: '/volunteer/tamworth' },
                 ].map((place) => (
                   <li key={place.href}>
                     <Link
@@ -426,8 +429,8 @@ const GetInvolvedPage = () => {
               </ul>
             </Card>
             <Button asChild className="inline-flex items-center bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-5 py-2.5 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-              <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer">
-                Apply to Volunteer
+              <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer" aria-label={`${t('getInvolved.applyToVolunteer')} (opens in new tab)`}>
+                {t('getInvolved.applyToVolunteer')}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </a>
             </Button>
@@ -437,7 +440,8 @@ const GetInvolvedPage = () => {
 
       
       <RelatedServices />
-    </div>
+      </div>
+    </PageTransition>
   );
 };
 

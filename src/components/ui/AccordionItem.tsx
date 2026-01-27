@@ -31,14 +31,15 @@ export function AccordionItem({
     <div
       className={cn(
         "rounded-2xl overflow-hidden transition-all duration-300 border backdrop-blur-md bg-white/60 dark:bg-white/10",
-        isOpen ? cn(colors.border, "shadow-xl") : "border-white/40 dark:border-white/20",
+        isOpen ? "border-border" : "border-white/40 dark:border-white/20",
         className
       )}
     >
       <button
         type="button"
         className={cn(
-          "w-full text-left px-6 py-5 flex items-start justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900",
+          "w-full text-left px-6 py-5 flex items-start justify-between gap-4 focus:outline-none",
+          "focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-300 focus-visible:outline-offset-2 focus-visible:rounded-lg",
           isOpen ? "rounded-t-2xl" : "rounded-2xl"
         )}
         onClick={onToggle}
@@ -46,10 +47,7 @@ export function AccordionItem({
         aria-controls={panelId}
         id={id}
       >
-        <div className="flex items-start gap-3">
-          <span className={cn("mt-1 h-2 w-2 rounded-full flex-shrink-0", colors.bg)}></span>
-          <span className="text-lg font-semibold text-gray-900 dark:text-white">{question}</span>
-        </div>
+        <span className="text-lg font-semibold text-gray-900 dark:text-white">{question}</span>
         <span
           className={cn(
             "inline-flex items-center justify-center h-8 w-8 rounded-full border transition-colors flex-shrink-0",

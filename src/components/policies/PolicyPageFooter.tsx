@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { DownloadGate } from "@/components/DownloadGate";
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 
 type PolicyKey =
   | "code-of-conduct"
@@ -33,32 +34,35 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
 
   return (
     <>
-      <p className="mt-8 text-xs text-muted-foreground">
+      <p className="mt-8 mb-8 text-sm text-muted-foreground">
         This page summarises Mosaic&apos;s {policyName}. For detailed procedures, please write to{" "}
         <a href="mailto:info@mosaicmc.org.au" className="text-primary hover:underline">
           info@mosaicmc.org.au
         </a>
         .
       </p>
-      <div className="mt-6 flex items-center justify-between">
+      <div className="flex w-full flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
         <Link
           to="/company/knowledge-base"
-          className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-base font-medium shadow-sm hover:shadow-md hover:bg-muted transition-colors text-foreground focus:outline-none focus:ring-2 ring-ocean ring-offset-2 ring-offset-background"
+          className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:bg-muted transition-colors text-foreground focus:outline-none focus:ring-2 ring-ocean ring-offset-2 ring-offset-background"
         >
           <ChevronLeft className="h-4 w-4" />
           Back to Knowledge Base
         </Link>
-        <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`}>
-          {(openForm) => (
-            <button
-              type="button"
-              onClick={openForm}
-              className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-2 text-sm shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-            >
-              Download full policy (PDF)
-            </button>
-          )}
-        </DownloadGate>
+        <div className="sm:ml-auto text-right">
+          <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`}>
+            {(openForm) => (
+              <button
+                type="button"
+                onClick={openForm}
+                className="inline-flex items-center gap-2 rounded-lg bg-ocean px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-ocean/90 transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+              >
+                Download full policy (PDF)
+              </button>
+            )}
+          </DownloadGate>
+          <PDFAccessibilityNotice className="mt-2" />
+        </div>
       </div>
     </>
   );

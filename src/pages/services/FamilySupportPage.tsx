@@ -1,19 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import FAQSchema from '@/components/FAQSchema';
 import { FAQSection } from '@/components/FAQSection';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus, X, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import AnimatedBackground from '../../components/ui/AnimatedBackground';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Button } from '@/components/ui/button';
+import { PageTransition } from '@/components/ui/PageTransition';
+
+type ProgramCard = {
+  title: string;
+  description: string;
+  features: string[];
+  icon: JSX.Element;
+  fundingNote: string;
+};
 
 const FamilySupportPage = () => {
   const { t } = useTranslation();
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
-  const [expandedProgramIndex, setExpandedProgramIndex] = useState<number | null>(null);
+  const [activeProgram, setActiveProgram] = useState<ProgramCard | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const showImpactStories = false;
+
+  useEffect(() => {
+    if (!activeProgram) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveProgram(null);
+    };
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    closeButtonRef.current?.focus();
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [activeProgram]);
 
   const programs = [
     {
@@ -21,7 +49,7 @@ const FamilySupportPage = () => {
       description: t('family.programs.tei.description'),
       features: t('family.programs.tei.features', { returnObjects: true }) as string[],
       fundingNote: t('family.programs.tei.fundingNote'),
-      icon: <Users className="h-8 w-8" />,
+      icon: <Users className="h-6 w-6" />,
       color: "sun"
     },
     {
@@ -29,7 +57,7 @@ const FamilySupportPage = () => {
       description: t('family.programs.paw.description'),
       features: t('family.programs.paw.features', { returnObjects: true }) as string[],
       fundingNote: t('family.programs.paw.fundingNote'),
-      icon: <Heart className="h-8 w-8" />,
+      icon: <Heart className="h-6 w-6" />,
       color: "sun"
     }
   ];
@@ -124,10 +152,11 @@ const FamilySupportPage = () => {
   ];
 
   return (
-    <div className="animate-fade-in">
+    <PageTransition>
+      <div className="animate-fade-in">
       <Helmet>
         <title>Mosaic Multicultural - Family Support</title>
-        <meta name="description" content="Free multicultural family support including CAFS casework and PAW playgroups, with interpreters and culturally safe programs." />
+        <meta name="description" content="Family support programs for multicultural families in NSW. Parenting, youth services, family counseling, and community connections." />
       </Helmet>
       <FAQSchema faqs={faqData} name="Family Support FAQs" />
       
@@ -139,11 +168,14 @@ const FamilySupportPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
-              <Users className="mr-2 h-4 w-4 text-sun" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('services.familySupport')}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leaf-50 text-leaf-text font-medium text-sm mb-6">
+              <Users className="w-4 h-4" />
+              <span>Family Support</span>
             </div>
-            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('family.hero.headline')}</h1>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Strengthening Families, <span className="text-leaf-text">Building Futures</span>
+            </h1>
             <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-3 animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
               {t('family.hero.subheadline')}
             </p>
@@ -165,8 +197,8 @@ const FamilySupportPage = () => {
 
       <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
@@ -177,86 +209,52 @@ const FamilySupportPage = () => {
               <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">{t('family.sections.programs.title')}</h2>
           </div>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+          <div className="max-w-7xl mx-auto grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
             {programs.map((program, index) => (
-              <div 
-                className="mb-6 lg:mb-8 break-inside-avoid" 
+              <div
                 key={index}
+                className="group relative flex h-full min-w-0 flex-row items-start gap-4 backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-5 border border-white/50 dark:border-white/20 shadow-[0_12px_30px_rgba(120,90,60,0.16)] hover:shadow-[0_20px_45px_rgba(252,183,61,0.28)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/80 dark:group-hover:bg-white/15"
               >
-                <div
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={expandedProgramIndex === index}
-                  aria-controls={`family-program-${index}-details`}
-                  onMouseEnter={() => setExpandedProgramIndex(index)}
-                  onMouseLeave={() => setExpandedProgramIndex(current => current === index ? null : current)}
-                  onFocus={() => setExpandedProgramIndex(index)}
-                  onBlur={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                      setExpandedProgramIndex(current => current === index ? null : current);
-                    }
-                  }}
-                  onClick={() => setExpandedProgramIndex(current => current === index ? null : index)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault();
-                      setExpandedProgramIndex(current => current === index ? null : index);
-                    }
-                  }}
-                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center space-x-4 mb-1">
-                      <div className="flex-shrink-0">
-                        <div className={`w-14 h-14 bg-gradient-to-br from-sun to-sun/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-sun/25 transition-all duration-300 group-hover:scale-110`}>
-                          <div className="text-white">
-                            {program.icon}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
-                      </div>
+                <GlowingEffect
+                  spread={30}
+                  glow={true}
+                  disabled={false}
+                  proximity={100}
+                  inactiveZone={0.05}
+                  movementDuration={1.5}
+                  borderWidth={2}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+
+                <div className="relative z-10 flex w-full items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out bg-sun">
+                      <div className="text-white">{program.icon}</div>
                     </div>
-
-                    {expandedProgramIndex === index && (
-                      <div 
-                        id={`family-program-${index}-details`}
-                        className="grid gap-3 pt-3 transition-opacity duration-300 ease-out"
-                      >
-                        <div className="mb-6">
-                          <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
-                        </div>
-
-                        <div className="mb-8">
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <CheckCircle className="h-5 w-5 text-sun mr-2" />
-                            {program.title === t('family.programs.tei.title') 
-                              ? t('family.programs.tei.whatWeProvideLabel')
-                              : t('family.programs.paw.whatWeProvideLabel')}
-                          </h4>
-                          <ul className="space-y-3">
-                            {program.features.map((item, idx) => (
-                              <li key={idx} className="flex items-start space-x-3">
-                                <div className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-600 dark:text-white/80 text-sm">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                          {program.fundingNote}
-                        </p>
-                      </div>
-                    )}
                   </div>
-
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-sun opacity-60"></div>
-                  <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                      {program.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-white/80 mt-1">
+                      {program.description}
+                    </p>
+                    <div className="mt-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-sun transition-colors duration-300 ease-out hover:text-sun/80 whitespace-nowrap"
+                      onClick={() => setActiveProgram(program)}
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                    </Button>
+                    </div>
+                  </div>
                 </div>
+
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 rounded-b-full bg-gradient-to-r from-sun/20 via-sun/40 to-sun/20"></div>
+                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-sun opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-sm"></div>
               </div>
             ))}
           </div>
@@ -294,7 +292,7 @@ const FamilySupportPage = () => {
                 </div>
               </div>
               <div className="mt-8 text-center md:text-left">
-                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+              <p className="text-sm text-gray-600 dark:text-gray-400 italic">
                   {t('family.eligibility.note')}
                 </p>
               </div>
@@ -338,45 +336,48 @@ const FamilySupportPage = () => {
 
       
 
-      <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="doc-container">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-sun font-semibold mb-3">Impact stories</p>
-              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Families finding confidence and connection</h2>
-              <p className="fluid-p text-gray-600 dark:text-white/80 mb-5">{t('family.impact.body')}</p>
-              <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
-                <li className="flex items-start space-x-2">
-                  <span className="text-sun mt-1">•</span>
-                  <span>{t('family.impact.bullets.0')}</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-sun mt-1">•</span>
-                  <span>{t('family.impact.bullets.1')}</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-sun mt-1">•</span>
-                  <span>{t('family.impact.bullets.2')}</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
-                <div className="text-center px-6">
-                  <p className="text-white font-semibold mb-2">{t('family.impact.videoPlaceholderTitle')}</p>
-                  <p className="text-white/80 text-sm mb-4">{t('family.impact.videoPlaceholderSubtitle')}</p>
-                  <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow transition">
-                    <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    {t('family.impact.watchLabel')}
-                  </button>
+      {/* TODO: Unhide when video content is available */}
+      {showImpactStories && (
+        <section className="py-16 bg-slate-50 dark:bg-slate-950">
+          <div className="doc-container">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-sun font-semibold mb-3">Impact stories</p>
+                <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">Families finding confidence and connection</h2>
+                <p className="fluid-p text-gray-600 dark:text-white/80 mb-5">{t('family.impact.body')}</p>
+                <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-sun mt-1">•</span>
+                    <span>{t('family.impact.bullets.0')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-sun mt-1">•</span>
+                    <span>{t('family.impact.bullets.1')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-sun mt-1">•</span>
+                    <span>{t('family.impact.bullets.2')}</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
+                  <div className="text-center px-6">
+                    <p className="text-white font-semibold mb-2">{t('family.impact.videoPlaceholderTitle')}</p>
+                    <p className="text-white/80 text-sm mb-4">{t('family.impact.videoPlaceholderSubtitle')}</p>
+                    <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow transition">
+                      <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {t('family.impact.watchLabel')}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -436,7 +437,7 @@ const FamilySupportPage = () => {
       {/* Contact CTA with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 motion-safe:animate-blob"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
@@ -447,10 +448,12 @@ const FamilySupportPage = () => {
                 href="https://forms.mosaicmc.org.au/refer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-sun hover:bg-sun/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
+                aria-label={`${t('family.cta.referralLabel')} (opens in new tab)`}
+                className="bg-sun hover:bg-sun/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
               >
-                <UserPlus className="h-5 w-5 mr-2" />
+                <UserPlus className="h-5 w-5" />
                 {t('family.cta.referralLabel')}
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
               <Link
                 to="/contact-us"
@@ -465,7 +468,69 @@ const FamilySupportPage = () => {
       </section>
 
       <RelatedServices current="family-support" />
-    </div>
+
+      {activeProgram && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+          role="presentation"
+          onClick={() => setActiveProgram(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="family-program-title"
+            aria-describedby="family-program-desc"
+            className="w-full max-w-2xl rounded-2xl bg-background p-6 shadow-xl max-h-[90vh] overflow-y-auto"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-sun">
+                  <span className="text-white">{activeProgram.icon}</span>
+                </span>
+                <h3 id="family-program-title" className="text-xl font-semibold">
+                  {activeProgram.title}
+                </h3>
+              </div>
+              <Button
+                ref={closeButtonRef}
+                variant="ghost"
+                onClick={() => setActiveProgram(null)}
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+            <p id="family-program-desc" className="mt-4 text-base text-muted-foreground">
+              {activeProgram.description}
+            </p>
+            <div className="mt-4">
+              <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
+                <CheckCircle className="h-5 w-5 text-sun" />
+                {activeProgram.title === t('family.programs.tei.title')
+                  ? t('family.programs.tei.whatWeProvideLabel')
+                  : t('family.programs.paw.whatWeProvideLabel')}
+              </div>
+              <ul className="mt-3 space-y-2 text-base">
+                {activeProgram.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-sun" />
+                    <span className="text-gray-700 dark:text-white/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-4 text-sm italic text-muted-foreground">
+              {activeProgram.fundingNote}
+            </p>
+            <div className="mt-6 flex justify-end">
+              <Button onClick={() => setActiveProgram(null)}>Close</Button>
+            </div>
+          </div>
+        </div>
+      )}
+      </div>
+    </PageTransition>
   );
 };
 

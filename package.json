@@ -20,11 +20,15 @@
     "ingest:testimonials:md": "tsx scripts/ingest-testimonials-from-md.ts",
     "test": "vitest",
     "test:ui": "playwright test",
+    "test:a11y": "playwright test tests/ui/accessibility.spec.ts",
     "test:puppeteer": "node tests/section-order.puppeteer.cjs",
-    "scan:secrets": "node scripts/scan-secrets.cjs"
+    "scan:secrets": "node scripts/scan-secrets.cjs",
+    "i18n:merge": "node scripts/merge_translations.cjs",
+    "i18n:validate": "node scripts/validate_translations.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
@@ -36,9 +40,9 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dompurify": "^3.3.1",
     "framer-motion": "^12.18.1",
     "i18next": "^25.2.1",
-    "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
     "lucide-react": "^0.344.0",
     "motion": "^12.18.1",
@@ -52,8 +56,10 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "@eslint/js": "^9.9.1",
     "@playwright/test": "^1.56.1",
+    "@types/dompurify": "^3.0.5",
     "@types/node": "^20.19.25",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -66,7 +72,9 @@
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
     "jsdom": "^27.2.0",
+    "png-to-ico": "^3.0.1",
     "postcss": "^8.4.35",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
@@ -81,6 +89,6 @@
     "sanitize-html": "^2.17.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.0.0"
   }
 }

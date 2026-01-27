@@ -1,62 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Home, Heart, Users, Handshake, ArrowRight, CheckCircle } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const ServiceCards = () => {
   const { t } = useTranslation();
   const services = [
     {
       icon: <Home className="h-8 w-8" />,
-      title: "Settlement Support",
+      title: t('serviceCards.settlement.title'),
       description: t('serviceCards.settlement.description'),
-      features: [
-        "Housing assistance and navigation",
-        "Employment support and mentoring",
-        "Citizenship preparation and guidance",
-        "Pacific visa pathway support"
-      ],
+      features: t('serviceCards.settlement.features', { returnObjects: true }) as string[],
       link: "/services/settlement-support",
       color: "sky"
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Aged Care Services",
+      title: t('serviceCards.agedCare.title'),
       description: t('serviceCards.agedCare.description'),
-      features: [
-        "Personal care at home",
-        "Companionship and social support",
-        "Cultural activities and outings",
-        "Help navigating home care"
-      ],
+      features: t('serviceCards.agedCare.features', { returnObjects: true }) as string[],
       link: "/services/aged-care",
       color: "care"
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Family Support",
+      title: t('serviceCards.familySupport.title'),
       description: t('serviceCards.familySupport.description'),
-      features: [
-        "One-on-one family counselling",
-        "Parenting skills workshops",
-        "Multicultural playgroups (0-6 years)",
-        "Crisis support and planning"
-      ],
+      features: t('serviceCards.familySupport.features', { returnObjects: true }) as string[],
       link: "/services/family-support",
       color: "sun"
     },
     {
       icon: <Handshake className="h-8 w-8" />,
-      title: "Community Engagement",
+      title: t('serviceCards.communityEngagement.title'),
       description: t('serviceCards.communityEngagement.description'),
-      features: [
-        "Free academic tutoring programmes",
-        "Skill training with recognised certificates",
-        "Critical safety information workshops",
-        "Community connection Groups"
-      ],
+      features: t('serviceCards.communityEngagement.features', { returnObjects: true }) as string[],
       link: "/services/community-engagement",
       color: "leaf"
     }
@@ -66,8 +46,8 @@ const ServiceCards = () => {
     <section className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
       {/* Enhanced glass morphism background with multiple layers - adaptive for light/dark */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl motion-safe:animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl motion-safe:animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -82,22 +62,22 @@ const ServiceCards = () => {
               <div className="sticky top-32">
                 <div className="space-y-6">
                   <div className="inline-block">
-                    <span className="text-sm font-medium text-earth dark:text-earth/90 uppercase tracking-wider">Since 1981</span>
+                    <span className="text-sm font-medium text-earth-text dark:text-earth/90 uppercase tracking-wider">{t('serviceCards.trustedPartner.badge')}</span>
                   </div>
                   
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                    Your{" "}
+                    {t('serviceCards.trustedPartner.titlePrefix')}{" "}
                     <span className="text-brand-gradient">
-                      Trusted
+                      {t('serviceCards.trustedPartner.titleHighlight')}
                     </span>
                     <br />
-                    Partner
+                    {t('serviceCards.trustedPartner.titleSuffix')}
                   </h2>
                   
                   <div className="w-16 h-0.5 bg-gradient-to-r from-sky to-ocean"></div>
                   
                   <p className="text-xl text-gray-600 dark:text-white/70 font-light leading-relaxed">
-                    Building belonging, one family at a time
+                    {t('serviceCards.trustedPartner.subtitle')}
                   </p>
                 </div>
               </div>
@@ -107,25 +87,28 @@ const ServiceCards = () => {
             <div className="lg:col-span-3 stack-vertical">
               <div className="prose prose-lg prose-gray dark:prose-invert max-w-none">
                 <p className="text-xl leading-relaxed text-gray-700 dark:text-white/80 font-light">
-                  Since <strong className="font-semibold text-ocean dark:text-sky/90">1981</strong>, Mosaic Multicultural Connections has been supporting people from migrant and refugee backgrounds throughout every stage of their Australian journey.
+                  <Trans
+                    i18nKey="serviceCards.trustedPartner.intro"
+                    components={{ 1: <strong className="font-semibold text-ocean dark:text-sky/90" /> }}
+                  />
                 </p>
                 
                 <p className="text-lg leading-relaxed text-gray-600 dark:text-white/70">
-                  We understand that building a life in Australia brings both opportunities and challenges - whether you have just arrived or have been here for years, are raising a family, or are caring for elderly loved ones who deserve to live their best possible lives.
+                  {t('serviceCards.trustedPartner.body1')}
                 </p>
                 
                 <div className="border-l-4 border-sky/30 pl-6 my-8">
                   <p className="text-lg leading-relaxed text-gray-700 dark:text-white/80 italic">
-                    Our approach is simple: we meet you where you are, respect your cultural background, and provide professional support that empowers you to achieve your goals.
+                    {t('serviceCards.trustedPartner.quote')}
                   </p>
                 </div>
                 
                 <p className="text-xl leading-relaxed text-gray-800 dark:text-white font-medium">
-                  We are here as your{" "}
+                  {t('serviceCards.trustedPartner.conclusionPrefix')}{" "}
                   <span className="text-brand-gradient font-semibold">
-                    trusted partner
+                    {t('serviceCards.trustedPartner.conclusionHighlight')}
                   </span>{" "}
-                  in creating the connected, confident life you want.
+                  {t('serviceCards.trustedPartner.conclusionSuffix')}
                 </p>
               </div>
               
@@ -133,15 +116,15 @@ const ServiceCards = () => {
               <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200/50 dark:border-white/10">
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
                   <div className="w-2 h-2 bg-sky rounded-full"></div>
-                  <span>Interpreters Available</span>
+                  <span>{t('serviceCards.trustedPartner.trustIndicators.interpreters')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
-                  <span>Culturally Responsive</span>
+                  <span>{t('serviceCards.trustedPartner.trustIndicators.culturallyResponsive')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
                   <div className="w-2 h-2 bg-earth rounded-full"></div>
-                  <span>Community Focused</span>
+                  <span>{t('serviceCards.trustedPartner.trustIndicators.communityFocused')}</span>
                 </div>
               </div>
             </div>
@@ -152,11 +135,11 @@ const ServiceCards = () => {
         <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-gray-700 dark:text-white/90 font-medium">Our Services</span>
+            <span className="text-gray-700 dark:text-white/90 font-medium">{t('serviceCards.sectionBadge')}</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Comprehensive Support Services
+            {t('serviceCards.sectionTitle')}
           </h2>
           <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
             {t('serviceCards.sectionDescription')}
@@ -164,11 +147,11 @@ const ServiceCards = () => {
         </div>
 
         {/* Services Grid with enhanced glass morphism */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15"
+              className="group relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15 flex flex-col h-full"
             >
               {/* GlowingEffect with custom parameters for service cards */}
               <GlowingEffect
@@ -185,8 +168,8 @@ const ServiceCards = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Content with enhanced readability */}
-              <div className="relative z-10">
-                <div className="flex items-start space-x-6">
+              <div className="relative z-10 flex flex-col h-full flex-1">
+                <div className="flex items-start space-x-6 flex-1">
                   <div className="flex-shrink-0">
                     <div className={`flex h-16 w-16 items-center justify-center rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
                       service.color === 'sky' ? 'bg-gradient-to-br from-sky to-sky/80' :
@@ -201,7 +184,7 @@ const ServiceCards = () => {
                     </div>
                   </div>
                   
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 flex flex-col">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       {service.title}
                     </h3>
@@ -209,32 +192,34 @@ const ServiceCards = () => {
                       {service.description}
                     </p>
                     
-                    <ul className="space-y-3 mb-6">
+                    <ul className="space-y-3 mb-6 flex-1">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600 dark:text-white/70">
                           <CheckCircle className={`h-4 w-4 mr-3 flex-shrink-0 ${
-                            service.color === 'sky' ? 'text-sky' :
-                            service.color === 'earth' ? 'text-earth' :
-                            service.color === 'care' ? 'text-care' :
-                            service.color === 'leaf' ? 'text-leaf' :
-                            'text-sun'
+                            service.color === 'sky' ? 'text-sky-text' :
+                            service.color === 'earth' ? 'text-earth-text' :
+                            service.color === 'care' ? 'text-care-text' :
+                            service.color === 'leaf' ? 'text-leaf-text' :
+                            'text-sun-text'
                           }`} />
                           {feature}
                         </li>
                       ))}
                     </ul>
                     
-                    <Button
-                      variant="cta"
-                      asChild
-                      className="inline-flex items-center px-6 py-3 rounded-full bg-ocean text-white font-medium min-w-40 text-[15px] hover:bg-ocean/90 hover:shadow-ocean/25"
-                    >
-                      <Link to={service.link}>
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
                   </div>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    variant="cta"
+                    asChild
+                    className="inline-flex items-center justify-center px-6 py-3 h-11 rounded-full bg-ocean text-white font-medium text-[15px] hover:bg-ocean/90 hover:shadow-ocean/25 min-w-40 w-full sm:w-auto"
+                  >
+                    <Link to={service.link}>
+                      {t('serviceCards.learnMore')}
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
 
@@ -266,7 +251,7 @@ const ServiceCards = () => {
             className="inline-flex items-center justify-center rounded-xl bg-ocean px-8 py-4 text-base font-semibold text-white shadow-xl hover:bg-ocean/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean backdrop-blur-sm"
           >
             <Link to="/services">
-              View All Services
+              {t('serviceCards.viewAll')}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

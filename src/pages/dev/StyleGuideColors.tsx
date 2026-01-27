@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function StyleGuideColors() {
   const swatches = [
@@ -18,6 +19,13 @@ export default function StyleGuideColors() {
   ];
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <Helmet>
+        <title>Style Guide Colors | Mosaic Multicultural Connections</title>
+        <meta
+          name="description"
+          content="Internal style guide for Mosaic color tokens, gradients, and contrast guidance used across the site to keep the UI consistent and accessible."
+        />
+      </Helmet>
       <h1 className="text-3xl font-bold tracking-tight text-foreground">Style Guide — Colors & Tokens</h1>
       <p className="text-muted-foreground mt-2">
         Use semantic tokens for colors across backgrounds, text, borders, rings, and brand accents. Avoid raw hex. Ensure contrast meets WCAG AA.
@@ -102,8 +110,8 @@ export default function StyleGuideColors() {
         <div className="rounded-xl border border-border p-4">
           <h3 className="text-lg font-semibold text-foreground">Focus States — Inputs</h3>
           <div className="mt-4 space-y-3">
-            <input type="text" placeholder="Your name" className="w-full rounded-md border border-border bg-background text-foreground px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background" />
-            <input type="email" placeholder="Email" className="w-full rounded-md border border-border bg-background text-foreground px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background" />
+            <input type="text" aria-label="Your name" placeholder="Your name" className="w-full rounded-md border border-border bg-background text-foreground px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background" />
+            <input type="email" aria-label="Email" placeholder="Email" className="w-full rounded-md border border-border bg-background text-foreground px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background" />
           </div>
           <p className="mt-3 text-xs text-muted-foreground">Inputs should use `border-border` and `focus:ring-2 focus:ring-ring` for accessible focus.</p>
         </div>

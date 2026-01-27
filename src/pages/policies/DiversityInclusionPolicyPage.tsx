@@ -9,7 +9,7 @@ export default function DiversityInclusionPolicyPage() {
         <title>Mosaic Diversity & Inclusion Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Equity, inclusion and cultural safety principles at Mosaic, including responsibilities, reporting and support."
+          content="Mosaic's commitment to diversity and inclusion. Our policies supporting multicultural communities and equal opportunity."
         />
       </Helmet>
 

@@ -1,3 +1,7 @@
+---
+alwaysApply: false
+description: 
+---
 # Design QA Rules
 
 ## Scope

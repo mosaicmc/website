@@ -7,9 +7,13 @@ test.describe('Navigation keyboard focus', () => {
   });
 
   test('Skip to content link appears on focus', async ({ page }) => {
+    // Initial state: link should be hidden (sr-only)
+    // Note: Playwright considers sr-only hidden
     await page.goto('/');
+    
+    // Press tab to focus the skip link (it's the first focusable element)
     await page.keyboard.press('Tab');
-    const skip = page.getByRole('link', { name: 'Skip to content' });
+    const skip = page.getByRole('link', { name: 'Skip to main content' });
     await expect(skip).toBeVisible();
   });
 

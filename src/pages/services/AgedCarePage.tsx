@@ -1,19 +1,80 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FAQSection } from '@/components/FAQSection';
-import { Heart, Phone, ArrowRight, CheckCircle, Users, Home, Clock, ShieldCheck, Megaphone, Scale } from 'lucide-react';
+import { Heart, Phone, ArrowRight, CheckCircle, Users, Home, Clock, ShieldCheck, Megaphone, Scale, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
 import { DownloadGate } from '@/components/DownloadGate';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Button } from '@/components/ui/button';
+import { PageTransition } from '@/components/ui/PageTransition';
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
+
+type ProgramCard = {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+  features: string[];
+  fundingNote?: string;
+};
 
 const AgedCarePage = () => {
   const { t } = useTranslation();
   // FAQ state and data (matching other services pages)
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
-  const [expandedProgramIndex, setExpandedProgramIndex] = useState<number | null>(null);
+  const [activeProgram, setActiveProgram] = useState<ProgramCard | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
+  const showImpactStories = false;
+
+  useEffect(() => {
+    if (!activeProgram) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveProgram(null);
+        return;
+      }
+      if (event.key === 'Tab') {
+        const container = dialogRef.current;
+        if (!container) return;
+        const focusable = Array.from(
+          container.querySelectorAll<HTMLElement>(
+            'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true' && el.offsetParent !== null);
+        if (focusable.length === 0) {
+          event.preventDefault();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+        if (event.shiftKey) {
+          if (!active || active === first || !container.contains(active)) {
+            event.preventDefault();
+            last.focus();
+          }
+        } else if (active === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    lastFocusedRef.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = originalOverflow;
+      lastFocusedRef.current?.focus();
+    };
+  }, [activeProgram]);
 
   const teamMembers = [
     {
@@ -138,6 +199,7 @@ const AgedCarePage = () => {
                 </DownloadGate>
               </li>
             </ul>
+            <PDFAccessibilityNotice className="mt-3" />
         </div>
       ),
       schemaAnswer: `${t('agedCare.faq.pricingAnswerIntro')} ${t('agedCare.faq.pricingLinkSah')} ${t('agedCare.faq.pricingLinkChsp')}`,
@@ -145,10 +207,11 @@ const AgedCarePage = () => {
   ];
 
   return (
-    <div className="animate-fade-in">
+    <PageTransition>
+      <div className="animate-fade-in">
       <Helmet>
         <title>Mosaic Multicultural - Aged Care Services</title>
-        <meta name="description" content="Culturally appropriate home care with multilingual staff, home care packages, and family support across NSW." />
+        <meta name="description" content="Culturally appropriate aged care and home care services for multicultural seniors. NDIS and Home Care Package provider in NSW." />
       </Helmet>
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         {/* Animated background elements */}
@@ -156,16 +219,19 @@ const AgedCarePage = () => {
         {/* Accent tint overlay to align with care */}
         <div className="absolute inset-0 bg-care/10 dark:bg-care/15 mix-blend-multiply pointer-events-none"></div>
         
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl dark:bg-blue-500/20 animate-blob"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob-delayed"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl dark:bg-blue-500/20 motion-safe:animate-blob"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 motion-safe:animate-blob-delayed"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in-down">
-              <Heart className="mr-2 h-4 w-4 text-care" />
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('services.agedCare')}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-earth-50 text-earth-text font-medium text-sm mb-6">
+              <Heart className="w-4 h-4" />
+              <span>Aged Care Services</span>
             </div>
-            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('agedCare.hero.headline')}</h1>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Dignified Care for Your <span className="text-earth-text">Golden Years</span>
+            </h1>
             <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
               {t('agedCare.hero.subheadline')}
             </p>
@@ -191,7 +257,7 @@ const AgedCarePage = () => {
       {/* Programs Showcase with enhanced animations */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-6">
@@ -202,126 +268,93 @@ const AgedCarePage = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">{t('agedCare.sections.programs.title')}</h2>
 
-          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
-            {[
+           <div className="max-w-7xl mx-auto grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
+            {([
               {
                 title: t('agedCare.programs.sah.title'),
                 description: t('agedCare.programs.sah.description'),
-                icon: <Home className="h-8 w-8" />,
+                icon: <Home className="h-6 w-6" />,
                 features: t('agedCare.programs.sah.features', { returnObjects: true }) as string[],
                 fundingNote: t('agedCare.programs.sah.fundingNote'),
               },
               {
                 title: t('agedCare.programs.chspIndividual.title'),
                 description: t('agedCare.programs.chspIndividual.description'),
-                icon: <Users className="h-8 w-8" />,
+                icon: <Users className="h-6 w-6" />,
                 features: t('agedCare.programs.chspIndividual.features', { returnObjects: true }) as string[],
                 fundingNote: t('agedCare.programs.chspIndividual.fundingNote'),
               },
               {
                 title: t('agedCare.programs.chspRespite.title'),
                 description: t('agedCare.programs.chspRespite.description'),
-                icon: <Clock className="h-8 w-8" />,
+                icon: <Clock className="h-6 w-6" />,
                 features: t('agedCare.programs.chspRespite.features', { returnObjects: true }) as string[],
                 fundingNote: t('agedCare.programs.chspRespite.fundingNote'),
               },
               {
                 title: t('agedCare.programs.acvvs.title'),
                 description: t('agedCare.programs.acvvs.description'),
-                icon: <Users className="h-8 w-8" />,
+                icon: <Users className="h-6 w-6" />,
                 features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as string[],
                 fundingNote: t('agedCare.programs.acvvs.fundingNote'),
               }
-            ].map((program, index) => (
-              <div 
-                className="mb-6 lg:mb-8 break-inside-avoid" 
+            ] as ProgramCard[]).map((program, index) => (
+              <div
                 key={index}
+                className="group relative flex h-full min-w-0 flex-row items-start gap-4 backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-5 border border-white/50 dark:border-white/20 shadow-[0_12px_30px_rgba(120,90,60,0.16)] hover:shadow-[0_20px_45px_rgba(241,107,131,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/80 dark:group-hover:bg-white/15"
               >
-                <div
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={expandedProgramIndex === index}
-                  aria-controls={`aged-program-${index}-details`}
-                  onMouseEnter={() => setExpandedProgramIndex(index)}
-                  onMouseLeave={() => setExpandedProgramIndex(current => current === index ? null : current)}
-                  onFocus={() => setExpandedProgramIndex(index)}
-                  onBlur={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                      setExpandedProgramIndex(current => current === index ? null : current);
-                    }
-                  }}
-                  onClick={() => setExpandedProgramIndex(current => current === index ? null : index)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault();
-                      setExpandedProgramIndex(current => current === index ? null : index);
-                    }
-                  }}
-                  className="group relative flex flex-col w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl hover:bg-white/80 dark:hover:bg-white/15 transition-shadow transition-colors duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-care focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-fade-in-up overflow-hidden"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center space-x-4 mb-1">
-                      <div className="flex-shrink-0">
-                        <div className="w-14 h-14 bg-care rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-care/25 transition-all duration-300 group-hover:scale-110">
-                          <div className="text-white">
-                            {program.title === t('agedCare.programs.acvvs.title') ? (
-                              <img
-                                src={assetPath("/images/ACVVS_logo.svg")}
-                                alt="ACVVS logo"
-                                className="block h-8 w-8 object-contain object-center brightness-0 invert"
-                                loading="lazy"
-                                decoding="async"
-                              />
-                            ) : (
-                              program.icon
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{program.title}</h3>
-                      </div>
-                    </div>
+                <GlowingEffect
+                  spread={30}
+                  glow={true}
+                  disabled={false}
+                  proximity={100}
+                  inactiveZone={0.05}
+                  movementDuration={1.5}
+                  borderWidth={2}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
 
-                    {expandedProgramIndex === index && (
-                      <div 
-                        id={`aged-program-${index}-details`}
-                        className="grid gap-3 pt-3 transition-opacity duration-300 ease-out"
-                      >
-                        <div className="mb-6">
-                          <p className="text-gray-600 dark:text-white/80 leading-relaxed">{program.description}</p>
-                        </div>
-
-                        <div className="mb-8">
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <CheckCircle className="h-5 w-5 text-care mr-2" />
-                            {t('agedCare.programs.whatWeProvideLabel', 'What we provide')}
-                          </h4>
-                          <ul className="space-y-3">
-                            {Array.isArray(program.features) && program.features.map((f, i) => (
-                              <li key={i} className="flex items-start space-x-3">
-                                <div className="w-2 h-2 rounded-full bg-care mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-600 dark:text-white/80 text-sm">{f}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        {program.fundingNote && (
-                          <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                            {program.fundingNote}
-                          </p>
+                <div className="relative z-10 flex w-full items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out bg-care">
+                      <div className="text-white">
+                        {program.title === t('agedCare.programs.acvvs.title') ? (
+                          <img
+                            src={assetPath("/images/ACVVS_logo.svg")}
+                            alt="ACVVS logo"
+                            className="block h-6 w-6 object-contain object-center brightness-0 invert"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          program.icon
                         )}
                       </div>
-                    )}
+                    </div>
                   </div>
-
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 rounded-b-full bg-care opacity-60"></div>
-                  <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-care opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                      {program.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-white/80 mt-1">
+                      {program.description}
+                    </p>
+                    <div className="mt-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-care transition-colors duration-300 ease-out hover:text-care/80 whitespace-nowrap"
+                      onClick={() => setActiveProgram(program)}
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                    </Button>
+                    </div>
+                  </div>
                 </div>
+
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 rounded-b-full bg-gradient-to-r from-care/20 via-care/40 to-care/20"></div>
+                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-care opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-sm"></div>
               </div>
             ))}
             </div>
@@ -355,8 +388,8 @@ const AgedCarePage = () => {
               </div>
               <div className="rounded-xl overflow-hidden bg-card/70 border border-border">
                 <div className="aspect-video">
-                  <img
-                    src={assetPath("/images/aged-care/eligibility.png")}
+                    <img
+                      src={assetPath("/images/aged-care/eligibility.webp")}
                     alt="Multicultural home care support"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="lazy"
@@ -412,45 +445,48 @@ const AgedCarePage = () => {
       </section>
 
 
-      <section className="py-16 bg-slate-50 dark:bg-slate-950">
-        <div className="doc-container">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">{t('agedCare.impact.badge')}</p>
-              <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('agedCare.impact.title')}</h2>
-              <p className="fluid-p text-gray-700 dark:text-gray-100 mb-5">{t('agedCare.impact.body')}</p>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-100 text-sm">
-                <li className="flex items-start space-x-2">
-                  <span className="text-care mt-1">•</span>
-                  <span>{t('agedCare.impact.bullets.0')}</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-care mt-1">•</span>
-                  <span>{t('agedCare.impact.bullets.1')}</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-care mt-1">•</span>
-                  <span>{t('agedCare.impact.bullets.2')}</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
-                <div className="text-center px-6">
-                  <p className="text-white font-semibold mb-2">{t('agedCare.impact.videoPlaceholderTitle')}</p>
-                  <p className="text-white/80 text-sm mb-4">{t('agedCare.impact.videoPlaceholderSubtitle')}</p>
-                  <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow transition">
-                    <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    {t('agedCare.impact.watchLabel')}
-                  </button>
+      {/* TODO: Unhide when video content is available */}
+      {showImpactStories && (
+        <section className="py-16 bg-slate-50 dark:bg-slate-950">
+          <div className="doc-container">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-care font-semibold mb-3">{t('agedCare.impact.badge')}</p>
+                <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('agedCare.impact.title')}</h2>
+                <p className="fluid-p text-gray-700 dark:text-gray-100 mb-5">{t('agedCare.impact.body')}</p>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-100 text-sm">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-care mt-1">•</span>
+                    <span>{t('agedCare.impact.bullets.0')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-care mt-1">•</span>
+                    <span>{t('agedCare.impact.bullets.1')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-care mt-1">•</span>
+                    <span>{t('agedCare.impact.bullets.2')}</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
+                  <div className="text-center px-6">
+                    <p className="text-white font-semibold mb-2">{t('agedCare.impact.videoPlaceholderTitle')}</p>
+                    <p className="text-white/80 text-sm mb-4">{t('agedCare.impact.videoPlaceholderSubtitle')}</p>
+                    <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow transition">
+                      <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {t('agedCare.impact.watchLabel')}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Team Section */}
       <section className="py-16 bg-slate-50 dark:bg-slate-950">
@@ -506,7 +542,7 @@ const AgedCarePage = () => {
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
         <div className="absolute inset-0 bg-care/10 dark:bg-care/15 mix-blend-multiply pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 animate-blob"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 motion-safe:animate-blob"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group animate-fade-in-up">
@@ -533,7 +569,82 @@ const AgedCarePage = () => {
       </section>
 
       <RelatedServices current="aged-care" />
-    </div>
+
+      {activeProgram && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+          role="presentation"
+          onClick={() => setActiveProgram(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="aged-program-title"
+            aria-describedby="aged-program-desc"
+            className="w-full max-w-2xl rounded-2xl bg-background p-6 shadow-xl max-h-[90vh] overflow-y-auto"
+            onClick={(event) => event.stopPropagation()}
+            ref={dialogRef}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-care">
+                  <span className="text-white">
+                    {activeProgram.title === t('agedCare.programs.acvvs.title') ? (
+                      <img
+                        src={assetPath("/images/ACVVS_logo.svg")}
+                        alt="ACVVS logo"
+                        className="block h-6 w-6 object-contain object-center brightness-0 invert"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      activeProgram.icon
+                    )}
+                  </span>
+                </span>
+                <h3 id="aged-program-title" className="text-xl font-semibold">
+                  {activeProgram.title}
+                </h3>
+              </div>
+              <Button
+                ref={closeButtonRef}
+                variant="ghost"
+                onClick={() => setActiveProgram(null)}
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+            <p id="aged-program-desc" className="mt-4 text-base text-muted-foreground">
+              {activeProgram.description}
+            </p>
+            <div className="mt-4">
+              <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
+                <CheckCircle className="h-5 w-5 text-care" />
+                {t('agedCare.programs.whatWeProvideLabel', 'What we provide')}
+              </div>
+              <ul className="mt-3 space-y-2 text-base">
+                {activeProgram.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-care" />
+                    <span className="text-gray-700 dark:text-white/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {activeProgram.fundingNote && (
+              <p className="mt-4 text-sm italic text-muted-foreground">
+                {activeProgram.fundingNote}
+              </p>
+            )}
+            <div className="mt-6 flex justify-end">
+              <Button onClick={() => setActiveProgram(null)}>Close</Button>
+            </div>
+          </div>
+        </div>
+      )}
+      </div>
+    </PageTransition>
   );
 };
 

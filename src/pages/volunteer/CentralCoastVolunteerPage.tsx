@@ -3,11 +3,12 @@ import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { ChevronRight, FileDown, X } from 'lucide-react';
+import { ChevronRight, FileDown, X, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { assetPath } from '@/lib/utils';
 import { DownloadGate } from '@/components/DownloadGate';
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 
 export default function CentralCoastVolunteerPage() {
   const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -32,10 +33,10 @@ export default function CentralCoastVolunteerPage() {
     <div className="animate-fade-in">
       <Helmet>
         <title>Volunteer on the Central Coast | Mosaic Multicultural Connections</title>
-        <meta
-          name="description"
-          content="Volunteer opportunities on the Central Coast: settlement support, tutoring, ACVVS visitor, citizenship assistance and community events."
-        />
+          <meta
+            name="description"
+            content="Volunteer on the Central Coast with Mosaic. Make a difference supporting multicultural communities. Flexible roles available."
+          />
       </Helmet>
 
       <Section overlay center padding="lg">
@@ -88,7 +89,7 @@ export default function CentralCoastVolunteerPage() {
                           <div className="flex items-start justify-between">
                             <div className="font-semibold text-foreground">{r.title}</div>
                             <Dialog.Root>
-                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative">
+                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[44px] min-h-[44px] z-30 relative">
                                 <ChevronRight className="h-4 w-4" />
                               </Dialog.Trigger>
                               <Dialog.Portal>
@@ -114,15 +115,8 @@ export default function CentralCoastVolunteerPage() {
                                           </button>
                                         )}
                                       </DownloadGate>
-                                      <a
-                                        href="https://tally.so/r/3qoXjg"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                                      >
-                                        Apply
-                                      </a>
                                     </div>
+                                    <PDFAccessibilityNotice className="mt-2" />
                                     <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
                                       <X className="h-4 w-4 text-muted-foreground" />
                                     </Dialog.Close>
@@ -143,12 +137,14 @@ export default function CentralCoastVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://tally.so/r/3qoXjg"
+            href="https://forms.mosaicmc.org.au/Volunteer_Application"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            aria-label="Apply to Volunteer (opens in new tab)"
+            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
           >
             Apply to Volunteer
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
           <Link
             to="/get-involved"

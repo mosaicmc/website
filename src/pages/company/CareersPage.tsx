@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Section } from '@/components/ui/Section';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useEmploymentHeroJobs } from '@/hooks/useEmploymentHeroJobs';
 import { useEmploymentHeroMetadata } from '@/hooks/useEmploymentHeroMetadata';
@@ -23,7 +24,7 @@ const CareersPage = () => {
     <div className="animate-fade-in">
       <Helmet>
         <title>Careers | Mosaic Multicultural Connections</title>
-        <meta name="description" content="Explore open roles at Mosaic Multicultural Connections and apply online." />
+        <meta name="description" content="Careers at Mosaic Multicultural Connections. Join our team supporting multicultural communities across NSW." />
       </Helmet>
 
       <Section padding="sm" center>
@@ -87,8 +88,9 @@ const CareersPage = () => {
                 <CardFooter className="p-4">
                   {job.application_url ? (
                     <Button asChild className="bg-ocean text-white">
-                      <a href={job.application_url} target="_blank" rel="noopener noreferrer">
+                      <a href={job.application_url} target="_blank" rel="noopener noreferrer" aria-label="Apply now (opens in new tab)" className="inline-flex items-center gap-2">
                         Apply now
+                        <ExternalLink className="h-4 w-4" aria-hidden="true" />
                       </a>
                     </Button>
                   ) : (

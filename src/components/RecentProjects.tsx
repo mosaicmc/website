@@ -31,10 +31,18 @@ const RecentProjects = () => {
           </div>
           
           <div className="hidden md:flex space-x-4">
-            <button className="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+            <button
+              type="button"
+              aria-label="Previous projects"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+            >
               <ArrowRight className="h-5 w-5 rotate-180" />
             </button>
-            <button className="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+            <button
+              type="button"
+              aria-label="Next projects"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+            >
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
@@ -50,6 +58,8 @@ const RecentProjects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full">
@@ -58,7 +68,7 @@ const RecentProjects = () => {
               </div>
               
               <div className="p-8">
-                <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-1" />
                     {project.location}

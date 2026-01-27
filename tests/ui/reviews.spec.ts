@@ -9,6 +9,7 @@ test.describe('GoogleReviews UI', () => {
   test('renders featured reviews from mock data', async ({ page }) => {
     await page.goto('/');
     const section = page.getByRole('region', { name: 'Google Reviews' });
+    await section.scrollIntoViewIfNeeded();
     await expect(section).toBeVisible();
 
     // Verify cards are rendered from mock data

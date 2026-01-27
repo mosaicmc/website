@@ -54,12 +54,12 @@ export const Timeline = ({
     >
       {/* Glass morphism background */}
       <div className="absolute inset-0 bg-gradient-to-br from-sand/30 via-transparent to-ocean/20 dark:from-slate-900/50 dark:to-ocean/30"></div>
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky/20 dark:bg-sky/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky/20 dark:bg-sky/10 rounded-full blur-3xl motion-safe:animate-pulse-slow"></div>
       
       <div className="max-w-7xl mx-auto section-spacing px-4 md:px-8 lg:px-10 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
-            <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
+            <span className="mr-2 h-2 w-2 rounded-full bg-earth motion-safe:animate-pulse"></span>
             <span className="text-gray-700 dark:text-white/90 font-medium">{badgeLabel}</span>
           </div>
           <h2 className="text-4xl md:text-5xl mb-4 font-bold text-gray-900 dark:text-white max-w-4xl mx-auto">

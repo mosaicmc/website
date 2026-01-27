@@ -12,15 +12,15 @@ const CallToAction = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-ocean/80 via-sky/70 to-ocean/80 dark:from-slate-900/90 dark:via-slate-800/80 dark:to-slate-900/90"></div>
       
       {/* Animated background elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse-slow"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl motion-safe:animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl motion-safe:animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/20 border border-white/30 px-6 py-2 text-sm shadow-lg mb-8">
-            <span className="mr-2 h-2 w-2 rounded-full bg-white animate-pulse"></span>
+            <span className="mr-2 h-2 w-2 rounded-full bg-white motion-safe:animate-pulse"></span>
             <span className="text-white font-medium">{t('cta.badge')}</span>
           </div>
           

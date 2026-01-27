@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
+import { PageTransition } from '@/components/ui/PageTransition';
 import ServiceCards from '../components/ServiceCards';
-import Statistics from '../components/Statistics';
-import Testimonials from '../components/Testimonials';
-import SimpleCTA from '../components/SimpleCTA';
-import GoogleReviews from '../components/GoogleReviews';
+const Statistics = lazy(() => import('../components/Statistics'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const SimpleCTA = lazy(() => import('../components/SimpleCTA'));
+const GoogleReviews = lazy(() => import('../components/GoogleReviews'));
 
 const HomePage = () => {
+  const { t } = useTranslation();
+  const lazyFallback = <div className="min-h-[1px]" aria-hidden />;
 
   useEffect(() => {
     try {
@@ -19,21 +23,31 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <PageTransition>
+      <div>
       <Helmet>
-        <title>Mosaic Multicultural Connections | Support for NSW Communities</title>
+        <title>{t('home.meta.title')}</title>
         <meta
           name="description"
-          content="Empowering multicultural communities across New South Wales through settlement support, home care, family services, and community engagement."
+          content="Mosaic Multicultural Connections supports multicultural communities across NSW with settlement, aged care, family services, and community programs since 1980."
         />
       </Helmet>
       <Hero />
       <ServiceCards />
-      <Statistics />
-      <Testimonials />
-      <GoogleReviews />
-      <SimpleCTA />
-    </div>
+      <Suspense fallback={lazyFallback}>
+        <Statistics />
+      </Suspense>
+      <Suspense fallback={lazyFallback}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={lazyFallback}>
+        <GoogleReviews />
+      </Suspense>
+      <Suspense fallback={lazyFallback}>
+        <SimpleCTA />
+      </Suspense>
+      </div>
+    </PageTransition>
   );
 };
 

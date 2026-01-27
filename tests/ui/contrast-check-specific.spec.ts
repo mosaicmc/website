@@ -52,7 +52,7 @@ test.describe('Specific Button Contrast Verification', () => {
       name: 'Home Page',
       url: '/',
       elements: [
-        { name: 'Explore Our Services', selector: 'a[href="/services"]' },
+        { name: 'Explore Our Services', selector: '[data-testid="hero-explore-btn"]' },
         { name: 'Read all reviews on Google', selector: 'a[href*="maps.app.goo.gl"]' }
       ]
     },

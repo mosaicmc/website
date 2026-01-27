@@ -113,8 +113,11 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
               <img
                 src={image}
                 alt={name || role || 'Community Member'}
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 dark:border-white/20"
                 loading="lazy"
+                decoding="async"
                 onError={() => setImageError(true)}
               />
             ) : (
@@ -126,7 +129,7 @@ const TestimonialCard = ({ testimonial, name, role, origin, image }: Testimonial
               ) : null}
               <div className="text-gray-600 dark:text-white/70 text-xs">{role}</div>
               {origin ? (
-                <div className="text-gray-500 dark:text-white/60 text-xs">{origin}</div>
+              <div className="text-gray-600 dark:text-white/60 text-xs">{origin}</div>
               ) : null}
             </div>
           </div>
@@ -158,8 +161,8 @@ export function Testimonial04({
       {/* Enhanced glass morphism background with multiple layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
       
       <div className="relative z-10">
         {/* Section Header */}

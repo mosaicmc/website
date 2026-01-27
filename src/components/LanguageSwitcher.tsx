@@ -6,10 +6,26 @@ import { cn } from '../lib/utils';
 interface Language {
   code: string;
   name: string;
-  nativeName: string;
   flag: string;
   direction: 'ltr' | 'rtl';
 }
+
+const ALL_LANGUAGES: Language[] = [
+  { code: 'en', name: 'English', flag: '🇬🇧', direction: 'ltr' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', direction: 'rtl' },
+  { code: 'ps', name: 'پښتو', flag: '🇦🇫', direction: 'rtl' },
+  { code: 'fa-AF', name: 'دری', flag: '🇦🇫', direction: 'rtl' },
+  { code: 'fa', name: 'فارسی', flag: '🇮🇷', direction: 'rtl' },
+  { code: 'es', name: 'Español', flag: '🇪🇸', direction: 'ltr' },
+  { code: 'zh-CN', name: '中文', flag: '🇨🇳', direction: 'ltr' },
+  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳', direction: 'ltr' },
+  { code: 'it', name: 'Italiano', flag: '🇮🇹', direction: 'ltr' },
+  { code: 'ku', name: 'Kurdî', flag: '🇮🇶', direction: 'ltr' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺', direction: 'ltr' },
+  { code: 'tl', name: 'Tagalog', flag: '🇵🇭', direction: 'ltr' },
+  { code: 'uk', name: 'Українська', flag: '🇺🇦', direction: 'ltr' },
+  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', direction: 'ltr' },
+];
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -22,183 +38,154 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   showText = true,
   menuId = 'language-menu'
 }) => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [languages, setLanguages] = useState<Language[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [rotatingIndex, setRotatingIndex] = useState(0);
+  const getCookieLanguage = () => {
+    if (typeof document === 'undefined') return 'en';
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (!match?.[1]) return 'en';
+    const value = decodeURIComponent(match[1]);
+    const parts = value.split('/');
+    const last = parts[parts.length - 1];
+    return last || 'en';
+  };
+
+  const [rotationEnabled, setRotationEnabled] = useState(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return true;
+    const cookieLang = getCookieLanguage();
+    return cookieLang.toLowerCase() === 'en';
+  });
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const itemRefs = React.useRef<HTMLButtonElement[]>([]);
 
-  const rtlLangs = useMemo(() => new Set(['ar', 'fa', 'he', 'ur', 'ps']), []);
-  const gtToApp = useMemo(
-    () =>
-      ({
-        'zh-CN': 'zh',
-        'zh-TW': 'zh-tw',
-      }) as Record<string, string>,
-    []
-  );
-  const appToGt = useMemo(
-    () =>
-      ({
-        zh: 'zh-CN',
-        'zh-tw': 'zh-TW',
-      }) as Record<string, string>,
-    []
-  );
-  const nativeEndonyms = useMemo(
-    () =>
-      ({
-        ar: 'العربية',
-        zh: '简体中文',
-        'zh-tw': '繁體中文',
-        tl: 'Tagalog',
-        hi: 'हिन्दी',
-        it: 'Italiano',
-        ku: 'Kurdî',
-        ps: 'پښتو',
-        fa: 'فارسی',
-        pt: 'Português',
-        ru: 'Русский',
-        es: 'Español',
-        sw: 'Kiswahili',
-        th: 'ไทย',
-        uk: 'Українська',
-        vi: 'Tiếng Việt',
-      }) as Record<string, string>,
-    []
-  );
-  const flagMap = useMemo(
-    () =>
-      ({
-        ar: '🇸🇦',
-        zh: '🇨🇳',
-        'zh-tw': '🇹🇼',
-        en: '🇦🇺',
-        tl: '🇵🇭',
-        hi: '🇮🇳',
-        it: '🇮🇹',
-        ku: '🏳️',
-        ps: '🏳️',
-        fa: '🇮🇷',
-        pt: '🇵🇹',
-        ru: '🇷🇺',
-        es: '🇪🇸',
-        sw: '🇰🇪',
-        th: '🇹🇭',
-        uk: '🇺🇦',
-        vi: '🇻🇳',
-        sm: '🇼🇸',
-      }) as Record<string, string>,
-    []
-  );
+  const getStoredLanguage = () => {
+    if (typeof document === 'undefined') return 'en';
+    const cookieLang = getCookieLanguage();
+    return cookieLang || 'en';
+  };
 
-  useEffect(() => {
-    const extract = () => {
-      const hidden = document.querySelector('#google_translate_element_hidden select.goog-te-combo') as HTMLSelectElement | null;
-      const visible = document.querySelector('#google_translate_element select.goog-te-combo') as HTMLSelectElement | null;
-      const select = hidden || visible;
-      if (!select) return;
-      const opts = Array.from(select.options).filter(o => o.value && o.value !== 'auto');
-      const list = opts.map(o => {
-        const gt = o.value;
-        const code = (gtToApp[gt] || gt).toLowerCase();
-        const name = o.text;
-        const direction: 'ltr' | 'rtl' = rtlLangs.has(code) ? 'rtl' : 'ltr';
-        const nativeName = nativeEndonyms[code] || name;
-        const flag = flagMap[code] || '';
-        return { code, name, nativeName, flag, direction } as Language;
-      });
-      setLanguages(list);
-    };
-    extract();
-    const target = document.getElementById('google_translate_element_hidden');
-    if (target) {
-      const obs = new MutationObserver(() => extract());
-      obs.observe(target, { childList: true, subtree: true });
-      return () => obs.disconnect();
-    }
-  }, [rtlLangs, gtToApp, nativeEndonyms, flagMap]);
+  const [selectedLanguage, setSelectedLanguage] = useState(getStoredLanguage);
 
   const currentLanguage = useMemo(() => {
-    const code = (i18n.language || 'en').toLowerCase();
-    return (
-      languages.find((l) => l.code === code) || {
-        code,
-        name: code === 'en' ? 'English' : code,
-        nativeName: code === 'en' ? 'English' : code,
-        flag: flagMap[code] || '',
-        direction: rtlLangs.has(code) ? 'rtl' : 'ltr',
-      }
-    );
-  }, [i18n.language, languages, rtlLangs, flagMap]);
+    const code = (selectedLanguage || 'en').toLowerCase();
+    return ALL_LANGUAGES.find((l) => l.code.toLowerCase() === code) || ALL_LANGUAGES[0];
+  }, [selectedLanguage]);
 
-  const setGoogTransCookie = (targetLang: string) => {
-    const lang = appToGt[targetLang] || targetLang;
-    const cookieVal = `/auto/${lang}`;
-    const hostname = window.location.hostname;
-    const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-    document.cookie = `googtrans=${cookieVal}; expires=${expires}; path=/;`;
-    document.cookie = `googtrans=${cookieVal}; expires=${expires}; domain=.${hostname}; path=/;`;
-  };
-
-  const clearGoogTransCookie = () => {
-    const hostname = window.location.hostname;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=.${hostname}; path=/;`;
-  };
-  
-  const changeLanguage = (langCode: string) => {
-    const selectedLang = languages.find(lang => lang.code === langCode) || {
-      code: langCode,
-      direction: rtlLangs.has(langCode) ? 'rtl' : 'ltr',
-    } as Language;
-    i18n.changeLanguage(langCode);
-    document.documentElement.dir = selectedLang.direction;
-    document.documentElement.lang = langCode;
-    localStorage.setItem('preferred-language', langCode);
-    if (langCode === 'en') {
-      clearGoogTransCookie();
-    } else {
-      setGoogTransCookie(langCode);
+  const ensureGoogleTranslate = () => {
+    if (typeof document === 'undefined') return;
+    type TranslateElementCtor = new (
+      options: { pageLanguage: string; autoDisplay: boolean },
+      elementId: string
+    ) => void;
+    type GoogleTranslate = { translate?: { TranslateElement?: TranslateElementCtor } };
+    type WindowWithGoogle = Window & {
+      google?: GoogleTranslate;
+      googleTranslateElementInit?: () => void;
+    };
+    const win = window as WindowWithGoogle;
+    const containerId = 'google_translate_element';
+    if (!document.getElementById(containerId)) {
+      const container = document.createElement('div');
+      container.id = containerId;
+      container.style.display = 'none';
+      document.body.appendChild(container);
     }
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
+
+    const initTranslate = () => {
+      const google = win.google;
+      if (google && google.translate && google.translate.TranslateElement) {
+        new google.translate.TranslateElement(
+          { pageLanguage: 'en', autoDisplay: false },
+          containerId
+        );
+      }
+    };
+
+    if (win.google?.translate) {
+      initTranslate();
+      return;
+    }
+
+    if (!document.getElementById('google-translate-script')) {
+      win.googleTranslateElementInit = initTranslate;
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  };
+
+  const changeLanguage = (langCode: string) => {
     setIsOpen(false);
+    if (langCode === 'en') {
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+      localStorage.removeItem('preferred-language');
+      window.location.reload();
+      return;
+    }
+
+    document.cookie = `googtrans=/en/${langCode}; path=/`;
+    localStorage.setItem('preferred-language', langCode);
+    setSelectedLanguage(langCode);
+    setRotationEnabled(false);
+    ensureGoogleTranslate();
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    }
   };
 
   const visibleLanguages = useMemo(() => (
     query
-      ? languages.filter(
+      ? ALL_LANGUAGES.filter(
           (l) =>
             l.name.toLowerCase().includes(query.toLowerCase()) ||
-            l.nativeName.toLowerCase().includes(query.toLowerCase()) ||
             l.code.toLowerCase().includes(query.toLowerCase())
         )
-      : languages
-  ), [languages, query]);
+      : ALL_LANGUAGES
+  ), [query]);
 
   useEffect(() => {
-    if (!languages.length) return;
-    const code = (i18n.language || 'en').toLowerCase();
-    const idx = languages.findIndex((l) => l.code === code);
+    const code = (selectedLanguage || 'en').toLowerCase();
+    const idx = ALL_LANGUAGES.findIndex((l) => l.code.toLowerCase() === code);
     setRotatingIndex(idx >= 0 ? idx : 0);
-  }, [languages, i18n.language]);
+  }, [selectedLanguage]);
 
   useEffect(() => {
-    if (!languages.length || isOpen) return;
+    setRotationEnabled((selectedLanguage || 'en').toLowerCase() === 'en');
+  }, [selectedLanguage]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
+    const cookieLang = match?.[1] ? match[1].toLowerCase() : 'en';
+    setSelectedLanguage(cookieLang);
+    setRotationEnabled(cookieLang === 'en');
+    if (cookieLang === 'en') {
+      localStorage.removeItem('preferred-language');
+    } else {
+      localStorage.setItem('preferred-language', cookieLang);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen || !rotationEnabled) return;
     const id = window.setInterval(() => {
       setRotatingIndex((prev) => {
-        if (!languages.length) return prev;
-        const next = (prev + 1) % languages.length;
+        const next = (prev + 1) % ALL_LANGUAGES.length;
         return next;
       });
     }, 3000);
     return () => window.clearInterval(id);
-  }, [languages, isOpen]);
+  }, [isOpen, rotationEnabled]);
+
 
   useEffect(() => {
     if (isOpen) {
@@ -208,6 +195,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       }, 0);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (selectedLanguage !== 'en') {
+      ensureGoogleTranslate();
+    }
+  }, [selectedLanguage]);
 
   const onMenuKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (!visibleLanguages.length) return;
@@ -251,19 +244,19 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   };
 
   const displayLanguage = useMemo(() => {
-    if (!languages.length) return currentLanguage;
+    if (!rotationEnabled || isOpen) return currentLanguage;
     const boundedIndex = Math.min(
       Math.max(rotatingIndex, 0),
-      languages.length - 1
+      ALL_LANGUAGES.length - 1
     );
-    return languages[boundedIndex];
-  }, [languages, rotatingIndex, currentLanguage]);
+    return ALL_LANGUAGES[boundedIndex];
+  }, [currentLanguage, isOpen, rotationEnabled, rotatingIndex]);
 
   return (
     <div className={cn('relative', className)}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 h-9 md:h-10 px-4 rounded-md text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+        className="flex items-center justify-between gap-2 h-11 md:h-11 min-h-[44px] px-4 rounded-md text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
         aria-label={t('common.changeLanguage')}
         aria-haspopup="menu"
         aria-expanded={isOpen}
@@ -278,7 +271,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           </span>
           {showText && (
             <span className="text-sm font-medium w-24 text-left truncate">
-              {displayLanguage.nativeName}
+              {displayLanguage.name}
             </span>
           )}
         </div>
@@ -308,14 +301,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search languages"
-                  className="w-full rounded-md border border-input bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                  className="w-full rounded-md border border-input bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                   aria-label="Search languages"
                   ref={inputRef}
                 />
               </div>
               
               <div className="max-h-60 overflow-y-auto">
-                {languages.length === 0 ? (
+                {ALL_LANGUAGES.length === 0 ? (
                   <div className="px-4 py-3 text-sm text-muted-foreground" aria-live="polite">
                     Loading languages...
                   </div>
@@ -326,7 +319,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                       onClick={() => changeLanguage(language.code)}
                       className={cn(
                         'w-full flex items-center justify-between px-3.5 py-2.5 text-left hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all duration-200',
-                        i18n.language.toLowerCase() === language.code.toLowerCase() &&
+                        selectedLanguage.toLowerCase() === language.code.toLowerCase() &&
                           'bg-white/70 dark:bg-slate-800/70 text-ocean dark:text-sky'
                       )}
                       dir={language.direction}
@@ -341,17 +334,13 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                           className="text-base leading-none"
                           aria-hidden="true"
                         >
-                          {language.flag || flagMap[language.code] || '🏳️'}
+                          {language.flag || '🏳️'}
                         </span>
                         <div className="text-sm font-medium text-gray-900 dark:text-white">
-                          <span>{language.nativeName}</span>
-                          <span className="mx-1" aria-hidden="true">-</span>
-                          <span dir="ltr" className="text-xs text-gray-600 dark:text-gray-400">
-                            {language.name}
-                          </span>
+                          <span>{language.name}</span>
                         </div>
                       </div>
-                      {i18n.language.toLowerCase() === language.code.toLowerCase() && (
+                      {selectedLanguage.toLowerCase() === language.code.toLowerCase() && (
                         <div className="w-2 h-2 rounded-full bg-ocean dark:bg-sky animate-pulse" />
                       )}
                     </button>
@@ -363,7 +352,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             {/* Footer */}
             <div className="px-4 py-2 border-t border-gray-200/30 dark:border-slate-700/30 bg-gray-50/50 dark:bg-slate-800/50">
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                {languages.length} languages available
+                {ALL_LANGUAGES.length} languages available
               </p>
             </div>
           </div>

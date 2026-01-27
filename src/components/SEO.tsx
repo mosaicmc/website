@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 
 const SITE_URL = 'https://mosaicmc.org.au';
 const ORG_NAME = 'Mosaic Multicultural Connections';
+const DEFAULT_DESCRIPTION = 'Mosaic Multicultural Connections provides settlement support, aged care, family services, and community engagement programs across NSW. Supporting multicultural communities since 1980.';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 const GEO_REGION = 'AU-NSW';
 const GEO_PLACENAME = 'Newcastle, NSW';
 const GEO_POSITION = '-32.926;151.781';
@@ -65,9 +67,18 @@ export default function DefaultSEO() {
       <meta property="og:locale" content="en_AU" />
       <meta property="og:site_name" content={ORG_NAME} />
       <meta property="og:url" content={ogUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={ORG_NAME} />
+      <meta property="og:description" content={DEFAULT_DESCRIPTION} />
+      <meta property="og:image" content={DEFAULT_OG_IMAGE} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mosaicmc" />
+      <meta name="twitter:title" content={ORG_NAME} />
+      <meta name="twitter:description" content={DEFAULT_DESCRIPTION} />
+      <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
+
+      <meta name="description" content={DEFAULT_DESCRIPTION} />
 
       <meta name="robots" content="index,follow" />
       <meta name="geo.region" content={GEO_REGION} />

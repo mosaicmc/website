@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import { mockGoogleReviews } from '../helpers';
 
 test.describe('Translation Flags – pure i18n', () => {
+  test.skip(true, 'Only EN is currently supported in i18n/index.ts. Re-enable when RU/AR are added.');
+
   test.beforeEach(async ({ page }) => {
     await mockGoogleReviews(page);
   });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from './ui/theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -98,6 +98,8 @@ const Header = () => {
               } w-auto max-w-none`}
               src={theme === 'dark' ? assetPath('/images/Logos/Mosaic_Logo_white_Dark.svg') : assetPath('/images/Logos/320w/Mosaic_Logo_Blue_Light_320px.svg')}
               alt="Mosaic Multicultural Connections"
+              loading="eager"
+              decoding="async"
             />
           </Link>
 
@@ -142,11 +144,12 @@ const Header = () => {
                         <a
                           href="https://forms.mosaicmc.org.au/refer"
                           target="_blank"
-                          rel="noreferrer"
-                          className="block px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20"
-                          aria-label="Make a Referral"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20"
+                          aria-label={`${t('nav.makeReferral')} (opens in new tab)`}
                         >
-                          Make a Referral
+                          {t('nav.makeReferral')}
+                          <ExternalLink className="h-4 w-4" aria-hidden="true" />
                         </a>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -183,22 +186,28 @@ const Header = () => {
                   <a
                     href="https://employmenthero.com/mosaic-mc"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('nav.menu.involved.careers.title')} (opens in new tab)`}
+                    className="inline-flex items-center gap-1"
                   >
-                    Career
+                    {t('nav.menu.involved.careers.title')}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
-                    href="https://tally.so/r/3qoXjg"
+                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}
+                    className="inline-flex items-center gap-1"
                   >
-                    Volunteer
+                    {t('nav.menu.involved.volunteer.title')}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/donate" onClick={handleLinkClick}>Donate</Link>
+                  <Link to="/donate" onClick={handleLinkClick}>{t('nav.donate')}</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -208,7 +217,7 @@ const Header = () => {
                     className="relative inline-flex items-center h-9 px-4 bg-ocean text-white rounded-md font-semibold text-sm transition-all duration-300 hover:bg-ocean/90 hover:shadow-xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     onClick={handleLinkClick}
                   >
-                    <span className="relative z-10">Donate</span>
+                    <span className="relative z-10">{t('nav.donate')}</span>
                   </Link>
           </div>
 
@@ -216,8 +225,12 @@ const Header = () => {
           <div className="md:hidden flex items-center gap-2">
             <LanguageSwitcher showText={false} />
             <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-white/40 dark:bg-slate-800/40 backdrop-blur-md text-gray-700 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all duration-300 dark:text-gray-300"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              className="min-h-[44px] min-w-[44px] p-2 rounded-lg bg-white/40 dark:bg-slate-800/40 backdrop-blur-md text-gray-700 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all duration-300 dark:text-gray-300"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -226,7 +239,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-t border-white/30 dark:border-slate-700/50 shadow-2xl z-[110]">
+          <div id="mobile-menu" className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-t border-white/30 dark:border-slate-700/50 shadow-2xl z-[110]">
             <div className="px-4 py-6 space-y-3">
               
               {/* Navigation Items */}
@@ -264,11 +277,12 @@ const Header = () => {
                         <a
                           href="https://forms.mosaicmc.org.au/refer"
                           target="_blank"
-                          rel="noreferrer"
-                          className="block px-4 py-2 rounded-lg transition-all duration-300 text-sm text-gray-600 dark:text-gray-400 hover:text-ocean dark:hover:text-sky hover:bg-white/40 dark:hover:bg-slate-800/40"
-                          aria-label="Make a Referral"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 text-sm text-gray-600 dark:text-gray-400 hover:text-ocean dark:hover:text-sky hover:bg-white/40 dark:hover:bg-slate-800/40"
+                          aria-label={`${t('nav.makeReferral')} (opens in new tab)`}
                         >
-                          Make a Referral
+                          {t('nav.makeReferral')}
+                          <ExternalLink className="h-3 w-3" aria-hidden="true" />
                         </a>
                       </div>
                     </>
@@ -300,35 +314,41 @@ const Header = () => {
                 {/* Mobile Get Involved quick actions */}
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href="https://tally.so/r/w4veNk"
+                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
                     target="_blank"
-                    rel="noreferrer"
-                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('nav.refer')} (opens in new tab)`}
+                    className="inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Refer
+                    {t('nav.refer')}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                   <a
                     href="https://employmenthero.com/mosaic-mc"
                     target="_blank"
-                    rel="noreferrer"
-                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('nav.menu.involved.careers.title')} (opens in new tab)`}
+                    className="inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Career
+                    {t('nav.menu.involved.careers.title')}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                   <a
-                    href="https://tally.so/r/3qoXjg"
+                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
                     target="_blank"
-                    rel="noreferrer"
-                    className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}
+                    className="inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
                   >
-                    Volunteer
+                    {t('nav.menu.involved.volunteer.title')}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                   <Link
                     to="/donate"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     onClick={handleLinkClick}
                   >
-                    Donate
+                    {t('nav.donate')}
                   </Link>
                 </div>
                 <Link
@@ -336,7 +356,7 @@ const Header = () => {
                   className="block bg-ocean text-white px-4 py-3 rounded-lg font-semibold text-base text-center hover:bg-ocean/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   onClick={handleLinkClick}
                 >
-                  Donate
+                  {t('nav.donate')}
                 </Link>
               </div>
             </div>

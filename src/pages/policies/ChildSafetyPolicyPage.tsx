@@ -9,7 +9,7 @@ export default function ChildSafetyPolicyPage() {
         <title>Child Safety Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Mosaic’s commitment to the safety, wellbeing, and empowerment of all children and young people engaging with our services."
+          content="Mosaic Child Safety Policy. Our commitment to protecting children and young people in all our programs."
         />
       </Helmet>
 

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, Instagram, Facebook } from 'lucide-react';
+import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, Instagram, Facebook, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
 import { assetPath } from '@/lib/utils';
 import { DownloadGate } from '@/components/DownloadGate';
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 
 export default function NewcastleVolunteerPage() {
   const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -82,10 +83,10 @@ export default function NewcastleVolunteerPage() {
     <div className="animate-fade-in">
       <Helmet>
         <title>Volunteer in Newcastle | Mosaic Multicultural Connections</title>
-        <meta
-          name="description"
-          content="Volunteer opportunities in Newcastle: settlement support, homework centre tutor, ACVVS visitor, citizenship assistance and community events."
-        />
+          <meta
+            name="description"
+            content="Volunteer in Newcastle with Mosaic. Support settlement, aged care visitors, homework help, and community events. Training provided."
+          />
       </Helmet>
 
       <Section overlay center padding="lg">
@@ -173,7 +174,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://au.linkedin.com/company/mosaic-multicultural-connections"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit LinkedIn"
+                                    aria-label="Visit LinkedIn (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Linkedin className="h-5 w-5" />
@@ -182,7 +183,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://www.instagram.com/mosaicmc/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit Instagram"
+                                    aria-label="Visit Instagram (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Instagram className="h-5 w-5" />
@@ -191,7 +192,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://www.facebook.com/mosaicmulticulturalconnections/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit Facebook"
+                                    aria-label="Visit Facebook (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Facebook className="h-5 w-5" />
@@ -232,7 +233,7 @@ export default function NewcastleVolunteerPage() {
                           <div className="flex items-start justify-between">
                             <div className="font-semibold text-foreground">{r.title}</div>
                             <Dialog.Root>
-                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative">
+                              <Dialog.Trigger aria-label="View details" aria-haspopup="dialog" title="View details" className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[44px] min-h-[44px] z-30 relative">
                                 <ChevronRight className="h-4 w-4" />
                               </Dialog.Trigger>
                               <Dialog.Portal>
@@ -264,15 +265,8 @@ export default function NewcastleVolunteerPage() {
                                           </button>
                                         )}
                                       </DownloadGate>
-                                      <a
-                                        href="https://tally.so/r/3qoXjg"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                                      >
-                                        Apply
-                                      </a>
                                     </div>
+                                    <PDFAccessibilityNotice className="mt-2" />
                                     <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                                       <X className="h-4 w-4 text-muted-foreground" />
                                     </Dialog.Close>
@@ -341,7 +335,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://au.linkedin.com/company/mosaic-multicultural-connections"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit LinkedIn"
+                                    aria-label="Visit LinkedIn (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Linkedin className="h-5 w-5" />
@@ -350,7 +344,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://www.instagram.com/mosaicmc/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit Instagram"
+                                    aria-label="Visit Instagram (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Instagram className="h-5 w-5" />
@@ -359,7 +353,7 @@ export default function NewcastleVolunteerPage() {
                                     href="https://www.facebook.com/mosaicmulticulturalconnections/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit Facebook"
+                                    aria-label="Visit Facebook (opens in new tab)"
                                     className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                                   >
                                     <Facebook className="h-5 w-5" />
@@ -382,12 +376,14 @@ export default function NewcastleVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://tally.so/r/3qoXjg"
+            href="https://forms.mosaicmc.org.au/Volunteer_Application"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            aria-label="Apply to Volunteer (opens in new tab)"
+            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
           >
             Apply to Volunteer
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
           <Link
             to="/get-involved"

@@ -18,7 +18,9 @@
   "registries": {
     "@shadcnblocks": {
       "url": "https://shadcnblocks.com/r/{name}",
-      "headers": {}
+      "headers": {
+        "Authorization": "Bearer ${SHADCNBLOCKS_API_KEY}"
+      }
     }
   }
 }

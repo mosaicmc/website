@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-// Removed unused DropdownMenu imports after integrating Get Involved under Services/Resources patterns
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu-trigger-style";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { prefetchOnHover, prefetchRoute } from "@/lib/prefetch";
-import { Menu, Phone, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search, UserPlus } from "lucide-react";
+import { Menu, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search, ExternalLink } from "lucide-react";
 import { logSearchQuery, getMonthlyTop } from '@/lib/searchAnalytics';
 import { auSpelling } from '@/lib/auSpelling';
 import { LocalSearchClient, buildFacets as buildFacetsFromClient, initSearchConfigs } from '@/lib/searchClient';
@@ -22,6 +12,7 @@ import { ThemeToggle } from './ui/theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
+import CustomNavigation from './CustomNavigation';
 
 type ServiceNavItem = {
   title: string;
@@ -97,49 +88,6 @@ async function loadSearchIndex() {
     indexLoaded = true;
   }
 }
-
-type ListItemProps = {
-  title: string;
-  to: string;
-  children: React.ReactNode;
-  icon?: LucideIcon;
-  className?: string;
-} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
-
-const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
-  ({ className, title, children, to, icon: Icon, ...props }, ref) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <Link
-            to={to}
-            ref={ref}
-            className={cn(
-              "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
-              "text-foreground",
-              // Improved hover/focus visibility in dark mode
-              "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
-              "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-              "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background",
-              className
-            )}
-            {...prefetchOnHover(to)}
-            {...props}
-          >
-            <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-              {Icon && <Icon className="h-5 w-5" />}
-              {title}
-            </div>
-            <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </Link>
-        </NavigationMenuLink>
-      </li>
-    );
-  }
-);
-ListItem.displayName = "ListItem";
 
 import { assetPath } from '@/lib/utils';
 
@@ -482,7 +430,7 @@ export default function MosaicNavigation() {
   }
 
   return (
-    <>
+    <header>
       {/* Crisis Support Banner */}
       {showCrisisBanner && (
         <div className="bg-red-600 text-white text-center py-2 text-sm font-medium relative z-[120]">
@@ -506,296 +454,51 @@ export default function MosaicNavigation() {
         </div>
       )}
 
-      <nav ref={glassRef} className="nav-glass sticky top-0 z-50 w-full">
+      <nav ref={glassRef} className="nav-glass sticky top-0 z-50 w-full" aria-label="Main navigation">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Logo />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-4 h-full md:mt-[21px]">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {/* Home */}
-                  <NavigationMenuItem className="flex items-center">
-                    <NavigationMenuLink asChild>
-                      <Link
-                        to="/"
-                        className={cn(
-                          navigationMenuTriggerStyle(),
-                          isActivePath('/')
-                            ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-                            : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                          "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                        )}
-                        {...prefetchOnHover('/')}
-                      >
-                        {t('nav.home')}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  {/* Services Dropdown */}
-                  {!isEmergencyMode && (
-                  <NavigationMenuItem className="flex items-center">
-                    <NavigationMenuTrigger className={cn(
-                      isActivePath('/services', true)
-                        ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-                        : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                    )}
-                      onMouseEnter={() => {
-                        prefetchRoute('/services');
-                        services.forEach(s => prefetchRoute(s.href));
-                      }}
-                      onFocus={() => {
-                        prefetchRoute('/services');
-                        services.forEach(s => prefetchRoute(s.href));
-                      }}
-                    >{t('nav.services')}</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                        <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                            Core Services
-                          </h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
-                            {services.map((service) => (
-                              <ListItem
-                                key={service.title}
-                                title={service.title}
-                                to={service.href}
-                                icon={service.icon}
-                              >
-                                {service.description}
-                              </ListItem>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                            Quick Links
-                          </h6>
-                          <ul className="mt-2.5 grid gap-3 list-none">
-                            <ListItem
-                              title="All Services"
-                              to="/services"
-                              icon={Globe}
-                            >
-                              Explore our complete range of multicultural support services
-                            </ListItem>
-                            <ListItem
-                              title="Get Support"
-                              to="/contact-us"
-                              icon={Phone}
-                            >
-                              Contact us for immediate assistance and guidance
-                            </ListItem>
-                            <li>
-                              <a
-                                href="https://forms.mosaicmc.org.au/refer"
-                                target="_blank"
-                                rel="noreferrer"
-                                className={cn(
-                                  "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
-                                  "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
-                                  "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-                                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                )}
-                                aria-label="Make a Referral – external link"
-                              >
-                                <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-                                  <UserPlus className="h-5 w-5" />
-                                  Make a Referral
-                                </div>
-                                <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                  Secure online referral form for clients, families and individuals
-                                </p>
-                              </a>
-                            </li>
-                            {/* Removed duplicate Locations link from Services quick links */}
-                          </ul>
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  )}
-
-                  {/* Other Navigation Items (About, Stories) */}
-                  {(() => {
-                    const aboutActive = location.pathname.startsWith("/about") || location.pathname.startsWith("/company/news");
-                    return (
-                      <NavigationMenuItem className="flex items-center">
-                        <NavigationMenuTrigger
-                          className={cn(
-                            aboutActive
-                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-                              : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                          )}
-                          onMouseEnter={() => {
-                            prefetchRoute("/about");
-                            prefetchRoute("/company/news");
-                          }}
-                          onFocus={() => {
-                            prefetchRoute("/about");
-                            prefetchRoute("/company/news");
-                          }}
-                        >
-                          About
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                          <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                            <div className="col-span-2">
-                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
-                                About Mosaic
-                              </h6>
-                              <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
-                                {aboutLinks.map((link) => (
-                                  <ListItem key={link.title} title={link.title} to={link.href} icon={link.icon}>
-                                    {link.description}
-                                  </ListItem>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="pl-4">
-                              <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
-                              <ul className="mt-2.5 grid gap-3 list-none">
-                                <ListItem title="Our Story" to="/about#our-story-heading" icon={Home}>
-                                  Discover our mission, history and leadership
-                                </ListItem>
-                              </ul>
-                            </div>
-                          </div>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    );
-                  })()}
-
-                  {/* Get Involved Dropdown (standardized grid layout) */}
-                  {!isEmergencyMode && (
-                  <NavigationMenuItem className="flex items-center">
-                    <NavigationMenuTrigger
-                      className={cn(
-                        isActivePath('/get-involved', true)
-                          ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-                          : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                        "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                      )}
-                      onMouseEnter={() => {
-                        prefetchRoute('/get-involved');
-                        prefetchRoute('/donate');
-                      }}
-                      onFocus={() => {
-                        prefetchRoute('/get-involved');
-                        prefetchRoute('/donate');
-                      }}
-                    >{t('nav.getInvolved')}</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                        <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Participate</h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
-                            {getInvolvedLinks.map((gi) => (
-                              gi.href ? (
-                                <ListItem key={gi.title} title={gi.title} to={gi.href} icon={gi.icon}>
-                                  {gi.description}
-                                </ListItem>
-                              ) : (
-                                <li key={gi.title}>
-                                  <a
-                                    href={gi.external}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className={cn(
-                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all",
-                                      "hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky",
-                                      "hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20",
-                                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                    )}
-                                  >
-                                    <div className="font-semibold tracking-tight leading-none flex items-center gap-2 text-foreground">
-                                      <gi.icon className="h-5 w-5" />
-                                      {gi.title}
-                                    </div>
-                                    <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                      {gi.description}
-                                    </p>
-                                  </a>
-                                </li>
-                              )
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">Explore</h6>
-                          <ul className="mt-2.5 grid gap-3 list-none">
-                            <ListItem title="Opportunities" to="/get-involved" icon={Phone}>
-                              Join our Mission
-                            </ListItem>
-                            <ListItem title="Contact Us" to="/contact-us" icon={Home}>
-                              Find service locations across New South Wales
-                            </ListItem>
-                          </ul>
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  )}
-
-                  {/* Resources Dropdown */}
-                  {!isEmergencyMode && (
-                  <NavigationMenuItem className="flex items-center">
-                    <NavigationMenuTrigger
-                      className={cn(
-                        isActivePath('/resources', true)
-                          ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-                          : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
-                        "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                      )}
-                      onMouseEnter={() => {
-                        prefetchRoute('/resources');
-                        resourcesLinks.forEach(r => prefetchRoute(r.href));
-                      }}
-                      onFocus={() => {
-                        prefetchRoute('/resources');
-                        resourcesLinks.forEach(r => prefetchRoute(r.href));
-                      }}
-                    >Resources</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-border">
-                        <div className="col-span-2">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Key Resources</h6>
-                          <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
-                            {resourcesLinks.map((res) => (
-                              <ListItem key={res.title} title={res.title} to={res.href} icon={res.icon}>
-                                {res.description}
-                              </ListItem>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pl-4">
-                          <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">Explore</h6>
-                          <ul className="mt-2.5 grid gap-3 list-none">
-                            <ListItem title="All Resources" to="/resources" icon={Globe}>
-                              Browse brochures, annual reports, helpful links, emergency & translation
-                            </ListItem>
-                            <ListItem title="Contact" to="/contact-us" icon={Phone}>
-                              Reach us for guidance and support
-                            </ListItem>
-                          </ul>
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  )}
-                </NavigationMenuList>
-              </NavigationMenu>
+            <div className="hidden lg:flex items-center gap-4 h-full md:mt-[21px]">
+              <CustomNavigation
+                isEmergencyMode={isEmergencyMode}
+                services={services}
+                aboutLinks={aboutLinks}
+                getInvolvedLinks={getInvolvedLinks}
+                resourcesLinks={resourcesLinks}
+                isActivePath={isActivePath}
+                labels={{
+                  home: t('nav.home'),
+                  services: t('nav.services'),
+                  about: 'About',
+                  getInvolved: t('nav.getInvolved'),
+                  resources: 'Resources',
+                }}
+                onPrefetch={{
+                  services: () => {
+                    prefetchRoute('/services');
+                    services.forEach((s) => prefetchRoute(s.href));
+                  },
+                  about: () => {
+                    prefetchRoute('/about');
+                    prefetchRoute('/company/news');
+                  },
+                  getInvolved: () => {
+                    prefetchRoute('/get-involved');
+                    prefetchRoute('/donate');
+                  },
+                  resources: () => {
+                    prefetchRoute('/resources');
+                    resourcesLinks.forEach((r) => prefetchRoute(r.href));
+                  },
+                }}
+              />
             </div>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-3 relative">
+            <div className="hidden lg:flex items-center space-x-3 relative">
               <button
                 type="button"
                 aria-label="Open search"
@@ -809,7 +512,7 @@ export default function MosaicNavigation() {
                     return next;
                   });
                 }}
-                className="inline-flex items-center justify-center h-9 md:h-10 px-3 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                className="inline-flex items-center justify-center h-11 md:h-11 min-w-[44px] px-3 rounded-lg text-ocean dark:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -821,6 +524,7 @@ export default function MosaicNavigation() {
                       id="header-search-input"
                       autoFocus
                       type="text"
+                      aria-label="Search site"
                       value={searchQuery}
                       onChange={(e) => {
                         const v = e.target.value;
@@ -835,13 +539,13 @@ export default function MosaicNavigation() {
                         setSuggestions(sugg);
                       }}
                       placeholder="Search the site (Cmd+K)"
-                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     />
                     <button
                       type="button"
                       aria-label="Close search"
                       onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
-                      className="p-2 rounded-md text-muted-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                      className="h-11 w-11 rounded-md text-muted-foreground hover:bg-sand/50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -997,12 +701,12 @@ export default function MosaicNavigation() {
             </div>
 
             {/* Mobile Menu + Quick Actions */}
-            <div className="md:hidden flex items-center gap-2">
+            <div className="xl:hidden flex items-center gap-2">
               {/* Compact Language Switcher visible in header on mobile */}
               <LanguageSwitcher showText={false} menuId="language-menu-mobile-icon" />
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="sm" className="p-2">
+                  <Button variant="ghost" size="sm" className="p-2 min-h-[44px] min-w-[44px]">
                     <Menu className="h-5 w-5" />
                     <span className="sr-only">Toggle menu</span>
                   </Button>
@@ -1153,11 +857,13 @@ export default function MosaicNavigation() {
                                 key={gi.title}
                                 href={gi.external}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
+                                aria-label={`${gi.title} (opens in new tab)`}
                                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                               >
                                 <Icon className="h-4 w-4" />
                                 {gi.title}
+                                <ExternalLink className="h-3 w-3" aria-hidden="true" />
                               </a>
                             );
                           })}
@@ -1192,6 +898,6 @@ export default function MosaicNavigation() {
           </div>
         </div>
       </nav>
-    </>
+    </header>
   );
 }

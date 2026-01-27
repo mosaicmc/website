@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
 import * as Dialog from '@radix-ui/react-dialog';
-import { ChevronRight, X } from 'lucide-react';
+import { ChevronRight, X, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AlertTriangle } from 'lucide-react';
 
@@ -15,10 +15,10 @@ export default function TamworthVolunteerPage() {
     <div className="animate-fade-in">
       <Helmet>
         <title>Volunteer in Tamworth | Mosaic Multicultural Connections</title>
-        <meta
-          name="description"
-          content="Volunteer opportunities in Tamworth: settlement support, tutoring, ACVVS visitor, citizenship assistance and community events."
-        />
+          <meta
+            name="description"
+            content="Volunteer in Tamworth with Mosaic. Support multicultural communities in regional NSW. Training and flexible scheduling."
+          />
       </Helmet>
 
       <Section overlay center padding="lg">
@@ -90,12 +90,14 @@ export default function TamworthVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://tally.so/r/3qoXjg"
+            href="https://forms.mosaicmc.org.au/Volunteer_Application"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            aria-label="Apply to Volunteer (opens in new tab)"
+            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
           >
             Apply to Volunteer
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
           <Link
             to="/get-involved"

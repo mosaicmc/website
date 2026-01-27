@@ -10,7 +10,7 @@ export default function WorkHealthSafetyPolicyPage() {
         <title>Mosaic Work Health and Safety Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Responsibilities, hazard reporting, incident response and safety practices to keep staff, volunteers and clients safe."
+          content="Mosaic Work Health and Safety policy. Our commitment to safe workplaces for staff, volunteers, and clients."
         />
       </Helmet>
 

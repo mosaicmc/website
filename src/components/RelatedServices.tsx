@@ -3,10 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 import { getRelatedPages, keyForPath, copyFor, RelatedItem } from '@/lib/related';
+import { useTranslation } from 'react-i18next';
 
 interface RelatedServicesProps { current?: 'settlement-support' | 'aged-care' | 'family-support' | 'community-engagement' }
 
 export default function RelatedServices({ current }: RelatedServicesProps) {
+  const { t } = useTranslation();
   const location = useLocation();
   const path = location.pathname;
   const items: RelatedItem[] = getRelatedPages(path);
@@ -18,9 +20,9 @@ export default function RelatedServices({ current }: RelatedServicesProps) {
       <div className="text-center mb-12">
         <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
           <span className="mr-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>
-          <span className="text-foreground font-medium">Related Services</span>
+          <span className="text-foreground font-medium">{t('services.relatedTitle')}</span>
         </div>
-        <h2 className="text-4xl font-bold text-foreground mb-4">You May Also Be Interested In</h2>
+        <h2 className="text-4xl font-bold text-foreground mb-4">{t('services.alsoInterestedIn')}</h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{paragraph}</p>
       </div>
 

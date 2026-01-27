@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 const downloadSchema = z.object({
   firstName: z.string().min(1, { message: 'First name is required' }),
@@ -24,6 +25,7 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   const form = useForm<DownloadFormValues>({
     resolver: zodResolver(downloadSchema),
@@ -104,14 +106,19 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
             Please fill in your details to download {resourceLabel}.
           </p>
           <Form {...form}>
-            <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)} noValidate>
+            <form
+              className="space-y-4"
+              onSubmit={form.handleSubmit(onSubmit)}
+              noValidate
+              aria-describedby={submitError ? "downloadgate-error" : undefined}
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>First name</FormLabel>
+                      <FormLabel>{t('form.firstName')}</FormLabel>
                       <FormControl>
                         <Input autoComplete="given-name" inputMode="text" {...field} />
                       </FormControl>
@@ -124,7 +131,7 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Last name</FormLabel>
+                      <FormLabel>{t('form.lastName')}</FormLabel>
                       <FormControl>
                         <Input autoComplete="family-name" inputMode="text" {...field} />
                       </FormControl>
@@ -138,7 +145,7 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email address</FormLabel>
+                    <FormLabel>{t('form.email')}</FormLabel>
                     <FormControl>
                       <Input type="email" autoComplete="email" inputMode="email" {...field} />
                     </FormControl>
@@ -146,7 +153,16 @@ export function DownloadGate({ downloadUrl, resourceLabel, children }: DownloadG
                   </FormItem>
                 )}
               />
-              {submitError && <p className="text-sm text-destructive">{submitError}</p>}
+              {submitError && (
+                <p
+                  id="downloadgate-error"
+                  role="alert"
+                  aria-live="polite"
+                  className="text-sm text-destructive"
+                >
+                  {submitError}
+                </p>
+              )}
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   type="submit"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 type Lang = {
@@ -12,35 +12,69 @@ type Lang = {
 // Inspired by mosaicmc.org.au footer language strip
 // Uses emojis for simplicity (no external assets). Maps to Google Translate via cookies.
 const languages: Lang[] = [
+  { code: 'en', label: 'EN', flag: '🇬🇧', direction: 'ltr' },
   { code: 'ar', label: 'AR', flag: '🇸🇦', direction: 'rtl' },
-  { code: 'zh', label: 'ZH', flag: '🇨🇳', direction: 'ltr' },
-  { code: 'zh-tw', label: 'ZH', flag: '🇹🇼', direction: 'ltr' },
-  { code: 'en', label: 'EN', flag: '🇦🇺', direction: 'ltr' },
-  { code: 'tl', label: 'TL', flag: '🇵🇭', direction: 'ltr' },
+  { code: 'ps', label: 'PS', flag: '🇦🇫', direction: 'rtl' },
+  { code: 'fa-AF', label: 'DR', flag: '🇦🇫', direction: 'rtl' },
+  { code: 'fa', label: 'FA', flag: '🇮🇷', direction: 'rtl' },
+  { code: 'es', label: 'ES', flag: '🇪🇸', direction: 'ltr' },
+  { code: 'zh-CN', label: 'ZH', flag: '🇨🇳', direction: 'ltr' },
   { code: 'hi', label: 'HI', flag: '🇮🇳', direction: 'ltr' },
   { code: 'it', label: 'IT', flag: '🇮🇹', direction: 'ltr' },
+  { code: 'ku', label: 'KU', flag: '🇮🇶', direction: 'ltr' },
   { code: 'ru', label: 'RU', flag: '🇷🇺', direction: 'ltr' },
-  { code: 'ku', label: 'KU', flag: '🏳️', direction: 'ltr' },
-  { code: 'fa', label: 'FA', flag: '🇮🇷', direction: 'rtl' },
-  { code: 'pt', label: 'PT', flag: '🇵🇹', direction: 'ltr' },
-  { code: 'sm', label: 'SM', flag: '🇼🇸', direction: 'ltr' },
-  { code: 'es', label: 'ES', flag: '🇪🇸', direction: 'ltr' },
-  { code: 'sw', label: 'SW', flag: '🇰🇪', direction: 'ltr' },
-  { code: 'th', label: 'TH', flag: '🇹🇭', direction: 'ltr' },
+  { code: 'tl', label: 'TL', flag: '🇵🇭', direction: 'ltr' },
   { code: 'uk', label: 'UK', flag: '🇺🇦', direction: 'ltr' },
   { code: 'vi', label: 'VI', flag: '🇻🇳', direction: 'ltr' },
 ];
 
 
 export const FooterLanguageBar: React.FC<{ className?: string }> = ({ className }) => {
-  const { i18n } = useTranslation();
+  const getStoredLanguage = () => {
+    if (typeof document === 'undefined') return 'en';
+    const stored = localStorage.getItem('preferred-language');
+    if (stored) return stored;
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (match && match[1]) {
+      const value = decodeURIComponent(match[1]);
+      const parts = value.split('/');
+      const last = parts[parts.length - 1];
+      if (last) return last;
+    }
+    return 'en';
+  };
 
-  const changeLanguage = (code: string, direction: 'ltr' | 'rtl') => {
-    i18n.changeLanguage(code);
-    document.documentElement.dir = direction;
-    document.documentElement.lang = code;
+  const [selectedLanguage, setSelectedLanguage] = useState(getStoredLanguage);
+
+  const setGoogleTranslateCookie = (value: string, domain?: string) => {
+    const parts = [`googtrans=${encodeURIComponent(value)}`, 'path=/'];
+    if (domain) parts.push(`domain=${domain}`);
+    document.cookie = parts.join(';');
+  };
+
+  const clearGoogleTranslateCookie = (domain?: string) => {
+    const parts = ['googtrans='];
+    parts.push('expires=Thu, 01 Jan 1970 00:00:00 GMT');
+    parts.push('path=/');
+    if (domain) parts.push(`domain=${domain}`);
+    document.cookie = parts.join(';');
+  };
+
+  const changeLanguage = (code: string) => {
     localStorage.setItem('preferred-language', code);
-    // Pure i18n-based switching; no Google Translate cookies or reloads
+    setSelectedLanguage(code);
+    if (code === 'en') {
+      clearGoogleTranslateCookie();
+      clearGoogleTranslateCookie('.google.com');
+      clearGoogleTranslateCookie('.googletrans.com');
+      window.location.reload();
+      return;
+    }
+    const value = `/en/${code}`;
+    setGoogleTranslateCookie(value);
+    setGoogleTranslateCookie(value, '.google.com');
+    setGoogleTranslateCookie(value, '.googletrans.com');
+    window.location.reload();
   };
 
   return (
@@ -57,13 +91,13 @@ export const FooterLanguageBar: React.FC<{ className?: string }> = ({ className 
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => changeLanguage(lang.code, lang.direction)}
+              onClick={() => changeLanguage(lang.code)}
               className={cn(
                 'flex flex-col items-center justify-center',
                 'px-2 py-1 rounded-md transition-colors',
                 'hover:bg-foreground/10 dark:hover:bg-white/10',
                 'focus:outline-none focus:ring-2 focus:ring-foreground/30 dark:focus:ring-white/30',
-                i18n.language === lang.code && 'bg-foreground/10 dark:bg-white/10'
+                selectedLanguage === lang.code && 'bg-foreground/10 dark:bg-white/10'
               )}
               aria-label={`Change language to ${lang.label}`}
               dir={lang.direction}

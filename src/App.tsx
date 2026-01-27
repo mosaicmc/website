@@ -1,12 +1,15 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './contexts/ThemeContext';
 import MosaicNavigation from './components/MosaicNavigation';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
 import { ScrollToTopButton } from './components/ui/floating-elements';
-import GoogleTranslateInit from './components/GoogleTranslateInit';
+import { TopLoader } from './components/ui/TopLoader';
 import DefaultSEO from './components/SEO';
+import { LanguageSEO } from './components/LanguageSEO';
+import { PageSkeleton } from './components/ui/Skeleton';
 
 const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
 
@@ -16,6 +19,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const LocationsPage = lazy(() => import('./pages/LocationsPage'));
 const GetInvolvedPage = lazy(() => import('./pages/GetInvolvedPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
+const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
 const StoriesPage = lazy(() => import('./pages/StoriesPage'));
 const DonatePage = lazy(() => import('./pages/DonatePage'));
 const AnnualReportsPage = lazy(() => import('./pages/resources/AnnualReportsPage'));
@@ -41,53 +45,42 @@ const NewcastleVolunteerPage = lazy(() => import('./pages/volunteer/NewcastleVol
 const CentralCoastVolunteerPage = lazy(() => import('./pages/volunteer/CentralCoastVolunteerPage'));
 const ArmidaleVolunteerPage = lazy(() => import('./pages/volunteer/ArmidaleVolunteerPage'));
 const TamworthVolunteerPage = lazy(() => import('./pages/volunteer/TamworthVolunteerPage'));
-const ColorContrastTestPage = lazy(() => import('./pages/tests/ColorContrastTestPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-function App() {
+const AppRoutes = () => {
+  const location = useLocation();
+
   return (
-    <ThemeProvider>
-      <Router basename={import.meta.env.BASE_URL}>
-        <div className="min-h-screen bg-page transition-colors duration-300">
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 bg-white dark:bg-slate-800 text-blue-700 dark:text-white px-3 py-2 rounded shadow"
-          >
-            Skip to content
-          </a>
-          <DefaultSEO />
-          <GoogleTranslateInit />
-          <ScrollToTop />
-          <MosaicNavigation />
-          <main id="main">
-            <Suspense fallback={<div className="flex justify-center items-center min-h-[50vh]">Loading...</div>}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/services/settlement-support" element={<SettlementSupportPage />} />
-                <Route path="/services/aged-care" element={<AgedCarePage />} />
-                <Route path="/services/family-support" element={<FamilySupportPage />} />
-                <Route path="/services/community-engagement" element={<CommunityEngagementPage />} />
-                <Route path="/contact-us" element={<LocationsPage />} />
-                <Route path="/get-involved" element={<GetInvolvedPage />} />
-                <Route path="/resources" element={<ResourcesPage />} />
-                <Route path="/resources/emergency-services" element={<Navigate to="/resources/emergency-translation" replace />} />
-                <Route path="/resources/translation-services" element={<Navigate to="/resources/emergency-translation" replace />} />
-                <Route path="/resources/emergency-translation" element={<EmergencyTranslationPage />} />
-                <Route path="/resources/annual-reports" element={<AnnualReportsPage />} />
-                <Route path="/resources/helpful-links" element={<HelpfulLinksPage />} />
-                <Route path="/resources/faqs" element={<FAQPage />} />
-                {STORIES_ENABLED && <Route path="/stories" element={<StoriesPage />} />}
-                <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
-                <Route path="/donate" element={<DonatePage />} />
-                <Route path="/volunteer/newcastle" element={<NewcastleVolunteerPage />} />
-                <Route path="/volunteer/central-coast" element={<CentralCoastVolunteerPage />} />
-                <Route path="/volunteer/armidale" element={<ArmidaleVolunteerPage />} />
-                <Route path="/volunteer/tamworth" element={<TamworthVolunteerPage />} />
-                {/* Policies */}
-                <Route path="/policies/code-of-conduct" element={<CodeOfConductPolicyPage />} />
-                <Route path="/policies/diversity-inclusion" element={<DiversityInclusionPolicyPage />} />
-                <Route path="/policies/whistleblower" element={<WhistleblowerPolicyPage />} />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/settlement-support" element={<SettlementSupportPage />} />
+        <Route path="/services/aged-care" element={<AgedCarePage />} />
+        <Route path="/services/family-support" element={<FamilySupportPage />} />
+        <Route path="/services/community-engagement" element={<CommunityEngagementPage />} />
+        <Route path="/contact-us" element={<LocationsPage />} />
+        <Route path="/get-involved" element={<GetInvolvedPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/accessibility" element={<AccessibilityPage />} />
+        <Route path="/resources/emergency-services" element={<Navigate to="/resources/emergency-translation" replace />} />
+        <Route path="/resources/translation-services" element={<Navigate to="/resources/emergency-translation" replace />} />
+        <Route path="/resources/emergency-translation" element={<EmergencyTranslationPage />} />
+        <Route path="/resources/annual-reports" element={<AnnualReportsPage />} />
+        <Route path="/resources/helpful-links" element={<HelpfulLinksPage />} />
+        <Route path="/resources/faqs" element={<FAQPage />} />
+        {STORIES_ENABLED && <Route path="/stories" element={<StoriesPage />} />}
+        <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/donate" element={<DonatePage />} />
+        <Route path="/volunteer/newcastle" element={<NewcastleVolunteerPage />} />
+        <Route path="/volunteer/central-coast" element={<CentralCoastVolunteerPage />} />
+        <Route path="/volunteer/armidale" element={<ArmidaleVolunteerPage />} />
+        <Route path="/volunteer/tamworth" element={<TamworthVolunteerPage />} />
+        {/* Policies */}
+        <Route path="/policies/code-of-conduct" element={<CodeOfConductPolicyPage />} />
+        <Route path="/policies/diversity-inclusion" element={<DiversityInclusionPolicyPage />} />
+        <Route path="/policies/whistleblower" element={<WhistleblowerPolicyPage />} />
         <Route path="/policies/quality-management" element={<QualityManagementPolicyPage />} />
         <Route path="/policies/work-health-safety" element={<WorkHealthSafetyPolicyPage />} />
         <Route path="/policies/privacy" element={<PrivacyPolicyPage />} />
@@ -95,13 +88,37 @@ function App() {
         <Route path="/policies/child-safety" element={<ChildSafetyPolicyPage />} />
         <Route path="/company/knowledge-base" element={<KnowledgeBasePage />} />
         <Route path="/company/careers" element={<CareersPage />} />
+        <Route path="/careers" element={<Navigate to="/company/careers" replace />} />
         <Route path="/company/news" element={<NewsPage />} />
         <Route path="/locations" element={<Navigate to="/contact-us" replace />} />
-        
-        {/* Test Routes */}
-        <Route path="/tests/color-contrast" element={<ColorContrastTestPage />} />
+
+        {/* Catch-all 404 */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Suspense>
+    </AnimatePresence>
+  );
+};
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Router basename={import.meta.env.BASE_URL}>
+        <div className="min-h-screen bg-page transition-colors duration-300">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:shadow-lg"
+          >
+            Skip to main content
+          </a>
+          <DefaultSEO />
+          <LanguageSEO />
+          <ScrollToTop />
+          <TopLoader />
+          <MosaicNavigation />
+          <main id="main-content">
+            <Suspense fallback={<PageSkeleton />}>
+              <AppRoutes />
+            </Suspense>
           </main>
         
         <Footer />

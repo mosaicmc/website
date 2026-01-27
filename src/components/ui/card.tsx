@@ -8,7 +8,7 @@ export function Card({ className, ...props }: CardProps) {
     <div
       className={cn(
         'relative group overflow-hidden rounded-2xl border border-white/50 dark:border-white/20 bg-white/70 dark:bg-white/10 backdrop-blur-xl shadow-2xl',
-        'transition-all duration-500 ease-out hover:shadow-3xl hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15',
+        'hover-lift hover:bg-white/80 dark:hover:bg-white/15',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         'focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background',
         className

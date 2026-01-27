@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Stars } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function FeatureMissionVision({
   mission,
@@ -9,6 +10,7 @@ export function FeatureMissionVision({
   mission: string;
   vision: string;
 }) {
+  const { t } = useTranslation();
   const missionRef = React.useRef<HTMLDivElement | null>(null);
   const visionRef = React.useRef<HTMLDivElement | null>(null);
   const [mismatch, setMismatch] = React.useState(false);
@@ -17,7 +19,9 @@ export function FeatureMissionVision({
     const m = missionRef.current;
     const v = visionRef.current;
     if (!m || !v) {
-      console.warn("FeatureMissionVision: refs missing, unable to sync sizes");
+      if (import.meta.env.DEV) {
+        console.warn("FeatureMissionVision: refs missing, unable to sync sizes");
+      }
       return;
     }
     m.style.height = "auto";
@@ -26,7 +30,9 @@ export function FeatureMissionVision({
     const vh = v.getBoundingClientRect().height;
     const maxH = Math.max(mh, vh);
     if (!Number.isFinite(maxH) || maxH <= 0) {
-      console.warn("FeatureMissionVision: invalid measurements", { mh, vh, maxH });
+      if (import.meta.env.DEV) {
+        console.warn("FeatureMissionVision: invalid measurements", { mh, vh, maxH });
+      }
       return;
     }
     const next = `${Math.ceil(maxH)}px`;
@@ -80,10 +86,10 @@ export function FeatureMissionVision({
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-sky animate-pulse"></span>
-            <span id="mission-vision-title">Mission • Vision</span>
+            <span id="mission-vision-title">{t('common.missionAndVision')}</span>
           </div>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Our Mission & Vision
+            {t('common.ourMissionAndVision')}
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
@@ -92,7 +98,7 @@ export function FeatureMissionVision({
             className="h-full"
           >
             <Card
-              aria-label="Mission"
+              aria-label={t('about.mission')}
               className={`relative p-6 rounded-3xl border border-border bg-card text-card-foreground shadow-sm hover:shadow-md transition h-full ${mismatch ? "ring-2 ring-sky" : ""}`}
             >
               <CardContent className="p-0">
@@ -102,7 +108,7 @@ export function FeatureMissionVision({
                     aria-hidden="true"
                     className="h-6 w-6 text-ocean dark:text-sky"
                   />
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">Mission</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{t('about.mission')}</h3>
                   </div>
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
@@ -114,7 +120,7 @@ export function FeatureMissionVision({
                   aria-live="polite"
                   className="absolute top-2 right-2 text-[10px] font-medium px-2 py-0.5 rounded-full bg-sand/70 dark:bg-white/10 border border-border text-foreground"
                 >
-                  Size mismatch
+                  {t('common.sizeMismatch')}
                 </div>
               )}
             </Card>
@@ -124,14 +130,14 @@ export function FeatureMissionVision({
             className="h-full"
           >
             <Card
-              aria-label="Vision"
+              aria-label={t('about.vision')}
               className={`relative p-6 rounded-3xl border border-border bg-card text-card-foreground shadow-sm hover:shadow-md transition h-full ${mismatch ? "ring-2 ring-sky" : ""}`}
             >
               <CardContent className="p-0">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <Stars aria-hidden="true" className="h-6 w-6 text-ocean dark:text-sky" />
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground">Vision</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground">{t('about.vision')}</h3>
                   </div>
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
@@ -143,7 +149,7 @@ export function FeatureMissionVision({
                   aria-live="polite"
                   className="absolute top-2 right-2 text-[10px] font-medium px-2 py-0.5 rounded-full bg-sand/70 dark:bg-white/10 border border-border text-foreground"
                 >
-                  Size mismatch
+                  {t('common.sizeMismatch')}
                 </div>
               )}
             </Card>

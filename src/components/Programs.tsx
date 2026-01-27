@@ -69,6 +69,8 @@ const Programs = () => {
                 <img
                   src={program.image}
                   alt={program.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4 bg-white/90 p-3 rounded-full">

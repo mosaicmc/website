@@ -23,7 +23,7 @@
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted-foreground: 0 0% 40%;
     --accent: 0 0% 96.1%;
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
@@ -48,6 +48,13 @@
     --brand-earth: #f37a60;
     --brand-leaf: #b4d785;
     --brand-care: #F16B83;
+
+    /* Accessible Text Variants (WCAG AA compliant against white/light backgrounds) */
+    --sky-text: #16656a;
+    --earth-text: #a83820;
+    --leaf-text: #446622;
+    --care-text: #c92a4a;
+    --sun-text: #b45309;
 
     /* Semantic brand heading color */
     --brand-heading: var(--brand-ocean);
@@ -170,7 +177,7 @@
     
     /* Darken sky for better contrast in dark mode (WCAG AA) */
     --sky: #4aaeb3;
-}
+  }
 
 /* Dark mode body gradient for e2e tests */
   .dark body {
@@ -191,7 +198,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden max-w-[100vw];
+  }
+  html {
+    @apply overflow-x-hidden max-w-[100vw];
   }
 }
 
@@ -369,6 +379,31 @@
 }
 
 @layer utilities {
+  /* Consistent hover transitions */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+  .hover-scale {
+    @apply transition-transform duration-200 ease-out hover:scale-105;
+  }
+  .hover-glow {
+    @apply transition-shadow duration-300 ease-out hover:shadow-[0_0_20px_rgba(59,130,246,0.3)];
+  }
+  .link-arrow {
+    @apply inline-flex items-center gap-1 transition-all duration-200;
+  }
+  .link-arrow svg,
+  .link-arrow .arrow {
+    @apply transition-transform duration-200 ease-out;
+  }
+  .link-arrow:hover svg,
+  .link-arrow:hover .arrow {
+    @apply translate-x-1;
+  }
+  .button-press {
+    @apply transition-transform duration-100 active:scale-95;
+  }
+
   .text-brand-heading {
     color: var(--brand-heading);
   }
@@ -452,6 +487,36 @@
   figcaption { @apply text-sm text-muted-foreground mt-2; }
 }
 
+/* Accessible focus styling for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default outline since we're using focus-visible */
+a:focus,
+button:focus {
+  outline: none;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @screen md {
   h1 { @apply text-4xl; }
   h2 { @apply text-3xl; }
@@ -480,39 +545,7 @@
   .callout { @apply shadow-none border-border; }
 }
 
-/* Google Translate widget layout fixes */
-/* Hide intrusive top banner and reset body offset */
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
 
-/* Normalize gadget inside our container */
-#google_translate_element { display: block; }
-#google_translate_element .goog-te-gadget { display: block !important; }
-#google_translate_element .goog-te-gadget .goog-te-combo {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0.5rem 0.75rem !important;
-  border-radius: 0.5rem !important;
-  border: 1px solid hsl(var(--input)) !important;
-  background-color: hsl(var(--background)) !important;
-  color: hsl(var(--foreground)) !important;
-}
-.dark #google_translate_element .goog-te-gadget .goog-te-combo {
-  background-color: hsl(var(--card)) !important;
-  color: hsl(var(--foreground)) !important;
-  border-color: hsl(var(--input)) !important;
-}
-
-/* Reduce extra spacing and ensure alignment */
-#google_translate_element .goog-te-gadget > div {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  margin: 0 !important;
-}
-
-/* Prevent oversized default font */
-.goog-te-gadget .goog-te-combo { font-size: 0.875rem !important; }
 
 @layer components {
   /* FlipWords CSS-driven gradient using tokens (no hard-coded colors) */
@@ -568,5 +601,24 @@ body { top: 0 !important; }
   }
   .section-center .grid {
     justify-items: center;
+  }
+}
+
+@layer components {
+  .google-translate-widget .goog-te-gadget {
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+  }
+  .google-translate-widget select {
+    background-color: transparent;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    color: inherit;
+  }
+  .google-translate-widget select:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--ring));
   }
 }

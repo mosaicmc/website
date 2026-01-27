@@ -9,7 +9,7 @@ export default function FeedbackComplaintsPolicyPage() {
         <title>Feedback and Complaints Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="How to provide feedback or make a complaint about Mosaic’s services, and how we will handle it."
+          content="How to provide feedback or make a complaint about Mosaic services. Our transparent complaints process explained."
         />
       </Helmet>
 
@@ -49,7 +49,7 @@ export default function FeedbackComplaintsPolicyPage() {
             <ul className="mt-3 list-disc list-inside space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                <span>You can make your complaint through our online form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Mosaic Portal</a></span>
+                <span>You can make your complaint through our online form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-muted-foreground" />
@@ -149,13 +149,13 @@ export default function FeedbackComplaintsPolicyPage() {
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
               <li>
-                For aged care complaints: <a href="https://www.agedcarequality.gov.au/making-complaint" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Aged Care Quality and Safety Commission</a> (1800 951 822)
+                For aged care complaints: <a href="https://www.agedcarequality.gov.au/making-complaint" target="_blank" rel="noopener noreferrer" aria-label="Aged Care Quality and Safety Commission (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Aged Care Quality and Safety Commission <ExternalLink className="h-3 w-3" aria-hidden="true" /></a> (1800 951 822)
               </li>
               <li>
-                For complaints about how Mosaic has handled your private information: <a href="https://www.oaic.gov.au/privacy/privacy-complaints" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Office of the Australian Information Commissioner (OAIC)</a>
+                For complaints about how Mosaic has handled your private information: <a href="https://www.oaic.gov.au/privacy/privacy-complaints" target="_blank" rel="noopener noreferrer" aria-label="Office of the Australian Information Commissioner (OAIC) (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Office of the Australian Information Commissioner (OAIC) <ExternalLink className="h-3 w-3" aria-hidden="true" /></a>
               </li>
               <li>
-                For other complaints: <a href="https://www.ombo.nsw.gov.au/complaints" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">NSW Ombudsman</a>
+                For other complaints: <a href="https://www.ombo.nsw.gov.au/complaints" target="_blank" rel="noopener noreferrer" aria-label="NSW Ombudsman (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">NSW Ombudsman <ExternalLink className="h-3 w-3" aria-hidden="true" /></a>
               </li>
             </ul>
           </div>

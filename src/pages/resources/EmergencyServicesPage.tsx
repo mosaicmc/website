@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { AU } from '@/lib/auSpelling';
 import RelatedServices from '@/components/RelatedServices';
-import { Phone, AlertTriangle, Flame, CloudLightning, Satellite, Radio, Zap, MapPin, Languages } from "lucide-react";
+import { Phone, AlertTriangle, Flame, CloudLightning, Satellite, Radio, Zap, MapPin, Languages, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Section from '@/components/ui/Section';
 
@@ -69,7 +69,7 @@ export default function EmergencyServicesPage() {
         <title>Emergency Services | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Quick access to emergency services and official information sources for the Hunter and surrounding regions."
+          content="Emergency services contacts and official information sources for NSW. Access 000, SES, RFS, and trusted alerts quickly." 
         />
       </Helmet>
 
@@ -108,7 +108,7 @@ export default function EmergencyServicesPage() {
               </div>
               <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition">Call</span>
             </a>
-            <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" className="group rounded-xl border bg-card p-4 shadow-sm hover:shadow-md transition flex items-center justify-between" aria-label="Open NSW Government emergency information">
+            <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" className="group rounded-xl border bg-card p-4 shadow-sm hover:shadow-md transition flex items-center justify-between" aria-label="Open NSW Government emergency information (opens in new tab)">
               <div className="flex items-center gap-3">
                 <div className="rounded-lg bg-leaf text-white p-2">
                   <MapPin className="h-5 w-5" />
@@ -118,7 +118,10 @@ export default function EmergencyServicesPage() {
                   <div className="text-xs text-muted-foreground">Official guidance and contacts</div>
                 </div>
               </div>
-              <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition">Open</span>
+              <span className="inline-flex items-center gap-1 text-primary text-sm opacity-0 group-hover:opacity-100 transition">
+                Open
+                <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              </span>
             </a>
           </div>
 
@@ -152,9 +155,11 @@ export default function EmergencyServicesPage() {
                         href={item.link.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${item.link.label} (opens in new tab)`}
                         className="inline-flex items-center gap-2 text-primary hover:underline"
                       >
                         {item.link.label}
+                        <ExternalLink className="h-3 w-3" aria-hidden="true" />
                       </a>
                     ) : null}
                   </div>

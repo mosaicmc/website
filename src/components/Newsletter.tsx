@@ -72,7 +72,7 @@ const Newsletter = () => {
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Address</span>
-                  <MapPin className="h-7 w-6 text-gray-400" aria-hidden="true" />
+                <MapPin className="h-7 w-6 text-gray-500" aria-hidden="true" />
                 </dt>
                 <dd>
                   456 Hunter Street
@@ -83,7 +83,7 @@ const Newsletter = () => {
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
-                  <Phone className="h-7 w-6 text-gray-400" aria-hidden="true" />
+                <Phone className="h-7 w-6 text-gray-500" aria-hidden="true" />
                 </dt>
                 <dd>
                   <a className="hover:text-gray-900" href="tel:1800813205">
@@ -94,7 +94,7 @@ const Newsletter = () => {
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
-                  <Mail className="h-7 w-6 text-gray-400" aria-hidden="true" />
+                <Mail className="h-7 w-6 text-gray-500" aria-hidden="true" />
                 </dt>
                 <dd>
                   <a className="hover:text-gray-900" href="mailto:info@mosaicmc.org.au">
@@ -120,7 +120,7 @@ const Newsletter = () => {
                     value={formData.firstName}
                     onChange={handleChange}
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -136,7 +136,7 @@ const Newsletter = () => {
                     value={formData.lastName}
                     onChange={handleChange}
                     autoComplete="family-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -152,7 +152,7 @@ const Newsletter = () => {
                     value={formData.email}
                     onChange={handleChange}
                     autoComplete="email"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -168,7 +168,7 @@ const Newsletter = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     autoComplete="tel"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -183,7 +183,7 @@ const Newsletter = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>

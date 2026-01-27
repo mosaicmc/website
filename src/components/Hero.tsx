@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FlipWords } from './ui/flip-words';
+import { SimpleWordRotator } from './ui/simple-word-rotator';
 import { serviceYearsLabel, languagesSpokenLabel, assetPath } from '@/lib/utils';
 import AnimatedBackground from './ui/AnimatedBackground';
 
@@ -12,9 +12,6 @@ const STORIES_ENABLED = import.meta.env.VITE_FEATURE_STORIES_PAGE === 'true';
 
 const Hero = () => {
   const { t } = useTranslation();
-  
-  // FlipWords animation
-  const rotatingWords = ['Multicultural', 'Migrant', 'Refugee', 'Vibrant', 'Connected', 'Thriving', 'United', 'Diverse', 'Resilient', 'Empowered', 'Ageing', 'Senior'];
   
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 section-spacing transition-colors duration-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -32,13 +29,12 @@ const Hero = () => {
               </div>
               
               <h1 className="fluid-h1 text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl xl:text-5xl leading-[1.1] text-gray-900 dark:text-white animate-fade-in-up-delay-100 max-w-4xl">
-                <span className="block sm:inline">Supporting{" "}</span>
-                <FlipWords 
-                  words={rotatingWords}
-                  duration={3000}
+                <span className="block sm:inline">{t('hero.supporting')}{" "}</span>
+                <SimpleWordRotator 
+                  words={t('hero.words', { returnObjects: true }) as string[]}
                   className="inline-block px-1 sm:px-2"
                 />{" "}
-                <span className="block sm:inline mt-1 sm:mt-0">Communities Across NSW</span>
+                <span className="block sm:inline mt-1 sm:mt-0">{t('hero.communities')}</span>
               </h1>
               
               <p className="max-w-[600px] text-gray-600 md:text-xl dark:text-gray-300 leading-relaxed whitespace-pre-line animate-fade-in-up-delay-200">
@@ -49,7 +45,7 @@ const Hero = () => {
             <div className="flex flex-col gap-4 min-[400px]:flex-row animate-fade-in-up-delay-300">
               <Button asChild size="lg" variant="cta" className="h-12 rounded-xl text-sm font-semibold">
                 <Link to="/services" data-testid="hero-explore-btn">
-                  Explore Our Services
+                  {t('hero.exploreServices')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -62,7 +58,7 @@ const Hero = () => {
                 >
                   <Link to="/stories">
                     <Play className="mr-2 h-4 w-4" />
-                    Watch Stories
+                    {t('hero.watchStories')}
                   </Link>
                 </Button>
               )}
@@ -71,12 +67,12 @@ const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 animate-fade-in-up-delay-400">
               {[
-                { number: serviceYearsLabel(), label: "Years of Service" },
-                { number: "2,500+", label: "Families Supported" },
-                { number: languagesSpokenLabel(), label: "Languages Spoken" }
+                { number: serviceYearsLabel(), label: t('hero.stats.years') },
+                { number: "2,500+", label: t('hero.stats.families') },
+                { number: languagesSpokenLabel(), label: t('hero.stats.languages') }
               ].map((stat, index) => (
                 <div key={index} className="text-center group hover:scale-105 transition-all duration-300 cursor-pointer p-2 rounded-lg hover:bg-white/10 dark:hover:bg-slate-800/20">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-earth dark:group-hover:text-earth transition-all duration-300 group-hover:animate-pulse-gentle">{stat.number}</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-earth-text dark:group-hover:text-earth transition-all duration-300 motion-safe:group-hover:animate-pulse-gentle">{stat.number}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
                 </div>
               ))}
@@ -88,13 +84,13 @@ const Hero = () => {
             <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-3xl transition-all duration-700 group shadow-2xl z-10">
               <picture>
                 <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp")} type="image/webp" />
-                <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg")} type="image/jpeg" />
+                <source media="(min-width: 768px)" srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp")} type="image/jpeg" />
                 <source srcSet={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp")} type="image/webp" />
                 <img
-                  src={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg")}
-                  alt="Diverse group of young people celebrating together in a library setting"
+                  src={assetPath("/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp")}
+                  alt={t('hero.imageAlt')}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                   />
               </picture>
@@ -106,12 +102,12 @@ const Hero = () => {
               {/* Floating card: Satisfaction Rate */}
               <div className="hero-card hero-card-compact hero-card-pos-top-right animate-fade-in-left delay-500 z-20 group/card hover:shadow-2xl">
                 <div className="flex items-center gap-4">
-                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-ocean font-bold text-sm shadow-inner shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-white font-bold text-sm shadow-inner shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
                   95%
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">Satisfaction Rate</p>
-                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">Client feedback</p>
+                  <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">{t('hero.stats.satisfaction')}</p>
+                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">{t('hero.stats.feedback')}</p>
                 </div>
               </div>
               </div>
@@ -119,11 +115,11 @@ const Hero = () => {
               {/* Floating card: Office Locations (brand-aligned, accessible) */}
               <Link
                 to="/locations"
-                aria-label="View office locations across NSW"
+                aria-label={t('hero.viewLocations')}
               className="hero-card hero-card-compact hero-card-pos-bottom-left hover:shadow-2xl transition-all duration-300 group/card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background z-20"
               >
                 <div className="flex items-center gap-4">
-                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-ocean group-hover/card:bg-ocean group-hover/card:text-white transition-colors duration-300 shrink-0">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-white group-hover/card:bg-ocean group-hover/card:text-white transition-colors duration-300 shrink-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -141,10 +137,10 @@ const Hero = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">
-                    4 Locations
+                    {t('hero.stats.locations')}
                   </p>
                   <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">
-                    Across NSW
+                    {t('hero.stats.coverage')}
                   </p>
                 </div>
               </div>

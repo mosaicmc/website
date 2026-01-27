@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export const FlipWords = ({
   words,
@@ -15,6 +16,7 @@ export const FlipWords = ({
   const hasWords = Array.isArray(words) && words.length > 0;
   const [currentWord, setCurrentWord] = useState(words[0] || "");
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const prefersReducedMotion = useReducedMotion();
 
   // thanks for the fix Julian - https://github.com/Julian-AT
   const startAnimation = useCallback(() => {
@@ -25,7 +27,7 @@ export const FlipWords = ({
   }, [currentWord, words, hasWords]);
 
   useEffect(() => {
-    if (!hasWords) return undefined;
+    if (!hasWords || prefersReducedMotion) return undefined;
     if (!isAnimating) {
       const timeout = window.setTimeout(() => {
         startAnimation();
@@ -33,10 +35,18 @@ export const FlipWords = ({
       return () => window.clearTimeout(timeout);
     }
     return undefined;
-  }, [isAnimating, duration, startAnimation, hasWords]);
+  }, [isAnimating, duration, startAnimation, hasWords, prefersReducedMotion]);
 
   if (!hasWords) {
     return null;
+  }
+
+  if (prefersReducedMotion) {
+    return (
+      <span className={cn("inline-block", className)}>
+        {words[0]}
+      </span>
+    );
   }
 
   return (

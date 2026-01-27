@@ -1,97 +1,106 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { Calendar, MapPin, User, ArrowRight } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import RelatedServices from '@/components/RelatedServices';
+import { AU } from '@/lib/auSpelling';
 
 const StoriesPage = () => {
+  const { t } = useTranslation();
+
   const stories = [
     {
+      id: "ahmed-journey",
       title: "From Refugee to Community Leader: Ahmed's Journey",
       excerpt: "After arriving from Sudan with his family, Ahmed Hassan found hope and support through Mosaic's settlement services. Today, he leads community programs helping other new arrivals.",
       author: "Sarah Chen",
       date: "December 15, 2024",
       location: "Newcastle",
-      category: "Settlement Success",
+      category: "settlement",
       image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "5 min read"
+      readTime: 5
     },
     {
+      id: "home-care-culture",
       title: "Preserving Culture Through Home Care",
       excerpt: "Maria's story shows how culturally appropriate home care helps seniors maintain their identity while receiving the support they need in their golden years.",
       author: "Jennifer Kim",
       date: "December 10, 2024",
       location: "Central Coast",
-      category: "Home Care",
+      category: "homeCare",
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "4 min read"
+      readTime: 4
     },
     {
+      id: "youth-leadership",
       title: "Building Bridges: The Youth Leadership Program",
       excerpt: "Young people from diverse backgrounds come together to develop leadership skills and create positive change in their communities through our youth programs.",
       author: "David Thompson",
       date: "December 5, 2024",
       location: "Lake Macquarie",
-      category: "Youth Programs",
+      category: "youth",
       image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "6 min read"
+      readTime: 6
     },
     {
+      id: "family-reunification",
       title: "Family Reunification: A Story of Hope",
       excerpt: "After years of separation, the Chen family was reunited in Australia. Our family support services helped them rebuild their lives and strengthen their bonds.",
       author: "Lisa Wong",
       date: "November 28, 2024",
       location: "Hunter Region",
-      category: "Family Support",
+      category: "family",
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "7 min read"
+      readTime: 7
     },
     {
+      id: "volunteer-spotlight",
       title: "Volunteer Spotlight: Making a Difference",
       excerpt: "Meet Jennifer, a dedicated volunteer who has been supporting settlement services for three years, helping dozens of families find their place in Australia.",
       author: "Ahmed Hassan",
       date: "November 20, 2024",
       location: "Newcastle",
-      category: "Volunteer Stories",
+      category: "volunteer",
       image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "4 min read"
+      readTime: 4
     },
     {
+      id: "cultural-festival",
       title: "Cultural Festival Brings Community Together",
       excerpt: "The annual Multicultural Festival showcased the rich diversity of our community, featuring food, music, and traditions from over 20 different cultures.",
       author: "Carlos Rodriguez",
       date: "November 15, 2024",
       location: "All Locations",
-      category: "Community Events",
+      category: "events",
       image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=600",
-      readTime: "5 min read"
+      readTime: 5
     }
   ];
 
-  const categories = ["All Stories", "Settlement Success", "Home Care", "Youth Programs", "Family Support", "Volunteer Stories", "Community Events"];
-  const [selectedCategory, setSelectedCategory] = React.useState("All Stories");
+  const categories = ["all", "settlement", "homeCare", "youth", "family", "volunteer", "events"];
+  const [selectedCategory, setSelectedCategory] = React.useState("all");
 
-  const filteredStories = selectedCategory === "All Stories" 
+  const filteredStories = selectedCategory === "all" 
     ? stories 
     : stories.filter(story => story.category === selectedCategory);
 
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Community Stories | Mosaic Multicultural Connections</title>
-        <meta name="description" content="Read inspiring stories and impact highlights from multicultural communities supported by Mosaic Multicultural Connections." />
+        <title>{t('storiesPage.meta.title')}</title>
+        <meta name="description" content="Community stories and impact stories from Mosaic programs. Real stories of multicultural communities in NSW and the people we support." />
       </Helmet>
       {/* Hero Section */}
       <Section variant="default" divider="top" fade="top">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-gray-700 dark:text-white/90 font-medium">Community Stories</span>
+            <span className="text-gray-700 dark:text-white/90 font-medium">{t('storiesPage.hero.badge')}</span>
           </div>
-          <h1 className="fluid-h1 text-5xl font-bold mb-6 text-gray-900 dark:text-white">Stories & Impact</h1>
+          <h1 className="fluid-h1 text-5xl font-bold mb-6 text-gray-900 dark:text-white">{t('storiesPage.hero.title')}</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-            Real stories from our community members, showcasing the transformative power of support, 
-            connection, and cultural celebration.
+            {AU(t('storiesPage.hero.description'))}
           </p>
         </div>
       </Section>
@@ -109,7 +118,7 @@ const StoriesPage = () => {
                   : 'backdrop-blur-md bg-white/60 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-white/20 border border-white/40 dark:border-white/20 shadow-lg hover:shadow-xl'
               }`}
             >
-              {category}
+              {t(`storiesPage.categories.${category}`)}
             </button>
           ))}
         </div>
@@ -123,24 +132,26 @@ const StoriesPage = () => {
               <div className="relative overflow-hidden">
                 <img
                   src={story.image}
-                  alt={story.title}
+                  alt={t(`storiesPage.items.${story.id}.title`)}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm">
-                  {story.category}
+                  {t(`storiesPage.categories.${story.category}`)}
                 </div>
                 <div className="absolute top-4 right-4 backdrop-blur-md bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-sm border border-white/20 dark:border-slate-700/50">
-                  {story.readTime}
+                  {t('storiesPage.readTime', { count: story.readTime })}
                 </div>
               </div>
               
               <div className="p-6 relative z-10">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-sky transition-colors">
-                  {story.title}
+                  {t(`storiesPage.items.${story.id}.title`)}
                 </h2>
                 
                 <p className="text-gray-600 dark:text-white/80 leading-relaxed mb-6">
-                  {story.excerpt}
+                  {t(`storiesPage.items.${story.id}.excerpt`)}
                 </p>
                 
                 <div className="space-y-3 mb-6">
@@ -159,7 +170,7 @@ const StoriesPage = () => {
                 </div>
                 
                 <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center group transition-colors">
-                  Read Full Story
+                  {t('storiesPage.readMore')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -174,18 +185,18 @@ const StoriesPage = () => {
       <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Community Impact</h2>
+            <h2 className="text-4xl font-bold mb-4">{t('storiesPage.impact.title')}</h2>
             <p className="text-xl text-blue-200 dark:text-blue-300 max-w-3xl mx-auto">
-              These numbers represent real lives changed and communities strengthened through our work.
+              {AU(t('storiesPage.impact.description'))}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "2,500+", label: "Families Supported", description: "Across all our programs" },
-              { number: "150+", label: "Success Stories", description: "Documented transformations" },
-              { number: "25+", label: "Languages", description: "Community representation" },
-              { number: "95%", label: "Positive Outcomes", description: "Client satisfaction rate" }
+              { number: "2,500+", label: t('storiesPage.impact.stats.families.label'), description: t('storiesPage.impact.stats.families.desc') },
+              { number: "150+", label: t('storiesPage.impact.stats.stories.label'), description: t('storiesPage.impact.stats.stories.desc') },
+              { number: "25+", label: t('storiesPage.impact.stats.languages.label'), description: t('storiesPage.impact.stats.languages.desc') },
+              { number: "95%", label: t('storiesPage.impact.stats.outcomes.label'), description: t('storiesPage.impact.stats.outcomes.desc') }
             ].map((stat, index) => (
               <div key={index} className="text-center backdrop-blur-md bg-white/10 rounded-xl p-6 border border-white/20">
                 <div className="text-4xl font-bold text-sky mb-2">{stat.number}</div>
@@ -206,22 +217,23 @@ const StoriesPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 text-center border border-white/50 dark:border-white/20 shadow-2xl">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Stay Updated</h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">{t('storiesPage.newsletter.title')}</h2>
             <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">
-              Subscribe to our newsletter to receive the latest stories, program updates, and community news.
+              {AU(t('storiesPage.newsletter.description'))}
             </p>
             <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg bg-white/80 dark:bg-slate-700/80 text-gray-900 dark:text-white backdrop-blur-sm"
+                aria-label={t('storiesPage.newsletter.placeholder')}
+                placeholder={t('storiesPage.newsletter.placeholder')}
+                className="flex-1 px-6 py-4 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg bg-white/80 dark:bg-slate-700/80 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 backdrop-blur-sm"
               />
               <button className="bg-gradient-to-r from-ocean to-sky hover:from-ocean/90 hover:to-sky/90 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
-                Subscribe
+                {t('storiesPage.newsletter.button')}
               </button>
             </div>
             <p className="text-gray-600 dark:text-white/70 text-sm mt-4">
-              Monthly updates • Unsubscribe anytime • Privacy respected
+              {t('storiesPage.newsletter.note')}
             </p>
           </div>
         </div>

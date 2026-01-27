@@ -11,17 +11,18 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const isDark = theme === 'dark'
 
   return (
-    <div
+    <button
+      type="button"
       className={cn(
-        "flex w-16 h-8 p-1 rounded-full cursor-pointer transition-all duration-300",
+        "flex w-16 h-11 min-h-[44px] p-1 rounded-full cursor-pointer transition-all duration-300",
         isDark 
           ? "bg-zinc-950 border border-zinc-800" 
           : "bg-white border border-zinc-200",
         className
       )}
       onClick={toggleTheme}
-      role="button"
-      tabIndex={0}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={isDark}
     >
       <div className="flex justify-between items-center w-full">
         <div
@@ -54,7 +55,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         >
           {isDark ? (
             <Sun 
-              className="w-4 h-4 text-gray-500" 
+              className="w-4 h-4 text-gray-600" 
               strokeWidth={1.5}
             />
           ) : (
@@ -65,6 +66,6 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
           )}
         </div>
       </div>
-    </div>
+    </button>
   )
 }

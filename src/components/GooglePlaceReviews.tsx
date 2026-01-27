@@ -154,12 +154,13 @@ const GooglePlaceReviews = () => {
                   “{item.text}”
                 </blockquote>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 dark:text-white/60">{item.relative_time_description}</span>
+                  <span className="text-xs text-gray-600 dark:text-white/60">{item.relative_time_description}</span>
                   <a
                     href={GOOGLE_REVIEWS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    aria-label="View on Google (opens in new tab)"
                   >
                     View on Google
                     <ExternalLink className="h-4 w-4" />
@@ -202,7 +203,7 @@ const GooglePlaceReviews = () => {
                     <div className="flex items-center justify-between mb-3">
                       <div>
                         <div className="text-sm font-semibold text-gray-800 dark:text-white">Featured Google Review</div>
-                        <div className="text-xs text-gray-500 dark:text-white/60">Recently posted</div>
+                        <div className="text-xs text-gray-600 dark:text-white/60">Recently posted</div>
                       </div>
                     </div>
                     <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed mb-6 text-base">
@@ -211,12 +212,13 @@ const GooglePlaceReviews = () => {
                         : '“View this review on Google.”'}
                     </blockquote>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500 dark:text-white/60">Source: Google Reviews</span>
+                      <span className="text-xs text-gray-600 dark:text-white/60">Source: Google Reviews</span>
                       <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                        aria-label="View on Google (opens in new tab)"
                       >
                         View on Google
                         <ExternalLink className="h-4 w-4" />

@@ -4,12 +4,13 @@ import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, ChevronRight, FileDown, X } from 'lucide-react';
+import { Users, ChevronRight, FileDown, X, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { assetPath } from '@/lib/utils';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Form,
@@ -127,7 +128,7 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
             aria-label="View details"
             aria-haspopup="dialog"
             title="View details"
-            className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[40px] min-h-[40px] z-30 relative"
+            className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-sky dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded p-2 min-w-[44px] min-h-[44px] z-30 relative"
           >
             <ChevronRight className="h-4 w-4" />
           </Dialog.Trigger>
@@ -151,15 +152,10 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                       <FileDown className="h-4 w-4 mr-2" />
                       Download PDF
                     </Button>
-                    <a
-                      href="https://tally.so/r/3qoXjg"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-lg bg-ocean text-white px-4 py-2 text-sm hover:bg-ocean/90"
-                    >
-                      Apply
-                    </a>
                   </div>
+                )}
+                {!showForm && (
+                  <PDFAccessibilityNotice className="mt-2" />
                 )}
                 {showForm && (
                   <div className="mt-4 space-y-4">
@@ -168,6 +164,7 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                         className="space-y-4"
                         onSubmit={form.handleSubmit(onSubmit)}
                         noValidate
+                        aria-describedby={submitError ? "volunteer-download-error" : undefined}
                       >
                         <div className="grid gap-4 sm:grid-cols-2">
                           <FormField
@@ -224,7 +221,14 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                           )}
                         />
                         {submitError && (
-                          <p className="text-sm text-destructive">{submitError}</p>
+                          <p
+                            id="volunteer-download-error"
+                            role="alert"
+                            aria-live="polite"
+                            className="text-sm text-destructive"
+                          >
+                            {submitError}
+                          </p>
                         )}
                         <div className="flex flex-col sm:flex-row gap-3">
                           <Button
@@ -286,10 +290,10 @@ export default function ArmidaleVolunteerPage() {
     <div className="animate-fade-in">
       <Helmet>
         <title>Volunteer in Armidale | Mosaic Multicultural Connections</title>
-        <meta
-          name="description"
-          content="Volunteer opportunities in Armidale: settlement support, tutoring, ACVVS visitor, citizenship assistance and community events."
-        />
+          <meta
+            name="description"
+            content="Volunteer in Armidale with Mosaic. Help multicultural communities in regional NSW. Settlement support and aged care roles."
+          />
       </Helmet>
 
       <Section overlay center padding="lg">
@@ -342,12 +346,14 @@ export default function ArmidaleVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://tally.so/r/3qoXjg"
+            href="https://forms.mosaicmc.org.au/Volunteer_Application"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            aria-label="Apply to Volunteer (opens in new tab)"
+            className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
           >
             Apply to Volunteer
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
           <Link
             to="/get-involved"

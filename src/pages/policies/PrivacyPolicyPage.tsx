@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Lock, FileText, Share2, ShieldAlert, Mail, Building } from "lucide-react";
+import { Lock, FileText, Share2, ShieldAlert, Mail, Building, ExternalLink } from "lucide-react";
 import { PolicyPageFooter } from "@/components/policies/PolicyPageFooter";
 
 export default function PrivacyPolicyPage() {
@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
         <title>Privacy Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="How Mosaic collects, uses, and protects your personal information in accordance with Australian privacy laws."
+          content="Mosaic Multicultural Connections privacy policy. How we collect, use, and protect your personal information."
         />
       </Helmet>
 
@@ -125,13 +125,13 @@ export default function PrivacyPolicyPage() {
               If you feel that we have not kept your information private, you can send us a complaint:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
-              <li>By visiting our website and completing the complaint form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Mosaic Portal</a></li>
+              <li>By visiting our website and completing the complaint form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></li>
               <li>Send us an email to <a href="mailto:info@mosaicmc.org.au" className="text-primary hover:underline">info@mosaicmc.org.au</a></li>
-              <li>Call us on the phone <a href="tel:0249693399" className="text-primary hover:underline">02 4969 3399</a></li>
+              <li>Call us on the phone <a href="tel:1800813205" className="text-primary hover:underline">1800 813 205</a></li>
               <li>Talk to one of our workers</li>
             </ul>
             <p className="mt-3 text-sm text-muted-foreground">
-              If you are not happy with the way we have helped you with your complaint, you can complain to the <a href="http://www.oaic.gov.au/consumer-data-right/consumer-data-right-complaints/how-to-make-a-consumer-data-right-complaint" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Australian Information Commissioner (OAIC)</a>.
+              If you are not happy with the way we have helped you with your complaint, you can complain to the <a href="http://www.oaic.gov.au/consumer-data-right/consumer-data-right-complaints/how-to-make-a-consumer-data-right-complaint" target="_blank" rel="noopener noreferrer" aria-label="Australian Information Commissioner (OAIC) (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Australian Information Commissioner (OAIC) <ExternalLink className="h-3 w-3" aria-hidden="true" /></a>.
             </p>
           </div>
         </div>

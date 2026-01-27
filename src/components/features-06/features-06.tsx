@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { assetPath } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 interface ServiceFeature {
   category: string;
@@ -44,6 +45,7 @@ const defaultFeatures: ServiceFeature[] = [
 ];
 
 const ServicesList = ({ title = "Our Comprehensive Services", features = defaultFeatures }: ServicesListProps) => {
+  const { t } = useTranslation();
   const textColorClass = (category: string) => {
     return category === "Settlement Support"
       ? "text-sky"
@@ -132,7 +134,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                   className={`mt-6 rounded-full min-w-40 text-[15px] ${buttonColorClass(feature.category)} text-white mx-auto`}
                 >
                   <Link to={feature.tutorialLink}>
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    {t('common.learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>

@@ -19,7 +19,7 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   position = 'bottom-right',
   size = 'md',
   variant = 'primary',
-  ariaLabel,
+  ariaLabel = 'Floating action button',
 }) => {
   const positionClasses = {
     'bottom-right': 'bottom-6 right-6',
@@ -48,6 +48,7 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 
   return (
     <button
+      type="button"
       onClick={onClick}
       aria-label={ariaLabel}
       title={ariaLabel}
@@ -118,8 +119,8 @@ export const ContactFloatingMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const contactOptions = [
-    { icon: <Phone className="h-4 w-4" />, label: 'Call', action: () => window.open('tel:+1234567890') },
-    { icon: <Mail className="h-4 w-4" />, label: 'Email', action: () => window.open('mailto:contact@example.com') },
+    { icon: <Phone className="h-4 w-4" />, label: 'Call Mosaic', action: () => window.open('tel:1800813205') },
+    { icon: <Mail className="h-4 w-4" />, label: 'Email Mosaic', action: () => window.open('mailto:info@mosaicmc.org.au') },
     { icon: <MessageCircle className="h-4 w-4" />, label: 'Chat', action: () => {} },
   ];
 
@@ -138,10 +139,13 @@ export const ContactFloatingMenu: React.FC = () => {
                 {option.label}
               </span>
               <button
+                type="button"
                 onClick={option.action}
-                className="w-10 h-10 bg-gradient-to-r from-ocean to-sky text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl hover:shadow-ocean/20 transition-all duration-300"
+                aria-label={option.label}
+                title={option.label}
+                className="w-11 h-11 bg-gradient-to-r from-ocean to-sky text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl hover:shadow-ocean/20 transition-all duration-300"
               >
-                {option.icon}
+                <span aria-hidden="true">{option.icon}</span>
               </button>
             </div>
           ))}
@@ -158,6 +162,7 @@ export const ContactFloatingMenu: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         position="bottom-left"
         className="relative"
+        ariaLabel={isOpen ? 'Close contact options' : 'Open contact options'}
       />
     </div>
   );
@@ -279,7 +284,12 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-4 right-4 z-50 animate-fade-in-down">
+    <div
+      className="fixed top-4 right-4 z-50 animate-fade-in-down"
+      role={type === 'error' ? 'alert' : 'status'}
+      aria-live={type === 'error' ? 'assertive' : 'polite'}
+      aria-atomic="true"
+    >
       <div
         className={`
           ${typeClasses[type]}
@@ -290,8 +300,10 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
       >
         <span className="flex-1">{message}</span>
         <button
+          type="button"
           onClick={onClose}
-          className="text-current hover:opacity-70 transition-opacity"
+          aria-label="Close notification"
+          className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-current hover:opacity-70 transition-opacity"
         >
           ×
         </button>

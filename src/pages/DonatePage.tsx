@@ -1,25 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
 import RelatedServices from '@/components/RelatedServices';
 import { Helmet } from 'react-helmet-async';
 import { assetPath } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
+import { ExternalLink } from 'lucide-react';
 
 const DonatePage = () => {
+  const { t } = useTranslation();
+  const [raiselyLoaded, setRaiselyLoaded] = useState(false);
   return (
     <div className="animate-fade-in">
       <Helmet>
-        <title>Donate | Mosaic Multicultural Connections</title>
+        <title>{t('donate.meta.title')}</title>
         <meta
           name="description"
-          content="Support Mosaic Multicultural Connections. Your donation empowers multicultural communities across NSW through settlement support, home care, family services, and community engagement."
+          content="Support multicultural communities in NSW. Donate to Mosaic Multicultural Connections — tax-deductible contributions that make a real difference."
         />
       </Helmet>
       {/* Hero */}
       <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="fluid-h1 text-4xl font-bold mb-3 text-gray-900 dark:text-white">Donate to Mosaic</h1>
+            <h1 className="fluid-h1 text-4xl font-bold mb-3 text-gray-900 dark:text-white">{t('donate.title')}</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Your contribution directly supports multicultural communities throughout New South Wales.
+              {t('donate.subtitle')}
             </p>
           </div>
         </div>
@@ -29,51 +34,70 @@ const DonatePage = () => {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-foreground mb-3">Your Impact</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-3">{t('donate.impact.title')}</h2>
               <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                 <p>
-                  We need your help to deliver the important programs and activities that you can find throughout our website.
+                  {t('donate.impact.text1')}
                 </p>
                 <p>
-                  By donating to Mosaic Multicultural Connections, you will be making a positive difference to the lives of individuals, families and communities.
+                  {t('donate.impact.text2')}
                 </p>
                 <p>
-                  Mosaic Multicultural Connections is a registered business name of Northern Settlement Services Limited and is a registered charity with the ACNC. We can provide tax deductible receipts for gifts over $2.00
+                  {t('donate.impact.text3')}
                 </p>
-                <p className="font-medium text-foreground">ABN 72 002 898 759</p>
+                <p className="font-medium text-foreground">{t('donate.impact.abn')}</p>
                 <div className="pt-2">
                   <a
                     href="https://www.acnc.gov.au/charity/charities/83faff37-39af-e811-a960-000d3ad24282/profile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="ACNC Registered Charity Profile"
-                    className="inline-flex items-center rounded-xl focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+                    aria-label="ACNC Registered Charity Profile (opens in new tab)"
+                    className="inline-flex items-center gap-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                   >
                     <img
-                      src={assetPath("/images/charity_logo-150x150.png")}
+                      src={assetPath("/images/charity_logo-150x150.webp")}
                       alt="ACNC Registered Charity"
+                      width={150}
+                      height={150}
+                      loading="eager"
+                      decoding="async"
                       className="h-24 w-auto object-contain transition-transform hover:scale-105"
                     />
+                    <ExternalLink className="h-4 w-4 text-ocean" aria-hidden="true" />
                   </a>
                 </div>
               </div>
             </div>
             <div className="rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-gray-200 dark:border-slate-700 overflow-hidden">
               <div className="p-4 sm:p-6">
-                <div className="aspect-[16/12] sm:aspect-[16/10] w-full">
+                <div className="aspect-[16/12] sm:aspect-[16/10] w-full" aria-busy={!raiselyLoaded}>
+                  {!raiselyLoaded && (
+                    <div className="h-full w-full animate-pulse rounded-xl border border-border/60 bg-card/60 p-6">
+                      <div className="h-6 w-40 rounded bg-muted mb-4" />
+                      <div className="grid grid-cols-3 gap-3 mb-4">
+                        <div className="h-10 rounded bg-muted" />
+                        <div className="h-10 rounded bg-muted" />
+                        <div className="h-10 rounded bg-muted" />
+                      </div>
+                      <div className="h-10 rounded bg-muted mb-3" />
+                      <div className="h-10 rounded bg-muted" />
+                    </div>
+                  )}
                   <iframe
                     src="https://mosaicmc.raisely.com/embed"
                     title="Donate to Mosaic Multicultural Connections"
                     width="100%"
                     height="620"
                     style={{ border: 0 }}
-                    loading="lazy"
+                    loading="eager"
+                    onLoad={() => setRaiselyLoaded(true)}
+                    className={raiselyLoaded ? "opacity-100" : "opacity-0"}
                   />
                 </div>
               </div>
             </div>
           </div>
-          <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center">Secure payments processed by Raisely.</p>
+          <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center">{t('donate.securePayment')}</p>
         </div>
       </section>
       <RelatedServices />

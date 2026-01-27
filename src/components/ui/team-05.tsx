@@ -188,6 +188,8 @@ const Team05: React.FC<Team05Props> = ({
                           <img 
                             src={member.image} 
                             alt={member.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover filter saturate-105 contrast-102 transition-all duration-500 group-hover:brightness-105"
                             style={{ 
                               objectPosition: `50% ${typeof member.focalY === 'number' ? `${member.focalY}%` : '35%'}`,
@@ -240,6 +242,7 @@ const Team05: React.FC<Team05Props> = ({
                           <a
                             href={`mailto:${member.email}`}
                             className={`w-12 h-12 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-white dark:border-slate-700 shadow-xl flex items-center justify-center ${getIconColor(accentColor)} hover:text-white transition-all duration-300 hover:scale-125 hover:rotate-12 backdrop-blur-sm focus:outline-none focus:ring-2 ${getFocusRing(accentColor)} focus:ring-offset-2`}
+                            aria-label={`Email ${member.name}`}
                             title={`Email ${member.name}`}
                           >
                             <Mail className="h-5 w-5" />
@@ -249,6 +252,7 @@ const Team05: React.FC<Team05Props> = ({
                           <a
                             href={`tel:${member.phone.replace(/\s/g, '')}`}
                             className={`w-12 h-12 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-white dark:border-slate-700 shadow-xl flex items-center justify-center ${getIconColor(accentColor)} hover:text-white transition-all duration-300 hover:scale-125 hover:-rotate-12 backdrop-blur-sm focus:outline-none focus:ring-2 ${getFocusRing(accentColor)} focus:ring-offset-2`}
+                            aria-label={`Call ${member.name}`}
                             title={`Call ${member.name}`}
                           >
                             <Phone className="h-5 w-5" />
@@ -261,7 +265,16 @@ const Team05: React.FC<Team05Props> = ({
                   <div className="text-center mb-4">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">
                       {member.titleImage && (
-                        <img src={member.titleImage} alt="" className="inline-block w-6 h-6 rounded-full mr-2 align-middle" />
+                          <img
+                            src={member.titleImage}
+                            alt=""
+                            aria-hidden="true"
+                            width={24}
+                            height={24}
+                            loading="lazy"
+                            decoding="async"
+                            className="inline-block w-6 h-6 rounded-full mr-2 align-middle"
+                          />
                       )}
                       {member.name}
                     </h3>
@@ -304,7 +317,7 @@ const Team05: React.FC<Team05Props> = ({
                   {/* Languages */}
                   {member.languages && (
                     <div className="mt-auto">
-                      <p className="text-xs font-medium text-gray-500 dark:text-white/60 mb-2 text-center">Languages:</p>
+                      <p className="text-xs font-medium text-gray-600 dark:text-white/60 mb-2 text-center">Languages:</p>
                       <div className="flex flex-wrap gap-1 justify-center">
                         {member.languages.map((lang, idx) => (
                           <span key={idx} className="text-xs bg-white/60 dark:bg-white/15 px-3 py-1 rounded-full text-gray-600 dark:text-white/70 border border-white/40 dark:border-white/20 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/25 transition-colors">

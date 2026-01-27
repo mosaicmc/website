@@ -44,7 +44,7 @@ export default function VolunteerLocationNav({ currentSlug }: { currentSlug: Loc
         touchStartX.current = null;
       }}
     >
-      <div className="inline-flex items-center gap-8">
+      <div className="inline-flex items-center gap-4 sm:gap-8">
         <div className="flex items-center gap-3">
           <Link
             to={`/volunteer/${prev.slug}`}
@@ -54,7 +54,7 @@ export default function VolunteerLocationNav({ currentSlug }: { currentSlug: Loc
           >
             <ChevronLeft className="h-6 w-6" />
           </Link>
-          <span aria-hidden="true" className="text-sm font-medium text-foreground/90 max-w-[140px] truncate">
+          <span aria-hidden="true" className="hidden sm:block text-sm font-medium text-foreground/90 max-w-[140px] truncate">
             {prev.name}
           </span>
         </div>
@@ -65,13 +65,13 @@ export default function VolunteerLocationNav({ currentSlug }: { currentSlug: Loc
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ type: 'spring', stiffness: 160, damping: 18 }}
-            className="text-base sm:text-lg font-medium text-foreground"
+            className="text-base sm:text-lg font-medium text-foreground text-center min-w-[100px]"
           >
             {current.name}
           </motion.span>
         </AnimatePresence>
         <div className="flex items-center gap-3">
-          <span aria-hidden="true" className="text-sm font-medium text-foreground/90 max-w-[140px] truncate text-right">
+          <span aria-hidden="true" className="hidden sm:block text-sm font-medium text-foreground/90 max-w-[140px] truncate text-right">
             {next.name}
           </span>
           <Link

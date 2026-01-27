@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,7 @@ export function BoardSection({
   title?: string;
   members: BoardMemberCard[];
 }) {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<BoardMemberCard | null>(null);
   const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
@@ -104,10 +106,10 @@ export function BoardSection({
                         <div className="flex items-center gap-2 mt-1">
                           <SheetTrigger asChild>
                             <Button
-                              aria-label={`Read bio for ${m.name}`}
+                              aria-label={`${t('common.readBio')} for ${m.name}`}
                               onClick={() => { setSelected(m); setOpen(true); }}
                             >
-                              Read Bio
+                              {t('common.readBio')}
                             </Button>
                           </SheetTrigger>
                           {(() => {
@@ -117,7 +119,7 @@ export function BoardSection({
                                 href={li.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label={`${m.name} on LinkedIn`}
+                                aria-label={`${m.name} on LinkedIn (opens in new tab)`}
                                 className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
                               >
                                 <BrandLinkedIn className="h-4 w-4" />
@@ -149,10 +151,10 @@ export function BoardSection({
                     ) : (
                       <div className="flex items-center gap-2 mt-1">
                         <Button
-                          aria-label={`Read bio for ${m.name}`}
+                          aria-label={t('common.readBioFor', { name: m.name })}
                           onClick={() => { setSelected(m); setOpen(true); }}
                         >
-                          Read Bio
+                          {t('common.readBio')}
                         </Button>
                         {(() => {
                           const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
@@ -161,7 +163,7 @@ export function BoardSection({
                               href={li.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label={`${m.name} on LinkedIn`}
+                              aria-label={`${m.name} on LinkedIn (opens in new tab)`}
                               className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
                             >
                               <BrandLinkedIn className="h-4 w-4" />
@@ -179,13 +181,13 @@ export function BoardSection({
       {!isMobileOrTablet && open && selected && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center">
           <button
-            aria-label="Close dialog"
+            aria-label={t('common.closeDialog')}
             className="absolute inset-0 bg-black/50"
             onClick={() => { setOpen(false); setSelected(null); }}
           />
           <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
             <button
-              aria-label="Close dialog"
+              aria-label={t('common.closeDialog')}
               onClick={() => { setOpen(false); setSelected(null); }}
               className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
             >
@@ -195,7 +197,7 @@ export function BoardSection({
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
               {selected.role && (<p className="text-muted-foreground mb-1">{selected.role}</p>)}
               {selected.languages && selected.languages.length > 0 && (
-                <p className="text-sm text-muted-foreground mb-2">Languages: {selected.languages.join(", ")}</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
               )}
               {selected.credentialsSummary && (
                 <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>

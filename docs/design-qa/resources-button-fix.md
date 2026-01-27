@@ -8,7 +8,7 @@
 **Location:** `/resources` page
 **Element:** "Call 1800 813 205" button (Anchor tag styled as button)
 **Problem:** 
-The button was using the default primary color configuration which resulted in poor contrast and brand inconsistency.
+The button was using the default primary colour configuration which resulted in poor contrast and brand inconsistency.
 - **Visual:** The button appeared with a black/gray background (`bg-primary`) instead of the brand's `ocean` blue.
 - **Accessibility:** While the contrast was technically sufficient against white, it did not match the design system's hierarchy for primary calls-to-action (CTAs).
 

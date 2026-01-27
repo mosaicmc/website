@@ -10,7 +10,7 @@ export default function WhistleblowerPolicyPage() {
         <title>Mosaic Whistleblower Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="How to report misconduct safely at Mosaic, protections provided, and investigation process."
+          content="Mosaic Whistleblower Protection Policy. How to report concerns confidentially and our protections for reporters."
         />
       </Helmet>
 

@@ -9,7 +9,7 @@ export default function QualityManagementPolicyPage() {
         <title>Mosaic Quality Management Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Quality standards, continuous improvement and assurance practices at Mosaic."
+          content="Mosaic quality management framework. Our commitment to continuous improvement and service excellence."
         />
       </Helmet>
 

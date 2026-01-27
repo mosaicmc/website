@@ -6,6 +6,7 @@ import DecadeCards from '@/components/DecadeCards';
 import { computeDecadeGroups } from '@/components/DecadeCards.data';
 import Section from '@/components/ui/Section';
 import { DownloadGate } from "@/components/DownloadGate";
+import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 import {
   Sheet,
   SheetContent,
@@ -103,7 +104,7 @@ export default function AnnualReportsPage() {
         <title>Annual Reports | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Explore Mosaic’s annual reports from 2007 to 2024. View reports in an interactive panel or download PDFs."
+          content="Mosaic Multicultural Connections annual reports from 1990-2025. View our impact, financials, and achievements." 
         />
       </Helmet>
 
@@ -114,6 +115,7 @@ export default function AnnualReportsPage() {
               Click a year to open the report in a smooth side panel, or use the
               external link to download directly.
             </p>
+            <PDFAccessibilityNotice className="mt-4" />
           </div>
 
           <div className="mb-8">

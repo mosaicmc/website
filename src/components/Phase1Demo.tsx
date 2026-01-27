@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Users, Home, CheckCircle } from 'lucide-react';
+import { Heart, Users, Home, CheckCircle, ExternalLink } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
 
 const Phase1Demo = () => {
@@ -140,8 +140,9 @@ const Phase1Demo = () => {
                 <div className="p-8">
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{opportunity.description}</p>
                   
-                  <a href="https://tally.so/r/3qoXjg" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
+                  <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer" aria-label={`${opportunity.action} (opens in new tab)`} className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2">
                     {opportunity.action}
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </div>
               </div>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { Section } from '@/components/ui/Section';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,30 +19,6 @@ type NewsItem = {
   href?: string;
   type: 'Press Release' | 'News';
 };
-
-const demoNews: NewsItem[] = [
-  {
-    title: 'Mosaic Announces Community Engagement Initiative for 2025',
-    date: '2025-01-15',
-    summary:
-      'A new initiative will support multicultural events and participation across NSW, focusing on inclusion and local leadership.',
-    type: 'Press Release',
-  },
-  {
-    title: 'Settlement Support Milestone: 5,000 Families Assisted',
-    date: '2024-12-08',
-    summary:
-      'Our teams have supported 5,000 families with culturally appropriate services, with sustained outcomes across locations.',
-    type: 'News',
-  },
-  {
-    title: 'New Partnerships Strengthen Aged Care and Family Support',
-    date: '2024-11-20',
-    summary:
-      'Partnerships with local organisations improve access to in‑home care and family programs for CALD communities.',
-    type: 'Press Release',
-  },
-];
 
 const externalLinks = [
   'https://www.abc.net.au/news/2016-04-04/government-yet-to-finalise-refugee-numbers-for-the-hunter-region/7295702',
@@ -141,11 +118,11 @@ function thumbDateTs(url: string, fallbackYear?: string, fallbackDate?: string):
   if (fallbackYear) return new Date(`${fallbackYear}-01-01`).getTime();
   return new Date('1970-01-01').getTime();
 }
-function formatThumbDate(url: string, fallbackYear?: string, fallbackDate?: string): string | null {
+function formatThumbDate(url: string, locale: string, fallbackYear?: string, fallbackDate?: string): string | null {
   const ts = thumbDateTs(url, fallbackYear, fallbackDate);
   if (!ts || ts === new Date('1970-01-01').getTime()) return null;
   try {
-    return new Date(ts).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    return new Date(ts).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' });
   } catch {
     return null;
   }
@@ -190,20 +167,55 @@ function titleFor(url: string, title?: string): string {
   const base = (customTitleFor[url] || title || url).trim();
   return stripOutletSuffix(base);
 }
-function ariaLabelFor(url: string, title?: string): string {
-  return `Read article on ${outletName(url, title)}: ${titleFor(url, title)}`;
-}
 
 export default function NewsPage() {
+  const { t, i18n } = useTranslation();
   const [titles, setTitles] = useState<Record<string, string>>({});
   const [linkYears, setLinkYears] = useState<Record<string, string>>({});
   const [thumbs, setThumbs] = useState<Record<string, string>>({});
   const [linkDates, setLinkDates] = useState<Record<string, string>>({});
   const [selectedTag, setSelectedTag] = useState<string>('All');
+
+  const demoNews = useMemo<NewsItem[]>(() => [
+    {
+      title: t('newsPage.demo.item1.title'),
+      date: '2025-01-15',
+      summary: t('newsPage.demo.item1.summary'),
+      type: 'Press Release',
+    },
+    {
+      title: t('newsPage.demo.item2.title'),
+      date: '2024-12-08',
+      summary: t('newsPage.demo.item2.summary'),
+      type: 'News',
+    },
+    {
+      title: t('newsPage.demo.item3.title'),
+      date: '2024-11-20',
+      summary: t('newsPage.demo.item3.summary'),
+      type: 'Press Release',
+    },
+  ], [t]);
+
   const allTags = Array.from(new Set([
     ...Object.values(contentTagFor),
     ...externalLinks.map((u) => deriveContentTag(u, titles[u])).filter((x): x is string => !!x),
   ])).sort();
+
+  const getTagLabel = (tag: string) => {
+    if (tag === 'All') return t('newsPage.tags.all');
+    // Convert "Company Update" -> "companyUpdate", "Aged Care" -> "agedCare"
+    const key = tag.replace(/\s+/g, '').replace(/^(.)/, (c) => c.toLowerCase());
+    return t(`newsPage.tags.${key}`, tag);
+  };
+
+  const getAriaLabel = (url: string, title?: string) => {
+    return t('newsPage.aria.readArticle', {
+      outlet: outletName(url, title),
+      title: titleFor(url, title)
+    });
+  };
+
   useEffect(() => {
     const controller = new AbortController();
     const run = async () => {
@@ -294,10 +306,10 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Media & Press Coverage | Mosaic Multicultural Connections</title>
+        <title>{t('newsPage.title')} | {t('common.brandName')}</title>
         <meta
           name="description"
-          content="External media coverage and press mentions about Mosaic Multicultural Connections, curated with latest articles first."
+          content="Latest news and updates from Mosaic Multicultural Connections. Community stories, events, and announcements."
         />
       </Helmet>
 
@@ -305,13 +317,13 @@ export default function NewsPage() {
         <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>
-            <span className="text-foreground/80 font-medium">Media & Press Coverage</span>
+            <span className="text-foreground/80 font-medium">{t('newsPage.title')}</span>
           </div>
-          <h1 className="fluid-h1 text-4xl font-bold text-foreground mb-4">Media & Press</h1>
+          <h1 className="fluid-h1 text-4xl font-bold text-foreground mb-4">{t('newsPage.title')}</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mosaic Multicultural Connections is regularly featured by trusted media outlets for our work supporting people from multicultural and refugee backgrounds across NSW.
+            {t('newsPage.description')}
             <br /><br />
-            These stories reflect the voices, experiences, and impact of the communities we walk alongside.
+            {t('newsPage.description2')}
           </p>
         </div>
       </Section>
@@ -322,13 +334,13 @@ export default function NewsPage() {
         return (
           <Section variant="surface" divider="none" padding="sm">
             <div className="mb-4 flex flex-wrap items-center gap-2">
-              <span className="text-sm text-muted-foreground">Filter by tag</span>
+              <span className="text-sm text-muted-foreground">{t('newsPage.filterByTag')}</span>
               <button
                 aria-pressed={selectedTag === 'All'}
                 onClick={() => setSelectedTag('All')}
                 className={`px-3 py-1 rounded-full border transition ${selectedTag === 'All' ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
               >
-                All
+                {getTagLabel('All')}
               </button>
               {allTags.map((tag) => (
                 <button
@@ -337,7 +349,7 @@ export default function NewsPage() {
                   onClick={() => setSelectedTag(tag)}
                   className={`px-3 py-1 rounded-full border transition ${selectedTag === tag ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
                 >
-                  {tag}
+                  {getTagLabel(tag)}
                 </button>
               ))}
             </div>
@@ -366,8 +378,8 @@ export default function NewsPage() {
                     </CardContent>
                     <CardFooter className="p-4 md:p-5 mt-auto">
                       <Button asChild variant="link" className="text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                        <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={ariaLabelFor(item.href!, item.title)}>
-                          Read More
+                        <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={getAriaLabel(item.href!, item.title)}>
+                          {t('newsPage.readMore')}
                           <ArrowRight className="ml-1 h-4 w-4" />
                         </Link>
                       </Button>
@@ -382,14 +394,14 @@ export default function NewsPage() {
 
       <Section variant="alt" divider="none" padding="sm">
         <div className="subsection-break mb-4">
-          <h2 className="text-2xl font-bold text-foreground">Media Coverage</h2>
-          <p className="text-muted-foreground">Explore news articles and media coverage featuring Mosaic Multicultural Connections.</p>
+          <h2 className="text-2xl font-bold text-foreground">{t('newsPage.mediaCoverage.title')}</h2>
+          <p className="text-muted-foreground">{t('newsPage.mediaCoverage.subtitle')}</p>
         </div>
         <Tabs value={selectedTag} onValueChange={(v) => setSelectedTag(v)} className="mb-4">
           <TabsList className="mx-0 flex-wrap">
-            <TabsTrigger value="All">All</TabsTrigger>
-            {['Youth','Community','Company Update','Family','Settlement','Advocacy'].map((t) => (
-              <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+            <TabsTrigger value="All">{getTagLabel('All')}</TabsTrigger>
+            {['Youth','Community','Company Update','Family','Settlement','Advocacy'].map((tag) => (
+              <TabsTrigger key={tag} value={tag}>{getTagLabel(tag)}</TabsTrigger>
             ))}
           </TabsList>
         </Tabs>
@@ -410,7 +422,7 @@ export default function NewsPage() {
               {byTag.map((url) => (
                 <button
                   key={url}
-                  aria-label={ariaLabelFor(url, titles[url])}
+                  aria-label={getAriaLabel(url, titles[url])}
                   onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
                   className="group relative w-full min-h-[380px] md:min-h-[420px] text-left rounded-2xl border border-border bg-card shadow-sm overflow-hidden hover:shadow-md hover:ring-1 hover:ring-ocean/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition duration-300 flex flex-col"
                 >
@@ -422,6 +434,7 @@ export default function NewsPage() {
                           src={encodeURI(customThumbFor[url] || thumbs[url])}
                           alt={(titles[url] || hostOf(url))}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
@@ -433,6 +446,10 @@ export default function NewsPage() {
                           <img
                             src={`https://${hostOf(url)}/favicon.ico`}
                             alt={hostOf(url)}
+                            width={20}
+                            height={20}
+                            loading="lazy"
+                            decoding="async"
                             className="h-5 w-5"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
@@ -441,15 +458,15 @@ export default function NewsPage() {
                         </span>
                         <div className="min-w-0">
                           <div className="text-sm text-muted-foreground">{outletName(url, titles[url])}</div>
-                          {formatThumbDate(url, linkYears[url], linkDates[url]) && (
-                            <div className="text-xs text-muted-foreground">{formatThumbDate(url, linkYears[url], linkDates[url])}</div>
+                          {formatThumbDate(url, i18n.language, linkYears[url], linkDates[url]) && (
+                            <div className="text-xs text-muted-foreground">{formatThumbDate(url, i18n.language, linkYears[url], linkDates[url])}</div>
                           )}
                         </div>
                       </div>
                       {(contentTagFor[url] || deriveContentTag(url, titles[url])) && (
                         <div className="mt-2">
                           <span className="inline-flex items-center rounded-full bg-background border border-border px-2 py-1 text-xs text-muted-foreground">
-                            {contentTagFor[url] || deriveContentTag(url, titles[url])}
+                            {getTagLabel(contentTagFor[url] || deriveContentTag(url, titles[url])!)}
                           </span>
                         </div>
                       )}
@@ -471,15 +488,15 @@ export default function NewsPage() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-10 md:p-12 text-center border border-white/50 dark:border-white/20 shadow-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Interested in learning more about our work or media enquiries?</h2>
-            <p className="text-base md:text-lg text-muted-foreground mt-3">Contact our team or explore our community stories.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">{t('newsPage.cta.title')}</h2>
+            <p className="text-base md:text-lg text-muted-foreground mt-3">{t('newsPage.cta.subtitle')}</p>
             <div className="mt-8 flex justify-center">
               <Link
-                to="/contact?topic=media"
+                to="/contact-us?topic=media"
                 className="group inline-flex items-center justify-center rounded-xl bg-ocean text-white px-8 py-4 text-lg font-semibold shadow-xl hover:bg-ocean/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-300"
-                aria-label="Media enquiries"
+                aria-label={t('newsPage.cta.button')}
               >
-                Media enquiries
+                {t('newsPage.cta.button')}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -488,7 +505,7 @@ export default function NewsPage() {
                 to="/contact-us"
                 className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
-                Contact our team
+                {t('newsPage.cta.contactLink')}
               </Link>
               {STORIES_ENABLED && (
                 <>
@@ -497,7 +514,7 @@ export default function NewsPage() {
                     to="/stories"
                     className="font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    Explore community stories
+                    {t('newsPage.cta.storiesLink')}
                   </Link>
                 </>
               )}

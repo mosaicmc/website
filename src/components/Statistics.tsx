@@ -1,43 +1,56 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { serviceYearsBase, languagesSpokenBase } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
-
-const STATS = [
-  { 
-    number: serviceYearsBase(), 
-    suffix: "+", 
-    label: "Years of Service",
-    description: "Serving communities since 1981",
-    color: "earth"
-  },
-  { 
-    number: 4, 
-    suffix: "", 
-    label: "Office Locations",
-    description: "Across NSW regions",
-    color: "sun"
-  },
-  { 
-    number: 2500, 
-    suffix: "+", 
-    label: "Families Supported",
-    description: "Lives transformed annually",
-    color: "sky"
-  },
-  { 
-    number: languagesSpokenBase(), 
-    suffix: "+", 
-    label: "Languages Spoken",
-    description: "Cultural diversity embraced",
-    color: "leaf"
-  }
-] as const;
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const Statistics = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [counts, setCounts] = useState(() => STATS.map(() => 0));
-  const sectionRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
+  const prefersReducedMotion = useReducedMotion();
+  
+  const stats = useMemo(() => [
+    { 
+      number: serviceYearsBase(), 
+      suffix: "+", 
+      label: t('statistics.items.service.label'),
+      description: t('statistics.items.service.description'),
+      color: "earth"
+    },
+    { 
+      number: 4, 
+      suffix: "", 
+      label: t('statistics.items.offices.label'),
+      description: t('statistics.items.offices.description'),
+      color: "sun"
+    },
+    { 
+      number: 2500, 
+      suffix: "+", 
+      label: t('statistics.items.families.label'),
+      description: t('statistics.items.families.description'),
+      color: "sky"
+    },
+    { 
+      number: languagesSpokenBase(), 
+      suffix: "+", 
+      label: t('statistics.items.languages.label'),
+      description: t('statistics.items.languages.description'),
+      color: "leaf"
+    }
+  ] as const, [t]);
+
+  const [counts, setCounts] = useState(() => stats.map(() => 0));
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    setCounts(stats.map(() => 0));
+  }, [stats]);
+
+  useEffect(() => {
+    if (!prefersReducedMotion) return;
+    setCounts(stats.map((stat) => stat.number));
+    setIsVisible(true);
+  }, [prefersReducedMotion, stats]);
 
   // Intersection Observer to trigger animation when section comes into view
   useEffect(() => {
@@ -67,10 +80,10 @@ const Statistics = () => {
 
   // Animate numbers when visible
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || prefersReducedMotion) return;
 
     const animateNumbers = () => {
-      STATS.forEach((stat, index) => {
+      stats.forEach((stat, index) => {
         const duration = 2000;
         const steps = 60;
         const increment = stat.number / steps;
@@ -95,7 +108,7 @@ const Statistics = () => {
 
     const startDelay = setTimeout(animateNumbers, 200);
     return () => clearTimeout(startDelay);
-  }, [isVisible]);
+  }, [isVisible, stats, prefersReducedMotion]);
 
   const getGlowColor = (color: string) => {
     const colorMap = {
@@ -119,6 +132,8 @@ const Statistics = () => {
     return colorMap[color as keyof typeof colorMap] || colorMap.earth;
   };
 
+  const showAnimations = isVisible && !prefersReducedMotion;
+
   return (
     <section 
       ref={sectionRef}
@@ -127,14 +142,14 @@ const Statistics = () => {
       {/* Enhanced glass morphism background with multiple layers - adaptive for light/dark */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-gentle"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl motion-safe:animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center subsection-break">
           <div className="inline-flex items-center rounded-full backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
-            <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
+            <span className="mr-2 h-2 w-2 rounded-full bg-earth motion-safe:animate-pulse"></span>
             <span className="text-gray-700 dark:text-white/90 font-medium">See our Data</span>
           </div>
           
@@ -148,15 +163,17 @@ const Statistics = () => {
 
         {/* Statistics Grid with enhanced glass morphism */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {STATS.map((stat, index) => (
+          {stats.map((stat, index) => (
             <div 
               key={index} 
               className={`group relative text-center transform transition-all duration-700 ${
-                isVisible 
-                  ? 'translate-y-0 opacity-100' 
+                showAnimations
+                  ? 'translate-y-0 opacity-100'
+                  : prefersReducedMotion
+                  ? 'translate-y-0 opacity-100'
                   : 'translate-y-8 opacity-0'
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={showAnimations ? { transitionDelay: `${index * 150}ms` } : undefined}
             >
               {/* Premium glass morphism card - adaptive for light/dark */}
               <div className={`relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-6 lg:p-8 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 dark:group-hover:bg-white/15 ${getGlowColor(stat.color)}`}>
@@ -177,12 +194,13 @@ const Statistics = () => {
                     
                     {/* Animated accent line */}
                     <div className="w-12 h-1 mx-auto rounded-full overflow-hidden bg-gray-200 dark:bg-white/20">
-                      <div 
+                      <div
                         className={`h-full transition-all duration-2000 ease-out rounded-full ${getProgressColor(stat.color)}`}
-                        style={{ 
-                          width: isVisible ? '100%' : '0%',
-                          transitionDelay: `${index * 150 + 500}ms`
-                        }}
+                        style={
+                          showAnimations
+                            ? { width: '100%', transitionDelay: `${index * 150 + 500}ms` }
+                            : { width: '100%', transitionDuration: '0ms' }
+                        }
                       ></div>
                     </div>
                   </div>
@@ -210,9 +228,9 @@ const Statistics = () => {
         {/* Enhanced bottom section with glass effect */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center space-x-4 px-8 py-4 backdrop-blur-md bg-white/60 dark:bg-white/10 rounded-full border border-white/40 dark:border-white/20 shadow-xl">
-            <div className="w-2 h-2 bg-earth rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-earth rounded-full motion-safe:animate-pulse"></div>
             <span className="text-base font-medium text-gray-700 dark:text-white">Trusted by communities across NSW</span>
-            <div className="w-2 h-2 bg-sun rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="w-2 h-2 bg-sun rounded-full motion-safe:animate-pulse" style={{ animationDelay: '0.5s' }}></div>
           </div>
         </div>
       </div>

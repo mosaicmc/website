@@ -10,7 +10,7 @@ export default function CodeOfConductPolicyPage() {
         <title>Mosaic Code of Conduct Policy | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Standards of behaviour that reflect Mosaic’s values of respect, integrity, safety and inclusion for staff, volunteers and partners."
+          content="Mosaic Code of Conduct outlining ethical standards and professional behavior for staff, volunteers, and partners."
         />
       </Helmet>
 

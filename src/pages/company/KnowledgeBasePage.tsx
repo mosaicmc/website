@@ -69,7 +69,7 @@ export default function KnowledgeBasePage() {
     <div className="min-h-screen">
       <Helmet>
         <title>Knowledge Base | Mosaic Multicultural Connections</title>
-        <meta name="description" content="Browse Mosaic’s organisational policies and governance resources." />
+        <meta name="description" content="Mosaic policies, governance documents, and organisational resources. Code of conduct, privacy policy, and more." />
       </Helmet>
 
       <ErrorBoundary>

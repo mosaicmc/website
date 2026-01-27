@@ -14,7 +14,7 @@ export default function HelpfulLinksPage() {
         <title>Helpful Links | Mosaic Multicultural Connections</title>
         <meta
           name="description"
-          content="Emergency help, interpreter support, legal information, and travel updates from trusted sources."
+          content="Helpful links and external resources for multicultural communities. Government services, support organisations, and community resources."
         />
       </Helmet>
 
@@ -44,7 +44,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="h-4 w-4 text-sun mt-0.5" />
                   <div>
-                    <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label="NSW Government Emergencies — official emergency updates and contacts" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.nsw.gov.au/emergencies" target="_blank" rel="noopener noreferrer" aria-label="NSW Government Emergencies — official emergency updates and contacts (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       NSW Government Emergencies
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
@@ -54,7 +54,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="h-4 w-4 text-sun mt-0.5" />
                   <div>
-                    <a href="https://www.nsw.gov.au/emergencies/near-me" target="_blank" rel="noopener noreferrer" aria-label="Hazards Near Me NSW — local alerts for fires, floods, and storms" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.nsw.gov.au/emergencies/near-me" target="_blank" rel="noopener noreferrer" aria-label="Hazards Near Me NSW — local alerts for fires, floods, and storms (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       Hazards Near Me NSW
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
@@ -78,7 +78,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <Languages className="h-4 w-4 text-sky mt-0.5" />
                   <div>
-                    <a href="https://www.tisnational.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Translating and Interpreting Service National — call 131 450 for interpreter support" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.tisnational.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Translating and Interpreting Service National — call 131 450 for interpreter support (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       Translating and Interpreting Service (TIS National)
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
@@ -103,7 +103,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <Scale className="h-4 w-4 text-ocean mt-0.5" />
                   <div>
-                    <a href="https://www.legalaid.nsw.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Legal Aid NSW — free legal help, advice, and referrals" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.legalaid.nsw.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Legal Aid NSW — free legal help, advice, and referrals (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       Legal Aid NSW
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
@@ -128,7 +128,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <CloudSun className="h-4 w-4 text-leaf mt-0.5" />
                   <div>
-                    <a href="https://www.bom.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Bureau of Meteorology — forecasts, warnings, and flood updates" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.bom.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Bureau of Meteorology — forecasts, warnings, and flood updates (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       Bureau of Meteorology
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
@@ -138,7 +138,7 @@ export default function HelpfulLinksPage() {
                 <div className="flex items-start gap-2">
                   <Route className="h-4 w-4 text-leaf mt-0.5" />
                   <div>
-                    <a href="https://www.livetraffic.com/" target="_blank" rel="noopener noreferrer" aria-label="Live Traffic NSW — current road conditions, closures, and traffic updates" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
+                    <a href="https://www.livetraffic.com/" target="_blank" rel="noopener noreferrer" aria-label="Live Traffic NSW — current road conditions, closures, and traffic updates (opens in new tab)" className="font-medium hover:underline text-foreground hover:text-ocean focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 focus:ring-offset-background inline-flex items-center gap-1">
                       Live Traffic NSW
                       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                     </a>
