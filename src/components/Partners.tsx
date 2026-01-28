@@ -35,12 +35,12 @@ const Partners = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center group transition-all">
+              <button type="button" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center group transition-all">
                 {t('partners.cta.donate')}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <button className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold transition-colors">
+              <button type="button" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold transition-colors">
                 {t('partners.cta.learnMore')}
               </button>
             </div>

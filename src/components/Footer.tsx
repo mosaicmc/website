@@ -222,7 +222,7 @@ const Footer = () => {
       {!isEmergencyMode && <FooterLanguageBar />}
 
       <div className="border-t border-border bg-background/90 transition-colors">
-        <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:px-8 flex items-center justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:px-8 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">{t('footer.copyright')} · {new Date().getFullYear()}</p>
           {!isEmergencyMode && (
           <div className="flex items-center gap-2">

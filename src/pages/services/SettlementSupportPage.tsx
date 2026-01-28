@@ -190,7 +190,7 @@ const SettlementSupportPage = () => {
               <Home className="mr-2 h-4 w-4 text-sky" />
               <span className="text-gray-700 dark:text-white/90 font-medium">{t('services.settlement')}</span>
             </div>
-            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">{t('settlement.hero.headline')}</h1>
+            <h1 className="text-5xl fluid-h1 font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up break-words">{t('settlement.hero.headline')}</h1>
             <p
               className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-4 animate-fade-in-up break-words"
               style={{ animationDelay: '200ms' }}
@@ -240,7 +240,7 @@ const SettlementSupportPage = () => {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: t('settlement.programs.educationTraining.title'),
@@ -314,7 +314,7 @@ const SettlementSupportPage = () => {
               }
             ].map((service, index) => (
               <div
-                className="mb-6 lg:mb-8 break-inside-avoid"
+                className="h-full"
                 key={index}
               >
                 <div

@@ -56,7 +56,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden transition-colors duration-300",
+        "relative overflow-hidden overflow-x-hidden transition-colors duration-300",
         variantClass,
         dividerClass,
         paddingMap[padding],

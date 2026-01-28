@@ -202,7 +202,7 @@ const AgedCarePage = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-8 text-center">{t('agedCare.sections.programs.title')}</h2>
 
-          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: t('agedCare.programs.sah.title'),
@@ -234,7 +234,7 @@ const AgedCarePage = () => {
               }
             ].map((program, index) => (
               <div 
-                className="mb-6 lg:mb-8 break-inside-avoid" 
+                className="h-full" 
                 key={index}
               >
                 <div

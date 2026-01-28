@@ -531,7 +531,7 @@ export default function MosaicNavigation() {
             <Logo />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-4 h-full md:mt-[21px]">
+            <div className="hidden lg:flex items-center gap-4 h-full md:mt-[21px]">
               <NavigationMenu>
                 <NavigationMenuList>
                   {/* Home */}
@@ -571,9 +571,9 @@ export default function MosaicNavigation() {
                         services.forEach(s => prefetchRoute(s.href));
                       }}
                     >{t('nav.services')}</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                        <div className="col-span-2">
+                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl overflow-x-hidden max-h-[80vh] overflow-y-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4 w-auto max-w-[calc(100vw-2rem)] lg:w-[900px] divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-slate-700">
+                        <div className="lg:col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                             {t('nav.headers.coreServices')}
                           </h6>
@@ -591,7 +591,7 @@ export default function MosaicNavigation() {
                           </ul>
                         </div>
 
-                        <div className="pl-4">
+                        <div className="pt-4 lg:pt-0 lg:pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                             {t('nav.headers.quickLinks')}
                           </h6>
@@ -663,9 +663,9 @@ export default function MosaicNavigation() {
                         >
                           {t('nav.about')}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                          <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                            <div className="col-span-2">
+                        <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl overflow-x-hidden max-h-[80vh] overflow-y-auto">
+                          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4 w-auto max-w-[calc(100vw-2rem)] lg:w-[900px] divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-slate-700">
+                            <div className="lg:col-span-2">
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">
                                 {t('nav.headers.aboutMosaic')}
                               </h6>
@@ -677,7 +677,7 @@ export default function MosaicNavigation() {
                                 ))}
                               </ul>
                             </div>
-                            <div className="pl-4">
+                            <div className="pt-4 lg:pt-0 lg:pl-4">
                               <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">{t('nav.headers.explore')}</h6>
                               <ul className="mt-2.5 grid gap-3 list-none">
                                 <ListItem title={t('nav.items.ourStory.title')} to="/about#our-story-heading" icon={Home}>
@@ -710,9 +710,9 @@ export default function MosaicNavigation() {
                         prefetchRoute('/donate');
                       }}
                     >{t('nav.getInvolved')}</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-gray-200 dark:divide-slate-700">
-                        <div className="col-span-2">
+                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl overflow-x-hidden max-h-[80vh] overflow-y-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4 w-auto max-w-[calc(100vw-2rem)] lg:w-[900px] divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-slate-700">
+                        <div className="lg:col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-gray-600 dark:text-gray-200">{t('nav.headers.participate')}</h6>
                           <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {getInvolvedLinks.map((gi) => (
@@ -781,9 +781,9 @@ export default function MosaicNavigation() {
                         resourcesLinks.forEach(r => prefetchRoute(r.href));
                       }}
                     >{t('nav.resources')}</NavigationMenuTrigger>
-                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl">
-                      <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x divide-border">
-                        <div className="col-span-2">
+                    <NavigationMenuContent className="p-4 bg-white dark:bg-slate-900/95 border border-white/30 dark:border-slate-700/50 shadow-2xl overflow-x-hidden max-h-[80vh] overflow-y-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4 w-auto max-w-[calc(100vw-2rem)] lg:w-[900px] divide-y lg:divide-y-0 lg:divide-x divide-border">
+                        <div className="lg:col-span-2">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">{t('nav.headers.keyResources')}</h6>
                           <ul className="mt-2.5 grid grid-cols-2 gap-3 list-none">
                             {resourcesLinks.map((res) => (
@@ -793,7 +793,7 @@ export default function MosaicNavigation() {
                             ))}
                           </ul>
                         </div>
-                        <div className="pl-4">
+                        <div className="pt-4 lg:pt-0 lg:pl-4">
                           <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground">{t('nav.headers.explore')}</h6>
                           <ul className="mt-2.5 grid gap-3 list-none">
                             <ListItem title={t('nav.items.allResources.title')} to="/resources" icon={Globe}>
@@ -813,7 +813,7 @@ export default function MosaicNavigation() {
             </div>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-3 relative">
+            <div className="hidden xl:flex items-center space-x-3 relative">
               <button
                 type="button"
                 aria-label="Open search"
@@ -833,7 +833,10 @@ export default function MosaicNavigation() {
               </button>
 
               {isSearchOpen && (
-                <div className={`${showOverlay ? 'fixed inset-0 max-w-2xl mx-auto mt-24' : 'absolute right-0 top-12'} z-50 w-80 sm:w-[36rem] rounded-xl border border-border bg-background p-3 shadow-2xl`}>
+                <div className={cn(
+                  showOverlay ? 'fixed inset-0 max-w-2xl mx-auto mt-24' : 'absolute right-0 top-12',
+                  "z-50 w-80 sm:w-[36rem] max-w-[calc(100vw-2rem)] rounded-xl border border-border bg-background p-3 shadow-2xl"
+                )}>
                   <div className="flex items-center gap-2">
                     <input
                       id="header-search-input"
@@ -1015,7 +1018,7 @@ export default function MosaicNavigation() {
             </div>
 
             {/* Mobile Menu + Quick Actions */}
-            <div className="md:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center gap-2">
               {/* Compact Language Switcher visible in header on mobile */}
               <LanguageSwitcher showText={false} menuId="language-menu-mobile-icon" />
               <Sheet open={isOpen} onOpenChange={setIsOpen}>

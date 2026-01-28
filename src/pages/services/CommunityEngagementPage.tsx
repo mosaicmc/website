@@ -118,7 +118,7 @@ const CommunityEngagementPage = () => {
             <p className="text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>{t('community.sections.programs.description')}</p>
           </div>
 
-          <div className="max-w-5xl mx-auto columns-1 sm:columns-2 xl:columns-3 gap-x-6 lg:gap-x-8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: t('community.programs.gambleAware.title'),
@@ -149,7 +149,7 @@ const CommunityEngagementPage = () => {
               }
             ].map((program, index) => (
               <div 
-                className="mb-6 lg:mb-8 break-inside-avoid" 
+                className="h-full" 
                 key={index}
               >
                 <div

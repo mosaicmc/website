@@ -241,6 +241,7 @@ const Team05: React.FC<Team05Props> = ({
                             href={`mailto:${member.email}`}
                             className={`w-12 h-12 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-white dark:border-slate-700 shadow-xl flex items-center justify-center ${getIconColor(accentColor)} hover:text-white transition-all duration-300 hover:scale-125 hover:rotate-12 backdrop-blur-sm focus:outline-none focus:ring-2 ${getFocusRing(accentColor)} focus:ring-offset-2`}
                             title={`Email ${member.name}`}
+                            aria-label={`Email ${member.name}`}
                           >
                             <Mail className="h-5 w-5" />
                           </a>
@@ -250,6 +251,7 @@ const Team05: React.FC<Team05Props> = ({
                             href={`tel:${member.phone.replace(/\s/g, '')}`}
                             className={`w-12 h-12 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-white dark:border-slate-700 shadow-xl flex items-center justify-center ${getIconColor(accentColor)} hover:text-white transition-all duration-300 hover:scale-125 hover:-rotate-12 backdrop-blur-sm focus:outline-none focus:ring-2 ${getFocusRing(accentColor)} focus:ring-offset-2`}
                             title={`Call ${member.name}`}
+                            aria-label={`Call ${member.name}`}
                           >
                             <Phone className="h-5 w-5" />
                           </a>

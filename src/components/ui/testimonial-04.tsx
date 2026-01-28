@@ -186,8 +186,8 @@ export function Testimonial04({
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
 
           {/* First row - scrolling left */}
-          <div className="mb-8 overflow-hidden py-1">
-            <div className="flex animate-scroll-left hover:pause-animation">
+          <div className="mb-8 overflow-hidden py-1 w-full">
+            <div className="flex w-max animate-scroll-left hover:pause-animation">
               {/* Duplicate the testimonials for seamless loop */}
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <TestimonialCard key={`first-${index}`} {...testimonial} />
@@ -196,8 +196,8 @@ export function Testimonial04({
           </div>
 
           {/* Second row - scrolling right */}
-          <div className="overflow-hidden py-1">
-            <div className="flex animate-scroll-right hover:pause-animation">
+          <div className="overflow-hidden py-1 w-full">
+            <div className="flex w-max animate-scroll-right hover:pause-animation">
               {/* Reverse and duplicate for opposite direction */}
               {[...testimonials.slice().reverse(), ...testimonials.slice().reverse()].map((testimonial, index) => (
                 <TestimonialCard key={`second-${index}`} {...testimonial} />
@@ -246,6 +246,15 @@ export function Testimonial04({
 
         .hover\\:pause-animation:hover {
           animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll-left,
+          .animate-scroll-right {
+            animation: none;
+            overflow-x: auto;
+            justify-content: flex-start;
+          }
         }
       `}</style>
     </section>

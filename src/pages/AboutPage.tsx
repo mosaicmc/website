@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { serviceYearsBase, assetPath } from '@/lib/utils';
 import { Helmet } from 'react-helmet-async';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
@@ -120,6 +120,7 @@ const AboutPage = () => {
   const [activeImageIndex, setActiveImageIndex] = React.useState<number>(0);
   const [lastImageDirection, setLastImageDirection] = React.useState<'left' | 'right' | null>(null);
   const [isImageAnimating, setIsImageAnimating] = React.useState<boolean>(false);
+  
   type BoardMember = {
     id: string;
     name: string;
@@ -129,8 +130,10 @@ const AboutPage = () => {
     languages?: string[];
     bio: string;
     social?: Array<{ platform: 'linkedin' | 'twitter' | 'website'; href: string }>;
+    summary?: string;
   };
-  const boardMembers = React.useMemo(() => [
+
+  const boardMembers = React.useMemo<BoardMember[]>(() => [
     { id: "sandra", name: t('aboutPage.board.members.sandra.name'), title: t('aboutPage.board.members.sandra.title'), role: t('aboutPage.board.members.sandra.role'), credentials: t('aboutPage.board.members.sandra.credentials'), summary: t('aboutPage.board.members.sandra.summary'), languages: t('aboutPage.board.members.sandra.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.sandra.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/sandra-feltham-2b16a535/' }] },
     { id: "shirley", name: t('aboutPage.board.members.shirley.name'), title: t('aboutPage.board.members.shirley.title'), role: t('aboutPage.board.members.shirley.role'), credentials: t('aboutPage.board.members.shirley.credentials'), summary: t('aboutPage.board.members.shirley.summary'), languages: t('aboutPage.board.members.shirley.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.shirley.bio'), social: [{ platform: 'linkedin', href: 'https://www.linkedin.com/in/dr-shirley-schulz-robinson-pcc-%F0%9F%87%BA%F0%9F%87%A6-%F0%9F%87%B5%F0%9F%87%B8%F0%9F%87%AE%F0%9F%87%B1-43949938/' }] },
     { id: "zachary", name: t('aboutPage.board.members.zachary.name'), title: t('aboutPage.board.members.zachary.title'), role: t('aboutPage.board.members.zachary.role'), credentials: t('aboutPage.board.members.zachary.credentials'), summary: t('aboutPage.board.members.zachary.summary'), languages: t('aboutPage.board.members.zachary.languages', { returnObjects: true }) as string[], bio: t('aboutPage.board.members.zachary.bio'), social: [{ platform: 'linkedin', href: '#' }] },
@@ -491,17 +494,12 @@ const AboutPage = () => {
           }}
         >
           <div
-            className="flex md:grid gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pb-2"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6"
             ref={sliderRef}
             id="mosaic-story-slider"
-            style={{
-              gridTemplateColumns: `repeat(${Math.min(4, Math.max(1, filteredHistory.length))}, 260px)`,
-              gridTemplateRows: filteredHistory.length > 4 ? 'repeat(2, auto)' : undefined,
-              justifyContent: 'center',
-            }}
           >
             {filteredHistory.map((item, idx) => (
-              <div key={idx} className="story-card snap-start min-w-[260px] md:min-w-0 h-full">
+              <div key={idx} className="story-card h-full">
                 <button
                   aria-label={`Open details for ${item.label}`}
                   onClick={() => { setActiveStory(item); setSelectedDecade(deriveDecade(item.year)); setSelectedYear(item.year); setActiveImageIndex(0); setLastImageDirection(null); }}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShieldCheck, Eye, Users, Lightbulb, HeartHandshake } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 type ValueItem = {
   key: string;
@@ -11,22 +10,38 @@ type ValueItem = {
 };
 
 export function FeatureValues() {
-  const { t } = useTranslation();
-
-  const valuesConfig = [
-    { key: "trust", Icon: ShieldCheck },
-    { key: "transparency", Icon: Eye },
-    { key: "respect", Icon: HeartHandshake },
-    { key: "collaboration", Icon: Users },
-    { key: "creation", Icon: Lightbulb },
+  const items: ValueItem[] = [
+    { 
+      key: "trust", 
+      title: "Trust", 
+      description: "We rely on and have faith in people and our organisation.",
+      Icon: ShieldCheck 
+    },
+    { 
+      key: "transparency", 
+      title: "Transparency", 
+      description: "We share openly with each other, without judgement.",
+      Icon: Eye 
+    },
+    { 
+      key: "respect", 
+      title: "Respect", 
+      description: "We treat everyone equally and consider the opinions of others, no matter our differences.",
+      Icon: HeartHandshake 
+    },
+    { 
+      key: "collaboration", 
+      title: "Collaboration", 
+      description: "We work together to support each other in our endeavours.",
+      Icon: Users 
+    },
+    { 
+      key: "creation", 
+      title: "Creation", 
+      description: "We grow through collective ideas and innovation.",
+      Icon: Lightbulb 
+    },
   ];
-
-  const items: ValueItem[] = valuesConfig.map(({ key, Icon }) => ({
-    key,
-    title: t(`aboutPage.mission.values.${key}.label`),
-    description: t(`aboutPage.mission.values.${key}.description`),
-    Icon,
-  }));
 
   return (
     <section
@@ -40,17 +55,17 @@ export function FeatureValues() {
         <div className="text-center mb-6">
           <div className="inline-flex items-center rounded-full bg-sand/60 dark:bg-white/10 border border-border px-4 py-1 text-xs font-medium text-foreground shadow-sm">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-sky animate-pulse" aria-hidden="true"></span>
-            <span id="values-title">{t('aboutPage.mission.values.badge')}</span>
+            <span id="values-title">Our Values</span>
           </div>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            {t('aboutPage.mission.values.title')}
+            What we stand for
           </h2>
         </div>
 
         <div
           role="list"
           aria-label="Organisational values"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {items.map(({ key, title, description, Icon }) => (
             <Card

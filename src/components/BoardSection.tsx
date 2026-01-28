@@ -48,6 +48,30 @@ export function BoardSection({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+    // Focus management for custom modal
+    const modalRef = React.useRef<HTMLDivElement>(null);
+    const closeButtonRef = React.useRef<HTMLButtonElement>(null);
+
+    React.useEffect(() => {
+      if (!isMobileOrTablet && open && selected) {
+        // Focus the close button when modal opens
+        setTimeout(() => {
+          closeButtonRef.current?.focus();
+        }, 100);
+
+        // Trap focus (simple version)
+        const handleKeyDown = (e: KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            setOpen(false);
+            setSelected(null);
+          }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+      }
+    }, [open, selected, isMobileOrTablet]);
+
   return (
     <section className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -154,6 +178,7 @@ export function BoardSection({
                       <div className="flex items-center gap-2 mt-1">
                         <Button
                           aria-label={`Read bio for ${m.name}`}
+                          aria-haspopup="dialog"
                           onClick={() => { setSelected(m); setOpen(true); }}
                         >
                           Read Bio
@@ -182,7 +207,13 @@ export function BoardSection({
         </div>
       </div>
       {!isMobileOrTablet && open && selected && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center">
+        <div 
+          className="fixed inset-0 z-[60] flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          ref={modalRef}
+        >
           <button
             aria-label="Close dialog"
             className="absolute inset-0 bg-black/50"
@@ -190,6 +221,7 @@ export function BoardSection({
           />
           <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
             <button
+              ref={closeButtonRef}
               aria-label="Close dialog"
               onClick={() => { setOpen(false); setSelected(null); }}
               className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
@@ -197,7 +229,7 @@ export function BoardSection({
               <X className="h-4 w-4" />
             </button>
             <div className="p-6 pb-16">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
+              <h3 id="modal-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
               {selected.role && (<p className="text-muted-foreground mb-1">{selected.role}</p>)}
               {selected.languages && selected.languages.length > 0 && (
                 <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>

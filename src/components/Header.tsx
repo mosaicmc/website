@@ -217,7 +217,9 @@ const Header = () => {
             <LanguageSwitcher showText={false} />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-white/40 dark:bg-slate-800/40 backdrop-blur-md text-gray-700 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all duration-300 dark:text-gray-300"
+              className="p-2 rounded-lg bg-white/40 dark:bg-slate-800/40 backdrop-blur-md text-gray-700 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all duration-300 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              aria-label={isMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
