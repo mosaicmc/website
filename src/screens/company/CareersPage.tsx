@@ -1,0 +1,109 @@
+"use client";
+
+import React from 'react';
+import { Section } from '@/components/ui/Section';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ExternalLink } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { useEmploymentHeroJobs } from '@/hooks/useEmploymentHeroJobs';
+import { useEmploymentHeroMetadata } from '@/hooks/useEmploymentHeroMetadata';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { useTranslation } from 'react-i18next';
+
+function snippet(text?: string, n: number = 180): string {
+  if (!text) return '';
+  const clean = text.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  return clean.length > n ? clean.slice(0, n) + '…' : clean;
+}
+
+const CareersPage = () => {
+  const { t } = useTranslation();
+  const { departments, loading: metaLoading } = useEmploymentHeroMetadata();
+  const [deptId, setDeptId] = React.useState<string | null>(null);
+  const { jobs, loading, error } = useEmploymentHeroJobs({ page_index: 1, country_codes: 'AU', department_ids: deptId ?? '' });
+
+  return (
+    <div className="animate-fade-in">
+      
+
+      <Section padding="sm" center>
+        <div className="max-w-3xl mx-auto text-center">
+          <Badge variant="outline" className="inline-flex items-center rounded-full bg-sand text-foreground px-4 py-1.5 text-sm shadow mb-4">
+            <span className="me-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>
+            <span className="text-muted-foreground font-medium">{t('careersPage.badge')}</span>
+          </Badge>
+          <h1 className="text-3xl md:text-4xl font-bold mb-5 text-foreground">{t('careersPage.title')}</h1>
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {t('careersPage.description')}
+          </p>
+        </div>
+      </Section>
+
+      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-5xl">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-sm text-muted-foreground">{!loading && !error ? `${jobs.length} ${t('careersPage.openRoles')}` : ' '}</div>
+          <div className="flex items-center gap-3">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="inline-flex items-center rounded-lg bg-background border border-border px-3 py-2 text-sm text-foreground hover:bg-muted/40 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+                  {t('careersPage.filter.label')} {deptId ? (departments.find(d => String(d.id) === String(deptId))?.name || deptId) : t('careersPage.filter.all')}
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[16rem]">
+                <DropdownMenuLabel>{t('careersPage.filter.menuLabel')}</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setDeptId(null)}>{t('careersPage.filter.all')}</DropdownMenuItem>
+                {metaLoading && <DropdownMenuItem disabled>{t('careersPage.loading')}</DropdownMenuItem>}
+                {!metaLoading && departments.map((d) => (
+                  <DropdownMenuItem key={String(d.id)} onClick={() => setDeptId(String(d.id))}>{d.name || String(d.id)}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+        {loading && (
+          <div className="text-center text-muted-foreground">{t('careersPage.loading')}</div>
+        )}
+        {error && (
+          <div className="text-center text-muted-foreground">{error}</div>
+        )}
+        {!loading && !error && (
+          <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
+            {jobs.map((job) => (
+              <Card key={String(job.id)} className="rounded-2xl shadow-xl overflow-hidden">
+                <CardHeader className="p-4 border-b border-border">
+                  <h2 className="text-lg font-bold text-foreground">{job.title || 'Role'}</h2>
+                  <p className="text-sm text-muted-foreground">{job.department_name || '—'}</p>
+                </CardHeader>
+                <CardContent className="p-4 text-sm">
+                  <p className="text-muted-foreground mb-3">
+                    {job.city_name || t('careersPage.card.city')}, {job.country_name || t('careersPage.card.country')}
+                  </p>
+                  <p className="text-muted-foreground mb-3">
+                    {job.employment_type_name || t('careersPage.card.type')}
+                  </p>
+                  <p className="text-muted-foreground">{snippet(job.description)}</p>
+                </CardContent>
+                <CardFooter className="p-4">
+                  {job.application_url ? (
+                    <Button asChild className="bg-ocean text-white">
+                      <a href={job.application_url} target="_blank" rel="noopener noreferrer" aria-label="Apply now (opens in new tab)" className="inline-flex items-center gap-2">
+                        Apply now
+                        <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button disabled className="bg-muted text-muted-foreground">{t('careersPage.card.closed')}</Button>
+                  )}
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        )}
+      </Section>
+    </div>
+  );
+};
+
+export default CareersPage;

@@ -1,0 +1,92 @@
+"use client";
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
+
+const SimpleCTA = () => {
+  const { t } = useTranslation();
+  return (
+    <section className="relative section-spacing overflow-hidden bg-background transition-colors duration-300 bg-gradient-to-br from-sky via-ocean to-earth dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky/85 via-ocean/90 to-earth/85 dark:from-slate-900/75 dark:via-slate-800/75 dark:to-slate-900/75"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky/20 rounded-full blur-3xl motion-safe:animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-earth/25 rounded-full blur-3xl motion-safe:animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-ocean/15 rounded-full blur-3xl motion-safe:animate-float"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="section-badge bg-sand/90 border border-sand/50 px-8 py-3 text-sm shadow-xl mb-8 dark:bg-white/10 dark:border-white/20">
+            <span className="mr-2 h-2 w-2 rounded-full bg-ocean motion-safe:animate-pulse"></span>
+            <span className="text-ocean font-semibold tracking-wide dark:text-white">{t('cta.badge')}</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
+            {t('cta.headlinePrefix')}{" "}
+            <span className="bg-gradient-to-r from-sand via-white to-sand bg-clip-text text-transparent drop-shadow-lg dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-sand dark:via-white dark:to-sand">
+              {t('cta.headlineEmphasis')}
+            </span>
+          </h2>
+          
+          <p className="text-xl sm:text-2xl text-sand/95 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
+            {t('cta.helperText')}
+          </p>
+          
+          <div className="max-w-5xl mx-auto text-center mb-6">
+            <div className="text-sm md:text-xs uppercase tracking-wide text-white/85">{t('cta.stepsHeader')}</div>
+            <div className="mt-2 px-4">
+              <div className="flex flex-col items-center gap-3 md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-4">
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">1</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">{t('cta.steps.one')}</span>
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">2</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">{t('cta.steps.two')}</span>
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center size-7 md:size-6 rounded-full border border-white/30 bg-white/15 text-white/90 text-xs font-medium">3</span>
+                  <span className="text-base md:text-sm text-white/90 leading-6 md:leading-5 break-words md:whitespace-nowrap">{t('cta.steps.three')}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center section-break">
+            <Button asChild size="cta" variant="cta" className="w-full sm:w-auto">
+              <Link to="/services">
+                <span className="relative z-10">{t('cta.primaryButtonLabel')}</span>
+                <ArrowRight className="ms-3 h-6 w-6 group-hover:translate-x-1 transition-transform relative z-10" />
+              </Link>
+            </Button>
+            
+            <Button asChild size="cta" variant="cta-outline" className="w-full sm:w-auto">
+              <Link to="/contact-us">
+                <Phone className="me-3 h-6 w-6 relative z-10" />
+                <span className="relative z-10">{t('cta.secondaryButtonLabel')}</span>
+              </Link>
+            </Button>
+          </div>
+          
+          <div className="backdrop-blur-md bg-slate-950/55 rounded-2xl p-8 border border-white/10 shadow-xl max-w-3xl mx-auto">
+            <p className="text-white/90 text-base leading-relaxed">
+              <span className="text-sand font-semibold">{t('cta.footnote.label')}</span> {t('cta.footnote.textPrefix')}{" "}
+              <Link
+                to="/contact-us"
+                className="font-semibold text-sand underline underline-offset-4 decoration-sand/70 hover:decoration-sand focus-visible:decoration-sand"
+              >
+                {t('cta.footnote.contactLink')}
+              </Link>{" "}
+              {t('cta.footnote.textSuffix')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SimpleCTA;

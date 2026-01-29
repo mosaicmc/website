@@ -1,0 +1,826 @@
+{
+  "mapping": {
+    "/Mosaic Blue.png": "/Mosaic Blue.webp",
+    "/images/ACVVS logo-WHITE-shorten.jpeg": "/images/ACVVS logo-WHITE-shorten.webp",
+    "/images/ACVVS_logo.jpg": "/images/ACVVS_logo.webp",
+    "/images/Bron.png": "/images/Bron.webp",
+    "/images/CommEngagement_Page_1080px/CommunityEngagement_Page_Hero_1080px.jpg": "/images/CommEngagement_Page_1080px/CommunityEngagement_Page_Hero_1080px.webp",
+    "/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.jpg": "/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp",
+    "/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.jpg": "/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp",
+    "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.jpg": "/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp",
+    "/images/Families Team 128px/FamTeam_Elena_128px.jpg": "/images/Families Team 128px/FamTeam_Elena_128px.webp",
+    "/images/Families Team 128px/FamTeam_Gener_128px.jpg": "/images/Families Team 128px/FamTeam_Gener_128px.webp",
+    "/images/Families Team 128px/FamTeam_Juanita_128px.jpg": "/images/Families Team 128px/FamTeam_Juanita_128px.webp",
+    "/images/Families Team 128px/FamTeam_Miza_128px.jpg": "/images/Families Team 128px/FamTeam_Miza_128px.webp",
+    "/images/Families Team 128px/FamTeam_Natalia_128px.jpg": "/images/Families Team 128px/FamTeam_Natalia_128px.webp",
+    "/images/Google reviews/Dukyab.png": "/images/Google reviews/Dukyab.webp",
+    "/images/Google reviews/Halim Azami.png": "/images/Google reviews/Halim Azami.webp",
+    "/images/Google reviews/Kagombe Muzingu.png": "/images/Google reviews/Kagombe Muzingu.webp",
+    "/images/Google reviews/سميان علي.png": "/images/Google reviews/سميان علي.webp",
+    "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv.jpg": "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv.webp",
+    "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.jpg": "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp",
+    "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.jpg": "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp",
+    "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.jpg": "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp",
+    "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.jpg": "/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp",
+    "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.jpg": "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp",
+    "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.jpg": "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp",
+    "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.jpg": "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp",
+    "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.jpg": "/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp",
+    "/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.jpg": "/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp",
+    "/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.jpg": "/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp",
+    "/images/Home Care Team 128px/AgedCareTeam_Sally_128px.jpg": "/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp",
+    "/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.jpg": "/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp",
+    "/images/Home_Page_Hero_1080px.jpg": "/images/Home_Page_Hero_1080px.webp",
+    "/images/Management 128px/ Management_Jawaid_128.jpg": "/images/Management 128px/ Management_Jawaid_128.webp",
+    "/images/Management 128px/Management_Belinda_128px.jpg": "/images/Management 128px/Management_Belinda_128px.webp",
+    "/images/Management 128px/Management_Karthik_128px.jpg": "/images/Management 128px/Management_Karthik_128px.webp",
+    "/images/Management 128px/Management_Richard_128px.jpg": "/images/Management 128px/Management_Richard_128px.webp",
+    "/images/Management 128px/Management_Sharon_128px.jpg": "/images/Management 128px/Management_Sharon_128px.webp",
+    "/images/MosaicLogo.png": "/images/MosaicLogo.webp",
+    "/images/SETS Team 128px/SETSTeam_Basim_128px.jpg": "/images/SETS Team 128px/SETSTeam_Basim_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Bronwyn_128px.jpg": "/images/SETS Team 128px/SETSTeam_Bronwyn_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Lee_128px.jpg": "/images/SETS Team 128px/SETSTeam_Lee_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Madan_128px.jpg": "/images/SETS Team 128px/SETSTeam_Madan_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Maram_128px copy.jpeg": "/images/SETS Team 128px/SETSTeam_Maram_128px copy.webp",
+    "/images/SETS Team 128px/SETSTeam_Maram_128px.jpeg": "/images/SETS Team 128px/SETSTeam_Maram_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Michael_128px.jpg": "/images/SETS Team 128px/SETSTeam_Michael_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Mirja_128px.jpg": "/images/SETS Team 128px/SETSTeam_Mirja_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Patricia_128px.jpg": "/images/SETS Team 128px/SETSTeam_Patricia_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Rose_128px.jpg": "/images/SETS Team 128px/SETSTeam_Rose_128px.webp",
+    "/images/SETS Team 128px/SETSTeam_Sami_128px.jpg": "/images/SETS Team 128px/SETSTeam_Sami_128px.webp",
+    "/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.jpg": "/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp",
+    "/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg": "/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp",
+    "/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg": "/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp",
+    "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg": "/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp",
+    "/images/charity_logo-150x150.png": "/images/charity_logo-150x150.webp",
+    "/mosiac-element-rgb-_aqua.png": "/mosiac-element-rgb-_aqua.webp",
+    "/mosiac-element-rgb-_blue.png": "/mosiac-element-rgb-_blue.webp",
+    "/mosiac-element-rgb-_dark-yellow.png": "/mosiac-element-rgb-_dark-yellow.webp",
+    "/mosiac-element-rgb-_egg-blue.png": "/mosiac-element-rgb-_egg-blue.webp",
+    "/mosiac-element-rgb-_hot-pink.png": "/mosiac-element-rgb-_hot-pink.webp",
+    "/mosiac-element-rgb-_lime-green.png": "/mosiac-element-rgb-_lime-green.webp",
+    "/mosiac-element-rgb-_mint-green.png": "/mosiac-element-rgb-_mint-green.webp",
+    "/mosiac-element-rgb-_peach.png": "/mosiac-element-rgb-_peach.webp",
+    "/mosiac-element-rgb-_pink.png": "/mosiac-element-rgb-_pink.webp",
+    "/mosiac-element-rgb-_yellow.png": "/mosiac-element-rgb-_yellow.webp",
+    "/pexels-yankrukov-8199708.jpg": "/pexels-yankrukov-8199708.webp",
+    "/spotlights/DJ-hZqSvuRb.png": "/spotlights/DJ-hZqSvuRb.webp",
+    "/spotlights/DJ5YKCbhTVn.png": "/spotlights/DJ5YKCbhTVn.webp",
+    "/spotlights/DJ78YFesQrH.png": "/spotlights/DJ78YFesQrH.webp",
+    "/spotlights/DKBGFPPuQui.png": "/spotlights/DKBGFPPuQui.webp",
+    "/spotlights/DKDrctCRjg6.png": "/spotlights/DKDrctCRjg6.webp"
+  },
+  "conversions": [
+    {
+      "file": "/Users/sucharith/Downloads/website/public/Mosaic Blue.png",
+      "output": "/Users/sucharith/Downloads/website/public/Mosaic Blue.webp",
+      "beforeSize": 27992,
+      "afterSize": 8110,
+      "width": 270
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/ACVVS logo-WHITE-shorten.jpeg",
+      "output": "/Users/sucharith/Downloads/website/public/images/ACVVS logo-WHITE-shorten.webp",
+      "beforeSize": 225084,
+      "afterSize": 43830,
+      "width": 1920
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/ACVVS_logo.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/ACVVS_logo.webp",
+      "beforeSize": 18044,
+      "afterSize": 4462,
+      "width": 233
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Bron.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/Bron.webp",
+      "beforeSize": 31005,
+      "afterSize": 6140,
+      "width": 240
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/CommEngagement_Page_1080px/CommunityEngagement_Page_Hero_1080px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/CommEngagement_Page_1080px/CommunityEngagement_Page_Hero_1080px.webp",
+      "beforeSize": 945099,
+      "afterSize": 53156,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp",
+      "beforeSize": 14947,
+      "afterSize": 2316,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp",
+      "beforeSize": 15245,
+      "afterSize": 2202,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp",
+      "beforeSize": 16116,
+      "afterSize": 2416,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Elena_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Elena_128px.webp",
+      "beforeSize": 20812,
+      "afterSize": 2206,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Gener_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Gener_128px.webp",
+      "beforeSize": 20097,
+      "afterSize": 2394,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Juanita_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Juanita_128px.webp",
+      "beforeSize": 20469,
+      "afterSize": 2326,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Miza_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Miza_128px.webp",
+      "beforeSize": 19835,
+      "afterSize": 2006,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Natalia_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Families Team 128px/FamTeam_Natalia_128px.webp",
+      "beforeSize": 16116,
+      "afterSize": 2416,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Google reviews/Dukyab.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/Google reviews/Dukyab.webp",
+      "beforeSize": 13175,
+      "afterSize": 2836,
+      "width": 72
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Google reviews/Halim Azami.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/Google reviews/Halim Azami.webp",
+      "beforeSize": 1117091,
+      "afterSize": 28560,
+      "width": 720
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Google reviews/Kagombe Muzingu.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/Google reviews/Kagombe Muzingu.webp",
+      "beforeSize": 11111,
+      "afterSize": 2268,
+      "width": 72
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Google reviews/سميان علي.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/Google reviews/سميان علي.webp",
+      "beforeSize": 12623,
+      "afterSize": 2716,
+      "width": 72
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv.webp",
+      "beforeSize": 448695,
+      "afterSize": 30070,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv01.webp",
+      "beforeSize": 556820,
+      "afterSize": 54810,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv02.webp",
+      "beforeSize": 612424,
+      "afterSize": 73740,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv03.webp",
+      "beforeSize": 531926,
+      "afterSize": 48462,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp",
+      "beforeSize": 458756,
+      "afterSize": 35360,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp",
+      "beforeSize": 553982,
+      "afterSize": 48078,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp",
+      "beforeSize": 771250,
+      "afterSize": 121572,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp",
+      "beforeSize": 602326,
+      "afterSize": 62348,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp",
+      "beforeSize": 681476,
+      "afterSize": 79836,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Corinne_128px.webp",
+      "beforeSize": 19458,
+      "afterSize": 2044,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Dianne_128px.webp",
+      "beforeSize": 19755,
+      "afterSize": 2120,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Sally_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp",
+      "beforeSize": 21182,
+      "afterSize": 2404,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Home Care Team 128px/AgedCareTeam_Stacey_128px.webp",
+      "beforeSize": 23023,
+      "afterSize": 4062,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Home_Page_Hero_1080px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Home_Page_Hero_1080px.webp",
+      "beforeSize": 945099,
+      "afterSize": 53156,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Management 128px/ Management_Jawaid_128.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Management 128px/ Management_Jawaid_128.webp",
+      "beforeSize": 20959,
+      "afterSize": 3906,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Belinda_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Belinda_128px.webp",
+      "beforeSize": 19845,
+      "afterSize": 3538,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Karthik_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Karthik_128px.webp",
+      "beforeSize": 19879,
+      "afterSize": 3296,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Richard_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Richard_128px.webp",
+      "beforeSize": 8822,
+      "afterSize": 4012,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Sharon_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/Management 128px/Management_Sharon_128px.webp",
+      "beforeSize": 20694,
+      "afterSize": 3976,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/MosaicLogo.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/MosaicLogo.webp",
+      "beforeSize": 102914,
+      "afterSize": 96956,
+      "width": 1920
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Basim_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Basim_128px.webp",
+      "beforeSize": 20605,
+      "afterSize": 2234,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Bronwyn_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Bronwyn_128px.webp",
+      "beforeSize": 18521,
+      "afterSize": 1688,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Lee_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Lee_128px.webp",
+      "beforeSize": 18460,
+      "afterSize": 1812,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Madan_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Madan_128px.webp",
+      "beforeSize": 21474,
+      "afterSize": 2444,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Maram_128px copy.jpeg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Maram_128px copy.webp",
+      "beforeSize": 5378,
+      "afterSize": 3146,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Maram_128px.jpeg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Maram_128px.webp",
+      "beforeSize": 23989,
+      "afterSize": 3328,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Michael_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Michael_128px.webp",
+      "beforeSize": 19226,
+      "afterSize": 2010,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Mirja_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Mirja_128px.webp",
+      "beforeSize": 18917,
+      "afterSize": 1874,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Patricia_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Patricia_128px.webp",
+      "beforeSize": 19875,
+      "afterSize": 2252,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Rose_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Rose_128px.webp",
+      "beforeSize": 24539,
+      "afterSize": 3552,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Sami_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SETS Team 128px/SETSTeam_Sami_128px.webp",
+      "beforeSize": 18449,
+      "afterSize": 1754,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/SettlementServices_Page_1080px/SettlementServices_Page_1080px.webp",
+      "beforeSize": 676932,
+      "afterSize": 42642,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Home_Hero_1200:600px/Home_Hero_1200px.webp",
+      "beforeSize": 936455,
+      "afterSize": 121448,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Home_Hero_1200:600px/Home_Hero_600px.webp",
+      "beforeSize": 307914,
+      "afterSize": 56842,
+      "width": 600
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Cat_128px.webp",
+      "beforeSize": 29767,
+      "afterSize": 3858,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Kasey_128px.webp",
+      "beforeSize": 32329,
+      "afterSize": 4802,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp",
+      "beforeSize": 31737,
+      "afterSize": 4130,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp",
+      "beforeSize": 27950,
+      "afterSize": 4210,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Peter_128px.webp",
+      "beforeSize": 26723,
+      "afterSize": 2936,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Sandra_128px.webp",
+      "beforeSize": 27006,
+      "afterSize": 3212,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Shirley_128px.webp",
+      "beforeSize": 30453,
+      "afterSize": 4662,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Zac_128px.webp",
+      "beforeSize": 27300,
+      "afterSize": 3724,
+      "width": 128
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/charity_logo-150x150.png",
+      "output": "/Users/sucharith/Downloads/website/public/images/charity_logo-150x150.webp",
+      "beforeSize": 6262,
+      "afterSize": 6646,
+      "width": 150
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_aqua.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_aqua.webp",
+      "beforeSize": 4129,
+      "afterSize": 1634,
+      "width": 105
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_blue.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_blue.webp",
+      "beforeSize": 7253,
+      "afterSize": 4182,
+      "width": 199
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_dark-yellow.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_dark-yellow.webp",
+      "beforeSize": 5058,
+      "afterSize": 2926,
+      "width": 184
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_egg-blue.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_egg-blue.webp",
+      "beforeSize": 1139,
+      "afterSize": 630,
+      "width": 63
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_hot-pink.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_hot-pink.webp",
+      "beforeSize": 7074,
+      "afterSize": 3802,
+      "width": 282
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_lime-green.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_lime-green.webp",
+      "beforeSize": 3874,
+      "afterSize": 2324,
+      "width": 241
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_mint-green.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_mint-green.webp",
+      "beforeSize": 2273,
+      "afterSize": 1158,
+      "width": 98
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_peach.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_peach.webp",
+      "beforeSize": 2852,
+      "afterSize": 2142,
+      "width": 231
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_pink.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_pink.webp",
+      "beforeSize": 4186,
+      "afterSize": 1956,
+      "width": 212
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_yellow.png",
+      "output": "/Users/sucharith/Downloads/website/public/mosiac-element-rgb-_yellow.webp",
+      "beforeSize": 5726,
+      "afterSize": 3470,
+      "width": 259
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/pexels-yankrukov-8199708.jpg",
+      "output": "/Users/sucharith/Downloads/website/public/pexels-yankrukov-8199708.webp",
+      "beforeSize": 123459,
+      "afterSize": 74282,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/spotlights/DJ-hZqSvuRb.png",
+      "output": "/Users/sucharith/Downloads/website/public/spotlights/DJ-hZqSvuRb.webp",
+      "beforeSize": 990166,
+      "afterSize": 78364,
+      "width": 720
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/spotlights/DJ5YKCbhTVn.png",
+      "output": "/Users/sucharith/Downloads/website/public/spotlights/DJ5YKCbhTVn.webp",
+      "beforeSize": 1120161,
+      "afterSize": 87260,
+      "width": 720
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/spotlights/DJ78YFesQrH.png",
+      "output": "/Users/sucharith/Downloads/website/public/spotlights/DJ78YFesQrH.webp",
+      "beforeSize": 1021031,
+      "afterSize": 78180,
+      "width": 720
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/spotlights/DKBGFPPuQui.png",
+      "output": "/Users/sucharith/Downloads/website/public/spotlights/DKBGFPPuQui.webp",
+      "beforeSize": 887416,
+      "afterSize": 72272,
+      "width": 720
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/spotlights/DKDrctCRjg6.png",
+      "output": "/Users/sucharith/Downloads/website/public/spotlights/DKDrctCRjg6.webp",
+      "beforeSize": 1064823,
+      "afterSize": 92628,
+      "width": 720
+    }
+  ],
+  "recompressions": [
+    {
+      "file": "/Users/sucharith/Downloads/website/public/News_Thumbnails_720px_WEBP/1 Mar 2016.webp",
+      "beforeSize": 317202,
+      "afterSize": 149866,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/News_Thumbnails_720px_WEBP/1 October 2022.webp",
+      "beforeSize": 217144,
+      "afterSize": 91840,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/News_Thumbnails_720px_WEBP/10 Nov 2025.webp",
+      "beforeSize": 222512,
+      "afterSize": 91816,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/All_Services_webp/AllServices_CommunityEngagement_720px.webp",
+      "beforeSize": 328270,
+      "afterSize": 131838,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/All_Services_webp/AllServices_FamilyServices_720px.webp",
+      "beforeSize": 320036,
+      "afterSize": 120164,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp",
+      "beforeSize": 237516,
+      "afterSize": 92974,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/FamilyServices_Page_1080px/FamilyServices_HeroPage_1080px.webp",
+      "beforeSize": 210130,
+      "afterSize": 81020,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/FamilyServices_Page_1080px/Family_support_eligibility_1080px.webp",
+      "beforeSize": 367388,
+      "afterSize": 133478,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1978_SBS.webp",
+      "beforeSize": 262222,
+      "afterSize": 115208,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1989_Earthquake01.webp",
+      "beforeSize": 255554,
+      "afterSize": 114536,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1990_Carnivale.webp",
+      "beforeSize": 212682,
+      "afterSize": 79698,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1990_Carnivale01.webp",
+      "beforeSize": 278812,
+      "afterSize": 112838,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1990_Carnivale03.webp",
+      "beforeSize": 208876,
+      "afterSize": 78588,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1990_Carnivale05.webp",
+      "beforeSize": 254474,
+      "afterSize": 96014,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1990_Carnivale06.webp",
+      "beforeSize": 257312,
+      "afterSize": 98106,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1991_10Years_AGM01.webp",
+      "beforeSize": 228550,
+      "afterSize": 82334,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1991_10Years_AGM02.webp",
+      "beforeSize": 224534,
+      "afterSize": 83000,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1999_Kosovar02.webp",
+      "beforeSize": 274796,
+      "afterSize": 110950,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/1999_Kosovar04.webp",
+      "beforeSize": 255430,
+      "afterSize": 94584,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2006_SilverJubilee (2).webp",
+      "beforeSize": 221634,
+      "afterSize": 61724,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2006_SilverJubilee01 (2).webp",
+      "beforeSize": 353802,
+      "afterSize": 134062,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2006_SilverJubilee01.webp",
+      "beforeSize": 232682,
+      "afterSize": 73224,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2011_VJW_Farewell.webp",
+      "beforeSize": 227330,
+      "afterSize": 83360,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2011_VJW_Farewell_01.webp",
+      "beforeSize": 250804,
+      "afterSize": 79100,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2011_VJW_Farewell_04.webp",
+      "beforeSize": 222574,
+      "afterSize": 75756,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2021_40th Celebration01.webp",
+      "beforeSize": 371816,
+      "afterSize": 113214,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2021_40th Celebration04.webp",
+      "beforeSize": 322978,
+      "afterSize": 87206,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2021_40th Celebration05.webp",
+      "beforeSize": 261750,
+      "afterSize": 71148,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2021_40th Celebration06.webp",
+      "beforeSize": 460848,
+      "afterSize": 181406,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2021_40th Celebration07.webp",
+      "beforeSize": 355304,
+      "afterSize": 93252,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2022_MosaicMC_Rebranding.webp",
+      "beforeSize": 412570,
+      "afterSize": 59878,
+      "width": 1920
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2024_Charlestown04.webp",
+      "beforeSize": 254266,
+      "afterSize": 100410,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2024_Closing02.webp",
+      "beforeSize": 349944,
+      "afterSize": 134408,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/History_720px_webp/2024_Closing04.webp",
+      "beforeSize": 237736,
+      "afterSize": 80270,
+      "width": 1080
+    },
+    {
+      "file": "/Users/sucharith/Downloads/website/public/images/aged-care/eligibility.webp",
+      "beforeSize": 283030,
+      "afterSize": 110918,
+      "width": 1080
+    }
+  ]
+}

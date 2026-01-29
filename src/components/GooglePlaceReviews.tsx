@@ -1,0 +1,247 @@
+"use client";
+
+import React, { useEffect, useState } from 'react';
+import { ExternalLink, Star } from 'lucide-react';
+
+interface PlaceReview {
+  author_name: string;
+  rating: number;
+  relative_time_description: string;
+  text: string;
+}
+
+type GooglePlacesService = {
+  getDetails: (
+    request: { placeId: string; fields: string[] },
+    callback: (result: { reviews?: PlaceReview[] } | null, status: string) => void
+  ) => void;
+};
+
+type GoogleNamespace = {
+  maps?: {
+    Map: new (el: HTMLElement) => unknown;
+    places?: {
+      PlacesService: new (map: unknown) => GooglePlacesService;
+      PlacesServiceStatus: { OK: string };
+    };
+  };
+};
+
+declare global {
+  interface Window {
+    google?: GoogleNamespace;
+  }
+}
+
+const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/mYc8i3DawKk6PsPc9';
+
+function Stars({ rating }: { rating: number }) {
+  const r = Math.round(rating);
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className={`h-4 w-4 ${i < r ? 'text-sun fill-sun' : 'text-gray-300 dark:text-gray-600'}`} />
+      ))}
+    </div>
+  );
+}
+
+const GooglePlaceReviews = () => {
+  const [reviews, setReviews] = useState<PlaceReview[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string | undefined;
+    const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID as string | undefined;
+
+    // If credentials are missing, show graceful fallback and stop loading
+    if (!apiKey || !placeId) {
+      setLoading(false);
+      return;
+    }
+
+    // Load Google Maps JS API and use PlacesService to avoid CORS issues
+    const loadScript = (src: string) => new Promise<void>((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) {
+        existing.addEventListener('load', () => resolve());
+        existing.addEventListener('error', () => reject(new Error('Failed to load Google Maps script')));
+        if (window.google?.maps) return resolve();
+      } else {
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.defer = true;
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error('Failed to load Google Maps script'));
+        document.head.appendChild(s);
+      }
+    });
+
+    const src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+    loadScript(src)
+      .then(() => {
+        const google = window.google;
+        if (!google?.maps?.places) {
+          throw new Error('Google Places library unavailable');
+        }
+        // Create invisible map for PlacesService context
+        const mapDiv = document.createElement('div');
+        mapDiv.style.width = '0px';
+        mapDiv.style.height = '0px';
+        document.body.appendChild(mapDiv);
+        const map = new google.maps.Map(mapDiv);
+        const service = new google.maps.places.PlacesService(map);
+        service.getDetails(
+          {
+            placeId,
+            fields: ['name', 'rating', 'user_ratings_total', 'reviews'],
+          },
+          (result: { reviews?: PlaceReview[] } | null, status: string) => {
+            if (status !== google!.maps!.places!.PlacesServiceStatus.OK) {
+              setError('Unable to load live reviews automatically.');
+              setLoading(false);
+              return;
+            }
+            const list = result?.reviews || [];
+            const sorted = list
+              .slice()
+              .sort((a, b) => (b.rating - a.rating) || a.relative_time_description.localeCompare(b.relative_time_description))
+              .slice(0, 6);
+            setReviews(sorted);
+            setLoading(false);
+          }
+        );
+      })
+      .catch((e) => {
+        setError(e?.message || 'Unable to load live reviews automatically.');
+        setLoading(false);
+      });
+  }, []);
+
+  return (
+    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+      <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
+            <span className="me-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
+            <span className="text-gray-700 dark:text-white/90 font-medium">Google Reviews</span>
+          </div>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Are Saying</h2>
+          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+            Live reviews from our Google listing when available. Click through to verify on Google.
+          </p>
+        </div>
+
+        {/* Reviews content */}
+        {reviews && reviews.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative backdrop-blur-xl bg-white/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-sm font-semibold text-gray-800 dark:text-white">{item.author_name}</div>
+                  <Stars rating={item.rating} />
+                </div>
+                <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed mb-6 text-base">
+                  “{item.text}”
+                </blockquote>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-600 dark:text-white/60">{item.relative_time_description}</span>
+                  <a
+                    href={GOOGLE_REVIEWS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    aria-label="View on Google (opens in new tab)"
+                  >
+                    View on Google
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Graceful loader */}
+            {loading && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow animate-pulse bg-white/60 dark:bg-white/10"
+                  >
+                    <div className="h-4 w-1/2 bg-gray-200 dark:bg-slate-700 rounded mb-4"></div>
+                    <div className="h-16 bg-gray-200 dark:bg-slate-700 rounded"></div>
+                    <div className="mt-4 h-3 w-1/3 bg-gray-200 dark:bg-slate-700 rounded"></div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Static featured cards when live reviews are not available */}
+            {!loading && (
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  'https://maps.app.goo.gl/DrXPngzuP6QN6kTk9',
+                  'https://maps.app.goo.gl/hbbf81UHNpfRJzH39',
+                  'https://maps.app.goo.gl/A4SD8B75KhLm5NeQA',
+                  'https://maps.app.goo.gl/eN1xkicjMGUxKvPK6',
+                ].map((url, idx) => (
+                  <div
+                    key={url}
+                    className="group relative backdrop-blur-xl bg-white/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-sm font-semibold text-gray-800 dark:text-white">Featured Google Review</div>
+                        <div className="text-xs text-gray-600 dark:text-white/60">Recently posted</div>
+                      </div>
+                    </div>
+                    <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed mb-6 text-base">
+                      {idx === 0
+                        ? '“Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!”'
+                        : '“View this review on Google.”'}
+                    </blockquote>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-600 dark:text-white/60">Source: Google Reviews</span>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                        aria-label="View on Google (opens in new tab)"
+                      >
+                        View on Google
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Error or helper text */}
+            {error && (
+              <p className="mt-6 text-center text-gray-600 dark:text-gray-300">
+                Unable to load live reviews automatically. Showing featured Google review links instead.
+              </p>
+            )}
+          </>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default GooglePlaceReviews;

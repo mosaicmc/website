@@ -1,0 +1,32 @@
+{
+  "placeUrl": "https://maps.google.com/?cid=123456789",
+  "reviews": [
+    {
+      "id": "mock-1",
+      "authorName": "Mock Reviewer 1",
+      "authorAvatarUrl": "https://via.placeholder.com/50",
+      "rating": 5,
+      "dateText": "1 month ago",
+      "text": "This is a mock review for testing purposes. The service was excellent.",
+      "reviewUrl": "https://google.com/review/1"
+    },
+    {
+      "id": "mock-2",
+      "authorName": "Mock Reviewer 2",
+      "authorAvatarUrl": "https://via.placeholder.com/50",
+      "rating": 4,
+      "dateText": "2 months ago",
+      "text": "Great community support and friendly staff.",
+      "reviewUrl": "https://google.com/review/2"
+    },
+    {
+      "id": "mock-3",
+      "authorName": "Mock Reviewer 3",
+      "authorAvatarUrl": "https://via.placeholder.com/50",
+      "rating": 5,
+      "dateText": "3 months ago",
+      "text": "Mosaic is a wonderful organization.",
+      "reviewUrl": "https://google.com/review/3"
+    }
+  ]
+}

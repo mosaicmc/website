@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/website/" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to site… <a href="/website/">Click here</a> if you are not redirected.</p>
+    <script>
+      (function() {
+        var target = '/website/';
+        if (location.pathname && location.pathname.indexOf('/website/') === 0) {
+          target = '/website/';
+        }
+        location.replace(target);
+      })();
+    </script>
+  </body>
+</html>
