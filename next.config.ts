@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  distDir: "dist",
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
