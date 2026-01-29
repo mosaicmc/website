@@ -1,0 +1,41 @@
+{
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmc.com.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmc.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmulticultural.com.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmulticultural.org.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmulticulturalconnections.com.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mosaicmulticulturalconnections.org.au" }],
+      "destination": "https://mosaicmc.org.au/$1",
+      "permanent": true
+    }
+  ]
+}

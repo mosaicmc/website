@@ -1,0 +1,343 @@
+"use client";
+
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+ 
+import { X } from "lucide-react";
+import BrandLinkedIn from "@/components/ui/icons/BrandLinkedIn";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
+
+type Social = { platform: "linkedin" | "twitter" | "website"; href: string };
+type ManagementMemberCard = {
+  id?: string;
+  name: string;
+  role?: string;
+  languages?: string[];
+  location?: string;
+  avatar?: string;
+  bio: string;
+  credentialsSummary?: string;
+  social?: Social[];
+  summary?: string;
+};
+
+export function ManagementSection({
+  title,
+  members,
+  accentColor = "ocean",
+}: {
+  title?: string;
+  members: ManagementMemberCard[];
+  accentColor?: "ocean" | "sky" | "care" | "earth" | "leaf" | "sun";
+}) {
+  const { t } = useTranslation();
+  const accentShadow =
+    accentColor === "care"
+      ? "241,107,131"
+      : accentColor === "sky"
+      ? "96,199,204"
+      : accentColor === "earth"
+      ? "243,122,96"
+      : accentColor === "leaf"
+      ? "180,215,133"
+      : accentColor === "sun"
+      ? "252,183,61"
+      : "40,54,127";
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState<ManagementMemberCard | null>(null);
+  const [isMobileOrTablet, setIsMobileOrTablet] = React.useState<boolean>(() =>
+    typeof window !== "undefined" ? window.innerWidth < 1024 : false
+  );
+  React.useEffect(() => {
+    const onResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return (
+    <section className="py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {title && (
+          <div className="mb-10 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">{title}</h2>
+          </div>
+        )}
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {members.map((m, idx) => (
+            <Card
+              key={m.id ?? `${m.name}-${idx}`}
+              style={{ "--accent-shadow": accentShadow } as React.CSSProperties}
+              className={`group relative p-6 rounded-2xl border border-border bg-card shadow-sm transition hover:scale-[1.01] hover:shadow-[0_20px_45px_rgba(var(--accent-shadow),0.28)]`}
+            >
+              <CardContent className="p-0">
+                <div className="relative mx-auto mb-6">
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 top-1 h-44 w-44 rounded-full blur-3xl transition opacity-0 group-hover:opacity-55 ${
+                      accentColor === "care"
+                        ? "bg-care/35"
+                        : accentColor === "sky"
+                        ? "bg-sky/35"
+                        : accentColor === "earth"
+                        ? "bg-earth/35"
+                        : accentColor === "leaf"
+                        ? "bg-leaf/35"
+                        : accentColor === "sun"
+                        ? "bg-sun/35"
+                        : "bg-ocean/35"
+                    }`}
+                  />
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 -top-2 w-16 h-1 rounded-b-full opacity-60 ${
+                      accentColor === "care"
+                        ? "bg-care"
+                        : accentColor === "sky"
+                        ? "bg-sky"
+                        : accentColor === "earth"
+                        ? "bg-earth"
+                        : accentColor === "leaf"
+                        ? "bg-leaf"
+                        : accentColor === "sun"
+                        ? "bg-sun"
+                        : "bg-ocean"
+                    }`}
+                  />
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 top-1 h-32 w-32 rounded-full blur-xl transition opacity-0 group-hover:opacity-100 ${
+                      accentColor === "care"
+                        ? "bg-care/35"
+                        : accentColor === "sky"
+                        ? "bg-sky/35"
+                        : accentColor === "earth"
+                        ? "bg-earth/35"
+                        : accentColor === "leaf"
+                        ? "bg-leaf/35"
+                        : accentColor === "sun"
+                        ? "bg-sun/35"
+                        : "bg-ocean/35"
+                    }`}
+                  />
+                  <Avatar
+                    className={`relative z-10 h-[128px] w-[128px] md:h-[128px] md:w-[128px] border-4 border-white dark:border-slate-700 shadow-lg transition-transform group-hover:scale-105 ${
+                      "group-hover:shadow-[0_16px_36px_rgba(var(--accent-shadow),0.45)]"
+                    }`}
+                  >
+                    {m.avatar && (
+                      <AvatarImage src={m.avatar} alt={m.name} loading="lazy" decoding="async" />
+                    )}
+                    <AvatarFallback className="text-foreground font-semibold">
+                      {m.name.split(" ").map((n) => n[0]).join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <div className="md:flex-1">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">{m.name}</h3>
+                  {m.role && (
+                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-2 dark:text-foreground ${
+                      accentColor === "care"
+                        ? "bg-care/10 text-care-text border-care/20"
+                        : accentColor === "sky"
+                        ? "bg-sky/10 text-sky-text border-sky/20"
+                        : accentColor === "earth"
+                        ? "bg-earth/10 text-earth-text border-earth/20"
+                        : accentColor === "leaf"
+                        ? "bg-leaf/10 text-leaf-text border-leaf/20"
+                        : accentColor === "sun"
+                        ? "bg-sun/10 text-sun-text border-sun/20"
+                        : "bg-ocean/10 text-ocean border-ocean/20"
+                    }`}>
+                      {m.role}
+                    </span>
+                  )}
+                  {m.location && (
+                    <div className="mb-2" aria-label={`Location for ${m.name}`}>
+                      <span className="inline-flex items-center rounded-full bg-muted text-muted-foreground border border-border px-2 py-0.5 text-[11px]">
+                        {m.location}
+                      </span>
+                    </div>
+                  )}
+                  {Array.isArray(m.languages) && m.languages.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-2" aria-label={`Languages for ${m.name}`}>
+                      {m.languages.map((lang) => (
+                        <span
+                          key={`${m.name}-${lang}`}
+                          className="inline-flex items-center rounded-full bg-muted text-muted-foreground border border-border px-2 py-0.5 text-[11px]"
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {m.credentialsSummary && (
+                    <>
+                      {m.credentialsSummary
+                        .split("\n")
+                        .filter((line) => line.trim().length > 0)
+                        .map((line, i) => (
+                          <p key={i} className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3">
+                            {line.trim()}
+                          </p>
+                        ))}
+                    </>
+                  )}
+                  {isMobileOrTablet ? (
+                    <Sheet open={open} onOpenChange={(o) => { if (!o) setSelected(null); setOpen(o); }}>
+                      <div className="flex items-center gap-2 mt-1">
+                        <SheetTrigger asChild>
+                          <Button
+                            variant={accentColor === "ocean" ? "default" : accentColor}
+                            aria-label={`${t('common.readBio')} for ${m.name}`}
+                            onClick={() => { setSelected(m); setOpen(true); }}
+                            className={`${
+                              accentColor === "care"
+                                ? "hover:shadow-care/25"
+                                : accentColor === "sky"
+                                ? "hover:shadow-sky/25"
+                                : accentColor === "earth"
+                                ? "hover:shadow-earth/25"
+                                : accentColor === "leaf"
+                                ? "hover:shadow-leaf/25"
+                                : accentColor === "sun"
+                                ? "hover:shadow-sun/25"
+                                : "hover:shadow-ocean/25"
+                            }`}
+                        >
+                          {t('common.readBio')}
+                        </Button>
+                        </SheetTrigger>
+                        {(() => {
+                          const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                          return li ? (
+                            <a
+                              href={li.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${m.name} on LinkedIn (opens in new tab)`}
+                              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                            >
+                              <BrandLinkedIn className="h-4 w-4" />
+                            </a>
+                          ) : null;
+                        })()}
+                      </div>
+                      <SheetContent side="bottom" className="max-w-lg w-full">
+                        <SheetHeader>
+                          <SheetTitle>{selected?.name}</SheetTitle>
+                          {selected?.role && (
+                            <SheetDescription>{selected.role}</SheetDescription>
+                          )}
+                        </SheetHeader>
+                        <div className="mt-4">
+                          {selected?.languages && selected.languages.length > 0 && (
+                            <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
+                          )}
+                          {selected?.credentialsSummary && (
+                            <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>
+                          )}
+                          <p className="text-sm md:text-base text-foreground leading-relaxed whitespace-pre-line mb-3">
+                            {selected?.bio}
+                          </p>
+                        </div>
+                      </SheetContent>
+                    </Sheet>
+                  ) : (
+                    <div className="flex items-center gap-2 mt-1">
+                      <Button
+                        variant={accentColor === "ocean" ? "default" : accentColor}
+                        aria-label={t('common.readBioFor', { name: m.name })}
+                        onClick={() => { setSelected(m); setOpen(true); }}
+                        className={`${
+                          accentColor === "care"
+                            ? "hover:shadow-care/25"
+                            : accentColor === "sky"
+                            ? "hover:shadow-sky/25"
+                            : accentColor === "earth"
+                            ? "hover:shadow-earth/25"
+                            : accentColor === "leaf"
+                            ? "hover:shadow-leaf/25"
+                            : accentColor === "sun"
+                            ? "hover:shadow-sun/25"
+                            : "hover:shadow-ocean/25"
+                        }`}
+                      >
+                        {t('common.readBio')}
+                      </Button>
+                      {(() => {
+                        const li = m.social?.find((s) => s.platform === "linkedin" && s.href?.startsWith("http"));
+                        return li ? (
+                          <a
+                            href={li.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${m.name} on LinkedIn (opens in new tab)`}
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky text-ocean border border-sky/30 hover:bg-sky/20 dark:bg-sky/15 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background transition"
+                          >
+                            <BrandLinkedIn className="h-4 w-4" />
+                          </a>
+                        ) : null;
+                      })()}
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+              <div
+                className={`absolute -top-2 -right-2 w-4 h-4 rounded-full opacity-0 group-hover:opacity-60 transition blur-sm ${
+                  accentColor === "care"
+                    ? "bg-care"
+                    : accentColor === "sky"
+                    ? "bg-sky"
+                    : accentColor === "earth"
+                    ? "bg-earth"
+                    : accentColor === "leaf"
+                    ? "bg-leaf"
+                    : accentColor === "sun"
+                    ? "bg-sun"
+                    : "bg-ocean"
+                }`}
+              />
+            </Card>
+          ))}
+        </div>
+      </div>
+      {!isMobileOrTablet && open && selected && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center">
+          <button
+            aria-label={t('common.closeDialog')}
+            className="absolute inset-0 bg-black/50"
+            onClick={() => { setOpen(false); setSelected(null); }}
+          />
+          <div className="relative max-w-2xl w-[92%] md:w-[70%] rounded-2xl border border-border bg-background shadow-xl">
+            <button
+              aria-label={t('common.closeDialog')}
+              onClick={() => { setOpen(false); setSelected(null); }}
+              className="absolute bottom-3 right-3 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-background border border-border text-foreground shadow hover:bg-sand/60 focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <div className="p-6 pb-16">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{selected.name}</h3>
+              {selected.role && (<p className="text-muted-foreground mb-1">{selected.role}</p>)}
+              {selected.languages && selected.languages.length > 0 && (
+                <p className="text-sm text-muted-foreground mb-2">{t('common.languages')}: {selected.languages.join(", ")}</p>
+              )}
+              {selected.credentialsSummary && (
+                <p className="text-sm text-muted-foreground mb-3">{selected.credentialsSummary}</p>
+              )}
+              <p className="text-sm md:text-base text-foreground leading-relaxed mb-3 whitespace-pre-line">{selected.bio}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}

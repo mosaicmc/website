@@ -1,0 +1,122 @@
+"use client";
+
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { GlowingEffect } from './ui/glowing-effect';
+import { ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+type Partner = {
+  name: string;
+  url?: string;
+  brandColor: 'ocean' | 'sky' | 'earth' | 'leaf' | 'sun' | 'care';
+  short?: string;
+  logo?: string;
+};
+
+// TODO: Replace favicon placeholders with official SVG/PNG logos before deploy
+
+const badgeColor = (color: Partner['brandColor']) => {
+  switch (color) {
+    case 'ocean':
+      return 'bg-ocean text-white';
+    case 'sky':
+      return 'bg-sky text-white';
+    case 'earth':
+      return 'bg-earth text-white';
+    case 'leaf':
+      return 'bg-leaf text-white';
+    case 'sun':
+      return 'bg-sun text-white';
+    case 'care':
+      return 'bg-care text-white';
+    default:
+      return 'bg-ocean text-white';
+  }
+};
+
+const PartnersFunders = ({ className }: { className?: string }) => {
+  const { t } = useTranslation();
+
+  const partners: Partner[] = [
+    { name: t('partnersFunders.items.homeAffairs'), url: 'https://www.homeaffairs.gov.au/', brandColor: 'ocean', short: 'Home Affairs', logo: 'https://www.homeaffairs.gov.au/favicon.ico' },
+    { name: t('partnersFunders.items.dcj'), url: 'https://dcj.nsw.gov.au/', brandColor: 'leaf', short: 'DCJ NSW', logo: 'https://dcj.nsw.gov.au/favicon.ico' },
+    { name: t('partnersFunders.items.benevolent'), url: 'https://www.benevolent.org.au/', brandColor: 'earth', short: 'Benevolent Society', logo: 'https://www.benevolent.org.au/favicon.ico' },
+    { name: t('partnersFunders.items.gambling'), url: 'https://www.gambleaware.nsw.gov.au/', brandColor: 'sun', short: 'GambleAware NSW', logo: 'https://www.gambleaware.nsw.gov.au/favicon.ico' },
+    { name: t('partnersFunders.items.waratah'), url: 'https://www.warataheducationfoundation.org.au/', brandColor: 'sky', short: 'Waratah Education', logo: 'https://www.warataheducationfoundation.org.au/favicon.ico' },
+    { name: t('partnersFunders.items.armidale'), url: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/', brandColor: 'leaf', short: 'Armidale Sanctuary', logo: 'https://www.armidalesanctuaryhumanitariansettlement.com.au/favicon.ico' },
+    { name: t('partnersFunders.items.wright'), brandColor: 'earth', short: 'Wright Family' },
+    { name: t('partnersFunders.items.dewr'), url: 'https://www.dewr.gov.au/', brandColor: 'ocean', short: 'DEWR', logo: 'https://www.dewr.gov.au/favicon.ico' },
+    { name: t('partnersFunders.items.health'), url: 'https://www.health.gov.au/', brandColor: 'care', short: 'Health, Disability & Ageing', logo: 'https://www.health.gov.au/favicon.ico' },
+  ];
+
+  return (
+    <section
+      className={cn(
+        'relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden',
+        className
+      )}
+      style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+      aria-label={t('partnersFunders.ariaLabel')}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-10">
+          <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-4">
+            <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse" />
+            <span className="text-muted-foreground">{t('partnersFunders.badge')}</span>
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{t('partnersFunders.title')}</h2>
+          <p className="text-lg text-gray-600 dark:text-white/70 max-w-3xl mx-auto">{t('partnersFunders.description')}</p>
+        </div>
+
+        <div className="relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-3xl p-6 sm:p-8 border border-white/40 dark:border-white/20 shadow-2xl">
+          <GlowingEffect spread={28} glow={true} disabled={false} proximity={120} inactiveZone={0.08} movementDuration={1.2} borderWidth={2} />
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-6 items-center">
+            {partners.map((p) => (
+              p.url ? (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center rounded-lg transition-transform duration-300 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                  aria-label={`Visit ${p.name} (opens in new tab)`}
+                  title={p.name}
+                >
+                  {p.logo ? (
+                    <img
+                      src={p.logo}
+                      alt={p.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-10 sm:h-12 object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition"
+                    />
+                  ) : (
+                    <div className={cn('h-10 w-10 sm:h-12 sm:w-12 rounded-full flex items-center justify-center', badgeColor(p.brandColor))}>
+                      <span className="text-sm sm:text-base font-bold">{(p.short || p.name).charAt(0)}</span>
+                    </div>
+                    )}
+                    <ExternalLink className="absolute top-1 right-1 h-3 w-3 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
+                </a>
+              ) : (
+                <div
+                  key={p.name}
+                  className="group inline-flex items-center justify-center rounded-lg"
+                  title={p.name}
+                  aria-label={p.name}
+                >
+                  <div className={cn('h-10 w-10 sm:h-12 sm:w-12 rounded-full flex items-center justify-center', badgeColor(p.brandColor))}>
+                    <span className="text-sm sm:text-base font-bold">{(p.short || p.name).charAt(0)}</span>
+                  </div>
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PartnersFunders;

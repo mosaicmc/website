@@ -1,0 +1,550 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
+import { Phone, ArrowRight, CheckCircle, Calendar, Globe, Heart, Award, UserPlus, X, ExternalLink, HandHeart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ManagementSection } from '@/components/ManagementSection';
+import LazySection from '@/components/LazySection';
+import { FAQSection } from '@/components/FAQSection';
+import RelatedServices from '../../components/RelatedServices';
+import { useTranslation } from 'react-i18next';
+import { assetPath } from '@/lib/utils';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Button } from '@/components/ui/button';
+import { PageTransition } from '@/components/ui/PageTransition';
+
+type ProgramCard = {
+  title: string;
+  description: string;
+  features: string[];
+  icon: JSX.Element;
+  color: 'sun' | 'sky' | 'earth' | 'leaf';
+  who?: string;
+  fundingNote?: string;
+};
+
+const CommunityEngagementPage = () => {
+  const { t } = useTranslation();
+  // Two separate states for each accordion column
+  const [selectedLocation, setSelectedLocation] = useState<string>("All");
+  const [activeProgram, setActiveProgram] = useState<ProgramCard | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const showImpactStories = false;
+
+  useEffect(() => {
+    if (!activeProgram) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveProgram(null);
+    };
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    closeButtonRef.current?.focus();
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [activeProgram]);
+
+  const teamMembers = [
+    {
+      name: "Chiyedza Magwerekwete",
+      role: "Gamble Aware Caseworker",
+      location: "Newcastle",
+      qualifications: "Bachelor in Social Science",
+      experience: "Chiyedza has worked in community services and the Permanency Support Program, supporting families to achieve stable, long‑term outcomes.",
+      languages: ["English", "Shona"],
+      email: "c.magwerekwete@mosaicmc.org.au",
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Chiyedza_128px.webp")
+    },
+    {
+      name: "Natalia Meliendrez",
+      role: "Multicultural Community Development Lead",
+      location: "Central Coast",
+      qualifications: "Bachelor of Early and Primary Education, Community Service Diploma- Certificate IV in Disability, Accreditation to parenting programs and Diploma of leadership and management",
+      experience: "Natalia creates spaces where people from diverse cultural backgrounds feel respected, understood and empowered, leading groups and community programs that honour shared experiences and cultural identities.",
+      languages: ["Spanish", "English"],
+      phone: "0431 491 748",
+      email: "n.meliendrez@mosaicmc.org.au",
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Natalia_128px.webp")
+    },
+    {
+      name: "Helen Mieres",
+      role: "Playing around the world – playgroup facilitator",
+      location: "Central Coast",
+      qualifications: "Community Service Diploma",
+      experience: "With more than 15 years of community-focused experience, Helen has worked alongside families, children, and people experiencing homelessness to build strength, stability, and connection.\n\nShe also has extensive experience supporting people with disability and their families in inclusive community settings.",
+      languages: ["English", "Spanish"],
+      image: assetPath("/images/Community Engagement Team 128px/CommEngTeam_Helen_128px.webp")
+    },
+    // Removed retired staff entry
+  ];
+
+  const locations = ["All", ...Array.from(new Set(teamMembers.map(m => m.location).filter((l): l is string => !!l))).sort((a, b) => a.localeCompare(b as string, undefined, { sensitivity: 'base' }))];
+  const visibleMembers = selectedLocation === "All" ? teamMembers : teamMembers.filter(m => m.location === selectedLocation);
+  const sortedMembers = [...visibleMembers].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
+  const faqData = [
+    { question: t('community.faq.programsQuestion'), answer: t('community.faq.programsAnswer') },
+    { question: t('community.faq.leadershipQuestion'), answer: t('community.faq.leadershipAnswer') },
+    { question: t('community.faq.volunteerQuestion'), answer: t('community.faq.volunteerAnswer') },
+    { question: t('community.faq.festivalsQuestion'), answer: t('community.faq.festivalsAnswer') },
+    { question: t('community.faq.advocacyQuestion'), answer: t('community.faq.advocacyAnswer') },
+    { question: t('community.faq.partnershipsQuestion'), answer: t('community.faq.partnershipsAnswer') }
+  ];
+
+  return (
+    <PageTransition>
+      <div className="motion-safe:animate-fade-in">
+      
+      {/* Hero Section with enhanced animations */}
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-blue-500/20 dark:from-slate-900/50 dark:to-blue-900/30"></div>
+        {/* Accent tint overlay to differentiate page */}
+        <div className="absolute inset-0 bg-leaf/10 dark:bg-leaf/15 mix-blend-multiply pointer-events-none"></div>
+        
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl dark:bg-blue-500/20 motion-safe:animate-blob"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 motion-safe:animate-blob-delayed"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leaf-50 text-leaf-text dark:bg-white/10 dark:text-white font-medium text-sm mb-6">
+              <HandHeart className="w-4 h-4 text-leaf" />
+              <span>Community Engagement</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              {t('community.hero.headline')}
+            </h1>
+            <p className="text-base sm:text-xl fluid-p text-gray-700 dark:text-gray-100 leading-relaxed mb-3 motion-safe:animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
+              {t('community.hero.subheadline')}
+            </p>
+            <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-gray-300 leading-relaxed mb-8 motion-safe:animate-fade-in-up break-words" style={{ animationDelay: '300ms' }}>
+              {t('community.hero.body')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center motion-safe:animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="flex flex-col items-center">
+                <a
+                  href="tel:1800813205"
+                className="border-2 border-leaf text-leaf dark:text-white hover:bg-leaf hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+                >
+                  <Phone className="h-5 w-5 me-2" />
+                  {t('community.hero.cta')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 motion-safe:animate-fade-in-down">
+              <span className="me-2 h-2 w-2 rounded-full bg-leaf animate-pulse"></span>
+              <span className="text-gray-700 dark:text-white/90 font-medium">{t('community.sections.programs.badge')}</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4 motion-safe:animate-fade-in-up">{t('community.sections.programs.title')}</h2>
+            <p className="text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed motion-safe:animate-fade-in-up" style={{ animationDelay: '200ms' }}>{t('community.sections.programs.description')}</p>
+          </div>
+
+          <div className="max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(260px,360px))] lg:justify-center auto-rows-fr justify-items-center">
+            {([
+              {
+                title: t('community.programs.gambleAware.title'),
+                description: t('community.programs.gambleAware.description'),
+                features: t('community.programs.gambleAware.features', { returnObjects: true }) as unknown as string[],
+                who: t('community.programs.gambleAware.who'),
+                icon: <Heart className="h-6 w-6" />,
+                color: "leaf",
+                fundingNote: t('community.programs.gambleAware.fundingNote'),
+              },
+              {
+                title: t('community.programs.multiculturalDevelopment.title'),
+                description: t('community.programs.multiculturalDevelopment.description'),
+                features: t('community.programs.multiculturalDevelopment.features', { returnObjects: true }) as unknown as string[],
+                who: t('community.programs.multiculturalDevelopment.who'),
+                icon: <Globe className="h-6 w-6" />,
+                color: "leaf",
+                fundingNote: t('community.programs.multiculturalDevelopment.fundingNote'),
+              },
+              {
+                title: t('community.programs.homeworkCenters.title'),
+                description: t('community.programs.homeworkCenters.description'),
+                features: t('community.programs.homeworkCenters.features', { returnObjects: true }) as unknown as string[],
+                who: t('community.programs.homeworkCenters.who'),
+                icon: <Award className="h-6 w-6" />,
+                color: "leaf",
+                fundingNote: t('community.programs.homeworkCenters.fundingNote'),
+              }
+            ] as ProgramCard[]).map((program, index) => {
+              const colorClass = program.color === 'sun'
+                ? 'bg-sun'
+                : program.color === 'sky'
+                  ? 'bg-sky'
+                  : program.color === 'earth'
+                    ? 'bg-earth'
+                    : 'bg-leaf';
+              const hoverGlowClass = program.color === 'sun'
+                ? 'hover:shadow-[0_20px_45px_rgba(252,183,61,0.28)]'
+                : program.color === 'sky'
+                  ? 'hover:shadow-[0_20px_45px_rgba(96,199,204,0.25)]'
+                  : program.color === 'earth'
+                    ? 'hover:shadow-[0_20px_45px_rgba(243,122,96,0.25)]'
+                    : 'hover:shadow-[0_20px_45px_rgba(180,215,133,0.28)]';
+              return (
+                <div
+                  key={index}
+                  className={`group relative flex h-full w-full max-w-[360px] min-w-0 flex-row items-start gap-4 backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-5 border border-white/50 dark:border-white/20 shadow-[0_12px_30px_rgba(120,90,60,0.16)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/80 dark:group-hover:bg-white/15 ${hoverGlowClass}`}
+                >
+                  <GlowingEffect
+                    spread={30}
+                    glow={true}
+                    disabled={false}
+                    proximity={100}
+                    inactiveZone={0.05}
+                    movementDuration={1.5}
+                    borderWidth={2}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+
+                  <div className="relative z-10 flex w-full items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className={`flex h-12 w-12 items-center justify-center rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${colorClass}`}>
+                        <div className="text-white">{program.icon}</div>
+                      </div>
+                    </div>
+                    <div className="flex min-w-0 flex-1 flex-col">
+                      <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                        {program.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-white/80 mt-1">
+                        {program.description}
+                      </p>
+                      <div className="mt-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-leaf transition-colors duration-300 ease-out hover:text-leaf/80 whitespace-nowrap"
+                        onClick={() => setActiveProgram(program)}
+                      >
+                        Learn more
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                      </Button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 rounded-b-full bg-gradient-to-r from-leaf/20 via-leaf/40 to-leaf/20"></div>
+                  <div className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${colorClass} opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-sm`}></div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="motion-safe:animate-fade-in-left">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">{t('community.sections.eligibility.title')}</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">{t('community.eligibility.items.0')}</span>
+                </div>
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">{t('community.eligibility.items.1')}</span>
+                </div>
+                <div className="flex items-start space-x-3 group">
+                  <CheckCircle className="h-5 w-5 text-leaf mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-gray-700 dark:text-gray-100">{t('community.eligibility.items.2')}</span>
+                </div>
+              </div>
+              <div className="relative h-64 overflow-hidden rounded-xl md:h-full">
+                <img
+                  src={assetPath("/images/CommEngagement_Page_1080px/CommunityEngagement_Page_1080px.webp")}
+                  alt="Community Engagement"
+                  width={1080}
+                  height={608}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-spacing bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-white/5">
+        <div className="doc-container">
+          <div className="text-center subsection-break">
+            <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">{t('community.sections.how.badge')}</p>
+            <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('community.sections.how.title')}</h2>
+            <p className="fluid-p text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+              {t('community.sections.how.description')}
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {(t('community.how.steps', { returnObjects: true }) as unknown as { title: string; description: string; bullets: string[] }[]).map((step, idx) => (
+              <div key={idx} className="rounded-2xl border border-slate-100 dark:border-white/10 bg-slate-50/60 dark:bg-white/5 p-6 shadow-sm">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-3 bg-leaf/10 rounded-2xl">{idx === 0 ? <Phone className="h-6 w-6 text-leaf" /> : idx === 1 ? <Calendar className="h-6 w-6 text-leaf" /> : <Award className="h-6 w-6 text-leaf" />}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
+                </div>
+                <p className="text-gray-600 dark:text-white/80 mb-4">{step.description}</p>
+                <ul className="space-y-2">
+                  {step.bullets.map((bullet, bulletIdx) => (
+                    <li key={bulletIdx} className="flex items-start space-x-2 text-sm text-gray-600 dark:text-white/80">
+                      <span className="text-leaf mt-1">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* TODO: Unhide when video content is available */}
+      {showImpactStories && (
+        <section className="py-16 bg-slate-50 dark:bg-slate-950">
+          <div className="doc-container">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-leaf font-semibold mb-3">{t('community.impact.badge')}</p>
+                <h2 className="fluid-h2 font-bold text-gray-900 dark:text-white mb-4">{t('community.impact.title')}</h2>
+                <p className="fluid-p text-gray-600 dark:text-white/80 mb-5">{t('community.impact.body')}</p>
+                <ul className="space-y-3 text-gray-700 dark:text-white/80 text-sm">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-leaf mt-1">•</span>
+                    <span>{t('community.impact.bullets.0')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-leaf mt-1">•</span>
+                    <span>{t('community.impact.bullets.1')}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-leaf mt-1">•</span>
+                    <span>{t('community.impact.bullets.2')}</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-900/80 flex items-center justify-center">
+                  <div className="text-center px-6">
+                    <p className="text-white font-semibold mb-2">{t('community.impact.videoPlaceholderTitle')}</p>
+                    <p className="text-white/80 text-sm mb-4">{t('community.impact.videoPlaceholderSubtitle')}</p>
+                    <button className="inline-flex items-center px-5 py-3 rounded-full bg-white text-slate-900 font-semibold shadow hover:scale-105 transition">
+                      <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {t('community.impact.watchLabel')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <LazySection minHeight={640}>
+        <section className="py-16 bg-slate-50 dark:bg-slate-950">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="fluid-h2 font-bold text-foreground">{t('community.team.title')}</h2>
+              <p className="fluid-p text-muted-foreground max-w-4xl mx-auto">{t('community.team.description')}</p>
+            </div>
+            <div role="tablist" aria-label="Staff locations" className="flex flex-wrap gap-2 justify-center mb-8">
+              {locations.map((loc) => {
+                const isActive = selectedLocation === loc;
+                return (
+                  <button
+                    key={loc}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`inline-flex rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background ${
+                      isActive ? 'bg-leaf text-white border-transparent' : 'bg-background text-foreground border-border hover:bg-sand/60'
+                    }`}
+                    title={`Show ${loc === "All" ? "all locations" : loc}`}
+                  >
+                    {loc}
+                  </button>
+                );
+              })}
+            </div>
+            {(() => {
+              const members = sortedMembers.map((m) => ({
+                name: m.name,
+                role: m.role,
+                languages: m.languages,
+                avatar: m.image,
+                bio: m.experience ?? m.qualifications ?? '',
+                credentialsSummary: m.qualifications,
+                location: m.location,
+              }));
+              return <ManagementSection title="" members={members} accentColor="leaf" />;
+            })()}
+            <div className="text-center mt-16">
+              <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
+                <h3 className="text-xl font-bold text-foreground mb-4">{t('community.team.collaborativeTitle')}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t('community.team.collaborativeBody')}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </LazySection>
+
+      {/* FAQ Section - Enhanced 2-Column Accordion Design */}
+      <LazySection minHeight={520}>
+        <FAQSection
+          title={t('community.sections.faq.title')}
+          subtitle={t('community.sections.faq.subtitle')}
+          badge={t('community.sections.faq.badge')}
+          items={faqData}
+          accentColor="leaf"
+        />
+      </LazySection>
+
+      {/* Contact CTA with enhanced animations */}
+      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-leaf/10 dark:bg-leaf/15 mix-blend-multiply pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl dark:bg-purple-500/20 motion-safe:animate-blob"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-12 border border-white/50 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group motion-safe:animate-fade-in-up">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:scale-105 transition-transform duration-300 break-words">{t('community.cta.title')}</h2>
+            <p className="text-base sm:text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto break-words">{t('community.cta.body')}</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t('community.cta.callLabel')} (opens in new tab)`}
+                className="bg-leaf hover:bg-leaf/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
+              >
+                <UserPlus className="h-5 w-5" />
+                {t('community.cta.callLabel')}
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <Link
+                to="/contact-us"
+                className="border-2 border-leaf text-leaf hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
+              >
+                {t('community.cta.contactLabel')}
+                <ArrowRight className="h-5 w-5 ms-2" />
+              </Link>
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-gray-600 dark:text-white/70 text-sm">{t('community.cta.footnote')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <LazySection minHeight={360}>
+        <RelatedServices current="community-engagement" />
+      </LazySection>
+
+      {activeProgram && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+          role="presentation"
+          onClick={() => setActiveProgram(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="community-program-title"
+            aria-describedby="community-program-desc"
+            className="w-full max-w-2xl rounded-2xl bg-background p-6 shadow-xl max-h-[90vh] overflow-y-auto"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className={`w-10 h-10 rounded-2xl flex items-center justify-center ${
+                  activeProgram.color === 'sun'
+                    ? 'bg-sun'
+                    : activeProgram.color === 'sky'
+                      ? 'bg-sky'
+                      : activeProgram.color === 'earth'
+                        ? 'bg-earth'
+                        : 'bg-leaf'
+                }`}>
+                  <span className="text-white">{activeProgram.icon}</span>
+                </span>
+                <h3 id="community-program-title" className="text-xl font-semibold">
+                  {activeProgram.title}
+                </h3>
+              </div>
+              <Button
+                ref={closeButtonRef}
+                variant="ghost"
+                onClick={() => setActiveProgram(null)}
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+            <p id="community-program-desc" className="mt-4 text-base text-muted-foreground">
+              {activeProgram.description}
+            </p>
+            <div className="mt-4">
+              <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
+                <CheckCircle className={`h-5 w-5 ${
+                  activeProgram.color === 'sun'
+                    ? 'text-sun'
+                    : activeProgram.color === 'sky'
+                      ? 'text-sky'
+                      : activeProgram.color === 'earth'
+                        ? 'text-earth'
+                        : 'text-leaf'
+                }`} />
+                {t('community.programs.whatWeProvideLabel')}
+              </div>
+              <ul className="mt-3 space-y-2 text-base">
+                {activeProgram.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className={`mt-2 h-2 w-2 rounded-full ${
+                      activeProgram.color === 'sun'
+                        ? 'bg-sun'
+                        : activeProgram.color === 'sky'
+                          ? 'bg-sky'
+                          : activeProgram.color === 'earth'
+                            ? 'bg-earth'
+                            : 'bg-leaf'
+                    }`} />
+                    <span className="text-gray-700 dark:text-white/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {activeProgram.fundingNote && (
+              <p className="mt-4 text-sm italic text-muted-foreground">
+                {activeProgram.fundingNote}
+              </p>
+            )}
+            <div className="mt-6 flex justify-end">
+              <Button onClick={() => setActiveProgram(null)}>Close</Button>
+            </div>
+          </div>
+        </div>
+      )}
+      </div>
+    </PageTransition>
+  );
+};
+
+export default CommunityEngagementPage;
