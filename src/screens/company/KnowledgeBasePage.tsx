@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentType } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import BackLink from "../../components/ui/BackLink";
 import { ShieldCheck, BadgeCheck, Scale, Layers, ClipboardList, ChevronRight, Lock, MessageCircle } from "lucide-react";
 import ErrorBoundary from "../../components/ErrorBoundary";
@@ -85,7 +85,7 @@ export default function KnowledgeBasePage() {
               return (
                 <Link
                   key={item.title}
-                  to={item.href}
+                  href={item.href}
                   className="group rounded-xl border bg-card p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
                 >
                   <div className="flex items-center gap-3 mb-3">
