@@ -7,9 +7,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { prefetchOnHover, prefetchRoute } from "@/lib/prefetch";
 import { Menu, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search, ExternalLink, UserPlus } from "lucide-react";
-import { logSearchQuery, getMonthlyTop } from '@/lib/searchAnalytics';
+import { logSearchQuery } from '@/lib/searchAnalytics';
 import { auSpelling } from '@/lib/auSpelling';
-import { LocalSearchClient, buildFacets as buildFacetsFromClient, initSearchConfigs } from '@/lib/searchClient';
+import { LocalSearchClient, initSearchConfigs } from '@/lib/searchClient';
 import { ThemeToggle } from './ui/theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../hooks/useTheme';
@@ -66,13 +66,13 @@ export default function MosaicNavigation() {
   const isEmergencyMode = location.pathname.startsWith('/resources/emergency-');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [topQueries, setTopQueries] = useState<{ query: string; count: number }[]>([]);
-  const [isOwner, setIsOwner] = useState(false);
-  const [sortMode, setSortMode] = useState<'relevance' | 'alpha'>('relevance');
   const [showAll, setShowAll] = useState(false);
+  
+  // Facets and sort mode are currently static/unused in UI, defined here to satisfy render logic
+  const selectedFacets: string[] = [];
+  const sortMode: 'relevance' | 'alpha' = 'relevance';
+
   const { theme } = useTheme();
   const glassRef = React.useRef<HTMLDivElement | null>(null);
   const clientRef = React.useRef<LocalSearchClient | null>(null);
@@ -298,13 +298,9 @@ export default function MosaicNavigation() {
         e.preventDefault();
         const next = !(localStorage.getItem('mosaic-owner') === '1');
         localStorage.setItem('mosaic-owner', next ? '1' : '0');
-        setIsOwner(next);
       }
     };
     window.addEventListener('keydown', onKey);
-    const initialOwner =
-      localStorage.getItem('mosaic-owner') === '1' || process.env.NODE_ENV !== 'production';
-    setIsOwner(!!initialOwner);
     return () => window.removeEventListener('keydown', onKey);
   }, [i18n.language]);
 
@@ -316,10 +312,6 @@ export default function MosaicNavigation() {
       await initSearchConfigs();
       if (!isActive) return;
       clientRef.current = new LocalSearchClient(runtimeIndex, i18n.language);
-      if (isSearchOpen && !searchQuery.trim()) {
-        const popular = clientRef.current.popularPrompts();
-        setSuggestions(popular);
-      }
     };
 
     if (isSearchOpen) {
@@ -495,41 +487,6 @@ export default function MosaicNavigation() {
     );
   }
 
-  
-
-  function levenshtein(a: string, b: string): number {
-    const m = a.length, n = b.length;
-    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
-    for (let i = 0; i <= m; i++) dp[i][0] = i;
-    for (let j = 0; j <= n; j++) dp[0][j] = j;
-    for (let i = 1; i <= m; i++) {
-      for (let j = 1; j <= n; j++) {
-        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-        dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost);
-      }
-    }
-    return dp[m][n];
-  }
-
-  function buildSuggestions(q: string, items: SearchItem[]): string[] {
-    const base = q.trim().toLowerCase();
-    if (!base) return [];
-    const aus = auSpelling(base).toLowerCase();
-    const pool = new Set<string>();
-    const texts: string[] = [];
-    for (const it of items) {
-      texts.push(it.title.toLowerCase());
-      for (const t of it.tags || []) texts.push(t.toLowerCase());
-    }
-    const uniq = Array.from(new Set(texts));
-    const scored = uniq.map((t) => ({ t, d: Math.min(levenshtein(base, t), levenshtein(aus, t)) }));
-    const close = scored.filter((x) => x.d <= 3).sort((a, b) => a.d - b.d).slice(0, 5).map((x) => x.t);
-    close.forEach((c) => pool.add(c));
-    pool.add(aus);
-    const arr = Array.from(pool).slice(0, 5);
-    return [t('nav.search.all'), ...arr.filter((x) => x.toLowerCase() !== 'all')].slice(0, 5);
-  }
-
   function filterByFacets(items: SearchItem[], facets: string[]): SearchItem[] {
     if (!facets.length) return items;
     return items.filter((it) => {
@@ -622,10 +579,6 @@ export default function MosaicNavigation() {
                 onClick={() => {
                   setIsSearchOpen((v) => {
                     const next = !v;
-                    if (next && !searchQuery.trim()) {
-                      const popular = clientRef.current ? clientRef.current.popularPrompts() : (t('nav.search.popular', { returnObjects: true }) as unknown as string[]);
-                      setSuggestions(popular);
-                    }
                     return next;
                   });
                 }}
@@ -647,13 +600,6 @@ export default function MosaicNavigation() {
                         const v = e.target.value;
                         setSearchQuery(v);
                         setShowAll(false);
-                        if (!v.trim()) {
-                          const popular = clientRef.current ? clientRef.current.popularPrompts() : (t('nav.search.popular', { returnObjects: true }) as unknown as string[]);
-                          setSuggestions(popular);
-                          return;
-                        }
-                        const sugg = clientRef.current ? clientRef.current.suggestions(v) : buildSuggestions(v, runtimeIndex);
-                        setSuggestions(sugg);
                       }}
                       placeholder="Search the site"
                       className="w-full rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
@@ -676,9 +622,7 @@ export default function MosaicNavigation() {
                           const results = isAllSel
                             ? allResults(runtimeIndex, selectedFacets, sortMode)
                             : (clientRef.current ? clientRef.current.search(searchQuery, selectedFacets) : rankResults(searchQuery, runtimeIndex, selectedFacets));
-                          const ordered = sortMode === 'alpha'
-                            ? [...results].sort((a, b) => a.title.localeCompare(b.title))
-                            : results;
+                          const ordered = results;
                           return ordered.slice(0, 12).map((item, index) => {
                             const snippet = buildSnippet(item.body, searchQuery);
                             return (

@@ -42,6 +42,24 @@ interface LanguageSwitcherProps {
   menuId?: string;
 }
 
+const getCookieLanguage = () => {
+  if (typeof document === 'undefined') return 'en';
+  const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+  if (!match?.[1]) return 'en';
+  const value = decodeURIComponent(match[1]);
+  const parts = value.split('/');
+  const last = parts[parts.length - 1];
+  return last || 'en';
+};
+
+const getStoredLanguage = () => {
+  if (typeof document === 'undefined') return 'en';
+  const ui = getUiLanguage();
+  if (ui) return ui;
+  const cookieLang = getCookieLanguage();
+  return cookieLang || 'en';
+};
+
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className = '',
   showText = true,
@@ -52,15 +70,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const [rotatingIndex, setRotatingIndex] = useState(0);
-  const getCookieLanguage = () => {
-    if (typeof document === 'undefined') return 'en';
-    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-    if (!match?.[1]) return 'en';
-    const value = decodeURIComponent(match[1]);
-    const parts = value.split('/');
-    const last = parts[parts.length - 1];
-    return last || 'en';
-  };
 
   const [rotationEnabled, setRotationEnabled] = useState(true);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -69,14 +78,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const [availableLanguages, setAvailableLanguages] = useState(ALL_LANGUAGES);
   const [languagesReady, setLanguagesReady] = useState(false);
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
-
-  const getStoredLanguage = () => {
-    if (typeof document === 'undefined') return 'en';
-    const ui = getUiLanguage();
-    if (ui) return ui;
-    const cookieLang = getCookieLanguage();
-    return cookieLang || 'en';
-  };
 
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const notifyTranslateRefresh = (langCode?: string) => {
