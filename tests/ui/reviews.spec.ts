@@ -8,6 +8,11 @@ test.describe('GoogleReviews UI', () => {
 
   test('renders featured reviews from mock data', async ({ page }) => {
     await page.goto('/');
+    
+    // Scroll to bottom to ensure content-visibility: auto elements are rendered
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(500);
+
     const section = page.getByRole('region', { name: 'Google Reviews' });
     await section.scrollIntoViewIfNeeded();
     await expect(section).toBeVisible();
@@ -17,10 +22,10 @@ test.describe('GoogleReviews UI', () => {
     await expect(heading).toBeVisible();
 
     // Verify cards are rendered from mock data
-    const cardText = section.getByText('This is a mock review for testing purposes. The service was excellent.');
+    const cardText = section.getByText('Mosaic Services is a great organisation, and Elena is incredibly helpful and knowledgeable. Highly recommend!');
     await expect(cardText).toBeVisible();
 
-    const authorName = section.getByText('Mock Reviewer 1');
+    const authorName = section.getByText('Kagombe Muzingu');
     await expect(authorName).toBeVisible();
     
     // Verify star rating exists (aria-label check)

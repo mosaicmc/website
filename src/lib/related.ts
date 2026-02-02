@@ -1,4 +1,4 @@
-const STORIES_ENABLED = process.env.NEXT_PUBLIC_FEATURE_STORIES_PAGE === 'true';
+const STORIES_ENABLED = false; // process.env.NEXT_PUBLIC_FEATURE_STORIES_PAGE === 'true';
 
 export type PageKey =
   | 'home'

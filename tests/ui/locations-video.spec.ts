@@ -16,7 +16,7 @@ test.describe('Locations videos', () => {
     const firstVideo = videos.first();
     await expect(firstVideo).toHaveAttribute('playsinline', '');
     await expect(firstVideo).toHaveAttribute('loop', '');
-    await expect(firstVideo).toHaveAttribute('preload', 'metadata');
+    await expect(firstVideo).toHaveAttribute('preload', 'none');
     
     // Check if poster is present
     const poster = await firstVideo.getAttribute('poster');

@@ -31,6 +31,7 @@ export default {
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			ocean: '#28367f',
+  			'ocean-light': '#6B7CCC',
   			sky: 'var(--sky, #60c7cc)',
   			sand: '#f3ede7',
   			sun: '#fcb73d',

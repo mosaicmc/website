@@ -191,7 +191,12 @@ export function Testimonial04({
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50/60 via-blue-50/40 to-transparent dark:from-slate-900/60 dark:via-slate-800/40 dark:to-transparent z-20 pointer-events-none"></div>
 
           {/* First row - scrollable */}
-          <div className="mb-8 overflow-x-auto overflow-y-hidden py-1 scroll-smooth snap-x snap-mandatory">
+          <div 
+            className="mb-8 overflow-x-auto overflow-y-hidden py-1 scroll-smooth snap-x snap-mandatory"
+            tabIndex={0}
+            role="region"
+            aria-label="Testimonials carousel row 1"
+          >
             <div className="flex w-max gap-6">
               {testimonials.map((testimonial, index) => (
                 <TestimonialCard key={`first-${index}`} {...testimonial} />
@@ -200,7 +205,12 @@ export function Testimonial04({
           </div>
 
           {/* Second row - scrollable */}
-          <div className="overflow-x-auto overflow-y-hidden py-1 scroll-smooth snap-x snap-mandatory">
+          <div 
+            className="overflow-x-auto overflow-y-hidden py-1 scroll-smooth snap-x snap-mandatory"
+            tabIndex={0}
+            role="region"
+            aria-label="Testimonials carousel row 2"
+          >
             <div className="flex w-max gap-6">
               {[...testimonials].reverse().map((testimonial, index) => (
                 <TestimonialCard key={`second-${index}`} {...testimonial} />

@@ -71,7 +71,7 @@ const SimpleCTA = () => {
             </Button>
           </div>
           
-          <div className="backdrop-blur-md bg-slate-950/55 rounded-2xl p-8 border border-white/10 shadow-xl max-w-3xl mx-auto">
+          <div className="backdrop-blur-md bg-slate-950/95 rounded-2xl p-8 border border-white/10 shadow-xl max-w-3xl mx-auto">
             <p className="text-white/90 text-base leading-relaxed">
               <span className="text-sand font-semibold">{t('cta.footnote.label')}</span> {t('cta.footnote.textPrefix')}{" "}
               <Link

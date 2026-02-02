@@ -265,7 +265,7 @@ const ResourcesPage = () => {
   const reportBadgeStyles: Record<string, string> = {
     leaf: 'bg-leaf/10 text-leaf-text border-leaf/20',
     sky: 'bg-sky/10 text-sky-text border-sky/20',
-    ocean: 'bg-ocean/20 text-ocean border-ocean/30 dark:text-sky-text',
+    ocean: 'bg-ocean/20 text-ocean border-ocean/30 dark:text-ocean-light',
     sun: 'bg-sun/10 text-sun-text border-sun/20',
     earth: 'bg-earth/10 text-earth-text border-earth/20',
   };
@@ -441,7 +441,7 @@ const ResourcesPage = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full text-xs"
+                      className="w-full text-xs dark:text-sky-300"
                       aria-label={t('common.downloadReportAria', { title: report.title })}
                       onClick={openForm}
                     >
@@ -485,7 +485,7 @@ const ResourcesPage = () => {
       <Section className="bg-ocean/5 border-y border-ocean/10">
         <div ref={qualitySectionRef} className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center rounded-full bg-ocean/10 text-ocean px-3 py-1 text-sm font-medium mb-4">
+            <div className="inline-flex items-center rounded-full bg-ocean/10 text-ocean dark:text-sky dark:bg-ocean/30 px-3 py-1 text-sm font-medium mb-4">
               {t('resources.qualityAssurance.badge')}
             </div>
             <h2 className="text-3xl font-bold text-foreground mb-4">{t('resources.qualityAssurance.title')}</h2>
