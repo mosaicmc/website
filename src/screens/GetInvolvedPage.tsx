@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { assetPath, cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@/components/ui/Section';
@@ -125,7 +125,7 @@ const GetInvolvedPage = () => {
     years?: string;
     source: string;
     image?: string;
-  }> = [
+  }> = useMemo(() => [
     {
       name: t('getInvolved.spotlights.0.name'),
       role: t('getInvolved.spotlights.0.role'),
@@ -176,7 +176,7 @@ const GetInvolvedPage = () => {
       years: t('getInvolved.spotlights.6.years'),
       source: 'https://www.instagram.com/p/DJ0OG5KRnDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     }
-  ];
+  ], [t]);
 
   const getShortcode = (url: string): string | null => {
     const match = url.match(/\/p\/([^/?]+)/);
@@ -185,8 +185,13 @@ const GetInvolvedPage = () => {
 
   // Static tiles are expected at /spotlights/{shortcode}.webp|.png|.jpg. No placeholder fallback.
 
-  const [spotlightIndex] = useState(() => Math.floor(Math.random() * spotlights.length));
+  const [spotlightIndex, setSpotlightIndex] = useState(0);
   const spotlight = spotlights[spotlightIndex];
+
+  useEffect(() => {
+    setSpotlightIndex(Math.floor(Math.random() * spotlights.length));
+  }, [spotlights.length]);
+
   const [spotlightImage, setSpotlightImage] = useState<string | null>(null);
 
   useEffect(() => {
