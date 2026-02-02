@@ -55,12 +55,12 @@ const Footer = () => {
                       />
                     </Link>
                     <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                      <span className="rounded-full border border-border bg-ocean/10 text-ocean dark:bg-white/10 dark:text-sky-text px-3 py-1.5">{t('footer.badges.impact', { years })}</span>
-                      <span className="rounded-full border border-border bg-ocean/10 text-ocean dark:bg-white/10 dark:text-sky-text px-3 py-1.5">{t('footer.badges.services')}</span>
+                      <span className="rounded-full border border-border bg-ocean/10 text-blue-900 dark:bg-white/10 dark:text-sky-text px-3 py-1.5">{t('footer.badges.impact', { years })}</span>
+                      <span className="rounded-full border border-border bg-ocean/10 text-blue-900 dark:bg-white/10 dark:text-sky-text px-3 py-1.5">{t('footer.badges.services')}</span>
                     </div>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.overview')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.sections.overview')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
                         <Link to="/" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
@@ -85,7 +85,7 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.services')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.sections.services')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
                         <Link to="/services/settlement-support" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
@@ -110,7 +110,7 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('nav.resources')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('nav.resources')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
                         <Link to="/resources/emergency-translation" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
@@ -135,7 +135,7 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.getInvolved')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.sections.getInvolved')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
                         <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer" aria-label={`${t('footer.links.volunteer')} (opens in new tab)`} className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
@@ -168,14 +168,14 @@ const Footer = () => {
         <div className="mt-4 rounded-3xl border border-border bg-muted/40 p-6 shadow-2xl shadow-black/20 backdrop-blur">
           <div className="grid gap-6 lg:gap-8 lg:grid-cols-2 lg:items-stretch">
             <div className="flex flex-col gap-1.5">
-              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.acknowledgement.title')}</p>
+              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.acknowledgement.title')}</p>
               <p className="text-sm leading-relaxed text-foreground">{acknowledgementCopy}</p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-slate-600 dark:text-muted-foreground">
                 {t('footer.acknowledgement.subtext')}
               </p>
             </div>
             <div className="flex h-full flex-col lg:border-l lg:border-border lg:ps-8 gap-1.5">
-              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-muted-foreground">{t('footer.sections.aboutMosaic')}</p>
+              <p className="text-[11px] leading-4 font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.sections.aboutMosaic')}</p>
               <p className="text-sm leading-relaxed text-foreground">{t('footer.description')}</p>
               <div className="lg:mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {/* Row 1 */}
