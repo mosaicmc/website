@@ -176,14 +176,14 @@ const AboutPage = () => {
 
   const managementMembers = React.useMemo(() => [
     {
-      id: "sharon",
-      name: t('aboutPage.management.members.sharon.name'),
-      title: t('aboutPage.management.members.sharon.title'),
+      id: "rob",
+      name: t('aboutPage.management.members.rob.name'),
+      title: t('aboutPage.management.members.rob.title'),
       level: 1 as const,
-      languages: t('aboutPage.management.members.sharon.languages', { returnObjects: true }) as unknown as string[],
-      bio: t('aboutPage.management.members.sharon.bio'),
-      credentialsSummary: t('aboutPage.management.members.sharon.credentials'),
-      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/sdaishe/' }]
+      languages: t('aboutPage.management.members.rob.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.rob.bio'),
+      credentialsSummary: t('aboutPage.management.members.rob.credentials'),
+      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/rob~watkins/' }]
     },
     {
       id: "belinda",
@@ -227,9 +227,9 @@ const AboutPage = () => {
     },
   ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
-    "sharon": {
-      webp: "/images/Management 128px/Management_Sharon_128px.webp",
-      jpg: "/images/Management 128px/Management_Sharon_128px.webp",
+    "rob": {
+      webp: "/images/Management 128px/Management_Rob_128px.webp",
+      jpg: "/images/Management 128px/Management_Rob_128px.webp",
     },
     "belinda": {
       webp: "/images/Management 128px/Management_Belinda_128px.webp",
