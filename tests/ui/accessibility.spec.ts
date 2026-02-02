@@ -28,7 +28,7 @@ test.describe('WCAG 2.1 AA Accessibility Compliance', () => {
         await page.goto(pagePath);
         
         // Wait for hydration/content
-        await page.waitForLoadState('networkidle');
+        await page.waitForLoadState('domcontentloaded');
 
         // Run Axe analysis
         const accessibilityScanResults = await new AxeBuilder({ page })
