@@ -37,7 +37,7 @@ test.describe('Buttons contrast scan', () => {
       test.skip(browserName !== 'chromium', 'Skipping heavy contrast scan on non-Chromium browsers to avoid timeouts');
       await mockGoogleReviews(page);
       await page.goto(`http://127.0.0.1:4173${path}`);
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
       await page.waitForSelector('button:visible, [data-slot="button"]:visible', { timeout: 10000 });
 
       for (const theme of ['light', 'dark'] as const) {
