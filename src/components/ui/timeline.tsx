@@ -158,6 +158,9 @@ export const Timeline = ({
           <div
             ref={containerRef}
             className="relative h-[320px] md:h-[360px] overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 [mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)]"
+            tabIndex={0}
+            role="region"
+            aria-label="Timeline events"
           >
             <div ref={ref} className="relative flex gap-6 md:gap-8 w-max py-6">
               {data.map((item, index) => (

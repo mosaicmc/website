@@ -63,7 +63,8 @@ const GoogleReviews = () => {
       ref={sectionRef}
       className="relative section-spacing bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
       style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}
-      aria-label={t('reviews.badge')}
+      aria-label="Google Reviews"
+      role="region"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/50 to-indigo-100/30 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-indigo-900/20"></div>
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl" />

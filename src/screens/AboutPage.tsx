@@ -447,6 +447,9 @@ const AboutPage = () => {
             className="flex md:grid gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pb-2"
             ref={sliderRef}
             id="mosaic-story-slider"
+            tabIndex={0}
+            role="region"
+            aria-label="Timeline scrollable area"
             style={{
               gridTemplateColumns: `repeat(${Math.min(4, Math.max(1, filteredHistory.length))}, 260px)`,
               gridTemplateRows: filteredHistory.length > 4 ? 'repeat(2, auto)' : undefined,
