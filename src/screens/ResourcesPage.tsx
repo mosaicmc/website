@@ -394,7 +394,7 @@ const ResourcesPage = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full text-xs"
+                      className="w-full text-xs dark:text-sky-300"
                       aria-label={t('common.downloadBrochureAria', { title: brochure.title })}
                       onClick={openForm}
                       data-testid="resource-download-btn"
@@ -441,7 +441,7 @@ const ResourcesPage = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full text-xs dark:text-sky-300"
+                      className="w-full text-xs dark:text-white"
                       aria-label={t('common.downloadReportAria', { title: report.title })}
                       onClick={openForm}
                     >

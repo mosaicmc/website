@@ -16,15 +16,12 @@ test.describe('Related Services section is visible', () => {
       await page.goto(path);
       
       // Semantic check: Look for the specific section heading
-      // Scroll to bottom to ensure LazySection triggers
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      // Give it a moment to render
-      await page.waitForTimeout(500);
       
+      // Scroll to the footer to trigger lazy loading of the Related Services section (which is at the bottom)
+      await page.locator('footer').scrollIntoViewIfNeeded();
+
       const heading = page.getByRole('heading', { name: 'You May Also Be Interested In' });
       
-      // Scroll to it to ensure visibility
-      await heading.scrollIntoViewIfNeeded();
       await expect(heading).toBeVisible();
 
       // Ensure the section containing the heading is present
