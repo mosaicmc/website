@@ -233,16 +233,16 @@ const Footer = () => {
         </div>
       </div>
 
-      {!isEmergencyMode && <FooterLanguageBar />}
+      {!isEmergencyMode && <FooterLanguageBar className="[&_.text-muted-foreground]:text-slate-500 [&_.text-muted-foreground]:dark:text-slate-400" />}
 
       <div className="border-t border-border bg-white/90 dark:bg-slate-950/90 transition-colors">
         <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:px-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-700 dark:text-slate-400">{t('footer.copyright')} · {new Date().getFullYear()}</p>
-          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-700 dark:text-slate-400">
+          <p className="text-xs text-slate-600 dark:text-slate-300">{t('footer.copyright')} · {new Date().getFullYear()}</p>
+          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
             <Link to="/accessibility" className="hover:text-foreground transition-colors">
               Accessibility
             </Link>
-            <span className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-1 text-slate-700 dark:text-slate-400">
+            <span className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-1 text-slate-700 dark:text-slate-300">
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 12 6zm0 4a1 1 0 0 0-1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0-1-1z" />
               </svg>
@@ -251,7 +251,7 @@ const Footer = () => {
           </div>
           {!isEmergencyMode && (
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-slate-400">{t('footer.followUs')}</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-slate-300">{t('footer.followUs')}</span>
             <a href="https://au.linkedin.com/company/mosaic-multicultural-connections" target="_blank" rel="noopener noreferrer" aria-label={`${t('footer.aria.linkedin')} (opens in new tab)`} className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
               <svg className="h-5 w-5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
             </a>

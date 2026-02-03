@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { prefetchOnHover, prefetchRoute } from "@/lib/prefetch";
 import { Menu, X, Home, Heart, Users, Globe, LucideIcon, AlertTriangle, Book, ShieldCheck, Search, ExternalLink, UserPlus } from "lucide-react";
@@ -699,6 +699,7 @@ export default function MosaicNavigation() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white dark:bg-slate-900 border-l border-gray-200 dark:border-slate-700">
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <div className="flex flex-col space-y-4 mt-6">
                     <Link 
                       to="/" 
@@ -751,22 +752,44 @@ export default function MosaicNavigation() {
                     
                     {!isEmergencyMode && (
                       <>
-                        {mainNavigation.slice(1, 3).map((item) => (
+                        <Link 
+                          to="/about" 
+                          className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
+                            isActivePath('/about')
+                              ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
+                              : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
+                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                          )}
+                          {...prefetchOnHover('/about')}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <span>{t('nav.about')}</span>
+                        </Link>
+                        <div className="ps-4 space-y-3">
+                          {aboutLinks.map((link) => {
+                            const Icon = link.icon;
+                            return (
+                              <Link
+                                key={link.title}
+                                to={link.href}
+                                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                {...prefetchOnHover(link.href)}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <Icon className="h-4 w-4" />
+                                <span>{link.title}</span>
+                              </Link>
+                            );
+                          })}
                           <Link
-                            key={item.title}
-                            to={item.href}
-                            className={cn("text-lg font-medium transition-colors no-underline hover:no-underline",
-                              isActivePath(item.href)
-                                ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky px-4 py-2 rounded-lg shadow-lg"
-                                : "text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky",
-                              "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                            )}
-                            {...prefetchOnHover(item.href)}
+                            to="/about#our-story"
+                            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                           >
-                            <span>{item.title}</span>
+                            <Home className="h-4 w-4" />
+                            <span>Our Story</span>
                           </Link>
-                        ))}
+                        </div>
                       </>
                     )}
 

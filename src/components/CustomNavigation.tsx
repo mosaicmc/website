@@ -344,7 +344,7 @@ export default function CustomNavigation({
               <ul className="mt-2.5 grid gap-3 list-none">
                 <MenuLinkItem
                   title="Our Story"
-                  href="/about#our-story-heading"
+                  href="/about#our-story"
                   description="Discover our mission, history and leadership"
                   icon={Home}
                   onClick={closeMenu}

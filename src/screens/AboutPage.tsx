@@ -400,7 +400,7 @@ const AboutPage = () => {
 
       {/* Leadership */}
 
-      <section className="relative section-spacing border-t border-divider bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden" role="region" aria-label={t('about.boardOfDirectors')}>
+      <section id="our-story" tabIndex={-1} className="relative section-spacing border-t border-divider bg-gradient-to-br from-sand/20 via-sky/5 to-ocean/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300 overflow-hidden focus:outline-none" role="region" aria-label={t('about.boardOfDirectors')}>
         <div className="absolute inset-0 bg-gradient-to-br from-sand/30 via-transparent to-sky/20 dark:from-slate-900/40 dark:to-ocean/20 pointer-events-none"></div>
         <AnimatedBackground variant="subtle" className="opacity-70" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
@@ -415,7 +415,7 @@ const AboutPage = () => {
             <button
               aria-pressed={selectedDecade === "all"}
               onClick={() => { setSelectedDecade("all"); setSelectedYear("all"); }}
-              className={`px-3 py-1 rounded-full border transition ${selectedDecade === "all" ? "bg-ocean text-white border-ocean" : "bg-background text-foreground border-border hover:bg-sand/60"} focus:outline-none focus:ring-2 focus:ring-ring`}
+              className={`px-3 py-1 rounded-full border transition ${selectedDecade === "all" ? "bg-[#28367f] text-white border-[#28367f]" : "bg-white text-gray-700 border-gray-300 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600 hover:bg-sand/60"} focus:outline-none focus:ring-2 focus:ring-ring`}
             >
               {t('about.allDecades')}
             </button>
@@ -424,7 +424,7 @@ const AboutPage = () => {
                 key={dec}
                 aria-pressed={selectedDecade === dec}
                 onClick={() => { setSelectedDecade(dec); setSelectedYear("all"); }}
-                className={`px-3 py-1 rounded-full border transition ${selectedDecade === dec ? "bg-ocean text-white border-ocean" : "bg-background text-foreground border-border hover:bg-sand/60"} focus:outline-none focus:ring-2 focus:ring-ring`}
+                className={`px-3 py-1 rounded-full border transition ${selectedDecade === dec ? "bg-[#28367f] text-white border-[#28367f]" : "bg-white text-gray-700 border-gray-300 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600 hover:bg-sand/60"} focus:outline-none focus:ring-2 focus:ring-ring`}
               >
                 {dec}
               </button>

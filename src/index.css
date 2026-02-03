@@ -221,7 +221,7 @@
     @apply bg-background text-foreground overflow-x-hidden max-w-[100vw];
   }
   html {
-    @apply overflow-x-hidden max-w-[100vw];
+    @apply overflow-x-hidden max-w-[100vw] scroll-smooth;
   }
 }
 
