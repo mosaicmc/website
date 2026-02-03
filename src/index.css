@@ -54,7 +54,7 @@
     --earth-text: #a83820;
     --leaf-text: #446622;
     --care-text: #c92a4a;
-    --sun-text: #b45309;
+    --sun-text: #9a4505;
 
     /* Semantic brand heading color */
     --brand-heading: var(--brand-ocean);
@@ -87,9 +87,9 @@
     /* Navigation glass variables */
     --nav-bg-light-base: 248, 250, 252;
     --nav-bg-dark-base: 15, 23, 42;
-    --nav-bg: rgba(var(--nav-bg-light-base), 0.2);
-    --nav-shadow: rgba(0, 0, 0, 0.08);
-    --nav-border: rgba(203, 213, 225, 0.2);
+    --nav-bg: rgba(var(--nav-bg-light-base), var(--nav-opacity-light, 0.95));
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+    --nav-border: rgba(203, 213, 225, 0.4);
     --nav-blur: 8px;
 
     /* Hero glass card tokens (responsive, theme-adaptive) */
@@ -261,14 +261,14 @@ html[data-gt-active="false"] body {
   }
 
   .nav-glass {
-    background-color: rgba(var(--nav-bg-light-base), var(--nav-opacity-light, 0.2));
+    background-color: rgba(var(--nav-bg-light-base), var(--nav-opacity-light, 0.95));
     backdrop-filter: blur(var(--nav-blur));
     -webkit-backdrop-filter: blur(var(--nav-blur));
     box-shadow: 0 8px 24px var(--nav-shadow);
     border-bottom: 1px solid rgba(203, 213, 225, var(--nav-border-opacity, 0.2));
   }
   .dark .nav-glass {
-    background-color: rgba(var(--nav-bg-dark-base), var(--nav-opacity-dark, 0.7));
+    background-color: rgba(var(--nav-bg-dark-base), var(--nav-opacity-dark, 0.95));
     border-bottom: 1px solid rgba(148, 163, 184, var(--nav-border-opacity, 0.1));
   }
   .glass-surface {

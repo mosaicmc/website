@@ -80,7 +80,7 @@ const TriggerButton = ({
       navigationMenuTriggerStyle(),
       isActive
         ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-        : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
+        : "text-slate-950 dark:text-white hover:text-slate-950 dark:hover:text-white hover:bg-sand/60 dark:hover:bg-slate-800",
       "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
     )}
     onClick={onClick}
@@ -127,7 +127,7 @@ const MenuLinkItem = ({
         <Icon className="h-5 w-5" />
         {title}
       </div>
-      <p className="mt-2 line-clamp-2 text-sm leading-snug text-muted-foreground">
+      <p className="mt-2 line-clamp-2 text-sm leading-snug text-slate-700 dark:text-slate-300">
         {description}
       </p>
     </Link>
@@ -238,7 +238,7 @@ export default function CustomNavigation({
           navigationMenuTriggerStyle(),
           isActivePath("/")
             ? "text-white hover:text-white dark:text-ocean bg-ocean dark:bg-sky hover:bg-ocean/90 dark:hover:bg-sky/90 transition-all shadow-lg hover:shadow-xl border border-ocean/20 dark:border-sky/20"
-            : "text-gray-800 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
+            : "text-slate-950 dark:text-white hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-700/50",
           "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
         )}
         {...prefetchOnHover("/")}

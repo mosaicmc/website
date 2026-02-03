@@ -127,7 +127,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                 <h4 className="my-3 text-3xl font-semibold tracking-tight text-foreground">
                   {feature.title}
                 </h4>
-                <p className="text-slate-600 dark:text-muted-foreground text-[17px]">
+                <p className="text-slate-600 dark:text-slate-400 text-[17px]">
                   {feature.details}
                 </p>
                 <Button

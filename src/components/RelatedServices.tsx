@@ -22,12 +22,12 @@ export default function RelatedServices({ current }: RelatedServicesProps) {
   return (
     <Section overlay center>
       <div className="text-center mb-12">
-        <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
-          <span className="mr-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>
-          <span className="text-foreground font-medium">{t('services.relatedTitle')}</span>
+        <div className="section-badge bg-white/80 dark:bg-slate-800/80 border border-white/40 dark:border-slate-700/50 px-6 py-2 text-sm shadow-lg mb-6 backdrop-blur-sm">
+          <span className="mr-2 h-2 w-2 rounded-full bg-ocean dark:bg-sky animate-pulse"></span>
+          <span className="text-slate-900 dark:text-white font-medium">{t('services.relatedTitle')}</span>
         </div>
-        <h2 className="text-4xl font-bold text-foreground dark:text-slate-50 mb-4">{t('services.alsoInterestedIn')}</h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">{paragraph}</p>
+        <h2 className="text-4xl font-bold text-slate-950 dark:!text-white mb-4">{t('services.alsoInterestedIn')}</h2>
+          <p className="text-xl text-slate-900 dark:!text-slate-100 max-w-3xl mx-auto">{paragraph}</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
