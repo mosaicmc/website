@@ -299,7 +299,7 @@ const ResourcesPage = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 py-2 text-sm">
             <div className="flex items-center gap-2">
               <AlertTriangle className="h-4 w-4 text-sun" />
-              <span className="font-medium text-foreground">
+              <span className="font-medium text-gray-900 dark:text-gray-100">
                 <Trans
                   i18nKey="resources.emergencyCall"
                   components={{
@@ -310,7 +310,7 @@ const ResourcesPage = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-earth" />
-              <span className="font-medium text-foreground">
+              <span className="font-medium text-gray-900 dark:text-gray-100">
                 <Trans
                   i18nKey="resources.interpreterTis"
                   components={{

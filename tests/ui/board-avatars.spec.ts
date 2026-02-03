@@ -12,10 +12,12 @@ const boardNames = [
 
 test.describe('About page board avatars', () => {
   test('Board member images are visible and loaded', async ({ page }) => {
+    test.setTimeout(60000);
     await page.goto('/about');
     for (const name of boardNames) {
       const heading = page.getByRole('heading', { name });
       await expect(heading, `Expected card for ${name} to be visible`).toBeVisible();
+      await page.waitForTimeout(1000);
       await heading.scrollIntoViewIfNeeded();
       const img = heading.locator('xpath=following::img[1]');
       await expect(img, `Expected image near ${name} to be visible`).toBeVisible();

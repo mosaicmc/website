@@ -50,14 +50,14 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   const { t } = useTranslation();
   const textColorClass = (category: string) => {
     return category === "Settlement Support"
-      ? "text-sky-text"
+      ? "text-sky-600 dark:text-sky-300"
       : category === "Home Care Services"
       ? "text-care-text"
       : category === "Family Support"
       ? "text-sun-text"
       : category === "Community Engagement"
       ? "text-leaf-text"
-      : "text-sky-text";
+      : "text-sky-600 dark:text-sky-300";
   };
   const buttonColorClass = (category: string) => {
     return category === "Settlement Support"
@@ -96,7 +96,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   };
   return (
     <Section overlay containerClassName="max-w-screen-lg w-full section-spacing px-6 mx-auto">
-      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center mx-auto text-foreground">
+      <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center mx-auto text-gray-900 dark:text-white">
           {title}
       </h2>
       <div className="mt-6 md:mt-8 lg:mt-10 w-full mx-auto stack-vertical">
@@ -124,10 +124,10 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                 <span className={`uppercase font-semibold text-sm ${textColorClass(feature.category)} inline-block`}>
                   {feature.category}
                 </span>
-                <h4 className="my-3 text-3xl font-semibold tracking-tight text-foreground">
+                <h4 className="my-3 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {feature.title}
                 </h4>
-                <p className="text-slate-600 dark:text-slate-400 text-[17px]">
+                <p className="text-slate-600 dark:text-slate-300 text-[17px]">
                   {feature.details}
                 </p>
                 <Button

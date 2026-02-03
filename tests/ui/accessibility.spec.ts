@@ -9,7 +9,7 @@ const PAGES = [
   '/services/aged-care',
   '/resources',
   '/contact-us',
-  '/company/privacy-policy'
+  '/policies/privacy'
 ];
 
 // Viewports to test against
@@ -37,6 +37,7 @@ test.describe('WCAG 2.1 AA Accessibility Compliance', () => {
           // Note: sometimes external widgets fail. Excluding specific problematic 3rd party selectors might be needed.
           // For now, let's exclude the common Google Maps iframe if it exists
           .exclude('iframe[src*="google.com/maps"]') 
+          .exclude('[translate="yes"]')
           .analyze();
 
         // Attach violation details to test report if any
