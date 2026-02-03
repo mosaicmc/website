@@ -69,7 +69,7 @@ export function FeatureValues() {
                   </span>
                   <h3 className="text-lg md:text-xl font-semibold text-foreground uppercase">{title}</h3>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">
+                <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
                   {description}
                 </p>
               </CardContent>

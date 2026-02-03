@@ -113,7 +113,7 @@ export function FeatureMissionVision({
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">{t('about.mission')}</h3>
                   </div>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
+                <p className="text-sm md:text-base text-slate-600 dark:text-muted-foreground whitespace-normal break-words leading-relaxed">
                   {mission}
                 </p>
               </CardContent>
@@ -142,7 +142,7 @@ export function FeatureMissionVision({
                     <h3 className="text-lg md:text-xl font-semibold text-foreground">{t('about.vision')}</h3>
                   </div>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground whitespace-normal break-words leading-relaxed">
+                <p className="text-sm md:text-base text-slate-600 dark:text-muted-foreground whitespace-normal break-words leading-relaxed">
                   {vision}
                 </p>
               </CardContent>

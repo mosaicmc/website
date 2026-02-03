@@ -284,7 +284,7 @@ const ResourcesPage = () => {
             <span className="text-slate-800 dark:text-slate-200 font-medium">{t('resources.hero.badge')}</span>
           </div>
           <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">{t('resources.hero.title')}</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-muted-foreground leading-relaxed">
             {t('resources.hero.description')}
           </p>
         </div>
@@ -326,7 +326,7 @@ const ResourcesPage = () => {
       <Section>
         <div className="text-center mb-10">
           <h2 className="fluid-h2 font-bold text-foreground">{t('resources.featuredResources')}</h2>
-          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="fluid-p mt-3 text-slate-600 dark:text-muted-foreground max-w-2xl mx-auto">
             {t('resources.exploreResources')}
           </p>
         </div>
@@ -341,7 +341,7 @@ const ResourcesPage = () => {
                   <h3 className="font-bold text-lg text-foreground">{resource.title}</h3>
                 </div>
                 <div className="flex-1 p-5">
-                  <p className="text-sm text-muted-foreground">{resource.description}</p>
+                  <p className="text-sm text-slate-600 dark:text-muted-foreground">{resource.description}</p>
                 </div>
                 <div className="p-5 pt-0 mt-auto">
                   <span className="inline-flex items-center text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">
@@ -373,7 +373,7 @@ const ResourcesPage = () => {
       <Section padding="lg" className="bg-background border-t border-border/60">
         <div id="brochures" className="text-center mb-12">
           <h2 className="fluid-h2 font-bold text-foreground">{t('resources.brochures')}</h2>
-          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="fluid-p mt-3 text-slate-600 dark:text-muted-foreground max-w-2xl mx-auto">
             {t('resources.brochuresDesc')}
           </p>
           <PDFAccessibilityNotice className="mt-4" />
@@ -413,7 +413,7 @@ const ResourcesPage = () => {
       <Section padding="lg" className="bg-background border-t border-border/60">
         <div id="project-reports" className="text-center mb-12">
           <h2 className="fluid-h2 font-bold text-foreground">{t('resources.projectReports')}</h2>
-          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="fluid-p mt-3 text-slate-600 dark:text-muted-foreground max-w-2xl mx-auto">
             {t('resources.projectReportsDesc')}
           </p>
           <PDFAccessibilityNotice className="mt-4" />
@@ -428,7 +428,7 @@ const ResourcesPage = () => {
                     {report.program}
                   </span>
                   {report.year && (
-                    <span className="text-xs text-muted-foreground border border-border px-2 py-0.5 rounded-full">
+                    <span className="text-xs text-slate-600 dark:text-muted-foreground border border-border px-2 py-0.5 rounded-full">
                       {report.year}
                     </span>
                   )}
@@ -462,7 +462,7 @@ const ResourcesPage = () => {
             <Phone className="h-6 w-6" />
           </div>
           <h2 className="fluid-h2 font-bold text-foreground">{t('resources.emergencyContacts.title')}</h2>
-          <p className="fluid-p mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="fluid-p mt-3 text-slate-600 dark:text-muted-foreground max-w-2xl mx-auto">
             {t('resources.emergencyContacts.description')}
           </p>
         </div>
@@ -476,7 +476,7 @@ const ResourcesPage = () => {
             >
               <div className="text-sm font-semibold text-foreground">{contact.service}</div>
               <div className="mt-2 text-2xl font-bold text-primary">{contact.number}</div>
-              <div className="mt-auto text-xs text-muted-foreground">{contact.available}</div>
+              <div className="mt-auto text-xs text-slate-600 dark:text-muted-foreground">{contact.available}</div>
             </a>
           ))}
         </div>
@@ -489,7 +489,7 @@ const ResourcesPage = () => {
               {t('resources.qualityAssurance.badge')}
             </div>
             <h2 className="text-3xl font-bold text-foreground mb-4">{t('resources.qualityAssurance.title')}</h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-slate-600 dark:text-muted-foreground mb-8">
               {t('resources.qualityAssurance.description')}
             </p>
             
@@ -500,10 +500,10 @@ const ResourcesPage = () => {
                     {qualityStatValues[index].number === null
                       ? stat.number
                       : qualityCounts[index].toLocaleString()}
-                    <span className="text-sm text-muted-foreground">{qualityStatValues[index].suffix}</span>
+                    <span className="text-sm text-slate-600 dark:text-muted-foreground">{qualityStatValues[index].suffix}</span>
                   </div>
                   <div className="font-medium text-slate-800 dark:text-slate-200 text-sm">{stat.label}</div>
-                  <div className="text-xs text-muted-foreground">{stat.description}</div>
+                  <div className="text-xs text-slate-600 dark:text-muted-foreground">{stat.description}</div>
                 </div>
               ))}
             </div>
@@ -517,7 +517,7 @@ const ResourcesPage = () => {
                   <AlertTriangle className="h-5 w-5 text-red-500" />
                   {t('resources.emergencyContacts.title')}
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-slate-600 dark:text-muted-foreground text-sm">
                   {t('resources.emergencyContacts.description')}
                 </p>
               </CardHeader>
@@ -544,7 +544,7 @@ const ResourcesPage = () => {
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors border border-transparent hover:border-border">
                       <div>
                         <div className="font-medium text-slate-800 dark:text-slate-200">{contact.service}</div>
-                        <div className="text-xs text-muted-foreground">{contact.available}</div>
+                        <div className="text-xs text-slate-600 dark:text-muted-foreground">{contact.available}</div>
                       </div>
                       <a 
                         href={`tel:${contact.number.replace(/\s/g, '')}`}
@@ -566,7 +566,7 @@ const ResourcesPage = () => {
       <Section padding="lg" className="bg-ocean/10 dark:bg-ocean/20 border-t border-ocean/20">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-foreground mb-4">{t('resources.cta.title')}</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-slate-600 dark:text-muted-foreground mb-8">
             {t('resources.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

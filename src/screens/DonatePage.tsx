@@ -31,7 +31,7 @@ const DonatePage = () => {
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-foreground mb-3">{t('donate.impact.title')}</h2>
-              <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 dark:text-muted-foreground">
                 <p>
                   {t('donate.impact.text1')}
                 </p>
@@ -93,7 +93,7 @@ const DonatePage = () => {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center">{t('donate.securePayment')}</p>
+          <p className="mt-4 text-xs sm:text-sm text-slate-600 dark:text-muted-foreground text-center">{t('donate.securePayment')}</p>
         </div>
       </section>
       <LazySection minHeight={360}>
