@@ -90,8 +90,8 @@ export default function MosaicNavigation() {
       if (p < 0) p = 0;
       if (p > 1) p = 1;
       const blur = 2 + 14 * p;
-      const alphaLight = 0.15 + 0.35 * p;
-      const alphaDark = 0.7 + 0.2 * p;
+      const alphaLight = 0.95 + 0.05 * p;
+      const alphaDark = 0.96 + 0.04 * p;
       // bgLight/bgDark construction removed - handled in CSS
 
       el.style.opacity = "1";

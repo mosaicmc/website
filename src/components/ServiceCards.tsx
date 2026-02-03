@@ -81,7 +81,7 @@ const ServiceCards = () => {
                   
                   <div className="w-16 h-0.5 bg-gradient-to-r from-sky to-ocean"></div>
                   
-                  <p className="text-xl text-gray-600 dark:text-white/70 font-light leading-relaxed">
+                  <p className="text-xl text-gray-600 dark:text-slate-300 font-light leading-relaxed">
                     {t('serviceCards.trustedPartner.subtitle')}
                   </p>
                 </div>
@@ -91,19 +91,19 @@ const ServiceCards = () => {
             {/* Right Column - Flowing Content (3/5 width) */}
             <div className="lg:col-span-3 stack-vertical">
               <div className="prose prose-lg prose-gray dark:prose-invert max-w-none">
-                <p className="text-xl leading-relaxed text-gray-700 dark:text-white/80 font-light">
+                <p className="text-xl leading-relaxed text-gray-700 dark:text-slate-200 font-light">
                   <Trans
                     i18nKey="serviceCards.trustedPartner.intro"
                     components={{ 1: <strong className="font-semibold text-ocean dark:text-white" /> }}
                   />
                 </p>
                 
-                <p className="text-lg leading-relaxed text-gray-600 dark:text-white/70">
+                <p className="text-lg leading-relaxed text-gray-600 dark:text-slate-300">
                   {t('serviceCards.trustedPartner.body1')}
                 </p>
                 
                 <div className="border-l-4 border-sky/30 ps-6 my-8">
-                  <p className="text-lg leading-relaxed text-gray-700 dark:text-white/80 italic">
+                  <p className="text-lg leading-relaxed text-gray-700 dark:text-slate-200 italic">
                     {t('serviceCards.trustedPartner.quote')}
                   </p>
                 </div>
@@ -119,15 +119,15 @@ const ServiceCards = () => {
               
               {/* Trust indicators */}
               <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200/50 dark:border-white/10">
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-300">
                   <div className="w-2 h-2 bg-sky rounded-full"></div>
                   <span>{t('serviceCards.trustedPartner.trustIndicators.interpreters')}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-300">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
                   <span>{t('serviceCards.trustedPartner.trustIndicators.culturallyResponsive')}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-300">
                   <div className="w-2 h-2 bg-earth rounded-full"></div>
                   <span>{t('serviceCards.trustedPartner.trustIndicators.communityFocused')}</span>
                 </div>
@@ -138,15 +138,15 @@ const ServiceCards = () => {
 
         {/* Section Header with glass effect */}
         <div className="text-center subsection-break">
-          <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
+          <div className="section-badge bg-white/80 dark:bg-slate-800/80 border border-white/40 dark:border-slate-700/50 px-6 py-2 text-sm shadow-lg mb-6 backdrop-blur-sm">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-gray-700 dark:text-white/90 font-medium">{t('serviceCards.sectionBadge')}</span>
+            <span className="text-slate-900 dark:text-white font-medium">{t('serviceCards.sectionBadge')}</span>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-950 dark:!text-white mb-4">
             {t('serviceCards.sectionTitle')}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-800 dark:!text-slate-100 max-w-3xl mx-auto">
             {t('serviceCards.sectionDescription')}
           </p>
         </div>
@@ -193,7 +193,7 @@ const ServiceCards = () => {
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-white/80 mb-6 leading-relaxed">
+                    <p className="text-gray-600 dark:text-slate-200 mb-6 leading-relaxed">
                       {service.description}
                     </p>
                     
@@ -201,11 +201,11 @@ const ServiceCards = () => {
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600 dark:text-white/70">
                           <CheckCircle className={`h-4 w-4 mr-3 flex-shrink-0 ${
-                            service.color === 'sky' ? 'text-sky-text' :
-                            service.color === 'earth' ? 'text-earth-text' :
-                            service.color === 'care' ? 'text-care-text' :
-                            service.color === 'leaf' ? 'text-leaf-text' :
-                            'text-sun-text'
+                            service.color === 'sky' ? 'text-sky-text dark:text-sky' :
+                            service.color === 'earth' ? 'text-earth-text dark:text-earth' :
+                            service.color === 'care' ? 'text-care-text dark:text-care' :
+                            service.color === 'leaf' ? 'text-leaf-text dark:text-leaf' :
+                            'text-sun-text dark:text-sun'
                           }`} />
                           {feature}
                         </li>

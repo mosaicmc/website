@@ -101,7 +101,7 @@ const Hero = () => {
               {/* Floating card: Satisfaction Rate */}
               <div className="hero-card hero-card-compact hero-card-strong hero-card-pos-top-right animate-fade-in-left delay-500 z-20 group/card hover:shadow-2xl">
                 <div className="flex items-center gap-4">
-                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold text-sm shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf dark:bg-slate-700 text-slate-900 dark:text-white font-bold text-sm shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
                   95%
                 </div>
                 <div>
