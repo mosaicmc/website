@@ -124,15 +124,22 @@ const CommunityEngagementPage = () => {
               {t('community.hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center motion-safe:animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex flex-col items-center">
-                <a
-                  href="tel:1800813205"
+              <a
+                href="tel:1800813205"
                 className="border-2 border-leaf text-leaf dark:text-white hover:bg-leaf hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
-                >
-                  <Phone className="h-5 w-5 me-2" />
-                  {t('community.hero.cta')}
-                </a>
-              </div>
+              >
+                <Phone className="h-5 w-5 me-2" />
+                {t('community.hero.cta')}
+              </a>
+              <a
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-leaf text-leaf dark:text-white hover:bg-leaf hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+                aria-label="Make a Referral (opens in new tab)"
+              >
+                Make a Referral
+              </a>
             </div>
           </div>
         </div>

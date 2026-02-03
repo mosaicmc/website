@@ -251,6 +251,15 @@ const SettlementSupportPage = () => {
                 <Phone className="h-5 w-5 me-2" />
                 {t('settlement.hero.cta')}
               </a>
+              <a
+                href="https://forms.mosaicmc.org.au/refer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-sky text-ocean dark:text-white hover:bg-sky hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2"
+                aria-label="Make a Referral (opens in new tab)"
+              >
+                Make a Referral
+              </a>
             </div>
             <div className="mt-6 motion-safe:animate-fade-in-up" style={{ animationDelay: '450ms' }}>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
