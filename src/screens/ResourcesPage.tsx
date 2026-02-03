@@ -281,7 +281,7 @@ const ResourcesPage = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="section-badge bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-foreground/80 font-medium">{t('resources.hero.badge')}</span>
+            <span className="text-slate-800 dark:text-slate-200 font-medium">{t('resources.hero.badge')}</span>
           </div>
           <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">{t('resources.hero.title')}</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
@@ -299,7 +299,7 @@ const ResourcesPage = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 py-2 text-sm">
             <div className="flex items-center gap-2">
               <AlertTriangle className="h-4 w-4 text-sun" />
-              <span className="font-medium">
+              <span className="font-medium text-slate-800 dark:text-slate-200">
                 <Trans
                   i18nKey="resources.emergencyCall"
                   components={{
@@ -310,7 +310,7 @@ const ResourcesPage = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-earth" />
-              <span className="font-medium">
+              <span className="font-medium text-slate-800 dark:text-slate-200">
                 <Trans
                   i18nKey="resources.interpreterTis"
                   components={{
@@ -344,7 +344,7 @@ const ResourcesPage = () => {
                   <p className="text-sm text-muted-foreground">{resource.description}</p>
                 </div>
                 <div className="p-5 pt-0 mt-auto">
-                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+                  <span className="inline-flex items-center text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">
                     {t('resources.view')}
                     <ChevronRight className="w-4 h-4 ml-1" />
                   </span>
@@ -502,7 +502,7 @@ const ResourcesPage = () => {
                       : qualityCounts[index].toLocaleString()}
                     <span className="text-sm text-muted-foreground">{qualityStatValues[index].suffix}</span>
                   </div>
-                  <div className="font-medium text-foreground text-sm">{stat.label}</div>
+                  <div className="font-medium text-slate-800 dark:text-slate-200 text-sm">{stat.label}</div>
                   <div className="text-xs text-muted-foreground">{stat.description}</div>
                 </div>
               ))}
@@ -543,7 +543,7 @@ const ResourcesPage = () => {
                   {emergencyContacts.map((contact, index) => (
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors border border-transparent hover:border-border">
                       <div>
-                        <div className="font-medium text-foreground">{contact.service}</div>
+                        <div className="font-medium text-slate-800 dark:text-slate-200">{contact.service}</div>
                         <div className="text-xs text-muted-foreground">{contact.available}</div>
                       </div>
                       <a 

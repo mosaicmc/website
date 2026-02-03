@@ -26,8 +26,8 @@ export default function RelatedServices({ current }: RelatedServicesProps) {
           <span className="mr-2 h-2 w-2 rounded-full bg-ocean animate-pulse"></span>
           <span className="text-foreground font-medium">{t('services.relatedTitle')}</span>
         </div>
-        <h2 className="text-4xl font-bold text-foreground mb-4">{t('services.alsoInterestedIn')}</h2>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{paragraph}</p>
+        <h2 className="text-4xl font-bold text-foreground dark:text-slate-50 mb-4">{t('services.alsoInterestedIn')}</h2>
+        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">{paragraph}</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

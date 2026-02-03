@@ -335,7 +335,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <div className={cn('relative', className)}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 h-10 md:h-10 min-h-[44px] px-4 rounded-full text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
+        className="flex items-center justify-between gap-2 h-10 md:h-10 min-h-[44px] px-4 rounded-full text-sm font-medium backdrop-blur-md bg-white/20 dark:bg-slate-800/30 border border-white/30 dark:border-slate-700/50 text-foreground hover:bg-white/30 dark:hover:bg-slate-800/50 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
         aria-label={t('common.changeLanguage')}
         aria-haspopup="menu"
         aria-expanded={isOpen}
@@ -349,7 +349,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             {displayLanguage.flag || '🏳️'}
           </span>
           {showText && (
-            <span className="text-sm font-medium w-24 text-left truncate">
+            <span className="text-sm font-medium w-24 text-left truncate text-slate-800 dark:text-slate-200">
               {displayLanguage.name}
             </span>
           )}
@@ -434,10 +434,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
             {/* Footer */}
             <div className="px-4 py-2 border-t border-gray-200/30 dark:border-slate-700/30 bg-gray-50/50 dark:bg-slate-800/50">
-              <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
+              <p className="text-xs text-slate-600 dark:text-muted-foreground text-center">
                 {languagesReady ? `${availableLanguages.length} languages available` : t('languageSwitcher.loading')}
               </p>
-              <p className="mt-1 text-[10px] uppercase tracking-wide text-gray-500 dark:text-gray-500 text-center">
+              <p className="mt-1 text-[10px] uppercase tracking-wide text-slate-600 dark:text-muted-foreground text-center">
                 Translated by Google
               </p>
               {fallbackUrl && (

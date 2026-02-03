@@ -6,7 +6,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-ocean text-white hover:text-white hover:bg-ocean/90 hover:shadow-lg dark:bg-ocean dark:text-white dark:hover:text-white dark:hover:bg-ocean/90",
-        cta: "relative overflow-hidden rounded-2xl cta-shine bg-ocean bg-gradient-to-r from-ocean to-sky text-white hover:text-white shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 focus-visible:ring-ocean dark:bg-ocean dark:from-sky dark:to-ocean dark:text-white dark:hover:text-white",
+        cta: "relative overflow-hidden rounded-2xl cta-shine bg-ocean bg-gradient-to-r from-ocean to-sky-text text-white hover:text-white shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 focus-visible:ring-ocean dark:bg-ocean dark:from-sky dark:to-ocean dark:text-white dark:hover:text-white",
         sky: "bg-sky bg-gradient-to-r from-sky to-sky/90 text-ocean hover:from-sky/90 hover:to-sky shadow-md hover:shadow-lg focus-visible:ring-sky",
         earth: "bg-earth bg-gradient-to-r from-earth to-earth/90 text-gray-900 hover:from-earth/90 hover:to-earth shadow-md hover:shadow-lg focus-visible:ring-earth",
         care: "bg-care bg-gradient-to-r from-care to-care/90 text-gray-900 hover:from-care/90 hover:to-care shadow-md hover:shadow-lg focus-visible:ring-care",
@@ -15,7 +15,7 @@ export const buttonVariants = cva(
         destructive:
           "bg-destructive text-white hover:text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 dark:text-sky-300",
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 dark:text-sky",
         "cta-outline":
           "rounded-2xl border-2 border-ocean/25 bg-white/70 text-ocean shadow-lg hover:bg-white hover:text-ocean focus-visible:ring-ocean dark:border-white/40 dark:bg-white/15 dark:text-white dark:hover:bg-white/25 dark:hover:text-white dark:focus-visible:ring-white",
         secondary:

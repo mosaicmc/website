@@ -101,12 +101,12 @@ const Hero = () => {
               {/* Floating card: Satisfaction Rate */}
               <div className="hero-card hero-card-compact hero-card-strong hero-card-pos-top-right animate-fade-in-left delay-500 z-20 group/card hover:shadow-2xl">
                 <div className="flex items-center gap-4">
-                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf text-slate-900 font-bold text-sm shadow-inner shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
+                <div className="hero-icon flex items-center justify-center rounded-full bg-leaf dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold text-sm shrink-0 transition-colors duration-300 group-hover/card:bg-ocean group-hover/card:text-white">
                   95%
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">{t('hero.stats.satisfaction')}</p>
-                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">{t('hero.stats.feedback')}</p>
+                  <p className="text-xs text-slate-600 dark:text-muted-foreground group-hover/card:text-foreground font-medium mt-0">{t('hero.stats.feedback')}</p>
                 </div>
               </div>
               </div>
@@ -138,7 +138,7 @@ const Hero = () => {
                   <p className="text-sm font-bold text-foreground leading-none group-hover/card:text-ocean dark:group-hover/card:text-sky transition-colors">
                     {t('hero.stats.locations')}
                   </p>
-                  <p className="text-xs text-muted-foreground group-hover/card:text-foreground font-medium mt-0">
+                  <p className="text-xs text-slate-600 dark:text-muted-foreground group-hover/card:text-foreground font-medium mt-0">
                     {t('hero.stats.coverage')}
                   </p>
                 </div>

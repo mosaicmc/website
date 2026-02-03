@@ -342,7 +342,7 @@ const AgedCarePage = () => {
                     <Button
                       type="button"
                       variant="outline"
-                      className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-care transition-colors duration-300 ease-out hover:text-care/80 whitespace-nowrap"
+                      className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-care-text dark:text-care transition-colors duration-300 ease-out hover:text-care-text/80 dark:hover:text-care/80 whitespace-nowrap"
                       onClick={() => setActiveProgram(program)}
                     >
                       Learn more
@@ -370,7 +370,7 @@ const AgedCarePage = () => {
               <div className="space-y-4">
                 {(t('agedCare.eligibility.items', { returnObjects: true }) as unknown as string[]).map((item, index) => (
                   <div key={index} className="flex items-start space-x-3 group">
-                    <CheckCircle className="h-5 w-5 text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <CheckCircle className="h-5 w-5 text-care-text dark:text-care mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-gray-700 dark:text-gray-100">{item}</span>
                   </div>
                 ))}
@@ -545,14 +545,14 @@ const AgedCarePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:1800813205"
-                className="bg-care hover:bg-care/90 text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
+                className="bg-care hover:bg-care text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-lg hover:shadow-care/25 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 <Phone className="h-5 w-5 me-2" />
                 {t('agedCare.cta.callLabel')}
               </a>
               <Link
                 to="/contact-us"
-                className="border-2 border-care text-slate-900 hover:bg-care hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
+                className="border-2 border-care text-slate-900 dark:text-white hover:bg-care hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-care focus:ring-offset-2 focus:ring-offset-background"
               >
                 {t('agedCare.cta.contactLabel')}
                 <ArrowRight className="h-5 w-5 ms-2" />
