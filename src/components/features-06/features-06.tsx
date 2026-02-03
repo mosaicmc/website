@@ -50,25 +50,25 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
   const { t } = useTranslation();
   const textColorClass = (category: string) => {
     return category === "Settlement Support"
-      ? "text-sky"
+      ? "text-sky-text"
       : category === "Home Care Services"
-      ? "text-care"
+      ? "text-care-text"
       : category === "Family Support"
-      ? "text-sun"
+      ? "text-sun-text"
       : category === "Community Engagement"
-      ? "text-leaf"
-      : "text-sky";
+      ? "text-leaf-text"
+      : "text-sky-text";
   };
   const buttonColorClass = (category: string) => {
     return category === "Settlement Support"
-      ? "bg-sky hover:bg-sky/90"
+      ? "bg-sky hover:bg-sky/90 text-slate-900"
       : category === "Home Care Services"
-      ? "bg-care hover:bg-care/90"
+      ? "bg-care hover:bg-care/90 text-slate-900"
       : category === "Family Support"
-      ? "bg-sun hover:bg-sun/90"
+      ? "bg-sun hover:bg-sun/90 text-slate-900"
       : category === "Community Engagement"
-      ? "bg-leaf hover:bg-leaf/90"
-      : "bg-sky hover:bg-sky/90";
+      ? "bg-leaf hover:bg-leaf/90 text-slate-900"
+      : "bg-sky hover:bg-sky/90 text-slate-900";
   };
   const imageForCategory = (category: string) => {
     if (category === "Settlement Support") {
@@ -127,7 +127,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                 <h4 className="my-3 text-3xl font-semibold tracking-tight text-foreground">
                   {feature.title}
                 </h4>
-                <p className="text-muted-foreground text-[17px]">
+                <p className="text-slate-600 dark:text-muted-foreground text-[17px]">
                   {feature.details}
                 </p>
                 <Button

@@ -22,12 +22,12 @@ const ServicesPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="section-badge bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6 animate-fade-in">
             <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-            <span className="text-gray-700 dark:text-white/90 font-medium">{t('servicesPage.hero.badge')}</span>
+            <span className="text-slate-800 dark:text-slate-200 font-medium">{t('servicesPage.hero.badge')}</span>
           </div>
           <h1 className="fluid-h1 text-5xl font-bold mb-6 text-gray-900 dark:text-white animate-fade-in-up">
             {AU(t('servicesPage.hero.title'))}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-up">
+          <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed animate-fade-in-up">
             {AU(t('servicesPage.hero.description'))}
           </p>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up">

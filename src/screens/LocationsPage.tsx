@@ -29,10 +29,10 @@ const LocationsPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="section-badge bg-card/60 border border-border/60 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-sky animate-pulse"></span>
-              <span className="text-foreground/80 font-medium">{t('locationsPage.hero.badge')}</span>
+              <span className="text-slate-800 dark:text-slate-200 font-medium">{t('locationsPage.hero.badge')}</span>
             </div>
             <h1 className="fluid-h1 text-5xl font-bold mb-6 text-foreground">{t('locationsPage.hero.title')}</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">{AU(t('locationsPage.hero.description'))}</p>
+            <p className="text-xl text-slate-600 dark:text-muted-foreground leading-relaxed">{AU(t('locationsPage.hero.description'))}</p>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@ const LocationsPage = () => {
                 <h3 className="text-xl font-bold text-foreground">{t('locationsPage.emergency.title')}</h3>
               </CardHeader>
               <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-slate-600 dark:text-muted-foreground mb-4">
                   {AU(t('locationsPage.emergency.description'))}
                 </p>
                 <Button asChild className="bg-ocean bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2">
@@ -61,7 +61,7 @@ const LocationsPage = () => {
                 <h3 className="text-xl font-bold text-foreground">{t('locationsPage.quickConnect.title')}</h3>
               </CardHeader>
               <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-slate-600 dark:text-muted-foreground mb-4">
                   {t('locationsPage.quickConnect.hours')}
                 </p>
                 <a
@@ -154,11 +154,11 @@ const LocationsPage = () => {
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center space-x-3">
                       <MapPin className="h-5 w-5 text-sky flex-shrink-0" />
-                      <span className="text-muted-foreground">{locationAddress}</span>
+                      <span className="text-slate-600 dark:text-muted-foreground">{locationAddress}</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Clock className="h-5 w-5 text-sky flex-shrink-0" />
-                      <span className="text-muted-foreground text-sm">
+                      <span className="text-slate-600 dark:text-muted-foreground text-sm">
                         {t(location.hours.weekdays)}
                       </span>
                     </div>
@@ -169,7 +169,7 @@ const LocationsPage = () => {
                       {location.services.map((service, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
                           <span className="inline-block size-2 bg-leaf rounded-full flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm">{t(service)}</span>
+                          <span className="text-slate-600 dark:text-muted-foreground text-sm">{t(service)}</span>
                         </div>
                       ))}
                     </div>
@@ -210,8 +210,8 @@ const LocationsPage = () => {
       <section className="section-center py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="backdrop-blur-md bg-white/70 dark:bg-slate-800/70 rounded-2xl p-12 border border-white/20 dark:border-slate-700/50 shadow-xl">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">{t('locationsPage.cta.title')}</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">{t('locationsPage.cta.title')}</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
               {AU(t('locationsPage.cta.description'))}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

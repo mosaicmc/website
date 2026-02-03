@@ -351,7 +351,7 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="section-badge bg-sand/60 dark:bg-white/10 border border-sky/40 dark:border-white/20 px-6 py-2 text-sm shadow-lg mb-6">
               <span className="mr-2 h-2 w-2 rounded-full bg-earth animate-pulse"></span>
-              <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.hero.label')}</span>
+              <span className="text-slate-800 dark:text-slate-200 font-medium">{t('aboutPage.hero.label')}</span>
             </div>
             
             <h1 className="fluid-h1 text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
@@ -361,11 +361,11 @@ const AboutPage = () => {
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
               {t('aboutPage.hero.description_prefix', { years: serviceYearsBase() })}
               {" "}
-              <Link to="/services/settlement-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.settlement')}</Link>,{" "}
-              <Link to="/services/aged-care" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.agedCare')}</Link>,{" "}
-              <Link to="/services/family-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.family')}</Link>,{" "}
-              and{" "}
-              <Link to="/services/community-engagement" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean/90 dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.community')}</Link>{" "}
+              <Link to="/services/settlement-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.settlement')}</Link>,{" "}
+              <Link to="/services/aged-care" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.agedCare')}</Link>,{" "}
+              <Link to="/services/family-support" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.family')}</Link>,{" "}
+              {t('common.and')}{" "}
+              <Link to="/services/community-engagement" className="font-bold text-xl text-ocean dark:text-foreground hover:text-ocean dark:hover:text-foreground focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-background">{t('aboutPage.hero.services.community')}</Link>{" "}
               {t('aboutPage.hero.description_suffix')}
             </p>
             
@@ -406,7 +406,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10 flex items-start justify-between">
           <div>
             <h2 id="our-story-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-3 scroll-mt-40 md:scroll-mt-48">{t('about.mosaicStory')}</h2>
-            <p className="text-muted-foreground">{t('about.milestonesTitle')}</p>
+            <p className="text-slate-600 dark:text-muted-foreground">{t('about.milestonesTitle')}</p>
           </div>
         </div>
 
@@ -475,12 +475,12 @@ const AboutPage = () => {
                     </div>
                   ) : (
                     <div className="w-full h-40 md:h-48 flex items-center justify-center bg-muted">
-                      <span className="text-sm font-medium text-muted-foreground">{t('about.viewPdfs')}</span>
+                      <span className="text-sm font-medium text-slate-600 dark:text-muted-foreground">{t('about.viewPdfs')}</span>
                     </div>
                   )}
                   <div className="p-4">
                     <h3 className="text-base md:text-lg font-semibold text-foreground mb-1">{item.label}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <p className="text-sm text-slate-600 dark:text-muted-foreground">{item.description}</p>
                   </div>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </button>
@@ -582,7 +582,7 @@ const AboutPage = () => {
                   </div>
                 ) : (
                   <div className="w-full h-48 md:h-56 rounded-t-2xl bg-muted flex items-center justify-center">
-                    <span className="text-sm font-medium text-muted-foreground">{t('about.noImageAvailable')}</span>
+                    <span className="text-sm font-medium text-slate-600 dark:text-muted-foreground">{t('about.noImageAvailable')}</span>
                   </div>
                 )}
                 {activeImages.length > 1 && (
@@ -591,7 +591,7 @@ const AboutPage = () => {
                       aria-label={t('common.previousImage')}
                       onClick={goPrevImage}
                       disabled={!canPrevImage}
-                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canPrevImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
+                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canPrevImage ? 'text-foreground hover:bg-sand/60' : 'text-slate-600 dark:text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
                     >
                       <ChevronLeft className="h-4 w-4" />
                     </button>
@@ -600,7 +600,7 @@ const AboutPage = () => {
                       aria-label={t('common.nextImage')}
                       onClick={goNextImage}
                       disabled={!canNextImage}
-                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canNextImage ? 'text-foreground hover:bg-sand/60' : 'text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
+                      className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${canNextImage ? 'text-foreground hover:bg-sand/60' : 'text-slate-600 dark:text-muted-foreground opacity-60 cursor-not-allowed'} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background`}
                     >
                       <ChevronRight className="h-4 w-4" />
                     </button>
@@ -609,7 +609,7 @@ const AboutPage = () => {
               </div>
               <div className="p-6 pb-16 max-h-[calc(100vh-12rem)] overflow-y-auto">
                 <h3 id="story-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeStory.label}</h3>
-                <p className="text-muted-foreground mb-4">{activeStory.description}</p>
+                <p className="text-slate-600 dark:text-muted-foreground mb-4">{activeStory.description}</p>
                 <p className="text-sm md:text-base text-foreground leading-relaxed">{activeStory.details}</p>
                 {Array.isArray(activeStory.gallery) && activeStory.gallery.length > 0 && (
                   <div className="mt-4">
@@ -698,11 +698,11 @@ const AboutPage = () => {
               <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.board.badge')}</span>
             </div>
             <h2 id="board-title" className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
+              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-foreground dark:bg-none dark:bg-clip-border">
                 {t('aboutPage.board.title')}
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('aboutPage.board.subtitle')}</p>
+            <p className="text-xl text-slate-600 dark:text-muted-foreground max-w-3xl mx-auto">{t('aboutPage.board.subtitle')}</p>
           </div>
           <div>
             {(() => {
@@ -735,11 +735,11 @@ const AboutPage = () => {
               <span className="text-gray-700 dark:text-white/90 font-medium">{t('aboutPage.management.badge')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-white dark:bg-clip-text dark:bg-gradient-to-r dark:from-ocean dark:via-sky dark:to-leaf">
+              <span className="bg-gradient-to-r from-ocean via-sky to-leaf bg-clip-text text-transparent dark:text-foreground dark:bg-none dark:bg-clip-border">
                 {t('aboutPage.management.title')}
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-muted-foreground max-w-3xl mx-auto">
               {t('aboutPage.management.description')}
             </p>
           </div>
@@ -779,9 +779,9 @@ const AboutPage = () => {
                 </button>
                 <div className="p-6 pb-16">
                   <h3 id="manager-dialog-title" className="text-xl md:text-2xl font-bold text-foreground mb-2">{activeManager.name || activeManager.title}</h3>
-                  {activeManager.name && (<p className="text-muted-foreground mb-1">{activeManager.title}</p>)}
+                  {activeManager.name && (<p className="text-slate-600 dark:text-muted-foreground mb-1">{activeManager.title}</p>)}
                   {activeManager.languages && activeManager.languages.length > 0 && (
-                    <p className="text-sm text-muted-foreground mb-2">{t('aboutPage.management.languagesLabel')}: {activeManager.languages.join(', ')}</p>
+                    <p className="text-sm text-slate-600 dark:text-muted-foreground mb-2">{t('aboutPage.management.languagesLabel')}: {activeManager.languages.join(', ')}</p>
                   )}
                   <p className="text-sm md:text-base text-foreground leading-relaxed">{activeManager.bio}</p>
                 </div>

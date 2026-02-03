@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="mb-8 text-center">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Privacy Policy</h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-3 text-slate-600 dark:text-muted-foreground max-w-2xl mx-auto">
             Mosaic recognises and respects your right to privacy, dignity and confidentiality. This policy outlines how we collect, use and protect your personal information.
           </p>
         </div>
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
               <Lock className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">What this policy is about</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               There are laws to protect your personal information. Mosaic follows those laws. We will keep your information private. This means we will not tell people about your information unless you give us permission, or the law tells us to.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
               <FileText className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">What information we collect</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               We collect information from you to help us assist and support you and provide the services you ask for. We get information about things such as:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
               <Building className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">How we use your information</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               We only use your information for the reason or purpose you gave permission for. This is usually to provide you with the assistance, services and supports you ask for. If we need to use it for something else, we must ask for your permission first.
             </p>
           </div>
@@ -80,10 +80,10 @@ export default function PrivacyPolicyPage() {
               <ShieldAlert className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">How and when we share your information</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               Sometimes we need to give information about you to a Government Agency. If we can, we remove anything that can identify you.
             </p>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               Sometimes we will need to give your information to someone else without your permission. This happens when:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
@@ -99,7 +99,7 @@ export default function PrivacyPolicyPage() {
               <Lock className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">Australian laws protect your privacy</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               In Australia, we have laws about privacy and confidentiality. These laws require us to:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
               <Mail className="h-6 w-6 text-primary" />
               <h2 className="text-xl font-semibold">When you want to complain about how we use your information</h2>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600 dark:text-muted-foreground">
               If you feel that we have not kept your information private, you can send us a complaint:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
               <li>Call us on the phone <a href="tel:1800813205" className="text-primary hover:underline">1800 813 205</a></li>
               <li>Talk to one of our workers</li>
             </ul>
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-slate-600 dark:text-muted-foreground">
               If you are not happy with the way we have helped you with your complaint, you can complain to the <a href="http://www.oaic.gov.au/consumer-data-right/consumer-data-right-complaints/how-to-make-a-consumer-data-right-complaint" target="_blank" rel="noopener noreferrer" aria-label="Australian Information Commissioner (OAIC) (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Australian Information Commissioner (OAIC) <ExternalLink className="h-3 w-3" aria-hidden="true" /></a>.
             </p>
           </div>
