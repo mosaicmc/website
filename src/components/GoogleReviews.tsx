@@ -107,7 +107,7 @@ const GoogleReviews = () => {
                     <blockquote className="relative z-10 text-gray-700 dark:text-white/90 leading-relaxed text-base">“{item.text}”</blockquote>
                   </CardContent>
                   <CardFooter>
-                    <span className="text-xs text-muted-foreground">{t('reviews.source')}</span>
+                    <span className="text-xs text-slate-600 dark:text-muted-foreground">{t('reviews.source')}</span>
                     <a
                       href={item.reviewUrl || placeUrl || GOOGLE_REVIEWS_URL}
                       target="_blank"
@@ -148,7 +148,7 @@ const GoogleReviews = () => {
                     </blockquote>
                   </CardContent>
                   <CardFooter>
-                    <span className="text-xs text-muted-foreground">{t('reviews.source')}</span>
+                    <span className="text-xs text-slate-600 dark:text-muted-foreground">{t('reviews.source')}</span>
                     <a
                       href={url}
                       target="_blank"
