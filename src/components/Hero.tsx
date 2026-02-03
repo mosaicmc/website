@@ -76,7 +76,7 @@ const Hero = () => {
               ].map((stat, index) => (
                 <div key={index} className="text-center group hover:scale-105 transition-all duration-300 cursor-pointer p-2 rounded-lg hover:bg-white/10 dark:hover:bg-slate-800/20">
                   <div className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-earth-text dark:group-hover:text-earth transition-all duration-300 motion-safe:group-hover:animate-pulse-gentle">{stat.number}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
+                  <div className="text-sm text-gray-600 dark:text-slate-100 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
                 </div>
               ))}
             </div>

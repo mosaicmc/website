@@ -23,6 +23,15 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/privacy-policy',
+        destination: '/policies/privacy',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

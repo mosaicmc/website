@@ -134,7 +134,7 @@ const ServicesList = ({ title = "Our Comprehensive Services", features = default
                   variant="cta"
                   size="cta-sm"
                   asChild
-                  className={`mt-6 w-full sm:w-auto ${buttonColorClass(feature.category)} text-white mx-auto`}
+                  className={`mt-6 w-full sm:w-auto ${buttonColorClass(feature.category)} mx-auto`}
                 >
                   <Link to={feature.tutorialLink}>
                     {t('common.learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
