@@ -349,7 +349,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             {displayLanguage.flag || '🏳️'}
           </span>
           {showText && (
-            <span className="text-sm font-medium w-24 text-left truncate text-slate-800 dark:text-slate-200">
+            <span className="text-sm font-medium w-24 text-left truncate text-slate-800 dark:text-white">
               {displayLanguage.name}
             </span>
           )}
