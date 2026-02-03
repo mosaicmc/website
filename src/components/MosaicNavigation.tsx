@@ -263,14 +263,6 @@ export default function MosaicNavigation() {
     },
   ];
 
-  const mainNavigation = [
-    { title: t('nav.home'), href: '/' },
-    { title: t('nav.services'), href: '/services' },
-    { title: t('nav.about'), href: '/about' },
-    { title: t('nav.resources'), href: '/resources' },
-    { title: t('nav.getInvolved'), href: '/get-involved' },
-    { title: t('nav.contact'), href: '/contact-us' },
-  ];
 
   const handleCloseCrisisBanner = () => {
     setShowCrisisBanner(false);
