@@ -1,7 +1,4 @@
 {
-  "common": {
-    "and": "and"
-  },
   "home": {
     "meta": {
       "title": "Mosaic Multicultural Connections | Support for NSW Communities",
@@ -957,6 +954,7 @@
     "imageAlt": "Community impact"
   },
   "common": {
+    "and": "and",
     "welcome": "Welcome",
     "orgName": "Mosaic Multicultural Connections",
     "brandName": "Mosaic Multicultural Connections",
