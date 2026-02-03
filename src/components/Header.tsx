@@ -115,13 +115,13 @@ const Header = () => {
                       <button
                         className={`relative flex items-center h-9 px-4 rounded-md text-sm font-medium transition-all duration-300 hover:backdrop-blur-md hover:scale-105 ${
                           isActivePath(item.href, item.hasDropdown)
-                            ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20'
+                            ? 'text-ocean dark:text-sky bg-sand/70 dark:bg-slate-800/70 shadow-lg border border-ocean/20 dark:border-sky/20 hover:bg-ocean hover:text-white dark:hover:bg-slate-800 dark:hover:text-sky'
                             : 'text-gray-800 dark:text-gray-200 hover:text-ocean dark:hover:text-sky hover:bg-sand/50 dark:hover:bg-slate-800/50 hover:shadow-md'
                         }`}
                       >
                         <span className="flex items-center">
                           {item.name}
-                          <ChevronDown className="ms-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-ocean dark:group-hover:text-sky" />
+                          <ChevronDown className="ms-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                         </span>
                       </button>
                     </DropdownMenuTrigger>
