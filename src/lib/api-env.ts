@@ -19,11 +19,11 @@ export function validateEmploymentHeroToken(token?: string | null): boolean {
 }
 
 export function getValidatedEnv() {
-  const EH_ORG_ID = requireEnv("EH_ORG_ID");
-  const EH_ATS_TOKEN = requireEnv("EH_ATS_TOKEN");
-  if (!validateEmploymentHeroToken(EH_ATS_TOKEN)) {
-    throw new Error("Invalid EH_ATS_TOKEN format");
-  }
+  // Employment Hero integration has been replaced by direct SEEK links
+  // Keeping these as optional/empty to prevent crashes in legacy API routes
+  const EH_ORG_ID = process.env.EH_ORG_ID || "";
+  const EH_ATS_TOKEN = process.env.EH_ATS_TOKEN || "";
+
   const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || undefined;
   if (STRIPE_SECRET_KEY && !isStripeSecretKey(STRIPE_SECRET_KEY)) {
     console.warn("Warning: STRIPE_SECRET_KEY present but format appears invalid");
