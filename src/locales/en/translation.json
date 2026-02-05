@@ -696,18 +696,10 @@
     "badge": "Careers",
     "title": "Join the Mosaic team",
     "description": "Explore open roles and help us support multicultural communities across NSW.",
-    "openRoles": "open roles",
-    "filter": {
-      "label": "Filter",
-      "all": "All departments",
-      "menuLabel": "Departments"
-    },
-    "loading": "Loading roles...",
-    "card": {
-      "city": "Location",
-      "country": "Australia",
-      "type": "Employment type",
-      "closed": "Applications closed"
+    "seekCta": {
+      "heading": "View Current Opportunities",
+      "text": "We advertise all our open positions on SEEK. Click the button below to view our current job listings and apply directly.",
+      "button": "View Jobs on SEEK"
     }
   },
   "emergencyServices": {

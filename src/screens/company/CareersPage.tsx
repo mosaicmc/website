@@ -2,31 +2,18 @@
 
 import React from 'react';
 import { Section } from '@/components/ui/Section';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, MapPin, Briefcase } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { useEmploymentHeroJobs } from '@/hooks/useEmploymentHeroJobs';
-import { useEmploymentHeroMetadata } from '@/hooks/useEmploymentHeroMetadata';
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { useTranslation } from 'react-i18next';
-
-function snippet(text?: string, n: number = 180): string {
-  if (!text) return '';
-  const clean = text.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-  return clean.length > n ? clean.slice(0, n) + '…' : clean;
-}
+import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
+import jobsData from '@/data/jobs.json';
 
 const CareersPage = () => {
   const { t } = useTranslation();
-  const { departments, loading: metaLoading } = useEmploymentHeroMetadata();
-  const [deptId, setDeptId] = React.useState<string | null>(null);
-  const { jobs, loading, error } = useEmploymentHeroJobs({ page_index: 1, country_codes: 'AU', department_ids: deptId ?? '' });
 
   return (
     <div className="animate-fade-in">
-      
-
       <Section padding="sm" center>
         <div className="max-w-3xl mx-auto text-center">
           <Badge variant="outline" className="inline-flex items-center rounded-full bg-sand text-foreground px-4 py-1.5 text-sm shadow mb-4">
@@ -40,67 +27,66 @@ const CareersPage = () => {
         </div>
       </Section>
 
-      <Section overlay center className="py-3 md:py-4 lg:py-5 section-break" containerClassName="max-w-5xl">
-        <div className="flex items-center justify-between mb-4">
-          <div className="text-sm text-muted-foreground">{!loading && !error ? `${jobs.length} ${t('careersPage.openRoles')}` : ' '}</div>
-          <div className="flex items-center gap-3">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="inline-flex items-center rounded-lg bg-background border border-border px-3 py-2 text-sm text-foreground hover:bg-muted/40 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                  {t('careersPage.filter.label')} {deptId ? (departments.find(d => String(d.id) === String(deptId))?.name || deptId) : t('careersPage.filter.all')}
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[16rem]">
-                <DropdownMenuLabel>{t('careersPage.filter.menuLabel')}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => setDeptId(null)}>{t('careersPage.filter.all')}</DropdownMenuItem>
-                {metaLoading && <DropdownMenuItem disabled>{t('careersPage.loading')}</DropdownMenuItem>}
-                {!metaLoading && departments.map((d) => (
-                  <DropdownMenuItem key={String(d.id)} onClick={() => setDeptId(String(d.id))}>{d.name || String(d.id)}</DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </div>
-        {loading && (
-          <div className="text-center text-muted-foreground">{t('careersPage.loading')}</div>
-        )}
-        {error && (
-          <div className="text-center text-muted-foreground">{error}</div>
-        )}
-        {!loading && !error && (
-          <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
-            {jobs.map((job) => (
-              <Card key={String(job.id)} className="rounded-2xl shadow-xl overflow-hidden">
-                <CardHeader className="p-4 border-b border-border">
-                  <h2 className="text-lg font-bold text-foreground">{job.title || 'Role'}</h2>
-                  <p className="text-sm text-muted-foreground">{job.department_name || '—'}</p>
+      {/* Manual Job Listing Section */}
+      {jobsData.length > 0 && (
+        <Section padding="sm" className="pb-8" containerClassName="max-w-5xl">
+           <div className="grid md:grid-cols-2 gap-4 lg:gap-6 mb-8">
+            {jobsData.map((job) => (
+              <Card key={job.id} className="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col h-full border-border/50">
+                <CardHeader className="p-5 border-b border-border/50 bg-muted/20">
+                  <h2 className="text-xl font-bold text-foreground line-clamp-2">{job.title}</h2>
+                  <div className="flex flex-wrap gap-3 mt-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {job.location}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Briefcase className="h-3.5 w-3.5" />
+                      {job.type}
+                    </div>
+                  </div>
                 </CardHeader>
-                <CardContent className="p-4 text-sm">
-                  <p className="text-muted-foreground mb-3">
-                    {job.city_name || t('careersPage.card.city')}, {job.country_name || t('careersPage.card.country')}
+                <CardContent className="p-5 flex-grow">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {job.description}
                   </p>
-                  <p className="text-muted-foreground mb-3">
-                    {job.employment_type_name || t('careersPage.card.type')}
-                  </p>
-                  <p className="text-muted-foreground">{snippet(job.description)}</p>
                 </CardContent>
-                <CardFooter className="p-4">
-                  {job.application_url ? (
-                    <Button asChild className="bg-ocean text-white">
-                      <a href={job.application_url} target="_blank" rel="noopener noreferrer" aria-label="Apply now (opens in new tab)" className="inline-flex items-center gap-2">
-                        Apply now
-                        <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                      </a>
-                    </Button>
-                  ) : (
-                    <Button disabled className="bg-muted text-muted-foreground">{t('careersPage.card.closed')}</Button>
-                  )}
+                <CardFooter className="p-5 pt-0">
+                  <Button asChild className="w-full bg-ocean text-white hover:bg-ocean/90">
+                    <a href={job.seekUrl} target="_blank" rel="noopener noreferrer">
+                      Apply on SEEK <ExternalLink className="ml-2 h-3.5 w-3.5" />
+                    </a>
+                  </Button>
                 </CardFooter>
               </Card>
             ))}
-          </div>
-        )}
+           </div>
+        </Section>
+      )}
+
+      <Section overlay center className="py-8 md:py-12 section-break" containerClassName="max-w-3xl">
+        <Card className="rounded-2xl shadow-xl overflow-hidden bg-white dark:bg-card border-none">
+          <CardContent className="p-8 md:p-12 text-center">
+             <div className="mx-auto w-16 h-16 bg-ocean/10 rounded-full flex items-center justify-center mb-6">
+                <ExternalLink className="w-8 h-8 text-ocean" />
+             </div>
+             <h2 className="text-2xl font-bold text-foreground mb-4">{t('careersPage.seekCta.heading')}</h2>
+             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
+               {t('careersPage.seekCta.text')}
+             </p>
+             <Button asChild size="lg" className="bg-ocean text-white font-semibold px-8 h-12 rounded-full shadow-lg transition-all hover:scale-105">
+                <a 
+                  href="https://www.seek.com.au/companies/mosaic-multicultural-connections-173993493648269" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={t('careersPage.seekCta.button')}
+                >
+                  {t('careersPage.seekCta.button')}
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+             </Button>
+          </CardContent>
+        </Card>
       </Section>
     </div>
   );
