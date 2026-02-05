@@ -63,31 +63,6 @@ const CareersPage = () => {
            </div>
         </Section>
       )}
-
-      <Section overlay center className="py-8 md:py-12 section-break" containerClassName="max-w-3xl">
-        <Card className="rounded-2xl shadow-xl overflow-hidden bg-white dark:bg-card border-none">
-          <CardContent className="p-8 md:p-12 text-center">
-             <div className="mx-auto w-16 h-16 bg-ocean/10 rounded-full flex items-center justify-center mb-6">
-                <ExternalLink className="w-8 h-8 text-ocean" />
-             </div>
-             <h2 className="text-2xl font-bold text-foreground mb-4">{t('careersPage.seekCta.heading')}</h2>
-             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-               {t('careersPage.seekCta.text')}
-             </p>
-             <Button asChild size="lg" className="bg-ocean text-white font-semibold px-8 h-12 rounded-full shadow-lg transition-all hover:scale-105">
-                <a 
-                  href="https://www.seek.com.au/companies/mosaic-multicultural-connections-173993493648269" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label={t('careersPage.seekCta.button')}
-                >
-                  {t('careersPage.seekCta.button')}
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-             </Button>
-          </CardContent>
-        </Card>
-      </Section>
     </div>
   );
 };

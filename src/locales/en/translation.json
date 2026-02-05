@@ -695,12 +695,7 @@
   "careersPage": {
     "badge": "Careers",
     "title": "Join the Mosaic team",
-    "description": "Explore open roles and help us support multicultural communities across NSW.",
-    "seekCta": {
-      "heading": "View Current Opportunities",
-      "text": "We advertise all our open positions on SEEK. Click the button below to view our current job listings and apply directly.",
-      "button": "View Jobs on SEEK"
-    }
+    "description": "Explore open roles and help us support multicultural communities across NSW."
   },
   "emergencyServices": {
     "title": "Emergency and Translation Services",
