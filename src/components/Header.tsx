@@ -185,16 +185,12 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuItem asChild>
-                  <a
-                    href="https://employmenthero.com/mosaic-mc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t('nav.menu.involved.careers.title')} (opens in new tab)`}
+                  <Link
+                    to="/company/careers"
                     className="inline-flex items-center gap-1"
                   >
                     {t('nav.menu.involved.careers.title')}
-                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
@@ -325,16 +321,13 @@ const Header = () => {
                     {t('nav.refer')}
                     <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
-                  <a
-                    href="https://employmenthero.com/mosaic-mc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t('nav.menu.involved.careers.title')} (opens in new tab)`}
+                  <Link
+                    to="/company/careers"
                     className="inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    onClick={handleLinkClick}
                   >
                     {t('nav.menu.involved.careers.title')}
-                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                  </a>
+                  </Link>
                   <a
                     href="https://forms.mosaicmc.org.au/Volunteer_Application"
                     target="_blank"

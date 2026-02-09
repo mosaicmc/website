@@ -3,10 +3,10 @@ import Script from "next/script";
 import ClientLayout from "./client-layout";
 import "./globals.css";
 
-const SITE_URL = "https://mosaicmc.org.au";
+const SITE_URL = "https://www.mosaicmc.org.au/";
 const ORG_NAME = "Mosaic Multicultural Connections";
 const DEFAULT_DESCRIPTION =
-  "Mosaic Multicultural Connections provides settlement support, aged care, family services, and community engagement programs across NSW.";
+  "Settlement support, aged care, family services, and community engagement across NSW.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://www.mosaicmc.org.au/og-image.jpg",
         width: 1200,
         height: 630,
         alt: ORG_NAME,
@@ -40,13 +40,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@mosaicmc",
     title: ORG_NAME,
     description: DEFAULT_DESCRIPTION,
-    images: ["/og-image.jpg"],
+    images: ["https://www.mosaicmc.org.au/og-image.jpg"],
   },
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
   },
 };
 
@@ -126,7 +125,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: ORG_NAME,
               url: SITE_URL,
-              logo: `${SITE_URL}/images/logo.png`,
+              logo: `${SITE_URL}images/logo.png`,
               sameAs: [
                 "https://www.facebook.com/mosaicmc.org.au",
                 "https://www.instagram.com/mosaicmc.org.au",
@@ -163,12 +162,25 @@ export default function RootLayout({
               url: SITE_URL,
               potentialAction: {
                 "@type": "SearchAction",
-                target: `${SITE_URL}/?q={search_term_string}`,
+                target: `${SITE_URL}?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             }),
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3E1M7JF0ZD"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3E1M7JF0ZD');
+          `}
+        </Script>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
