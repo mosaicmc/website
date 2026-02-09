@@ -144,10 +144,9 @@ const Footer = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="https://employmenthero.com/mosaic-mc" target="_blank" rel="noopener noreferrer" aria-label={`${t('footer.links.career')} (opens in new tab)`} className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                        <Link to="/company/careers" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('footer.links.career')}
-                          <ExternalLink className="h-3 w-3 ml-1" aria-hidden="true" />
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <Link to="/donate" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
