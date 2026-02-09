@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import ClientLayout from "./client-layout";
+import ConsentManager from "@/components/ConsentManager";
 import "./globals.css";
 
 const SITE_URL = "https://www.mosaicmc.org.au/";
@@ -168,20 +169,33 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script id="google-analytics-consent" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            gtag('consent', 'default', {
+              'analytics_storage': 'granted',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'functionality_storage': 'granted',
+              'security_storage': 'granted',
+              'wait_for_update': 500
+            });
+
+            gtag('js', new Date());
+            gtag('config', 'G-3E1M7JF0ZD');
+          `}
+        </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3E1M7JF0ZD"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-3E1M7JF0ZD');
-          `}
-        </Script>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          {children}
+          <ConsentManager />
+        </ClientLayout>
       </body>
     </html>
   );

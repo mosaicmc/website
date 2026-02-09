@@ -38,12 +38,9 @@ type SettlementRole = {
 };
 
 const ROLE_DOWNLOAD_PATH: Record<string, string> = {
-  'Homework Centre Tutor':
-    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_HWC Tutor (2025).pdf',
-  'Citizenship Application Support':
-    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_Citizenship Application Support (2025).pdf',
-  'Digital Literacy Support':
-    '/Volunteer PDs/Armidale Final for Upload/Volunteer Role Description_Digital Literacy Support (2025).pdf',
+  'Homework Centre Tutor': '/pd/armidale/homework-centre-tutor.pdf',
+  'Citizenship Application Support': '/pd/armidale/citizenship-application-support.pdf',
+  'Digital Literacy Support': '/pd/armidale/digital-literacy-support.pdf',
 };
 
 function SettlementRoleCard({ role }: { role: SettlementRole }) {
@@ -65,7 +62,8 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
 
   const triggerDownload = (path: string) => {
     const url = assetPath(path);
-    const safeUrl = encodeURI(url);
+    const decodedUrl = decodeURI(url);
+    const safeUrl = encodeURI(decodedUrl);
     const link = document.createElement('a');
     link.href = safeUrl;
     link.download = '';
