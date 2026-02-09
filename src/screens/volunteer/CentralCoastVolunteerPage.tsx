@@ -58,7 +58,8 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
 
   const triggerDownload = (path: string) => {
     const url = assetPath(path);
-    const safeUrl = encodeURI(url);
+    const decodedUrl = decodeURI(url);
+    const safeUrl = encodeURI(decodedUrl);
     const link = document.createElement('a');
     link.href = safeUrl;
     link.download = '';

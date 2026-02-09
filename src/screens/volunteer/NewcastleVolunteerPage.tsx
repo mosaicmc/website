@@ -39,9 +39,13 @@ type DownloadFormValues = z.infer<typeof downloadSchema>;
 type VolunteerRole = {
   title: string;
   blurb: string;
+  pdfSlug?: string;
+  isClosed?: boolean;
 };
 
-function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
+type CardVariant = 'ocean' | 'sky' | 'earth';
+
+function OpenRoleCard({ role, variant = 'earth' }: { role: VolunteerRole; variant?: CardVariant }) {
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -55,11 +59,19 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
     },
   });
 
-  const directDownloadPath = `/pd/newcastle/${toSlug(role.title)}.pdf`;
+  const slug = role.pdfSlug || toSlug(role.title);
+  const directDownloadPath = `/pd/newcastle/${slug}.pdf`;
+
+  const variantStyles = {
+    ocean: 'bg-ocean/10 dark:bg-ocean/5 border-ocean/20 dark:border-ocean/10 hover:bg-ocean/15 dark:hover:bg-ocean/10',
+    sky: 'bg-sky/10 dark:bg-sky/5 border-sky/20 dark:border-sky/10 hover:bg-sky/15 dark:hover:bg-sky/10',
+    earth: 'bg-earth/10 dark:bg-earth/5 border-earth/20 dark:border-earth/10 hover:bg-earth/15 dark:hover:bg-earth/10',
+  };
 
   const triggerDownload = (path: string) => {
     const url = assetPath(path);
-    const safeUrl = encodeURI(url);
+    const decodedUrl = decodeURI(url);
+    const safeUrl = encodeURI(decodedUrl);
     const link = document.createElement('a');
     link.href = safeUrl;
     link.download = '';
@@ -116,7 +128,7 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
   };
 
   return (
-    <div className="group relative backdrop-blur-md bg-earth/10 dark:bg-earth/5 rounded-xl p-6 border border-earth/20 dark:border-earth/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-earth/15 dark:hover:bg-earth/10">
+    <div className={`group relative backdrop-blur-md rounded-xl p-6 border shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md ${variantStyles[variant]}`}>
       <div className="flex items-start justify-between">
         <div className="font-semibold text-foreground">{role.title}</div>
         <Dialog.Root>
@@ -233,22 +245,103 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
   );
 }
 
+function ClosedRoleCard({ role }: { role: VolunteerRole }) {
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <button
+          aria-label="View details"
+          aria-haspopup="dialog"
+          title="View details"
+          type="button"
+          className="group relative backdrop-blur-md bg-ocean/10 dark:bg-ocean/5 rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-ocean/15 dark:hover:bg-ocean/10 text-start w-full focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background z-30 relative"
+        >
+          <div className="flex items-start justify-between">
+            <div className="font-semibold text-foreground">{role.title}</div>
+            <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-sky dark:group-hover:text-sky" />
+          </div>
+          <p className="text-sm text-muted-foreground mt-2">{short(role.blurb)}</p>
+        </button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
+        <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, y: -8 }}
+            transition={{ type: 'spring', stiffness: 180, damping: 20 }}
+            className="relative w-full max-w-lg rounded-3xl border border-border dark:border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl"
+          >
+            <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-sand text-foreground flex items-center justify-center">
+                <CalendarDays className="h-6 w-6" />
+              </div>
+              <Dialog.Title className="text-lg font-semibold text-foreground">Recruitment Closed</Dialog.Title>
+            </div>
+            <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">
+              Recruitment for this role has closed for the year. Please follow us on our socials for 2026 recruitment announcements.
+            </Dialog.Description>
+            <div className="mt-4 flex items-center gap-2">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Follow Us</span>
+              <a
+                href="https://au.linkedin.com/company/mosaic-multicultural-connections"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LinkedIn (opens in new tab)"
+                className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/mosaicmc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Instagram (opens in new tab)"
+                className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/mosaicmulticulturalconnections/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Facebook (opens in new tab)"
+                className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+            </div>
+            <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+              <X className="h-4 w-4 text-muted-foreground" />
+            </Dialog.Close>
+          </motion.div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}
+
 export default function NewcastleVolunteerPage() {
-  const settlementRoles = [
+  const settlementRoles: VolunteerRole[] = [
     {
       title: 'English Literacy & Conversation Tutor',
       blurb:
         "Help someone find their voice in a new language. You'll meet weekly for one to two hours with clients—mainly from refugee backgrounds—building conversational confidence and literacy skills through formal coursework, everyday practice, and creative learning tools. If you have teaching or tutoring experience, genuine patience, and you understand that language learning is about belonging and possibility as much as grammar, this role offers the chance to watch people discover their capabilities week by week.",
+      isClosed: true,
     },
     {
       title: 'Citizenship Test Preparation Tutor',
       blurb:
         "Be part of someone's journey to calling Australia home in the fullest sense. You'll work one-on-one preparing clients for their citizenship test, using government resources and Mosaic materials to break down complex concepts and support English comprehension at the right pace. If you have knowledge of the citizenship test process, enjoy tutoring, and understand that this milestone represents years of hope and hard work, this five-month commitment could be your perfect match.",
+      isClosed: true,
     },
     {
       title: 'Homework & Learning Centre Tutor',
       blurb:
         "Help recently-arrived young people overcome educational disadvantage and discover their academic potential. You'll volunteer at a school venue for 90 minutes weekly, supporting refugee and migrant students with English skills, homework, and academic confidence through fun learning activities (primary) or one-on-one tutoring (secondary). If you have strong English proficiency, enjoy working with young people, and you're committed to showing up consistently because these students need that reliability, this role offers enormous rewards for a two-term commitment.",
+      pdfSlug: 'homework-club-tutor',
     },
     {
       title: 'Employment Mentor',
@@ -262,7 +355,7 @@ export default function NewcastleVolunteerPage() {
     },
   ];
 
-  const agedCareRoles = [
+  const agedCareRoles: VolunteerRole[] = [
     {
       title: 'Aged Care Facility Visitor',
       blurb:
@@ -275,7 +368,7 @@ export default function NewcastleVolunteerPage() {
     },
   ];
 
-  const marketingRoles = [
+  const marketingRoles: VolunteerRole[] = [
     {
       title: 'Marketing Administration Support',
       blurb:
@@ -345,79 +438,7 @@ export default function NewcastleVolunteerPage() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {settlementRoles.map((r) => (
-                        <Dialog.Root key={r.title}>
-                          <Dialog.Trigger asChild>
-                            <button
-                              aria-label="View details"
-                              aria-haspopup="dialog"
-                              title="View details"
-                              type="button"
-                              className="group relative backdrop-blur-md bg-ocean/10 dark:bg-ocean/5 rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-ocean/15 dark:hover:bg-ocean/10 text-start w-full focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background z-30 relative"
-                            >
-                              <div className="flex items-start justify-between">
-                                <div className="font-semibold text-foreground">{r.title}</div>
-                                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-sky dark:group-hover:text-sky" />
-                              </div>
-                              <p className="text-sm text-muted-foreground mt-2">{short(r.blurb)}</p>
-                            </button>
-                          </Dialog.Trigger>
-                          <Dialog.Portal>
-                            <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
-                            <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
-                              <motion.div
-                                initial={{ opacity: 0, scale: 0.98, y: 8 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.98, y: -8 }}
-                                transition={{ type: 'spring', stiffness: 180, damping: 20 }}
-                                className="relative w-full max-w-lg rounded-3xl border border-border dark:border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl"
-                              >
-                                <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
-                                <div className="flex items-center gap-3 mb-2">
-                                  <div className="w-10 h-10 rounded-full bg-sand text-foreground flex items-center justify-center">
-                                    <CalendarDays className="h-6 w-6" />
-                                  </div>
-                                  <Dialog.Title className="text-lg font-semibold text-foreground">Recruitment Closed</Dialog.Title>
-                                </div>
-                                <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">
-                                  Recruitment for this role has closed for the year. Please follow us on our socials for 2026 recruitment announcements.
-                                </Dialog.Description>
-                                <div className="mt-4 flex items-center gap-2">
-                                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Follow Us</span>
-                                  <a
-                                    href="https://au.linkedin.com/company/mosaic-multicultural-connections"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit LinkedIn (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Linkedin className="h-5 w-5" />
-                                  </a>
-                                  <a
-                                    href="https://www.instagram.com/mosaicmc/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Instagram (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Instagram className="h-5 w-5" />
-                                  </a>
-                                  <a
-                                    href="https://www.facebook.com/mosaicmulticulturalconnections/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Facebook (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Facebook className="h-5 w-5" />
-                                  </a>
-                                </div>
-                                <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
-                                  <X className="h-4 w-4 text-muted-foreground" />
-                                </Dialog.Close>
-                              </motion.div>
-                            </Dialog.Content>
-                          </Dialog.Portal>
-                        </Dialog.Root>
+                        r.isClosed ? <ClosedRoleCard key={r.title} role={r} /> : <OpenRoleCard key={r.title} role={r} variant="ocean" />
                       ))}
                     </div>
                   </GlassCard>
@@ -442,7 +463,7 @@ export default function NewcastleVolunteerPage() {
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {agedCareRoles.map((r) => (
-                        <AgedCareRoleCard key={r.title} role={r} />
+                        <OpenRoleCard key={r.title} role={r} />
                       ))}
                     </div>
                   </GlassCard>
@@ -458,79 +479,7 @@ export default function NewcastleVolunteerPage() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {marketingRoles.map((r) => (
-                        <Dialog.Root key={r.title}>
-                          <Dialog.Trigger asChild>
-                            <button
-                              aria-label="View details"
-                              aria-haspopup="dialog"
-                              title="View details"
-                              type="button"
-                              className="group relative backdrop-blur-md bg-sky/10 dark:bg-sky/5 rounded-xl p-6 border border-sky/20 dark:border-sky/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-sky/15 dark:hover:bg-sky/10 text-start w-full focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-                            >
-                              <div className="flex items-start justify-between">
-                                <div className="font-semibold text-foreground">{r.title}</div>
-                                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-sky dark:group-hover:text-sky" />
-                              </div>
-                              <p className="text-sm text-muted-foreground mt-2">{short(r.blurb)}</p>
-                            </button>
-                          </Dialog.Trigger>
-                          <Dialog.Portal>
-                            <Dialog.Overlay className="fixed inset-0 z-[60] backdrop-blur-sm bg-background/40 dark:bg-background/50" />
-                            <Dialog.Content className="fixed inset-0 z-[60] flex items-center justify-center p-6">
-                              <motion.div
-                                initial={{ opacity: 0, scale: 0.98, y: 8 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.98, y: -8 }}
-                                transition={{ type: 'spring', stiffness: 180, damping: 20 }}
-                                className="relative w-full max-w-lg rounded-3xl border border-border dark:border-border bg-card/95 dark:bg-card/90 p-6 shadow-2xl"
-                              >
-                                <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
-                                <div className="flex items-center gap-3 mb-2">
-                                  <div className="w-10 h-10 rounded-full bg-sand text-foreground flex items-center justify-center">
-                                    <CalendarDays className="h-6 w-6" />
-                                  </div>
-                                  <Dialog.Title className="text-lg font-semibold text-foreground">Recruitment Closed</Dialog.Title>
-                                </div>
-                                <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">
-                                  Recruitment for this role has closed for the year. Please follow us on our socials for 2026 recruitment announcements.
-                                </Dialog.Description>
-                                <div className="mt-4 flex items-center gap-2">
-                                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Follow Us</span>
-                                  <a
-                                    href="https://au.linkedin.com/company/mosaic-multicultural-connections"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit LinkedIn (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Linkedin className="h-5 w-5" />
-                                  </a>
-                                  <a
-                                    href="https://www.instagram.com/mosaicmc/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Instagram (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Instagram className="h-5 w-5" />
-                                  </a>
-                                  <a
-                                    href="https://www.facebook.com/mosaicmulticulturalconnections/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Facebook (opens in new tab)"
-                                    className="p-2 rounded-full border border-border text-ocean dark:text-sky transition hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-                                  >
-                                    <Facebook className="h-5 w-5" />
-                                  </a>
-                                </div>
-                                <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
-                                  <X className="h-4 w-4 text-muted-foreground" />
-                                </Dialog.Close>
-                              </motion.div>
-                            </Dialog.Content>
-                          </Dialog.Portal>
-                        </Dialog.Root>
+                        <OpenRoleCard key={r.title} role={r} variant="sky" />
                       ))}
                     </div>
                   </GlassCard>

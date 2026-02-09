@@ -46,11 +46,16 @@ export function DownloadGate({
   });
 
   const triggerDownload = (url: string) => {
-    const safeUrl = encodeURI(url);
+    // Decode first to ensure we have the raw string, then encode properly
+    // This handles both raw paths (with spaces) and already encoded paths
+    const decodedUrl = decodeURI(url);
+    const safeUrl = encodeURI(decodedUrl);
+    
     const link = document.createElement('a');
     link.href = safeUrl;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
+    link.download = ''; // Add download attribute to force download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -73,7 +78,7 @@ export function DownloadGate({
         setSubmitError('We could not start your download. Please try again.');
         return;
       }
-      const safeUrl = encodeURI(downloadUrl);
+      const safeUrl = decodeURI(downloadUrl); // Use decoded URL for logging to be safe
       const pageLocation =
         typeof window !== 'undefined' && window.location ? window.location.href : '';
       const device = getDeviceType();
