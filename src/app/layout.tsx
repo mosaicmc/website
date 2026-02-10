@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "https://www.mosaicmc.org.au/og-image.jpg",
+        url: "https://www.mosaicmc.org.au/og-image-v2.jpg",
         width: 1200,
         height: 630,
         alt: ORG_NAME,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: ORG_NAME,
     description: DEFAULT_DESCRIPTION,
-    images: ["https://www.mosaicmc.org.au/og-image.jpg"],
+    images: ["https://www.mosaicmc.org.au/og-image-v2.jpg"],
   },
   alternates: {
     canonical: SITE_URL,
