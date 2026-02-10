@@ -114,6 +114,15 @@ const AgedCarePage = () => {
       experience: "Sally coordinates volunteers across aged, palliative and community care, building meaningful connections through the ACVVS program over more than 12 years.",
       languages: ["English"],
       image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Sally_128px.webp")
+    },
+    {
+      name: "Wilfred Hoey",
+      role: "Care Coordinator, SaH & CHSP",
+      location: "Newcastle",
+      qualifications: "Bachelor of Psychology",
+      experience: "Will has supported individuals in the community for over 13 years, with experience across disability care, mental health, and aged care. He is focused on helping individuals maintain their independence.",
+      languages: ["English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Will_128px.webp")
     }
   ];
 
