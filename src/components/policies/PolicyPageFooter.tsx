@@ -28,7 +28,7 @@ const POLICY_PDFS: Record<PolicyKey, string> = {
   "quality-management": "/Policies%20PDFs/Mosaic%20Quality%20Management%20Policy%20.pdf",
   "whistleblower": "/Policies%20PDFs/Mosaic%20Whistleblower%20Policy%20.pdf",
   "work-health-safety": "/Policies%20PDFs/Mosaic%20Work%20Health%20and%20Safety%20Policy.pdf",
-  "child-safety": "/Policies%20PDFs/Plain%20English-Child%20Safety%20Policy.pdf",
+  "child-safety": "/Policies%20PDFs/Mosaic%20Child%20Safety%20Policy.pdf",
 };
 
 export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProps) {
