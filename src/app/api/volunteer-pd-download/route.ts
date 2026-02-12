@@ -1,7 +1,4 @@
 import { NextResponse } from "next/server";
-import * as fs from "fs";
-import * as path from "path";
-import { logToGoogleSheet } from "@/lib/sheets-logger";
 import { DOWNLOAD_CATEGORIES } from "@/lib/constants";
 
 type Submission = {
@@ -12,27 +9,6 @@ type Submission = {
   downloadPath: string;
   createdAt: string;
 };
-
-async function appendSubmission(entry: Submission) {
-  const dataDir = path.join(process.cwd(), "data");
-  const dataFile = path.join(dataDir, "volunteer-pd-downloads.json");
-
-  await fs.promises.mkdir(dataDir, { recursive: true });
-
-  let existing: Submission[] = [];
-  try {
-    const raw = await fs.promises.readFile(dataFile, "utf8");
-    const json = JSON.parse(raw);
-    if (Array.isArray(json)) {
-      existing = json as Submission[];
-    }
-  } catch {
-    console.warn("Unable to read existing volunteer PD submissions");
-  }
-
-  existing.push(entry);
-  await fs.promises.writeFile(dataFile, JSON.stringify(existing, null, 2), "utf8");
-}
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => ({}));
@@ -65,15 +41,6 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
     category: DOWNLOAD_CATEGORIES.VOLUNTEER_PD,
   };
-
-  try {
-    await Promise.all([
-      appendSubmission(submissionData),
-      logToGoogleSheet({ ...submissionData, source: 'volunteer-pd' })
-    ]);
-  } catch {
-    console.error("Unable to persist volunteer PD submission");
-  }
 
   return NextResponse.json(
     { downloadPath: `/${relativePath.replace(/\\/g, "/")}` },
