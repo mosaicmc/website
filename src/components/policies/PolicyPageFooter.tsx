@@ -2,9 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
-import { DownloadGate } from "@/components/DownloadGate";
+import { TrackedDownloadButton } from "@/components/TrackedDownloadButton";
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
-import { DOWNLOAD_CATEGORIES } from "@/lib/constants";
 
 type PolicyKey =
   | "code-of-conduct"
@@ -21,19 +20,19 @@ type PolicyPageFooterProps = {
   policyName: string;
 };
 
-const POLICY_PDFS: Record<PolicyKey, string> = {
-  "code-of-conduct": "/Policies%20PDFs/Mosaic%20Code%20of%20Conduct.pdf",
-  "diversity-inclusion": "/Policies%20PDFs/Mosaic%20Diversity%20and%20Inclusion%20Policy%20.pdf",
-  "feedback-complaints": "/Policies%20PDFs/Mosaic%20Feedback%20and%20Complaints%20Policy%20.pdf",
-  "privacy": "/Policies%20PDFs/Mosaic%20Privacy%20Policy.pdf",
-  "quality-management": "/Policies%20PDFs/Mosaic%20Quality%20Management%20Policy%20.pdf",
-  "whistleblower": "/Policies%20PDFs/Mosaic%20Whistleblower%20Policy%20.pdf",
-  "work-health-safety": "/Policies%20PDFs/Mosaic%20Work%20Health%20and%20Safety%20Policy.pdf",
-  "child-safety": "/Policies%20PDFs/Mosaic%20Child%20Safety%20Policy.pdf",
+const POLICY_IDS: Record<PolicyKey, string> = {
+  "code-of-conduct": "policy-code-of-conduct",
+  "diversity-inclusion": "policy-diversity-inclusion",
+  "feedback-complaints": "policy-feedback-complaints",
+  "privacy": "policy-privacy",
+  "quality-management": "policy-quality-management",
+  "whistleblower": "policy-whistleblower",
+  "work-health-safety": "policy-whs",
+  "child-safety": "policy-child-safety",
 };
 
 export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProps) {
-  const pdfHref = POLICY_PDFS[policyKey];
+  const downloadId = POLICY_IDS[policyKey];
 
   return (
     <>
@@ -53,22 +52,12 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
           Back to Knowledge Base
         </Link>
         <div className="sm:ml-auto text-right">
-          <DownloadGate
-            downloadUrl={pdfHref}
-            resourceLabel={`${policyName} policy`}
-            resourceTypeLabel="policy"
-            category={DOWNLOAD_CATEGORIES.CORPORATE_POLICY}
+          <TrackedDownloadButton
+            downloadId={downloadId}
+            className="inline-flex items-center gap-2 rounded-lg bg-ocean px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-ocean/90 transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
           >
-            {(openForm) => (
-              <button
-                type="button"
-                onClick={openForm}
-                className="inline-flex items-center gap-2 rounded-lg bg-ocean px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-ocean/90 transition focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background"
-              >
-                Download full policy (PDF)
-              </button>
-            )}
-          </DownloadGate>
+            Download full policy (PDF)
+          </TrackedDownloadButton>
           <PDFAccessibilityNotice className="mt-2" />
         </div>
       </div>

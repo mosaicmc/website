@@ -5,126 +5,29 @@ import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, FileDown, Instagram, Facebook, ExternalLink } from 'lucide-react';
+import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, Instagram, Facebook, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
 import { assetPath } from '@/lib/utils';
-import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 
-const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const short = (s: string) => (s.length > 220 ? s.slice(0, 220) + '…' : s);
-
-const downloadSchema = z.object({
-  firstName: z.string().min(1, { message: 'First name is required' }),
-  lastName: z.string().min(1, { message: 'Last name is required' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-});
-
-type DownloadFormValues = z.infer<typeof downloadSchema>;
 
 type VolunteerRole = {
   title: string;
   blurb: string;
-  pdfSlug?: string;
+  downloadId?: string;
   isClosed?: boolean;
 };
 
 type CardVariant = 'ocean' | 'sky' | 'earth';
 
 function OpenRoleCard({ role, variant = 'earth' }: { role: VolunteerRole; variant?: CardVariant }) {
-  const [showForm, setShowForm] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const form = useForm<DownloadFormValues>({
-    resolver: zodResolver(downloadSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-  });
-
-  const slug = role.pdfSlug || toSlug(role.title);
-  const directDownloadPath = `/pd/newcastle/${slug}.pdf`;
-
   const variantStyles = {
     ocean: 'bg-ocean/10 dark:bg-ocean/5 border-ocean/20 dark:border-ocean/10 hover:bg-ocean/15 dark:hover:bg-ocean/10',
     sky: 'bg-sky/10 dark:bg-sky/5 border-sky/20 dark:border-sky/10 hover:bg-sky/15 dark:hover:bg-sky/10',
     earth: 'bg-earth/10 dark:bg-earth/5 border-earth/20 dark:border-earth/10 hover:bg-earth/15 dark:hover:bg-earth/10',
-  };
-
-  const triggerDownload = (path: string) => {
-    const url = assetPath(path);
-    const decodedUrl = decodeURI(url);
-    const safeUrl = encodeURI(decodedUrl);
-    const link = document.createElement('a');
-    link.href = safeUrl;
-    link.download = '';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const onSubmit = async (values: DownloadFormValues) => {
-    setSubmitting(true);
-    setSubmitError(null);
-    try {
-      const resp = await fetch('/api/volunteer-pd-download', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          roleTitle: role.title,
-        }),
-      });
-
-      let resolvedPath: string | undefined;
-
-      if (resp.ok) {
-        const data = (await resp.json()) as { downloadPath?: string };
-        resolvedPath = data?.downloadPath || directDownloadPath;
-      } else {
-        resolvedPath = directDownloadPath;
-      }
-
-      if (resolvedPath) {
-        triggerDownload(resolvedPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-
-      setSubmitError('We could not start your download. Please try again.');
-    } catch {
-      if (directDownloadPath) {
-        triggerDownload(directDownloadPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-      setSubmitError('We could not start your download. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
   };
 
   return (
@@ -148,90 +51,18 @@ function OpenRoleCard({ role, variant = 'earth' }: { role: VolunteerRole; varian
                 <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
                 <Dialog.Title className="text-xl font-semibold text-foreground">{role.title}</Dialog.Title>
                 <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{role.blurb}</Dialog.Description>
-                {!showForm && (
-                  <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="border border-border text-foreground hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky"
-                      onClick={() => setShowForm(true)}
+                
+                {role.downloadId && (
+                  <div className="mt-6">
+                    <TrackedDownloadButton
+                      downloadId={role.downloadId}
+                      className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2"
                     >
-                      <FileDown className="h-4 w-4 me-2" />
                       Download PD
-                    </Button>
+                    </TrackedDownloadButton>
                   </div>
                 )}
-                {!showForm && <PDFAccessibilityNotice className="mt-2" />}
-                {showForm && (
-                  <div className="mt-4 space-y-4">
-                    <Form {...form}>
-                      <form
-                        className="space-y-4"
-                        onSubmit={form.handleSubmit(onSubmit)}
-                        noValidate
-                        aria-describedby={submitError ? 'volunteer-download-error' : undefined}
-                      >
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="firstName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>First name</FormLabel>
-                                <FormControl>
-                                  <Input autoComplete="given-name" inputMode="text" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="lastName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Last name</FormLabel>
-                                <FormControl>
-                                  <Input autoComplete="family-name" inputMode="text" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input type="email" autoComplete="email" inputMode="email" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        {submitError && (
-                          <p id="volunteer-download-error" role="alert" aria-live="polite" className="text-sm text-destructive">
-                            {submitError}
-                          </p>
-                        )}
-                        <div className="flex flex-col gap-3">
-                          <Button type="submit" disabled={submitting} className="w-full bg-ocean text-white hover:bg-ocean/90">
-                            {submitting ? 'Preparing download…' : 'Submit and download'}
-                          </Button>
-                          <Button type="button" variant="outline" className="w-full" onClick={() => {
-                            setShowForm(false);
-                            setSubmitError(null);
-                          }}>
-                            Cancel
-                          </Button>
-                        </div>
-                      </form>
-                    </Form>
-                  </div>
-                )}
+                
                 <Dialog.Close aria-label="Close" className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/80 dark:bg-white/10 border border-white/40 dark:border-white/20 p-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                   <X className="h-4 w-4 text-muted-foreground" />
                 </Dialog.Close>
@@ -341,17 +172,19 @@ export default function NewcastleVolunteerPage() {
       title: 'Homework & Learning Centre Tutor',
       blurb:
         "Help recently-arrived young people overcome educational disadvantage and discover their academic potential. You'll volunteer at a school venue for 90 minutes weekly, supporting refugee and migrant students with English skills, homework, and academic confidence through fun learning activities (primary) or one-on-one tutoring (secondary). If you have strong English proficiency, enjoy working with young people, and you're committed to showing up consistently because these students need that reliability, this role offers enormous rewards for a two-term commitment.",
-      pdfSlug: 'homework-club-tutor',
+      downloadId: 'pd-newcastle-homework-club',
     },
     {
       title: 'Employment Mentor',
       blurb:
         "Help someone rebuild their career in a new country. Meeting at our Charlestown office for at least two hours weekly or fortnightly, you'll support clients—mainly from refugee backgrounds—with resume writing, interview practice, job search skills, and navigating Australian employment pathways, working alongside caseworkers to provide comprehensive support. If you understand job search processes, have strong computer skills, and you recognize that employment is about rebuilding identity and independence after displacement, this three-month minimum commitment offers the chance to change trajectories.",
+      downloadId: 'pd-newcastle-employment-mentor',
     },
     {
       title: 'Housing Mentor',
       blurb:
         "Help families find a place to call home. Working from our Charlestown office for at least two hours weekly or fortnightly, you'll support clients in searching for properties, liaising with real estate agents, preparing rental applications, and building comprehensive housing resource lists. If you understand how the rental market works, have strong communication skills for dealing with housing professionals, and you recognize that housing is the foundation for everything else in a new life, this three-month minimum commitment lets you provide something essential.",
+      downloadId: 'pd-newcastle-housing-mentor',
     },
   ];
 
@@ -360,11 +193,13 @@ export default function NewcastleVolunteerPage() {
       title: 'Aged Care Facility Visitor',
       blurb:
         "Bring companionship and joy to an older person living in residential care. You'll visit a designated resident at least twice monthly, building a genuine friendship through conversation, shared activities, and consistent presence that brightens their days and enriches both your lives. If you have genuine empathy for older people, demonstrated reliability, excellent listening skills, and the commitment to maintain appropriate boundaries while building a friendship that matters, this role offers profound rewards beyond volunteering.",
+      downloadId: 'pd-newcastle-aged-care-facility',
     },
     {
       title: 'Aged Care Home Visitor',
       blurb:
         "Provide companionship and social connection for older people living independently in their own homes. You'll visit an aged care recipient at least twice monthly, helping combat isolation while respecting their independence and dignity in their own environment. If you combine reliability with respectful sensitivity, can work independently while knowing when to seek guidance, and you understand that aging at home is about preserving independence and identity, this role allows you to make an enormous difference in someone's daily life.",
+      downloadId: 'pd-newcastle-aged-care-home',
     },
   ];
 
@@ -373,21 +208,25 @@ export default function NewcastleVolunteerPage() {
       title: 'Marketing Administration Support',
       blurb:
         "This is the backbone work that keeps everything running smoothly. You'll maintain our digital files so we can actually find things when we need them. You'll update marketing calendars so everyone knows what's coming. You'll proofread internal communications and keep our content library organised and accessible. If you're someone who finds genuine satisfaction in creating order from chaos, who appreciates the quiet power of good systems, and who excels at detailed work that makes other people's jobs easier, this role might be your perfect fit.",
+      downloadId: 'pd-newcastle-marketing-admin',
     },
     {
       title: 'Social Media Marketing Support',
       blurb:
         "Help us build meaningful connections in the digital spaces where people increasingly look for information and community. You'll schedule posts, track what's resonating with audiences, create simple graphics using templates we provide, and keep our social media presence consistent and engaging. If you're someone who genuinely enjoys social media, understands how different platforms work, and wants to use those skills to amplify diverse voices across generations and challenge stereotypes, this could be exactly what you're looking for.",
+      downloadId: 'pd-newcastle-social-media',
     },
     {
       title: 'Graphic Design Support',
       blurb:
         "Bring our mission to life visually. You'll design graphics for internal materials, create social media content, adapt templates for different purposes, and help maintain our vibrant, inclusive brand aesthetic. If you're creative, if you have design skills you want to develop or share, if you care about how visual communication can either reinforce or challenge harmful narratives about ageing and diversity, and if you want work in your portfolio that actually means something, this role offers all of that.",
+      downloadId: 'pd-newcastle-graphic-design',
     },
     {
       title: 'Photography and Videography Support',
       blurb:
         "Capture the full humanity of our communities through culturally sensitive, empowering visual storytelling. You'll document events, workshops, home care activities, and settlement programs in ways that reflect warmth, resilience, joy, and dignity. If you're a photographer or videographer who believes in the power of images to shift narratives, who approaches your craft with respect and cultural humility, and who wants to use your skills for genuine social impact, we'd love to work with you.",
+      downloadId: 'pd-newcastle-photo-video',
     },
   ];
 

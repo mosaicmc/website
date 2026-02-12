@@ -10,7 +10,7 @@ import RelatedServices from '../components/RelatedServices';
 import { Card, CardHeader, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Section from '@/components/ui/Section';
-import { DownloadGate } from '@/components/DownloadGate';
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -161,26 +161,26 @@ const ResourcesPage = () => {
   };
 
   const brochures = [
-    { title: t('resources.brochureTitles.settlementSupport'), href: assetPath('/brochures/settlement-support.pdf'), color: 'sky' },
-    { title: t('resources.brochureTitles.familySupport'), href: assetPath('/brochures/family-support.pdf'), color: 'sun' },
-    { title: t('resources.brochureTitles.mosaicOverview'), href: assetPath('/brochures/generic-mosaic.pdf'), color: 'ocean' },
-    { title: t('resources.brochureTitles.agedCare'), href: assetPath('/brochures/aged-care.pdf'), color: 'earth' },
-    { title: t('resources.brochureTitles.communityEngagement'), href: assetPath('/brochures/community-engagement.pdf'), color: 'leaf' },
-    { title: t('resources.brochureTitles.homeCareGuide'), href: assetPath('/brochures/Aged Care_Guide 2026.pdf'), color: 'earth' },
+    { title: t('resources.brochureTitles.settlementSupport'), downloadId: 'brochure-settlement', color: 'sky' },
+    { title: t('resources.brochureTitles.familySupport'), downloadId: 'brochure-family', color: 'sun' },
+    { title: t('resources.brochureTitles.mosaicOverview'), downloadId: 'brochure-general', color: 'ocean' },
+    { title: t('resources.brochureTitles.agedCare'), downloadId: 'brochure-aged-care', color: 'earth' },
+    { title: t('resources.brochureTitles.communityEngagement'), downloadId: 'brochure-community', color: 'leaf' },
+    { title: t('resources.brochureTitles.homeCareGuide'), downloadId: 'brochure-aged-care-guide-2026', color: 'earth' },
   ];
 
   const projectReports = [
     {
       title: t('resources.reportTitles.welcomingWorkplaces'),
       program: t('resources.reportPrograms.innovationFund'),
-      href: assetPath('/Project Reports/Innovation Fund_Welcoming Workplaces Project_Final Report.pdf'),
+      downloadId: 'project-report-welcoming-workplaces',
       color: 'leaf',
       year: undefined
     },
     {
       title: t('resources.reportTitles.reapProject'),
       program: t('resources.reportPrograms.reapProject'),
-      href: assetPath('/Project Reports/REAP Project Report.pdf'),
+      downloadId: 'project-report-reap',
       color: 'sky',
       year: undefined
     }
@@ -389,21 +389,17 @@ const ResourcesPage = () => {
                 <h4 className="text-sm font-semibold text-foreground line-clamp-2">{brochure.title}</h4>
               </CardHeader>
               <CardFooter className="p-4 pt-0 mt-auto">
-                <DownloadGate downloadUrl={brochure.href} resourceLabel={brochure.title}>
-                  {(openForm) => (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full text-xs"
-                      aria-label={t('common.downloadBrochureAria', { title: brochure.title })}
-                      onClick={openForm}
-                      data-testid="resource-download-btn"
-                    >
-                      <FileDown className="h-3 w-3 mr-1" />
-                      {t('common.download')}
-                    </Button>
-                  )}
-                </DownloadGate>
+                <TrackedDownloadButton
+                  downloadId={brochure.downloadId}
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-xs"
+                  aria-label={t('common.downloadBrochureAria', { title: brochure.title })}
+                  data-testid="resource-download-btn"
+                >
+                  <FileDown className="h-3 w-3 mr-1" />
+                  {t('common.download')}
+                </TrackedDownloadButton>
               </CardFooter>
             </Card>
           ))}
@@ -436,20 +432,16 @@ const ResourcesPage = () => {
                 <h4 className="text-sm font-semibold text-foreground line-clamp-2">{report.title}</h4>
               </CardHeader>
               <CardFooter className="p-4 pt-0 mt-auto">
-                <DownloadGate downloadUrl={report.href} resourceLabel={report.title} resourceTypeLabel="report">
-                  {(openForm) => (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full text-xs dark:text-white"
-                      aria-label={t('common.downloadReportAria', { title: report.title })}
-                      onClick={openForm}
-                    >
-                      <FileDown className="h-3 w-3 mr-1" />
-                      {t('common.download')}
-                    </Button>
-                  )}
-                </DownloadGate>
+                <TrackedDownloadButton
+                  downloadId={report.downloadId}
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-xs dark:text-white"
+                  aria-label={t('common.downloadReportAria', { title: report.title })}
+                >
+                  <FileDown className="h-3 w-3 mr-1" />
+                  {t('common.download')}
+                </TrackedDownloadButton>
               </CardFooter>
             </Card>
           ))}
