@@ -149,7 +149,7 @@ export function DownloadGate({
                   <FormItem>
                     <FormLabel htmlFor="dg_firstName">{t('form.firstName')}</FormLabel>
                     <FormControl>
-                      <Input id="dg_firstName" name="firstName" autoComplete="given-name" inputMode="text" className="h-10" {...field} />
+                      <Input id="dg_firstName" autoComplete="given-name" inputMode="text" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -162,7 +162,7 @@ export function DownloadGate({
                   <FormItem>
                     <FormLabel htmlFor="dg_lastName">{t('form.lastName')}</FormLabel>
                     <FormControl>
-                      <Input id="dg_lastName" name="lastName" autoComplete="family-name" inputMode="text" className="h-10" {...field} />
+                      <Input id="dg_lastName" autoComplete="family-name" inputMode="text" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -175,7 +175,7 @@ export function DownloadGate({
                   <FormItem>
                     <FormLabel htmlFor="dg_email">{t('form.email')}</FormLabel>
                     <FormControl>
-                      <Input id="dg_email" name="email" type="email" autoComplete="email" inputMode="email" className="h-10" {...field} />
+                      <Input id="dg_email" type="email" autoComplete="email" inputMode="email" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -1,0 +1,44 @@
+[
+  {
+    "firstName": "vibha",
+    "lastName": "menene",
+    "email": "vibhamenon@gmail.com",
+    "resourceLabel": "Welcoming Workplaces Project Final Report",
+    "downloadUrl": "/Project%20Reports/Innovation%20Fund_Welcoming%20Workplaces%20Project_Final%20Report.pdf",
+    "location": "http://localhost:4173/resources/#project-reports",
+    "device": "tablet",
+    "createdAt": "2026-02-09T04:26:40.618Z"
+  },
+  {
+    "firstName": "Vibha",
+    "lastName": "Menon",
+    "email": "vibhamenon@gmail.com",
+    "resourceLabel": "Child Safety Policy policy",
+    "downloadUrl": "/Policies PDFs/Mosaic Child Safety Policy.pdf",
+    "location": "http://localhost:4173/policies/child-safety/?ide_webview_request_time=1770770844306",
+    "device": "tablet",
+    "createdAt": "2026-02-11T00:47:47.884Z"
+  },
+  {
+    "firstName": "Vibha",
+    "lastName": "Menon",
+    "email": "v.menon@mosaicmc.org.au",
+    "resourceLabel": "Support at Home Price Guide (PDF)",
+    "downloadUrl": "/brochures/Home_Care_Price_List/SaH Pricelist 2025.pdf",
+    "category": "Brochure",
+    "location": "http://localhost:3001/services/aged-care/",
+    "device": "desktop",
+    "createdAt": "2026-02-12T03:53:57.935Z"
+  },
+  {
+    "firstName": "v",
+    "lastName": "v",
+    "email": "marcom@mosaicmc.org.au",
+    "resourceLabel": "Support at Home Price Guide (PDF)",
+    "downloadUrl": "/brochures/Home_Care_Price_List/SaH Pricelist 2025.pdf",
+    "category": "Brochure",
+    "location": "http://localhost:3001/services/aged-care/",
+    "device": "tablet",
+    "createdAt": "2026-02-12T05:10:00.925Z"
+  }
+]
