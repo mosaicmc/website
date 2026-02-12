@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { DownloadGate } from "@/components/DownloadGate";
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
+import { DOWNLOAD_CATEGORIES } from "@/lib/constants";
 
 type PolicyKey =
   | "code-of-conduct"
@@ -52,7 +53,12 @@ export function PolicyPageFooter({ policyKey, policyName }: PolicyPageFooterProp
           Back to Knowledge Base
         </Link>
         <div className="sm:ml-auto text-right">
-      <DownloadGate downloadUrl={pdfHref} resourceLabel={`${policyName} policy`} resourceTypeLabel="policy">
+          <DownloadGate
+            downloadUrl={pdfHref}
+            resourceLabel={`${policyName} policy`}
+            resourceTypeLabel="policy"
+            category={DOWNLOAD_CATEGORIES.CORPORATE_POLICY}
+          >
             {(openForm) => (
               <button
                 type="button"
