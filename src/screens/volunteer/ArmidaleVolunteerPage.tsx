@@ -5,119 +5,19 @@ import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, ChevronRight, FileDown, X, ExternalLink } from 'lucide-react';
+import { Users, ChevronRight, X, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
-import { assetPath } from '@/lib/utils';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-
-const downloadSchema = z.object({
-  firstName: z.string().min(1, { message: 'First name is required' }),
-  lastName: z.string().min(1, { message: 'Last name is required' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-});
-
-type DownloadFormValues = z.infer<typeof downloadSchema>;
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 
 type SettlementRole = {
   title: string;
   blurb: string;
-};
-
-const ROLE_DOWNLOAD_PATH: Record<string, string> = {
-  'Homework Centre Tutor': '/pd/armidale/homework-centre-tutor.pdf',
-  'Citizenship Application Support': '/pd/armidale/citizenship-application-support.pdf',
-  'Digital Literacy Support': '/pd/armidale/digital-literacy-support.pdf',
+  downloadId: string;
 };
 
 function SettlementRoleCard({ role }: { role: SettlementRole }) {
   const short = (s: string) => (s.length > 220 ? s.slice(0, 220) + '…' : s);
-  const [showForm, setShowForm] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const form = useForm<DownloadFormValues>({
-    resolver: zodResolver(downloadSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-  });
-
-  const directDownloadPath = ROLE_DOWNLOAD_PATH[role.title];
-
-  const triggerDownload = (path: string) => {
-    const url = assetPath(path);
-    const decodedUrl = decodeURI(url);
-    const safeUrl = encodeURI(decodedUrl);
-    const link = document.createElement('a');
-    link.href = safeUrl;
-    link.download = '';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const onSubmit = async (values: DownloadFormValues) => {
-    setSubmitting(true);
-    setSubmitError(null);
-    try {
-      const resp = await fetch('/api/volunteer-pd-download', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          roleTitle: role.title,
-        }),
-      });
-
-      let resolvedPath: string | undefined;
-
-      if (resp.ok) {
-        const data = (await resp.json()) as { downloadPath?: string };
-        resolvedPath = data?.downloadPath || directDownloadPath;
-      } else {
-        resolvedPath = directDownloadPath;
-      }
-
-      if (resolvedPath) {
-        triggerDownload(resolvedPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-
-      setSubmitError('We could not start your download. Please try again.');
-    } catch {
-      if (directDownloadPath) {
-        triggerDownload(directDownloadPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-      setSubmitError('We could not start your download. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <div className="group relative glass-surface rounded-xl p-6 border border-ocean/20 dark:border-ocean/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md">
@@ -141,119 +41,14 @@ function SettlementRoleCard({ role }: { role: SettlementRole }) {
                 <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">
                   {role.blurb}
                 </Dialog.Description>
-                {!showForm && (
-                  <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="border border-border text-foreground hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky"
-                      onClick={() => setShowForm(true)}
-                    >
-                      <FileDown className="h-4 w-4 me-2" />
-                      Download PD
-                    </Button>
-                  </div>
-                )}
-                {!showForm && (
-                  <PDFAccessibilityNotice className="mt-2" />
-                )}
-                {showForm && (
-                  <div className="mt-4 space-y-4">
-                    <Form {...form}>
-                      <form
-                        className="space-y-4"
-                        onSubmit={form.handleSubmit(onSubmit)}
-                        noValidate
-                        aria-describedby={submitError ? "volunteer-download-error" : undefined}
-                      >
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="firstName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>First name</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    autoComplete="given-name"
-                                    inputMode="text"
-                                    {...field}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="lastName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Last name</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    autoComplete="family-name"
-                                    inputMode="text"
-                                    {...field}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email address</FormLabel>
-                              <FormControl>
-                                <Input
-                                  type="email"
-                                  autoComplete="email"
-                                  inputMode="email"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        {submitError && (
-                          <p
-                            id="volunteer-download-error"
-                            role="alert"
-                            aria-live="polite"
-                            className="text-sm text-destructive"
-                          >
-                            {submitError}
-                          </p>
-                        )}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <Button
-                            type="submit"
-                            disabled={submitting}
-                            className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90"
-                          >
-                            {submitting ? 'Preparing download…' : 'Submit and download'}
-                          </Button>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            className="w-full sm:w-auto"
-                            onClick={() => {
-                              setShowForm(false);
-                              setSubmitError(null);
-                            }}
-                          >
-                            Cancel
-                          </Button>
-                        </div>
-                      </form>
-                    </Form>
-                  </div>
-                )}
+                <div className="mt-6">
+                  <TrackedDownloadButton
+                    downloadId={role.downloadId}
+                    className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2"
+                  >
+                    Download PD
+                  </TrackedDownloadButton>
+                </div>
                 <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
                   <X className="h-4 w-4 text-muted-foreground" />
                 </Dialog.Close>
@@ -273,16 +68,19 @@ export default function ArmidaleVolunteerPage() {
       title: 'Homework Centre Tutor',
       blurb:
         "Help recently-arrived young people discover their potential in a supportive after-school environment. You'll spend 90 minutes each Tuesday or Wednesday at Drummond Memorial Public School, working with refugee and migrant students through fun learning activities, one-on-one tutoring, and homework help. If you have strong English skills, patience, and a sense of humour, and you understand that showing up consistently for these students is as important as the tutoring itself, this two-term commitment could be exactly what you're looking for.",
+      downloadId: 'pd-armidale-homework-tutor',
     },
     {
       title: 'Citizenship Application Support',
       blurb:
         "Help someone navigate one of the most meaningful milestones in their Australian journey. You'll provide one-on-one guidance at our Armidale office for two to three hours weekly, helping applicants complete citizenship forms, understand requirements, and gather supporting documents with confidence. If you have attention to detail, clear communication skills, and you recognise that this paperwork represents years of hope and hard work for the people you'll support, this three-month commitment offers genuine impact.",
+      downloadId: 'pd-armidale-citizenship-support',
     },
     {
       title: 'Digital Literacy Support',
       blurb:
         "Help bridge the digital divide for people building new lives in Australia. You'll spend two to three flexible hours weekly at our Armidale office, teaching essential skills like setting up email, navigating the internet, using word processing, and safely accessing online government services. If you're patient, tech-comfortable, and you understand that digital confidence opens doors to employment, education, and connection, this three-month commitment lets you give people tools they'll use every day.",
+      downloadId: 'pd-armidale-digital-literacy',
     },
   ];
 

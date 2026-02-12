@@ -9,11 +9,11 @@ import LazySection from '@/components/LazySection';
 import RelatedServices from '../../components/RelatedServices';
 import { useTranslation } from 'react-i18next';
 import { assetPath } from '@/lib/utils';
-import { DownloadGate } from '@/components/DownloadGate';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { Button } from '@/components/ui/button';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 
 type ProgramCard = {
   title: string;
@@ -178,36 +178,20 @@ const AgedCarePage = () => {
           <p>{t('agedCare.faq.pricingAnswerIntro')}</p>
             <ul className="list-disc ps-5 space-y-2">
               <li>
-                <DownloadGate
-                  downloadUrl={assetPath("/brochures/Home_Care_Price_List/SaH%20Pricelist%202025.pdf")}
-                  resourceLabel={t('agedCare.faq.pricingLinkSah')}
+                <TrackedDownloadButton
+                  downloadId="price-list-sah-2025"
+                  className="underline underline-offset-4 text-start hover:text-care-text dark:hover:text-care transition-colors"
                 >
-                  {(openForm) => (
-                    <button
-                      type="button"
-                      onClick={openForm}
-                      className="underline underline-offset-4 text-start"
-                    >
-                      {t('agedCare.faq.pricingLinkSah')}
-                    </button>
-                  )}
-                </DownloadGate>
+                  {t('agedCare.faq.pricingLinkSah')}
+                </TrackedDownloadButton>
               </li>
               <li>
-                <DownloadGate
-                  downloadUrl={assetPath("/brochures/Home_Care_Price_List/CHSP%20Pricelist%202025.pdf")}
-                  resourceLabel={t('agedCare.faq.pricingLinkChsp')}
+                <TrackedDownloadButton
+                  downloadId="price-list-chsp-2025"
+                  className="underline underline-offset-4 text-start hover:text-care-text dark:hover:text-care transition-colors"
                 >
-                  {(openForm) => (
-                    <button
-                      type="button"
-                      onClick={openForm}
-                      className="underline underline-offset-4 text-start"
-                    >
-                      {t('agedCare.faq.pricingLinkChsp')}
-                    </button>
-                  )}
-                </DownloadGate>
+                  {t('agedCare.faq.pricingLinkChsp')}
+                </TrackedDownloadButton>
               </li>
             </ul>
             <PDFAccessibilityNotice className="mt-3" />

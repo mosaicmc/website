@@ -30,6 +30,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { assetPath } from '@/lib/utils';
+import { TrackedDownloadButton } from "@/components/TrackedDownloadButton";
 
 type ProgramCard = {
   title: string;
@@ -618,16 +619,19 @@ const SettlementSupportPage = () => {
                     return (
                       <>
                         {parts[0]}
-                        <a
-                          href="https://scoa.org.au/wp-content/uploads/2021/02/SCoA-SSQF.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${scoaText} (opens in new tab)`}
-                          className="inline-flex items-center gap-1 text-sky-text hover:underline font-medium"
-                        >
-                          {scoaText}
-                          <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                        </a>
+                        <TrackedDownloadButton
+                          downloadId="scoa-ssqf-framework"
+                          renderTrigger={(onClick) => (
+                            <button
+                              onClick={onClick}
+                              aria-label={`${scoaText} (opens in new tab)`}
+                              className="inline-flex items-center gap-1 text-sky-text hover:underline font-medium"
+                            >
+                              {scoaText}
+                              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                            </button>
+                          )}
+                        />
                         {parts[1] ?? ''}
                       </>
                     );

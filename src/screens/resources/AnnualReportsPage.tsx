@@ -6,7 +6,8 @@ import { FileText, ExternalLink } from "lucide-react";
 import DecadeCards from '@/components/DecadeCards';
 import { computeDecadeGroups } from '@/components/DecadeCards.data';
 import Section from '@/components/ui/Section';
-import { DownloadGate } from "@/components/DownloadGate";
+import { TrackedDownloadButton } from "@/components/TrackedDownloadButton";
+import { DOWNLOAD_CATALOG } from "@/lib/downloadCatalog";
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
 import {
   Sheet,
@@ -16,44 +17,44 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-type Report = { year: string; href: string };
+type Report = { year: string; downloadId: string };
 
 const reports: Report[] = [
-  { year: "1991", href: "/annual-reports/Annual Report 1990-1991.pdf" },
-  { year: "1992", href: "/annual-reports/Annual Report 1992.pdf" },
-  { year: "1993", href: "/annual-reports/Annual Report 1993.pdf" },
-  { year: "1994", href: "/annual-reports/Annual Report 1994.pdf" },
-  { year: "1995", href: "/annual-reports/Annual Report 1995.pdf" },
-  { year: "1996", href: "/annual-reports/Annual Report 1996.pdf" },
-  { year: "1997", href: "/annual-reports/Annual Report 1997.pdf" },
-  { year: "1998", href: "/annual-reports/Annual Report 1998.pdf" },
-  { year: "1999", href: "/annual-reports/Annual Report 1999.pdf" },
-  { year: "2000", href: "/annual-reports/Annual Report 2000.pdf" },
-  { year: "2001", href: "/annual-reports/Annual Report 2001.pdf" },
-  { year: "2002", href: "/annual-reports/Annual Report 2002.pdf" },
-  { year: "2003", href: "/annual-reports/Annual Report 2003.pdf" },
-  { year: "2004", href: "/annual-reports/Annual Report 2004.pdf" },
-  { year: "2005", href: "/annual-reports/Annual Report 2005.pdf" },
-  { year: "2006", href: "/annual-reports/Annual Report 2006.pdf" },
-  { year: "2007", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2007.pdf" },
-  { year: "2008", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2008-1.pdf" },
-  { year: "2009", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2009.pdf" },
-  { year: "2010", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2010-1.pdf" },
-  { year: "2011", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2011-1.pdf" },
-  { year: "2012", href: "/annual-reports/Annual Report 2012.pdf" },
-  { year: "2013", href: "/annual-reports/Annual Report 2013.pdf" },
-  { year: "2014", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2014-1.pdf" },
-  { year: "2015", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2015.pdf" },
-  { year: "2016", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2016-1.pdf" },
-  { year: "2017", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2017-1.pdf" },
-  { year: "2018", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2018.pdf" },
-  { year: "2019", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2019.pdf" },
-  { year: "2020", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2020.pdf" },
-  { year: "2021", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2021.pdf" },
-  { year: "2022", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2022.pdf" },
-  { year: "2023", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2023.pdf" },
-  { year: "2024", href: "https://mosaicmc.org.au/wp-content/uploads/2025/10/Annual-Report-2024.pdf" },
-  { year: "2025", href: "/annual-reports/Annual Report 2025.pdf" },
+  { year: "1991", downloadId: "annual-report-1991" },
+  { year: "1992", downloadId: "annual-report-1992" },
+  { year: "1993", downloadId: "annual-report-1993" },
+  { year: "1994", downloadId: "annual-report-1994" },
+  { year: "1995", downloadId: "annual-report-1995" },
+  { year: "1996", downloadId: "annual-report-1996" },
+  { year: "1997", downloadId: "annual-report-1997" },
+  { year: "1998", downloadId: "annual-report-1998" },
+  { year: "1999", downloadId: "annual-report-1999" },
+  { year: "2000", downloadId: "annual-report-2000" },
+  { year: "2001", downloadId: "annual-report-2001" },
+  { year: "2002", downloadId: "annual-report-2002" },
+  { year: "2003", downloadId: "annual-report-2003" },
+  { year: "2004", downloadId: "annual-report-2004" },
+  { year: "2005", downloadId: "annual-report-2005" },
+  { year: "2006", downloadId: "annual-report-2006" },
+  { year: "2007", downloadId: "annual-report-2007" },
+  { year: "2008", downloadId: "annual-report-2008" },
+  { year: "2009", downloadId: "annual-report-2009" },
+  { year: "2010", downloadId: "annual-report-2010" },
+  { year: "2011", downloadId: "annual-report-2011" },
+  { year: "2012", downloadId: "annual-report-2012" },
+  { year: "2013", downloadId: "annual-report-2013" },
+  { year: "2014", downloadId: "annual-report-2014" },
+  { year: "2015", downloadId: "annual-report-2015" },
+  { year: "2016", downloadId: "annual-report-2016" },
+  { year: "2017", downloadId: "annual-report-2017" },
+  { year: "2018", downloadId: "annual-report-2018" },
+  { year: "2019", downloadId: "annual-report-2019" },
+  { year: "2020", downloadId: "annual-report-2020" },
+  { year: "2021", downloadId: "annual-report-2021" },
+  { year: "2022", downloadId: "annual-report-2022" },
+  { year: "2023", downloadId: "annual-report-2023" },
+  { year: "2024", downloadId: "annual-report-2024" },
+  { year: "2025", downloadId: "annual-report-2025" },
 ];
 
 export default function AnnualReportsPage() {
@@ -175,18 +176,19 @@ export default function AnnualReportsPage() {
                       <p className="text-sm text-muted-foreground">Annual Report</p>
                     </div>
                   </div>
-                  <DownloadGate downloadUrl={r.href} resourceLabel={`Annual Report ${r.year}`} resourceTypeLabel="report">
-                    {(openForm) => (
+                  <TrackedDownloadButton
+                    downloadId={r.downloadId}
+                    renderTrigger={(onClick) => (
                       <button
                         type="button"
-                        onClick={openForm}
+                        onClick={onClick}
                         className="text-muted-foreground hover:text-primary focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background rounded-full p-1"
                         aria-label={`Download Annual Report ${r.year}`}
                       >
                         <ExternalLink className="h-5 w-5" />
                       </button>
                     )}
-                  </DownloadGate>
+                  />
                 </div>
                 <div className="mt-4">
                   <button
@@ -217,7 +219,7 @@ export default function AnnualReportsPage() {
               <div className="mt-4 h-[70vh]">
                 {selected ? (
                   <iframe
-                    src={encodeURI(selected.href)}
+                    src={encodeURI(DOWNLOAD_CATALOG.find(i => i.id === selected.downloadId)?.path || "")}
                     title={`Annual Report ${selected.year}`}
                     className="w-full h-full rounded-lg border"
                   />

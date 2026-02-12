@@ -1,4 +1,4 @@
-export type Report = { year: string; href: string };
+export type Report = { year: string; downloadId: string };
 
 export const DECADE_DATA = [
   { id: '1991-2000', start: 1991, end: 2000, color: 'leaf', accent: 'bg-leaf' },

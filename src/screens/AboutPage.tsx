@@ -15,6 +15,7 @@ import { ManagementSection } from '@/components/ManagementSection';
 import { Link, useLocation } from 'react-router-dom';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -31,11 +32,11 @@ const AboutPage = () => {
   }, [location.hash]);
   const storyData = React.useMemo(() => [
     { year: "1978", label: t('aboutPage.history.items.1978.label'), description: t('aboutPage.history.items.1978.description'), image: assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), alt: t('aboutPage.history.items.1978.alt'), details: t('aboutPage.history.items.1978.details'), gallery: [assetPath("/images/History_720px_webp/1978_Galbally Report.webp"), assetPath("/images/History_720px_webp/1978_SBS.webp")], links: [
-      { label: t('aboutPage.history.items.1978.links.0.label'), href: assetPath("/images/History_720px_webp/1978_Galbally Report_01_PM_Fraser.pdf") },
-      { label: t('aboutPage.history.items.1978.links.1.label'), href: assetPath("/images/History_720px_webp/1978_Galbally Report 02_bertelli_1.pdf") }
+      { label: t('aboutPage.history.items.1978.links.0.label'), downloadId: "history-1978-galbally-fraser" },
+      { label: t('aboutPage.history.items.1978.links.1.label'), downloadId: "history-1978-galbally-bertelli" }
     ] },
     { year: "1981", label: t('aboutPage.history.items.1981.label'), description: t('aboutPage.history.items.1981.description'), image: assetPath("/images/History_720px_webp/1981_Ian MacPhee.webp"), alt: t('aboutPage.history.items.1981.alt'), details: t('aboutPage.history.items.1981.details'), gallery: [], links: [
-      { label: t('aboutPage.history.items.1981.links.0.label'), href: assetPath("/images/History_720px_webp/1981_OPENING OF MRC ADDRESS BY MINI.pdf") }
+      { label: t('aboutPage.history.items.1981.links.0.label'), downloadId: "history-1981-opening-address" }
     ] },
     { year: "1984", label: t('aboutPage.history.items.1984.label'), description: t('aboutPage.history.items.1984.description'), image: assetPath("/images/History_720px_webp/1984_Chaucer Street.webp"), alt: t('aboutPage.history.items.1984.alt'), details: t('aboutPage.history.items.1984.details'), gallery: [] },
     { year: "1985", label: t('aboutPage.history.items.1985.label'), description: t('aboutPage.history.items.1985.description'), image: assetPath("/images/History_720px_webp/1985.webp"), alt: t('aboutPage.history.items.1985.alt'), details: t('aboutPage.history.items.1985.details') },
@@ -665,17 +666,15 @@ const AboutPage = () => {
                     <p className="text-sm font-medium text-foreground mb-2">Related</p>
                     <div className="flex flex-wrap gap-2">
                       {activeStory.links.map((l, idx) => (
-                        <a
+                        <TrackedDownloadButton
                           key={idx}
-                          href={l.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          downloadId={l.downloadId}
                           aria-label={`${l.label} (opens in new tab)`}
                           className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky"
                         >
                           {l.label}
                           <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                        </a>
+                        </TrackedDownloadButton>
                       ))}
                     </div>
                     <PDFAccessibilityNotice className="mt-3" />

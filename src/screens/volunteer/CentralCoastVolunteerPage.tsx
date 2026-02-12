@@ -5,116 +5,21 @@ import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { ChevronRight, FileDown, X, ExternalLink } from 'lucide-react';
+import { ChevronRight, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { assetPath } from '@/lib/utils';
-import { PDFAccessibilityNotice } from '@/components/ui/PDFAccessibilityNotice';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 
-const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const short = (s: string) => (s.length > 220 ? s.slice(0, 220) + '…' : s);
-
-const downloadSchema = z.object({
-  firstName: z.string().min(1, { message: 'First name is required' }),
-  lastName: z.string().min(1, { message: 'Last name is required' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-});
-
-type DownloadFormValues = z.infer<typeof downloadSchema>;
 
 type VolunteerRole = {
   title: string;
   blurb: string;
+  downloadId: string;
 };
 
 function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
-  const [showForm, setShowForm] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const form = useForm<DownloadFormValues>({
-    resolver: zodResolver(downloadSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-  });
-
-  const directDownloadPath = `/pd/central-coast/${toSlug(role.title)}.pdf`;
-
-  const triggerDownload = (path: string) => {
-    const url = assetPath(path);
-    const decodedUrl = decodeURI(url);
-    const safeUrl = encodeURI(decodedUrl);
-    const link = document.createElement('a');
-    link.href = safeUrl;
-    link.download = '';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const onSubmit = async (values: DownloadFormValues) => {
-    setSubmitting(true);
-    setSubmitError(null);
-    try {
-      const resp = await fetch('/api/volunteer-pd-download', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          roleTitle: role.title,
-        }),
-      });
-
-      let resolvedPath: string | undefined;
-
-      if (resp.ok) {
-        const data = (await resp.json()) as { downloadPath?: string };
-        resolvedPath = data?.downloadPath || directDownloadPath;
-      } else {
-        resolvedPath = directDownloadPath;
-      }
-
-      if (resolvedPath) {
-        triggerDownload(resolvedPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-
-      setSubmitError('We could not start your download. Please try again.');
-    } catch {
-      if (directDownloadPath) {
-        triggerDownload(directDownloadPath);
-        form.reset();
-        setShowForm(false);
-        return;
-      }
-      setSubmitError('We could not start your download. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   return (
     <div className="group relative glass-surface rounded-xl p-6 border border-earth/20 dark:border-earth/10 shadow-sm transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start justify-between">
@@ -135,92 +40,18 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
                 <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-ocean/10 via-transparent to-sky/10"></div>
                 <Dialog.Title className="text-xl font-semibold text-foreground">{role.title}</Dialog.Title>
                 <Dialog.Description className="mt-2 text-base leading-relaxed text-foreground">{role.blurb}</Dialog.Description>
-                {!showForm && (
-                  <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="border border-border text-foreground hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky"
-                      onClick={() => setShowForm(true)}
-                    >
-                      <FileDown className="h-4 w-4 me-2" />
-                      Download PD
-                    </Button>
-                  </div>
-                )}
-                {!showForm && <PDFAccessibilityNotice className="mt-2" />}
-                {showForm && (
-                  <div className="mt-4 space-y-4">
-                    <Form {...form}>
-                      <form
-                        className="space-y-4"
-                        onSubmit={form.handleSubmit(onSubmit)}
-                        noValidate
-                        aria-describedby={submitError ? 'volunteer-download-error' : undefined}
-                      >
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="firstName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>First name</FormLabel>
-                                <FormControl>
-                                  <Input autoComplete="given-name" inputMode="text" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="lastName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Last name</FormLabel>
-                                <FormControl>
-                                  <Input autoComplete="family-name" inputMode="text" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input type="email" autoComplete="email" inputMode="email" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        {submitError && (
-                          <p id="volunteer-download-error" role="alert" aria-live="polite" className="text-sm text-destructive">
-                            {submitError}
-                          </p>
-                        )}
-                        <div className="flex flex-col gap-3">
-                          <Button type="submit" disabled={submitting} className="w-full bg-ocean text-white hover:bg-ocean/90">
-                            {submitting ? 'Preparing download…' : 'Submit and download'}
-                          </Button>
-                          <Button type="button" variant="outline" className="w-full" onClick={() => {
-                            setShowForm(false);
-                            setSubmitError(null);
-                          }}>
-                            Cancel
-                          </Button>
-                        </div>
-                      </form>
-                    </Form>
-                  </div>
-                )}
+                
+                <div className="mt-6">
+                  <TrackedDownloadButton
+                    downloadId={role.downloadId}
+                    className="w-full sm:w-auto bg-ocean text-white hover:bg-ocean/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2"
+                  >
+                    Download PD
+                  </TrackedDownloadButton>
+                </div>
+
                 <Dialog.Close className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full glass-surface p-2 shadow focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background">
-                  <X className="h-4 w-4 text-muted-foreground" />
+                  <ChevronRight className="h-4 w-4 text-muted-foreground rotate-90" />
                 </Dialog.Close>
               </div>
             </Dialog.Content>
@@ -233,16 +64,18 @@ function AgedCareRoleCard({ role }: { role: VolunteerRole }) {
 }
 
 export default function CentralCoastVolunteerPage() {
-  const agedCareRoles = [
+  const agedCareRoles: VolunteerRole[] = [
     {
       title: 'Aged Care Facility Visitor',
       blurb:
         "Bring companionship and joy to an older person living in residential care. You'll visit a designated resident at least twice monthly, building a genuine friendship through conversation, shared activities, and consistent presence that brightens their days and enriches both your lives. If you have genuine empathy for older people, demonstrated reliability, excellent listening skills, and the commitment to maintain appropriate boundaries while building a friendship that matters, this role offers profound rewards beyond volunteering.",
+      downloadId: 'pd-central-coast-aged-care-facility',
     },
     {
       title: 'Aged Care Home Visitor',
       blurb:
         "Provide companionship and social connection for older people living independently in their own homes. You'll visit a home care recipient at least twice monthly, helping combat isolation while respecting their independence and dignity in their own environment. If you combine reliability with respectful sensitivity, can work independently while knowing when to seek guidance, and you understand that aging at home is about preserving independence and identity, this role allows you to make an enormous difference in someone's daily life.",
+      downloadId: 'pd-central-coast-aged-care-home',
     },
   ];
 

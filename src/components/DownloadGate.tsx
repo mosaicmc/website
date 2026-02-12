@@ -17,13 +17,14 @@ const downloadSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
 });
 
-type DownloadFormValues = z.infer<typeof downloadSchema>;
+export type DownloadFormValues = z.infer<typeof downloadSchema>;
 
 type DownloadGateProps = {
   downloadUrl: string;
   resourceLabel: string;
   resourceTypeLabel?: string;
   category?: DownloadCategory;
+  onCustomSubmit?: (values: DownloadFormValues) => Promise<void>;
   children: (openForm: () => void) => React.ReactNode;
 };
 
@@ -32,6 +33,7 @@ export function DownloadGate({
   resourceLabel,
   resourceTypeLabel = 'brochure',
   category = DOWNLOAD_CATEGORIES.BROCHURE,
+  onCustomSubmit,
   children,
 }: DownloadGateProps) {
   const [showForm, setShowForm] = useState(false);
@@ -77,37 +79,41 @@ export function DownloadGate({
     setSubmitting(true);
     setSubmitError(null);
     try {
-      if (!downloadUrl) {
-        setSubmitError('We could not start your download. Please try again.');
-        return;
-      }
-      const safeUrl = decodeURI(downloadUrl); // Use decoded URL for logging to be safe
-      const pageLocation =
-        typeof window !== 'undefined' && window.location ? window.location.href : '';
-      const device = getDeviceType();
+      if (onCustomSubmit) {
+        await onCustomSubmit(values);
+      } else {
+        if (!downloadUrl) {
+          setSubmitError('We could not start your download. Please try again.');
+          return;
+        }
+        const safeUrl = decodeURI(downloadUrl); // Use decoded URL for logging to be safe
+        const pageLocation =
+          typeof window !== 'undefined' && window.location ? window.location.href : '';
+        const device = getDeviceType();
 
-      try {
-        await fetch('/api/download-gate-log', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            firstName: values.firstName,
-            lastName: values.lastName,
-            email: values.email,
-            resourceLabel,
-            downloadUrl: safeUrl,
-            category,
-            location: pageLocation,
-            device,
-          }),
-        });
-      } catch {
-        setSubmitError('We could not record your details, but the download will continue.');
-      }
+        try {
+          await fetch('/api/download-gate-log', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              firstName: values.firstName,
+              lastName: values.lastName,
+              email: values.email,
+              resourceLabel,
+              downloadUrl: safeUrl,
+              category,
+              location: pageLocation,
+              device,
+            }),
+          });
+        } catch {
+          setSubmitError('We could not record your details, but the download will continue.');
+        }
 
-      triggerDownload(safeUrl);
+        triggerDownload(safeUrl);
+      }
       form.reset();
       setShowForm(false);
     } catch {
