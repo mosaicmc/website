@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import * as fs from "fs";
 import * as path from "path";
+import { logToGoogleSheet } from "@/lib/sheets-logger";
+import { DOWNLOAD_CATEGORIES } from "@/lib/constants";
 
 type Submission = {
   firstName: string;
@@ -54,16 +56,21 @@ export async function POST(request: Request) {
   }
 
   const relativePath = cleanedPath;
+  const submissionData = {
+    firstName,
+    lastName,
+    email,
+    roleTitle,
+    downloadPath: relativePath,
+    createdAt: new Date().toISOString(),
+    category: DOWNLOAD_CATEGORIES.VOLUNTEER_PD,
+  };
 
   try {
-    await appendSubmission({
-      firstName,
-      lastName,
-      email,
-      roleTitle,
-      downloadPath: relativePath,
-      createdAt: new Date().toISOString(),
-    });
+    await Promise.all([
+      appendSubmission(submissionData),
+      logToGoogleSheet({ ...submissionData, source: 'volunteer-pd' })
+    ]);
   } catch {
     console.error("Unable to persist volunteer PD submission");
   }

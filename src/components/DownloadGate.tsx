@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useTranslation } from 'react-i18next';
+import { DOWNLOAD_CATEGORIES, DownloadCategory } from '@/lib/constants';
 
 const downloadSchema = z.object({
   firstName: z.string().min(1, { message: 'First name is required' }),
@@ -22,6 +23,7 @@ type DownloadGateProps = {
   downloadUrl: string;
   resourceLabel: string;
   resourceTypeLabel?: string;
+  category?: DownloadCategory;
   children: (openForm: () => void) => React.ReactNode;
 };
 
@@ -29,6 +31,7 @@ export function DownloadGate({
   downloadUrl,
   resourceLabel,
   resourceTypeLabel = 'brochure',
+  category = DOWNLOAD_CATEGORIES.BROCHURE,
   children,
 }: DownloadGateProps) {
   const [showForm, setShowForm] = useState(false);
@@ -95,6 +98,7 @@ export function DownloadGate({
             email: values.email,
             resourceLabel,
             downloadUrl: safeUrl,
+            category,
             location: pageLocation,
             device,
           }),
@@ -143,9 +147,9 @@ export function DownloadGate({
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('form.firstName')}</FormLabel>
+                    <FormLabel htmlFor="dg_firstName">{t('form.firstName')}</FormLabel>
                     <FormControl>
-                      <Input autoComplete="given-name" inputMode="text" className="h-10" {...field} />
+                      <Input id="dg_firstName" name="firstName" autoComplete="given-name" inputMode="text" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -156,9 +160,9 @@ export function DownloadGate({
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('form.lastName')}</FormLabel>
+                    <FormLabel htmlFor="dg_lastName">{t('form.lastName')}</FormLabel>
                     <FormControl>
-                      <Input autoComplete="family-name" inputMode="text" className="h-10" {...field} />
+                      <Input id="dg_lastName" name="lastName" autoComplete="family-name" inputMode="text" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -169,9 +173,9 @@ export function DownloadGate({
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('form.email')}</FormLabel>
+                    <FormLabel htmlFor="dg_email">{t('form.email')}</FormLabel>
                     <FormControl>
-                      <Input type="email" autoComplete="email" inputMode="email" className="h-10" {...field} />
+                      <Input id="dg_email" name="email" type="email" autoComplete="email" inputMode="email" className="h-10" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
