@@ -118,7 +118,6 @@ export async function POST(request: Request) {
             pageUri: downloadPageUrl, 
             pageName: "Mosaic PDF Download Gate", 
             ...(ipAddress ? { ipAddress } : {}), 
-            ...(userAgent ? { userAgent } : {}), 
           }, 
         }), 
       }); 
