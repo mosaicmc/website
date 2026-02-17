@@ -609,18 +609,20 @@ const SettlementSupportPage = () => {
               accentColor="sky"
             />
             <div className="text-center mt-16">
-              <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl">
+              <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl max-w-4xl mx-auto">
                 <h3 className="text-xl font-bold text-foreground mb-4">{t('settlement.comprehensive.title')}</h3>
-                <p className="text-muted-foreground leading-relaxed break-words">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed break-words text-center">
                   {(() => {
                     const scoaText = 'Settlement Council of Australia (SCOA) framework';
                     const paragraph = t('settlement.comprehensive.paragraph');
                     const parts = paragraph.split(scoaText);
+
                     return (
                       <>
                         {parts[0]}
                         <TrackedDownloadButton
                           downloadId="scoa-ssqf-framework"
+                          containerClassName="inline"
                           renderTrigger={(onClick) => (
                             <button
                               onClick={onClick}

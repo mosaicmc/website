@@ -14,12 +14,14 @@ type TrackedDownloadButtonProps = ButtonProps & {
    * If provided, `children` (as button content) and `ButtonProps` are ignored.
    */
   renderTrigger?: (onClick: () => void) => React.ReactNode;
+  containerClassName?: string;
 };
 
 export function TrackedDownloadButton({
   downloadId,
   renderTrigger,
   children,
+  containerClassName,
   ...buttonProps
 }: TrackedDownloadButtonProps) {
   const item = DOWNLOAD_CATALOG.find((i) => i.id === downloadId);
@@ -46,6 +48,7 @@ export function TrackedDownloadButton({
       resourceLabel={item.label}
       category={item.category}
       resourceTypeLabel={resourceTypeLabel}
+      containerClassName={containerClassName}
       onCustomSubmit={handleDownload}
     >
       {(openForm) => {

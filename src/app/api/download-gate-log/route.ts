@@ -1,18 +1,6 @@
 import { NextResponse } from "next/server";
 import { DOWNLOAD_CATEGORIES, DownloadCategory } from "@/lib/constants";
 
-type DownloadLogEntry = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  resourceLabel: string;
-  downloadUrl: string;
-  category?: DownloadCategory;
-  location: string;
-  device: string;
-  createdAt: string;
-};
-
 export async function POST(request: Request) {
   const body = await request.json().catch(() => ({}));
   const firstName = String(body.firstName ?? "").trim();
@@ -22,23 +10,10 @@ export async function POST(request: Request) {
   const downloadUrl = String(body.downloadUrl ?? "").trim();
   const category = body.category as DownloadCategory | undefined;
   const location = String(body.location ?? "").trim();
-  const device = String(body.device ?? "").trim();
 
   if (!firstName || !lastName || !email || !downloadUrl) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
-
-  const entry: DownloadLogEntry = {
-    firstName,
-    lastName,
-    email,
-    resourceLabel: resourceLabel || "Unknown resource",
-    downloadUrl,
-    category: category || DOWNLOAD_CATEGORIES.BROCHURE,
-    location: location || "Unknown location",
-    device: device || "unknown",
-    createdAt: new Date().toISOString(),
-  };
 
   // ---- HubSpot submission (primary history tracking) ---- 
   try { 
@@ -55,7 +30,6 @@ export async function POST(request: Request) {
       const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`; 
 
       const ipAddress = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim(); 
-      const userAgent = request.headers.get("user-agent") ?? undefined; 
 
       // Your payload currently uses `location` as the page URL. We'll treat it as such. 
       const downloadPageUrl = location || ""; 
