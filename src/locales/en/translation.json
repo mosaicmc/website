@@ -1572,8 +1572,8 @@
         ]
       },
       "transport": {
-        "title": "Transport",
-        "description": "Get to work, school, and appointments.",
+      "title": "Orientation to Transport",
+      "description": "Understand and navigate public transport independently and with confidence.",
         "features": [
           "Guidance on public transport options and concessions",
           "Support understanding driver licensing processes",

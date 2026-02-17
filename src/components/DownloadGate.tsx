@@ -25,6 +25,7 @@ type DownloadGateProps = {
   resourceTypeLabel?: string;
   category?: DownloadCategory;
   onCustomSubmit?: (values: DownloadFormValues) => Promise<void>;
+  containerClassName?: string;
   children: (openForm: () => void) => React.ReactNode;
 };
 
@@ -34,6 +35,7 @@ export function DownloadGate({
   resourceTypeLabel = 'brochure',
   category = DOWNLOAD_CATEGORIES.BROCHURE,
   onCustomSubmit,
+  containerClassName,
   children,
 }: DownloadGateProps) {
   const [showForm, setShowForm] = useState(false);
@@ -124,7 +126,7 @@ export function DownloadGate({
   };
 
   return (
-    <div className="w-full">
+    <div className={containerClassName ?? "w-full"}>
       {children(() => setShowForm(true))}
       <Sheet open={showForm} onOpenChange={(open) => {
         setShowForm(open);

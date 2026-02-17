@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { assetPath, cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { useTranslation, Trans } from 'react-i18next';
 import { FileText, Phone, AlertTriangle, Book, ChevronRight, FileDown, ClipboardList } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';

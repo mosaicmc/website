@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
