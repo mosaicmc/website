@@ -126,7 +126,7 @@ export function DownloadGate({
   };
 
   return (
-    <div className={containerClassName ?? "w-full"}>
+    <span className={containerClassName ?? "w-full"}>
       {children(() => setShowForm(true))}
       <Sheet open={showForm} onOpenChange={(open) => {
         setShowForm(open);
@@ -223,6 +223,6 @@ export function DownloadGate({
           </Form>
         </SheetContent>
       </Sheet>
-    </div>
+    </span>
   );
 }
