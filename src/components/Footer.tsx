@@ -190,7 +190,7 @@ const Footer = () => {
                 {!isEmergencyMode && (
                   <>
                     <a
-                      href="https://forms.mosaicmc.org.au/Referral"
+                      href="https://forms.mosaicmc.org.au/refer"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${t('footer.aria.refer')} (opens in new tab)`}
