@@ -46,9 +46,10 @@ const ServicesPage = () => {
             </Button>
           </div>
 
-          <p className="mt-8 text-lg text-slate-900 dark:!text-slate-100 max-w-2xl mx-auto animate-fade-in-up">
-            {AU(t('servicesPage.hero.subtext'))}
-          </p>
+          <div className="mt-8 text-lg text-slate-900 dark:!text-slate-100 max-w-2xl mx-auto animate-fade-in-up space-y-6">
+            <p>{AU(t('servicesPage.hero.subtext.part1'))}</p>
+            <p>{AU(t('servicesPage.hero.subtext.part2'))}</p>
+          </div>
         </div>
       </Section>
 
