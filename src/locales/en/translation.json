@@ -1223,7 +1223,10 @@
       "badge": "Our Services",
       "title": "Support to help you build a new life in Australia",
       "description": "Simple, culturally appropriate services across NSW for individuals, families, and the people who support them. Mosaic offers a range of community, settlement, aged care, and family support programs. Our services are designed to support people at key moments in their journey, helping them build connections, access resources, and feel at home in their community.",
-      "subtext": "You can seek support for yourself or make a referral for someone you care about. For situations that require emergency response, intensive case management, legal or immigration advice, crisis counselling, or domestic violence support, we will always help connect you to the right specialist service.",
+      "subtext": {
+        "part1": "You can seek support for yourself or make a referral for someone you care about.",
+        "part2": "For situations that require emergency response, intensive case management, legal or immigration advice, crisis counselling, or domestic violence support, we will always guide you to the right specialist service."
+      },
       "referral": "Make a Referral",
       "contact": "Contact Us"
     },
