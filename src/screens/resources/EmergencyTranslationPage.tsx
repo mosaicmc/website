@@ -88,7 +88,11 @@ export default function EmergencyTranslationPage() {
         <div className="space-y-10 md:space-y-12">
           <div className="text-center">
             <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight text-brand-gradient">{t('emergency.title')}</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">{t('emergency.description')}</p>
+            <div className="mt-3 text-muted-foreground max-w-2xl mx-auto space-y-4">
+              <p>{t('emergency.description.part1')}</p>
+              <p>{t('emergency.description.part2')}</p>
+              <p>{t('emergency.description.part3')}</p>
+            </div>
           </div>
 
           <Tabs defaultValue="quick" className="space-y-6">
