@@ -1704,7 +1704,11 @@
   },
   "emergency": {
     "title": "Emergency & Translation Services",
-    "description": "We're here to support your journey, and to help you find the right help. Mosaic offers community programmes, settlement support, and aged care services. For immediate emergencies, mental health crises, legal matters, domestic violence, or 24/7 crisis support, the services listed on this page are best placed to assist you. You are not alone. The right support is out there, and we'll help you find it.",
+    "description": {
+      "part1": "We're here to support your journey, and to help you find the right help. Mosaic offers community programmes, settlement support, and aged care services.",
+      "part2": "For immediate emergencies, mental health crises, legal matters, domestic violence, or 24/7 crisis support, the services listed on this page are best placed to assist you.",
+      "part3": "You are not alone. The right support is out there, and we'll help you find it."
+    },
     "tabs": {
       "quick": "Quick Actions",
       "contacts": "Emergency Contacts",
