@@ -30,9 +30,6 @@ const ServicesPage = () => {
           <p className="text-xl text-slate-900 dark:!text-slate-100 leading-relaxed animate-fade-in-up">
             {AU(t('servicesPage.hero.description'))}
           </p>
-          <p className="mt-4 text-lg text-slate-900 dark:!text-slate-100 max-w-2xl mx-auto animate-fade-in-up">
-            {AU(t('servicesPage.hero.subtext'))}
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up">
             <Button asChild variant="cta" size="cta" className="w-full sm:w-auto">
@@ -48,6 +45,10 @@ const ServicesPage = () => {
               </Link>
             </Button>
           </div>
+
+          <p className="mt-8 text-lg text-slate-900 dark:!text-slate-100 max-w-2xl mx-auto animate-fade-in-up">
+            {AU(t('servicesPage.hero.subtext'))}
+          </p>
         </div>
       </Section>
 
