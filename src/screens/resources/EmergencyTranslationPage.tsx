@@ -86,9 +86,9 @@ export default function EmergencyTranslationPage() {
 
       <Section overlay padding="lg" center containerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-10 md:space-y-12">
-          <div>
+          <div className="text-center">
             <h1 className="fluid-h1 text-3xl md:text-4xl font-bold tracking-tight text-brand-gradient">{t('emergency.title')}</h1>
-            <p className="mt-3 text-muted-foreground max-w-2xl">{t('emergency.description')}</p>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">{t('emergency.description')}</p>
           </div>
 
           <Tabs defaultValue="quick" className="space-y-6">

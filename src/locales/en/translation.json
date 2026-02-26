@@ -1222,8 +1222,8 @@
     "hero": {
       "badge": "Our Services",
       "title": "Support to help you build a new life in Australia",
-      "description": "Simple, culturally appropriate services across NSW for individuals, families, and the people who support them.",
-      "subtext": "You can seek support for yourself or make a referral for someone you care about. Our team will guide the next steps.",
+      "description": "Simple, culturally appropriate services across NSW for individuals, families, and the people who support them. Mosaic offers a range of community, settlement, aged care, and family support programs. Our services are designed to support people at key moments in their journey, helping them build connections, access resources, and feel at home in their community.",
+      "subtext": "You can seek support for yourself or make a referral for someone you care about. For situations that require emergency response, intensive case management, legal or immigration advice, crisis counselling, or domestic violence support, we will always help connect you to the right specialist service.",
       "referral": "Make a Referral",
       "contact": "Contact Us"
     },
@@ -1704,7 +1704,7 @@
   },
   "emergency": {
     "title": "Emergency & Translation Services",
-    "description": "This page provides essential emergency contacts and language support information.",
+    "description": "We're here to support your journey, and to help you find the right help. Mosaic offers community programmes, settlement support, and aged care services. For immediate emergencies, mental health crises, legal matters, domestic violence, or 24/7 crisis support, the services listed on this page are best placed to assist you. You are not alone. The right support is out there, and we'll help you find it.",
     "tabs": {
       "quick": "Quick Actions",
       "contacts": "Emergency Contacts",
