@@ -176,13 +176,13 @@ export default function NewcastleVolunteerPage() {
       title: 'Employment Mentor',
       blurb:
         "Help someone rebuild their career in a new country. Meeting at our Charlestown office for at least two hours weekly or fortnightly, you'll support clients—mainly from refugee backgrounds—with resume writing, interview practice, job search skills, and navigating Australian employment pathways, working alongside caseworkers to provide comprehensive support. If you understand job search processes, have strong computer skills, and you recognize that employment is about rebuilding identity and independence after displacement, this three-month minimum commitment offers the chance to change trajectories.",
-      downloadId: 'pd-newcastle-employment-mentor',
+      isClosed: true,
     },
     {
       title: 'Housing Mentor',
       blurb:
         "Help families find a place to call home. Working from our Charlestown office for at least two hours weekly or fortnightly, you'll support clients in searching for properties, liaising with real estate agents, preparing rental applications, and building comprehensive housing resource lists. If you understand how the rental market works, have strong communication skills for dealing with housing professionals, and you recognize that housing is the foundation for everything else in a new life, this three-month minimum commitment lets you provide something essential.",
-      downloadId: 'pd-newcastle-housing-mentor',
+      isClosed: true,
     },
   ];
 
