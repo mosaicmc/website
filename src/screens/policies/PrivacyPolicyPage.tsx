@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
               If you feel that we have not kept your information private, you can send us a complaint:
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-sm">
-              <li>By visiting our website and completing the complaint form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></li>
+              <li>By visiting our website and completing the complaint form: <a href="https://forms.mosaicmc.org.au/feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></li>
               <li>Send us an email to <a href="mailto:info@mosaicmc.org.au" className="text-primary hover:underline">info@mosaicmc.org.au</a></li>
               <li>Call us on the phone <a href="tel:1800813205" className="text-primary hover:underline">1800 813 205</a></li>
               <li>Talk to one of our workers</li>

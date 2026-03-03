@@ -190,7 +190,7 @@ const FamilySupportPage = () => {
                 {t('family.hero.ctaPhone')}
               </a>
               <a
-                href="https://forms.mosaicmc.org.au/refer"
+                href="https://forms.mosaicmc.org.au/referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-sun text-sun dark:text-white hover:bg-sun hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sun focus:ring-offset-2"
@@ -457,7 +457,7 @@ const FamilySupportPage = () => {
             <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">{t('family.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://forms.mosaicmc.org.au/refer"
+                href="https://forms.mosaicmc.org.au/referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('family.cta.referralLabel')} (opens in new tab)`}

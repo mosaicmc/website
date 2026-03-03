@@ -288,7 +288,7 @@ export default function CustomNavigation({
                   />
                   <li>
                     <a
-                      href="https://forms.mosaicmc.org.au/refer"
+                      href="https://forms.mosaicmc.org.au/referral"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={closeMenu}

@@ -33,7 +33,7 @@ const ServicesPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up">
             <Button asChild variant="cta" size="cta" className="w-full sm:w-auto">
-              <a href="https://forms.mosaicmc.org.au/refer" target="_blank" rel="noopener noreferrer" aria-label={`${t('servicesPage.hero.referral')} (opens in new tab)`} className="inline-flex items-center gap-2">
+              <a href="https://forms.mosaicmc.org.au/referral" target="_blank" rel="noopener noreferrer" aria-label={`${t('servicesPage.hero.referral')} (opens in new tab)`} className="inline-flex items-center gap-2">
                 <UserPlus className="h-4 w-4" />
                 {t('servicesPage.hero.referral')}
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />

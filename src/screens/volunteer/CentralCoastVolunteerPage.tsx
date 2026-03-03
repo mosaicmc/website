@@ -139,8 +139,8 @@ export default function CentralCoastVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://forms.mosaicmc.org.au/Volunteer_Application"
-            target="_blank"
+              href="https://forms.mosaicmc.org.au/volunteer-application"
+              target="_blank"
             rel="noopener noreferrer"
             aria-label="Apply to Volunteer (opens in new tab)"
             className="bg-gradient-to-r from-ocean to-ocean/90 hover:from-ocean/90 hover:to-ocean text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"

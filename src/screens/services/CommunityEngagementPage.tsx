@@ -132,7 +132,7 @@ const CommunityEngagementPage = () => {
                 {t('community.hero.cta')}
               </a>
               <a
-                href="https://forms.mosaicmc.org.au/refer"
+                href="https://forms.mosaicmc.org.au/referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-leaf text-leaf dark:text-white hover:bg-leaf hover:text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
@@ -437,7 +437,7 @@ const CommunityEngagementPage = () => {
             <p className="text-base sm:text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto break-words">{t('community.cta.body')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://forms.mosaicmc.org.au/refer"
+                href="https://forms.mosaicmc.org.au/referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('community.cta.callLabel')} (opens in new tab)`}

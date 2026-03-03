@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-12T23:56:38.425Z",
+  "generatedAt": "2026-03-02T06:02:39.673Z",
   "items": [
     {
       "path": "/about",
@@ -760,7 +760,7 @@
       "lang": "en"
     },
     {
-      "path": "https://forms.mosaicmc.org.au/Volunteer_Application",
+      "path": "https://forms.mosaicmc.org.au/volunteer-application",
       "title": "Volunteer application form",
       "body": "Apply to volunteer with Mosaic. Submit your application online.",
       "tags": [
@@ -774,7 +774,7 @@
       "lang": "en"
     },
     {
-      "path": "https://forms.mosaicmc.org.au/refer",
+      "path": "https://forms.mosaicmc.org.au/referral",
       "title": "Referral form",
       "body": "Refer a client for Mosaic settlement, aged care, family support, or community services.",
       "tags": [
@@ -788,7 +788,7 @@
       "lang": "en"
     },
     {
-      "path": "https://forms.mosaicmc.org.au/Feedback",
+      "path": "https://forms.mosaicmc.org.au/feedback",
       "title": "Feedback and complaints form",
       "body": "Share feedback or lodge a complaint with Mosaic.",
       "tags": [

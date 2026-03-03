@@ -72,7 +72,7 @@ const GetInvolvedPage = () => {
         t('getInvolved.opportunities.referral.benefits.3')
       ],
       action: t('getInvolved.opportunities.referral.action'),
-      link: "https://forms.mosaicmc.org.au/refer",
+      link: "https://forms.mosaicmc.org.au/referral",
       external: true,
       color: "sun"
     }
@@ -440,9 +440,9 @@ const GetInvolvedPage = () => {
               </ul>
             </Card>
             <Button asChild variant="cta" size="cta-sm" className="w-full sm:w-auto">
-              <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer" aria-label={`${t('getInvolved.applyToVolunteer')} (opens in new tab)`}>
+              <a href="https://forms.mosaicmc.org.au/volunteer-application" target="_blank" rel="noopener noreferrer" aria-label={`${t('getInvolved.applyToVolunteer')} (opens in new tab)`}>
                 {t('getInvolved.applyToVolunteer')}
-                <ExternalLink className="ml-2 h-5 w-5" />
+                <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>

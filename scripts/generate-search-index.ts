@@ -193,19 +193,19 @@ function main() {
 
   const manualEntries: { path: string; title: string; body: string; tags: string[] }[] = [
     {
-      path: 'https://forms.mosaicmc.org.au/Volunteer_Application',
+      path: 'https://forms.mosaicmc.org.au/volunteer-application',
       title: 'Volunteer application form',
       body: 'Apply to volunteer with Mosaic. Submit your application online.',
       tags: ['volunteer', 'volunteering', 'application', 'form', 'get involved', 'volunteer application']
     },
     {
-      path: 'https://forms.mosaicmc.org.au/refer',
+      path: 'https://forms.mosaicmc.org.au/referral',
       title: 'Referral form',
       body: 'Refer a client for Mosaic settlement, aged care, family support, or community services.',
       tags: ['referral', 'refer', 'client', 'form', 'services', 'support']
     },
     {
-      path: 'https://forms.mosaicmc.org.au/Feedback',
+      path: 'https://forms.mosaicmc.org.au/feedback',
       title: 'Feedback and complaints form',
       body: 'Share feedback or lodge a complaint with Mosaic.',
       tags: ['feedback', 'complaint', 'complaints', 'form', 'issue']
