@@ -138,11 +138,11 @@ const Footer = () => {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-muted-foreground">{t('footer.sections.getInvolved')}</p>
                     <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                       <li>
-                        <a href="https://forms.mosaicmc.org.au/Volunteer_Application" target="_blank" rel="noopener noreferrer" aria-label={`${t('footer.links.volunteer')} (opens in new tab)`} className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
-                          {t('footer.links.volunteer')}
-                          <ExternalLink className="h-3 w-3 ml-1" aria-hidden="true" />
-                        </a>
-                      </li>
+                <a href="https://forms.mosaicmc.org.au/volunteer-application" target="_blank" rel="noopener noreferrer" aria-label={`${t('footer.links.volunteer')} (opens in new tab)`} className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/60 dark:hover:bg-white/10 hover:text-ocean dark:hover:text-sky focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
+                  {t('footer.links.volunteer')}
+                  <ExternalLink className="h-3 w-3 ml-1" aria-hidden="true" />
+                </a>
+              </li>
                       <li>
                         <Link to="/company/careers" className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-sand/50 hover:text-ocean dark:hover:bg-white/10 dark:hover:text-sky-text focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-sky">
                           {t('footer.links.career')}
@@ -190,7 +190,7 @@ const Footer = () => {
                 {!isEmergencyMode && (
                   <>
                     <a
-                      href="https://forms.mosaicmc.org.au/refer"
+                      href="https://forms.mosaicmc.org.au/referral"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${t('footer.aria.refer')} (opens in new tab)`}
@@ -214,7 +214,7 @@ const Footer = () => {
                       <ExternalLink className="h-3 w-3" aria-hidden="true" />
                     </a>
                     <a
-                      href="https://forms.mosaicmc.org.au/Feedback"
+                      href="https://forms.mosaicmc.org.au/feedback"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${t('footer.aria.feedback')} (opens in new tab)`}

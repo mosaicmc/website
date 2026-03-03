@@ -29,25 +29,19 @@
     "priority": 9,
     "tags": ["donate", "donation", "give", "support", "funding"]
   },
-  "https://forms.mosaicmc.org.au/Volunteer_Application": {
+  "https://forms.mosaicmc.org.au/volunteer-application": {
     "intent": "volunteering",
     "category": "Forms",
     "priority": 9,
     "tags": ["volunteer", "volunteering", "application", "form", "get involved"]
   },
-  "https://forms.mosaicmc.org.au/refer": {
+  "https://forms.mosaicmc.org.au/referral": {
     "intent": "referral",
     "category": "Forms",
     "priority": 9,
     "tags": ["referral", "refer", "client", "form", "services"]
   },
-  "https://forms.mosaicmc.org.au/Referral": {
-    "intent": "referral",
-    "category": "Forms",
-    "priority": 9,
-    "tags": ["referral", "refer", "client", "form", "services"]
-  },
-  "https://forms.mosaicmc.org.au/Feedback": {
+  "https://forms.mosaicmc.org.au/feedback": {
     "intent": "feedback",
     "category": "Forms",
     "priority": 9,

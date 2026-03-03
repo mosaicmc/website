@@ -144,7 +144,7 @@ const Header = () => {
                       <DropdownMenuSeparator />
                       <DropdownMenuItem asChild>
                         <a
-                          href="https://forms.mosaicmc.org.au/refer"
+                    href="https://forms.mosaicmc.org.au/referral"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-6 py-4 transition-all duration-200 font-medium text-base rounded-lg mx-2 mb-1 text-gray-700 dark:text-gray-300 hover:text-ocean dark:hover:text-sky hover:bg-sand/60 dark:hover:bg-white/10 hover:shadow-sm border border-transparent hover:border-ocean/20 dark:hover:border-sky/20"
@@ -194,7 +194,7 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
-                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
+                    href="https://forms.mosaicmc.org.au/volunteer-application"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}
@@ -273,7 +273,7 @@ const Header = () => {
                         ))}
                         <div className="border-t border-border my-2" />
                         <a
-                          href="https://forms.mosaicmc.org.au/refer"
+                          href="https://forms.mosaicmc.org.au/referral"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 text-sm text-gray-600 dark:text-gray-400 hover:text-ocean dark:hover:text-sky hover:bg-white/40 dark:hover:bg-slate-800/40"
@@ -312,7 +312,7 @@ const Header = () => {
                 {/* Mobile Get Involved quick actions */}
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
+                    href="https://forms.mosaicmc.org.au/volunteer-application"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${t('nav.refer')} (opens in new tab)`}
@@ -329,7 +329,7 @@ const Header = () => {
                     {t('nav.menu.involved.careers.title')}
                   </Link>
                   <a
-                    href="https://forms.mosaicmc.org.au/Volunteer_Application"
+                    href="https://forms.mosaicmc.org.au/volunteer-application"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}

@@ -44,7 +44,7 @@ export default function FeedbackComplaintsPolicyPage() {
             <ul className="mt-3 list-disc list-inside space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                <span>You can make your complaint through our online form: <a href="https://forms.mosaicmc.org.au/Feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></span>
+                <span>You can make your complaint through our online form: <a href="https://forms.mosaicmc.org.au/feedback" target="_blank" rel="noopener noreferrer" aria-label="Mosaic Portal (opens in new tab)" className="inline-flex items-center gap-1 text-primary hover:underline">Mosaic Portal <ExternalLink className="h-3 w-3" aria-hidden="true" /></a></span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-muted-foreground" />

@@ -327,7 +327,7 @@ export default function NewcastleVolunteerPage() {
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://forms.mosaicmc.org.au/Volunteer_Application"
+            href="https://forms.mosaicmc.org.au/volunteer-application"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Apply to Volunteer (opens in new tab)"
