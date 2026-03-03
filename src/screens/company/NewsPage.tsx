@@ -30,6 +30,7 @@ const externalLinks = [
   'https://www.sbs.com.au/news/article/how-a-regional-australian-city-became-an-unlikely-home-for-hundreds-of-yazidi-refugees/z755d1rzl',
   'https://www.abc.net.au/news/2021-12-11/armidale-land-used-by-ezidi-refugees-to-work-grow-food/100680696',
   'https://hunterheadline.com.au/article/northern-settlement-services-rebrands-to-align-with-evolving-mission/',
+  'https://42578313.hs-sites.com/stories/april-2023/teaching-financial-literacy-and-entrepreneurship-to-the-ezidi-community-in-armidale',
   'https://newcastleweekly.com.au/newcastle-afghan-refugees-cleaning-up-after-tafe-course/',
   'https://www.theguardian.com/australia-news/2023/may/07/im-armidaleian-ezidi-refugees-put-down-new-roots-in-new-england',
   'https://www.netimes.com.au/2024/06/22/a-time-to-celebrate-and-raise-awareness-about-the-struggles-faced-by-refugees/',
@@ -39,6 +40,7 @@ const externalLinks = [
   'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/funding-boost-to-support-newcastle-communities-in-need',
   'https://dcj.nsw.gov.au/children-and-families/shining-a-light/culture-and-connection.html',
   'https://www.newsofthearea.com.au/celebrating-cultural-differences-on-international-womens-day',
+  'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community',
 ];
 
 const customThumbFor: Record<string, string> = {
@@ -59,6 +61,8 @@ const customThumbFor: Record<string, string> = {
   'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/funding-boost-to-support-newcastle-communities-in-need': assetPath('/News_Thumbnails_720px_WEBP/10 Nov 2025.webp'),
   'https://dcj.nsw.gov.au/children-and-families/shining-a-light/culture-and-connection.html': assetPath('/News_Thumbnails_720px_WEBP/30 March 2023.webp'),
   'https://www.newsofthearea.com.au/celebrating-cultural-differences-on-international-womens-day': assetPath('/News_Thumbnails_720px_WEBP/International Women’s Day 2025.webp'),
+  'https://42578313.hs-sites.com/stories/april-2023/teaching-financial-literacy-and-entrepreneurship-to-the-ezidi-community-in-armidale': assetPath('/News_Thumbnails_720px_WEBP/6 April 2023.webp'),
+  'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community': assetPath('/News_Thumbnails_720px_WEBP/18 Feb 2026.webp'),
 };
 
 const customTitleFor: Record<string, string> = {
@@ -79,6 +83,8 @@ const customTitleFor: Record<string, string> = {
   'https://newcastle.nsw.gov.au/about-us/news-and-updates/latest-news/funding-boost-to-support-newcastle-communities-in-need': 'Funding boost to support Newcastle communities in need',
   'https://dcj.nsw.gov.au/children-and-families/shining-a-light/culture-and-connection.html': 'Culture and connection | Communities and Justice',
   'https://www.newsofthearea.com.au/celebrating-cultural-differences-on-international-womens-day': 'Celebrating cultural differences on International Women’s Day - News Of The Area',
+  'https://42578313.hs-sites.com/stories/april-2023/teaching-financial-literacy-and-entrepreneurship-to-the-ezidi-community-in-armidale': 'Teaching Financial Literacy and Entrepreneurship to the Ezidi Community in Armidale',
+  'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community': 'Central Coast Council awarded NSW Social Cohesion Grant to strengthen community connection',
 };
 const contentTagFor: Record<string, string> = {
   'https://newcastleweekly.com.au/teens-bring-sense-of-home-to-wallsend-mural/': 'Community',
@@ -97,7 +103,14 @@ const contentTagFor: Record<string, string> = {
   'https://www.netimes.com.au/2024/06/22/a-time-to-celebrate-and-raise-awareness-about-the-struggles-faced-by-refugees/': 'Advocacy',
   'https://hunterheadline.com.au/article/northern-settlement-services-rebrands-to-align-with-evolving-mission/': 'Company Update',
   'https://greekreporter.com/2019/02/23/greek-orthodox-priest-receives-seniors-local-achievement-award/': 'Community',
+  'https://42578313.hs-sites.com/stories/april-2023/teaching-financial-literacy-and-entrepreneurship-to-the-ezidi-community-in-armidale': 'Community',
+  'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community': 'Community',
 };
+
+const customLogoFor: Record<string, string> = {
+  'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community': assetPath('/images/central coast logo.png'),
+};
+
 function parseDateFromThumbName(name: string): number {
   const cleaned = name.replace(/\.webp$/i, '').replace(/_/g, ' ').trim();
   const parsed = Date.parse(cleaned);
@@ -162,6 +175,7 @@ function outletName(url: string, title?: string): string {
   if (h === 'greekreporter.com') return 'GreekReporter.com';
   if (h === 'hunterheadline.com.au') return 'Hunter Headline';
   if (h === 'newcastle.nsw.gov.au') return 'City of Newcastle';
+  if (h === '42578313.hs-sites.com') return 'Sydney School of Entrepreneurship (SSE)';
   return h;
 }
 function titleFor(url: string, title?: string): string {
@@ -415,10 +429,12 @@ export default function NewsPage() {
           return (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-items-start">
               {byTag.map((url) => (
-                <button
+                <a
                   key={url}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={getAriaLabel(url, titles[url])}
-                  onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
                   className="group relative w-full min-h-[380px] md:min-h-[420px] text-start rounded-2xl border border-border bg-card shadow-sm overflow-hidden hover:shadow-md hover:ring-1 hover:ring-ocean/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition duration-300 flex flex-col"
                 >
                   <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -439,13 +455,13 @@ export default function NewsPage() {
                       <div className="flex items-center gap-3">
                         <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2">
                           <img
-                            src={`https://${hostOf(url)}/favicon.ico`}
+                            src={customLogoFor[url] ? encodeURI(customLogoFor[url]) : `https://${hostOf(url)}/favicon.ico`}
                             alt={hostOf(url)}
                             width={20}
                             height={20}
                             loading="lazy"
                             decoding="async"
-                            className="h-5 w-5"
+                            className="h-5 w-auto object-contain max-w-[100px]"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
                             }}
@@ -470,7 +486,7 @@ export default function NewsPage() {
                       </h4>
                     </CardHeader>
                   </Card>
-                </button>
+                </a>
               ))}
             </div>
           );
