@@ -453,7 +453,7 @@ export default function NewsPage() {
                     )}
                     <CardHeader className="p-4 md:p-5">
                       <div className="flex items-center gap-3">
-                        <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2">
+                        <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2 w-[38px] h-[38px] shrink-0">
                           <img
                             src={customLogoFor[url] ? encodeURI(customLogoFor[url]) : `https://${hostOf(url)}/favicon.ico`}
                             alt={hostOf(url)}
@@ -461,7 +461,7 @@ export default function NewsPage() {
                             height={20}
                             loading="lazy"
                             decoding="async"
-                            className="h-5 w-auto object-contain max-w-[100px]"
+                            className="w-full h-full object-contain"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
                             }}
