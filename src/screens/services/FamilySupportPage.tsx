@@ -88,17 +88,6 @@ const FamilySupportPage = () => {
       image: assetPath("/images/Families Team 128px/FamTeam_Miza_128px.webp")
     },
     {
-      name: "Juanita Q. Purcell-Loli",
-      role: "Multicultural Families Caseworker", 
-      location: "Newcastle",
-      qualifications: "Master of Arts & Social Science",
-      experience: "Juanita brings 30+ years supporting migrant communities and multicultural and vulnerable families to feel safe, connected and empowered.",
-      languages: ["English", "Samoan"],
-      phone: "(02) 4960 8403",
-      email: "j.lolli@mosaicmc.org.au",
-      image: assetPath("/images/Families Team 128px/FamTeam_Juanita_128px.webp")
-    },
-    {
       name: "Elena Ferguson",
       role: "Multicultural Families Caseworker",
       location: "Newcastle",
