@@ -138,15 +138,6 @@ const SettlementSupportPage = () => {
       image: assetPath("/images/SETS Team 128px/SETSTeam_Lee_128px.webp")
     },
     {
-      name: "Mohammad Sami Zakhil",
-      role: "Youth Connector/ Settlement Caseworker",
-      location: "Newcastle",
-      qualifications: "Diploma Management & Leadership; Diploma Community Works; Degree in Public Administration.",
-      experience: "Mohammad Sami brings over 10 years of experience working for Youth empowerment with a background in advocacy Youth empowerment, women's and children rights and community work.",
-      languages: ["Pashto", "Dari", "English", "Urdu", "Hindi", "Persian", "Zargari"],
-      image: assetPath("/images/SETS Team 128px/SETSTeam_Sami_128px.webp")
-    },
-    {
       name: "Rose Oku",
       role: "Settlement Caseworker",
       location: "Newcastle",
