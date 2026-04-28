@@ -3,8 +3,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@/components/ui/Section';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardHeader } from '@/components/ui/card';
 import { ArrowRight, Calendar, Megaphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { prefetchOnHover } from '@/lib/prefetch';
@@ -16,9 +15,9 @@ const STORIES_ENABLED = process.env.NEXT_PUBLIC_FEATURE_STORIES_PAGE === 'true';
 type NewsItem = {
   title: string;
   date: string;
-  summary: string;
-  href?: string;
+  href: string;
   type: 'Press Release' | 'News';
+  thumbnailSrc?: string;
 };
 
 const externalLinks = [
@@ -218,9 +217,9 @@ export default function NewsPage() {
     {
       title: t('helenaDerwashCEO.hero.title'),
       date: '2026-04-28',
-      summary: t('helenaDerwashCEO.hero.description'),
       type: 'Press Release',
       href: '/company/news/helena-derwash-ceo-announcement',
+      thumbnailSrc: assetPath('/images/news/Helena_Derwash.png'),
     },
   ], [t]);
 
@@ -350,37 +349,52 @@ export default function NewsPage() {
           <Section variant="surface" divider="none" padding="sm">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featuredNews.map((item, idx) => (
-                <div
+                <Link
                   key={`${item.title}-${idx}`}
-                  className="relative group overflow-hidden dark:border-white/20 dark:bg-white/10 backdrop-blur-xl duration-500 ease-out hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition min-h-[380px] md:min-h-[420px] flex"
+                  to={item.href}
+                  {...prefetchOnHover(item.href)}
+                  aria-label={item.title}
+                  className="group relative w-full min-h-[380px] md:min-h-[420px] text-start rounded-2xl border border-border bg-card shadow-sm overflow-hidden hover:shadow-md hover:ring-1 hover:ring-ocean/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition duration-300 flex flex-col"
                 >
                   <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Card className="rounded-xl border-0 shadow-none flex-1 flex flex-col">
+                  <Card className="rounded-2xl border-0 shadow-none overflow-hidden flex-1 flex flex-col">
+                    {item.thumbnailSrc && (
+                      <div className="h-44 md:h-48 bg-muted">
+                        <img
+                          src={encodeAssetSrc(item.thumbnailSrc)}
+                          alt={item.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover object-top"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                      </div>
+                    )}
                     <CardHeader className="p-4 md:p-5">
                       <div className="flex items-center gap-3">
-                        <span className="inline-flex items-center justify-center rounded-lg bg-ocean text-white p-2">
-                          {item.type === 'Press Release' ? <Megaphone className="h-5 w-5" /> : <Calendar className="h-5 w-5" />}
+                        <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2 w-[38px] h-[38px] shrink-0">
+                          {item.type === 'Press Release' ? (
+                            <Megaphone className="h-5 w-5 text-ocean" />
+                          ) : (
+                            <Calendar className="h-5 w-5 text-ocean" />
+                          )}
                         </span>
                         <div className="min-w-0">
-                          <div className="text-xs font-semibold text-muted-foreground">{item.type}</div>
-                          <div className="text-sm text-muted-foreground">{new Date(item.date).toLocaleDateString()}</div>
+                          <div className="text-sm text-muted-foreground">Mosaic Multicultural Connections</div>
+                          <div className="text-xs text-muted-foreground">{new Date(item.date).toLocaleDateString(i18n.language, { year: 'numeric', month: 'short', day: 'numeric' })}</div>
                         </div>
                       </div>
-                      <h2 className="mt-2 text-lg md:text-xl font-semibold text-foreground">{item.title}</h2>
+                      <div className="mt-2">
+                        <span className="inline-flex items-center rounded-full bg-background border border-border px-2 py-1 text-xs text-muted-foreground">
+                          {item.type}
+                        </span>
+                      </div>
+                      <h4 className="mt-2 text-base md:text-lg font-semibold text-foreground break-words">
+                        {item.title}
+                      </h4>
                     </CardHeader>
-                    <CardContent className="p-4 md:p-5">
-                      <p className="text-sm md:text-base text-muted-foreground">{item.summary}</p>
-                    </CardContent>
-                    <CardFooter className="p-4 md:p-5 mt-auto">
-                      <Button asChild variant="link" className="text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                        <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={item.title}>
-                          {t('newsPage.readMore')}
-                          <ArrowRight className="ml-1 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardFooter>
                   </Card>
-                </div>
+                </Link>
               ))}
             </div>
           </Section>
