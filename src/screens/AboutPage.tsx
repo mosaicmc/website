@@ -184,7 +184,7 @@ const AboutPage = () => {
       languages: t('aboutPage.management.members.rob.languages', { returnObjects: true }) as unknown as string[],
       bio: t('aboutPage.management.members.rob.bio'),
       credentialsSummary: t('aboutPage.management.members.rob.credentials'),
-      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/rob~watkins/' }]
+      social: []
     },
     {
       id: "belinda",
@@ -219,8 +219,8 @@ const AboutPage = () => {
   ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
     "rob": {
-      webp: "/images/Management 128px/Management_Rob_128px.webp",
-      jpg: "/images/Management 128px/Management_Rob_128px.webp",
+      webp: "/images/Management 128px/Helen_Management.svg",
+      jpg: "/images/Management 128px/Helen_Management.svg",
     },
     "belinda": {
       webp: "/images/Management 128px/Management_Belinda_128px.webp",

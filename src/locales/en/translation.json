@@ -1186,7 +1186,7 @@
         "action": "View Careers"
       },
       "referral": {
-        "title": "Make a referral",
+        "title": "Make a Referral",
         "description": "Make a referral for yourself, a loved one, or a client, and our team will connect you to the right services.",
         "benefits": {
           "0": "Easy online referral for individuals, families, or clients",
@@ -2098,6 +2098,45 @@
        }
     }
   },
+  "helenaDerwashCEO": {
+    "hero": {
+      "title": "Helena Derwash appointed Chief Executive Officer",
+      "description": "Mosaic Multicultural Connections is pleased to announce the appointment of Helena Derwash as Chief Executive Officer, bringing more than two decades of humanitarian and multicultural leadership to our work across NSW."
+    },
+    "intro": {
+      "paragraph1": "After {{years}} years of walking alongside multicultural communities across NSW, Mosaic is proud to welcome Helena Derwash as Chief Executive Officer.",
+      "paragraph2": "{{date}} — Mosaic Multicultural Connections is delighted to announce Helena Derwash has been appointed Chief Executive Officer, following a global career leading humanitarian and community programs across the Middle East, Asia, Africa and Europe."
+    },
+    "photoCaption": "Helena Derwash, Chief Executive Officer",
+    "quote": {
+      "helena": "Mosaic has built something rare. I’m honoured to come home and help it grow — working alongside communities to create belonging, safety and opportunity.",
+      "helenaTitle": "Chief Executive Officer",
+      "sandra": "Helena brings exceptional values-led leadership, deep cultural understanding and a strong track record of delivering impact in complex environments. We’re excited for what her appointment means for Mosaic’s next chapter.",
+      "sandraTitle": "Board Chair"
+    },
+    "section1": {
+      "title": "A leader shaped by lived experience",
+      "paragraph1": "With a history spanning {{years}}+ years of supporting communities, Mosaic’s mission is strengthened by leaders who understand the realities of settling and finding belonging.",
+      "paragraph2": "Helena’s lived experience navigating cultures, paired with more than 20 years of humanitarian leadership, has shaped her commitment to equity and culturally responsive services.",
+      "paragraph3": "She has led programs across some of the world’s most complex environments, working with partners, governments and local communities to deliver practical support and long-term outcomes.",
+      "paragraph4": "Now back in Australia, Helena is focused on growing Mosaic’s impact across NSW while staying grounded in community voice, safety and dignity."
+    },
+    "section2": {
+      "title": "Priorities for the next chapter",
+      "paragraph1": "Helena’s leadership will focus on strengthening service quality, deepening partnerships, and ensuring Mosaic remains accessible and responsive to culturally diverse communities.",
+      "paragraph2": "This includes investing in staff and volunteers, improving client experience, and building sustainable systems that support long-term community wellbeing."
+    },
+    "section3": {
+      "title": "Continuity and momentum",
+      "paragraph1": "Mosaic will continue delivering settlement support, family services, culturally responsive home care and community engagement — with an ongoing focus on inclusion and measurable outcomes.",
+      "paragraph2": "Helena’s appointment signals renewed momentum to expand collaboration, elevate community voices and innovate in how we support people at key moments in their journey."
+    },
+    "section4": {
+      "title": "Be part of Mosaic’s mission",
+      "paragraph1": "We invite community members, partners and supporters to join us as we welcome Helena and continue building a more inclusive NSW.",
+      "paragraph2": "Follow Mosaic updates, explore services, volunteer opportunities and ways to support our work across the state."
+    }
+  },
   "aboutPage": {
     "title": "About Mosaic Multicultural Connections",
     "description": "Mosaic Multicultural Connections supports multicultural communities across Newcastle, the Hunter Region, Central Coast, Tamworth, Armidale, New England and North West NSW. Discover our mission, values and 40+ year story of settlement support, home care and family services.",
@@ -2389,13 +2428,13 @@
       "languagesLabel": "Languages spoken",
       "members": {
         "rob": {
-          "name": "Rob Watkins",
-          "title": "Chief Executive Officer (Interim)",
-          "role": "Chief Executive Officer (Interim)",
+          "name": "Helena Derwash",
+          "title": "Chief Executive Officer",
+          "role": "Chief Executive Officer",
           "level": 1,
-          "credentials": "Graduate Diploma in Employment Relations; Advanced Certificate in Industrial Relations",
-          "languages": ["English"],
-          "bio": "Hi, I'm Rob. I'm driven by a deep commitment to social justice and believe everyone deserves the opportunity to live with dignity and choice. At Mosaic, I'm honoured to help guide an organisation that truly puts people at the centre of everything it does. I bring over 30 years of senior leadership experience across the public and NGO sectors, with particular expertise in home care, disability, and community services. Most recently, I served as Executive Director of Disability Services at Possability Group. My decade of board-level experience, including roles as Councillor and Mayor, has given me a strong foundation in governance and service delivery that puts communities first."
+          "credentials": "Graduate Certificate in International Relations | Griffith University | Currently enrolled; Certificate IV in Small Business Management; Diploma in Marketing Management; Advanced Associate Diploma in Business",
+          "languages": ["English", "Dari", "Farsi", "Urdu", "Hindi", "Kurmanji Kurdish", "Arabic"],
+          "bio": "Hi, I'm Helena. Growing up between cultures taught me what it means to navigate a new country and find community willing to walk alongside you. That understanding led me to spend over two decades working with culturally diverse communities across the Middle East, Asia, Africa and Europe, leading humanitarian programmes in some of the world's most complex environments. Now, after many years abroad, I've come home to put that experience to work. Mosaic has built something rare, and I'm here to help it grow."
         },
         "belinda": {
           "name": "Belinda Latimore",
@@ -2403,7 +2442,7 @@
           "role": "General Manager, Programs",
           "level": 2,
           "credentials": "Bachelor Social Work; Master Business Administration; Diploma Human Resource Management; Diploma Leadership and Management",
-          "languages": ["English", "Australian"],
+          "languages": ["English"],
           "bio": "Hi, I’m Belinda. I love coming to work each day as part of Mosaic’s multicultural family. I bring over 25 years of experience in the health and welfare sector, working across government, not-for-profit and charity organisations. I’m passionate about leading and supporting teams, and I believe every person brings a unique story that strengthens the skills, experience and care we deliver together. I deeply respect each individual journey and value the power of working collaboratively so we can all thrive. Outside of work, I’ve recently taken up running and am enjoying the sense of connection and camaraderie within the running community."
         },
         "richard": {
@@ -2412,7 +2451,7 @@
           "role": "Manager, Finance & Corporate",
           "level": 2,
           "credentials": "Chartered Accountant Australia and New Zealand; Fellow of the Association of Chartered Certified Accountants",
-          "languages": ["English", "Yorkshire"],
+          "languages": ["English"],
           "bio": "Hi, I’m Richard. I’ve worked as a qualified accountant in finance and related roles across a wide range of industries and organisations for over 35 years in both Australia and the UK. As a migrant myself, I empathise with the challenges of migrating to a new country and value the chance to assist, in a small way, in making the transition easier for Mosaic’s clients. Outside work, I’m a watcher of any sport with a ball and a very lazy marathoner."
         },
         "jawaid": {
