@@ -162,6 +162,18 @@ const HelenaDerwashCEOAnnouncement = () => {
         </div>
       </Section>
 
+      <Section padding="lg" containerClassName="max-w-6xl" className="py-16 md:py-24">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-8 tracking-tight text-center lg:text-left text-slate-900 dark:text-slate-50">
+            {t('helenaDerwashCEO.thanks.title')}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <p className={bodyTextClass}>{t('helenaDerwashCEO.thanks.paragraph1')}</p>
+            <p className={bodyTextClass}>{t('helenaDerwashCEO.thanks.paragraph2')}</p>
+          </div>
+        </div>
+      </Section>
+
       {/* Transition & Next Steps */}
       <Section padding="lg" containerClassName="max-w-6xl" className="py-16 md:py-24">
         <div className="space-y-16">
