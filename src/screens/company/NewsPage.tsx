@@ -111,6 +111,29 @@ const customLogoFor: Record<string, string> = {
   'https://www.centralcoast.nsw.gov.au/council/media-release/central-coast-council-awarded-nsw-social-cohesion-grant-strengthen-community': assetPath('/images/central coast logo.png'),
 };
 
+function safeDecodeURIComponent(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function encodeAssetSrc(src: string): string {
+  const isAbsolute = /^https?:\/\//i.test(src);
+  try {
+    const url = new URL(src, isAbsolute ? undefined : 'http://local');
+    const encodedPath = url.pathname
+      .split('/')
+      .map((seg) => encodeURIComponent(safeDecodeURIComponent(seg)))
+      .join('/');
+    url.pathname = encodedPath;
+    return isAbsolute ? url.toString() : `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return encodeURI(src).replaceAll(',', '%2C');
+  }
+}
+
 function parseDateFromThumbName(name: string): number {
   const cleaned = name.replace(/\.webp$/i, '').replace(/_/g, ' ').trim();
   const parsed = Date.parse(cleaned);
@@ -191,31 +214,15 @@ export default function NewsPage() {
   const [linkDates, setLinkDates] = useState<Record<string, string>>({});
   const [selectedTag, setSelectedTag] = useState<string>('All');
 
-  const demoNews = useMemo<NewsItem[]>(() => [
+  const featuredNews = useMemo<NewsItem[]>(() => [
     {
-      title: t('newsPage.demo.item1.title'),
-      date: '2025-01-15',
-      summary: t('newsPage.demo.item1.summary'),
+      title: t('helenaDerwashCEO.hero.title'),
+      date: '2026-04-28',
+      summary: t('helenaDerwashCEO.hero.description'),
       type: 'Press Release',
-    },
-    {
-      title: t('newsPage.demo.item2.title'),
-      date: '2024-12-08',
-      summary: t('newsPage.demo.item2.summary'),
-      type: 'News',
-    },
-    {
-      title: t('newsPage.demo.item3.title'),
-      date: '2024-11-20',
-      summary: t('newsPage.demo.item3.summary'),
-      type: 'Press Release',
+      href: '/company/news/helena-derwash-ceo-announcement',
     },
   ], [t]);
-
-  const allTags = Array.from(new Set([
-    ...Object.values(contentTagFor),
-    ...externalLinks.map((u) => deriveContentTag(u, titles[u])).filter((x): x is string => !!x),
-  ])).sort();
 
   const getTagLabel = (tag: string) => {
     if (tag === 'All') return t('newsPage.tags.all');
@@ -338,32 +345,11 @@ export default function NewsPage() {
       </Section>
 
       {(() => {
-        const validDemo = demoNews.filter((n) => typeof n.href === 'string' && n.href.trim().length > 0);
-        if (validDemo.length === 0) return null;
+        if (featuredNews.length === 0) return null;
         return (
           <Section variant="surface" divider="none" padding="sm">
-            <div className="mb-4 flex flex-wrap items-center gap-2">
-              <span className="text-sm text-muted-foreground">{t('newsPage.filterByTag')}</span>
-              <button
-                aria-pressed={selectedTag === 'All'}
-                onClick={() => setSelectedTag('All')}
-                className={`px-3 py-1 rounded-full border transition ${selectedTag === 'All' ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-              >
-                {getTagLabel('All')}
-              </button>
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  aria-pressed={selectedTag === tag}
-                  onClick={() => setSelectedTag(tag)}
-                  className={`px-3 py-1 rounded-full border transition ${selectedTag === tag ? 'bg-ocean text-white border-ocean' : 'bg-background text-foreground border-border hover:bg-sand/60'} focus:outline-none focus:ring-2 focus:ring-ring`}
-                >
-                  {getTagLabel(tag)}
-                </button>
-              ))}
-            </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {validDemo.map((item, idx) => (
+              {featuredNews.map((item, idx) => (
                 <div
                   key={`${item.title}-${idx}`}
                   className="relative group overflow-hidden dark:border-white/20 dark:bg-white/10 backdrop-blur-xl duration-500 ease-out hover:scale-[1.02] hover:bg-white/80 dark:hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition min-h-[380px] md:min-h-[420px] flex"
@@ -387,7 +373,7 @@ export default function NewsPage() {
                     </CardContent>
                     <CardFooter className="p-4 md:p-5 mt-auto">
                       <Button asChild variant="link" className="text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                        <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={getAriaLabel(item.href!, item.title)}>
+                        <Link to={item.href!} {...prefetchOnHover(item.href!)} aria-label={item.title}>
                           {t('newsPage.readMore')}
                           <ArrowRight className="ml-1 h-4 w-4" />
                         </Link>
@@ -442,7 +428,7 @@ export default function NewsPage() {
                     {(customThumbFor[url] || thumbs[url]) && (
                       <div className="h-44 md:h-48 bg-muted">
                         <img
-                          src={encodeURI(customThumbFor[url] || thumbs[url])}
+                          src={encodeAssetSrc(customThumbFor[url] || thumbs[url])}
                           alt={(titles[url] || hostOf(url))}
                           loading="lazy"
                           decoding="async"
@@ -455,7 +441,7 @@ export default function NewsPage() {
                       <div className="flex items-center gap-3">
                         <span className="inline-flex items-center justify-center rounded-lg bg-background border border-border p-2 w-[38px] h-[38px] shrink-0">
                           <img
-                            src={customLogoFor[url] ? encodeURI(customLogoFor[url]) : `https://${hostOf(url)}/favicon.ico`}
+                            src={customLogoFor[url] ? encodeAssetSrc(customLogoFor[url]) : `https://${hostOf(url)}/favicon.ico`}
                             alt={hostOf(url)}
                             width={20}
                             height={20}
