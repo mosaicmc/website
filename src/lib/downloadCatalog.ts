@@ -191,6 +191,12 @@ export const DOWNLOAD_CATALOG: DownloadItem[] = [
     category: DOWNLOAD_CATEGORIES.BROCHURE,
     path: "/brochures/Aged Care_Guide 2026.pdf",
   },
+  {
+    id: "brochure-refugee-week",
+    label: "Mosaic Refugee Week 2026",
+    category: DOWNLOAD_CATEGORIES.BROCHURE,
+    path: "/brochures/Refugee Week.pdf",
+  },
 
   // --- Price Lists ---
   {

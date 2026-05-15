@@ -167,6 +167,7 @@ const ResourcesPage = () => {
     { title: t('resources.brochureTitles.agedCare'), downloadId: 'brochure-aged-care', color: 'earth' },
     { title: t('resources.brochureTitles.communityEngagement'), downloadId: 'brochure-community', color: 'leaf' },
     { title: t('resources.brochureTitles.homeCareGuide'), downloadId: 'brochure-aged-care-guide-2026', color: 'earth' },
+    { title: t('resources.brochureTitles.refugeeWeek'), downloadId: 'brochure-refugee-week', color: 'sky' },
   ];
 
   const projectReports = [
