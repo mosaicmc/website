@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { PageTransition } from "@/components/ui/PageTransition";
 import Section from "@/components/ui/Section";
 import GlassCard from "@/components/ui/GlassCard";
-import { Button } from "@/components/ui/button";
 import { Calendar, FileDown, User } from "lucide-react";
+import { TrackedDownloadButton } from "@/components/TrackedDownloadButton";
 
 export default function SharedDocumentPage() {
   const headingClassName =
@@ -143,16 +143,15 @@ export default function SharedDocumentPage() {
             </div>
 
             <div className="mt-10">
-              <Button asChild variant="cta" size="cta-sm" className="w-full sm:w-auto">
-                <a
-                  href="/Documents/Leaders_Forum_18May2026_Summary.docx"
-                  download
-                  className="inline-flex items-center gap-2"
-                >
-                  <FileDown className="h-4 w-4" />
-                  Download DOCX
-                </a>
-              </Button>
+              <TrackedDownloadButton
+                downloadId="shared-leaders-forum-summary-2026"
+                variant="cta"
+                size="cta-sm"
+                className="w-full sm:w-auto"
+              >
+                <FileDown className="h-4 w-4" />
+                Download DOCX
+              </TrackedDownloadButton>
               <p className="text-sm text-muted-foreground">
                 If you have trouble accessing this document or need it in an alternative format, please{" "}
                 <Link to="/contact-us" className="text-primary hover:underline">
