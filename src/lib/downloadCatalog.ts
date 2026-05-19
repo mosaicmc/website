@@ -469,6 +469,6 @@ export const DOWNLOAD_CATALOG: DownloadItem[] = [
     id: "shared-leaders-forum-summary-2026",
     label: "Leaders Forum Summary (18 May 2026)",
     category: DOWNLOAD_CATEGORIES.PROJECT_REPORT,
-    path: "/Documents/Leaders_Forum_18May2026_Summary.docx",
+    path: "/Documents/Leaders_Forum_18May2026_Summary.pdf",
   },
 ];

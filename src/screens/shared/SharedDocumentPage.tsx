@@ -150,7 +150,7 @@ export default function SharedDocumentPage() {
                 className="w-full sm:w-auto"
               >
                 <FileDown className="h-4 w-4" />
-                Download DOCX
+                Download PDF
               </TrackedDownloadButton>
               <p className="text-sm text-muted-foreground">
                 If you have trouble accessing this document or need it in an alternative format, please{" "}
