@@ -69,10 +69,9 @@ const AboutPage = () => {
       assetPath("/images/History_720px_webp/2001_10YearAnniv/2001_10YearAnniv04.webp"),
     ] },
     { year: "2004", label: t('aboutPage.history.items.2004.label'), description: t('aboutPage.history.items.2004.description'), image: undefined as unknown as string, alt: t('aboutPage.history.items.2004.alt'), details: t('aboutPage.history.items.2004.details'), gallery: [] },
-    { year: "2005", label: t('aboutPage.history.items.2005.label'), description: t('aboutPage.history.items.2005.description'), image: assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office.webp"), alt: t('aboutPage.history.items.2005.alt'), details: t('aboutPage.history.items.2005.details'), gallery: [
+    { year: "2005", label: t('aboutPage.history.items.2005.label'), description: t('aboutPage.history.items.2005.description'), image: assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp"), alt: t('aboutPage.history.items.2005.alt'), details: t('aboutPage.history.items.2005.details'), gallery: [
       assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office01.webp"),
       assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office02.webp"),
-      assetPath("/images/History_720px_webp/2005_CentralCoast_Office/2005_CentralCoast_Office03.webp"),
     ] },
     { year: "2006", label: t('aboutPage.history.items.2006.label'), description: t('aboutPage.history.items.2006.description'), image: assetPath("/images/History_720px_webp/2006_SilverJubilee.webp"), alt: t('aboutPage.history.items.2006.alt'), details: t('aboutPage.history.items.2006.details'), gallery: [] },
     { year: "2007", label: t('aboutPage.history.items.2007.label'), description: t('aboutPage.history.items.2007.description'), image: assetPath("/images/History_720px_webp/2007_NSS.webp"), alt: t('aboutPage.history.items.2007.alt'), details: t('aboutPage.history.items.2007.details') },
