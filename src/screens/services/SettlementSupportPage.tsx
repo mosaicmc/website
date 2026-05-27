@@ -138,6 +138,15 @@ const SettlementSupportPage = () => {
       image: assetPath("/images/SETS Team 128px/SETSTeam_Lee_128px.webp")
     },
     {
+      name: "Anthony Wright",
+      role: "HARVEST Project Coordinator",
+      location: "Armidale",
+      qualifications: "Diploma in Agriculture, Certificate IV in Training and Assessment",
+      experience: "Ant was the REAP project lead in Armidale from May 2023 to June 2025 and is now the coordinator for the HARVEST program facilitating training and employment for 17 to 25 year old migrant jobseekers, drawing on a background in the rural industry and vocational training.",
+      languages: ["English"],
+      image: assetPath("/images/SETS Team 128px/SETSTeam_Anthony_320px.webp")
+    },
+    {
       name: "Rose Oku",
       role: "Settlement Caseworker",
       location: "Newcastle",
