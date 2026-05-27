@@ -219,8 +219,8 @@ const AboutPage = () => {
   ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
     "rob": {
-      webp: "/images/Management 128px/Helen_Management.svg",
-      jpg: "/images/Management 128px/Helen_Management.svg",
+      webp: "/images/Management 128px/Helen_Management02.webp",
+      jpg: "/images/Management 128px/Helen_Management02.webp",
     },
     "belinda": {
       webp: "/images/Management 128px/Management_Belinda_128px.webp",

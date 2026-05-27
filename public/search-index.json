@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-02T06:02:39.673Z",
+  "generatedAt": "2026-05-27T06:08:29.728Z",
   "items": [
     {
       "path": "/about",
@@ -104,6 +104,20 @@
       "path": "/company/knowledge-base",
       "title": "",
       "body": "../../../screens/company/KnowledgeBasePage @/app/page-metadata /company/knowledge-base",
+      "tags": [],
+      "lang": "en"
+    },
+    {
+      "path": "/company/news/helena-derwash-ceo-announcement",
+      "title": "",
+      "body": "@/app/page-metadata @/screens/company/HelenaDerwashCEOAnnouncement /company/news/helena-derwash-ceo-announcement",
+      "tags": [],
+      "lang": "en"
+    },
+    {
+      "path": "/company/news/helena-derwash-ceo-announcement",
+      "title": "",
+      "body": "@/app/page-metadata @/screens/company/HelenaDerwashCEOAnnouncement /company/news/helena-derwash-ceo-announcement",
       "tags": [],
       "lang": "en"
     },
@@ -629,6 +643,20 @@
         "support",
         "settlement support"
       ],
+      "lang": "en"
+    },
+    {
+      "path": "/shared/leaders-forum-18-may-2026",
+      "title": "",
+      "body": "../../../screens/shared/SharedDocumentPage @/app/page-metadata /shared/leaders-forum-18-may-2026 Mosaic Leaders Forum — Event Summary & Way Forward https://www.mosaicmc.org.au/shared/leaders-forum-18-may-2026",
+      "tags": [],
+      "lang": "en"
+    },
+    {
+      "path": "/shared/leaders-forum-18-may-2026",
+      "title": "",
+      "body": "../../../screens/shared/SharedDocumentPage @/app/page-metadata /shared/leaders-forum-18-may-2026 Mosaic Leaders Forum — Event Summary & Way Forward https://www.mosaicmc.org.au/shared/leaders-forum-18-may-2026",
+      "tags": [],
       "lang": "en"
     },
     {
