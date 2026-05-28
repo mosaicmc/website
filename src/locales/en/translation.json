@@ -1198,6 +1198,173 @@
       }
     }
   },
+  "volunteerPage": {
+    "badge": "Volunteer",
+    "title": "Volunteer with Mosaic",
+    "description": "Volunteering with Mosaic is about helping people feel welcomed, supported, and connected through companionship at every stage of life.\n\nOur volunteers support families, young people, and older community members from many cultures through practical help, friendship, and encouragement. Many volunteers say they gain meaningful connections, new perspectives, and a strong sense of belonging in return.",
+    "browseLocations": "Browse locations",
+    "whyTitle": "Why volunteer with Mosaic?",
+    "sections": {
+      "programs": {
+        "badge": "Ways to volunteer",
+        "title": "Volunteer opportunities that match your strengths",
+        "description": "From mentoring and education support to aged care visiting and community events, there are many ways to help people feel welcomed, supported, and connected.",
+        "cta": "Browse roles by location"
+      },
+      "locations": {
+        "badge": "Locations"
+      }
+    },
+    "programs": {
+      "settlement": {
+        "title": "Settlement & Community Support",
+        "description": "Help new arrivals navigate services and build confidence in their new community.",
+        "features": [
+          "Practical help and friendly support",
+          "Connection to local services and networks",
+          "Roles vary by location and availability"
+        ]
+      },
+      "youth": {
+        "title": "Youth & Education Support",
+        "description": "Support young people with learning, homework, and confidence-building.",
+        "features": [
+          "Homework clubs and tutoring support",
+          "Encouragement, routine and positive mentoring",
+          "Great for patient, reliable volunteers"
+        ]
+      },
+      "agedCare": {
+        "title": "Aged Care Visiting",
+        "description": "Bring companionship and connection to older people through regular visits.",
+        "features": [
+          "Build meaningful relationships over time",
+          "Help reduce isolation and loneliness",
+          "Training and guidance provided"
+        ]
+      },
+      "community": {
+        "title": "Community Events & Engagement",
+        "description": "Help create inclusive events and activities that build belonging.",
+        "features": [
+          "Support community activities and celebrations",
+          "Help with welcoming, setup, and coordination",
+          "Great for community-minded people"
+        ]
+      },
+      "employment": {
+        "title": "Employment & Skills Mentoring",
+        "description": "Support jobseekers with practical steps toward training and work.",
+        "features": [
+          "Resume, interview, and job search support",
+          "Confidence-building and goal setting",
+          "Roles vary by location"
+        ]
+      }
+    },
+    "rightForYou": {
+      "intro": "You may want to join our mission if you’re looking for a meaningful way to contribute, build real connections, and be part of a stronger, more inclusive Australia. Volunteering with Mosaic is a chance to share kindness, learn from others, and help people feel they belong.",
+      "bullets": [
+        "Enjoy meeting people from different backgrounds and hearing their stories",
+        "Are curious to learn about other cultures and traditions through genuine connection",
+        "Want to help build a more welcoming, multicultural Australia where everyone belongs",
+        "Can offer time regularly — even a few hours makes a real difference",
+        "Value empathy, patience, and respect, and enjoy encouraging others",
+        "Want to give back to the community and see your impact first-hand"
+      ]
+    },
+    "quickFacts": {
+      "fact1": "Training and ongoing support provided",
+      "fact2": "Flexible opportunities depending on location",
+      "fact3": "Roles that match your skills and availability",
+      "fact4": "Meaningful connection with community"
+    },
+    "locationsTitle": "Choose your location",
+    "locationsSubtitle": "Opportunities vary by location. Choose your nearest area to see current volunteer roles.",
+    "locations": {
+      "newcastle": "Support programs for new arrivals, young people, and older community members.",
+      "centralCoast": "Community connection opportunities across the Central Coast region.",
+      "armidale": "Local volunteering roles supporting settlement and community participation.",
+      "tamworth": "Volunteer roles helping people feel welcomed, supported, and connected."
+    },
+    "locationCard": {
+      "line1": "See local volunteer opportunities and role details",
+      "line2": "Download position descriptions where available"
+    },
+    "viewRoles": "View roles",
+    "howItWorks": {
+      "badge": "How volunteering works",
+      "title": "Four simple steps to get started",
+      "subtitle": "Apply online, get matched, complete onboarding, and start making a difference with support from our team.",
+      "stepHeading": "Step",
+      "steps": [
+        {
+          "title": "Apply",
+          "description": "Share your interests, skills, and availability so we can understand how you’d like to help.",
+          "bullets": [
+            "Takes only a few minutes to complete",
+            "Tell us the location and role types you’re most interested in"
+          ]
+        },
+        {
+          "title": "Match",
+          "description": "We’ll contact you to talk through options and match you with a role that fits your strengths and schedule.",
+          "bullets": [
+            "A friendly call to learn what motivates you",
+            "We match you to opportunities based on local needs"
+          ]
+        },
+        {
+          "title": "Onboard",
+          "description": "You’ll receive onboarding, guidance, and any required checks so you feel prepared and supported.",
+          "bullets": [
+            "Training and clear role expectations",
+            "We guide you through any checks needed for your role"
+          ]
+        },
+        {
+          "title": "Start",
+          "description": "Begin volunteering with ongoing support from our team and the chance to build meaningful connections.",
+          "bullets": [
+            "Make a real difference through consistent support",
+            "Be part of a welcoming, multicultural community"
+          ]
+        }
+      ]
+    },
+    "faqBadge": "Volunteer FAQs",
+    "faqTitle": "Frequently asked questions",
+    "faqSubtitle": "Quick answers to common volunteering questions.",
+    "faqs": {
+      "0": {
+        "q": "Do I need experience to volunteer?",
+        "a": "No. We provide training and support. Many roles rely most on empathy, reliability, and willingness to learn."
+      },
+      "1": {
+        "q": "How much time do I need to commit?",
+        "a": "It depends on the role and location. Many opportunities suit people who can commit a few hours weekly or fortnightly."
+      },
+      "2": {
+        "q": "Do you provide training?",
+        "a": "Yes. We provide onboarding and guidance so you feel confident and supported in your role."
+      },
+      "3": {
+        "q": "Are background checks required?",
+        "a": "Some roles may require checks such as a police check or Working With Children Check. We’ll guide you through what’s needed."
+      },
+      "4": {
+        "q": "Can I volunteer if I speak another language?",
+        "a": "Yes. Multilingual volunteers are valued, and we’ll try to match you with a role where your language skills help."
+      },
+      "5": {
+        "q": "What if I’m not sure which role is right?",
+        "a": "Apply anyway. Our team can help match you to an opportunity based on your interests, skills, and availability."
+      }
+    },
+    "ctaTitle": "Ready to volunteer?",
+    "ctaSubtitle": "Apply online and we’ll be in touch to help you find the right opportunity.",
+    "contactCta": "Contact us"
+  },
   "donate": {
     "title": "Donate to Mosaic",
     "subtitle": "Your contribution directly supports multicultural communities throughout New South Wales.",
