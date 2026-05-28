@@ -251,7 +251,7 @@ export default function MosaicNavigation() {
     },
     {
       title: t('nav.menu.involved.volunteer.title'),
-      href: "/get-involved",
+      href: "/volunteer",
       description: t('nav.menu.involved.volunteer.description'),
       icon: Users,
     },

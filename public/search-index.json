@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T06:08:29.728Z",
+  "generatedAt": "2026-05-28T05:57:12.525Z",
   "items": [
     {
       "path": "/about",
@@ -755,6 +755,30 @@
       "path": "/volunteer/newcastle",
       "title": "",
       "body": "../../../screens/volunteer/NewcastleVolunteerPage @/app/page-metadata /volunteer/newcastle",
+      "tags": [
+        "volunteer",
+        "get involved",
+        "help",
+        "participate"
+      ],
+      "lang": "en"
+    },
+    {
+      "path": "/volunteer",
+      "title": "",
+      "body": "../../screens/volunteer/VolunteerLandingPage @/app/page-metadata /volunteer",
+      "tags": [
+        "volunteer",
+        "get involved",
+        "help",
+        "participate"
+      ],
+      "lang": "en"
+    },
+    {
+      "path": "/volunteer",
+      "title": "",
+      "body": "../../screens/volunteer/VolunteerLandingPage @/app/page-metadata /volunteer",
       "tags": [
         "volunteer",
         "get involved",

@@ -193,16 +193,9 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a
-                    href="https://forms.mosaicmc.org.au/volunteer-application"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}
-                    className="inline-flex items-center gap-1"
-                  >
+                  <Link to="/volunteer" className="inline-flex items-center gap-1" onClick={handleLinkClick}>
                     {t('nav.menu.involved.volunteer.title')}
-                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/donate" onClick={handleLinkClick}>{t('nav.donate')}</Link>
@@ -328,16 +321,14 @@ const Header = () => {
                   >
                     {t('nav.menu.involved.careers.title')}
                   </Link>
-                  <a
-                    href="https://forms.mosaicmc.org.au/volunteer-application"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t('nav.menu.involved.volunteer.title')} (opens in new tab)`}
+                  <Link
+                    to="/volunteer"
+                    aria-label={t('nav.menu.involved.volunteer.title')}
                     className="inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition"
+                    onClick={handleLinkClick}
                   >
                     {t('nav.menu.involved.volunteer.title')}
-                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                  </a>
+                  </Link>
                   <Link
                     to="/donate"
                     className="block border border-border bg-card px-4 py-3 rounded-lg text-sm text-foreground text-center hover:bg-muted transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
