@@ -206,6 +206,16 @@ const AboutPage = () => {
       social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/richardmarkhanson/' }]
     },
     {
+      id: "tim",
+      name: t('aboutPage.management.members.tim.name'),
+      title: t('aboutPage.management.members.tim.title'),
+      level: 2 as const,
+      languages: t('aboutPage.management.members.tim.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.tim.bio'),
+      credentialsSummary: t('aboutPage.management.members.tim.credentials'),
+      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/tim-whyte-2a869265/' }]
+    },
+    {
       id: "jawaid",
       name: t('aboutPage.management.members.jawaid.name'),
       title: t('aboutPage.management.members.jawaid.title'),
@@ -228,6 +238,10 @@ const AboutPage = () => {
     "richard": {
       webp: "/images/Management 128px/Management_Richard_128px.webp",
       jpg: "/images/Management 128px/Management_Richard_128px.webp",
+    },
+    "tim": {
+      webp: "/images/Management 128px/Tim_Management.webp",
+      jpg: "/images/Management 128px/Tim_Management.webp",
     },
     "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
