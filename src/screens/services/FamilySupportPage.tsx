@@ -99,6 +99,15 @@ const FamilySupportPage = () => {
       image: assetPath("/images/Families Team 128px/FamTeam_Elena_128px.webp")
     },
     {
+      name: "Bronwyn",
+      role: "Multicultural Family Support Worker",
+      location: "Newcastle",
+      qualifications: "BAppSci (Human Geog); Adv Clinical Training Gestalt Psychotherapy; Grad Dip Gestalt Therapy.",
+      experience: "Over 25 years of experience in community development, case management, engagement and counselling, helping individuals and communities connect, heal and thrive.",
+      languages: ["English", "Turkish (basic)", "Khmer (basic)", "German (basic)"],
+      image: assetPath("/images/SETS Team 128px/SETSTeam_Bronwyn_128px.webp")
+    },
+    {
       name: "Natalia Meliendrez",
       role: "Multicultural Community Development Lead",
       location: "Central Coast",
