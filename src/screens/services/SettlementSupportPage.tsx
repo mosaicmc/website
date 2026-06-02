@@ -120,15 +120,6 @@ const SettlementSupportPage = () => {
       image: assetPath("/images/SETS Team 128px/SETSTeam_Mirja_128px.webp")
     },
     {
-      name: "Bronwyn",
-      role: "Settlement Caseworker",
-      location: "Newcastle",
-      qualifications: "BAppSci (Human Geog); Adv Clinical Training Gestalt Psychotherapy; Grad Dip Gestalt Therapy.",
-      experience: "Over 25 years of experience in community development, case management, engagement and counselling, helping individuals and communities connect, heal and thrive.",
-      languages: ["English", "Turkish (basic)", "Khmer (basic)", "German (basic)"],
-      image: assetPath("/images/SETS Team 128px/SETSTeam_Bronwyn_128px.webp")
-    },
-    {
       name: "Lee Arandale",
       role: "Settlement Caseworker",
       location: "Armidale",
