@@ -695,7 +695,84 @@
   "careersPage": {
     "badge": "Careers",
     "title": "Join the Mosaic team",
-    "description": "Explore open roles and help us support multicultural communities across NSW."
+    "description": "Explore open roles and help us support multicultural communities across NSW.",
+    "hero": {
+      "headline": "Looking for meaningful work? Join the Mosaic team.",
+      "bodyPrimary": "At Mosaic Multicultural Connections, we support people from diverse backgrounds to thrive, connect and build meaningful futures.",
+      "bodySecondary": "Every day, our team makes a real difference for individuals, families, older people and communities across our region — through practical support, strong partnerships and culturally safe care.",
+      "ctaRoles": "View open roles",
+      "ctaInterest": "Register your interest",
+      "whyTitle": "Why work with us?",
+      "whyBullets": [
+        {
+          "title": "Meaningful work",
+          "description": "Support people and communities to achieve positive outcomes and a stronger sense of belonging."
+        },
+        {
+          "title": "Career growth",
+          "description": "Access training, professional development and internal career progression opportunities."
+        },
+        {
+          "title": "Supportive team culture",
+          "description": "Work alongside passionate, experienced professionals who care about quality, respect and teamwork."
+        },
+        {
+          "title": "Flexible opportunities",
+          "description": "Explore full-time, part-time, casual and volunteer pathways depending on your goals and availability."
+        },
+        {
+          "title": "Diversity and inclusion",
+          "description": "Be part of a workplace that celebrates culture, diversity and belonging — for staff and the communities we serve."
+        }
+      ]
+    },
+    "form": {
+      "badge": "Expression Of Interest",
+      "heading": "Can't find the role you're looking for?",
+      "intro": "Join Mosaic's talent community and register your interest for future multicultural, community services, family support, settlement support and aged care jobs in NSW.",
+      "description": "If you are passionate about helping people feel welcomed, supported and connected, send us your CV and a short introduction. We review expressions of interest for upcoming opportunities across Newcastle, the Central Coast, Armidale, Tamworth and surrounding communities.",
+      "personalDetails": "Personal Details",
+      "supportingText": "Share your details below and our team will keep your application on file for relevant future opportunities.",
+      "fields": {
+        "fullName": "Full Name *",
+        "email": "Email Address *",
+        "phone": "Phone Number *",
+        "preferredLocation": "Preferred Location *",
+        "program": "Program Interested In *",
+        "coverNote": "Short Cover Note (200 words max)",
+        "resume": "Upload Resume *"
+      },
+      "placeholders": {
+        "fullName": "Your full name",
+        "email": "you@example.com",
+        "phone": "e.g. 0400 000 000",
+        "preferredLocation": "e.g. Newcastle, Central Coast, Armidale or Tamworth",
+        "program": "Select a program area",
+        "coverNote": "Tell us a little about your experience, interests and the kind of role you are seeking."
+      },
+      "programOptions": {
+        "settlement": "Settlement Services",
+        "family": "Family Support",
+        "agedCare": "Aged Care",
+        "community": "Community Engagement"
+      },
+      "resumeHelp": "Accepted file types: PDF, DOC or DOCX. Maximum file size: 10MB.",
+      "wordCount": "{{count}} / {{max}} words",
+      "submit": "Submit Expression Of Interest",
+      "submitting": "Submitting...",
+      "success": "Thank you. Your expression of interest has been sent successfully to our recruitment team.",
+      "error": "We couldn't send your form just now. Please try again or email recruitment@mosaicmc.org.au.",
+      "validation": {
+        "fullName": "Please enter your full name.",
+        "email": "Please enter a valid email address.",
+        "phone": "Please enter a valid phone number.",
+        "preferredLocation": "Please enter your preferred location.",
+        "program": "Please select a program area.",
+        "coverNote": "Please keep your cover note to 200 words or fewer.",
+        "resumeRequired": "Please upload your resume.",
+        "resumeSize": "Your resume must be 10MB or smaller."
+      }
+    }
   },
   "emergencyServices": {
     "title": "Emergency and Translation Services",
