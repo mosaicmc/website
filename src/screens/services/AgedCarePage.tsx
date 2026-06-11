@@ -510,6 +510,15 @@ const AgedCarePage = () => {
               }))}
               accentColor="care"
             />
+            <div className="text-center mt-10">
+              <Link
+                to="/company/careers"
+                className="inline-flex items-center justify-center rounded-lg bg-care px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-care/90 hover:shadow-lg hover:shadow-care/25"
+              >
+                {t('common.joinOurTeam')}
+                <ArrowRight className="h-5 w-5 ms-2" />
+              </Link>
+            </div>
           </div>
         </section>
       </LazySection>

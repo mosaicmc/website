@@ -599,6 +599,15 @@ const SettlementSupportPage = () => {
               }))}
               accentColor="sky"
             />
+            <div className="text-center mt-10">
+              <Link
+                to="/company/careers"
+                className="inline-flex items-center justify-center rounded-lg bg-sky px-8 py-4 font-semibold text-ocean transition-all duration-300 hover:scale-105 hover:bg-sky/90 hover:shadow-lg hover:shadow-sky/25"
+              >
+                {t('common.joinOurTeam')}
+                <ArrowRight className="h-5 w-5 ms-2" />
+              </Link>
+            </div>
             <div className="text-center mt-16">
               <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl max-w-4xl mx-auto">
                 <h3 className="text-xl font-bold text-foreground mb-4">{t('settlement.comprehensive.title')}</h3>
