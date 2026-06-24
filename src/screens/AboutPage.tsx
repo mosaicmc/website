@@ -131,6 +131,7 @@ const AboutPage = () => {
     { id: "peter", name: t('aboutPage.board.members.peter.name'), title: t('aboutPage.board.members.peter.title'), role: t('aboutPage.board.members.peter.role'), credentials: t('aboutPage.board.members.peter.credentials'), summary: t('aboutPage.board.members.peter.summary'), languages: t('aboutPage.board.members.peter.languages', { returnObjects: true }) as unknown as string[], bio: t('aboutPage.board.members.peter.bio'), social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/peter-gittins-35bb376/' }] },
     { id: "catherine", name: t('aboutPage.board.members.catherine.name'), title: t('aboutPage.board.members.catherine.title'), role: t('aboutPage.board.members.catherine.role'), credentials: t('aboutPage.board.members.catherine.credentials'), summary: t('aboutPage.board.members.catherine.summary'), languages: t('aboutPage.board.members.catherine.languages', { returnObjects: true }) as unknown as string[], bio: t('aboutPage.board.members.catherine.bio'), social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/catherinecandiloro/' }] },
     { id: "lauren", name: t('aboutPage.board.members.lauren.name'), title: t('aboutPage.board.members.lauren.title'), role: t('aboutPage.board.members.lauren.role'), credentials: t('aboutPage.board.members.lauren.credentials'), summary: t('aboutPage.board.members.lauren.summary'), languages: t('aboutPage.board.members.lauren.languages', { returnObjects: true }) as unknown as string[], bio: t('aboutPage.board.members.lauren.bio'), social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/locroiset/' }] },
+    { id: "naomi", name: t('aboutPage.board.members.naomi.name'), title: t('aboutPage.board.members.naomi.title'), role: t('aboutPage.board.members.naomi.role'), credentials: t('aboutPage.board.members.naomi.credentials'), summary: t('aboutPage.board.members.naomi.summary'), languages: t('aboutPage.board.members.naomi.languages', { returnObjects: true }) as unknown as string[], bio: t('aboutPage.board.members.naomi.bio'), social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/naomi-j-mclean/' }] },
   ], [t]);
   const boardImgMap: Record<string, { webp: string; jpg: string }> = {
     "sandra": {
@@ -160,6 +161,10 @@ const AboutPage = () => {
     "lauren": {
       webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp"),
       jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Lo_128px.webp"),
+    },
+    "naomi": {
+      webp: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp"),
+      jpg: assetPath("/images/aged-care/Mosaic_Board_128px/Mosaic_Board_Naomi_128px.webp"),
     },
   };
   
