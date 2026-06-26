@@ -179,7 +179,7 @@ const AgedCarePage = () => {
             <ul className="list-disc ps-5 space-y-2">
               <li>
                 <TrackedDownloadButton
-                  downloadId="price-list-sah-2025"
+                  downloadId="price-list-sah-2026"
                   className="underline underline-offset-4 text-start hover:text-care-text dark:hover:text-care transition-colors"
                 >
                   {t('agedCare.faq.pricingLinkSah')}

@@ -75,7 +75,7 @@ const AboutPage = () => {
     ] },
     { year: "2006", label: t('aboutPage.history.items.2006.label'), description: t('aboutPage.history.items.2006.description'), image: assetPath("/images/History_720px_webp/2006_SilverJubilee.webp"), alt: t('aboutPage.history.items.2006.alt'), details: t('aboutPage.history.items.2006.details'), gallery: [] },
     { year: "2007", label: t('aboutPage.history.items.2007.label'), description: t('aboutPage.history.items.2007.description'), image: assetPath("/images/History_720px_webp/2007_NSS.webp"), alt: t('aboutPage.history.items.2007.alt'), details: t('aboutPage.history.items.2007.details') },
-    { year: "2011", label: t('aboutPage.history.items.2011.label'), description: t('aboutPage.history.items.2011.description'), image: assetPath("/images/History_720px_webp/2011_VJW_Farewell.webp"), alt: t('aboutPage.history.items.2011.alt'), details: t('aboutPage.history.items.2011.details'), gallery: [assetPath("/images/History_720px_webp/2011_VJW_Farewell_01.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_02.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_03.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_04.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_05.webp"), assetPath("/images/History_720px_webp/2010_Lulu Tantos.webp")] },
+    { year: "2011", label: t('aboutPage.history.items.2011.label'), description: t('aboutPage.history.items.2011.description'), image: assetPath("/images/History_720px_webp/2011_VJW_Farewell.webp"), alt: t('aboutPage.history.items.2011.alt'), details: t('aboutPage.history.items.2011.details'), gallery: [assetPath("/images/History_720px_webp/2011_VJW_Farewell_01.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_02.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_03.webp"), assetPath("/images/History_720px_webp/2011_VJW_Farewell_04.webp"), assetPath("/images/History_720px_webp/2010_Lulu Tantos.webp")] },
     { year: "2019", label: t('aboutPage.history.items.2019.label'), description: t('aboutPage.history.items.2019.description'), image: assetPath("/images/History_720px_webp/2019_ShaonDaishe.webp"), alt: t('aboutPage.history.items.2019.alt'), details: t('aboutPage.history.items.2019.details') },
     { year: "2021", label: t('aboutPage.history.items.2021.label'), description: t('aboutPage.history.items.2021.description'), image: assetPath("/images/History_720px_webp/2021_40th Celebration01.webp"), alt: t('aboutPage.history.items.2021.alt'), details: t('aboutPage.history.items.2021.details'), gallery: [
       assetPath("/images/History_720px_webp/2021_40th Celebration04.webp"),
@@ -191,16 +191,6 @@ const AboutPage = () => {
       social: []
     },
     {
-      id: "belinda",
-      name: t('aboutPage.management.members.belinda.name'),
-      title: t('aboutPage.management.members.belinda.title'),
-      level: 2 as const,
-      languages: t('aboutPage.management.members.belinda.languages', { returnObjects: true }) as unknown as string[],
-      bio: t('aboutPage.management.members.belinda.bio'),
-      credentialsSummary: t('aboutPage.management.members.belinda.credentials'),
-      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/belinda-latimore-46061175/' }]
-    },
-    {
       id: "richard",
       name: t('aboutPage.management.members.richard.name'),
       title: t('aboutPage.management.members.richard.title'),
@@ -236,10 +226,6 @@ const AboutPage = () => {
       webp: "/images/Management 128px/Helen_Management02.webp",
       jpg: "/images/Management 128px/Helen_Management02.webp",
     },
-    "belinda": {
-      webp: "/images/Management 128px/Management_Belinda_128px.webp",
-      jpg: "/images/Management 128px/Management_Belinda_128px.webp",
-    },
     "richard": {
       webp: "/images/Management 128px/Management_Richard_128px.webp",
       jpg: "/images/Management 128px/Management_Richard_128px.webp",
@@ -250,7 +236,7 @@ const AboutPage = () => {
     },
     "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
-      jpg: "/images/Management 128px/Management_Jawaid_128.jpg",
+      jpg: "/images/Management 128px/Management_Jawaid_128.webp",
     },
   };
   const [activeManager, setActiveManager] = React.useState<ManagementMember | null>(null);

@@ -200,10 +200,10 @@ export const DOWNLOAD_CATALOG: DownloadItem[] = [
 
   // --- Price Lists ---
   {
-    id: "price-list-sah-2025",
-    label: "SaH Pricelist 2025",
+    id: "price-list-sah-2026",
+    label: "SaH Pricelist 2026",
     category: DOWNLOAD_CATEGORIES.PRICE_LIST,
-    path: "/brochures/Home_Care_Price_List/SaH Pricelist 2025.pdf",
+    path: "/brochures/Home_Care_Price_List/SaH Pricelist 2026.pdf",
   },
 
   // --- Historical Documents ---
