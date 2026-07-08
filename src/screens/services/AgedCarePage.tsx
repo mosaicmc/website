@@ -123,6 +123,42 @@ const AgedCarePage = () => {
       experience: "Will has supported individuals in the community for over 13 years, with experience across disability care, mental health, and aged care. He is focused on helping individuals maintain their independence.",
       languages: ["English"],
       image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Will_128px.webp")
+    },
+    {
+      name: "Ellie Peter",
+      role: "Roster and Administration Coordinator",
+      location: "Newcastle",
+      qualifications: "Certificate III in Business Administration; Certificate IV in Leadership and Management.",
+      experience: "Ellie has over 12 years' experience in rostering across both aged care and disability care. She enjoys helping people to remain living independently in their own homes for as long as possible, and thrives on the constant changes of rostering — where no two days are ever the same.",
+      languages: ["English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Ellie_128px.webp")
+    },
+    {
+      name: "Kurt Southam",
+      role: "Care Support Coordinator",
+      location: "Newcastle",
+      qualifications: "Certificate IV in Disability; Bachelor of Business; Bachelor of Human Movement Science.",
+      experience: "Kurt has more than 18 years' experience in the care sector, supporting individuals across community and residential settings in both disability and aged care organisations. His career has evolved from direct support roles to coordinating aged care and disability day programs as well as in-home support services, giving him well-rounded industry knowledge and an extensive skill set in service delivery, program coordination and person-centred care.",
+      languages: ["English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Kurt_128px.webp")
+    },
+    {
+      name: "Kristy Holloway",
+      role: "Roster Coordinator",
+      location: "Central Coast",
+      qualifications: "",
+      experience: "Kristy has over 20 years' experience in roster coordination across aged and disability care.",
+      languages: ["English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Kristy_128px.webp")
+    },
+    {
+      name: "Lucy Hanlon",
+      role: "Clinical Lead RN",
+      location: "Newcastle",
+      qualifications: "Bachelor of Nursing; Graduate Certificate in Acute Care Nursing; Master of Nursing (Clinical Education).",
+      experience: "Lucy has worked as a Registered Nurse for more than 16 years across acute medical wards, rehabilitation, aged care and clinical education. For the past five years she has worked as a community RN focusing on complex clinical care and clinical assessments, as well as training and education. She enjoys working in the community and supporting older people to achieve the best possible outcomes.",
+      languages: ["English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp")
     }
   ];
 
