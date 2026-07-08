@@ -410,12 +410,6 @@ export const DOWNLOAD_CATALOG: DownloadItem[] = [
     path: "/annual-reports/Annual Report 2019.pdf",
   },
   {
-    id: "annual-report-2020",
-    label: "Annual Report 2020",
-    category: DOWNLOAD_CATEGORIES.ANNUAL_REPORT,
-    path: "/annual-reports/Annual Report 2020.pdf",
-  },
-  {
     id: "annual-report-2021",
     label: "Annual Report 2021",
     category: DOWNLOAD_CATEGORIES.ANNUAL_REPORT,
