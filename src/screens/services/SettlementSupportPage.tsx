@@ -147,15 +147,6 @@ const SettlementSupportPage = () => {
       image: assetPath("/images/SETS Team 128px/SETSTeam_Rose_128px.webp")
     },
     {
-      name: "Michael de Laroche Souvestre",
-      role: "Settlement Caseworker",
-      location: "Tamworth",
-      qualifications: "Associate Degree in Policing Practice.",
-      experience: "Over 10 years of experience in policing, community engagement and domestic violence support, helping individuals and families stay safe and access justice.",
-      languages: ["English"],
-      image: assetPath("/images/SETS Team 128px/SETSTeam_Michael_128px.webp")
-    },
-    {
       name: "Madan Narayanamurthy",
       role: "Regional Coordinator, Settlement Services",
       location: "Armidale",
@@ -163,6 +154,24 @@ const SettlementSupportPage = () => {
       experience: "Over 10 years of experience in program and community development for non-profits, with a focus on managing digital fundraising and event promotions.",
       languages: ["English", "Hindi", "Tamil", "Telugu"],
       image: assetPath("/images/SETS Team 128px/SETSTeam_Madan_128px.webp")
+    },
+    {
+      name: "Edwin Ngetich",
+      role: "Settlement Caseworker",
+      location: "Tamworth",
+      qualifications: "Bachelor's Degree in Community Service; Diploma in Community Service; currently enrolled in a Master of Education.",
+      experience: "Edwin is a dedicated community services professional with extensive experience in case management, therapeutic care and community engagement. He currently serves as an Engagement Coordinator with Multicultural NSW on a voluntary basis, building partnerships with culturally and linguistically diverse communities, coordinating community engagement initiatives and promoting social inclusion. He also supports migrants, refugees, young people and vulnerable individuals through case management, advocacy, service coordination and linking clients to essential services to foster successful settlement and community participation.",
+      languages: ["English", "Swahili", "Kalenjin"],
+      image: assetPath("/images/SETS Team 128px/SETSTeam_Edwin_320px.webp")
+    },
+    {
+      name: "Hayley Bateman",
+      role: "Settlement Caseworker",
+      location: "Newcastle",
+      qualifications: "Diploma of Community Services; Certificate IV in Education Support; Certificate III in Tourism/Events.",
+      experience: "Hayley has extensive experience in refugee settlement, community welfare, youth services, and domestic and family violence support. She is passionate about empowering individuals and strengthening communities through compassionate, trauma-informed practice.",
+      languages: ["English"],
+      image: assetPath("/images/SETS Team 128px/SETSTeam_Hayley_320px.webp")
     }
   ];
 
