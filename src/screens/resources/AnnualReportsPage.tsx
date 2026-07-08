@@ -49,7 +49,6 @@ const reports: Report[] = [
   { year: "2017", downloadId: "annual-report-2017" },
   { year: "2018", downloadId: "annual-report-2018" },
   { year: "2019", downloadId: "annual-report-2019" },
-  { year: "2020", downloadId: "annual-report-2020" },
   { year: "2021", downloadId: "annual-report-2021" },
   { year: "2022", downloadId: "annual-report-2022" },
   { year: "2023", downloadId: "annual-report-2023" },
