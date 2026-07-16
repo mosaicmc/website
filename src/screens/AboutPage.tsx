@@ -191,16 +191,6 @@ const AboutPage = () => {
       social: []
     },
     {
-      id: "richard",
-      name: t('aboutPage.management.members.richard.name'),
-      title: t('aboutPage.management.members.richard.title'),
-      level: 2 as const,
-      languages: t('aboutPage.management.members.richard.languages', { returnObjects: true }) as unknown as string[],
-      bio: t('aboutPage.management.members.richard.bio'),
-      credentialsSummary: t('aboutPage.management.members.richard.credentials'),
-      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/richardmarkhanson/' }]
-    },
-    {
       id: "tim",
       name: t('aboutPage.management.members.tim.name'),
       title: t('aboutPage.management.members.tim.title'),
@@ -225,10 +215,6 @@ const AboutPage = () => {
     "rob": {
       webp: "/images/Management 128px/Helen_Management02.webp",
       jpg: "/images/Management 128px/Helen_Management02.webp",
-    },
-    "richard": {
-      webp: "/images/Management 128px/Management_Richard_128px.webp",
-      jpg: "/images/Management 128px/Management_Richard_128px.webp",
     },
     "tim": {
       webp: "/images/Management 128px/Tim_Management.webp",
