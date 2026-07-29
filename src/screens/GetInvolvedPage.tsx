@@ -42,7 +42,7 @@ const GetInvolvedPage = () => {
           t('getInvolved.opportunities.volunteer.benefits.3')
         ],
         action: t('getInvolved.opportunities.volunteer.action'),
-        link: "#volunteer-with-us-heading",
+        link: "/volunteer",
         external: false,
         color: "sky"
       },
