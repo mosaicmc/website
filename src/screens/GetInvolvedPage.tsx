@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@/components/ui/Section';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
-import { Heart, Briefcase, ArrowRight, ExternalLink, ClipboardList } from 'lucide-react';
+import { Heart, Users, Briefcase, ArrowRight, ExternalLink, ClipboardList } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -30,6 +30,21 @@ const GetInvolvedPage = () => {
       link: "/donate",
       external: false,
       color: "earth"
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: t('getInvolved.opportunities.volunteer.title'),
+      description: t('getInvolved.opportunities.volunteer.description'),
+      benefits: [
+        t('getInvolved.opportunities.volunteer.benefits.0'),
+        t('getInvolved.opportunities.volunteer.benefits.1'),
+        t('getInvolved.opportunities.volunteer.benefits.2'),
+        t('getInvolved.opportunities.volunteer.benefits.3')
+      ],
+      action: t('getInvolved.opportunities.volunteer.action'),
+      link: "/volunteer",
+      external: false,
+      color: "sky"
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
