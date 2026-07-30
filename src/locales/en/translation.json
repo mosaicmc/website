@@ -100,9 +100,17 @@
           "title": "About Mosaic",
           "description": "Learn about our mission, values, board and management."
         },
+        "impactStories": {
+          "title": "Impact Stories",
+          "description": "Real stories of people whose lives have been changed by Mosaic."
+        },
         "media": {
           "title": "Media & Press",
           "description": "External media coverage and articles featuring Mosaic."
+        },
+        "ourStory": {
+          "title": "Our Story",
+          "description": "The history and journey of Mosaic Multicultural Connections."
         }
       },
       "resources": {
@@ -1518,79 +1526,251 @@
   },
   "storiesPage": {
     "meta": {
-      "title": "Community Stories | Mosaic Multicultural Connections",
-      "description": "Read inspiring stories and impact highlights from multicultural communities supported by Mosaic Multicultural Connections."
+      "title": "Impact Stories | Mosaic Multicultural Connections",
+      "description": "Real stories of people whose lives have been transformed through the support of Mosaic Multicultural Connections across NSW."
     },
     "hero": {
-      "badge": "Community Stories",
-      "title": "Stories & Impact",
-      "description": "Real stories from our community members, showcasing the transformative power of support, connection, and cultural celebration."
+      "badge": "Impact Stories",
+      "title": "Stories of Change",
+      "description": "Behind every case is a person with strengths, ambitions, and the potential to make a difference. These are their stories."
     },
     "categories": {
       "all": "All Stories",
-      "settlement": "Settlement Success",
-      "homeCare": "Home Care",
-      "youth": "Youth Programs",
+      "settlement": "Settlement",
+      "youth": "Youth",
+      "employment": "Employment",
+      "aged-care": "Aged Care",
       "family": "Family Support",
-      "volunteer": "Volunteer Stories",
-      "events": "Community Events"
+      "volunteer": "Volunteering"
     },
     "items": {
-      "ahmed": {
-        "title": "From Refugee to Community Leader: Ahmed's Journey",
-        "excerpt": "After arriving from Sudan with his family, Ahmed Hassan found hope and support through Mosaic's settlement services. Today, he leads community programs helping other new arrivals."
+      "mustafa": {
+        "title": "Playing Forward",
+        "subtitle": "From rebuilding his life to coaching the next generation — a journey of connection, confidence and leadership.",
+        "excerpt": "Mustafa Mohmand arrived in Australia having forgotten football. Now he coaches the senior women's National Premier League side at Maitland FC — and his journey began with Mosaic's COMPACT program.",
+        "program": "COMPACT (Youth)",
+        "funder": "Multicultural NSW",
+        "location": "Newcastle / Hunter, NSW",
+        "date": "08 July 2026",
+        "category": "youth",
+        "readTime": 7,
+        "quote": "Home is a home. Home sweet home. But sometimes you have to make another decision, to leave your home, your relatives, everyone.",
+        "quoteAuthor": "Mustafa Mohmand",
+        "statLabel": "Young people connected",
+        "statValue": "Hundreds",
+        "statContext": "COMPACT connected hundreds of young people from migrant and refugee backgrounds through more than 40 activities across Newcastle and Hunter Region between 2021 and 2024."
       },
-      "maria": {
-        "title": "Preserving Culture Through Home Care",
-        "excerpt": "Maria's story shows how culturally appropriate home care helps seniors maintain their identity while receiving the support they need in their golden years."
+      "orien": {
+        "title": "The Strength She Already Carried",
+        "subtitle": "From surviving ISIS to becoming a bilingual support worker — Orien Khalaf found her purpose through Mosaic.",
+        "excerpt": "After fleeing Shingal during the 2014 ISIS attack and spending four years in refugee camps, Orien Khalaf arrived in Australia and found not just safety, but purpose — working as a Bilingual Support Worker at Mosaic.",
+        "program": "SETS Program / Women's Group",
+        "funder": "Mosaic Multicultural Connections",
+        "location": "Armidale, NSW",
+        "date": "2026",
+        "category": "settlement",
+        "readTime": 8,
+        "quote": "Mosaic didn't just help my family settle. They helped me find my purpose. They showed me that my journey — the hard parts, the language struggles, everything I went through — it wasn't just for me. It was so I could help other women find their strength too.",
+        "quoteAuthor": "Orien Khalaf",
+        "statLabel": "Clients supported in Armidale",
+        "statValue": "743",
+        "statContext": "Since opening our Armidale office in 2019, Mosaic has supported 743 clients across 1,264 cases. In 2025–26 alone, we assisted 159 clients through 337 cases."
       },
-      "youth": {
-        "title": "Building Bridges: The Youth Leadership Program",
-        "excerpt": "Young people from diverse backgrounds come together to develop leadership skills and create positive change in their communities through our youth programs."
-      },
-      "family": {
-        "title": "Family Reunification: A Story of Hope",
-        "excerpt": "After years of separation, the Chen family was reunited in Australia. Our family support services helped them rebuild their lives and strengthen their bonds."
-      },
-      "volunteer": {
-        "title": "Volunteer Spotlight: Making a Difference",
-        "excerpt": "Meet Jennifer, a dedicated volunteer who has been supporting settlement services for three years, helping dozens of families find their place in Australia."
-      },
-      "festival": {
-        "title": "Cultural Festival Brings Community Together",
-        "excerpt": "The annual Multicultural Festival showcased the rich diversity of our community, featuring food, music, and traditions from over 20 different cultures."
+      "akol": {
+        "title": "Eight Years in the Waiting",
+        "subtitle": "After eight years of waiting and a journey across the world, Akol Koor found steady ground through the right support at the right time.",
+        "excerpt": "Akol Manyang Nyinde Koor waited eight years for her visa to be approved. When she finally arrived in Armidale, NSW in March 2025 — pregnant and without access to Centrelink — Mosaic helped her family find work, independence and belonging.",
+        "program": "Settlement Support",
+        "funder": "Mosaic Multicultural Connections",
+        "location": "Armidale, NSW",
+        "date": "2026",
+        "category": "settlement",
+        "readTime": 7,
+        "quote": "Don't feel shy. Don't feel intimidated. Come out, speak to someone at Mosaic. Everything remains private. Mosaic opens the door and you follow them.",
+        "quoteAuthor": "Akol Koor",
+        "statLabel": "Clients supported in Armidale",
+        "statValue": "743",
+        "statContext": "Since opening our Armidale office in 2019, Mosaic has supported 743 clients across 1,264 cases. In 2025–26 alone, we worked with 159 clients across 337 cases."
       }
     },
-    "readMore": "Read Full Story",
+    "readMore": "Read the full story",
     "readTime": "{{count}} min read",
-    "impact": {
-      "title": "Our Community Impact",
-      "description": "These numbers represent real lives changed and communities strengthened through our work.",
-      "stats": {
-        "families": {
-          "label": "Families Supported",
-          "desc": "Across all our programs"
+    "allStories": "View all impact stories",
+    "backToStories": "Back to Impact Stories",
+    "programLabel": "Program",
+    "funderLabel": "Funded by",
+    "locationLabel": "Location",
+    "dateLabel": "Published",
+    "impactHighlight": "Impact Highlight",
+    "shareStory": "Share this story",
+    "prevStory": "Previous story",
+    "nextStory": "Next story"
+  },
+  "impactStoriesPreview": {
+    "badge": "Impact Stories",
+    "title": "Stories of Change",
+    "description": "Real stories from people whose lives have been transformed through Mosaic's programs.",
+    "viewAll": "View all stories"
+  },
+  "storyDetail": {
+    "mustafa": {
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "Mustafa Mohmand had spent almost his whole life around football. By the time he reached Australia, it became a distant memory. \"I totally forgot football,\" he says. For months after arriving, he did not think about the game at all."
         },
-        "stories": {
-          "label": "Success Stories",
-          "desc": "Documented transformations"
+        {
+          "type": "paragraph",
+          "text": "He grew up in a small garrison town in Kandahar, five or six big buildings, home to the families of men who worked for the military. There was not much there. But there was football every afternoon, on stone-covered pitches. He was seven when he first walked onto one of those grounds. He turned out to be good — playing for Kandahar's provincial side, then for Afghanistan's national youth teams, up through the age groups from the under-13s."
         },
-        "languages": {
-          "label": "Languages",
-          "desc": "Community representation"
+        {
+          "type": "quote",
+          "text": "If that game is finished, it never comes back. That's gone.",
+          "author": "Mustafa Mohmand"
         },
-        "outcomes": {
-          "label": "Positive Outcomes",
-          "desc": "Client satisfaction rate"
+        {
+          "type": "paragraph",
+          "text": "His family had supported Australian Defence Force efforts back home. When the Taliban returned in 2021, staying was no longer safe, and they left. They arrived in a new country with a bag of clothes and a heart filled with hope."
+        },
+        {
+          "type": "quote",
+          "text": "Home is a home. Home sweet home. But sometimes you have to make another decision, to leave your home, your relatives, everyone.",
+          "author": "Mustafa Mohmand"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mustafa first heard about Mosaic through his older brother, Sami, who had already settled in Australia and was working with the COMPACT program. Through COMPACT — funded by Multicultural NSW for young people who arrive the way he had — Mustafa found his way back. COMPACT did not hand him a ball. It took him on trips, to Canberra, to Armidale, around the Hunter, alongside other young Australians and Aboriginal communities. He started talking to people and understanding them. \"I got really better in communication,\" he says."
+        },
+        {
+          "type": "paragraph",
+          "text": "It was through COMPACT that Sami connected him to Joseph Wright, a well-known coach around Newcastle, who ran a training programme for local kids. Joe met him and asked him to help coach. He said no. Here was a man who had played for his country's youth teams and carried a coaching licence from home, and when he was asked to stand in front of a group of Australian children, he did not believe he was good enough. So he did not coach. He played. Through COMPACT he was introduced to Newcastle Olympic, and he played two full seasons. Then to Stockton Sharks, where he lined up in first grade."
+        },
+        {
+          "type": "paragraph",
+          "text": "And then one day he decided he was ready. He asked Maitland FC for a coaching trial, and they gave him the under-13s girls. He was good with them. Within two months the club moved him up to its senior women's side in the National Premier League, as the senior assistant coach and reserve-grade coach, where he still is."
+        },
+        {
+          "type": "quote",
+          "text": "They fought for it to the last whistle, and they got it.",
+          "author": "Mustafa Mohmand"
+        },
+        {
+          "type": "paragraph",
+          "text": "On 3 June 2025, in the New South Wales Parliament, the Member for Maitland, Jenny Aitchison, read a Community Recognition Notice into the record, thanking Mustafa for his commitment to football in the Maitland community. His club coach Joe Wright said the club was lucky to have not only someone of Mustafa's coaching calibre, but his character. Mustafa was not in the room. He learned of it by letter. Asked whether he had ever had anything like it back home, he answers twice. \"Never. Never.\" It was never about the honour. It was about being seen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Four years ago, Mustafa Mohmand arrived in Australia having forgotten football. Now he spends most evenings teaching it. And most nights, when he sits down to study footage of his own team and the sides they are about to face, a small person sits down beside him — Hoora his daughter, now four, watching the players move across the screen and asking him why that one ran that way."
+        },
+        {
+          "type": "quote",
+          "text": "One day, one of my team players will be my daughter.",
+          "author": "Mustafa Mohmand"
         }
-      }
+      ]
     },
-    "newsletter": {
-      "title": "Stay Updated",
-      "description": "Subscribe to our newsletter to receive the latest stories, program updates, and community news.",
-      "placeholder": "Enter your email",
-      "button": "Subscribe",
-      "note": "Monthly updates • Unsubscribe anytime • Privacy respected"
+    "orien": {
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "On the 3rd of August, 2014, Orien Khalaf was given one instruction: go. ISIS had arrived in Shingal. Her father, a Yazidi policeman, had been fighting to hold them back. He came running to their house. There were nine of them inside. He told them ISIS was following. They had to leave immediately. Her grandmother was too old to walk to the mountain. She told them to go without her."
+        },
+        {
+          "type": "paragraph",
+          "text": "They walked from nine in the morning until five in the afternoon. When they reached the mountain, they stayed. Seven days. No food. No water. Nothing. What Orien carried off that mountain is not the kind of thing you can see. It is the understanding, forged in the most unimaginable circumstances, of what it means to be truly without — and to survive anyway."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the refugee camp, Orien Khalaf was the one who made the desserts. She had siblings, and she had the knowledge that small things matter when the larger world has been stripped away. She taught herself to make pastries from whatever was available. She was a teenager. She did it anyway. After four years in refugee camps, when Orien arrived in Australia in December 2018, she was safe."
+        },
+        {
+          "type": "paragraph",
+          "text": "In 2019, Orien attended a Centrelink appointment. An interpreter had been booked for her. He spoke Sorani, a Kurdish dialect different from her own. She could not understand him. Help was being offered in that room, and none of it was reaching her. That experience did not leave her. That was the moment that would shape everything she became as a support worker."
+        },
+        {
+          "type": "quote",
+          "text": "I made sure they really understood. I made sure they knew what was happening. Because I knew how it felt to be lost in translation.",
+          "author": "Orien Khalaf"
+        },
+        {
+          "type": "paragraph",
+          "text": "Orien first came to Mosaic to get her travel documents translated as part of the SETS Programme, then again to seek assistance to fill out her application for her patisserie course at TAFE. The work and workers of Mosaic made a deep impact on Orien and soon she began volunteering in Mosaic's women's group, sitting alongside women from many different backgrounds who did not speak English, translating and bridging what needed to be bridged."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mosaic recognised this. She was not a refugee who needed a service. She was someone with a deep, practical understanding of what good support looks like — and what its absence feels like too. She began as a volunteer. She grew into a role. Today, Orien works with Mosaic as a Bilingual Support Worker, supporting women aged 18 to 35 through our domestic violence programmes. She is studying Certificate III in Community Services, building toward a degree in social work."
+        },
+        {
+          "type": "quote",
+          "text": "I was proud too. Because I remember when I did my patisserie course. It was hard, English wasn't my first language, but I finished it.",
+          "author": "Orien Khalaf"
+        },
+        {
+          "type": "paragraph",
+          "text": "That is how Orien works. She does not point people toward what they need from a safe distance. She sits beside them, because she has walked the same road. When ISIS attacked Shingal in 2014, they came in part because Yazidi women and girls could be taken. Orien watched that happen. It shaped every professional decision she has made since."
+        },
+        {
+          "type": "quote",
+          "text": "Mosaic didn't just help my family settle. They helped me find my purpose. They showed me that my journey — the hard parts, the language struggles, everything I went through — it wasn't just for me. It was so I could help other women find their strength too.",
+          "author": "Orien Khalaf"
+        },
+        {
+          "type": "paragraph",
+          "text": "She wants to say thank you to Australia for safety and freedom. And thank you to Mosaic for seeing not just who she was when she arrived, but who she could become. The pastries she makes now are not for surviving. They are for celebrating."
+        }
+      ]
+    },
+    "akol": {
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "The application went in 2017. Akol Manyang Nyinde Koor was still a teenager in South Sudan, growing up in a household held together by her uncle's wages sent from Australia. He had been paying for food, school fees, medicine, and rent from the other side of the world for years. When he applied for his nieces and nephews to join him, they waited. And kept waiting."
+        },
+        {
+          "type": "paragraph",
+          "text": "They arrived on March 11, 2025. Eight years after the paperwork was lodged."
+        },
+        {
+          "type": "quote",
+          "text": "When we reached the Sydney airport, we were all looking everywhere. We were like, this is Australia. Back home it is just a small town. It's called a city, but it's a town. And then here, tarmac roads everywhere.",
+          "author": "Akol Koor"
+        },
+        {
+          "type": "paragraph",
+          "text": "Akol grew up knowing she wanted to be a doctor. Australia, in her mind, was where she was going to study properly, access real facilities, and build something that could stand on its own. What she did not know until she arrived was how much the visa category she came in on would shape her first months here. The Orphan Relative Visa, subclass 117, does not carry access to Centrelink payments for adults. There was another detail Akol had not factored into the plan. She arrived pregnant."
+        },
+        {
+          "type": "paragraph",
+          "text": "It was Cholhok Mathiang, a family connection who had worked with Mosaic, who brought Akol and her siblings to meet Madan, their caseworker. That first meeting set the tone for everything that followed. Madan found a horticulture farm in the region with casual harvest positions available. He organised mock interviews, let them use the office computers to sit the real interview online, and kept every question answered. When the email came through confirming all three siblings had been offered positions, the household did not sleep."
+        },
+        {
+          "type": "quote",
+          "text": "Everyone kept telling us, getting jobs is not easy when you have just arrived in Australia. But with Mosaic, everything was made simple.",
+          "author": "Akol Koor"
+        },
+        {
+          "type": "paragraph",
+          "text": "What the farm has meant to her goes beyond a pay cheque. When she was heavily pregnant, she was not put on a roster and left to manage. Supervisors noticed when she was on her feet too long. They told her to sit. When she felt dizzy, they sent her for water. After her baby was born and childcare arrangements occasionally fell through, there was no pressure, no performance review, no quiet disappointment."
+        },
+        {
+          "type": "quote",
+          "text": "They acted like my family. I don't know if we would ever get the chance to see people like them.",
+          "author": "Akol Koor"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mosaic kept moving through that period too. Madan worked through Centrelink with Akol to ensure her baby was registered for the payments she was entitled to. Photo identification was sorted. Learner driver permits were obtained. First Aid certification was completed, including CPR, fire response, and choking procedures that Akol now applies as a mother."
+        },
+        {
+          "type": "paragraph",
+          "text": "Her dream of medicine has not gone anywhere. It has recalibrated. A year of steady work, a baby, a driving licence in progress, TAFE registration underway: the foundation is being built carefully, and nursing is what she is moving towards."
+        },
+        {
+          "type": "quote",
+          "text": "Don't feel shy. Don't feel intimidated. Come out, speak to someone at Mosaic. Everything remains private. Because if you are at home and you are having an issue, will anybody know? No. But if you come out and talk about it, they will know. You will be helped and you will feel secure. Mosaic opens the door and you follow them.",
+          "author": "Akol Koor"
+        }
+      ]
     }
   },
   "contact": {
