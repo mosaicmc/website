@@ -13,6 +13,10 @@ import { AU } from '@/lib/auSpelling';
 type StoryId = 'mustafa' | 'orien' | 'akol';
 
 const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> = {
+  mustafa: {
+    src: '/images/stories/mustafa-1-portrait.jpg',
+    alt: 'Mustafa Mohmand "Zac" standing on the football pitch sideline',
+  },
   orien: {
     src: '/images/stories/orien-1-portrait.jpg',
     alt: 'Orien Khalaf smiling inside the Thread Shed community hall, Newcastle',
@@ -24,18 +28,19 @@ const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> 
 };
 
 // Program colour mapping:
-//   Mustafa — COMPACT (Community Engagement) → sun/gold
+//   Mustafa — COMPACT (Community Engagement) → leaf (green)
 //   Orien   — SETS → sky (teal)
 //   Akol    — SETS → sky (teal)
+//   Family Services → sun (gold)  |  Aged Care → care (pink)
 const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge: string; panel: string; panelText: string; panelMeta: string; dot: string }> = {
   mustafa: {
-    accent: 'bg-sun',
-    accentText: 'text-sun-text dark:text-sun',
+    accent: 'bg-leaf',
+    accentText: 'text-leaf-text dark:text-leaf',
     badge: 'bg-white/20 text-white border-white/30',
-    panel: 'bg-sun/10 dark:bg-sun/15',
+    panel: 'bg-leaf/10 dark:bg-leaf/15',
     panelText: 'text-gray-900 dark:text-white',
-    panelMeta: 'text-gray-600 dark:text-sun/80',
-    dot: 'bg-sun',
+    panelMeta: 'text-gray-600 dark:text-leaf/80',
+    dot: 'bg-leaf',
   },
   orien: {
     accent: 'bg-sky',

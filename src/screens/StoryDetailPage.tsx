@@ -19,20 +19,49 @@ interface Props {
 const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol'];
 
 // Program colour mapping:
-//   Mustafa — COMPACT (Community Engagement) → sun/gold
+//   Mustafa — COMPACT (Community Engagement) → leaf (green)
 //   Orien   — SETS → sky (teal)
 //   Akol    — SETS → sky (teal)
+//   Family Services → sun (gold)  |  Aged Care → care (pink)
 const ACCENT: Record<StoryId, { bar: string; text: string; badge: string; bg: string }> = {
-  mustafa: { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',  badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',  bg: 'bg-sun/5 dark:bg-sun/10' },
-  orien:   { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',  badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',  bg: 'bg-sky/5 dark:bg-sky/10' },
-  akol:    { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',  badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',  bg: 'bg-sky/5 dark:bg-sky/10' },
+  mustafa: { bar: 'bg-leaf', text: 'text-leaf-text dark:text-leaf', badge: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20', bg: 'bg-leaf/5 dark:bg-leaf/10' },
+  orien:   { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
+  akol:    { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
 };
 
-// hero: shown in the article header; gallery: woven into the body after paragraph 3 and 6
+// hero: shown in the article header; gallery: woven evenly into the body
 const STORY_IMAGES: Partial<Record<StoryId, {
   hero: { src: string; alt: string };
   gallery?: Array<{ src: string; alt: string; caption?: string }>;
 }>> = {
+  mustafa: {
+    hero: {
+      src: '/images/stories/mustafa-1-portrait.jpg',
+      alt: 'Mustafa Mohmand "Zac" standing on the football pitch sideline',
+    },
+    gallery: [
+      {
+        src: '/images/stories/mustafa-2-childhood.jpg',
+        alt: 'Mustafa aged 10 with his football team in Kandahar Daman, Afghanistan — he is circled in red',
+        caption: 'Mustafa aged 10, after a game of football with friends in Kandahar Daman, Afghanistan',
+      },
+      {
+        src: '/images/stories/mustafa-3-canberra.jpg',
+        alt: 'Mustafa with five friends at an outdoor table on a COMPACT trip to Canberra, ACT',
+        caption: 'Mustafa on a COMPACT trip to Canberra, ACT',
+      },
+      {
+        src: '/images/stories/mustafa-4-football.jpg',
+        alt: 'Mustafa dribbling in an action shot playing for Stockton Sharks FC vs Newcastle Suns FC at Myers Park',
+        caption: 'Mustafa playing for Stockton Sharks FC vs Newcastle Suns FC, Myers Park',
+      },
+      {
+        src: '/images/stories/mustafa-5-awards.jpg',
+        alt: 'Mustafa in a black suit standing with Joseph Wright at the Van Egmond Jennings Awards, teal backdrop',
+        caption: 'Mustafa with Joseph Wright, Head Coach of Maitland FC NPL, at the Van Egmond Jennings Awards',
+      },
+    ],
+  },
   orien: {
     hero: {
       src: '/images/stories/orien-1-portrait.jpg',
