@@ -122,7 +122,7 @@ const StoryDetailPage = ({ storyId }: Props) => {
   const prevId = idx > 0 ? STORY_SEQUENCE[idx - 1] : null;
   const nextId = idx < STORY_SEQUENCE.length - 1 ? STORY_SEQUENCE[idx + 1] : null;
 
-  const sections = t(`storyDetail.${storyId}.sections`, { returnObjects: true }) as SectionItem[];
+  const sections = t(`storyDetail.${storyId}.sections`, { returnObjects: true }) as unknown as SectionItem[];
   const images = STORY_IMAGES[storyId];
 
   // Distribute gallery images evenly across the story's paragraph count
