@@ -96,6 +96,16 @@ const StoryDetailPage = ({ storyId }: Props) => {
   const sections = t(`storyDetail.${storyId}.sections`, { returnObjects: true }) as SectionItem[];
   const images = STORY_IMAGES[storyId];
 
+  // Distribute gallery images evenly across the story's paragraph count
+  const totalParas = Array.isArray(sections) ? sections.filter(s => s.type === 'paragraph').length : 0;
+  const galleryCount = images?.gallery?.length ?? 0;
+  // e.g. 7 paragraphs, 3 images → inject after paragraphs 2, 4, 6
+  const galleryAfterParas: number[] = galleryCount > 0
+    ? Array.from({ length: galleryCount }, (_, i) =>
+        Math.round(((i + 1) / (galleryCount + 1)) * totalParas)
+      )
+    : [];
+
   return (
     <PageTransition>
       <div>
@@ -167,10 +177,9 @@ const StoryDetailPage = ({ storyId }: Props) => {
           <div className="max-w-3xl mx-auto">
             <article aria-label={t(`storiesPage.items.${storyId}.title`)}>
               {Array.isArray(sections) && sections.map((section, i) => {
-                // Inject gallery images at natural breakpoints (after para 3, 6, and 9)
-                const galleryAfter = [3, 6, 9];
+                // Inject gallery images evenly distributed across the story's paragraphs
                 const paraCount = sections.slice(0, i + 1).filter(s => s.type === 'paragraph').length;
-                const galleryIndex = galleryAfter.indexOf(paraCount);
+                const galleryIndex = galleryAfterParas.indexOf(paraCount);
                 const showGallery = section.type === 'paragraph' && galleryIndex !== -1 && images?.gallery?.[galleryIndex];
 
                 return (
