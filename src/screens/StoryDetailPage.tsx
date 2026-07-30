@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Tag, Quote, ArrowRight } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { PageTransition } from '@/components/ui/PageTransition';
 import RelatedServices from '@/components/RelatedServices';
 
@@ -270,31 +269,43 @@ const StoryDetailPage = ({ storyId }: Props) => {
         </Section>
 
         {/* Prev / Next navigation */}
-        <Section variant="surface" padding="sm">
-          <div className="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap">
+        <Section variant="surface" padding="md">
+          <div className="max-w-3xl mx-auto flex items-stretch justify-between gap-4">
             {prevId ? (
-              <Button asChild variant="outline" className="gap-2">
-                <Link to={`/stories/${prevId}`}>
-                  <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                  <span>
-                    <span className="block text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t('storiesPage.prevStory')}</span>
-                    <span className="font-semibold">{t(`storiesPage.items.${prevId}.title`)}</span>
+              <Link
+                to={`/stories/${prevId}`}
+                aria-label={`${t('storiesPage.prevStory')}: ${t(`storiesPage.items.${prevId}.title`)}`}
+                className="group flex items-center gap-4 flex-1 max-w-[45%] px-5 py-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-leaf/50 hover:shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2"
+              >
+                <ArrowLeft className="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-leaf transition-colors" aria-hidden="true" />
+                <span className="min-w-0">
+                  <span className="block text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-1">
+                    {t('storiesPage.prevStory')}
                   </span>
-                </Link>
-              </Button>
-            ) : <div />}
+                  <span className="block text-sm font-semibold text-gray-900 dark:text-white leading-snug text-balance">
+                    {t(`storiesPage.items.${prevId}.title`)}
+                  </span>
+                </span>
+              </Link>
+            ) : <div className="flex-1" />}
 
             {nextId ? (
-              <Button asChild variant="outline" className="gap-2 ml-auto">
-                <Link to={`/stories/${nextId}`}>
-                  <span className="text-right">
-                    <span className="block text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t('storiesPage.nextStory')}</span>
-                    <span className="font-semibold">{t(`storiesPage.items.${nextId}.title`)}</span>
+              <Link
+                to={`/stories/${nextId}`}
+                aria-label={`${t('storiesPage.nextStory')}: ${t(`storiesPage.items.${nextId}.title`)}`}
+                className="group flex items-center gap-4 flex-1 max-w-[45%] px-5 py-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-sky/50 hover:shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 ml-auto"
+              >
+                <span className="min-w-0 text-right flex-1">
+                  <span className="block text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-1">
+                    {t('storiesPage.nextStory')}
                   </span>
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-            ) : <div />}
+                  <span className="block text-sm font-semibold text-gray-900 dark:text-white leading-snug text-balance">
+                    {t(`storiesPage.items.${nextId}.title`)}
+                  </span>
+                </span>
+                <ArrowRight className="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-sky transition-colors" aria-hidden="true" />
+              </Link>
+            ) : <div className="flex-1" />}
           </div>
         </Section>
 
