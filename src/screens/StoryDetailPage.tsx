@@ -167,8 +167,8 @@ const StoryDetailPage = ({ storyId }: Props) => {
           <div className="max-w-3xl mx-auto">
             <article aria-label={t(`storiesPage.items.${storyId}.title`)}>
               {Array.isArray(sections) && sections.map((section, i) => {
-                // Inject gallery images at natural breakpoints (after para 3 and para 6)
-                const galleryAfter = [3, 6];
+                // Inject gallery images at natural breakpoints (after para 3, 6, and 9)
+                const galleryAfter = [3, 6, 9];
                 const paraCount = sections.slice(0, i + 1).filter(s => s.type === 'paragraph').length;
                 const galleryIndex = galleryAfter.indexOf(paraCount);
                 const showGallery = section.type === 'paragraph' && galleryIndex !== -1 && images?.gallery?.[galleryIndex];
