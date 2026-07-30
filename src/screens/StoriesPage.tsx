@@ -19,33 +19,37 @@ const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> 
   },
 };
 
+// Program colour mapping:
+//   Mustafa — COMPACT (Community Engagement) → sun/gold
+//   Orien   — SETS → sky (teal)
+//   Akol    — SETS → sky (teal)
 const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge: string; panel: string; panelText: string; panelMeta: string; dot: string }> = {
   mustafa: {
-    accent: 'bg-sky',
-    accentText: 'text-sky',
+    accent: 'bg-sun',
+    accentText: 'text-sun-text dark:text-sun',
     badge: 'bg-white/20 text-white border-white/30',
-    panel: 'bg-sky/15 dark:bg-sky/20',
+    panel: 'bg-sun/10 dark:bg-sun/15',
+    panelText: 'text-gray-900 dark:text-white',
+    panelMeta: 'text-gray-600 dark:text-sun/80',
+    dot: 'bg-sun',
+  },
+  orien: {
+    accent: 'bg-sky',
+    accentText: 'text-sky-text dark:text-sky',
+    badge: 'bg-white/20 text-white border-white/30',
+    panel: 'bg-sky/10 dark:bg-sky/15',
     panelText: 'text-gray-900 dark:text-white',
     panelMeta: 'text-gray-600 dark:text-sky/80',
     dot: 'bg-sky',
   },
-  orien: {
-    accent: 'bg-earth',
-    accentText: 'text-earth',
-    badge: 'bg-white/20 text-white border-white/30',
-    panel: 'bg-earth/10 dark:bg-earth/20',
-    panelText: 'text-gray-900 dark:text-white',
-    panelMeta: 'text-gray-600 dark:text-earth/80',
-    dot: 'bg-earth',
-  },
   akol: {
-    accent: 'bg-leaf',
-    accentText: 'text-leaf',
+    accent: 'bg-sky',
+    accentText: 'text-sky-text dark:text-sky',
     badge: 'bg-white/20 text-white border-white/30',
-    panel: 'bg-leaf/10 dark:bg-leaf/20',
+    panel: 'bg-sky/10 dark:bg-sky/15',
     panelText: 'text-gray-900 dark:text-white',
-    panelMeta: 'text-gray-600 dark:text-leaf/80',
-    dot: 'bg-leaf',
+    panelMeta: 'text-gray-600 dark:text-sky/80',
+    dot: 'bg-sky',
   },
 };
 

@@ -18,10 +18,14 @@ interface Props {
 
 const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol'];
 
+// Program colour mapping:
+//   Mustafa — COMPACT (Community Engagement) → sun/gold
+//   Orien   — SETS → sky (teal)
+//   Akol    — SETS → sky (teal)
 const ACCENT: Record<StoryId, { bar: string; text: string; badge: string; bg: string }> = {
-  mustafa: { bar: 'bg-sky', text: 'text-sky', badge: 'bg-sky/10 text-sky border-sky/20', bg: 'bg-sky/5 dark:bg-sky/10' },
-  orien:   { bar: 'bg-earth', text: 'text-earth', badge: 'bg-earth/10 text-earth border-earth/20', bg: 'bg-earth/5 dark:bg-earth/10' },
-  akol:    { bar: 'bg-leaf', text: 'text-leaf', badge: 'bg-leaf/10 text-leaf border-leaf/20', bg: 'bg-leaf/5 dark:bg-leaf/10' },
+  mustafa: { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',  badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',  bg: 'bg-sun/5 dark:bg-sun/10' },
+  orien:   { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',  badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',  bg: 'bg-sky/5 dark:bg-sky/10' },
+  akol:    { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',  badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',  bg: 'bg-sky/5 dark:bg-sky/10' },
 };
 
 // hero: shown in the article header; gallery: woven into the body after paragraph 3 and 6
