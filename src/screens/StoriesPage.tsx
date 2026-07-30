@@ -13,6 +13,13 @@ import { AU } from '@/lib/auSpelling';
 
 type StoryId = 'mustafa' | 'orien' | 'akol';
 
+const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> = {
+  akol: {
+    src: '/images/stories/akol-1-portrait.jpg',
+    alt: 'Akol Koor smiling in Armidale, NSW',
+  },
+};
+
 const STORY_COLORS: Record<StoryId, { accent: string; badge: string; border: string; dot: string }> = {
   mustafa: {
     accent: 'text-sky',
@@ -69,6 +76,17 @@ const StoriesPage = () => {
                   className={`group relative bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 border-t-4 ${colors.border} shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden`}
                   aria-labelledby={`story-title-${id}`}
                 >
+                  {STORY_HERO_IMAGES[id] && (
+                    <div className="w-full h-64 md:h-72 overflow-hidden">
+                      <img
+                        src={STORY_HERO_IMAGES[id]!.src}
+                        alt={STORY_HERO_IMAGES[id]!.alt}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
                   <div className="p-8 md:p-10">
                     {/* Meta row */}
                     <div className="flex flex-wrap items-center gap-3 mb-5">
