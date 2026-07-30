@@ -202,6 +202,12 @@ export default function MosaicNavigation() {
       icon: Home,
     },
     {
+      title: t('nav.menu.about.impactStories.title'),
+      href: "/stories",
+      description: t('nav.menu.about.impactStories.description'),
+      icon: Book,
+    },
+    {
       title: t('nav.menu.about.media.title'),
       href: "/company/news",
       description: t('nav.menu.about.media.description'),
@@ -549,6 +555,7 @@ export default function MosaicNavigation() {
                   },
                   about: () => {
                     prefetchRoute('/about');
+                    prefetchRoute('/stories');
                     prefetchRoute('/company/news');
                   },
                   getInvolved: () => {

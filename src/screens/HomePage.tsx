@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import { PageTransition } from '@/components/ui/PageTransition';
 import ServiceCards from '../components/ServiceCards';
 const Statistics = lazy(() => import('../components/Statistics'));
+const ImpactStoriesPreview = lazy(() => import('../components/ImpactStoriesPreview'));
 const MosaicTestimonials = lazy(() => import('../components/MosaicTestimonials'));
 const SimpleCTA = lazy(() => import('../components/SimpleCTA'));
 const GoogleReviews = lazy(() => import('../components/GoogleReviews'));
@@ -20,6 +21,9 @@ const HomePage = () => {
       <ServiceCards />
       <Suspense fallback={lazyFallback}>
         <Statistics />
+      </Suspense>
+      <Suspense fallback={lazyFallback}>
+        <ImpactStoriesPreview />
       </Suspense>
       <Suspense fallback={lazyFallback}>
         <MosaicTestimonials />
