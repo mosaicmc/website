@@ -38,12 +38,12 @@ const STORY_IMAGES: Partial<Record<StoryId, {
       {
         src: '/images/stories/akol-2-caseworker.jpg',
         alt: 'Akol in conversation with her caseworker at the Mosaic Multicultural Connections office, Armidale',
-        caption: 'Akol with her caseworker at Mosaic's Armidale office',
+        caption: "Akol with her caseworker at Mosaic's Armidale office",
       },
       {
         src: '/images/stories/akol-4-jobapps.jpg',
-        alt: 'Caseworker working through job applications on a laptop with Akol beside him at Mosaic's Armidale office',
-        caption: 'Working through job applications at Mosaic's Armidale office',
+        alt: "Caseworker working through job applications on a laptop with Akol beside him at Mosaic's Armidale office",
+        caption: "Working through job applications at Mosaic's Armidale office",
       },
       {
         src: '/images/stories/akol-3-park.jpg',
