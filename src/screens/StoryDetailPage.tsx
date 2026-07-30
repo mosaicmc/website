@@ -72,64 +72,68 @@ const StoryDetailPage = ({ storyId }: Props) => {
   return (
     <PageTransition>
       <div>
-        {/* Back link + hero */}
-        <Section variant="default" divider="top" fade="top" padding="sm">
-          <div className="max-w-3xl mx-auto">
-            <Link
-              to="/stories"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-ocean dark:hover:text-sky mb-8 transition-colors group"
-              aria-label={t('storiesPage.backToStories')}
-            >
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
-              {t('storiesPage.backToStories')}
-            </Link>
+        {/* Hero — two-column on desktop: text left, portrait right */}
+        <div className="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-white/10">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[540px] lg:min-h-[600px]">
 
-            {/* Program badge */}
-            <Badge variant="outline" className={`mb-4 text-xs font-medium ${accent.badge}`}>
-              {t(`storiesPage.items.${storyId}.program`)}
-            </Badge>
+            {/* Left: text content */}
+            <div className="flex flex-col justify-center px-6 md:px-12 lg:px-16 py-12 lg:py-16 order-2 lg:order-1">
+              <Link
+                to="/stories"
+                className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-ocean dark:hover:text-sky mb-8 transition-colors group w-fit"
+                aria-label={t('storiesPage.backToStories')}
+              >
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
+                {t('storiesPage.backToStories')}
+              </Link>
 
-            {/* Title */}
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 text-balance leading-tight">
-              {t(`storiesPage.items.${storyId}.title`)}
-            </h1>
-            <p className={`text-lg font-medium mb-6 ${accent.text}`}>
-              {t(`storiesPage.items.${storyId}.subtitle`)}
-            </p>
-
-            {/* Meta */}
-            <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400 mb-8">
-              <span className="flex items-center gap-1.5">
-                <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                {t(`storiesPage.items.${storyId}.location`)}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Calendar className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                {t(`storiesPage.items.${storyId}.date`)}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Tag className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+              <Badge variant="outline" className={`mb-5 text-xs font-semibold w-fit ${accent.badge}`}>
                 {t(`storiesPage.items.${storyId}.program`)}
-              </span>
+              </Badge>
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-balance leading-tight">
+                {t(`storiesPage.items.${storyId}.title`)}
+              </h1>
+              <p className={`text-base md:text-lg font-medium mb-8 leading-relaxed ${accent.text}`}>
+                {t(`storiesPage.items.${storyId}.subtitle`)}
+              </p>
+
+              <div className="flex flex-wrap gap-5 text-sm text-gray-500 dark:text-gray-400">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t(`storiesPage.items.${storyId}.location`)}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t(`storiesPage.items.${storyId}.date`)}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Tag className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t(`storiesPage.items.${storyId}.program`)}
+                </span>
+              </div>
+
+              {/* Accent bar */}
+              <div className={`h-1 w-16 rounded-full ${accent.bar} mt-8`} aria-hidden="true" />
             </div>
 
-            {/* Accent bar */}
-            <div className={`h-1 w-16 rounded-full ${accent.bar} mb-0`} aria-hidden="true"></div>
-          </div>
-        </Section>
+            {/* Right: portrait photo — fills the column, no cropping on tall screens */}
+            <div className="relative order-1 lg:order-2 min-h-[300px] lg:min-h-0">
+              {images?.hero ? (
+                <img
+                  src={images.hero.src}
+                  alt={images.hero.alt}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  loading="eager"
+                  decoding="async"
+                />
+              ) : (
+                <div className={`absolute inset-0 ${accent.bar} opacity-10`} aria-hidden="true" />
+              )}
+            </div>
 
-        {/* Hero image */}
-        {images?.hero && (
-          <div className="w-full max-h-[520px] overflow-hidden">
-            <img
-              src={images.hero.src}
-              alt={images.hero.alt}
-              className="w-full h-full object-cover object-top"
-              loading="eager"
-              decoding="async"
-            />
           </div>
-        )}
+        </div>
 
         {/* Story body */}
         <Section variant="alt" padding="lg">
