@@ -170,7 +170,7 @@ export default function NewcastleVolunteerPage() {
       title: 'Homework & Learning Centre Tutor',
       blurb:
         "Help recently-arrived young people overcome educational disadvantage and discover their academic potential. You'll volunteer at a school venue for 90 minutes weekly, supporting refugee and migrant students with English skills, homework, and academic confidence through fun learning activities (primary) or one-on-one tutoring (secondary). If you have strong English proficiency, enjoy working with young people, and you're committed to showing up consistently because these students need that reliability, this role offers enormous rewards for a two-term commitment.",
-      downloadId: 'pd-newcastle-homework-club',
+      isClosed: true,
     },
     {
       title: 'Employment Mentor',
