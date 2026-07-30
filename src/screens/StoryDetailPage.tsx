@@ -33,6 +33,29 @@ const STORY_IMAGES: Partial<Record<StoryId, {
   hero: { src: string; alt: string };
   gallery?: Array<{ src: string; alt: string; caption?: string }>;
 }>> = {
+  orien: {
+    hero: {
+      src: '/images/stories/orien-1-portrait.jpg',
+      alt: 'Orien Khalaf smiling inside the Thread Shed community hall, Newcastle',
+    },
+    gallery: [
+      {
+        src: '/images/stories/orien-2-morningtea.jpg',
+        alt: 'Orien setting up a fruit platter and pastries for the women\'s group morning tea, Newcastle',
+        caption: "Orien setting up morning tea for the women's group, Newcastle",
+      },
+      {
+        src: '/images/stories/orien-3-supporting.jpg',
+        alt: "Orien standing over a laughing seated woman at the sewing table in Mosaic's women's group, Newcastle",
+        caption: "Orien at Mosaic's women's group, Newcastle",
+      },
+      {
+        src: '/images/stories/orien-4-groupwide.jpg',
+        alt: "Orien (right foreground, smiling) with other women in conversation at Thread Shed, Newcastle",
+        caption: "Orien at Thread Shed, Newcastle",
+      },
+    ],
+  },
   akol: {
     hero: {
       src: '/images/stories/akol-1-portrait.jpg',

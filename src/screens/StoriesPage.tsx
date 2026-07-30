@@ -13,6 +13,10 @@ import { AU } from '@/lib/auSpelling';
 type StoryId = 'mustafa' | 'orien' | 'akol';
 
 const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> = {
+  orien: {
+    src: '/images/stories/orien-1-portrait.jpg',
+    alt: 'Orien Khalaf smiling inside the Thread Shed community hall, Newcastle',
+  },
   akol: {
     src: '/images/stories/akol-1-portrait.jpg',
     alt: 'Akol Koor smiling in Armidale, NSW',
