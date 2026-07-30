@@ -10,10 +10,14 @@ import { Badge } from '@/components/ui/badge';
 
 type StoryId = 'mustafa' | 'orien' | 'akol';
 
+// Program colour mapping:
+//   mustafa — COMPACT (Community Engagement) → leaf (green)
+//   orien   — SETS → sky (teal)
+//   akol    — SETS → sky (teal)
 const STORIES: { id: StoryId; accent: string; bar: string; badgeCls: string }[] = [
-  { id: 'mustafa', accent: 'text-sky',   bar: 'bg-sky',   badgeCls: 'bg-sky/10 text-sky border-sky/20' },
-  { id: 'orien',   accent: 'text-earth', bar: 'bg-earth', badgeCls: 'bg-earth/10 text-earth border-earth/20' },
-  { id: 'akol',    accent: 'text-leaf',  bar: 'bg-leaf',  badgeCls: 'bg-leaf/10 text-leaf border-leaf/20' },
+  { id: 'mustafa', accent: 'text-leaf-text dark:text-leaf', bar: 'bg-leaf', badgeCls: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20' },
+  { id: 'orien',   accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
+  { id: 'akol',    accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
 ];
 
 const ImpactStoriesPreview = () => {
@@ -52,8 +56,7 @@ const ImpactStoriesPreview = () => {
         {STORIES.map(({ id, accent, bar, badgeCls }) => (
           <article
             key={id}
-            className={`group relative flex flex-col bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 border-t-4 border-t-[var(--story-bar)] shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden`}
-            style={{ '--story-bar': `var(--color-${bar.replace('bg-', '')}, currentColor)` } as React.CSSProperties}
+            className="group relative flex flex-col bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
             aria-labelledby={`preview-title-${id}`}
           >
             {/* Colour bar */}
