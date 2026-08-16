@@ -90,7 +90,18 @@ const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge:
   },
 };
 
-const STORY_IDS: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor', 'sumie'];
+// ISO dates mirror storiesPage.items.<id>.date — used to sort newest-first below.
+const STORY_DATES: Record<StoryId, string> = {
+  mustafa: '2025-09-16',
+  orien: '2026-05-14',
+  akol: '2026-06-22',
+  mansoor: '2025-07-31',
+  sumie: '2025-08-20',
+};
+
+const STORY_IDS: StoryId[] = (['mustafa', 'orien', 'akol', 'mansoor', 'sumie'] as StoryId[]).sort(
+  (a, b) => new Date(STORY_DATES[b]).getTime() - new Date(STORY_DATES[a]).getTime()
+);
 
 const StoriesPage = () => {
   const { t } = useTranslation();

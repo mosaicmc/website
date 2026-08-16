@@ -16,13 +16,19 @@ type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie';
 //   akol    — SETS → sky (teal)
 //   mansoor — Playing Around the World (Family Support) → sun (gold)
 //   sumie   — Playing Around the World / Multicultural Mothers Group (Family Support) → sun (gold)
-const STORIES: { id: StoryId; accent: string; bar: string; badgeCls: string }[] = [
-  { id: 'mustafa', accent: 'text-leaf-text dark:text-leaf', bar: 'bg-leaf', badgeCls: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20' },
-  { id: 'orien',   accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
-  { id: 'akol',    accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
-  { id: 'mansoor', accent: 'text-sun-text dark:text-sun',  bar: 'bg-sun',  badgeCls: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20' },
-  { id: 'sumie',   accent: 'text-sun-text dark:text-sun',  bar: 'bg-sun',  badgeCls: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20' },
+// `date` mirrors storiesPage.items.<id>.date and drives the newest-first ordering below.
+const STORIES: { id: StoryId; date: string; accent: string; bar: string; badgeCls: string }[] = [
+  { id: 'mustafa', date: '2025-09-16', accent: 'text-leaf-text dark:text-leaf', bar: 'bg-leaf', badgeCls: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20' },
+  { id: 'orien',   date: '2026-05-14', accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
+  { id: 'akol',    date: '2026-06-22', accent: 'text-sky-text dark:text-sky',  bar: 'bg-sky',  badgeCls: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20' },
+  { id: 'mansoor', date: '2025-07-31', accent: 'text-sun-text dark:text-sun',  bar: 'bg-sun',  badgeCls: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20' },
+  { id: 'sumie',   date: '2025-08-20', accent: 'text-sun-text dark:text-sun',  bar: 'bg-sun',  badgeCls: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20' },
 ];
+
+// Newest 3 stories only, sorted most-recent first.
+const FEATURED_STORIES = [...STORIES]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
 
 const ImpactStoriesPreview = () => {
   const { t } = useTranslation();
@@ -56,8 +62,8 @@ const ImpactStoriesPreview = () => {
       </div>
 
       {/* Story cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
-        {STORIES.map(({ id, accent, bar, badgeCls }) => (
+      <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+        {FEATURED_STORIES.map(({ id, accent, bar, badgeCls }) => (
           <article
             key={id}
             className="group relative flex flex-col bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
