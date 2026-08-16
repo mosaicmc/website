@@ -10,7 +10,7 @@ import RelatedServices from '@/components/RelatedServices';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { AU } from '@/lib/auSpelling';
 
-type StoryId = 'mustafa' | 'orien' | 'akol';
+type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor';
 
 const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> = {
   mustafa: {
@@ -25,13 +25,18 @@ const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> 
     src: '/images/stories/akol-1-portrait.jpg',
     alt: 'Akol Koor smiling in Armidale, NSW',
   },
+  mansoor: {
+    src: '/images/stories/mansoor-1-family.jpg',
+    alt: 'Mansoor Subhani smiling with his two young children, Central Coast NSW',
+  },
 };
 
 // Program colour mapping:
 //   Mustafa — COMPACT (Community Engagement) → leaf (green)
 //   Orien   — SETS → sky (teal)
 //   Akol    — SETS → sky (teal)
-//   Family Services → sun (gold)  |  Aged Care → care (pink)
+//   Mansoor — Playing Around the World (Family Support) → sun (gold)
+//   Aged Care → care (pink)
 const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge: string; panel: string; panelText: string; panelMeta: string; dot: string }> = {
   mustafa: {
     accent: 'bg-leaf',
@@ -60,9 +65,18 @@ const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge:
     panelMeta: 'text-gray-600 dark:text-sky/80',
     dot: 'bg-sky',
   },
+  mansoor: {
+    accent: 'bg-sun',
+    accentText: 'text-sun-text dark:text-sun',
+    badge: 'bg-white/20 text-white border-white/30',
+    panel: 'bg-sun/10 dark:bg-sun/15',
+    panelText: 'text-gray-900 dark:text-white',
+    panelMeta: 'text-gray-600 dark:text-sun/80',
+    dot: 'bg-sun',
+  },
 };
 
-const STORY_IDS: StoryId[] = ['mustafa', 'orien', 'akol'];
+const STORY_IDS: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor'];
 
 const StoriesPage = () => {
   const { t } = useTranslation();
@@ -88,7 +102,7 @@ const StoriesPage = () => {
 
         {/* Story Cards — 3-column grid, image top + coloured panel bottom */}
         <Section variant="alt" padding="lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {STORY_IDS.map((id) => {
               const colors = STORY_COLORS[id];
               const heroImg = STORY_HERO_IMAGES[id];
