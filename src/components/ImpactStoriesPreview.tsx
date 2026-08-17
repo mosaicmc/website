@@ -66,52 +66,50 @@ const ImpactStoriesPreview = () => {
       {/* Story cards */}
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10">
         {FEATURED_STORIES.map(({ id, accent, bar, badgeCls }) => (
-          <article
-            key={id}
-            className="group relative flex flex-col bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
-            aria-labelledby={`preview-title-${id}`}
-          >
-            {/* Colour bar */}
-            <div className={`h-1 w-full ${bar}`} aria-hidden="true"></div>
+          <article key={id} className="group h-full">
+            <Link
+              to={`/stories/${id}`}
+              className="flex flex-col h-full bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2"
+              aria-label={`${t('storiesPage.readMore')}: ${t(`storiesPage.items.${id}.title`)}`}
+            >
+              {/* Colour bar */}
+              <div className={`h-1 w-full ${bar}`} aria-hidden="true"></div>
 
-            <div className="flex flex-col flex-1 p-6">
-              {/* Program badge */}
-              <Badge variant="outline" className={`self-start mb-4 text-xs font-medium ${badgeCls}`}>
-                {t(`storiesPage.items.${id}.program`)}
-              </Badge>
+              <div className="flex flex-col flex-1 p-6">
+                {/* Program badge */}
+                <Badge variant="outline" className={`self-start mb-4 text-xs font-medium ${badgeCls}`}>
+                  {t(`storiesPage.items.${id}.program`)}
+                </Badge>
 
-              {/* Title */}
-              <h3
-                id={`preview-title-${id}`}
-                className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-balance"
-              >
-                {t(`storiesPage.items.${id}.title`)}
-              </h3>
-              <p className={`text-sm font-medium mb-4 ${accent}`}>
-                {t(`storiesPage.items.${id}.subtitle`)}
-              </p>
-
-              {/* Pull quote */}
-              <blockquote className="flex-1 mb-6 border-l-2 border-gray-200 dark:border-white/15 pl-4">
-                <Quote className={`h-4 w-4 mb-1 ${accent}`} aria-hidden="true" />
-                <p className="text-sm italic text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
-                  &ldquo;{t(`storiesPage.items.${id}.quote`)}&rdquo;
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-balance">
+                  {t(`storiesPage.items.${id}.title`)}
+                </h3>
+                <p className={`text-sm font-medium mb-4 ${accent}`}>
+                  {t(`storiesPage.items.${id}.subtitle`)}
                 </p>
-                <footer className={`mt-2 text-xs font-semibold ${accent}`}>
-                  — {t(`storiesPage.items.${id}.quoteAuthor`)}
-                </footer>
-              </blockquote>
 
-              {/* CTA link */}
-              <Link
-                to={`/stories/${id}`}
-                className={`inline-flex items-center gap-2 text-sm font-semibold ${accent} hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 rounded group/link`}
-                aria-label={`${t('storiesPage.readMore')}: ${t(`storiesPage.items.${id}.title`)}`}
-              >
-                {t('storiesPage.readMore')}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-              </Link>
-            </div>
+                {/* Pull quote */}
+                <blockquote className="flex-1 mb-6 border-l-2 border-gray-200 dark:border-white/15 pl-4">
+                  <Quote className={`h-4 w-4 mb-1 ${accent}`} aria-hidden="true" />
+                  <p className="text-sm italic text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+                    &ldquo;{t(`storiesPage.items.${id}.quote`)}&rdquo;
+                  </p>
+                  <footer className={`mt-2 text-xs font-semibold ${accent}`}>
+                    — {t(`storiesPage.items.${id}.quoteAuthor`)}
+                  </footer>
+                </blockquote>
+
+                {/* CTA */}
+                <span
+                  className={`inline-flex items-center gap-2 text-sm font-semibold ${accent} group-hover:underline rounded`}
+                  aria-hidden="true"
+                >
+                  {t('storiesPage.readMore')}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
           </article>
         ))}
       </div>
