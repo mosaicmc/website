@@ -9,13 +9,13 @@ import { Badge } from '@/components/ui/badge';
 import { PageTransition } from '@/components/ui/PageTransition';
 import RelatedServices from '@/components/RelatedServices';
 
-type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie';
+type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie' | 'john';
 
 interface Props {
   storyId: StoryId;
 }
 
-const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor', 'sumie'];
+const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor', 'sumie', 'john'];
 
 // Program colour mapping:
 //   Mustafa — COMPACT (Community Engagement) → leaf (green)
@@ -23,13 +23,14 @@ const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor', 'sumie
 //   Akol    — SETS → sky (teal)
 //   Mansoor — Playing Around the World (Family Support) → sun (gold)
 //   Sumie   — Playing Around the World / Multicultural Mothers Group (Family Support) → sun (gold)
-//   Aged Care → care (pink)
+//   John    — Aged Care Services → care (pink)
 const ACCENT: Record<StoryId, { bar: string; text: string; badge: string; bg: string }> = {
   mustafa: { bar: 'bg-leaf', text: 'text-leaf-text dark:text-leaf', badge: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20', bg: 'bg-leaf/5 dark:bg-leaf/10' },
   orien:   { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
   akol:    { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
   mansoor: { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',   badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',   bg: 'bg-sun/5 dark:bg-sun/10' },
   sumie:   { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',   badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',   bg: 'bg-sun/5 dark:bg-sun/10' },
+  john:    { bar: 'bg-care', text: 'text-care-text dark:text-care', badge: 'bg-care/10 text-care-text dark:text-care border-care/20', bg: 'bg-care/5 dark:bg-care/10' },
 };
 
 // hero: shown in the article header; gallery: woven evenly into the body
@@ -144,6 +145,29 @@ const STORY_IMAGES: Partial<Record<StoryId, {
         src: '/images/stories/sumie-4-nursinghome.jpg',
         alt: 'Sumie with a toddler and an aged care resident during a Playing Around the World intergenerational visit',
         caption: 'Sumie volunteering at an aged care visit as part of Playing Around the World',
+      },
+    ],
+  },
+  john: {
+    hero: {
+      src: '/images/stories/john-1-portrait.jpg',
+      alt: 'John Bell talking with his Aged Care support worker at home in Salamander Bay',
+    },
+    gallery: [
+      {
+        src: '/images/stories/john-2-vanessa.jpg',
+        alt: 'John Bell laughing with his daughter Vanessa Murray on the couch at home',
+        caption: 'John and his daughter, Vanessa Murray',
+      },
+      {
+        src: '/images/stories/john-3-shopping.jpg',
+        alt: 'Support worker Kiri helping John Bell out of the car after a grocery shopping trip',
+        caption: 'Kiri and John after a drive to the shops for grocery shopping',
+      },
+      {
+        src: '/images/stories/john-4-banking.jpg',
+        alt: 'Kiri sitting with John Bell at a table outside a bank, helping with his banking needs',
+        caption: 'Kiri helping John with his banking needs',
       },
     ],
   },

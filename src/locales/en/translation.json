@@ -1612,7 +1612,7 @@
         "title": "A Language Worth Keeping",
         "subtitle": "Sumie Miyagawa wanted her sons to grow up knowing their mother's language. What she found through Mosaic became a Japanese Family Group nine families now call their own.",
         "excerpt": "When Sumie Miyagawa moved to the Central Coast, the Japanese community she'd built in Sydney was gone. A multicultural playgroup led her to Mosaic \u2014 and a quiet suggestion to Natalia grew into a Japanese Family Group that now gathers nine families every Monday.",
-        "program": "Playing Around the World \u00b7 Multicultural Mothers Group \u00b7 Japanese Family Group",
+        "program": "Playing Around the World (PAW)",
         "funder": "The Benevolent Society",
         "location": "Bateau Bay, Central Coast NSW",
         "date": "20 August 2025",
@@ -1623,6 +1623,22 @@
         "statLabel": "Families in the Japanese Family Group",
         "statValue": "9",
         "statContext": "What began with Sumie and one Japanese friend posting in community Facebook groups has grown into a weekly gathering of nine families. The group meets every Monday to share language, food and traditions \u2014 and will host a Japanese Community Day at Mardi in October 2026."
+      },
+      "john": {
+        "title": "Eighty on Paper, Fifty at Heart",
+        "subtitle": "From a life spent caring for others, to finally being cared for himself \u2014 a story of independence, dignity and connection.",
+        "excerpt": "John Bell spent a career as a nurse and decades caring for his wife \u2014 until a stroke took his independence overnight. With a care plan built around what he still wanted to do himself, and support worker Kiri Telesny by his side, John has stayed exactly who he's always been: independent, connected, and himself.",
+        "program": "Aged Care Services",
+        "funder": "Commonwealth Home Support Programme / Support at Home",
+        "location": "Salamander Bay, Port Stephens, NSW",
+        "date": "23 September 2025",
+        "category": "aged-care",
+        "readTime": 6,
+        "quote": "There's no one better as far as I'm concerned. She's a star.",
+        "quoteAuthor": "John Bell",
+        "statLabel": "Support workers on the road each month",
+        "statValue": "50+",
+        "statContext": "Every month, Mosaic's Aged Care team puts more than 50 support workers on the road across Port Stephens, Newcastle, Lake Macquarie, Maitland, Cessnock and the Central Coast \u2014 supporting 450+ clients through more than 2,000 hours of Support at Home, 800 hours of CHSP Flexible Respite, and 290 hours of CHSP Support at Home each month, helping people stay exactly who they've always been."
       }
     },
     "readMore": "Read the full story",
@@ -1933,6 +1949,69 @@
         {
           "type": "paragraph",
           "text": "Every Monday, she does. What began with one mother looking for connection has become a place where other mothers can find it too \u2014 and every Monday, another child hears the language of their parents become part of their own story."
+        }
+      ]
+    },
+    "john": {
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "John Bell came to Australia from England with his wife, decades ago, and built the kind of life that doesn't announce itself: a home in Salamander Bay, a long marriage, a career spent looking after other people. He trained as a nurse and stayed one for most of his working life, right up until he was seventy. Then, for the twenty or thirty years after that, he cared for his wife, quietly and without complaint."
+        },
+        {
+          "type": "paragraph",
+          "text": "For most of John's life, he was simply never the one who needed looking after. He had a loving family around him, always. He just hadn't had much cause to lean on them, not like this."
+        },
+        {
+          "type": "paragraph",
+          "text": "That changed after his stroke. It took his licence with it, and with the licence went the small, ordinary freedoms he'd never had to think about: driving to the shops, getting himself to appointments, deciding on a whim to pop out for something. His daughter Vanessa Murray began quietly filling the gaps, arranging transport, picking up the groceries, working it all in around a full-time job, study, and children of her own. She didn't mind. It's what family does. But she noticed, too, how much of every visit was spent managing logistics instead of just being together."
+        },
+        {
+          "type": "paragraph",
+          "text": "When Vanessa gently raised the idea of getting some extra support, John pushed back. He told her, more than once, that he didn't want support, that he didn't need care, that he could look after himself. It wasn't stubbornness for its own sake. He'd spent a lifetime being the one people relied on, not the other way round, and that took some getting used to."
+        },
+        {
+          "type": "paragraph",
+          "text": "So Mosaic worked with the family to put together a carefully considered care plan, one built around what John still wanted to do for himself, not just what he needed help with. Care Support Worker Kiri Telesny began visiting each week."
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiri started with the practical things: driving him to do his groceries, sorting out banking errands, the scaffolding around a life that had lost some of its independence overnight. It could have stayed exactly that. It didn't."
+        },
+        {
+          "type": "quote",
+          "text": "She knew everything. There's no one better as far as I'm concerned. She's a star.",
+          "author": "John Bell"
+        },
+        {
+          "type": "paragraph",
+          "text": "For Vanessa, watching from the outside, the change has been unmistakable."
+        },
+        {
+          "type": "quote",
+          "text": "I just find by having Mosaic come around, it keeps him still as a 50-year-old. Even though he's nearly 80, he's still independent. He can still walk to the shops. He can still do things, but at least there's someone next to him.",
+          "author": "Vanessa Murray"
+        },
+        {
+          "type": "paragraph",
+          "text": "Not someone doing everything for him. Someone beside him. It's a distinction Vanessa is careful to draw, because it's the whole point: the difference between care that takes independence away and care that protects it."
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiri now helps with the ironing and washing too, noticing what John needs before it needs spelling out. Vanessa describes her as her dad's best friend as much as his support worker. He's more full of life for having her around, happier, healthier, more himself."
+        },
+        {
+          "type": "paragraph",
+          "text": "There's a kind of symmetry in it that Vanessa feels every time she visits. A man who left one country for another decades ago, who spent a career and then a marriage giving other people exactly this: someone paying attention, someone treating them like they still mattered, someone making the hard parts feel a little lighter. Now, in the town he made his home, it's his turn to receive it."
+        },
+        {
+          "type": "quote",
+          "text": "She's a star. There's no one better as far as I'm concerned. She's really good.",
+          "author": "John Bell"
+        },
+        {
+          "type": "paragraph",
+          "text": "John is one of hundreds of older residents across the region choosing to stay independent, at home, and connected, with the right support alongside them. Every month, more than 50 of Mosaic's Aged Care support workers are out across Port Stephens, Newcastle, Lake Macquarie, Maitland, Cessnock and the Central Coast, walking alongside 450+ older people through more than 2,000 hours of Support at Home, 800 hours of CHSP Flexible Respite, and 290 hours of CHSP Support at Home, helping people stay exactly who they've always been."
         }
       ]
     }
