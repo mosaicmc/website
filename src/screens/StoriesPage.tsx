@@ -10,7 +10,7 @@ import RelatedServices from '@/components/RelatedServices';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { AU } from '@/lib/auSpelling';
 
-type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie';
+type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie' | 'john';
 
 const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> = {
   mustafa: {
@@ -32,6 +32,10 @@ const STORY_HERO_IMAGES: Partial<Record<StoryId, { src: string; alt: string }>> 
   sumie: {
     src: '/images/stories/sumie-1-portrait.jpg',
     alt: 'Sumie Miyagawa smiling outdoors at a park on the Central Coast',
+  },
+  john: {
+    src: '/images/stories/john-1-portrait.jpg',
+    alt: 'John Bell talking with his Aged Care support worker at home in Salamander Bay',
   },
 };
 
@@ -88,6 +92,15 @@ const STORY_COLORS: Record<StoryId, { accent: string; accentText: string; badge:
     panelMeta: 'text-gray-600 dark:text-sun/80',
     dot: 'bg-sun',
   },
+  john: {
+    accent: 'bg-care',
+    accentText: 'text-care-text dark:text-care',
+    badge: 'bg-white/20 text-white border-white/30',
+    panel: 'bg-care/10 dark:bg-care/15',
+    panelText: 'text-gray-900 dark:text-white',
+    panelMeta: 'text-gray-600 dark:text-care/80',
+    dot: 'bg-care',
+  },
 };
 
 // ISO dates mirror storiesPage.items.<id>.date — used to sort newest-first below.
@@ -97,9 +110,10 @@ const STORY_DATES: Record<StoryId, string> = {
   akol: '2026-06-22',
   mansoor: '2025-07-31',
   sumie: '2025-08-20',
+  john: '2025-09-23',
 };
 
-const STORY_IDS: StoryId[] = (['mustafa', 'orien', 'akol', 'mansoor', 'sumie'] as StoryId[]).sort(
+const STORY_IDS: StoryId[] = (['mustafa', 'orien', 'akol', 'mansoor', 'sumie', 'john'] as StoryId[]).sort(
   (a, b) => new Date(STORY_DATES[b]).getTime() - new Date(STORY_DATES[a]).getTime()
 );
 

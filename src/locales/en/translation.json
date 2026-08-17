@@ -1623,6 +1623,22 @@
         "statLabel": "Families in the Japanese Family Group",
         "statValue": "9",
         "statContext": "What began with Sumie and one Japanese friend posting in community Facebook groups has grown into a weekly gathering of nine families. The group meets every Monday to share language, food and traditions \u2014 and will host a Japanese Community Day at Mardi in October 2026."
+      },
+      "john": {
+        "title": "Eighty on Paper, Fifty at Heart",
+        "subtitle": "From a life spent caring for others, to finally being cared for himself \u2014 a story of independence, dignity and connection.",
+        "excerpt": "John Bell spent a career as a nurse and decades caring for his wife \u2014 until a stroke took his independence overnight. Through Mosaic's Aged Care Services, support worker Kiri Telesny has helped him stay exactly who he's always been: independent, connected, and himself.",
+        "program": "Aged Care Services",
+        "funder": "Commonwealth Home Support Programme / Support at Home",
+        "location": "Salamander Bay, Port Stephens, NSW",
+        "date": "23 September 2025",
+        "category": "aged-care",
+        "readTime": 6,
+        "quote": "There's no one better as far as I'm concerned. She's a star.",
+        "quoteAuthor": "John Bell",
+        "statLabel": "Support workers on the road each month",
+        "statValue": "50+",
+        "statContext": "Every month, Mosaic's Aged Care team puts more than 50 support workers on the road across Port Stephens, Newcastle, Lake Macquarie, Maitland, Cessnock and the Central Coast \u2014 supporting 450+ clients through more than 2,000 hours of Support at Home, 800 hours of CHSP Flexible Respite, and 290 hours of CHSP Support at Home each month, helping people stay exactly who they've always been."
       }
     },
     "readMore": "Read the full story",
@@ -1933,6 +1949,93 @@
         {
           "type": "paragraph",
           "text": "Every Monday, she does. What began with one mother looking for connection has become a place where other mothers can find it too \u2014 and every Monday, another child hears the language of their parents become part of their own story."
+        }
+      ]
+    },
+    "john": {
+      "sections": [
+        {
+          "type": "paragraph",
+          "text": "John Bell came to Australia from England with his wife, decades ago, and built the kind of life that doesn't announce itself: a home in Salamander Bay, a long marriage, a career spent looking after other people. He trained as a nurse and stayed one for most of his working life, right up until he was seventy. It's the sort of career built on knowing what someone needs before they ask for it. He did that for strangers for decades. Then, for the twenty or thirty years after that, he did it for his wife, caring for her quietly and without complaint, the way people who have spent a lifetime looking after others tend to."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nobody had really looked after John."
+        },
+        {
+          "type": "paragraph",
+          "text": "That changed after his stroke. It took his licence with it, and with the licence went the small, ordinary freedoms he'd never had to think about: driving to the shops, getting himself to appointments, deciding on a whim to pop out for something. His daughter Vanessa Murray stepped in the way daughters do, arranging transport, picking up the groceries, working around a full-time job, study, and children of her own. She didn't mind."
+        },
+        {
+          "type": "quote",
+          "text": "We all love looking after our parents. That's what we've got to do. They looked after us.",
+          "author": "Vanessa Murray"
+        },
+        {
+          "type": "paragraph",
+          "text": "But John didn't want to be looked after. Not like this."
+        },
+        {
+          "type": "quote",
+          "text": "No, I don't want support. I don't need care. I can look after myself.",
+          "author": "John Bell"
+        },
+        {
+          "type": "paragraph",
+          "text": "He'd spent a lifetime being the one who was needed, not the one who needed. Independence wasn't a preference for John. It was closer to an identity. And Vanessa could see, even as she respected his stubbornness, that trying to be his daughter and his entire support system at once was starting to wear thin."
+        },
+        {
+          "type": "quote",
+          "text": "It's just nice having that extra support, so that when I'm with my parents, I can actually enjoy them.",
+          "author": "Vanessa Murray"
+        },
+        {
+          "type": "paragraph",
+          "text": "That's where Mosaic came in, and where a woman named Kiri Telesny became less of a service and more of a fixture in John's week."
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiri started by driving him to do his groceries, sorting out banking errands, the practical scaffolding around a life that had lost its independence overnight. It could have stayed exactly that: transactional, scheduled, polite. It didn't."
+        },
+        {
+          "type": "quote",
+          "text": "She knew everything. There's no one better as far as I'm concerned. She's a star.",
+          "author": "John Bell"
+        },
+        {
+          "type": "paragraph",
+          "text": "For Vanessa, watching from the outside, the change has been unmistakable."
+        },
+        {
+          "type": "quote",
+          "text": "I just find by having Mosaic come around, it keeps him still as a 50-year-old. Even though he's nearly 80, he's still independent. He can still walk to the shops. He can still do things, but at least there's someone next to him.",
+          "author": "Vanessa Murray"
+        },
+        {
+          "type": "paragraph",
+          "text": "Not someone doing everything for him. Someone beside him. It's a distinction Vanessa is careful to draw, because it's the whole point: the difference between care that takes independence away and care that protects it."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Kiri who now helps with ironing and washing, who noticed what John needed before it needed spelling out, has become, in Vanessa's words, his best friend."
+        },
+        {
+          "type": "quote",
+          "text": "He gets full of life just being with her. He's so much happier and healthier.",
+          "author": "Vanessa Murray"
+        },
+        {
+          "type": "paragraph",
+          "text": "There's a kind of symmetry in it that Vanessa feels every time she visits. A man who left one country for another decades ago, who spent a career and then a marriage giving other people exactly this: someone paying attention, someone treating them like they still mattered, someone making the hard parts feel a little lighter. Now, in the town he made his home, it's his turn to receive it."
+        },
+        {
+          "type": "quote",
+          "text": "She's a star. There's no one better as far as I'm concerned. She's really good.",
+          "author": "John Bell"
+        },
+        {
+          "type": "paragraph",
+          "text": "John is one of hundreds of older residents across the region choosing to stay independent, at home, and connected, with the right support alongside them."
         }
       ]
     }
