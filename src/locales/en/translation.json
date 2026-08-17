@@ -1627,7 +1627,7 @@
       "john": {
         "title": "Eighty on Paper, Fifty at Heart",
         "subtitle": "From a life spent caring for others, to finally being cared for himself \u2014 a story of independence, dignity and connection.",
-        "excerpt": "John Bell spent a career as a nurse and decades caring for his wife \u2014 until a stroke took his independence overnight. Through Mosaic's Aged Care Services, support worker Kiri Telesny has helped him stay exactly who he's always been: independent, connected, and himself.",
+        "excerpt": "John Bell spent a career as a nurse and decades caring for his wife \u2014 until a stroke took his independence overnight. With a care plan built around what he still wanted to do himself, and support worker Kiri Telesny by his side, John has stayed exactly who he's always been: independent, connected, and himself.",
         "program": "Aged Care Services",
         "funder": "Commonwealth Home Support Programme / Support at Home",
         "location": "Salamander Bay, Port Stephens, NSW",
@@ -1956,46 +1956,27 @@
       "sections": [
         {
           "type": "paragraph",
-          "text": "John Bell came to Australia from England with his wife, decades ago, and built the kind of life that doesn't announce itself: a home in Salamander Bay, a long marriage, a career spent looking after other people. He trained as a nurse and stayed one for most of his working life, right up until he was seventy. It's the sort of career built on knowing what someone needs before they ask for it. He did that for strangers for decades. Then, for the twenty or thirty years after that, he did it for his wife, caring for her quietly and without complaint, the way people who have spent a lifetime looking after others tend to."
+          "text": "John Bell came to Australia from England with his wife, decades ago, and built the kind of life that doesn't announce itself: a home in Salamander Bay, a long marriage, a career spent looking after other people. He trained as a nurse and stayed one for most of his working life, right up until he was seventy. Then, for the twenty or thirty years after that, he cared for his wife, quietly and without complaint."
         },
         {
           "type": "paragraph",
-          "text": "Nobody had really looked after John."
+          "text": "For most of John's life, he was simply never the one who needed looking after. He had a loving family around him, always. He just hadn't had much cause to lean on them, not like this."
         },
         {
           "type": "paragraph",
-          "text": "That changed after his stroke. It took his licence with it, and with the licence went the small, ordinary freedoms he'd never had to think about: driving to the shops, getting himself to appointments, deciding on a whim to pop out for something. His daughter Vanessa Murray stepped in the way daughters do, arranging transport, picking up the groceries, working around a full-time job, study, and children of her own. She didn't mind."
-        },
-        {
-          "type": "quote",
-          "text": "We all love looking after our parents. That's what we've got to do. They looked after us.",
-          "author": "Vanessa Murray"
+          "text": "That changed after his stroke. It took his licence with it, and with the licence went the small, ordinary freedoms he'd never had to think about: driving to the shops, getting himself to appointments, deciding on a whim to pop out for something. His daughter Vanessa Murray began quietly filling the gaps, arranging transport, picking up the groceries, working it all in around a full-time job, study, and children of her own. She didn't mind. It's what family does. But she noticed, too, how much of every visit was spent managing logistics instead of just being together."
         },
         {
           "type": "paragraph",
-          "text": "But John didn't want to be looked after. Not like this."
-        },
-        {
-          "type": "quote",
-          "text": "No, I don't want support. I don't need care. I can look after myself.",
-          "author": "John Bell"
+          "text": "When Vanessa gently raised the idea of getting some extra support, John pushed back. He told her, more than once, that he didn't want support, that he didn't need care, that he could look after himself. It wasn't stubbornness for its own sake. He'd spent a lifetime being the one people relied on, not the other way round, and that took some getting used to."
         },
         {
           "type": "paragraph",
-          "text": "He'd spent a lifetime being the one who was needed, not the one who needed. Independence wasn't a preference for John. It was closer to an identity. And Vanessa could see, even as she respected his stubbornness, that trying to be his daughter and his entire support system at once was starting to wear thin."
-        },
-        {
-          "type": "quote",
-          "text": "It's just nice having that extra support, so that when I'm with my parents, I can actually enjoy them.",
-          "author": "Vanessa Murray"
+          "text": "So Mosaic worked with the family to put together a carefully considered care plan, one built around what John still wanted to do for himself, not just what he needed help with. Care Support Worker Kiri Telesny began visiting each week."
         },
         {
           "type": "paragraph",
-          "text": "That's where Mosaic came in, and where a woman named Kiri Telesny became less of a service and more of a fixture in John's week."
-        },
-        {
-          "type": "paragraph",
-          "text": "Kiri started by driving him to do his groceries, sorting out banking errands, the practical scaffolding around a life that had lost its independence overnight. It could have stayed exactly that: transactional, scheduled, polite. It didn't."
+          "text": "Kiri started with the practical things: driving him to do his groceries, sorting out banking errands, the scaffolding around a life that had lost some of its independence overnight. It could have stayed exactly that. It didn't."
         },
         {
           "type": "quote",
@@ -2017,12 +1998,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The Kiri who now helps with ironing and washing, who noticed what John needed before it needed spelling out, has become, in Vanessa's words, his best friend."
-        },
-        {
-          "type": "quote",
-          "text": "He gets full of life just being with her. He's so much happier and healthier.",
-          "author": "Vanessa Murray"
+          "text": "Kiri now helps with the ironing and washing too, noticing what John needs before it needs spelling out. Vanessa describes her as her dad's best friend as much as his support worker. He's more full of life for having her around, happier, healthier, more himself."
         },
         {
           "type": "paragraph",
@@ -2035,7 +2011,7 @@
         },
         {
           "type": "paragraph",
-          "text": "John is one of hundreds of older residents across the region choosing to stay independent, at home, and connected, with the right support alongside them."
+          "text": "John is one of hundreds of older residents across the region choosing to stay independent, at home, and connected, with the right support alongside them. Every month, more than 50 of Mosaic's Aged Care support workers are out across Port Stephens, Newcastle, Lake Macquarie, Maitland, Cessnock and the Central Coast, walking alongside 450+ older people through more than 2,000 hours of Support at Home, 800 hours of CHSP Flexible Respite, and 290 hours of CHSP Support at Home, helping people stay exactly who they've always been."
         }
       ]
     }
