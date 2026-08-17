@@ -9,23 +9,27 @@ import { Badge } from '@/components/ui/badge';
 import { PageTransition } from '@/components/ui/PageTransition';
 import RelatedServices from '@/components/RelatedServices';
 
-type StoryId = 'mustafa' | 'orien' | 'akol';
+type StoryId = 'mustafa' | 'orien' | 'akol' | 'mansoor' | 'sumie';
 
 interface Props {
   storyId: StoryId;
 }
 
-const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol'];
+const STORY_SEQUENCE: StoryId[] = ['mustafa', 'orien', 'akol', 'mansoor', 'sumie'];
 
 // Program colour mapping:
 //   Mustafa — COMPACT (Community Engagement) → leaf (green)
 //   Orien   — SETS → sky (teal)
 //   Akol    — SETS → sky (teal)
-//   Family Services → sun (gold)  |  Aged Care → care (pink)
+//   Mansoor — Playing Around the World (Family Support) → sun (gold)
+//   Sumie   — Playing Around the World / Multicultural Mothers Group (Family Support) → sun (gold)
+//   Aged Care → care (pink)
 const ACCENT: Record<StoryId, { bar: string; text: string; badge: string; bg: string }> = {
   mustafa: { bar: 'bg-leaf', text: 'text-leaf-text dark:text-leaf', badge: 'bg-leaf/10 text-leaf-text dark:text-leaf border-leaf/20', bg: 'bg-leaf/5 dark:bg-leaf/10' },
   orien:   { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
   akol:    { bar: 'bg-sky',  text: 'text-sky-text dark:text-sky',   badge: 'bg-sky/10 text-sky-text dark:text-sky border-sky/20',   bg: 'bg-sky/5 dark:bg-sky/10' },
+  mansoor: { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',   badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',   bg: 'bg-sun/5 dark:bg-sun/10' },
+  sumie:   { bar: 'bg-sun',  text: 'text-sun-text dark:text-sun',   badge: 'bg-sun/10 text-sun-text dark:text-sun border-sun/20',   bg: 'bg-sun/5 dark:bg-sun/10' },
 };
 
 // hero: shown in the article header; gallery: woven evenly into the body
@@ -104,6 +108,42 @@ const STORY_IMAGES: Partial<Record<StoryId, {
         src: '/images/stories/akol-3-park.jpg',
         alt: 'Akol smiling at a park in Armidale with a pram, golden afternoon light',
         caption: 'Akol in Armidale',
+      },
+    ],
+  },
+  mansoor: {
+    hero: {
+      src: '/images/stories/mansoor-1-family.jpg',
+      alt: 'Mansoor Subhani smiling with his two young children, Central Coast NSW',
+    },
+    gallery: [
+      {
+        src: '/images/stories/mansoor-2-swimming.jpg',
+        alt: 'Mansoor with a Mosaic facilitator and another parent in the pool during a PAW swimming course',
+        caption: 'Mansoor building water confidence at a PAW swimming course',
+      },
+    ],
+  },
+  sumie: {
+    hero: {
+      src: '/images/stories/sumie-1-portrait.jpg',
+      alt: 'Sumie Miyagawa smiling outdoors at a park on the Central Coast',
+    },
+    gallery: [
+      {
+        src: '/images/stories/sumie-2-cooking.jpg',
+        alt: 'Sumie smiling while preparing noodles in the kitchen at a Japanese Family Group gathering',
+        caption: 'Sumie cooking with the Japanese Family Group',
+      },
+      {
+        src: '/images/stories/sumie-3-culture.jpg',
+        alt: 'Sumie presenting Japanese cultural items alongside Aboriginal, Torres Strait Islander and Australian flags',
+        caption: 'Sumie sharing Japanese culture and traditions with the group',
+      },
+      {
+        src: '/images/stories/sumie-4-nursinghome.jpg',
+        alt: 'Sumie with a toddler and an aged care resident during a Playing Around the World intergenerational visit',
+        caption: 'Sumie volunteering at an aged care visit as part of Playing Around the World',
       },
     ],
   },

@@ -1,5 +1,6 @@
 /// <reference types="next" />
 import "./dist/dev/types/routes.d.ts";
+import "./dist/dev/types/root-params.d.ts";
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
