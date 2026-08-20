@@ -347,7 +347,7 @@ const HarvestPage = () => {
                 </a>
                 <Link
                   to="/contact-us"
-                  className="border-2 border-leaf text-ocean hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
                 >
                   {t('harvest.cta.contactLabel')}
                   <ArrowRight className="h-5 w-5 ms-2" />
