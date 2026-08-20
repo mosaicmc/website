@@ -20,6 +20,7 @@ import {
   HeartHandshake,
   X,
   ExternalLink,
+  Sprout,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
@@ -360,6 +361,13 @@ const SettlementSupportPage = () => {
                 description: t('settlement.programs.finance.description'),
                 features: t('settlement.programs.finance.features', { returnObjects: true }) as unknown as string[],
                 icon: <FileText className="h-6 w-6" />,
+                color: "sky"
+              },
+              {
+                title: t('settlement.programs.harvest.title'),
+                description: t('settlement.programs.harvest.description'),
+                features: t('settlement.programs.harvest.features', { returnObjects: true }) as unknown as string[],
+                icon: <Sprout className="h-6 w-6" />,
                 color: "sky"
               }
             ] as ProgramCard[]).map((service, index) => {
