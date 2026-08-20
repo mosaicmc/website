@@ -49,6 +49,14 @@ const overrides: Record<string, Metadata> = {
     title: { absolute: translations.donate?.meta?.title || "Donate | Mosaic Multicultural Connections" },
     description: translations.donate?.meta?.description || DEFAULT_DESCRIPTION,
   },
+  "/services/harvest": {
+    title: {
+      absolute:
+        translations.harvest?.meta?.title ||
+        "HARVEST | Agricultural Employment Pathways | Mosaic Multicultural Connections",
+    },
+    description: translations.harvest?.meta?.description || DEFAULT_DESCRIPTION,
+  },
 };
 
 const toTitleCase = (value: string) =>
