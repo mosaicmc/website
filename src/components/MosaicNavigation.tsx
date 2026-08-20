@@ -678,7 +678,7 @@ export default function MosaicNavigation() {
                     variant="cta"
                     size="cta-sm" 
                     asChild
-                    className="bg-sun bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                    className="bg-sun bg-gradient-to-r from-sun to-earth hover:from-sun/90 hover:to-earth/90 text-ocean hover:text-ocean font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                   >
                     <Link to="/donate" {...prefetchOnHover('/donate')}><span>{t('nav.donate')}</span></Link>
                   </Button>

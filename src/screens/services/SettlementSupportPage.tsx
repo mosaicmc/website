@@ -699,7 +699,7 @@ const SettlementSupportPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('settlement.cta.callLabel')} (opens in new tab)`}
-                className="bg-sky hover:bg-sky/90 text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
+                className="bg-sky hover:bg-sky/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
               >
                 <UserPlus className="h-5 w-5" />
                 {t('settlement.cta.callLabel')}

@@ -99,7 +99,7 @@ const HarvestPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.hero.referralCta')} (opens in new tab)`}
-                  className="bg-leaf hover:bg-leaf/90 text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
+                  className="bg-leaf hover:bg-leaf/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
                 >
                   <UserPlus className="h-5 w-5" />
                   {t('harvest.hero.referralCta')}
@@ -339,7 +339,7 @@ const HarvestPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.cta.referralLabel')} (opens in new tab)`}
-                  className="bg-leaf hover:bg-leaf/90 text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
+                  className="bg-leaf hover:bg-leaf/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
                 >
                   <UserPlus className="h-5 w-5" />
                   {t('harvest.cta.referralLabel')}

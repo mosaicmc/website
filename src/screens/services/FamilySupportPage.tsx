@@ -468,7 +468,7 @@ const FamilySupportPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('family.cta.referralLabel')} (opens in new tab)`}
-                className="bg-sun hover:bg-sun/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
+                className="bg-sun hover:bg-sun/90 text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sun/25"
               >
                 <UserPlus className="h-5 w-5" />
                 {t('family.cta.referralLabel')}
