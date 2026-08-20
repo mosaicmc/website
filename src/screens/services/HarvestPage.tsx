@@ -29,7 +29,6 @@ import { assetPath } from '@/lib/utils';
 
 type Offering = { title: string; description: string };
 type Step = { title: string; description: string; bullets: string[] };
-type Target = { number: number; suffix: string; label: string };
 
 const OFFERING_ICONS = [
   GraduationCap,
@@ -48,7 +47,6 @@ const HarvestPage = () => {
 
   const offerings = t('harvest.offerings', { returnObjects: true }) as unknown as Offering[];
   const steps = t('harvest.how.steps', { returnObjects: true }) as unknown as Step[];
-  const targets = t('harvest.targets.items', { returnObjects: true }) as unknown as Target[];
   const eligibilityItems = t('harvest.eligibility.items', { returnObjects: true }) as unknown as string[];
 
   const coordinator = {
@@ -263,39 +261,6 @@ const HarvestPage = () => {
                 );
               })}
             </div>
-          </div>
-        </section>
-
-        {/* 2026-27 Program Targets */}
-        <section className="relative py-20 bg-gradient-to-br from-slate-50 via-green-50 to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-12">
-              <div className="service-badge mb-6">
-                <span className="me-2 h-2 w-2 rounded-full bg-leaf"></span>
-                <span className="font-medium">{t('harvest.targets.badge')}</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('harvest.targets.title')}</h2>
-              <p className="text-sm text-gray-600 dark:text-white/70 max-w-2xl mx-auto italic">{t('harvest.targets.note')}</p>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {targets.map((target, idx) => (
-                <div
-                  key={idx}
-                  className="relative backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-6 border border-white/50 dark:border-white/20 shadow-xl text-center"
-                >
-                  <div className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2">
-                    {target.number}
-                    <span className="text-gray-600 dark:text-white/70">{target.suffix}</span>
-                  </div>
-                  <div className="w-10 h-1 mx-auto rounded-full bg-leaf mb-3"></div>
-                  <div className="text-sm font-medium text-gray-700 dark:text-white/80">{target.label}</div>
-                </div>
-              ))}
-            </div>
-            <p className="mt-8 text-xs text-gray-500 dark:text-white/50 text-center max-w-3xl mx-auto">
-              {t('harvest.targets.source')}
-            </p>
           </div>
         </section>
 
