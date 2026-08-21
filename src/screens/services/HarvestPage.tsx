@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   Sprout,
-  Phone,
   ArrowRight,
   CheckCircle,
   UserPlus,
@@ -20,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
+import { EmployerEnquiryDialog } from '@/components/EmployerEnquiryDialog';
 import LazySection from '@/components/LazySection';
 import RelatedServices from '../../components/RelatedServices';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -134,13 +134,17 @@ const HarvestPage = () => {
                   {t('harvest.hero.referralCta')}
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 </a>
-                <a
-                  href="tel:1800813205"
-                  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
-                >
-                  <Phone className="h-5 w-5 me-2" />
-                  {t('harvest.hero.cta')}
-                </a>
+                <EmployerEnquiryDialog
+                  trigger={
+                    <button
+                      type="button"
+                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+                    >
+                      <Mail className="h-5 w-5 me-2" />
+                      Employer Enquiries
+                    </button>
+                  }
+                />
               </div>
               <div className="mt-6 motion-safe:animate-fade-in-up" style={{ animationDelay: '450ms' }}>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
@@ -342,13 +346,17 @@ const HarvestPage = () => {
                   {t('harvest.cta.contactLabel')}
                   <ArrowRight className="h-5 w-5 ms-2" />
                 </Link>
-                <a
-                  href="mailto:M.Narayanamurthy@mosaicmc.org.au?subject=HARVEST%20Employer%20Enquiry"
-                  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
-                >
-                  <Mail className="h-5 w-5 me-2" />
-                  {t('harvest.cta.employerLabel')}
-                </a>
+                <EmployerEnquiryDialog
+                  trigger={
+                    <button
+                      type="button"
+                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                    >
+                      <Mail className="h-5 w-5 me-2" />
+                      {t('harvest.cta.employerLabel')}
+                    </button>
+                  }
+                />
               </div>
               <div className="mt-6 text-center">
                 <p className="text-gray-600 dark:text-white/70 text-sm">{t('harvest.cta.footnote')}</p>
