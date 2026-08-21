@@ -60,7 +60,6 @@ const HarvestPage = () => {
   };
 
   const teamMembers = [
-    coordinator,
     {
       name: "Madan Narayanamurthy",
       role: "Regional Coordinator, Settlement Services",
@@ -70,6 +69,7 @@ const HarvestPage = () => {
       languages: ["English", "Hindi", "Tamil", "Telugu"],
       image: assetPath("/images/SETS Team 128px/SETSTeam_Madan_128px.webp"),
     },
+    coordinator,
     {
       name: "Hawas Marsho",
       role: "HARVEST Team",
