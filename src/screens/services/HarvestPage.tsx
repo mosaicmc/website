@@ -59,6 +59,37 @@ const HarvestPage = () => {
     image: assetPath("/images/SETS Team 128px/SETSTeam_Anthony_320px.webp"),
   };
 
+  const teamMembers = [
+    coordinator,
+    {
+      name: "Madan Narayanamurthy",
+      role: "Regional Coordinator, Settlement Services",
+      location: "Armidale",
+      qualifications: "Cert IV in Community Services; Master's in IT.",
+      experience: "Over 10 years of experience in program and community development for non-profits, with a focus on managing digital fundraising and event promotions.",
+      languages: ["English", "Hindi", "Tamil", "Telugu"],
+      image: assetPath("/images/SETS Team 128px/SETSTeam_Madan_128px.webp"),
+    },
+    {
+      name: "Hawas Marsho",
+      role: "HARVEST Team",
+      location: "Armidale",
+      qualifications: "",
+      experience: "More details coming soon.",
+      languages: ["English"],
+      image: undefined,
+    },
+    {
+      name: "Bijoux Mbalasa",
+      role: "HARVEST Team",
+      location: "Armidale",
+      qualifications: "",
+      experience: "More details coming soon.",
+      languages: ["English"],
+      image: undefined,
+    },
+  ];
+
   return (
     <PageTransition>
       <div className="motion-safe:animate-fade-in">
@@ -268,15 +299,15 @@ const HarvestPage = () => {
               </div>
               <ManagementSection
                 title=""
-                members={[{
-                  name: coordinator.name,
-                  role: coordinator.role,
-                  languages: coordinator.languages,
-                  avatar: coordinator.image,
-                  bio: coordinator.experience,
-                  credentialsSummary: coordinator.qualifications,
-                  location: coordinator.location,
-                }]}
+                members={teamMembers.map((member) => ({
+                  name: member.name,
+                  role: member.role,
+                  languages: member.languages,
+                  avatar: member.image,
+                  bio: member.experience,
+                  credentialsSummary: member.qualifications,
+                  location: member.location,
+                }))}
                 accentColor="leaf"
               />
             </div>
