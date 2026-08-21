@@ -343,7 +343,7 @@ const HarvestPage = () => {
                   <ArrowRight className="h-5 w-5 ms-2" />
                 </Link>
                 <a
-                  href="mailto:info@mosaicmc.org.au?subject=HARVEST%20Employer%20Enquiry"
+                  href="mailto:M.Narayanamurthy@mosaicmc.org.au?subject=HARVEST%20Employer%20Enquiry"
                   className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
                 >
                   <Mail className="h-5 w-5 me-2" />
