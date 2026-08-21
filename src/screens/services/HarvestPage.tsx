@@ -135,6 +135,18 @@ const HarvestPage = () => {
               <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed motion-safe:animate-fade-in-up break-words" style={{ animationDelay: '200ms' }}>
                 {t('harvest.programs.helper')}
               </p>
+              <p className="text-sm sm:text-base text-gray-500 dark:text-white/60 max-w-3xl mx-auto leading-relaxed motion-safe:animate-fade-in-up mt-4" style={{ animationDelay: '300ms' }}>
+                HARVEST builds on Mosaic&apos;s REAP (Regional Employment Agriculture Project), an earlier employment pathways pilot in Armidale. Read the{' '}
+                <a
+                  href="https://www.mosaicmc.org.au/resources#project-reports"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-leaf-text hover:underline"
+                >
+                  REAP Project Report
+                </a>{' '}
+                to see the model HARVEST is built on.
+              </p>
             </div>
 
             <div className="max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(260px,360px))] lg:justify-center auto-rows-fr justify-items-center">
