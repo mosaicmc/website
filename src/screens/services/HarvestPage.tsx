@@ -208,32 +208,14 @@ const HarvestPage = () => {
                     </div>
                   ))}
                 </div>
-                <div className="backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-8 border border-white/50 dark:border-white/20 shadow-2xl flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-leaf shadow-lg">
-                      <Sprout className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('harvest.hero.badge')}</h3>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-                    {t('harvest.eligibility.note')}
-                  </p>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/50 dark:border-white/20 min-h-[280px]">
+                  <img
+                    src={assetPath('/images/harvest-workers-team.jpg')}
+                    alt="A group of HARVEST participants in high-visibility workwear standing together outside a worksite in Armidale"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
-
-              <div className="mt-8 text-center md:text-left">
-                <p className="mt-2 text-sm">
-                  <a
-                    href="https://forms.mosaicmc.org.au/referral"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t('harvest.eligibility.linkLabel')} (opens in new tab)`}
-                    className="inline-flex items-center gap-1 text-leaf-text hover:underline font-medium"
-                  >
-                    {t('harvest.eligibility.linkLabel')}
-                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                  </a>
-                </p>
               </div>
             </div>
           </div>
