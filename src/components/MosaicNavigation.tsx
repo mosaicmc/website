@@ -15,6 +15,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from '../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
 import CustomNavigation from './CustomNavigation';
+import { EmployerEnquiryDialog } from './EmployerEnquiryDialog';
 
 type ServiceNavItem = {
   title: string;
@@ -64,6 +65,7 @@ export default function MosaicNavigation() {
   const { i18n, t } = useTranslation();
   const location = useLocation();
   const isEmergencyMode = location.pathname.startsWith('/resources/emergency-');
+  const isHarvestMode = location.pathname.startsWith('/services/harvest');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showOverlay, setShowOverlay] = useState(false);
@@ -885,9 +887,19 @@ export default function MosaicNavigation() {
                       <LanguageSwitcher showText={false} menuId="language-menu-mobile-sheet" />
                       {!isEmergencyMode && (
                         <>
-                          <Button variant="outline" size="sm" asChild className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                          {isHarvestMode ? (
+                            <EmployerEnquiryDialog
+                              trigger={
+                                <Button variant="outline" size="sm" className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
+                                  Employer Enquiries
+                                </Button>
+                              }
+                            />
+                          ) : (
+                            <Button variant="outline" size="sm" asChild className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
                         <a href="tel:1800813205">📞 {t('nav.menu.callAction')}</a>
                       </Button>
+                          )}
                       <Button 
                         size="default" 
                         asChild 
