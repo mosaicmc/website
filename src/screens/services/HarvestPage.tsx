@@ -105,7 +105,12 @@ const HarvestPage = () => {
               <img
                 src={assetPath("/images/harvest-logo.svg")}
                 alt="HARVEST program logo"
-                className="h-16 sm:h-20 w-auto mx-auto mb-6 motion-safe:animate-fade-in-up"
+                className="h-16 sm:h-20 w-auto mx-auto mb-6 motion-safe:animate-fade-in-up dark:hidden"
+              />
+              <img
+                src={assetPath("/images/harvest-logo-dark.svg")}
+                alt="HARVEST program logo"
+                className="hidden h-16 sm:h-20 w-auto mx-auto mb-6 motion-safe:animate-fade-in-up dark:block"
               />
 
               <div className="service-badge mb-6">
