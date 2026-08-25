@@ -20,6 +20,7 @@ import {
   HeartHandshake,
   X,
   ExternalLink,
+  Sprout,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
@@ -38,6 +39,7 @@ type ProgramCard = {
   features: string[];
   icon: JSX.Element;
   color: 'sky' | 'earth' | 'leaf' | 'sun';
+  href?: string;
 };
 
 type ExternalTransLinkProps = {
@@ -361,6 +363,14 @@ const SettlementSupportPage = () => {
                 features: t('settlement.programs.finance.features', { returnObjects: true }) as unknown as string[],
                 icon: <FileText className="h-6 w-6" />,
                 color: "sky"
+              },
+              {
+                title: t('settlement.programs.harvest.title'),
+                description: t('settlement.programs.harvest.description'),
+                features: t('settlement.programs.harvest.features', { returnObjects: true }) as unknown as string[],
+                icon: <Sprout className="h-6 w-6" />,
+                color: "sky",
+                href: "/services/harvest"
               }
             ] as ProgramCard[]).map((service, index) => {
               const bgClass = service.color === 'sky'
@@ -414,15 +424,25 @@ const SettlementSupportPage = () => {
                         {service.description}
                       </p>
                       <div className="mt-2">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-sky-text transition-colors duration-300 ease-out hover:text-sky/80 whitespace-nowrap"
-                        onClick={() => setActiveProgram(service)}
-                      >
-                        Learn more
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
-                      </Button>
+                      {service.href ? (
+                        <Link
+                          to={service.href}
+                          className="group/cta inline-flex items-center gap-1 text-sm font-semibold text-sky-text transition-colors duration-300 ease-out hover:text-sky/80 whitespace-nowrap"
+                        >
+                          Learn more
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                        </Link>
+                      ) : (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="group/cta inline-flex items-center gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-sky-text transition-colors duration-300 ease-out hover:text-sky/80 whitespace-nowrap"
+                          onClick={() => setActiveProgram(service)}
+                        >
+                          Learn more
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                        </Button>
+                      )}
                       </div>
                     </div>
                   </div>
@@ -679,7 +699,7 @@ const SettlementSupportPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('settlement.cta.callLabel')} (opens in new tab)`}
-                className="bg-sky hover:bg-sky/90 text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
+                className="bg-sky hover:bg-sky/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-sky/25"
               >
                 <UserPlus className="h-5 w-5" />
                 {t('settlement.cta.callLabel')}

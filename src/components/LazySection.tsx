@@ -28,18 +28,47 @@ export default function LazySection({
 
   React.useEffect(() => {
     if (!ref.current || isVisible || lazyDisabled) return;
+    const node = ref.current;
+
+    // Fallback: if the element is already within (or near) the viewport by the
+    // time this effect runs, some environments never fire an initial
+    // IntersectionObserver callback with isIntersecting=true. Check synchronously
+    // so content isn't stuck behind an empty placeholder forever.
+    const rect = node.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < viewportHeight + 200 && rect.bottom > -200) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
       },
-      { rootMargin }
+      { rootMargin, threshold: 0 }
     );
 
-    observer.observe(ref.current);
-    return () => observer.disconnect();
+    observer.observe(node);
+
+    // Extra safety net: periodically re-check position in case the observer
+    // fails to fire (e.g. due to layout shifts happening before it attaches).
+    const interval = window.setInterval(() => {
+      const r = node.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      if (r.top < vh + 200 && r.bottom > -200) {
+        setIsVisible(true);
+      }
+    }, 500);
+
+    return () => {
+      observer.disconnect();
+      window.clearInterval(interval);
+    };
   }, [isVisible, lazyDisabled, rootMargin]);
 
   React.useEffect(() => {

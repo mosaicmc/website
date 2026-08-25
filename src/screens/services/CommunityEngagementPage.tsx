@@ -450,7 +450,7 @@ const CommunityEngagementPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t('community.cta.callLabel')} (opens in new tab)`}
-                className="bg-leaf hover:bg-leaf/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
+                className="bg-leaf hover:bg-leaf/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 focus:ring-offset-background"
               >
                 <UserPlus className="h-5 w-5" />
                 {t('community.cta.callLabel')}

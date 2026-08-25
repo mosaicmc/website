@@ -2296,6 +2296,16 @@
           "Referrals to financial counselling and budgeting support",
           "Information to help avoid financial stress and exploitation"
         ]
+      },
+      "harvest": {
+        "title": "HARVEST (Armidale & Tamworth)",
+        "description": "Helping young people, migrants and refugees build skills for real jobs in agriculture and food processing.",
+        "features": [
+          "Training and employment pathways for 17 to 25 year old migrant jobseekers",
+          "Hands-on skills development in agriculture and food processing",
+          "Support connecting with local employers in the rural industry",
+          "Delivered in partnership with the Armidale and Tamworth communities"
+        ]
       }
     },
     "how": {
@@ -2371,6 +2381,119 @@
       "callLabel": "Make a Referral",
       "contactLabel": "Contact Us Online",
       "footnote": "Professional interpreters available on request • All services completely free"
+    }
+  },
+  "harvest": {
+    "meta": {
+      "title": "HARVEST | Agricultural Employment Pathways | Mosaic Multicultural Connections",
+      "description": "HARVEST helps young people, migrants and refugees in Armidale and Tamworth build real skills for real jobs in agriculture and food processing, free and fully supported."
+    },
+    "hero": {
+      "badge": "HARVEST · Armidale & Tamworth",
+      "headline": "Ready to Build Your Employment Pathway in New England?",
+      "subheadline": "Breaking into a new industry can feel out of reach when you don't have local experience, workplace English, or a foot in the door with employers.",
+      "body": "HARVEST gives you structured training, hands-on experience and direct connections with local employers, so you can move from disengagement into real, sustainable work across agriculture, food processing and other local industries.",
+      "cta": "Call Us",
+      "referralCta": "Make a Referral",
+      "footerNote": "Helping All Reach Vocational Employment, Skills & Training \u2013 HARVEST",
+      "fundingNote": "Funded by the Australian Government Department of Employment and Workplace Relations (DEWR) through the Local Jobs, Local People program, delivered through Workforce Australia in partnership with local employers, TAFE NSW and the Armidale and Tamworth communities."
+    },
+    "programs": {
+      "badge": "What's Included",
+      "title": "What HARVEST Offers",
+      "helper": "HARVEST combines training, mentoring and real workplace experience, so you build the skills employers are actually looking for."
+    },
+    "offerings": [
+      {
+        "title": "Pre-Employment Training",
+        "description": "Accredited and non-accredited training to get you job-ready from day one."
+      },
+      {
+        "title": "Certificate II in Agriculture",
+        "description": "Nationally recognised qualification units in agricultural work."
+      },
+      {
+        "title": "Workplace English",
+        "description": "English for agricultural settings, delivered alongside AMEP/TAFE NSW."
+      },
+      {
+        "title": "Vocational Tasters",
+        "description": "Practical credentials like White Card and First Aid, where relevant to your pathway."
+      },
+      {
+        "title": "Hands-On Experience",
+        "description": "Farm visits and site preparation, so you know what the work is really like before you start."
+      },
+      {
+        "title": "Mentoring & Support",
+        "description": "Bilingual, culturally responsive mentoring throughout the program."
+      },
+      {
+        "title": "Employer Connections",
+        "description": "Direct engagement with local employers, work placements and job matching."
+      }
+    ],
+    "eligibility": {
+      "title": "Who Can Take Part in HARVEST?",
+      "items": [
+        "Young people aged 17 to 24 in Armidale or Tamworth looking to build a career in agriculture or food processing.",
+        "People aged 25 and over facing significant barriers to employment, where there's demonstrated need.",
+        "Migrants and refugees with work rights who want local experience and employer connections.",
+        "Other disadvantaged job seekers facing barriers such as limited workplace English, transport challenges or low confidence entering the workforce."
+      ],
+      "note": "HARVEST is funded by the Australian Government Department of Employment and Workplace Relations (DEWR) through the Local Jobs, Local People program, delivered through Workforce Australia."
+    },
+    "how": {
+      "badge": "How HARVEST Works",
+      "title": "From Enrolment to Employment",
+      "description": "Every HARVEST journey moves through five stages, from your first enquiry to a real job placement.",
+      "steps": [
+        {
+          "title": "Enrol",
+          "description": "Register your interest and complete a short intake and assessment.",
+          "bullets": ["Free to join, interpreters available on request", "Delivered in small cohorts of 25 participants per tranche"]
+        },
+        {
+          "title": "Train",
+          "description": "Take part in pre-employment training and Certificate II in Agriculture units.",
+          "bullets": ["Workplace English and vocational tasters included", "Bilingual support throughout"]
+        },
+        {
+          "title": "Connect",
+          "description": "Build relationships with local employers through structured mentoring.",
+          "bullets": ["Employer co-design means training matches real local jobs"]
+        },
+        {
+          "title": "Work Placement",
+          "description": "Opportunity to gain work experience to secure long term employment",
+          "bullets": ["Practical, supervised, real workplace settings"]
+        },
+        {
+          "title": "Employment",
+          "description": "Move into a job matched to your skills and local employer needs.",
+          "bullets": ["Post-placement mentoring to help you stay in work"]
+        }
+      ]
+    },
+    "targets": {
+      "badge": "2026–27 Program Targets",
+      "title": "What We're Working Towards",
+      "note": "These are targets set out in Mosaic's funding agreement with DEWR for the current grant period, not results already achieved.",
+      "source": "Source: DEWR Local Jobs, Local People Activity Work Plan, HARVEST — New England Agricultural Employment Pathways, 2026–27 grant period.",
+      "items": [
+        { "number": 100, "suffix": "", "label": "Participants engaged" },
+        { "number": 90, "suffix": "%+", "label": "Training completion rate" },
+        { "number": 40, "suffix": "%+", "label": "Placed into employment" },
+        { "number": 85, "suffix": "%+", "label": "Retained in work after placement" }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Build Your Employment Pathway?",
+      "body": "Whether you're looking for your first job in Australia or a new direction, HARVEST's team is here to guide you from training through to employment across agriculture, food processing and other local industries. Employers are welcome to get in touch too, to access a pipeline of job-ready local workers.",
+      "referralLabel": "Make a Referral",
+      "contactLabel": "Contact Us Online",
+      "employerLabel": "Employer Enquiries",
+      "footnote": "Free program • Bilingual support available • Funded by the Australian Government"
     }
   },
   "emergency": {
