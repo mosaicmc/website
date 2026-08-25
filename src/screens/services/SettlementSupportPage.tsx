@@ -372,7 +372,7 @@ const SettlementSupportPage = () => {
                 icon: <Sprout className="h-6 w-6" />,
                 color: "sky",
                 href: "/services/harvest",
-                logo: assetPath("/images/harvest-logo-white-alt.svg")
+                logo: assetPath("/images/harvest-logo-white-v3.svg")
               }
             ] as ProgramCard[]).map((service, index) => {
               const bgClass = service.color === 'sky'
