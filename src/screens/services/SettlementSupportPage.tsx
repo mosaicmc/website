@@ -372,7 +372,7 @@ const SettlementSupportPage = () => {
                 icon: <Sprout className="h-6 w-6" />,
                 color: "sky",
                 href: "/services/harvest",
-                logo: assetPath("/images/harvest-logo-white-v3.svg")
+                logo: assetPath("/images/harvest-logo-card.svg")
               }
             ] as ProgramCard[]).map((service, index) => {
               const bgClass = service.color === 'sky'
@@ -414,12 +414,12 @@ const SettlementSupportPage = () => {
 
                   <div className="relative z-10 flex w-full items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className={`flex h-12 items-center justify-center rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${bgClass} ${service.logo ? "w-20 px-2" : "w-12"}`}>
+                      <div className={`flex h-12 items-center justify-center overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${service.logo ? "w-20" : `w-12 ${bgClass}`}`}>
                         {service.logo ? (
                           <img
                             src={service.logo}
                             alt={`${service.title} logo`}
-                            className="h-9 w-full object-contain"
+                            className="h-full w-full object-cover"
                           />
                         ) : (
                           <div className="text-white">{service.icon}</div>
