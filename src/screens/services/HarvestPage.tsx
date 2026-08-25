@@ -139,7 +139,7 @@ const HarvestPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.hero.referralCta')} (opens in new tab)`}
-                  className="bg-leaf hover:bg-leaf/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
+                  className="bg-leaf hover:bg-leaf/90 text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
                 >
                   <UserPlus className="h-5 w-5" />
                   {t('harvest.hero.referralCta')}
@@ -149,7 +149,7 @@ const HarvestPage = () => {
                   trigger={
                     <button
                       type="button"
-                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
                     >
                       <Mail className="h-5 w-5 me-2" />
                       Employer Enquiries
@@ -344,7 +344,7 @@ const HarvestPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.cta.referralLabel')} (opens in new tab)`}
-                  className="bg-leaf hover:bg-leaf/90 text-ocean hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
+                  className="bg-leaf hover:bg-leaf/90 text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-leaf/25"
                 >
                   <UserPlus className="h-5 w-5" />
                   {t('harvest.cta.referralLabel')}
@@ -352,7 +352,7 @@ const HarvestPage = () => {
                 </a>
                 <Link
                   to="/contact-us"
-                  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
                 >
                   {t('harvest.cta.contactLabel')}
                   <ArrowRight className="h-5 w-5 ms-2" />
@@ -361,7 +361,7 @@ const HarvestPage = () => {
                   trigger={
                     <button
                       type="button"
-                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-ocean px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
                     >
                       <Mail className="h-5 w-5 me-2" />
                       {t('harvest.cta.employerLabel')}
