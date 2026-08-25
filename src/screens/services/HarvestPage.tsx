@@ -92,7 +92,7 @@ const HarvestPage = () => {
 
   return (
     <PageTransition>
-      <div className="motion-safe:animate-fade-in">
+      <div className="harvest-theme motion-safe:animate-fade-in">
 
         {/* Hero Section */}
         <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">

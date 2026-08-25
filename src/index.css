@@ -128,6 +128,16 @@
     --sky: #60c7cc;
   }
 
+  /* HARVEST program page: scoped green override (does not affect other pages) */
+  .harvest-theme {
+    --leaf: #6c9453;
+    --leaf-text: #4f6b3d;
+  }
+
+  .dark .harvest-theme {
+    --leaf-text: #6c9453;
+  }
+
   .dark {
     /* Global background + divider tokens (dark) */
     --bg-page: var(--background);
