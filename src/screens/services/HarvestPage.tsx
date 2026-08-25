@@ -81,12 +81,12 @@ const HarvestPage = () => {
     },
     {
       name: "Bijoux Mbalasa",
-      role: "HARVEST Team",
+      role: "Community Engagement Worker",
       location: "Armidale",
-      qualifications: "",
-      experience: "More details coming soon.",
-      languages: ["English"],
-      image: undefined,
+      qualifications: "Bachelor's Degree in Financial Mathematics; Diploma in Public Speaking.",
+      experience: "I work as a Community Engagement Worker, supporting and engaging with culturally and linguistically diverse communities. I have experience in community engagement, youth support, tutoring, communication, and working with people from diverse cultural backgrounds.",
+      languages: ["English", "Kiswahili", "Lingala", "Shona", "Ndebele"],
+      image: assetPath("/images/HARVEST Team 128px/HARVESTTeam_Bijou_128px.webp"),
     },
   ];
 
