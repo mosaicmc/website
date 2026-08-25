@@ -414,12 +414,12 @@ const SettlementSupportPage = () => {
 
                   <div className="relative z-10 flex w-full items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className={`flex h-12 items-center justify-center overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${service.logo ? "w-20" : `w-12 ${bgClass}`}`}>
+                      <div className={`flex h-12 items-center justify-center overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${service.logo ? `w-20 p-1.5 ${bgClass}` : `w-12 ${bgClass}`}`}>
                         {service.logo ? (
                           <img
                             src={service.logo}
                             alt={`${service.title} logo`}
-                            className="h-full w-full object-cover"
+                            className="h-full w-full object-contain"
                           />
                         ) : (
                           <div className="text-white">{service.icon}</div>
