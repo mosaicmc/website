@@ -130,7 +130,7 @@ const HarvestPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center motion-safe:animate-fade-in-up" style={{ animationDelay: '350ms' }}>
                 <a
-                  href="https://forms.mosaicmc.org.au/referral"
+                  href="https://forms.mosaicmc.org.au/r/Np1YQl"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.hero.referralCta')} (opens in new tab)`}
@@ -336,7 +336,7 @@ const HarvestPage = () => {
               <p className="text-xl text-gray-600 dark:text-white/80 mb-8 max-w-3xl mx-auto">{t('harvest.cta.body')}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://forms.mosaicmc.org.au/referral"
+                  href="https://forms.mosaicmc.org.au/r/Np1YQl"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t('harvest.cta.referralLabel')} (opens in new tab)`}
