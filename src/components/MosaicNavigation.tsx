@@ -59,7 +59,15 @@ const Logo = () => {
   );
 };
 
-export default function MosaicNavigation() {
+interface MosaicNavigationProps {
+  employerHubspotPortalId?: string;
+  employerHubspotFormId?: string;
+}
+
+export default function MosaicNavigation({
+  employerHubspotPortalId = "",
+  employerHubspotFormId = "",
+}: MosaicNavigationProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [showCrisisBanner, setShowCrisisBanner] = useState(false);
   const { i18n, t } = useTranslation();
@@ -889,6 +897,8 @@ export default function MosaicNavigation() {
                         <>
                           {isHarvestMode ? (
                             <EmployerEnquiryDialog
+                              hubspotPortalId={employerHubspotPortalId}
+                              hubspotFormId={employerHubspotFormId}
                               trigger={
                                 <Button variant="outline" size="sm" className="w-full border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-sand/50 dark:hover:bg-slate-800/50">
                                   Employer Enquiries
