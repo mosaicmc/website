@@ -36,7 +36,7 @@ export default {
   			sand: '#f3ede7',
   			sun: '#fcb73d',
   			earth: '#f37a60',
-  			leaf: '#b4d785',
+  			leaf: 'var(--leaf, #b4d785)',
   			care: '#F16B83',
             'sky-text': 'var(--sky-text, #16656a)',
             'earth-text': 'var(--earth-text, #a83820)',

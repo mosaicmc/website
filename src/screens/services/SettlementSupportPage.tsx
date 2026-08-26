@@ -33,14 +33,15 @@ import { PageTransition } from '@/components/ui/PageTransition';
 import { assetPath } from '@/lib/utils';
 import { TrackedDownloadButton } from "@/components/TrackedDownloadButton";
 
-type ProgramCard = {
+  type ProgramCard = {
   title: string;
   description: string;
   features: string[];
   icon: JSX.Element;
   color: 'sky' | 'earth' | 'leaf' | 'sun';
   href?: string;
-};
+  logo?: string;
+  };
 
 type ExternalTransLinkProps = {
   href: string;
@@ -370,7 +371,8 @@ const SettlementSupportPage = () => {
                 features: t('settlement.programs.harvest.features', { returnObjects: true }) as unknown as string[],
                 icon: <Sprout className="h-6 w-6" />,
                 color: "sky",
-                href: "/services/harvest"
+                href: "/services/harvest",
+                logo: assetPath("/images/harvest-logo-card.svg")
               }
             ] as ProgramCard[]).map((service, index) => {
               const bgClass = service.color === 'sky'
@@ -412,8 +414,16 @@ const SettlementSupportPage = () => {
 
                   <div className="relative z-10 flex w-full items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className={`flex h-12 w-12 items-center justify-center rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${bgClass}`}>
-                        <div className="text-white">{service.icon}</div>
+                      <div className={`flex h-12 items-center justify-center overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 ease-out ${service.logo ? `w-20 p-1.5 ${bgClass}` : `w-12 ${bgClass}`}`}>
+                        {service.logo ? (
+                          <img
+                            src={service.logo}
+                            alt={`${service.title} logo`}
+                            className="h-full w-full object-contain"
+                          />
+                        ) : (
+                          <div className="text-white">{service.icon}</div>
+                        )}
                       </div>
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col">

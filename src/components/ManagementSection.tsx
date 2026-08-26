@@ -35,10 +35,12 @@ export function ManagementSection({
   title,
   members,
   accentColor = "ocean",
+  readBioButtonClassName,
 }: {
   title?: string;
   members: ManagementMemberCard[];
   accentColor?: "ocean" | "sky" | "care" | "earth" | "leaf" | "sun";
+  readBioButtonClassName?: string;
 }) {
   const { t } = useTranslation();
   const accentShadow =
@@ -210,7 +212,7 @@ export function ManagementSection({
                                 : accentColor === "sun"
                                 ? "hover:shadow-sun/25"
                                 : "hover:shadow-ocean/25"
-                            }`}
+                            } ${readBioButtonClassName ?? ""}`}
                         >
                           {t('common.readBio')}
                         </Button>
@@ -268,7 +270,7 @@ export function ManagementSection({
                             : accentColor === "sun"
                             ? "hover:shadow-sun/25"
                             : "hover:shadow-ocean/25"
-                        }`}
+                        } ${readBioButtonClassName ?? ""}`}
                       >
                         {t('common.readBio')}
                       </Button>
