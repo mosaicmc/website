@@ -42,7 +42,12 @@ const OFFERING_ICONS = [
 
 const STEP_ICONS = [ClipboardList, GraduationCap, Handshake, Tractor, CheckCircle];
 
-const HarvestPage = () => {
+interface HarvestPageProps {
+  employerHubspotPortalId: string;
+  employerHubspotFormId: string;
+}
+
+const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: HarvestPageProps) => {
   const { t } = useTranslation();
 
   const offerings = t('harvest.offerings', { returnObjects: true }) as unknown as Offering[];
@@ -140,15 +145,17 @@ const HarvestPage = () => {
                   {t('harvest.hero.referralCta')}
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 </a>
-                <EmployerEnquiryDialog
-                  trigger={
-                    <button
-                      type="button"
-                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
-                    >
-                      <Mail className="h-5 w-5 me-2" />
-                      Employer Enquiries
-                    </button>
+ <EmployerEnquiryDialog
+  hubspotPortalId={employerHubspotPortalId}
+  hubspotFormId={employerHubspotFormId}
+  trigger={
+  <button
+  type="button"
+  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2"
+  >
+  <Mail className="h-5 w-5 me-2" />
+  Employer Enquiries
+  </button>
                   }
                 />
               </div>
@@ -353,15 +360,17 @@ const HarvestPage = () => {
                   {t('harvest.cta.contactLabel')}
                   <ArrowRight className="h-5 w-5 ms-2" />
                 </Link>
-                <EmployerEnquiryDialog
-                  trigger={
-                    <button
-                      type="button"
-                      className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
-                    >
-                      <Mail className="h-5 w-5 me-2" />
-                      {t('harvest.cta.employerLabel')}
-                    </button>
+ <EmployerEnquiryDialog
+  hubspotPortalId={employerHubspotPortalId}
+  hubspotFormId={employerHubspotFormId}
+  trigger={
+  <button
+  type="button"
+  className="border-2 border-leaf text-ocean dark:text-white hover:bg-leaf hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center hover:scale-105"
+  >
+  <Mail className="h-5 w-5 me-2" />
+  {t('harvest.cta.employerLabel')}
+  </button>
                   }
                 />
               </div>
