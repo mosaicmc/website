@@ -324,6 +324,7 @@ const HarvestPage = () => {
                   location: member.location,
                 }))}
                 accentColor="leaf"
+                readBioButtonClassName="text-white hover:text-white"
               />
             </div>
           </section>
