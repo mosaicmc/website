@@ -1,12 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Mail } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogTrigger,
@@ -15,65 +11,95 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
-const EMPLOYER_EMAIL = "M.Narayanamurthy@mosaicmc.org.au";
+const HUBSPOT_EMBED_SCRIPT_SRC = "//js-ap1.hsforms.net/forms/embed/v2.js";
+const HUBSPOT_REGION = "ap1";
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Please enter your name." }),
-  organisation: z.string().min(2, { message: "Please enter your organisation's name." }),
-  website: z.string().min(1, { message: "Please enter your organisation's website." }),
-  role: z.string().min(2, { message: "Please enter your role." }),
-  message: z
-    .string()
-    .min(10, { message: "Please tell us a little more about how you'd like to partner with us." }),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (options: {
+          portalId: string;
+          formId: string;
+          region: string;
+          target: string;
+        }) => void;
+      };
+    };
+  }
+}
 
 interface EmployerEnquiryDialogProps {
   trigger: React.ReactNode;
+  hubspotPortalId: string;
+  hubspotFormId: string;
 }
 
-export function EmployerEnquiryDialog({ trigger }: EmployerEnquiryDialogProps) {
-  const [open, setOpen] = React.useState(false);
+let hubspotScriptPromise: Promise<void> | null = null;
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      organisation: "",
-      website: "",
-      role: "",
-      message: "",
-    },
+function loadHubspotScript(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (window.hbspt) return Promise.resolve();
+  if (hubspotScriptPromise) return hubspotScriptPromise;
+
+  hubspotScriptPromise = new Promise((resolve, reject) => {
+    const existing = document.querySelector(
+      `script[src="${HUBSPOT_EMBED_SCRIPT_SRC}"]`
+    );
+    if (existing) {
+      existing.addEventListener("load", () => resolve());
+      existing.addEventListener("error", () => reject(new Error("Failed to load HubSpot form script")));
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = HUBSPOT_EMBED_SCRIPT_SRC;
+    script.charset = "utf-8";
+    script.type = "text/javascript";
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Failed to load HubSpot form script"));
+    document.body.appendChild(script);
   });
 
-  function onSubmit(values: FormValues) {
-    const subject = `HARVEST Employer Enquiry — ${values.organisation}`;
-    const body = [
-      `Name: ${values.name}`,
-      `Organisation: ${values.organisation}`,
-      `Website: ${values.website}`,
-      `Role: ${values.role}`,
-      "",
-      "How they'd like to partner with us:",
-      values.message,
-    ].join("\n");
-    const mailto = `mailto:${EMPLOYER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setOpen(false);
-    form.reset();
-  }
+  return hubspotScriptPromise;
+}
+
+export function EmployerEnquiryDialog({
+  trigger,
+  hubspotPortalId,
+  hubspotFormId,
+}: EmployerEnquiryDialogProps) {
+  const [open, setOpen] = React.useState(false);
+  const [status, setStatus] = React.useState<"loading" | "ready" | "error">("loading");
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const containerId = React.useId().replace(/[^a-zA-Z0-9]/g, "");
+
+  React.useEffect(() => {
+    if (!open) return;
+
+    let cancelled = false;
+    setStatus("loading");
+
+    loadHubspotScript()
+      .then(() => {
+        if (cancelled || !containerRef.current) return;
+        containerRef.current.innerHTML = "";
+        window.hbspt?.forms.create({
+          portalId: hubspotPortalId,
+          formId: hubspotFormId,
+          region: HUBSPOT_REGION,
+          target: `#${containerId}`,
+        });
+        setStatus("ready");
+      })
+      .catch(() => {
+        if (!cancelled) setStatus("error");
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [open, hubspotPortalId, hubspotFormId, containerId]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -86,84 +112,19 @@ export function EmployerEnquiryDialog({ trigger }: EmployerEnquiryDialogProps) {
             We&apos;ll get back to you shortly.
           </DialogDescription>
         </DialogHeader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Jane Smith" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="organisation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name of Organisation</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Acme Farms Pty Ltd" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="website"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Website</FormLabel>
-                  <FormControl>
-                    <Input placeholder="https://www.example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="role"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Role</FormLabel>
-                  <FormControl>
-                    <Input placeholder="HR Manager" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>How would you like to partner with us?</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Tell us about your organisation, roles you're looking to fill, and how you'd like to work with HARVEST..."
-                      rows={5}
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="w-full">
-              <Mail className="h-4 w-4 me-2" />
-              Send Enquiry
-            </Button>
-          </form>
-        </Form>
+        {status === "loading" && (
+          <div className="flex items-center justify-center gap-2 py-10 text-sm text-muted-foreground">
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+            <span>Loading form&hellip;</span>
+          </div>
+        )}
+        {status === "error" && (
+          <p className="py-6 text-center text-sm text-destructive">
+            We couldn&apos;t load the enquiry form. Please refresh and try again, or email us
+            directly.
+          </p>
+        )}
+        <div id={containerId} ref={containerRef} className={status === "loading" ? "sr-only" : ""} />
       </DialogContent>
     </Dialog>
   );

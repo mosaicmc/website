@@ -11,7 +11,15 @@ import { PageSkeleton } from "../components/ui/Skeleton";
 import { GoogleTranslateGuardrails } from "../components/GoogleTranslateGuardrails";
 import { HarvestFavicon } from "../components/HarvestFavicon";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({
+  children,
+  employerHubspotPortalId = "",
+  employerHubspotFormId = "",
+}: {
+  children: React.ReactNode;
+  employerHubspotPortalId?: string;
+  employerHubspotFormId?: string;
+}) {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-page transition-colors duration-300" role="region" aria-label="Page content">
@@ -25,7 +33,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         </a>
         <ScrollToTop />
         <TopLoader />
-        <MosaicNavigation />
+        <MosaicNavigation
+          employerHubspotPortalId={employerHubspotPortalId}
+          employerHubspotFormId={employerHubspotFormId}
+        />
         <main id="main-content">
           <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
         </main>

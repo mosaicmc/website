@@ -192,7 +192,10 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-3E1M7JF0ZD"
           strategy="afterInteractive"
         />
-        <ClientLayout>
+        <ClientLayout
+          employerHubspotPortalId={process.env.HARVEST_EMPLOYER_HUBSPOT_PORTAL_ID ?? ""}
+          employerHubspotFormId={process.env.HARVEST_EMPLOYER_HUBSPOT_FORM_ID ?? ""}
+        >
           {children}
           <ConsentManager />
         </ClientLayout>
