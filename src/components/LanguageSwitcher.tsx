@@ -109,12 +109,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     };
     const win = window as WindowWithGoogle;
     const containerId = 'google_translate_element';
-    if (!document.getElementById(containerId)) {
-      const container = document.createElement('div');
-      container.id = containerId;
-      container.style.display = 'none';
-      document.body.appendChild(container);
-    }
+    if (!document.getElementById(containerId)) return;
 
     const initTranslate = () => {
       const google = win.google;
