@@ -84,10 +84,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://api.raisely.com" />
       </head>
       <body suppressHydrationWarning>
-        <div
-          id="google_translate_element"
-          style={{ position: "absolute", left: "-9999px", top: 0 }}
-        />
         <Script
           id="theme-preload"
           strategy="beforeInteractive"
@@ -103,19 +99,6 @@ export default function RootLayout({
               })();
             `,
           }}
-        />
-        <Script id="google-translate-init" strategy="afterInteractive">
-          {`function googleTranslateElementInit() {
-  if (!window.google || !window.google.translate) return;
-  new window.google.translate.TranslateElement(
-    { pageLanguage: 'en', autoDisplay: false },
-    'google_translate_element'
-  );
-}`}
-        </Script>
-        <Script
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          strategy="afterInteractive"
         />
         <Script
           id="org-jsonld"

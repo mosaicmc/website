@@ -66,12 +66,7 @@ export function GoogleTranslateGuardrails() {
       googleTranslateElementInit?: () => void;
     };
     const win = window as WindowWithGoogle;
-    if (!document.getElementById(TRANSLATE_CONTAINER_ID)) {
-      const container = document.createElement('div');
-      container.id = TRANSLATE_CONTAINER_ID;
-      container.style.display = 'none';
-      document.body.appendChild(container);
-    }
+    if (!document.getElementById(TRANSLATE_CONTAINER_ID)) return;
 
     const initTranslate = () => {
       const google = win.google;
@@ -302,5 +297,5 @@ export function GoogleTranslateGuardrails() {
     }
   }, []);
 
-  return null;
+  return <div id={TRANSLATE_CONTAINER_ID} style={{ display: 'none' }} />;
 }
