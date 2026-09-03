@@ -18,10 +18,11 @@ import { TrackedDownloadButton } from '@/components/TrackedDownloadButton';
 type ProgramCard = {
   title: string;
   description: string;
+  cardSubtitle?: string;
   icon: JSX.Element;
   features: string[];
   fundingNote?: string;
-};
+  };
 
 const AgedCarePage = () => {
   const { t } = useTranslation();
@@ -322,6 +323,7 @@ const AgedCarePage = () => {
               {
                 title: t('agedCare.programs.acvvs.title'),
                 description: t('agedCare.programs.acvvs.description'),
+                cardSubtitle: t('agedCare.programs.acvvs.cardSubtitle'),
                 icon: <Users className="h-6 w-6" />,
                 features: t('agedCare.programs.acvvs.features', { returnObjects: true }) as unknown as string[],
                 fundingNote: t('agedCare.programs.acvvs.fundingNote'),
@@ -365,7 +367,7 @@ const AgedCarePage = () => {
                       {program.title}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-white/80 mt-1">
-                      {program.description}
+                      {program.cardSubtitle ?? program.description}
                     </p>
                     <div className="mt-2">
                     <Button
