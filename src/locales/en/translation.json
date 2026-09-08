@@ -1419,6 +1419,40 @@
         }
       ]
     },
+    "videoStories": {
+      "badge": "Volunteer stories on video",
+      "title": "Hear from our volunteers",
+      "subtitle": "Watch our volunteers share what volunteering with Mosaic means to them.",
+      "watchAria": "Watch {{name}}'s volunteer story video",
+      "comingSoon": "Video coming soon",
+      "videos": {
+        "0": {
+          "name": "Volunteer story 1",
+          "role": "Volunteer",
+          "blurb": "Write-up coming soon."
+        },
+        "1": {
+          "name": "Volunteer story 2",
+          "role": "Volunteer",
+          "blurb": "Write-up coming soon."
+        },
+        "2": {
+          "name": "Volunteer story 3",
+          "role": "Volunteer",
+          "blurb": "Write-up coming soon."
+        },
+        "3": {
+          "name": "Volunteer story 4",
+          "role": "Volunteer",
+          "blurb": "Write-up coming soon."
+        },
+        "4": {
+          "name": "Volunteer story 5",
+          "role": "Volunteer",
+          "blurb": "Write-up coming soon."
+        }
+      }
+    },
     "faqBadge": "Volunteer FAQs",
     "faqTitle": "Frequently asked questions",
     "faqSubtitle": "Quick answers to common volunteering questions.",
