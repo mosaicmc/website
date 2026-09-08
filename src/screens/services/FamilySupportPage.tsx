@@ -80,7 +80,7 @@ const FamilySupportPage = () => {
       name: "Miza (Mirsada) Torlakovic",
       role: "Multicultural Families Caseworker",
       location: "Newcastle",
-      qualifications: "Bachelor of Social Sciences; Diploma of Welfare Studies",
+      qualifications: "Bachelor of Social Sciences; Diploma of Welfare Studies; Certificate IV in Disability Support",
       experience: "With more than 35 years of client-focused expertise in Settlement Services and Multicultural Family Support, Miza has supported individuals and families from multicultural backgrounds to feel safe, connected and empowered.",
       languages: ["Serbo-Croatian", "Bosnian", "Macedonian", "English"],
       phone: "(02) 4960 8402",

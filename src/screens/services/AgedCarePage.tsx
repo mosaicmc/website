@@ -160,6 +160,15 @@ const AgedCarePage = () => {
       experience: "Lucy has worked as a Registered Nurse for more than 16 years across acute medical wards, rehabilitation, aged care and clinical education. For the past five years she has worked as a community RN focusing on complex clinical care and clinical assessments, as well as training and education. She enjoys working in the community and supporting older people to achieve the best possible outcomes.",
       languages: ["English"],
       image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp")
+    },
+    {
+      name: "Elsa Licumba",
+      role: "Sector Support Development Officer",
+      location: "Newcastle",
+      qualifications: "Masters of Social Change and Development and PhD in Economics.",
+      experience: "Elsa has extensive background in service development, system improvement, research and working with culturally diverse communities.",
+      languages: ["Portuguese", "English"],
+      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Elsa_128px.webp")
     }
   ];
 
