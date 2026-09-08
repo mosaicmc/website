@@ -163,8 +163,8 @@ const AgedCarePage = () => {
     },
     {
       name: "Elsa Licumba",
-      role: "Sector Support Development Officer, Aged Care",
-      location: "",
+      role: "Sector Support Development Officer",
+      location: "Newcastle",
       qualifications: "Masters of Social Change and Development and PhD in Economics.",
       experience: "Elsa has extensive background in service development, system improvement, research and working with culturally diverse communities.",
       languages: ["Portuguese", "English"],
