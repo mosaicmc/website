@@ -293,6 +293,83 @@ const VolunteerLandingPage = () => {
           </div>
         </section>
 
+        <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
+          <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12">
+              <div className="service-badge mb-6 motion-safe:animate-fade-in-down">
+                <span className="me-2 h-2 w-2 rounded-full bg-sky"></span>
+                <span className="font-medium">{t("volunteerPage.videoStories.badge")}</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4">
+                {t("volunteerPage.videoStories.title")}
+              </h2>
+              <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed break-words">
+                {t("volunteerPage.videoStories.subtitle")}
+              </p>
+            </div>
+
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {volunteerVideos.map((video, index) => {
+                const thumbnail = video.youtubeId
+                  ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
+                  : null;
+                return (
+                  <div
+                    key={`${video.name}-${index}`}
+                    className="group relative h-full w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-[0_12px_30px_rgba(120,90,60,0.14)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/80 dark:group-hover:bg-white/15 hover:shadow-[0_20px_45px_rgba(96,199,204,0.25)]"
+                  >
+                    <GlowingEffect spread={28} glow={true} disabled={false} proximity={90} inactiveZone={0.05} movementDuration={1.5} borderWidth={2} />
+                    <div className="relative z-10">
+                      <button
+                        type="button"
+                        onClick={() => setActiveVideoIndex(index)}
+                        disabled={!video.youtubeId}
+                        aria-label={t("volunteerPage.videoStories.watchAria", { name: video.name })}
+                        className="relative block w-full aspect-video overflow-hidden rounded-xl bg-slate-900 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 disabled:cursor-not-allowed"
+                      >
+                        {thumbnail ? (
+                          <img
+                            src={thumbnail}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
+                            <span className="text-xs uppercase tracking-[0.2em] text-white/50">
+                              {t("volunteerPage.videoStories.comingSoon")}
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/10" />
+                        {video.youtubeId ? (
+                          <span className="absolute inset-0 flex items-center justify-center">
+                            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                              <Play className="h-6 w-6 text-ocean fill-ocean" aria-hidden="true" />
+                            </span>
+                          </span>
+                        ) : null}
+                      </button>
+
+                      <div className="mt-4">
+                        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white truncate">
+                          {video.name}
+                        </h3>
+                        <p className="text-sm text-sky-text font-medium">{video.role}</p>
+                        <p className="mt-2 text-sm text-gray-600 dark:text-white/70 leading-relaxed line-clamp-3">
+                          {video.blurb}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors duration-300">
           <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
 
@@ -590,83 +667,6 @@ const VolunteerLandingPage = () => {
                   })}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative section-spacing bg-background transition-colors duration-300 overflow-hidden">
-          <div className="absolute inset-0 bg-sky/10 dark:bg-sky/15 mix-blend-multiply pointer-events-none"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-12">
-              <div className="service-badge mb-6 motion-safe:animate-fade-in-down">
-                <span className="me-2 h-2 w-2 rounded-full bg-sky"></span>
-                <span className="font-medium">{t("volunteerPage.videoStories.badge")}</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl fluid-h2 font-bold text-gray-900 dark:text-white mb-4">
-                {t("volunteerPage.videoStories.title")}
-              </h2>
-              <p className="text-base sm:text-xl fluid-p text-gray-600 dark:text-white/70 max-w-4xl mx-auto leading-relaxed break-words">
-                {t("volunteerPage.videoStories.subtitle")}
-              </p>
-            </div>
-
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {volunteerVideos.map((video, index) => {
-                const thumbnail = video.youtubeId
-                  ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
-                  : null;
-                return (
-                  <div
-                    key={`${video.name}-${index}`}
-                    className="group relative h-full w-full backdrop-blur-xl bg-white/70 dark:bg-white/10 rounded-2xl p-4 border border-white/50 dark:border-white/20 shadow-[0_12px_30px_rgba(120,90,60,0.14)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/80 dark:group-hover:bg-white/15 hover:shadow-[0_20px_45px_rgba(96,199,204,0.25)]"
-                  >
-                    <GlowingEffect spread={28} glow={true} disabled={false} proximity={90} inactiveZone={0.05} movementDuration={1.5} borderWidth={2} />
-                    <div className="relative z-10">
-                      <button
-                        type="button"
-                        onClick={() => setActiveVideoIndex(index)}
-                        disabled={!video.youtubeId}
-                        aria-label={t("volunteerPage.videoStories.watchAria", { name: video.name })}
-                        className="relative block w-full aspect-video overflow-hidden rounded-xl bg-slate-900 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 disabled:cursor-not-allowed"
-                      >
-                        {thumbnail ? (
-                          <img
-                            src={thumbnail}
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
-                            <span className="text-xs uppercase tracking-[0.2em] text-white/50">
-                              {t("volunteerPage.videoStories.comingSoon")}
-                            </span>
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/10" />
-                        {video.youtubeId ? (
-                          <span className="absolute inset-0 flex items-center justify-center">
-                            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover:scale-110">
-                              <Play className="h-6 w-6 text-ocean fill-ocean" aria-hidden="true" />
-                            </span>
-                          </span>
-                        ) : null}
-                      </button>
-
-                      <div className="mt-4">
-                        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white truncate">
-                          {video.name}
-                        </h3>
-                        <p className="text-sm text-sky-text font-medium">{video.role}</p>
-                        <p className="mt-2 text-sm text-gray-600 dark:text-white/70 leading-relaxed line-clamp-3">
-                          {video.blurb}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </section>
