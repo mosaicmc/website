@@ -77,12 +77,12 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
     coordinator,
     {
       name: "Hawas Marsho",
-      role: "HARVEST Team",
+      role: "Bilingual Support Staff",
       location: "Armidale",
-      qualifications: "",
-      experience: "More details coming soon.",
-      languages: ["English"],
-      image: undefined,
+      qualifications: "Certificate III in Community Services",
+      experience: "Hawas is interested in working in community service roles supporting people from refugee backgrounds with any settlement needs.",
+      languages: ["Ezidi", "Arabic", "English"],
+      image: assetPath("/images/HARVEST Team 128px/HARVESTTeam_Hawas_320px.webp"),
     },
     {
       name: "Bijoux Mbalasa",
