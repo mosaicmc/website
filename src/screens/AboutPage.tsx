@@ -191,6 +191,16 @@ const AboutPage = () => {
       social: []
     },
     {
+      id: "trudi",
+      name: t('aboutPage.management.members.trudi.name'),
+      title: t('aboutPage.management.members.trudi.title'),
+      level: 2 as const,
+      languages: t('aboutPage.management.members.trudi.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.trudi.bio'),
+      credentialsSummary: t('aboutPage.management.members.trudi.credentials'),
+      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/trudi-williams-974449bb' }]
+    },
+    {
       id: "jawaid",
       name: t('aboutPage.management.members.jawaid.name'),
       title: t('aboutPage.management.members.jawaid.title'),
@@ -215,6 +225,10 @@ const AboutPage = () => {
     "rob": {
       webp: "/images/Management 128px/Helen_Management02.webp",
       jpg: "/images/Management 128px/Helen_Management02.webp",
+    },
+    "trudi": {
+      webp: "/images/Management 128px/Trudi_Management.png",
+      jpg: "/images/Management 128px/Trudi_Management.png",
     },
     "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
