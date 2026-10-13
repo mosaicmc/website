@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import FAQSchema from '@/components/FAQSchema';
 import { FAQSection } from '@/components/FAQSection';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus, X, ExternalLink, Sprout, FileText } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus, X, ExternalLink, Sprout, FileText, CalendarDays } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import LazySection from '@/components/LazySection';
@@ -68,6 +68,7 @@ const FamilySupportPage = () => {
     {
       title: t('family.programs.pws.title'),
       description: t('family.programs.pws.description'),
+      dateLabel: t('family.programs.pws.cardDate'),
       features: t('family.programs.pws.features', { returnObjects: true }) as unknown as string[],
       featuresLabel: t('family.programs.pws.whatWeProvideLabel'),
       details: t('family.programs.pws.details', { returnObjects: true }) as unknown as { label: string; value: string }[],
@@ -258,6 +259,12 @@ const FamilySupportPage = () => {
                     <h3 className="text-base font-semibold text-gray-900 dark:text-white">
                       {program.title}
                     </h3>
+                    {'dateLabel' in program && program.dateLabel ? (
+                      <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-sun/15 px-2.5 py-1 text-xs font-semibold text-gray-900 dark:bg-sun/25 dark:text-white">
+                        <CalendarDays className="h-3.5 w-3.5 text-sun" aria-hidden="true" />
+                        {program.dateLabel}
+                      </p>
+                    ) : null}
                     <p className="text-sm text-gray-600 dark:text-white/80 mt-1">
                       {program.description}
                     </p>
