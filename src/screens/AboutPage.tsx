@@ -211,16 +211,6 @@ const AboutPage = () => {
       social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/jawaid-pardehi/' }]
     },
     {
-      id: "marie",
-      name: t('aboutPage.management.members.marie.name'),
-      title: t('aboutPage.management.members.marie.title'),
-      level: 3 as const,
-      languages: t('aboutPage.management.members.marie.languages', { returnObjects: true }) as unknown as string[],
-      bio: t('aboutPage.management.members.marie.bio'),
-      credentialsSummary: t('aboutPage.management.members.marie.credentials'),
-      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/marieoemark' }]
-    },
-    {
       id: "lucy",
       name: t('aboutPage.management.members.lucy.name'),
       title: t('aboutPage.management.members.lucy.title'),
@@ -229,6 +219,16 @@ const AboutPage = () => {
       bio: t('aboutPage.management.members.lucy.bio'),
       credentialsSummary: t('aboutPage.management.members.lucy.credentials'),
       social: []
+    },
+    {
+      id: "marie",
+      name: t('aboutPage.management.members.marie.name'),
+      title: t('aboutPage.management.members.marie.title'),
+      level: 3 as const,
+      languages: t('aboutPage.management.members.marie.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.marie.bio'),
+      credentialsSummary: t('aboutPage.management.members.marie.credentials'),
+      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/marieoemark' }]
     },
   ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
