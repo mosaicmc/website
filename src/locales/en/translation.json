@@ -376,6 +376,29 @@
         ],
         "whatWeProvideLabel": "What We Provide:",
         "fundingNote": "This project is jointly supported with funding from the NSW Government Department of Communities and Justice and Benevolent Society."
+      },
+      "pws": {
+        "title": "Parenting with Strength",
+        "description": "A free 5-week parenting course for multicultural parents and carers, based on the Blackbox Parenting Program.",
+        "features": [
+          "Parenting across cultures",
+          "How our trauma can affect how we parent",
+          "Playing and connecting with our children",
+          "Understanding child development and how it affects behaviour",
+          "Setting boundaries using less physical discipline",
+          "Looking after ourselves"
+        ],
+        "whatWeProvideLabel": "Topics Covered:",
+        "details": [
+          { "label": "Dates", "value": "Every Wednesday, 21 October to 18 November (5 weeks)" },
+          { "label": "Time", "value": "12.30pm – 2.30pm" },
+          { "label": "Where", "value": "Jesmond Neighbourhood Centre, 44 Mordue Parade, Jesmond" },
+          { "label": "Included", "value": "Afternoon tea, childcare and Dari/Pashto interpreter provided" },
+          { "label": "Cost", "value": "FREE" },
+          { "label": "Register", "value": "4969 3399 / 0499 281 368 or info@mosaicmc.org.au" }
+        ],
+        "posterLabel": "View poster",
+        "fundingNote": "Supported by the NSW Government Department of Communities and Justice."
       }
     },
     "eligibility": {

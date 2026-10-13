@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import FAQSchema from '@/components/FAQSchema';
 import { FAQSection } from '@/components/FAQSection';
-import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus, X, ExternalLink } from 'lucide-react';
+import { Users, Phone, ArrowRight, CheckCircle, Heart, UserPlus, X, ExternalLink, Sprout, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ManagementSection } from '@/components/ManagementSection';
 import LazySection from '@/components/LazySection';
@@ -21,6 +21,9 @@ type ProgramCard = {
   features: string[];
   icon: JSX.Element;
   fundingNote: string;
+  featuresLabel: string;
+  details?: { label: string; value: string }[];
+  poster?: { src: string; label: string };
 };
 
 const FamilySupportPage = () => {
@@ -45,22 +48,35 @@ const FamilySupportPage = () => {
     };
   }, [activeProgram]);
 
-  const programs = [
+  const programs: ProgramCard[] = [
     {
       title: t('family.programs.tei.title'),
       description: t('family.programs.tei.description'),
       features: t('family.programs.tei.features', { returnObjects: true }) as unknown as string[],
+      featuresLabel: t('family.programs.tei.whatWeProvideLabel'),
       fundingNote: t('family.programs.tei.fundingNote'),
       icon: <Users className="h-6 w-6" />,
-      color: "sun"
     },
     {
       title: t('family.programs.paw.title'),
       description: t('family.programs.paw.description'),
       features: t('family.programs.paw.features', { returnObjects: true }) as unknown as string[],
+      featuresLabel: t('family.programs.paw.whatWeProvideLabel'),
       fundingNote: t('family.programs.paw.fundingNote'),
       icon: <Heart className="h-6 w-6" />,
-      color: "sun"
+    },
+    {
+      title: t('family.programs.pws.title'),
+      description: t('family.programs.pws.description'),
+      features: t('family.programs.pws.features', { returnObjects: true }) as unknown as string[],
+      featuresLabel: t('family.programs.pws.whatWeProvideLabel'),
+      details: t('family.programs.pws.details', { returnObjects: true }) as unknown as { label: string; value: string }[],
+      poster: {
+        src: assetPath('/images/programs/parenting-with-strength-poster.jpg'),
+        label: t('family.programs.pws.posterLabel'),
+      },
+      fundingNote: t('family.programs.pws.fundingNote'),
+      icon: <Sprout className="h-6 w-6" />,
     }
   ];
 
@@ -525,12 +541,20 @@ const FamilySupportPage = () => {
             <p id="family-program-desc" className="mt-4 text-base text-muted-foreground">
               {activeProgram.description}
             </p>
+            {activeProgram.details && activeProgram.details.length > 0 && (
+              <dl className="mt-4 grid gap-3 rounded-xl border border-border bg-sun/5 p-4 sm:grid-cols-2">
+                {activeProgram.details.map((detail) => (
+                  <div key={detail.label} className="min-w-0">
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{detail.label}</dt>
+                    <dd className="mt-1 text-sm text-gray-900 dark:text-white break-words">{detail.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
             <div className="mt-4">
               <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
                 <CheckCircle className="h-5 w-5 text-sun" />
-                {activeProgram.title === t('family.programs.tei.title')
-                  ? t('family.programs.tei.whatWeProvideLabel')
-                  : t('family.programs.paw.whatWeProvideLabel')}
+                {activeProgram.featuresLabel}
               </div>
               <ul className="mt-3 space-y-2 text-base">
                 {activeProgram.features.map((feature, idx) => (
@@ -544,7 +568,19 @@ const FamilySupportPage = () => {
             <p className="mt-4 text-sm italic text-muted-foreground">
               {activeProgram.fundingNote}
             </p>
-            <div className="mt-6 flex justify-end">
+            <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+              {activeProgram.poster && (
+                <a
+                  href={activeProgram.poster.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${activeProgram.poster.label} (opens in new tab)`}
+                  className="inline-flex items-center gap-2 rounded-md border-2 border-sun px-4 py-2 text-sm font-semibold text-sun transition-colors hover:bg-sun hover:text-white"
+                >
+                  <FileText className="h-4 w-4" aria-hidden="true" />
+                  {activeProgram.poster.label}
+                </a>
+              )}
               <Button onClick={() => setActiveProgram(null)}>Close</Button>
             </div>
           </div>
