@@ -237,8 +237,8 @@ const AboutPage = () => {
       jpg: "/images/Management 128px/Helen_Management02.webp",
     },
     "trudi": {
-      webp: "/images/Management 128px/Trudi_Management.png",
-      jpg: "/images/Management 128px/Trudi_Management.png",
+      webp: "/images/Management 128px/Trudi_Management_Navy.png",
+      jpg: "/images/Management 128px/Trudi_Management_Navy.png",
     },
     "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
@@ -249,8 +249,8 @@ const AboutPage = () => {
       jpg: "/images/Management 128px/Marie_Management.webp",
     },
     "lucy": {
-      webp: "/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp",
-      jpg: "/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp",
+      webp: "/images/Management 128px/Lucy_Management.png",
+      jpg: "/images/Management 128px/Lucy_Management.png",
     },
   };
   const [activeManager, setActiveManager] = React.useState<ManagementMember | null>(null);
