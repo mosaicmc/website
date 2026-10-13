@@ -191,6 +191,16 @@ const AboutPage = () => {
       social: []
     },
     {
+      id: "trudi",
+      name: t('aboutPage.management.members.trudi.name'),
+      title: t('aboutPage.management.members.trudi.title'),
+      level: 2 as const,
+      languages: t('aboutPage.management.members.trudi.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.trudi.bio'),
+      credentialsSummary: t('aboutPage.management.members.trudi.credentials'),
+      social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/trudi-williams-974449bb' }]
+    },
+    {
       id: "jawaid",
       name: t('aboutPage.management.members.jawaid.name'),
       title: t('aboutPage.management.members.jawaid.title'),
@@ -199,6 +209,16 @@ const AboutPage = () => {
       bio: t('aboutPage.management.members.jawaid.bio'),
       credentialsSummary: t('aboutPage.management.members.jawaid.credentials'),
       social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/jawaid-pardehi/' }]
+    },
+    {
+      id: "lucy",
+      name: t('aboutPage.management.members.lucy.name'),
+      title: t('aboutPage.management.members.lucy.title'),
+      level: 3 as const,
+      languages: t('aboutPage.management.members.lucy.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.lucy.bio'),
+      credentialsSummary: t('aboutPage.management.members.lucy.credentials'),
+      social: []
     },
     {
       id: "marie",
@@ -216,6 +236,10 @@ const AboutPage = () => {
       webp: "/images/Management 128px/Helen_Management02.webp",
       jpg: "/images/Management 128px/Helen_Management02.webp",
     },
+    "trudi": {
+      webp: "/images/Management 128px/Trudi_Management_Navy.png",
+      jpg: "/images/Management 128px/Trudi_Management_Navy.png",
+    },
     "jawaid": {
       webp: "/images/Management 128px/Management_Jawaid_128.webp",
       jpg: "/images/Management 128px/Management_Jawaid_128.webp",
@@ -223,6 +247,10 @@ const AboutPage = () => {
     "marie": {
       webp: "/images/Management 128px/Marie_Management.webp",
       jpg: "/images/Management 128px/Marie_Management.webp",
+    },
+    "lucy": {
+      webp: "/images/Management 128px/Lucy_Management.png",
+      jpg: "/images/Management 128px/Lucy_Management.png",
     },
   };
   const [activeManager, setActiveManager] = React.useState<ManagementMember | null>(null);

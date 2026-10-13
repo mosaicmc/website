@@ -153,15 +153,6 @@ const AgedCarePage = () => {
       image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Kristy_128px.webp")
     },
     {
-      name: "Lucy Hanlon",
-      role: "Clinical Lead RN",
-      location: "Newcastle",
-      qualifications: "Bachelor of Nursing; Graduate Certificate in Acute Care Nursing; Master of Nursing (Clinical Education).",
-      experience: "Lucy has worked as a Registered Nurse for more than 16 years across acute medical wards, rehabilitation, aged care and clinical education. For the past five years she has worked as a community RN focusing on complex clinical care and clinical assessments, as well as training and education. She enjoys working in the community and supporting older people to achieve the best possible outcomes.",
-      languages: ["English"],
-      image: assetPath("/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp")
-    },
-    {
       name: "Elsa Licumba",
       role: "Sector Support Development Officer",
       location: "Newcastle",
