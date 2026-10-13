@@ -220,6 +220,16 @@ const AboutPage = () => {
       credentialsSummary: t('aboutPage.management.members.marie.credentials'),
       social: [{ platform: 'linkedin' as const, href: 'https://www.linkedin.com/in/marieoemark' }]
     },
+    {
+      id: "lucy",
+      name: t('aboutPage.management.members.lucy.name'),
+      title: t('aboutPage.management.members.lucy.title'),
+      level: 3 as const,
+      languages: t('aboutPage.management.members.lucy.languages', { returnObjects: true }) as unknown as string[],
+      bio: t('aboutPage.management.members.lucy.bio'),
+      credentialsSummary: t('aboutPage.management.members.lucy.credentials'),
+      social: []
+    },
   ], [t]);
   const managementImgMap: Record<string, { webp?: string; jpg?: string }> = {
     "rob": {
@@ -237,6 +247,10 @@ const AboutPage = () => {
     "marie": {
       webp: "/images/Management 128px/Marie_Management.webp",
       jpg: "/images/Management 128px/Marie_Management.webp",
+    },
+    "lucy": {
+      webp: "/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp",
+      jpg: "/images/Home Care Team 128px/AgedCareTeam_Lucy_128px.webp",
     },
   };
   const [activeManager, setActiveManager] = React.useState<ManagementMember | null>(null);
