@@ -111,7 +111,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
                 <img
                   src={assetPath("/images/workforce-australia-local-jobs-logo.png")}
                   alt="Workforce Australia Local Jobs logo"
-                  className="h-14 sm:h-20 w-auto rounded-md bg-white px-2 py-1"
+                  width={289}
+                  height={80}
+                  className="box-content w-[280px] sm:w-[300px] max-w-[calc(100%-1.5rem)] h-auto rounded-none bg-white p-3"
                 />
                 <img
                   src={assetPath("/images/harvest-logo-icon.png")}
