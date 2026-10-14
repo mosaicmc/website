@@ -111,7 +111,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
                 <img
                   src={assetPath("/images/workforce-australia-local-jobs-logo.png")}
                   alt="Workforce Australia Local Jobs logo"
-                  className="h-14 sm:h-20 w-auto rounded-md bg-white px-2 py-1"
+                  width={289}
+                  height={80}
+                  className="box-content w-[280px] sm:w-[300px] max-w-[calc(100%-1.5rem)] h-auto rounded-none bg-white p-3"
                 />
                 <img
                   src={assetPath("/images/harvest-logo-icon.png")}
@@ -167,9 +169,10 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
                 />
               </div>
               <div className="mt-6 motion-safe:animate-fade-in-up" style={{ animationDelay: '450ms' }}>
-                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
                   {t('harvest.hero.footerNote')}
                 </p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">{t('harvest.hero.fundingNote')}</p>
               </div>
             </div>
           </div>
@@ -383,9 +386,6 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
               <div className="mt-6 text-center">
                 <p className="text-gray-600 dark:text-white/70 text-sm">{t('harvest.cta.footnote')}</p>
               </div>
-              <p className="mt-10 pt-6 border-t border-gray-200 dark:border-white/10 text-center text-xs text-gray-500 dark:text-white/60">
-                {t('harvest.hero.fundingNote')}
-              </p>
             </div>
           </div>
         </section>
