@@ -22,6 +22,7 @@ type ProgramCard = {
   icon: JSX.Element;
   fundingNote: string;
   featuresLabel: string;
+  dateLabel?: string;
   details?: { label: string; value: string }[];
   poster?: { src: string; label: string };
 };
@@ -259,7 +260,7 @@ const FamilySupportPage = () => {
                     <h3 className="text-base font-semibold text-gray-900 dark:text-white">
                       {program.title}
                     </h3>
-                    {'dateLabel' in program && program.dateLabel ? (
+                    {program.dateLabel ? (
                       <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-sun/15 px-2.5 py-1 text-xs font-semibold text-gray-900 dark:bg-sun/25 dark:text-white">
                         <CalendarDays className="h-3.5 w-3.5 text-sun" aria-hidden="true" />
                         {program.dateLabel}
