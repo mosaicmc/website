@@ -167,10 +167,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
                 />
               </div>
               <div className="mt-6 motion-safe:animate-fade-in-up" style={{ animationDelay: '450ms' }}>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
+                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
                   {t('harvest.hero.footerNote')}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{t('harvest.hero.fundingNote')}</p>
               </div>
             </div>
           </div>
@@ -384,6 +383,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
               <div className="mt-6 text-center">
                 <p className="text-gray-600 dark:text-white/70 text-sm">{t('harvest.cta.footnote')}</p>
               </div>
+              <p className="mt-10 pt-6 border-t border-gray-200 dark:border-white/10 text-center text-xs text-gray-500 dark:text-white/60">
+                {t('harvest.hero.fundingNote')}
+              </p>
             </div>
           </div>
         </section>
