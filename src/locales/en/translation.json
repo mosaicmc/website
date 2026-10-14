@@ -2455,7 +2455,7 @@
       "cta": "Call Us",
       "referralCta": "Register Your Interest",
       "footerNote": "Helping All Reach Vocational Employment, Skills & Training \u2013 HARVEST",
-      "fundingNote": "Funded by the Australian Government Department of Employment and Workplace Relations (DEWR) through the Local Jobs, Local People program, delivered through Workforce Australia in partnership with local employers, TAFE NSW and the Armidale and Tamworth communities."
+      "fundingNote": "Workforce Australia Local Jobs is funded by the Australian Government Department of Employment and Workplace Relations."
     },
     "programs": {
       "badge": "What's Included",
@@ -2552,7 +2552,7 @@
       "referralLabel": "Register Your Interest",
       "contactLabel": "Contact Us Online",
       "employerLabel": "Employer Enquiries",
-      "footnote": "Free program • Bilingual support available • Funded by the Australian Government"
+      "footnote": "Free program • Bilingual support available"
     }
   },
   "emergency": {

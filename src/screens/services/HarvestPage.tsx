@@ -107,11 +107,18 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <img
-                src={assetPath("/images/harvest-logo-icon.png")}
-                alt="HARVEST program logo"
-                className="h-20 sm:h-28 w-auto mx-auto mb-6 motion-safe:animate-fade-in-up"
-              />
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-6 motion-safe:animate-fade-in-up">
+                <img
+                  src={assetPath("/images/workforce-australia-local-jobs-logo.png")}
+                  alt="Workforce Australia Local Jobs logo"
+                  className="h-14 sm:h-20 w-auto rounded-md bg-white px-2 py-1"
+                />
+                <img
+                  src={assetPath("/images/harvest-logo-icon.png")}
+                  alt="HARVEST program logo"
+                  className="h-20 sm:h-28 w-auto"
+                />
+              </div>
 
               <div className="service-badge mb-6">
                 <Sprout className="w-4 h-4 text-leaf-text" />
@@ -160,10 +167,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
                 />
               </div>
               <div className="mt-6 motion-safe:animate-fade-in-up" style={{ animationDelay: '450ms' }}>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-medium">
+                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
                   {t('harvest.hero.footerNote')}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{t('harvest.hero.fundingNote')}</p>
               </div>
             </div>
           </div>
@@ -377,6 +383,9 @@ const HarvestPage = ({ employerHubspotPortalId, employerHubspotFormId }: Harvest
               <div className="mt-6 text-center">
                 <p className="text-gray-600 dark:text-white/70 text-sm">{t('harvest.cta.footnote')}</p>
               </div>
+              <p className="mt-10 pt-6 border-t border-gray-200 dark:border-white/10 text-center text-xs text-gray-500 dark:text-white/60">
+                {t('harvest.hero.fundingNote')}
+              </p>
             </div>
           </div>
         </section>
