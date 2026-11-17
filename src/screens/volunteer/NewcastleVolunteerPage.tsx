@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Section } from '@/components/ui/Section';
 import VolunteerLocationNav from '@/components/ui/VolunteerLocationNav';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Users, Megaphone, ChevronRight, X, CalendarDays, Linkedin, Instagram, Facebook, ExternalLink } from 'lucide-react';
+import { Users, Megaphone, ClipboardList, ChevronRight, X, CalendarDays, Linkedin, Instagram, Facebook, ExternalLink } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Tabs from '@radix-ui/react-tabs';
 import { motion } from 'framer-motion';
@@ -201,6 +201,14 @@ export default function NewcastleVolunteerPage() {
     },
   ];
 
+  const administrationRoles: VolunteerRole[] = [
+    {
+      title: 'Administration Volunteer',
+      blurb:
+        "Help keep our Newcastle office running smoothly so our teams can focus on the people they support. Based at our Charlestown office, you'll assist with data entry, filing, answering enquiries, preparing documents and mail-outs, and other everyday office tasks. If you're organised, reliable, comfortable using a computer, and you enjoy being part of a friendly team behind the scenes, this role is a great way to make a real difference for multicultural communities.",
+    },
+  ];
+
   const marketingRoles: VolunteerRole[] = [
     {
       title: 'Marketing Administration Support',
@@ -259,6 +267,9 @@ export default function NewcastleVolunteerPage() {
                 <Tabs.Trigger value="aged-care" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                   Aged Care
                 </Tabs.Trigger>
+                <Tabs.Trigger value="administration" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
+                  Administration
+                </Tabs.Trigger>
                 <Tabs.Trigger value="marketing" className="px-4 py-2 text-sm rounded-full transition data-[state=active]:bg-ocean data-[state=active]:text-white hover:bg-sand/50 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-background">
                   Marketing
                 </Tabs.Trigger>
@@ -300,6 +311,22 @@ export default function NewcastleVolunteerPage() {
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {agedCareRoles.map((r) => (
+                        <OpenRoleCard key={r.title} role={r} />
+                      ))}
+                    </div>
+                  </GlassCard>
+                </Tabs.Content>
+
+                <Tabs.Content value="administration">
+                  <GlassCard padding="md" className="rounded-2xl overflow-visible">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-earth text-white flex items-center justify-center">
+                        <ClipboardList className="h-6 w-6" />
+                      </div>
+                      <h2 className="text-lg font-semibold text-foreground">Administration</h2>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {administrationRoles.map((r) => (
                         <OpenRoleCard key={r.title} role={r} />
                       ))}
                     </div>
