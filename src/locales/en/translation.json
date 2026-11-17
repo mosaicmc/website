@@ -1371,6 +1371,15 @@
           "Confidence-building and goal setting",
           "Roles vary by location"
         ]
+      },
+      "administration": {
+        "title": "Administration Support",
+        "description": "Help our office run smoothly so our teams can focus on the people they support.",
+        "features": [
+          "Data entry, filing, and preparing documents",
+          "Answering enquiries and welcoming visitors",
+          "Great for organised, detail-minded people"
+        ]
       }
     },
     "rightForYou": {
